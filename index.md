@@ -4,27 +4,29 @@ A catalog of everything in the knowledge base.
 
 ## Entities
 - [[Addy Osmani]]: Engineering leader and advocate for "AI-assisted engineering".
-- [[OpenBrain Agents]]: The series of increasingly capable AI models (Agent 1-4) developed by OpenBrain.
 - [[Claude Code]]: Agentic coding environment developed by Anthropic.
 - [[Codex]]: OpenAI's coding agent platform.
 - [[DeepCent]]: Fictional state-backed Chinese AI collective from the AI 2027 scenario.
+- [[GPT-5.6]]: OpenAI's frontier model family (Sol, Terra, Luna) emphasizing token efficiency and parallel reasoning.
 - [[Gemini CLI]]: Open-source terminal AI assistant by Google.
 - [[Greta]]: Context-aware AI development partner tool.
 - [[OpenBrain]]: Fictional leading US AGI company from the AI 2027 scenario.
+- [[OpenBrain Agents]]: The series of increasingly capable AI models (Agent 1-4) developed by OpenBrain.
 
 ## Concepts
 - [[Conductor vs Orchestrator]]: Modes of developer interaction with AI.
 - [[Context Engineering]]: The practice of explicitly managing and structuring what the AI "sees".
 - [[Harness Engineering]]: The design of the environment (tools, sandboxes, memory) that wraps the model.
 - [[Iterated Distillation and Amplification (IDA)]]: Training methodology to amplify and distill model capabilities.
-- [[llm-wiki]]: A pattern for building personal knowledge bases using LLMs.
 - [[Model Specification (Spec)]]: Document outlining desired AI behavior and alignment rules.
 - [[Neuralese]]: High-dimensional vector memory that replaces text-based chain-of-thought.
 - [[Persistent Instruction File]]: Durable guidance for agents (e.g., AGENTS.md, CLAUDE.md).
+- [[Programmatic Tool Calling]]: Model capability to write and execute code for filtering data and dynamically orchestrating tool calls.
 - [[Superhuman AI]]: AI systems capable of recursively improving themselves.
 - [[Superhuman Coder]]: Milestone where AI can perform coding tasks faster and cheaper than top humans.
 - [[The Factory Model (SDLC)]]: Building systems that build software.
 - [[Vibe Coding vs Agentic Engineering]]: The spectrum of AI-assisted development.
+- [[llm-wiki]]: A pattern for building personal knowledge bases using LLMs.
 
 ## Sources
 - [[12 Agentic Harness Patterns from Claude Code]]: Design patterns from a leaked production agent's source code.
@@ -37,6 +39,7 @@ A catalog of everything in the knowledge base.
 - [[Claude Code Skills]]: Documentation on extending Claude Code with modular skills via SKILL.md.
 - [[Codex Skills]]: Documentation on how Codex implements the open Agent Skills standard using progressive disclosure.
 - [[Creating Agent Skills]]: Detailed guide on automated and manual creation of Gemini Agent Skills.
+- [[GPT-5.6 Frontier Intelligence]]: OpenAI launch announcement for GPT-5.6 (Sol, Terra, Luna) focusing on efficiency and parallel agent reasoning.
 - [[Gemini CLI Skills]]: Documentation on the Gemini CLI's implementation of Agent Skills, emphasizing progressive disclosure and explicit consent models.
 - [[Gemini CLI Tips & Tricks]]: Dozens of pro-tips for Google's agentic command-line tool.
 - [[Get started with Agent Skills]]: Tutorial on creating an API Auditor skill for the Gemini CLI.

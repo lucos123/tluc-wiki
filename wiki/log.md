@@ -24,3 +24,6 @@ Append-only record of operations.
 ## [2026-06-28] ingest | codex-skills.md
 ## [2026-06-28] ingest | gemini-overview-skills.md
 ## [2026-06-28] ingest | Managing Agent Skills.md, Get started with Agent Skills.md, Creating Agent Skills.md
+## [2026-07-18] ingest | GPT-5.6: Frontier Intelligence That Scales With Your Ambition
+## [2026-07-25] lint | Verified raw source ingest status, completed index.md entries and cross-references for GPT-5.6
+
