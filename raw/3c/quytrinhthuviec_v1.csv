@@ -1,0 +1,48 @@
+﻿STT,Hạng mục,WBS,Nội dung,"Điều kiện
+hoàn thành",Nhân sự chịu trách nhiệm (PIC),Thời điểm,Trạng thái,Ghi chú
+1,Chào đón & giới thiệu nội bộ,1.1,Chào đón nhân sự mới vào ngày đầu tiên,Tự checklist,Phòng HCNS và Quản lý trực tiếp,Ngày đầu nhận việc,FALSE,
+,,1.2,"Giới thiệu với từng thành viên trong team, nói rõ vai trò và cách sẽ tương tác với vị trí đó",Tự checklist,Quản lý trực tiếp,Ngày đầu nhận việc,FALSE,
+,,1.3,Giới thiệu người hướng dẫn trực tiếp (người quản lý thường trực / nhân sự kế cận),Tự checklist,Quản lý trực tiếp,Ngày đầu nhận việc,FALSE,
+2,Onboarding văn hoá & quy định Công ty,2.1,Tài liệu Onboarding,,Phòng Hành chính Nhân sự,Trong tuần 01,FALSE,
+3,Làm rõ vai trò & trách nhiệm,3.1,Trao đổi chi tiết về Mô tả công việc (JD chi tiết) và kỳ vọng về kết quả,Tự checklist,Quản lý trực tiếp,Trong tuần 01,FALSE,
+,,3.2,"Trình bày sơ đồ tổ chức của bộ phận, chỉ rõ vị trí và vai trò của nhân sự mới trong đó",Tự checklist,Quản lý trực tiếp,Trong tuần 01,FALSE,
+4,Tổng quan Khách hàng & Tương tác,4.1,"Khách hàng bên ngoài: 
+1. Các đối tác, khách hàng chính mà vị trí này sẽ làm việc cùng
+2. Cách thức liên hệ và làm việc",Tự checklist,Quản lý trực tiếp ,Trong tuần 01,FALSE,
+,,4.2,"Khách hàng bên trong:
+1. Các phòng ban/ cá nhân thường xuyên phối hợp công việc
+2. Cách thức liên hệ và làm việc
+3. Ai là đầu mối liên hệ của mỗi phòng?",Tự checklist,Quản lý trực tiếp ,Trong tuần 01,FALSE,
+5,Quy trình & Công cụ làm việc,5.1,"Hướng dẫn tất cả các quy trình làm việc nội bộ phận thường xuyên sử dụng
+1. Quy trình 1:
+2. Quy trình 2:
+3. Quy trình 3:",Tự checklist,Quản lý trực tiếp ,Trong tuần 02,FALSE,
+,,5.2,"Hướng dẫn sử dụng các công cụ đặc thù nếu có 
+1. Công cụ 1:
+2. Công cụ 2:
+3. Công cụ 3:",Tự checklist,Quản lý trực tiếp ,Tuần 02 - Tuần 04,FALSE,
+6,"Công việc đặc thù - (VD: Phụ Tá, Bác Sĩ, Lễ Tân, Tư vấn viên, Content,…)",6.1,"Tuần 1 - Ngày 3
+1. 
+2. 
+3. ",Tự checklist,Quản lý trực tiếp và Nhân sự mới,Tuần 01 - Tuần 04,FALSE,
+,,6.2,"Tuần 1 - Ngày 4-7
+1. 
+2. 
+3. ",Tự checklist,Quản lý trực tiếp và Nhân sự mới,Tuần 01 - Tuần 04,FALSE,
+,,6.3,"Tuần 2 - Ngày 1-7: 
+1. 
+2. 
+3. 
+4. ",Tự checklist,Nhân sự mới,Tuần 01 - Tuần 04,FALSE,
+,,6.4,"Tuần 3  - Ngày 1-7
+1.
+2. 
+3. 
+4. ",Tự checklist,Nhân sự mới,Tuần 01 - Tuần 04,FALSE,
+,,6.5,"Tuần 4 - Ngày 1-7
+1. 
+2. ",Tự checklist,Nhân sự mới,Tuần 01 - Tuần 04,FALSE,
+7,Họp định kỳ,7.1,"Họp review ngắn mỗi tuần
+1. Review công việc tuần qua (làm được gì, kết quả ra sao?).
+2. Khó khăn & vướng mắc đang gặp phải.
+3. Kế hoạch và ưu tiên cho tuần tới.",Tự checklist,Quản lý trực tiếp,Thứ 4 hằng tuần,,
