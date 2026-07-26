@@ -47,16 +47,16 @@ Mục tiêu chính của tài liệu này bao gồm:
 
 ```mermaid
 graph TD
-    Start(["TVV<br>- Tiếp đón KH đến cửa<br>- Xin thông tin"]) --> CheckKhachHang["LT/ĐP<br>- Kiểm tra và nắm thông tin<br>xác định KH mới hay cũ"]
-    CheckKhachHang --> IsNewKH{"LT/ĐP<br>Xác nhận KH"}
+    Start(["TVV<br>- Tiếp đón KH đến cửa<br>- Xin thông tin"]) --> CheckKhachHang["LT/TVV<br>- Kiểm tra và nắm thông tin<br>xác định KH mới hay cũ"]
+    CheckKhachHang --> IsNewKH{"LT/TVV<br>Xác nhận KH"}
 
     %% Nhánh KH mới
     IsNewKH -- KH mới --> LapHoSo["LT<br>- Lập hồ sơ KH trên Remo"]
-    IsNewKH -- KH mới --> NamThongTinMoi["ĐP<br>- Nắm thông tin, sắp xếp bệnh và gọi điện lên<br>phòng điều trị để chuẩn bị ghế"]
+    IsNewKH -- KH mới --> NamThongTinMoi["LT<br>- Nắm thông tin, sắp xếp bệnh và gọi điện lên<br>phòng điều trị để chuẩn bị ghế"]
     
-    NamThongTinMoi --> ChupPhim{"ĐP<br>Chỉ định đưa KH đi chụp phim<br>(hỏi ý kiến KH có đồng ý hay không?)"}
+    NamThongTinMoi --> ChupPhim{"TVV<br>Chỉ định đưa KH đi chụp phim<br>(hỏi ý kiến KH có đồng ý hay không?)"}
 
-    ChupPhim -- Cần chụp phim để kiểm tra --> KiemTraPhim{"ĐP<br>Kiểm tra phim để xem có vấn đề<br>phát sinh không?"}
+    ChupPhim -- Cần chụp phim để kiểm tra --> KiemTraPhim{"TVV<br>Kiểm tra phim để xem có vấn đề<br>phát sinh không?"}
     
     KiemTraPhim -- Phim có vấn đề, cần tư vấn --> DuaKHLenTuVan["TVV<br>- Đưa KH lên phòng điều trị để<br>tư vấn với bác sĩ chuyên môn"]
     DuaKHLenTuVan --> TuVanChuyenMon["BS (+TVV)<br>- Tư vấn đứng cùng với bác sĩ,<br>tiếp nhận thông tin tư vấn của bác sĩ<br>- Ghi chú lại các vấn đề phát sinh của KH"]
@@ -72,7 +72,7 @@ graph TD
 
     %% Nhánh KH cũ
     IsNewKH -- KH cũ, đang điều trị --> LayHoSo["LT<br>- Lấy hồ sơ bệnh án"]
-    IsNewKH -- KH cũ, đang điều trị --> NamThongTinCu["ĐP<br>- Nắm thông tin, sắp xếp bệnh và gọi điện lên<br>phòng điều trị để chuẩn bị ghế"]
+    IsNewKH -- KH cũ, đang điều trị --> NamThongTinCu["LT<br>- Nắm thông tin, sắp xếp bệnh và gọi điện lên<br>phòng điều trị để chuẩn bị ghế"]
 
     %% Thực hiện điều trị (từ các nguồn)
     ChupPhim -- Không cần chụp phim --> DuaKHLenDieuTri["TVV<br>- Đưa KH lên phòng điều trị<br>để thực hiện Điều Trị"]
