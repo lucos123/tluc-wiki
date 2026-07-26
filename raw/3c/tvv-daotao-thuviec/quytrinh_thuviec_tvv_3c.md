@@ -8,6 +8,9 @@ source:
   - [[TVV_rangsu_veneer_v1]]
   - [[TVV_thamkhao_v1]]
   - [[TVV_checklist_7_ngay_v1]]
+  - [[TVV_checklist_moc_1_tuan_2_3]]
+  - [[TVV_checklist_moc_2_tuan_4_5]]
+  - [[TVV_checklist_moc_3_tuan_6_8]]
   - [[TVV_kichbanchuyensau_v1]]
   - [[TVV_xulytuchoi_v1]]
 ---
@@ -40,7 +43,7 @@ Ngay trong ngày đầu tiên nhận việc, Trưởng nhóm tiến hành phỏn
 
 ## PHẦN II. BẢNG MASTER CHECKLIST TIẾN ĐỘ THỬ VIỆC (CHUẨN WBS)
 
-*(Bám sát 100% Khung tiêu chuẩn WBS từ Phòng HCNS - Kết hợp Link tài liệu chuyên môn)*
+*(Bám sát 100% Khung tiêu chuẩn WBS từ Phòng HCNS - Kết hợp Link tương tác đa nền tảng)*
 
 | WBS | STT | Hạng mục công việc | Thời điểm | Nội dung chi tiết & Tài liệu đính kèm | Người phụ trách (PIC) | Trạng thái (Đạt/Chưa) |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -52,14 +55,14 @@ Ngay trong ngày đầu tiên nhận việc, Trưởng nhóm tiến hành phỏn
 | **3.2** | | Sơ đồ tổ chức TVV | Tuần 1 | Trình bày vị trí của TVV trong sơ đồ vận hành phòng khám và cơ chế phối hợp 4 bên. | Lead | [ ] |
 | **3.3** | | Đánh giá năng lực đầu vào | Tuần 1 | Đánh giá phân luồng Junior / Senior để chốt kế hoạch đào tạo cá nhân hóa. | Lead | [ ] |
 | **4.1** | 4 | Tương tác Khách ngoài | Tuần 1 | Nắm rõ 4 tệp khách chính: KH mới, KH cũ đang điều trị, KH bảo hành, KH VIP giới thiệu. | Lead & TVV | [ ] |
-| **4.2** | | Tương tác Khách nội bộ | Tuần 1 | Nắm rõ các đầu mối phối hợp: Lễ tân (thu tiền), Điều phối (xếp ghế), Bác sĩ (chuyên môn), Phụ tá (dẫn khách). <br> 🔗 **ĐÁNH GIÁ NGÀY 7:** Đạt bài test **[[TVV_checklist_7_ngay_v1]]** | Lead & TVV | [ ] |
-| **5.1** | 5 | Quy trình tư vấn chuẩn | Tuần 2 | Học thuộc 100% Sơ đồ luồng chạy khách tại quầy & phòng điều trị: 🔗 **[[TVV_quytrinhtuvan_v1]]** | Lead & TVV | [ ] |
+| **4.2** | | Tương tác Khách nội bộ | Tuần 1 | Nắm rõ các đầu mối phối hợp: Lễ tân (thu tiền), Điều phối (xếp ghế), Bác sĩ (chuyên môn), Phụ tá (dẫn khách). <br> 🔗 **ĐÁNH GIÁ NGÀY 7:** [Checklist 7 Ngày Thử Việc](./TVV_checklist_7_ngay_v1.md) (`[[TVV_checklist_7_ngay_v1]]`) | Lead & TVV | [ ] |
+| **5.1** | 5 | Quy trình tư vấn chuẩn | Tuần 2 | Học thuộc 100% Sơ đồ luồng chạy khách tại quầy & phòng điều trị: 🔗 [Sơ Đồ Luồng Chạy Khách](./TVV_quytrinhtuvan_v1.md) (`[[TVV_quytrinhtuvan_v1]]`) | Lead & TVV | [ ] |
 | **5.2** | | Phần mềm quản lý Remo | Tuần 2 | Thành thạo 5 thao tác Remo: Tạo hồ sơ, check-in, xem lịch hẹn ghế, ghi chú tư vấn, check "Hoàn thành". | Lead & TVV | [ ] |
 | **6.1** | 6 | **Công việc đặc thù:** Tuần 1 (Ngày 3) | Tuần 1 | Học bảng giá cơ bản, thuộc vị trí phòng khám, quan sát tiếp đón tại quầy Lễ tân. | Mentor & TVV | [ ] |
 | **6.2** | | **Công việc đặc thù:** Tuần 1 (Ngày 4-7) | Tuần 1 | Đóng vai (Roleplay) tiếp đón, vượt qua bài test vấn đáp 7 ngày đầu. | Mentor & TVV | [ ] |
-| **6.3** | | **Công việc đặc thù:** Tuần 2-3 (Mốc 1) | Tuần 2-3 | **Đào tạo Khí cụ & Dịch vụ Chuyên sâu:** <br> 🔗 Học bài bản Implant & Ghép xương: **[[TVV_implant_ghepxuong_v1]]** <br> 🔗 Học bài bản Răng sứ & Dán Veneer: **[[TVV_rangsu_veneer_v1]]** | Mentor & TVV | [ ] |
-| **6.4** | | **Công việc đặc thù:** Tuần 4-5 (Mốc 2) | Tuần 4-5 | **Đào tạo Kịch bản Chốt Sales:** <br> 🔗 Luyện kịch bản 9 phân khúc khách hàng: **[[TVV_kichbanchuyensau_v1]]** <br> 🔗 Học kỹ năng thấu hiểu khách hàng: **[[TVV_thamkhao_v1]]** | Mentor & TVV | [ ] |
-| **6.5** | | **Công việc đặc thù:** Tuần 6-8 (Mốc 3) | Tuần 6-8 | **Thực chiến Độc lập & Xử lý Từ chối:** <br> 🔗 Áp dụng bộ 20 câu từ chối & 5 câu khủng hoảng: **[[TVV_xulytuchoi_v1]]** <br> (Chạy chỉ tiêu doanh số KPI Tháng 2). | TVV Mới | [ ] |
+| **6.3** | | **Công việc đặc thù:** Tuần 2-3 (Mốc 1) | Tuần 2-3 | **Đào tạo Khí cụ & Dịch vụ Chuyên sâu:** <br> 🔗 Học Implant & Ghép xương: [Tài liệu Implant & Ghép Xương](./TVV_implant_ghepxuong_v1.md) <br> 🔗 Học Răng sứ & Veneer: [Tài liệu Răng Sứ & Veneer](./TVV_rangsu_veneer_v1.md) <br> 📋 **ĐÁNH GIÁ MỐC 1:** [Checklist Đánh Giá Mốc 1 (Tuần 2-3)](./TVV_checklist_moc_1_tuan_2_3.md) (`[[TVV_checklist_moc_1_tuan_2_3]]`) | Mentor & TVV | [ ] |
+| **6.4** | | **Công việc đặc thù:** Tuần 4-5 (Mốc 2) | Tuần 4-5 | **Đào tạo Kịch bản Chốt Sales & Roleplay:** <br> 🔗 Luyện kịch bản 9 phân khúc: [Bộ Kịch Bản Tư Vấn Chuyên Sâu](./TVV_kichbanchuyensau_v1.md) <br> 🔗 Học kỹ năng thấu hiểu: [Tài Liệu Tham Khảo Roleplay](./TVV_thamkhao_v1.md) <br> 📋 **ĐÁNH GIÁ MỐC 2:** [Checklist Đánh Giá Mốc 2 (Tuần 4-5)](./TVV_checklist_moc_2_tuan_4_5.md) (`[[TVV_checklist_moc_2_tuan_4_5]]`) | Mentor & TVV | [ ] |
+| **6.5** | | **Công việc đặc thù:** Tuần 6-8 (Mốc 3) | Tuần 6-8 | **Thực chiến Độc lập & Xử lý Từ chối:** <br> 🔗 Bộ 20 câu từ chối & 5 câu khủng hoảng: [Bộ Kịch Bản Xử Lý Từ Chối](./TVV_xulytuchoi_v1.md) <br> 📋 **ĐÁNH GIÁ MỐC 3 & FINAL:** [Checklist Đánh Giá Mốc 3 & Final (Tuần 6-8)](./TVV_checklist_moc_3_tuan_6_8.md) (`[[TVV_checklist_moc_3_tuan_6_8]]`) | TVV Mới | [ ] |
 | **7.1** | 7 | Họp Review định kỳ | Cuối mỗi tuần | Họp 15-30 phút chiều Thứ 6 hàng tuần: Review kết quả, tháo gỡ khó khăn, giao mục tiêu tuần mới. | Lead & TVV | [ ] |
 
 ---
@@ -79,10 +82,10 @@ Ngay trong ngày đầu tiên nhận việc, Trưởng nhóm tiến hành phỏn
   4. *Bước 4:* Đứng cùng Bác sĩ trong ca khám, ghi chép lại chỉ định chuyên môn vào sổ tư vấn.
   5. *Bước 5:* Đưa khách sang phòng Tư vấn, giải thích lại phác đồ, báo giá chi tiết và chốt gói dịch vụ.
   6. *Bước 6:* Đưa khách xuống thu tiền, dặn dò chăm sóc và bấm check "Hoàn thành" trên Remo.
-- **Tài liệu kiểm tra Tuần 1:** TVV phải hoàn thiện toàn bộ các hạng mục trong **[[TVV_checklist_7_ngay_v1]]**. Cuối ngày thứ 7, Lead tổ chức bài test vấn đáp (Đạt > 80% mới được tiếp tục thử việc).
+- **Tài liệu kiểm tra Tuần 1:** TVV phải hoàn thiện toàn bộ các hạng mục trong [Checklist 7 Ngày Thử Việc](./TVV_checklist_7_ngay_v1.md) (`[[TVV_checklist_7_ngay_v1]]`). Cuối ngày thứ 7, Lead tổ chức bài test vấn đáp (Đạt > 80% mới được tiếp tục thử việc).
 
 ### 3. Nhóm WBS 5: Quy Trình Tư Vấn & Sử Dụng Phần Mềm Remo (Tuần 2)
-- **Luồng di chuyển chuẩn:** Nắm lòng từng mắt xích trong sơ đồ **[[TVV_quytrinhtuvan_v1]]**. Biết rõ khi nào cần chuyển khách đi chụp phim, khi nào khách đồng ý điều trị ngay và khi nào khách hẹn lại.
+- **Luồng di chuyển chuẩn:** Nắm lòng từng mắt xích trong sơ đồ [Sơ Đồ Luồng Chạy Khách](./TVV_quytrinhtuvan_v1.md) (`[[TVV_quytrinhtuvan_v1]]`). Biết rõ khi nào cần chuyển khách đi chụp phim, khi nào khách đồng ý điều trị ngay và khi nào khách hẹn lại.
 - **Kỹ năng Remo:**
   - Nhập đầy đủ tiền sử bệnh lý (tiểu đường, huyết áp, dị ứng).
   - Chọn đúng tên Bác sĩ chỉ định và Điều phối xếp ghế.
@@ -91,16 +94,19 @@ Ngay trong ngày đầu tiên nhận việc, Trưởng nhóm tiến hành phỏn
 ### 4. Nhóm WBS 6: Công Việc Đặc Thù - 3 Mốc Đào Tạo Chuyên Sâu (Tuần 2 - Tuần 8)
 
 #### 🔹 Mốc 1 (Tuần 2 - Tuần 3): Làm chủ Kiến thức Khí cụ & Sản phẩm
-- **Dịch vụ Implant:** Học thuộc cấu trúc 3 phần (Trụ, Abutment, Mão sứ), ưu nhược điểm các dòng trụ Hàn Quốc, Mỹ, Thụy Sĩ; quy trình ghép xương, nâng xoang từ tài liệu **[[TVV_implant_ghepxuong_v1]]**.
-- **Dịch vụ Răng sứ & Veneer:** Phân biệt rõ sự khác nhau giữa Bọc sứ toàn sứ (Emax, Cercon, Lava) và Dán sứ Veneer bảo tồn răng thật từ tài liệu **[[TVV_rangsu_veneer_v1]]**.
+- **Dịch vụ Implant:** Học thuộc cấu trúc 3 phần (Trụ, Abutment, Mão sứ), ưu nhược điểm các dòng trụ Hàn Quốc, Mỹ, Thụy Sĩ; quy trình ghép xương, nâng xoang từ tài liệu [Implant & Ghép Xương](./TVV_implant_ghepxuong_v1.md) (`[[TVV_implant_ghepxuong_v1]]`).
+- **Dịch vụ Răng sứ & Veneer:** Phân biệt rõ sự khác nhau giữa Bọc sứ toàn sứ (Emax, Cercon, Lava) và Dán sứ Veneer bảo tồn răng thật từ tài liệu [Răng Sứ & Veneer](./TVV_rangsu_veneer_v1.md) (`[[TVV_rangsu_veneer_v1]]`).
+- 📋 **Kiểm tra Mốc 1:** Điền và thực hiện bài test theo [Checklist Đánh Giá Mốc 1 (Tuần 2-3)](./TVV_checklist_moc_1_tuan_2_3.md) (`[[TVV_checklist_moc_1_tuan_2_3]]`).
 
 #### 🔹 Mốc 2 (Tuần 4 - Tuần 5): Luyện tập Kịch bản Chốt Sales & Roleplay
-- **Kịch bản 9 Phân khúc Khách hàng:** Nắm vững kịch bản tư vấn theo từng tệp (Học sinh niềng răng, Người già mất răng toàn hàm All-on-4, Người đi làm bọc sứ thẩm mỹ, Trẻ em niềng tăng trưởng...) trong **[[TVV_kichbanchuyensau_v1]]**.
-- **Roleplay (Nhập vai thực hành):** Mentor đóng vai khách hàng khó tính, TVV đóng vai người tư vấn. Thực hành tối thiểu 5 ca mẫu từ tài liệu **[[TVV_thamkhao_v1]]**.
+- **Kịch bản 9 Phân khúc Khách hàng:** Nắm vững kịch bản tư vấn theo từng tệp (Học sinh niềng răng, Người già mất răng toàn hàm All-on-4, Người đi làm bọc sứ thẩm mỹ, Trẻ em niềng tăng trưởng...) trong [Bộ Kịch Bản Tư Vấn Chuyên Sâu](./TVV_kichbanchuyensau_v1.md) (`[[TVV_kichbanchuyensau_v1]]`).
+- **Roleplay (Nhập vai thực hành):** Mentor đóng vai khách hàng khó tính, TVV đóng vai người tư vấn. Thực hành tối thiểu 5 ca mẫu từ tài liệu [Kỹ Năng Tư Vấn & Roleplay](./TVV_thamkhao_v1.md) (`[[TVV_thamkhao_v1]]`).
+- 📋 **Kiểm tra Mốc 2:** Điền và thực hiện bài test roleplay theo [Checklist Đánh Giá Mốc 2 (Tuần 4-5)](./TVV_checklist_moc_2_tuan_4_5.md) (`[[TVV_checklist_moc_2_tuan_4_5]]`).
 
 #### 🔹 Mốc 3 (Tuần 6 - Tuần 8): Thực chiến Độc lập & Xử lý Từ chối
-- **Xử lý rào cản:** Nằm lòng bộ 20 câu xử lý từ chối về giá, sợ đau, sợ hỏng răng, đòi về hỏi người nhà và 5 câu ứng phó khủng hoảng truyền thông từ **[[TVV_xulytuchoi_v1]]**.
+- **Xử lý rào cản:** Nằm lòng bộ 20 câu xử lý từ chối về giá, sợ đau, sợ hỏng răng, đòi về hỏi người nhà và 5 câu ứng phó khủng hoảng truyền thông từ [Bộ Kịch Bản Xử Lý Từ Chối](./TVV_xulytuchoi_v1.md) (`[[TVV_xulytuchoi_v1]]`).
 - **KPI Thực chiến Tháng 2:** Đứng tư vấn độc lập 100%, chịu chỉ tiêu doanh số cá nhân (Ví dụ: Junior đạt 150 triệu, Senior đạt 300 triệu/tháng).
+- 📋 **Kiểm tra Mốc 3 & Final:** Hoàn thiện bộ hồ sơ theo [Checklist Đánh Giá Mốc 3 & Final (Tuần 6-8)](./TVV_checklist_moc_3_tuan_6_8.md) (`[[TVV_checklist_moc_3_tuan_6_8]]`).
 
 ### 5. Nhóm WBS 7: Họp Review Tiến Độ Hàng Tuần (WBS 7.1)
 Vào 16h00 chiều Thứ 6 hàng tuần, Lead và TVV dành 30 phút họp review theo cấu trúc:
@@ -130,7 +136,7 @@ Buổi đánh giá cuối kỳ thử việc được chấm theo **Thang điểm
 ### Tiêu chí chi tiết:
 1. **Kiến thức Chuyên môn (25 điểm):** Đạt bài test viết & trắc nghiệm về Implant, Sứ, Niềng răng (≥ 20/25 điểm).
 2. **Kỹ năng Chốt Sale & KPI (35 điểm):** Đạt tỷ lệ chốt deal (Conversion Rate ≥ 30%) và đạt tối thiểu 80% chỉ tiêu doanh số được giao trong tháng 2.
-3. **Quy trình & Remo (20 điểm):** Thực hiện đúng 100% luồng sơ đồ **[[TVV_quytrinhtuvan_v1]]**, không bị Lễ tân/Bác sĩ phàn nàn, không bỏ sót thông tin trên Remo.
+3. **Quy trình & Remo (20 điểm):** Thực hiện đúng 100% luồng sơ đồ [Sơ Đồ Luồng Chạy Khách](./TVV_quytrinhtuvan_v1.md) (`[[TVV_quytrinhtuvan_v1]]`), không bị Lễ tân/Bác sĩ phàn nàn, không bỏ sót thông tin trên Remo.
 4. **Thái độ & Tác phong (20 điểm):** Đúng giờ, tác phong chỉn chu, chủ động hỗ trợ đồng nghiệp, tuân thủ kỷ luật 3C.
 
 ---
