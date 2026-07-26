@@ -45,6 +45,8 @@ Mục tiêu chính của tài liệu này bao gồm:
 
 ### 1. Mô tả sơ đồ quy trình (Flowchart):
 
+![Sơ đồ Quy trình Tư vấn](./TVV_quytrinhtuvan_v1.png)
+
 ```mermaid
 graph TD
     Start(["TVV<br>- Tiếp đón KH đến cửa<br>- Xin thông tin"]) --> CheckKhachHang["LT/TVV<br>- Kiểm tra và nắm thông tin<br>xác định KH mới hay cũ"]
@@ -69,6 +71,8 @@ graph TD
 
     %% Quyết định đồng ý -> Chuyển sang nút KH điều trị liền hay không
     QuyetDinhDieuTri -- Đồng ý làm dịch vụ --> IsDieuTriLien{"TVV<br>KH điều trị liền<br>hay không?"}
+    IsDieuTriLien -- Hẹn lại --> CamOnSauDieuTri
+    IsDieuTriLien -- Thực hiện liền --> DuaKHLenDieuTri
 
     %% Nhánh KH cũ
     IsNewKH -- KH cũ, đang điều trị --> LayHoSo["LT<br>- Lấy hồ sơ bệnh án"]
@@ -78,13 +82,11 @@ graph TD
     ChupPhim -- Không cần chụp phim --> DuaKHLenDieuTri["TVV<br>- Đưa KH lên phòng điều trị<br>để thực hiện Điều Trị"]
     KiemTraPhim -- Phim không vấn đề --> DuaKHLenDieuTri
     NamThongTinCu --> DuaKHLenDieuTri
-    IsDieuTriLien -- Thực hiện liền --> DuaKHLenDieuTri
 
     %% Sau điều trị
     DuaKHLenDieuTri --> SauDieuTri["PT (+TVV)<br>- Sau khi điều trị xong PT sẽ đưa KH xuống quầy<br>- TVV tiếp nhận"]
     
     %% Hẹn lại hoặc Sau điều trị -> Cảm ơn & Dặn dò
-    IsDieuTriLien -- Hẹn lại --> CamOnSauDieuTri
     SauDieuTri --> CamOnSauDieuTri["TVV<br>- Cảm ơn KH đã sử dụng dịch vụ<br>- Hỏi thăm có đau không, dặn dò, hướng dẫn<br>cách chăm sóc sau điều trị<br>- Nhập những ghi chú hoặc những vấn đề<br>phát sinh của KH lên Remo để CSKH cùng nắm thông tin"]
 
     %% Xử lý sau khi cảm ơn
