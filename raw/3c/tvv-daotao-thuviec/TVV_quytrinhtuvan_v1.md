@@ -49,8 +49,8 @@ Mục tiêu chính của tài liệu này bao gồm:
 
 ```mermaid
 graph TD
-    Start(["TVV<br>- Tiếp đón KH đến cửa<br>- Xin thông tin"]) --> CheckKhachHang["LT/TVV<br>- Kiểm tra và nắm thông tin<br>xác định KH mới hay cũ"]
-    CheckKhachHang --> IsNewKH{"LT/TVV<br>Xác nhận KH"}
+    Start(["TVV<br>- Tiếp đón KH đến cửa<br>- Xin thông tin"]) --> CheckKhachHang["LT<br>- Kiểm tra và nắm thông tin<br>xác định KH mới hay cũ"]
+    CheckKhachHang --> IsNewKH{"LT<br>Xác nhận KH"}
 
     %% Nhánh KH mới
     IsNewKH -- KH mới --> LapHoSo["LT<br>- Lập hồ sơ KH trên Remo"]
