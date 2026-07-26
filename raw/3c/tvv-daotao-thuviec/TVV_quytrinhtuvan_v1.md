@@ -65,7 +65,7 @@ graph TD
 
     %% Quyết định không đồng ý
     QuyetDinhDieuTri -- Không đồng ý --> TuChoiDieuTri["TVV<br>- Cảm ơn KH<br>- Tiếp tục follow KH bằng Zalo công ty,<br>thuyết phục KH dùng dịch vụ<br>- Nhập những ghi chú và nội dung tư vấn<br>lên Remo để CSKH cùng nắm thông tin"]
-    TuChoiDieuTri --> EndTuChoi(["ĐP<br>- Check 'Hoàn Thành' trên Remo"])
+    TuChoiDieuTri --> EndTuChoi(["LT<br>- Check 'Hoàn Thành' trên Remo"])
 
     %% Quyết định đồng ý -> Chuyển sang nút KH điều trị liền hay không
     QuyetDinhDieuTri -- Đồng ý làm dịch vụ --> IsDieuTriLien{"TVV<br>KH điều trị liền<br>hay không?"}
@@ -94,7 +94,7 @@ graph TD
     DanhGiaHaiLong -- Hài lòng --> XinDanhGia["TVV<br>- Xin đánh giá chất lượng<br>trên các nền tảng"]
     DanhGiaHaiLong -- Không hài lòng --> XuLyKhongHaiLong["TVV<br>- Hỏi thăm, động viên, xin lỗi<br>- Xin ý kiến TBP<br>- Gửi quà tặng kèm (voucher CSRM)"]
 
-    XinDanhGia --> EndHoanThanh(["ĐP<br>- Check 'Hoàn Thành' trên Remo"])
+    XinDanhGia --> EndHoanThanh(["LT<br>- Check 'Hoàn Thành' trên Remo"])
     XuLyKhongHaiLong --> EndHoanThanh
 ```
 
