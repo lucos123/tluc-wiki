@@ -27,6 +27,7 @@ A catalog of everything in the knowledge base.
 - [[The Factory Model (SDLC)]]: Building systems that build software.
 - [[Vibe Coding vs Agentic Engineering]]: The spectrum of AI-assisted development.
 - [[llm-wiki]]: A pattern for building personal knowledge bases using LLMs.
+- [[quytrinh_thuviec_tvv_3c]]: Quy trình đào tạo và đánh giá thử việc dành cho vị trí Tư vấn viên tại Nha khoa 3C.
 
 ## Sources
 - [[12 Agentic Harness Patterns from Claude Code]]: Design patterns from a leaked production agent's source code.

@@ -1,68 +1,48 @@
-# Quy Trình Tư Vấn (Phiên bản 1)
+# QUY TRÌNH TƯ VẤN 
 
-**Đối tượng áp dụng:** Tư vấn viên (TVV), Lễ tân (LT), Chăm sóc khách hàng (CS), Bác sĩ (BS), Phụ tá (PT), Bộ phận liên quan (BP).
-**Phạm vi:** Nha khoa tại Q.1, Tp.HCM.
+## LỄ TÂN – ĐIỀU PHỐI – TƯ VẤN VIÊN 
 
----
+CÔNG TY TNHH TMDV Y TẾ 3C **TLTC/BPLT- 3C** | **Ngày ban hành: 29/09/2024** | **Lần: 1 Người lập: Nguyễn Thị Vân Anh** 
 
-## 1. Diễn giải chi tiết các bước trong quy trình
+### **PHẦN I. MỤC TIÊU** 
 
-**Bước 1: Tiếp đón khách hàng**
-- **Nhân sự:** Tư vấn viên (TVV)
-- **Công việc:** Tiếp đón KH đến cửa, xin thông tin cơ bản.
+Một tài liệu quy trình chi tiết và rõ ràng cho lễ tân, tư vấn và điều phối trong phòng khám nha khoa đóng vai trò vô cùng quan tr ọng trong việc đảm bảo hoạt động trơn tru, chuyên nghiệp và hiệu quả của phòng khám. 
 
-**Bước 2: Kiểm tra thông tin**
-- **Nhân sự:** Lễ tân / Chăm sóc khách hàng (LT/CS)
-- **Công việc:** Kiểm tra sổ theo tên / SĐT / Mã Thẻ / ID... để xác định là Khách hàng mới hay Khách hàng cũ đang điều trị.
+Mục tiêu chính của tài liệu này bao gồm: 
 
-**Phân nhánh A: Khách hàng mới**
-1. **Lập hồ sơ:** Lễ tân (LT) lập hồ sơ KH trên phần mềm Nemo.
-2. **Nắm thông tin:** Bộ phận (BP) nắm thông tin, sắp xếp bệnh và gọi điện lên phòng điều trị để chuẩn bị ghế.
-3. **Chỉ định chụp phim:** Bộ phận (BP) hỏi ý kiến KH có đồng ý chụp phim để kiểm tra không?
-   - *Trường hợp Không đồng ý chụp phim:* Chuyển thẳng đến bước Đưa KH lên phòng thực hiện điều trị.
-   - *Trường hợp Cần chụp phim để kiểm tra:* Bộ phận (BP) kiểm tra phim để xem có vấn đề gì phát sinh không.
-     - *Phim không có vấn đề:* Chuyển thẳng đến bước Đưa KH lên phòng thực hiện điều trị.
-     - *Phim có vấn đề, cần tư vấn:* 
-       - Tư vấn viên (TVV) đưa KH lên phòng điều trị để tư vấn với bác sĩ chuyên môn.
-       - Bác sĩ (BS) và TVV tư vấn đúng chuyên môn để tiếp nhận thông tin tư vấn của bác sĩ. Ghi chú lại các vấn đề phát sinh của KH.
-       - Tư vấn viên (TVV) tư vấn lại giúp cho KH hiểu hơn các dịch vụ cần thiết bác sĩ đã chỉ định, trao đổi với KH để lựa chọn được dịch vụ phù hợp.
-       - Tư vấn viên (TVV) chốt lại xem KH quyết định điều trị hay không?
-         - **Không đồng ý:** TVV Cảm ơn KH, tiếp tục follow KH bằng Zalo công ty, thuyết phục KH dùng dịch vụ. Nhập những ghi chú và nội dung tư vấn lên Nemo để CSKH hằng năm thông tin. Sau đó Bộ phận (BP) check "Hoàn Thành" trên Nemo.
-         - **Đồng ý làm dịch vụ:** Chuyển sang bước Đưa KH lên phòng thực hiện điều trị.
+### **1. Đảm bảo sự thống nhất trong quy trình làm việc:** 
 
-**Phân nhánh B: Khách hàng cũ, đang điều trị**
-1. **Lấy hồ sơ:** Lễ tân (LT) lấy hồ sơ bệnh án.
-2. **Nắm thông tin:** Bộ phận (BP) nắm thông tin, sắp xếp bệnh và gọi điện lên phòng điều trị để chuẩn bị ghế.
-3. Chuyển sang bước Đưa KH lên phòng thực hiện điều trị.
+- **Tiêu chuẩn hóa các bước:** Mọi nhân viên thực hiện các công việc theo một quy trình thống nhất, tránh sự chồng chéo hoặc thiếu sót. 
 
-**Bước 3: Thực hiện điều trị**
-- **Nhân sự:** Tư vấn viên (TVV)
-- **Công việc:** Đưa KH lên phòng điều trị (để thực hiện điều trị).
+- **Tăng hiệu quả:** Việc làm theo quy trình giúp tiết kiệm thời gian và công sức, tăng năng suất làm việc. 
 
-**Bước 4: Hoàn tất điều trị tại phòng**
-- **Nhân sự:** Bác sĩ / Phụ tá / Lễ tân
-- **Công việc:** Sau khi điều trị xong, Phụ tá (PT) sẽ đưa KH xuống quầy. Tư vấn viên (TVV) tiếp nhận.
+- **Giảm thiểu sai sót:** Các quy trình rõ ràng giúp giảm thiểu các lỗi không đáng có trong quá trình làm việc. 
 
-**Bước 5: Đánh giá nhu cầu điều trị tiếp**
-- **Nhân sự:** Tư vấn viên (TVV)
-- **Công việc:** Hỏi thăm xem KH có điều trị tiếp hay không.
-  - *Trường hợp Đồng ý làm dịch vụ:* Vòng lại bước Thực hiện điều trị (Đưa KH lên phòng).
-  - *Trường hợp Không:* Chuyển sang bước chăm sóc sau điều trị.
+### **2. Nâng cao chất lượng dịch vụ khách hàng:** 
 
-**Bước 6: Chăm sóc sau điều trị & Thanh toán**
-- **Công việc của TVV:** Cảm ơn KH đã sử dụng dịch vụ. Hỏi thăm KH có đau không, dặn dò, hướng dẫn cách chăm sóc sau điều trị. Nhập những ghi chú hoặc những vấn đề phát sinh của KH lên Nemo để CSKH cùng nắm thông tin.
-- **Công việc của LT (Song song):** Thu tiền, xuất hóa đơn, thu tạm ứng (nếu có). Nhập lịch hẹn.
+- **Tạo ấn tượng tốt:** Quy trình tiếp đón, tư vấn chuyên nghiệp tạo ấn tượng tốt đẹp với khách hàng ngay từ lần đầu đến. 
 
-**Bước 7: Đánh giá sự hài lòng**
-- **Nhân sự:** Tư vấn viên (TVV)
-- **Công việc:** Hỏi thăm KH có hài lòng sau khi điều trị xong?
-  - *Trường hợp Hài lòng:* TVV xin đánh giá chất lượng trên các nền tảng.
-  - *Trường hợp Không hài lòng:* TVV hỏi thăm, động viên, xin lỗi; xin ý kiến Trưởng bộ phận (TBP); gửi quà tặng kèm (voucher CSKH).
-- **Kết thúc:** Bộ phận (BP) check "Hoàn Thành" trên Nemo đối với cả hai trường hợp.
+- **Giải quyết thắc mắc nhanh chóng:** Khách hàng được giải đáp mọi thắc mắc một cách nhanh chóng và chính xác. 
 
----
+- **Đảm bảo sự hài lòng:** Khách hàng cảm thấy hài lòng với dịch vụ và có xu hướng quay lại. 
 
-## 2. Sơ đồ luồng quy trình (Flowchart)
+### **3. Quản lý hiệu quả các hoạt động:** 
+
+- **Theo dõi và đánh giá:** Dựa vào quy trình, phòng khám có thể dễ dàng theo dõi và đánh giá hiệu quả công việc của từng nhân viên. 
+
+- **Cải tiến liên tục:** Nhờ việc đánh giá, phòng khám có thể đưa ra những điều chỉnh cần thiết để cải thiện quy trình. 
+
+- **Đảm bảo chất lượng dịch vụ:** Quy trình giúp đảm bảo chất lượng dịch vụ luôn được duy trì ở mức cao. 
+
+### **4. Xây dựng hình ảnh chuyên nghiệp:** 
+
+- **Thống nhất hình ảnh:** Quy trình làm việc chuyên nghiệp giúp xây dựng hình ảnh thống nhất cho phòng khám. 
+
+- **Tăng cường uy tín:** Khách hàng sẽ đánh giá cao sự chuyên nghiệp và tận tâm của phòng khám. 
+
+### **PHẦN II. NỘI DUNG QUY TRÌNH TƯ VẤN** 
+
+### **1. Mô tả quy trình:** 
 
 ```mermaid
 graph TD
@@ -111,3 +91,30 @@ graph TD
     XinDanhGia --> EndHoanThanh(["BP<br>- Check 'Hoàn Thành' trên Nemo"])
     XuLyKhongHaiLong --> EndHoanThanh
 ```
+
+### **2. Chú thích:** 
+
+#### • **Biểu tượng** 
+
+- **Oval** : Biểu thị điểm bắt đầu và kết thúc. 
+
+- **Hình chữ nhật** : Biểu thị một hoạt động. 
+
+- **Hình thoi** : Biểu thị một quyết định. 
+
+- **Mũi tên** : Biểu thị hướng của quy trình. 
+
+#### • **Chủ thể** 
+
+- **KH** : Khách Hàng 
+
+- **TVV** : Tư Vấn Viên 
+
+- **LT** : Lễ Tân 
+
+- **ĐP** : Điều Phối 
+
+- **BS** : Bác Sĩ 
+
+- **PT** : Phụ Tá 
+
