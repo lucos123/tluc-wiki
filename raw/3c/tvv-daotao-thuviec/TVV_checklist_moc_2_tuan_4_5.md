@@ -2,20 +2,24 @@
 title: Checklist Đánh Giá Mốc 2 (Tuần 4 - 5) - Kịch Bản Chốt Sales & Roleplay
 date: 2026-07-26
 tags: [checklist, dao-tao, thu-viec, tuan-4-5, moc-2, tvv, nha-khoa-3c]
+source:
+  - [[quytrinh_thuviec_tvv_3c]]
 ---
 
 # CHECKLIST ĐÁNH GIÁ MỐC 2: KỊCH BẢN CHỐT SALES & ROLEPLAY (TUẦN 4 - 5)
 
 > **CÔNG TY TNHH TMDV Y TẾ 3C**  
 > **Địa chỉ:** A35 Cống Quỳnh, P. Cầu Ông Lãnh, Tp. Hồ Chí Minh  
+> **Hotline:** (028) 3 925 1331 | 0916 037 766  
 > **Mã biểu mẫu:** BM-TVV-CL03 | **Áp dụng:** Mốc 2 (Tuần 4 - Tuần 5)  
+> **Tài liệu gốc:** [Quy Trình Đào Tạo, Đánh Giá Thử Việc TVV](./quytrinh_thuviec_tvv_3c.md) (TVV-QT-001)
 
 ---
 
 ### THÔNG TIN NHÂN SỰ THỬ VIỆC
 - **Họ và tên nhân sự:** ......................................................................................
 - **Ngày bắt đầu thử việc:** ................................................................................
-- **Người hướng dẫn (Mentor/Lead):** .............................................................
+- **Người hướng dẫn (Quản lý trực tiếp):** .............................................................
 - **Phân loại đầu vào:** [ ] Junior TVV &nbsp;&nbsp;&nbsp;&nbsp; [ ] Senior TVV
 
 ---
@@ -37,8 +41,8 @@ tags: [checklist, dao-tao, thu-viec, tuan-4-5, moc-2, tvv, nha-khoa-3c]
 | :--- | :--- | :--- | :--- | :--- |
 | **6.4e** | Học kịch bản Niềng răng trẻ em & Implant tức thì vùng thẩm mỹ. | 🔗 [Bộ Kịch Bản Tư Vấn Chuyên Sâu](./TVV_kichbanchuyensau_v1.md) (`[[TVV_kichbanchuyensau_v1]]`) | Thuyết phục phụ huynh về "Giai đoạn vàng 9-12 tuổi" và cam kết không trống răng ngày nào khi cắm Implant tức thì. | [ ] Đạt <br> [ ] Chưa |
 | **6.4f** | Học kịch bản Implant toàn hàm All-on-4/6 & Sứ Veneer nhiễm Tetra. | 🔗 [Bộ Kịch Bản Tư Vấn Chuyên Sâu](./TVV_kichbanchuyensau_v1.md) (`[[TVV_kichbanchuyensau_v1]]`) | Giải tỏa nỗi đau dùng hàm tháo lắp cho người già, phân tích bài toán kinh tế sức khỏe dài hạn (150 triệu/20 năm). | [ ] Đạt <br> [ ] Chưa |
-| **6.4g** | Thực hành Roleplay (Nhập vai 1-1) cùng Lead. | 🔗 [Tài Liệu Tham Khảo Roleplay](./TVV_thamkhao_v1.md) (`[[TVV_thamkhao_v1]]`) | Thực hành thành thạo **5 kịch bản hội thoại thực chiến** (Ghép xương, sống hàm mỏng, nâng xoang, Implant tức thì). | [ ] Đạt <br> [ ] Chưa |
-| **6.4h** | Tư vấn song song (Co-counseling) dưới sự giám sát của Lead. | Phòng tư vấn | Đứng tư vấn trực tiếp **tối thiểu 5 ca thực tế**, có Lead ngồi cạnh hỗ trợ chốt deal. | [ ] Đạt <br> [ ] Chưa |
+| **6.4g** | Thực hành Roleplay (Nhập vai 1-1) cùng Quản lý trực tiếp. | 🔗 [Tài Liệu Tham Khảo Roleplay](./TVV_thamkhao_v1.md) (`[[TVV_thamkhao_v1]]`) | Thực hành thành thạo **5 kịch bản hội thoại thực chiến** (Ghép xương, sống hàm mỏng, nâng xoang, Implant tức thì). | [ ] Đạt <br> [ ] Chưa |
+| **6.4h** | Tư vấn song song (Co-counseling) dưới sự giám sát của Quản lý trực tiếp. | Phòng tư vấn | Đứng tư vấn trực tiếp **tối thiểu 5 ca thực tế**, có Quản lý trực tiếp ngồi cạnh hỗ trợ chốt deal. | [ ] Đạt <br> [ ] Chưa |
 
 ---
 
@@ -52,7 +56,7 @@ tags: [checklist, dao-tao, thu-viec, tuan-4-5, moc-2, tvv, nha-khoa-3c]
 
 ---
 
-## III. KẾT LUẬN & ĐỀ XUẤT CỦA TRƯỞNG NHÓM (NGÀY CUỐI TUẦN 5)
+## III. KẾT LUẬN & ĐỀ XUẤT CỦA QUẢN LÝ TRỰC TIẾP (NGÀY CUỐI TUẦN 5)
 
 - **Nhận xét kỹ năng tư vấn:** ................................................................................................................................................
 - **Điểm mạnh:** ................................................................................................................................................
@@ -64,7 +68,8 @@ tags: [checklist, dao-tao, thu-viec, tuan-4-5, moc-2, tvv, nha-khoa-3c]
 - [ ] **DỪNG THỬ VIỆC:** Khả năng giao tiếp và chốt sale không đạt yêu cầu tối thiểu sau 5 tuần.
 
 ---
+
 *Hồ Chí Minh, Ngày ...... tháng ...... năm 2026*
 
-**CHỮ KÝ NHÂN SỰ** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **CHỮ KÝ TRƯỞNG BỘ PHẬN (LEAD)**  
+**CHỮ KÝ NHÂN SỰ** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **QUẢN LÝ TRỰC TIẾP**  
 *(Ký & ghi rõ họ tên)* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(Ký & ghi rõ họ tên)*
