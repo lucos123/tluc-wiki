@@ -1,206 +1,97 @@
-**Mục tiêu:** Cung cấp cho bộ phận lễ tân nha khoa quy trình và tài liệu hướng dẫn để tư vấn khách hàng mới một cách hiệu quả, từ đó tăng tỷ lệ chuyển đổi khách hàng tiềm năng thành khách hàng sử dụng dịch vụ. 
+---
+title: Tài Liệu Tham Khảo Kỹ Năng Tư Vấn & Mẫu Hội Thoại Ghép Xương
+date: 2024-09-20
+tags: [tu-van, tham-khao, roleplay, ghep-xuong, nha-khoa-3c]
+---
 
-**Đối tượng:** Nhân viên lễ tân nha khoa 
+# TÀI LIỆU THAM KHẢO KỸ NĂNG TƯ VẤN & MẪU HỘI THOẠI THỰC CHIẾN
 
-## **Nội dung:** 
+> **CÔNG TY TNHH TMDV Y TẾ 3C**  
+> **Mã tài liệu:** TLTC/TVV-TK01 | **Ngày ban hành:** 20/09/2024 | **Lần ban hành:** 01  
 
-## **1. Quy trình tư vấn:** 
+---
 
-## **Bước 1: Chào hỏi và tạo ấn tượng ban đầu:** 
+## PHẦN I. QUY TRÌNH & KỸ NĂNG TƯ VẤN TỔNG QUAN
 
-- Chào hỏi khách hàng một cách lịch sự và cởi mở với nụ cười rạng rỡ. 
+### 1. Quy trình tư vấn 5 bước chuẩn
+- **Bước 1: Chào hỏi & Tạo ấn tượng ban đầu:** Chào hỏi cởi mở, tươi tắn với nụ cười rạng rỡ. Giới thiệu tên, chức vụ và hỏi tên khách để giao tiếp thân thiện.
+- **Bước 2: Lắng nghe nhu cầu & Ghi nhận lo lắng:** Lắng nghe chăm chú, ghi chép thông tin khách hàng chia sẻ, thể hiện sự thấu hiểu và đồng cảm.
+- **Bước 3: Giới thiệu giải pháp phù hợp:** Dựa trên chẩn đoán của Bác sĩ, giải thích lợi ích, quy trình, thời gian và chi phí dịch vụ bằng ngôn ngữ dễ hiểu.
+- **Bước 4: Thuyết phục & Xây dựng niềm tin:** Đề xuất gói dịch vụ phù hợp ngân sách, chia sẻ hình ảnh/video ca thực tế và giới thiệu uy tín chuyên môn của Bác sĩ.
+- **Bước 5: Chốt lịch hẹn & Dặn dò:** Đặt lịch hẹn chính xác trên hệ thống, dặn dò lưu ý trước phẫu thuật và cảm ơn khách hàng.
 
-- Giới thiệu bản thân và chức vụ của bạn tại nha khoa. 
+### 2. Kỹ năng tư vấn cốt lõi của TVV
+- **Kỹ năng giao tiếp:** Nói rõ ràng, mạch lạc, giọng nói ấm áp và tự tin.
+- **Kỹ năng thấu hiểu (Empathy):** Đặt mình vào vị trí người bệnh bị mất răng, thấu hiểu nỗi lo lắng về đau đớn, chi phí hay sợ biến chứng.
+- **Kỹ năng xử lý từ chối:** Giữ thái độ ôn hòa, giải đáp thắc mắc khách quan, trung thực để tạo dựng lòng tin lâu dài.
 
-- Hỏi tên khách hàng và ghi nhớ để sử dụng trong suốt quá trình tư vấn. 
+---
 
-- Tạo bầu không khí thân thiện và thoải mái để khách hàng dễ dàng chia sẻ thông tin. 
+## PHẦN II. KỊCH BẢN HỘI THOẠI MẪU (ROLEPLAY) KHI TƯ VẤN GHÉP XƯƠNG & NÂNG XOANG
 
-## **Bước 2: Lắng nghe nhu cầu và mong muốn của khách hàng:** 
+Trong quá trình tư vấn Implant, khách hàng thường gặp các trường hợp cần ghép xương hoặc nâng xoang và cảm thấy rất lo lắng. Dưới đây là mẫu kịch bản giao tiếp chuẩn giữa **TVV / Bác sĩ** và **Khách hàng**:
 
-- Hỏi khách hàng đến nha khoa vì lý do gì. 
+### Trường hợp 1: Xương hàm bị tiêu do mất răng lâu ngày
+* **Tình huống:** Khách hàng mất răng lâu năm, xương hàm bị tiêu ngót chiều cao hoặc bề dày.
 
-- Lắng nghe cẩn thận và ghi chép đầy đủ thông tin mà khách hàng chia sẻ. 
+> **BS / TVV:** *"Dạ anh/chị, sau khi kiểm tra phim CT 3D thì thấy vùng xương hàm tại vị trí mất răng của mình đã bị tiêu ngót một chút do mình để mất răng lâu ngày. Để đảm bảo trụ Implant được giữ vững chắc và dùng bền lâu suốt đời, Bác sĩ cần thực hiện ghép thêm một lượng xương nhỏ trước hoặc trong khi đặt trụ ạ."*  
+> 
+> **Khách hàng:** *"Ghép xương như vậy có phức tạp và đau đớn nhiều không em?"*  
+> 
+> **BS / TVV:** *"Dạ anh/chị hoàn toàn yên tâm ạ! Kỹ thuật ghép xương hiện nay rất nhẹ nhàng và an toàn. Trước khi làm, Bác sĩ sẽ tiến hành gây tê cục bộ nên mình không cảm thấy đau đớn gì trong suốt quá trình thực hiện. Sau khi hết thuốc tê, mình có thể cảm thấy hơi ê nhức nhẹ trong 1-2 ngày đầu như nhổ răng thông thường, Bác sĩ sẽ kê đơn thuốc giảm đau chuyên dụng nên mình sẽ thấy rất dễ chịu ạ."*
 
-- • Thể hiện sự đồng cảm và thấu hiểu với những lo lắng của khách hàng. 
+---
 
-- Đặt câu hỏi để làm rõ nhu cầu và mong muốn của khách hàng. 
+### Trường hợp 2: Sống hàm mỏng bẩm sinh
+* **Tình huống:** Khách hàng mới mất răng nhưng xương hàm bẩm sinh mỏng, không đủ độ dày bám trụ.
 
-## **Bước 3: Giới thiệu các dịch vụ phù hợp:** 
+> **BS / TVV:** *"Dạ anh/chị, sống hàm tự nhiên tại vùng răng này của mình hơi mỏng. Do đó, để Implant có đủ độ bám chắc và tải lực ăn nhai tốt mà không bị lộ trụ ra ngoài, Bác sĩ sẽ ghép thêm một chút vật liệu xương nhân tạo để làm dày sống hàm lên ạ."*  
+> 
+> **Khách hàng:** *"Ghép xương nhân tạo như vậy có ảnh hưởng gì đến sức khỏe toàn thân của tôi không?"*  
+> 
+> **BS / TVV:** *"Dạ hoàn toàn không ảnh hưởng gì ạ! Vật liệu xương nhân tạo bên em sử dụng là dòng cao cấp đạt tiêu chuẩn y khoa quốc tế, có tính tương thích sinh học 100% với cơ thể con người. Việc ghép xương này chỉ giúp bảo tồn xương hàm, chống hóp má và bảo vệ cấu trúc khuôn mặt cho mình tốt hơn thôi ạ."*
 
-- Dựa trên thông tin thu thập được, giới thiệu cho khách hàng các dịch vụ nha khoa phù hợp với nhu cầu và mong muốn của họ. 
+---
 
-- Giải thích chi tiết về từng dịch vụ, bao gồm lợi ích, quy trình thực hiện, thời gian thực hiện, chi phí và các lưu ý cần thiết. 
+### Trường hợp 3: Vùng cấy ghép sát xoang hàm (Nâng xoang)
+* **Tình huống:** Mất răng hàm trên lâu ngày, xoang hàm sà xuống thấp sát đỉnh sống hàm.
 
-- Sử dụng ngôn ngữ dễ hiểu và tránh các thuật ngữ chuyên ngành phức tạp. 
+> **BS / TVV:** *"Dạ anh/chị, vì vị trí mất răng hàm trên của mình nằm sát ngay đáy xoang hàm, chiều cao xương hiện tại chưa đủ để đặt trụ Implant an toàn. Vì vậy, Bác sĩ sẽ thực hiện kỹ thuật nâng xoang nhẹ nhàng để đẩy đáy xoang lên và ghép thêm xương vào tạo khoảng trống an toàn cho Implant ạ."*  
+> 
+> **Khách hàng:** *"Nâng xoang hàm nghe đáng sợ quá, có nguy hiểm hay làm thủng xoang không em?"*  
+> 
+> **BS / TVV:** *"Dạ anh/chị yên tâm, nâng xoang là một thủ thuật nha khoa rất phổ biến và an toàn khi được thực hiện bởi các Bác sĩ chuyên khoa sâu Implant tại 3C. Bác sĩ sẽ dùng sóng siêu âm Piezotome nâng màng xoang rất êm ái, đảm bảo an toàn tuyệt đối và không gây tổn thương xoang ạ."*
 
-- Trả lời tất cả các thắc mắc của khách hàng một cách rõ ràng và chính xác. 
+---
 
-## **Bước 4: Khuyến khích khách hàng sử dụng dịch vụ:** 
+### Trường hợp 4: Cấy ghép Implant tức thì sau nhổ răng
+* **Tình huống:** Khách hàng có răng sâu hỏng nặng cần nhổ và muốn cấy Implant luôn.
 
-- Đề xuất cho khách hàng gói dịch vụ phù hợp với ngân sách và nhu cầu của họ. 
+> **BS / TVV:** *"Trường hợp răng hỏng này của mình nếu nhổ ra, Bác sĩ khuyên nên thực hiện Cấy ghép Implant tức thì ngay trong cùng một buổi. Lúc này Bác sĩ sẽ đặt trụ Implant và ghép bổ sung một ít xương vào huyệt ổ răng vừa nhổ."*  
+> 
+> **Khách hàng:** *"Làm tức thì như vậy có ưu điểm gì so với việc nhổ xong chờ vài tháng mới làm?"*  
+> 
+> **BS / TVV:** *"Dạ điểm cộng lớn nhất là giúp mình tiết kiệm tối đa thời gian ạ! Thay vì phải tiêm tê và phẫu thuật 2 lần, mình chỉ cần làm 1 lần duy nhất. Hơn nữa, làm tức thì giúp giữ nguyên dạng nướu tự nhiên, hạn chế tối đa tình trạng tiêu xương sau nhổ răng ạ."*
 
-- Chia sẻ các chương trình khuyến mãi hoặc ưu đãi hiện có của nha khoa. 
+---
 
-- Cung cấp cho khách hàng các tài liệu tham khảo về dịch vụ, chẳng hạn như hình ảnh, video hoặc lời chứng thực của khách hàng trước đây. 
+## PHẦN III. PHÂN LOẠI MỨC ĐỘ TIÊU XƯƠNG THEO THỜI GIAN & VỊ TRÍ MẤT RĂNG
 
-- • Tạo dựng niềm tin cho khách hàng bằng cách giới thiệu đội ngũ bác sĩ nha khoa giàu kinh nghiệm và chuyên nghiệp. 
+Để tư vấn chính xác cho khách hàng trước khi chụp phim, TVV có thể tham khảo bảng đánh giá sơ bộ dưới đây:
 
-## **Bước 5: Chốt lịch hẹn và hướng dẫn khách hàng:** 
+### 1. Phân loại theo thời gian mất răng
+- **Mất răng dưới 3 tháng:** Mức độ tiêu xương chưa đáng kể. Tỷ lệ không cần ghép xương hoặc chỉ cần ghép bổ sung rất ít là trên 80%.
+- **Mất răng từ 3 - 6 tháng:** Xương hàm bắt đầu có dấu hiệu tiêu ngót chiều rộng. Cần chụp phim CT 3D để Bác sĩ đo đạc chính xác.
+- **Mất răng trên 6 tháng đến nhiều năm:** Xương hàm bị tiêu nát nghiêm trọng cả về chiều cao lẫn chiều rộng. Xác suất cần ghép xương hoặc nâng xoang lên tới 80 - 90%.
 
-- Chốt lịch hẹn cho khách hàng thực hiện dịch vụ. 
+### 2. Phân loại theo vị trí mất răng
+- **Vùng răng cửa (Răng trước):** Đòi hỏi yếu tố thẩm mỹ cực kỳ cao. Dù mới mất răng vẫn thường được chỉ định ghép xương/ghép nướu để giữ cho phom nướu đầy đặn, không bị sụp vòm môi.
+- **Vùng răng hàm (Răng sau):** Đòi hỏi lực ăn nhai lớn. Nếu mất răng lâu ngày, xương bị tiêu mỏng sẽ phải ghép xương để chịu được lực nhai mạnh.
 
-- Hướng dẫn khách hàng cách chuẩn bị trước khi thực hiện dịch vụ. 
+---
 
-- Cung cấp cho khách hàng thông tin liên hệ của nha khoa trong trường hợp cần thiết. 
+## PHẦN IV. LƯU Ý QUAN TRỌNG KHI GIAO TIẾP VỚI KHÁCH HÀNG
 
-- Cảm ơn khách hàng đã đến nha khoa và mong muốn được phục vụ họ trong tương lai. 
-
-## **2. Tài liệu hướng dẫn:** 
-
-- **Hồ sơ giới thiệu về nha khoa:** Bao gồm thông tin về lịch sử hình thành, đội ngũ bác sĩ, cơ sở vật chất, các dịch vụ cung cấp, v.v. 
-
-- **Tài liệu giới thiệu chi tiết về từng dịch vụ:** Bao gồm thông tin về lợi ích, quy trình thực hiện, thời gian thực hiện, chi phí, các lưu ý cần thiết, hình ảnh, video và lời chứng thực của khách hàng trước đây. 
-
-- **Bảng giá dịch vụ:** Cập nhật đầy đủ và chính xác. 
-
-- **Chương trình khuyến mãi và ưu đãi hiện có:** Nêu rõ điều kiện áp dụng và thời gian áp dụng. 
-
-- **Quy trình đặt lịch hẹn:** Giải thích chi tiết cách đặt lịch hẹn trực tiếp, qua điện thoại hoặc qua website. 
-
-- **Câu hỏi thường gặp (FAQ):** Trả lời các câu hỏi thường gặp của khách hàng về các dịch vụ nha khoa. 
-
-## **3. Kỹ năng tư vấn hiệu quả:** 
-
-- **Giao tiếp tốt:** Lắng nghe cẩn thận, nói chuyện rõ ràng, mạch lạc và sử dụng ngôn ngữ dễ hiểu. 
-
-- **Kỹ năng thấu hiểu:** Thể hiện sự đồng cảm và thấu hiểu với những lo lắng của khách hàng. 
-
-- **Kỹ năng thuyết phục:** Giới thiệu dịch vụ một cách hấp dẫn và thuyết phục khách hàng sử dụng dịch vụ. 
-
-- **Kỹ năng xử lý tình huống:** Giải quyết các vấn đề và khiếu nại của khách hàng một cách chuyên nghiệp và hiệu quả. 
-
-## **4. Đào tạo và huấn luyện:** 
-
-- Cung cấp cho nhân viên lễ tân nha 
-
-# **Ghép xương trong implant: Các trường hợp và cách trả lời phù hợp** 
-
-## **1. Trường hợp cần ghép xương khi implant:** 
-
-- **Xương hàm bị tiêu nhiều:** Do mất răng lâu ngày, tai nạn, hoặc các bệnh lý nha khoa như viêm nha chu nặng. 
-
-- **Sống hàm mỏng:** Không đủ độ dày để cấy ghép implant an toàn và đảm bảo chức năng lâu dài. 
-
-- **Nâng xoang hàm:** Trường hợp cần cấy ghép implant ở vị trí sát xoang hàm, cần nâng xoang để tạo thêm không gian cho implant. 
-
-- **Cấy ghép implant tức thì:** Sau khi nhổ răng, có thể ghép xương và cấy implant ngay để bảo tồn xương hàm và mô mềm. 
-
-## **2. Cách trả lời phù hợp cho từng trường hợp:** 
-
-## **Trường hợp 1:** 
-
-- **Bác sĩ:** "Xương hàm của bạn bị tiêu một chút do mất răng lâu ngày. Để đảm bảo implant thành công và hoạt động lâu dài, chúng ta cần thực hiện ghép xương trước khi cấy implant." 
-
-- **Khách hàng:** "Ghép xương có phức tạp và đau đớn không ạ?" 
-
-- **Bác sĩ:** "Ghép xương là kỹ thuật nha khoa an toàn và hiệu quả, được thực hiện bởi bác sĩ chuyên môn cao. Quá trình này thường diễn ra nhanh chóng và không gây đau đớn vì bạn sẽ được gây tê trước khi thực hiện. Sau ghép xương, bạn có thể cảm thấy hơi ê nhức hoặc khó chịu trong vài ngày, nhưng bác sĩ sẽ kê thuốc giảm đau cho bạn." 
-
-## **Trường hợp 2:** 
-
-- **Bác sĩ:** "Sống hàm của bạn hơi mỏng, do đó, để đảm bảo implant có đủ độ bám chắc và hoạt động tốt, chúng ta cần thực hiện ghép xương trước khi cấy implant." 
-
-- **Khách hàng:** "Ghép xương có ảnh hưởng gì đến sức khỏe của tôi không ạ?" 
-
-- **Bác sĩ:** "Ghép xương sử dụng vật liệu an toàn cho cơ thể và được thực hiện theo quy trình y tế nghiêm ngặt, do đó, bạn không cần lo lắng về ảnh hưởng đến sức khỏe. Thậm chí, ghép xương còn giúp bảo tồn xương hàm và ngăn ngừa tiêu xương sau khi mất răng, góp phần bảo vệ sức khỏe răng miệng tổng thể của bạn." 
-
-## **Trường hợp 3:** 
-
-- **Bác sĩ:** "Vì vị trí cần cấy ghép implant sát với xoang hàm, do đó, chúng ta cần thực hiện nâng xoang hàm trước để tạo thêm không gian cho implant." 
-
-- **Khách hàng:** "Nâng xoang hàm có nguy hiểm gì không ạ?" 
-
-- **Bác sĩ:** "Nâng xoang hàm là kỹ thuật nha khoa phổ biến và an toàn khi được thực hiện bởi bác sĩ chuyên môn cao. Tuy nhiên, cũng như bất kỳ thủ thuật y tế nào, nâng xoang hàm cũng có một số rủi ro nhất định, chẳng hạn như chảy máu, nhiễm trùng,... Tuy nhiên, bác sĩ sẽ tư vấn kỹ lưỡng và thực hiện cẩn thận để giảm thiểu tối đa nguy cơ biến chứng." 
-
-## **Trường hợp 4:** 
-
-- **Bác sĩ:** "Cấy ghép implant tức thì sau khi nhổ răng giúp bảo tồn xương hàm và mô mềm xung quanh, đồng thời rút ngắn thời gian điều trị. Tuy nhiên, trong một số trường hợp, cần ghép xương trước để đảm bảo điều kiện thuận lợi cho cấy ghép implant." 
-
-- **Khách hàng:** "Cấy ghép implant tức thì có ưu điểm gì so với cấy ghép sau nhiều tháng?" 
-
-- **Bác sĩ:** "Cấy ghép implant tức thì giúp bạn tiết kiệm thời gian điều trị và hạn chế tiêu xương hàm. Ngoài ra, việc cấy ghép implant ngay sau khi nhổ răng còn giúp bạn có cảm giác ăn nhai tự nhiên hơn." 
-
--- 
-
-# **Ghép xương trong implant: Các trường hợp và cách trả lời phù hợp** 
-
-Ghép xương là kỹ thuật nha khoa bổ sung thêm xương vào khu vực xương hàm bị tiêu để đảm bảo đủ điều kiện cấy ghép implant thành công. Việc áp dụng ghép xương có thể gặp trong các trường hợp sau: 
-
-## **1. Xương hàm bị tiêu do mất răng lâu ngày:** 
-
-- **Thời gian mất răng:** 
-
-   - **Mất răng dưới 3 tháng:** Xương hàm thường chưa bị tiêu đáng kể, có thể không cần ghép xương. 
-
-   - **Mất răng từ 3 - 6 tháng:** Xương hàm có thể bắt đầu tiêu, cần đánh giá cụ thể để xác định có cần ghép xương hay không. 
-
-   - **Mất răng trên 6 tháng:** Xương hàm thường tiêu nhiều, khả năng cao cần ghép xương trước khi implant. 
-
-- **Vị trí mất răng:** 
-
-   - **Xương hàm trước:** Thường thẩm mỹ quan trọng hơn, do vậy yêu cầu cao về thể tích và chất lượng xương. Xác suất cần ghép xương cao hơn. 
-
-   - **Xương hàm sau:** Ít quan trọng về mặt thẩm mỹ hơn, do vậy có thể cần ít xương hơn. Tuy nhiên, vẫn cần đánh giá kỹ lưỡng. 
-
-## **2. Xương hàm bẩm sinh mỏng hoặc có cấu trúc bất thường:** 
-
-- **Độ dày xương hàm:** Xương hàm quá mỏng sẽ không đủ để cố định implant vững chắc, cần bổ sung thêm xương. 
-
-- **Cấu trúc xương hàm:** Xương hàm có khe hở, xoang hàm sát với vị trí cấy ghép cần nâng xoang, cần ghép xương để tạo nền vững chắc. 
-
-## **3. Trường hợp cần nâng xoang:** 
-
-- **Xoang hàm sát với xương hàm:** Khi cấy implant, cần đảm bảo an toàn cho xoang hàm, tránh làm thủng xoang. Ghép xương giúp nâng cao đáy xoang, tạo đủ khoảng trống cho implant. 
-
-## **Cách trả lời phù hợp cho từng trường hợp:** 
-
-## **1. Giải thích rõ ràng về tình trạng xương hàm:** 
-
-- Chỉ ra vị trí và mức độ tiêu xương cụ thể. 
-
-- Sử dụng hình ảnh X-quang hoặc mô hình để minh họa dễ hiểu. 
-
-## **2. Giải thích lý do cần ghép xương:** 
-
-- Nêu rõ ràng vai trò của xương trong việc cấy ghép implant thành công. 
-
-- Nhấn mạnh lợi ích của việc ghép xương: đảm bảo an toàn, tỷ lệ thành công cao, thẩm mỹ đẹp. 
-
-## **3. Trình bày quy trình ghép xương:** 
-
-- Giải thích các bước thực hiện một cách đơn giản, dễ hiểu. 
-
-- Nhấn mạnh rằng đây là kỹ thuật an toàn, đã được thực hiện thành công trên nhiều bệnh nhân. 
-
-## **4. Chia sẻ thông tin về chi phí và thời gian thực hiện:** 
-
-- Cung cấp mức chi phí tham khảo cho từng trường hợp. 
-
-- Giải thích thời gian thực hiện và thời gian phục hồi sau ghép xương. 
-
-## **5. Giải đáp thắc mắc và lo lắng của bệnh nhân:** 
-
-- Lắng nghe cẩn thận những băn khoăn của bệnh nhân. 
-
-- Trả lời đầy đủ, chính xác và tận tâm mọi câu hỏi. 
-
-- Sử dụng ngôn ngữ dễ hiểu, tránh thuật ngữ chuyên môn phức tạp. 
-
-## **Lưu ý:** 
-
-- Thái độ tư vấn cần thể hiện sự thấu hiểu, đồng cảm và chuyên nghiệp. 
-
-- Cung cấp thông tin một cách trung thực, minh bạch để tạo dựng lòng tin cho bệnh nhân. 
-
-- Khuyến khích bệnh nhân đặt câu hỏi để giải đáp mọi thắc mắc. 
-
+1. **Thái độ chân thành & Đồng cảm:** Luôn thể hiện sự thấu hiểu nỗi đau và sự lo lắng của khách hàng.
+2. **Minh bạch thông tin:** Giải thích rõ lý do tại sao phải ghép xương (tránh để khách nghĩ phòng khám vẽ thêm dịch vụ).
+3. **Trực quan hóa:** Sử dụng mô hình răng Implant, mẫu trụ thực tế hoặc hình ảnh phim X-quang/CT để giải thích cho khách dễ hình dung.

@@ -1,285 +1,140 @@
-# TÀI LIỆU TƯ VẤN 
+---
+title: Tài Liệu Tư Vấn Chuyên Sâu - Răng Sứ & Mặt Dán Sứ Veneer
+date: 2024-09-20
+tags: [tu-van, rang-su, veneer, nha-khoa-3c, kien-thuc-chuyen-mon]
+---
 
-## VỊ TRÍ TƯ VẤN VIÊN 
+# TÀI LIỆU TƯ VẤN CHUYÊN SÂU RĂNG SỨ & VENEER
 
-CÔNG TY TNHH TMDV Y TẾ 3C 
+> **CÔNG TY TNHH TMDV Y TẾ 3C**  
+> **Mã tài liệu:** TLTC/TVV-3C | **Ngày ban hành:** 20/09/2024 | **Lần ban hành:** 01  
 
-**TLTC/TVV- 3C** | **Ngày ban hành: 20/09/2024** | **Lần: 1** 
+---
 
-### **PHẦN I. MỤC TIÊU** 
+## PHẦN I. MỤC TIÊU
 
-Cung cấp cho bộ phận lễ tân nha khoa quy trình và tài liệu hướng dẫn để tư vấn khách hàng mới một cách hiệu quả, từ đó tăng tỷ lệ chuyển đổi khách hàng tiềm năng thành khách hàng sử dụng dịch vụ. 
+Cung cấp cho bộ phận Tư vấn viên (TVV) quy trình và kiến thức chuyên môn chuẩn để tư vấn dịch vụ Phục hình Răng Sứ Thẩm Mỹ và Mặt dán sứ Veneer một cách hiệu quả, giúp khách hàng chọn đúng giải pháp và nâng cao tỷ lệ chốt dịch vụ tại Nha khoa 3C.
 
-**Đối tượng:** Nhân viên lễ tân nha khoa 
+---
 
-### **PHẦN II. QUY TRÌNH TƯ VẤN** 
+## PHẦN II. QUY TRÌNH TƯ VẤN TẠI PHÒNG KHÁM (7 BƯỚC)
 
-#### **1. Chào hỏi và giới thiệu bản thân** 
+### 1. Chào hỏi và tạo ấn tượng ban đầu
+- Chào hỏi khách hàng một cách lịch sự, tươi tắn và cởi mở.
+- Giới thiệu bản thân và chức vụ của bạn tại Nha khoa 3C.
+- Hỏi tên khách hàng và ghi nhớ để xưng hô trong suốt quá trình tư vấn.
+- Tạo bầu không khí thân thiện và thoải mái để khách hàng dễ dàng chia sẻ.
 
-- Bắt đầu bằng việc chào hỏi khách hàng một cách lịch sự và cởi mở. 
+* **Ví dụ mẫu:**
+  > *"Em chào anh/chị ạ! Em giới thiệu với anh/chị, em là Vân Anh - Tư vấn viên của Nha khoa 3C ạ. Anh/chị nhà có gần đây không ạ? Nãy anh/chị đi qua đây đường có kẹt hay gặp mưa/nắng không ạ?"*
 
-- Giới thiệu bản thân và chức vụ của bạn tại nha khoa. 
+### 2. Tìm hiểu nhu cầu và mong muốn thẩm mỹ của khách hàng
+- Hỏi lý do khách hàng đến nha khoa và mong muốn cải thiện nụ cười.
+- Tìm hiểu tình trạng răng hiện tại: răng khấp khểnh, nhiễm màu, xỉn màu, mẻ vỡ, thưa hay mòn men...
+- Tìm hiểu về kỳ vọng thẩm mỹ: mong muốn dán Veneer để bảo tồn răng thật hay bọc răng sứ để điều chỉnh phom dáng/màu sắc toàn hàm.
 
-- Hỏi tên khách hàng và ghi nhớ để sử dụng trong suốt quá trình tư vấn. 
+* **Ví dụ mẫu:**
+  > *"Dạ cho em hỏi tình trạng răng hiện tại của mình đang làm anh/chị chưa hài lòng ở điểm nào ạ? Anh/chị mong muốn cải thiện về màu sắc cho trắng sáng hay muốn chỉnh lại phom dáng răng cho đều đặn hơn ạ?"*  
+  > *"Trước giờ mình đã từng làm răng sứ hay tẩy trắng răng lần nào chưa anh/chị ha?"*
 
-- Tạo bầu không khí thân thiện và thoải mái để khách hàng dễ dàng chia sẻ **thông tin.** 
+### 3. Thu thập thông tin & tiền sử bệnh lý
+- Hỏi thăm thói quen sinh hoạt, công việc (có hay phải giao tiếp nhiều không).
+- Hỏi về thói quen nghiến răng khi ngủ, cắn đồ cứng (quan trọng để tư vấn độ bền sứ/Veneer).
+- Hỏi về tiền sử dị ứng, bệnh lý nướu/nhiệt miệng hoặc điều trị tủy trước đó.
 
+* **Ví dụ mẫu:**
+  > *"Cho em hỏi công việc của mình có thường xuyên phải giao tiếp nhiều không ạ? Mình có thói quen hay ăn đồ cứng hoặc nghiến răng khi ngủ không anh/chị ha?"* *(Để định hướng chọn chất liệu sứ chịu lực cao).*
 
+### 4. Đánh giá tình trạng răng miệng & Chẩn đoán
+- Mời Bác sĩ khám tổng quát răng miệng, kiểm tra khớp cắn, đường cười và sức khỏe nướu.
+- Chụp phim X-quang hoặc quét dấu răng kỹ thuật số 3D (Trios/iTero) để phân tích cấu trúc răng và phom dáng nụ cười.
 
-#### **Ví dụ:** 
+### 5. Phân tích & Tư vấn giải pháp (Răng sứ vs Veneer)
+- Bác sĩ phân tích và đưa ra chỉ định: Bọc răng sứ toàn sứ hay dán Mặt dán sứ Veneer.
+- TVV giải thích sự khác biệt giữa Bọc sứ (bảo vệ răng hư tổn/mài xung quanh) và Dán Veneer (bảo tồn tối đa men răng thật/chỉ mài mặt ngoài cực mỏng).
+- Cho khách xem các dải màu sứ (Shade guide), chọn phom răng phù hợp với dáng mặt và phong thủy.
 
-- Em chào anh/chị, giới thiệu với anh/chị, em là Vân Anh đang là tư vấn viên của nha khoa 3C ạ. Anh/chị nhà có gần đây không ạ, nãy anh/chị đi qua đây có kẹt xe hay không (tùy thời tiết hỏi thăm có mưa có nắng không) 
+* **Ví dụ mẫu:**
+  > *"Sau khi Bác sĩ thăm khám, trường hợp của mình răng bị sứt mẻ nhẹ và màu sắc chưa đều, phương pháp dán Veneer siêu mỏng sẽ giúp bảo tồn 95% men răng thật của mình ạ..."*  
+  > *"Bên em có các dòng sứ toàn sứ cao cấp như Cercon, Emax, Lava Ultimate với độ trong bóng tự nhiên và bảo hành chính hãng từ 10-15 năm ạ."*
 
-#### **2. Tìm hiểu nhu cầu và mong muốn của khách hàng:** 
+### 6. Khuyến khích & Động viên chốt dịch vụ
+- Đề xuất gói dịch vụ phù hợp với ngân sách của khách.
+- Giới thiệu chính sách bảo hành, chương trình ưu đãi làm trọn hàm (giảm thêm 5-10% từ 16 răng trở lên).
+- Tặng kèm quà tặng chăm sóc nướu sau khi bọc sứ.
+- Cho khách xem hình ảnh ca lâm sàng thực tế trước/sau của các khách hàng có dáng răng tương tự.
 
-- Hỏi khách hàng về lý do họ đến nha khoa và mong muốn của khách hàng 
+* **Ví dụ mẫu:**
+  > *"Hiện tại Nha khoa 3C đang có chương trình ưu đãi đặc biệt cho dòng sứ thẩm mỹ: khi mình làm combo từ 16 răng trở lên sẽ được giảm trực tiếp 5%, tặng kèm liệu trình chăm sóc nướu và nước súc miệng chuyên dụng ạ!"*
 
-- Tìm hiểu về tình trạng răng miệng hiện tại của khách hàng, bao gồm số lượng răng mất, vị trí mất răng, tình trạng xương hàm, răng sứ hay không… 
+### 7. Chốt dịch vụ & Lên lịch hẹn
+- Thống nhất phương án, số lượng răng và màu sứ lựa chọn.
+- Chốt lịch hẹn lấy dấu răng / mài sửa soạn hoặc gắn răng sứ tạm.
 
-- Hỏi khách hàng về mong muốn thẩm mỹ của họ, như màu sắc, kích thước và hình dạng của răng 
+* **Ví dụ mẫu:**
+  > *"Nếu anh/chị đã ưng ý với phom dáng và màu sứ này thì em xin phép đặt lịch hẹn với Bác sĩ để tiến hành lấy dấu răng cho mình luôn nhé!"*
 
+---
 
+## PHẦN III. KIẾN THỨC CHUYÊN MÔN RĂNG SỨ & VENEER
 
-#### **Ví dụ:** 
+### 1. Phục hình Răng Sứ (Dental Crown)
 
-- Dạ cho em hỏi tình trạng răng của mình hiện tại có đang gặp vấn đề gì không ạ, mình đã mất răng lâu chưa anh/chị ha, trước giờ mình có đeo hàm giả tháo lắp không ạ… 
+#### 1.1. Răng sứ là gì?
+Răng sứ là một mão răng giả được chế tạo bằng sứ (hoặc khung kim loại phủ sứ), có hình dáng, màu sắc và kích thước giống hệt răng thật. Mão sứ sẽ bao bọc toàn bộ phần thân răng thật đã được sửa soạn để khôi phục hình dáng và chức năng.
 
-- Anh/chị mong muốn làm răng để khắc phục ăn nhai hay là cả về thẩm mỹ ạ 
+#### 1.2. Lý do chọn Phục hình Răng sứ
+- **Thẩm mỹ hoàn hảo:** Màu sắc trong bóng tự nhiên, điều chỉnh được phom dáng răng theo yêu cầu.
+- **Độ bền & Chịu lực cao:** Răng sứ toàn sứ có độ chịu lực gấp 4-8 lần răng thật, ăn nhai thoải mái.
+- **Bảo vệ răng thật:** Phủ kín và bảo vệ các răng đã chữa tủy, răng sâu lớn hoặc nứt vỡ.
+- **Chống biến màu:** Bề mặt phủ bóng cao cấp không bị ố vàng bởi trà, cà phê hay thuốc lá.
 
-#### **3. Thu thập thông tin và tiền sử bệnh lý** 
+#### 1.3. Quy trình thực hiện Bọc răng sứ
+1. **Thăm khám & Chụp phim:** Kiểm tra tủy răng và khớp cắn.
+2. **Sửa soạn cùi răng:** Mài một lớp mỏng xung quanh răng thật (khoảng 0.6 - 1.2mm).
+3. **Lấy dấu răng & Gắn răng tạm:** Gắn răng tạm thẩm mỹ cho khách trong thời gian chờ chế tác.
+4. **Thử & Gắn mão sứ cố định:** Kiểm tra khớp cắn, màu sắc và dùng xi-măng nha khoa chuyên dụng để dán cố định.
 
-- Hỏi thăm gia đình, công việc để có thêm câu chuyện tạo cảm giác gần gủi 
+#### 1.4. So sánh Răng Sứ Toàn Sứ & Răng Sứ Kim Loại
 
-- Hỏi khách hàng về tiền sử bệnh lý toàn thân, bao gồm tim mạch, tiểu đường, huyết áp cao, loãng xương, dị ứng thuốc, v.v. 
+| Tiêu chí | Răng Sứ Toàn Sứ (Emax, Cercon, Lava) | Răng Sứ Kim Loại (Titan, Ceramco) |
+| :--- | :--- | :--- |
+| **Thẩm mỹ** | Trong tự nhiên, không đen cổ răng khi chiếu sáng | Dễ thấy ánh đen kim loại, đen viền nướu sau 3-5 năm |
+| **Độ bền chịu lực** | Rất cao (800 - 1400 MPa) | Trung bình - Khá (400 - 700 MPa) |
+| **Tuổi thọ** | 15 - 20 năm (hoặc vĩnh viễn) | 7 - 10 năm |
+| **Lành tính** | 100% sinh học, không gây kích ứng nướu | Có thể gây dị ứng nướu nhẹ ở người nhạy cảm |
 
-- Hỏi về các loại thuốc mà khách hàng đang sử dụng. 
+---
 
-- Hỏi về các ca phẫu thuật hoặc điều trị nha khoa trước đây của khách hàng 
+### 2. Mặt Dán Sứ Veneer (Porcelain Veneer)
 
+#### 2.1. Veneer là gì?
+Veneer là lớp sứ siêu mỏng (chỉ từ 0.2mm - 0.5mm) được chế tác cá nhân hóa và dán chặt vào mặt ngoài của răng thật nhằm che đi các khuyết điểm về màu sắc, hình dáng.
 
+#### 2.2. Ưu điểm vượt trội của Veneer
+- **Bảo tồn tối đa răng thật:** Chỉ mài một lớp men răng cực mỏng ở mặt ngoài (hoặc thậm chí không cần mài), giữ trọn vẹn tủy và răng thật.
+- **Thẩm mỹ tự nhiên đỉnh cao:** Miếng dán mỏng trong suốt phản chiếu ánh sáng tự nhiên như men răng thật.
+- **Không đau, không ê buốt:** Không tác động vào tủy răng nên quá trình thực hiện vô cùng nhẹ nhàng.
 
-#### **Ví dụ:** 
+#### 2.3. Quy trình dán Veneer
+1. **Khám & Thiết kế nụ cười (Smile Design):** Xem trước kết quả dáng răng.
+2. **Sửa soạn mặt ngoài răng:** Mài siêu mỏng mặt ngoài tạo độ bám.
+3. **Lấy dấu kỹ thuật số & Chế tác:** Sản xuất miếng dán Veneer bằng công nghệ CAD/CAM tinh xảo.
+4. **Dán cố định Veneer:** Dùng keo Resin chuyên dụng dán cố định miếng dán lên mặt ngoài răng.
 
-- Cho em hỏi hiện tại mình có đang uống thuốc điều trị bệnh gì không ạ, trước giờ mình có đi khám ở nha khoa nào chưa ạ, còn điều gì mình đang băn khoăn ở kế hoạch điều trị bên đó đưa ra cho chị ạ… 
+---
 
-- Mình có làm gần đây không anh/chị ha, công việc của mình chắc hay phải đi công tác này nọ ha (hỏi thăm công việc câu lựa chuyện để nói) 
+### 3. So Sánh & Hướng Dẫn Lựa Chọn: Răng Sứ vs Veneer
 
-#### **4. Đánh giá tình trạng răng miệng** 
+Để tư vấn chính xác cho khách hàng, TVV cần nắm rõ bảng phân biệt dưới đây:
 
-- Chuyển bác sĩ khám tổng quát răng miệng của khách hàng để đánh giá tình trạng răng, xương hàm và các mô mềm. 
+| Tiêu chí | Bọc Răng Sứ | Dán Sứ Veneer |
+| :--- | :--- | :--- |
+| **Mức độ mài răng** | Mài xung quanh răng (0.6mm - 1.2mm) | Mài cực mỏng mặt ngoài (0.2mm - 0.5mm) |
+| **Trường hợp áp dụng** | Răng sâu nặng, vỡ lớn, răng đã chữa tủy, khấp khểnh nhiều, lệch khớp cắn | Răng tương đối đều, bị thưa nhẹ, mẻ nhỏ, xỉn màu/nhiễm kháng sinh nhẹ |
+| **Khả năng chịu lực** | Chịu lực ăn nhai toàn diện cực tốt | Thích hợp cho nhóm răng cửa thẩm mỹ |
+| **Độ bảo tồn răng** | Trung bình | Tối đa |
 
-- Chụp X-quang nha khoa hoặc phim CT Cone Beam 3D để đánh giá chi tiết cấu trúc xương hàm, vị trí mất răng, mật độ xương và các dây thần kinh xung quanh. 
-
-#### **5. Phân tích và tư vấn** 
-
-- Sau khi bác sĩ phân tích tình trạng răng miệng của khách hàng và đưa ra phương án thực hiện răng sứ/Veneer cho phù hợp. 
-
-- Giải thích cho khách hàng về các loại răng sứ/Veneer khác nhau, quy trình làm răng sứ/Veneer , thời gian thực hiện, thời gian phục hồi và chi phí điều trị. 
-
-- Sử dụng ngôn ngữ dễ hiểu và tránh các thuật ngữ chuyên ngành phức tạp. 
-
-- Giải đáp tất cả các thắc mắc của khách hàng về răng sứ/Veneer một cách cẩn thận và chi tiết. 
-
-
-
-#### **Ví dụ** : 
-
-- Sau khi bác sĩ thăm khám và đưa ra kế hoạch điều trị cho anh/ chị thì không biết anh chị đã hiểu về tình trạng răng của mình chưa ha. Em giải thích lại một chút về tình trạng của mình cũng như kế hoạch điều trị ạ… 
-
-- Bên em có nhiều dòng sứ từ tầm trung đến cao cấp tùy theo nhu cầu, kinh phí và cũng như tình trạng răng của mình thì em sẽ tư vấn loại phù hợp với mình ạ 
-
-#### **6. Khuyến khích khách hàng sử dụng dịch vụ** 
-
-- Đề xuất cho khách hàng gói dịch vụ phù hợp với ngân sách và nhu cầu của họ. 
-
-- Chia sẻ các chương trình khuyến mãi hoặc ưu đãi hiện có của nha khoa. 
-
-- Cung cấp cho khách hàng các tài liệu tham khảo về dịch vụ, chẳng hạn như hình ảnh, video hoặc lời chứng thực của khách hàng trước đây. 
-
-- Tạo dựng niềm tin cho khách hàng bằng cách giới thiệu đội ngũ bác sĩ nha khoa giàu kinh nghiệm và chuyên nghiệp. 
-
-
-
-#### **Ví dụ** : 
-
-- Hiện tại bên em đang có chương trình tri ân đối với khách hàng khi mình làm dịch vụ răng sứ thẩm mỹ từ 16 răng trở lên được giảm thêm 5%, ngoài ra khi làm xong bên em sẽ tặng mình nước súc miệng giúp săn chắc nướu sau khi bọc răng sứ. Bên em sẽ chăm sóc chị tốt nhất luôn ạ. 
-
-- Ngoài ra bác sĩ bên em đều tốt nghiệp những trường top đầu của cả nước, đều là bác sĩ đầu ngành nên mình cứ yên tâm ạ 
-
-#### **7. Chốt dịch vụ và lên lịch hẹn** 
-
-- Chốt dịch vụ và lịch hẹn cho khách hàng thực hiện bọc răng sứ/Veneer. 
-
-- Hướng dẫn khách hàng về cách chăm sóc răng miệng trước và sau khi bọc răng sứ/Veneer 
-
-- Giải thích cho khách hàng về các lưu ý cần thiết trong quá trình bọc răng sứ/Veneer 
-
-
-
-- **Ví dụ** : 
-
-   - Nếu không còn thắc mắc gì nữa em đặt lịch hẹn cho anh/chị làm luôn nhé. 
-
-### **PHẦN III. KIẾN THỨC CHUYÊN MÔN** 
-
-#### **1. Răng sứ** 
-
-#### **1.1. Răng sứ là gì** 
-
-- **Răng sứ** là một loại răng giả được chế tạo từ vật liệu sứ, có hình dáng, màu sắc và kích thước giống như răng thật. Răng sứ được sử dụng để phục hình những chiếc răng bị hư hỏng, mòn, vỡ hoặc bị mất do các nguyên nhân khác nhau. 
-
-#### **1.2. Tại sao chọn răng sứ** 
-
-- **Thẩm mỹ cao:** Răng sứ có màu sắc tự nhiên, sáng bóng, giúp bạn có một nụ cười đẹp tự nhiên. 
-
-- **Bền chắc:** Răng sứ có độ bền cao, chịu được lực nhai tốt, có thể sử dụng lâu dài. 
-
-- **Chống ố vàng:** Răng sứ không bị ố vàng theo thời gian, giúp bạn luôn giữ được hàm răng trắng sáng. 
-
-- **An toàn cho sức khỏe:** Răng sứ không gây kích ứng nướu, không chứa chất độc hại, an toàn cho sức khỏe. 
-
-#### **1.3. Quy trình làm răng sứ** 
-
-- **Khám và tư vấn:** Bác sĩ sẽ khám răng, chụp X-quang để đánh giá tình trạng răng miệng và tư vấn phương án điều trị phù hợp. 
-
-- **Mài cùi răng:** Bác sĩ sẽ mài một phần nhỏ bề mặt răng để tạo chỗ cho mão răng sứ. 
-
-- **Lấy dấu răng:** Bác sĩ sẽ lấy dấu răng để tạo ra mô hình răng sứ. 
-
-- **Chế tạo răng sứ:** Mô hình răng sứ sẽ được gửi đến phòng lab để chế tạo răng sứ. 
-
-- **Đặt răng sứ:** Bác sĩ sẽ gắn răng sứ lên cùi răng đã được chuẩn bị. 
-
-- **Điều chỉnh và hoàn thiện:** Bác sĩ sẽ điều chỉnh răng sứ để đảm bảo răng sứ vừa khít và thoải mái khi ăn nhai. 
-
-#### **1.4. Các loại răng sứ phổ biến** 
-
-- **Răng sứ toàn sứ** : Loại răng sứ này được làm hoàn toàn bằng sứ, có màu sắc tự nhiên và thẩm mỹ cao. 
-
-
-
-(Hình ảnh minh họa) 
-
-- **Răng sứ kim loại** : Loại răng sứ này có lõi bên trong làm bằng kim loại và lớp ngoài phủ bằng sứ. Răng sứ kim loại có giá thành rẻ hơn răng sứ toàn sứ nhưng độ thẩm mỹ không cao bằng. 
-
-
-
-(Hình ảnh minh họa) 
-
-#### **1.5. Ưu điểm và nhược điểm của răng sứ** 
-
-|**Ưu điểm**|**Nhược điểm**|
-|---|---|
-|Thẩm mỹ cao, màu sắc tự nhiên|Chi phí cao hơn so với các phương pháp khác|
-|Bền chắc, chịu lực nhai tốt|Cần mài răng thật|
-|Chống ố vàng, không bị đổi màu|Không thể tự sửa chữa khi bị vỡ|
-|An toàn cho sức khỏe|Thời gian thực hiện lâu hơn|
-
-
-
-#### **1.6. Lưu ý khi làm răng sứ** 
-
-- **Chọn nha khoa uy tín:** Nên chọn nha khoa uy tín, có bác sĩ giàu kinh nghiệm để đảm bảo chất lượng điều trị. 
-
-- **Vệ sinh răng miệng đúng cách:** Cần vệ sinh răng miệng kỹ lưỡng sau khi làm răng sứ để đảm bảo răng sứ luôn bền đẹp. 
-
-- **Khám răng định kỳ:** Nên đi khám răng định kỳ để kiểm tra tình trạng răng sứ và phát hiện sớm các vấn đề nếu có. 
-
-#### **2.** **<mark>Veneer</mark>** 
-
-#### **2.1.** **<mark>Veneer là gì</mark>** 
-
-- **Veneer** : là một lớp sứ mỏng, được chế tạo riêng để dán lên bề mặt trước của răng. Chúng được sử dụng để cải thiện màu sắc, hình dạng và kích thước của răng, mang lại một nụ cười đẹp tự nhiên và đều tăm tắp. 
-
-#### **2.2. Tại sao nên chọn veneer** 
-
-- **Cải thiện thẩm mỹ** : Veneer giúp khắc phục các khuyết điểm của răng như: 
-
-   - Răng ố vàng, xỉn màu 
-
-   - Răng bị mẻ, sứt, mòn 
-
-   - Răng thưa, răng khểnh 
-
-   - Răng bị mài mòn 
-
-- **Bền màu, bền đẹp** : Veneer được làm từ sứ cao cấp, có độ bền màu cao, không bị ố vàng theo thời gian và có độ bền tương đương với răng thật. 
-
-- **Thẩm mỹ cao** : Veneer mang lại vẻ đẹp tự nhiên, khó phân biệt với răng thật. 
-
-- **Không ảnh hưởng đến răng thật** : Veneer chỉ mài một lớp men răng mỏng để tạo độ bám, không xâm lấn quá nhiều vào cấu trúc răng. 
-
-#### **2.3. Quy trình thực hiện veneer** 
-
-- **Khám và tư vấn:** Bác sĩ sẽ khám răng, chụp X-quang và tư vấn về phương pháp điều trị phù hợp. 
-
-- **Mài răng:** Bác sĩ sẽ mài một lớp mỏng men răng để tạo độ bám cho veneer. 
-
-- **Lấy dấu răng:** Bác sĩ sẽ lấy dấu răng để tạo ra mẫu veneer chính xác. 
-
-- **Chế tạo veneer:** Mẫu dấu răng sẽ được gửi đến phòng lab để chế tạo veneer sứ. 
-
-- **Gắn veneer:** Veneer sẽ được gắn lên răng bằng một loại keo đặc biệt. 
-
-- **Điều chỉnh:** Bác sĩ sẽ điều chỉnh veneer để đảm bảo độ khít và thẩm mỹ. 
-
-#### **3. Răng sứ và Veneer: Sự khác biệt và lựa chọn phù hợp** 
-
-- **Răng sứ** và **Veneer** là hai phương pháp phục hình răng thẩm mỹ phổ biến hiện nay, giúp cải thiện màu sắc, hình dáng và độ đều của răng. Tuy nhiên, hai phương pháp này có những điểm khác biệt đáng kể, ảnh hưởng đến việc lựa chọn của mỗi người. 
-
-#### **3.1. Răng sứ** 
-
-- **Đặc điểm:** Răng sứ là một mão răng nhân tạo được chế tạo từ sứ hoặc kim loại quý, bao phủ hoàn toàn bề mặt răng thật. 
-
-- **Ứng dụng:** 
-
-   - Răng bị vỡ, mẻ lớn 
-
-   - Răng bị sâu nặng, cần phục hình 
-
-   - Răng bị đổi màu nặng, không thể tẩy trắng 
-
-   - Răng bị mòn nhiều 
-
-- **Ưu điểm** : 
-
-   - Độ bền cao, chịu lực tốt 
-
-   - Màu sắc tự nhiên, đa dạng 
-
-   - Khôi phục chức năng ăn nhai hiệu quả 
-
-- **Nhược điểm:** 
-
-   - Cần mài răng thật nhiều hơn so với Veneer 
-
-#### **3.2. Veneer** 
-
-- **Đặc điểm:** Veneer là một lớp sứ mỏng, được dán lên bề mặt trước của răng để cải thiện hình dáng, màu sắc và độ đều của răng. 
-
-- **Ứng dụng:** 
-
-   - Răng bị ố vàng, nhiễm màu 
-
-   - Răng có khoảng cách nhỏ 
-
-   - Răng bị mẻ nhẹ, sứt mẻ 
-
-   - Răng bị mòn men 
-
-- **Ưu điểm** : 
-
-   - Bảo tồn tối đa răng thật 
-
-   - Màu sắc tự nhiên, thẩm mỹ cao 
-
-   - Quá trình thực hiện nhanh chóng 
-
-- **Nhược điểm:** 
-
-   - Độ bền không bằng răng sứ 
-
-   - Chi phí cao 
-
-   - Không phù hợp với các trường hợp răng bị hư hỏng nặng 
-
+> **Lời khuyên cho TVV khi tư vấn khách hàng:**  
+> - Nếu khách hàng có **răng cửa đẹp sẵn nhưng bị xỉn màu, thưa nhẹ, mẻ nhỏ** và muốn bảo tồn răng thật tối đa -> **Tư vấn dán Veneer**.  
+> - Nếu khách hàng có **răng hư tổn nặng, răng đã điều trị tủy, răng khấp khểnh nhiều hoặc cần lực ăn nhai mạnh ở răng hàm** -> **Tư vấn Bọc Răng Sứ**.
