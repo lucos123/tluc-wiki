@@ -1,13 +1,16 @@
 ---
 title: Tài Liệu Tham Khảo Kỹ Năng Tư Vấn & Mẫu Hội Thoại Ghép Xương
-date: 2024-09-20
+date: 2026-07-26
 tags: [tu-van, tham-khao, roleplay, ghep-xuong, nha-khoa-3c]
+source:
+  - [[quytrinh_thuviec_tvv_3c]]
 ---
 
 # TÀI LIỆU THAM KHẢO KỸ NĂNG TƯ VẤN & MẪU HỘI THOẠI THỰC CHIẾN
 
 > **CÔNG TY TNHH TMDV Y TẾ 3C**  
-> **Mã tài liệu:** TLTC/TVV-TK01 | **Ngày ban hành:** 20/09/2024 | **Lần ban hành:** 01  
+> **Mã tài liệu:** TLTC/TVV-TK01 | **Ngày ban hành:** 26/07/2026 | **Lần ban hành:** 01  
+> **Tài liệu gốc:** [Quy Trình Đào Tạo, Đánh Giá Thử Việc TVV](./quytrinh_thuviec_tvv_3c.md) (TVV-QT-001)
 
 ---
 

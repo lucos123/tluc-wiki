@@ -19,7 +19,7 @@ source:
 > **CÔNG TY TNHH TMDV Y TẾ 3C**  
 > **Địa chỉ:** A35 Cống Quỳnh, P. Cầu Ông Lãnh, Tp. Hồ Chí Minh  
 > **Hotline:** (028) 3 925 1331 | 0916 037 766  
-> **Mã tài liệu:** TVV-QT-001 | **Phiên bản:** v1.0 | **Ngày ban hành:** ......./......./2026
+> **Mã tài liệu:** TVV-QT-001 | **Phiên bản:** v1.0 | **Ngày ban hành:** 26/07/2026
 
 ---
 
@@ -27,7 +27,7 @@ source:
 
 Tài liệu này là sự kết hợp hoàn chỉnh giữa **Khung Quản trị Hành chính của Phòng HCNS** (bám sát mã WBS từ template chuẩn) và **Nội dung Đào tạo Chuyên môn Thực chiến** của Bộ phận Tư vấn viên. 
 
-Tài liệu được sử dụng bởi Trưởng nhóm Tư vấn viên (Lead) và Nhân sự mới để theo dõi, đào tạo và đánh giá năng lực thử việc trong vòng 2 tháng (8 tuần).
+Tài liệu được sử dụng bởi Quản lý trực tiếp (Trưởng nhóm TVV) và Nhân sự mới để theo dõi, đào tạo và đánh giá năng lực thử việc trong vòng 2 tháng (8 tuần).
 
 ---
 

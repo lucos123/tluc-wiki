@@ -1,13 +1,16 @@
 ---
 title: Bộ Kịch Bản Tư Vấn Chuyên Sâu Theo Phân Khúc Khách Hàng
-date: 2024-09-20
+date: 2026-07-26
 tags: [tu-van, kich-ban, sales, nhap-vai, nha-khoa-3c, kich-ban-chuyen-sau]
+source:
+  - [[quytrinh_thuviec_tvv_3c]]
 ---
 
 # BỘ KỊCH BẢN TƯ VẤN CHUYÊN SÂU TẠI NHA KHOA 3C
 
 > **CÔNG TY TNHH TMDV Y TẾ 3C**  
-> **Mã tài liệu:** TLTC/TVV-KB01 | **Ngày ban hành:** 20/09/2024 | **Lần ban hành:** 01  
+> **Mã tài liệu:** TLTC/TVV-KB01 | **Ngày ban hành:** 26/07/2026 | **Lần ban hành:** 01  
+> **Tài liệu gốc:** [Quy Trình Đào Tạo, Đánh Giá Thử Việc TVV](./quytrinh_thuviec_tvv_3c.md) (TVV-QT-001)
 
 ---
 

@@ -200,7 +200,8 @@ Hệ thống tài liệu được tổ chức theo kiến trúc **Hub & Spoke** 
 | 11 | [TVV_checklist_moc_2_tuan_4_5.md](./TVV_checklist_moc_2_tuan_4_5.md) | Biểu mẫu | 7.2 KB | Checklist đánh giá Mốc 2 (Tuần 4-5) |
 | 12 | [TVV_checklist_moc_3_tuan_6_8.md](./TVV_checklist_moc_3_tuan_6_8.md) | Biểu mẫu | 8.1 KB | Checklist đánh giá Mốc 3 & Final (Tuần 6-8) |
 | 13 | [3c_quytrinhthuviec_v1.csv](./3c_quytrinhthuviec_v1.csv) | Nguồn gốc | 3.2 KB | Template WBS gốc từ Phòng HCNS (nguồn tham chiếu) |
-| | **TỔNG CỘNG** | **13 files** | **~226 KB** | **Bộ tài liệu đào tạo TVV hoàn chỉnh** |
+| 14 | [TVV_baocao_tonghop_daotao_thuviec.md](./TVV_baocao_tonghop_daotao_thuviec.md) | Báo cáo | 17.0 KB | Báo cáo tổng hợp toàn bộ hệ thống tài liệu |
+| | **TỔNG CỘNG** | **14 files** | **~243 KB** | **Bộ tài liệu đào tạo TVV hoàn chỉnh** |
 
 ---
 

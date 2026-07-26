@@ -1,13 +1,16 @@
 ---
 title: Bộ Kịch Bản Xử Lý Từ Chối & Khủng Hoảng Truyền Thông
-date: 2024-09-29
+date: 2026-07-26
 tags: [tu-van, xu-ly-tu-choi, khung-hoang-truyen-thong, sales, nha-khoa-3c]
+source:
+  - [[quytrinh_thuviec_tvv_3c]]
 ---
 
 # BỘ KỊCH BẢN XỬ LÝ TỪ CHỐI & KHỦNG HOẢNG TRUYỀN THÔNG
 
 > **CÔNG TY TNHH TMDV Y TẾ 3C**  
-> **Mã tài liệu:** TLTC/TVV-XC01 | **Ngày ban hành:** 29/09/2024 | **Lần ban hành:** 01  
+> **Mã tài liệu:** TLTC/TVV-XC01 | **Ngày ban hành:** 26/07/2026 | **Lần ban hành:** 01  
+> **Tài liệu gốc:** [Quy Trình Đào Tạo, Đánh Giá Thử Việc TVV](./quytrinh_thuviec_tvv_3c.md) (TVV-QT-001)
 
 ---
 

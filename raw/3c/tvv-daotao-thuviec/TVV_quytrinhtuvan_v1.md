@@ -1,13 +1,16 @@
 ---
 title: Quy Trình Tư Vấn Lễ Tân - Điều Phối - Tư Vấn Viên
-date: 2024-09-29
+date: 2026-07-26
 tags: [quy-trinh, tu-van, le-tan, dieu-phoi, nha-khoa-3c]
+source:
+  - [[quytrinh_thuviec_tvv_3c]]
 ---
 
 # QUY TRÌNH TƯ VẤN LỄ TÂN – ĐIỀU PHỐI – TƯ VẤN VIÊN
 
 > **CÔNG TY TNHH TMDV Y TẾ 3C**  
-> **Mã tài liệu:** TLTC/BPLT-3C | **Ngày ban hành:** 29/09/2024 | **Lần ban hành:** 01 | **Người lập:** Nguyễn Thị Vân Anh  
+> **Mã tài liệu:** TLTC/BPLT-3C | **Ngày ban hành:** 26/07/2026 | **Lần ban hành:** 01 | **Người lập:** Nguyễn Thị Vân Anh  
+> **Tài liệu gốc:** [Quy Trình Đào Tạo, Đánh Giá Thử Việc TVV](./quytrinh_thuviec_tvv_3c.md) (TVV-QT-001)
 
 ---
 

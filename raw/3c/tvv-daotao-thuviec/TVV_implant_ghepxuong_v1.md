@@ -1,13 +1,16 @@
 ---
 title: Tài Liệu Tư Vấn Chuyên Sâu - Implant & Ghép Xương
-date: 2024-07-10
+date: 2026-07-26
 tags: [tu-van, implant, ghep-xuong, nha-khoa-3c, kien-thuc-chuyen-mon]
+source:
+  - [[quytrinh_thuviec_tvv_3c]]
 ---
 
 # TÀI LIỆU TƯ VẤN CHUYÊN SÂU IMPLANT & GHÉP XƯƠNG
 
 > **CÔNG TY TNHH TMDV Y TẾ 3C**  
-> **Mã tài liệu:** TLTC/TVV-3C | **Ngày ban hành:** 10/07/2024 | **Lần ban hành:** 01  
+> **Mã tài liệu:** TLTC/TVV-3C | **Ngày ban hành:** 26/07/2026 | **Lần ban hành:** 01  
+> **Tài liệu gốc:** [Quy Trình Đào Tạo, Đánh Giá Thử Việc TVV](./quytrinh_thuviec_tvv_3c.md) (TVV-QT-001)
 
 ---
 
