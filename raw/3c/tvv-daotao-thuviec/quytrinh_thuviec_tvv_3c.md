@@ -63,14 +63,14 @@ Ngay trong ngày đầu tiên nhận việc, Quản lý trực tiếp tiến hà
 | **3.2** | | Sơ đồ tổ chức bộ phận | Tuần 1 | Trình bày sơ đồ tổ chức bộ phận, chỉ rõ vị trí và vai trò của nhân sự mới trong cơ chế phối hợp 4 bên (TVV - Lễ tân - Bác sĩ - Phụ tá). | Quản lý trực tiếp | [ ] |
 | **4.1** | 4 | Tổng quan Khách hàng bên ngoài | Tuần 1 | Nắm rõ 4 tệp khách chính: KH mới, KH cũ đang điều trị, KH bảo hành, KH VIP giới thiệu. Cách thức liên hệ và làm việc. | Quản lý trực tiếp | [ ] |
 | **4.2** | | Tổng quan Khách hàng nội bộ | Tuần 1 | Nắm rõ đầu mối phối hợp: Lễ tân (thu tiền), Điều phối (xếp ghế), Bác sĩ (chuyên môn), Phụ tá (dẫn khách). Ai là đầu mối liên hệ mỗi phòng. <br> 🔗 **ĐÁNH GIÁ NGÀY 7:** [Checklist 7 Ngày Thử Việc](./TVV_checklist_7_ngay_v1.md) *(Phụ lục 1)* | Quản lý trực tiếp | [ ] |
-| **5.1** | 5 | Quy trình tư vấn chuẩn | Tuần 2 | Hướng dẫn tất cả quy trình làm việc nội bộ phận: 🔗 [Sơ Đồ Luồng Chạy Khách](./TVV_quytrinhtuvan_v1.md) *(Phụ lục 2)* | Quản lý trực tiếp | [ ] |
-| **5.2** | | Phần mềm quản lý Remo | Tuần 2 - Tuần 4 | Hướng dẫn sử dụng công cụ đặc thù — Thành thạo 5 thao tác Remo: Tạo hồ sơ, check-in, xem lịch hẹn ghế, ghi chú tư vấn, check "Hoàn thành". | Quản lý trực tiếp | [ ] |
-| **6.1** | 6 | **Công việc đặc thù:** Tuần 1 (Ngày 3) | Tuần 1 | Học bảng giá cơ bản, thuộc vị trí phòng khám, quan sát tiếp đón tại quầy Lễ tân. | Quản lý trực tiếp & TVV Mới | [ ] |
-| **6.2** | | **Công việc đặc thù:** Tuần 1 (Ngày 4-7) | Tuần 1 | Đóng vai (Roleplay) tiếp đón, vượt qua bài test vấn đáp 7 ngày đầu. | Quản lý trực tiếp & TVV Mới | [ ] |
-| **6.3** | | **Công việc đặc thù:** Tuần 2-3 (Mốc 1) | Tuần 2-3 | **Đào tạo Khí cụ & Dịch vụ Chuyên sâu:** <br> 🔗 Implant & Ghép xương: [Phụ lục 3](./TVV_implant_ghepxuong_v1.md) <br> 🔗 Răng sứ & Veneer: [Phụ lục 4](./TVV_rangsu_veneer_v1.md) <br> 📋 **ĐÁNH GIÁ MỐC 1:** [Checklist Mốc 1](./TVV_checklist_moc_1_tuan_2_3.md) *(Phụ lục 5)* | Quản lý trực tiếp & TVV Mới | [ ] |
-| **6.4** | | **Công việc đặc thù:** Tuần 4-5 (Mốc 2) | Tuần 4-5 | **Đào tạo Kịch bản Chốt Sales & Roleplay:** <br> 🔗 Kịch bản 9 phân khúc: [Phụ lục 6](./TVV_kichbanchuyensau_v1.md) <br> 🔗 Kỹ năng thấu hiểu KH: [Phụ lục 7](./TVV_thamkhao_v1.md) <br> 📋 **ĐÁNH GIÁ MỐC 2:** [Checklist Mốc 2](./TVV_checklist_moc_2_tuan_4_5.md) *(Phụ lục 8)* | TVV Mới | [ ] |
-| **6.5** | | **Công việc đặc thù:** Tuần 6-8 (Mốc 3) | Tuần 6-8 | **Thực chiến Độc lập & Xử lý Từ chối:** <br> 🔗 Bộ 20 câu từ chối & 5 câu khủng hoảng: [Phụ lục 9](./TVV_xulytuchoi_v1.md) <br> 📋 **ĐÁNH GIÁ MỐC 3 & FINAL:** [Checklist Mốc 3 & Final](./TVV_checklist_moc_3_tuan_6_8.md) *(Phụ lục 10)* | TVV Mới | [ ] |
-| **7.1** | 7 | Họp Review định kỳ | Thứ 4 hằng tuần | Họp review ngắn 15-30 phút mỗi Thứ 4 hằng tuần: Review kết quả, tháo gỡ khó khăn, giao mục tiêu tuần mới. | Quản lý trực tiếp | [ ] |
+| **5.1** | 5 | **Công việc đặc thù:** Tuần 1 (Ngày 3) | Tuần 1 | Học bảng giá cơ bản, thuộc vị trí phòng khám, quan sát tiếp đón tại quầy Lễ tân. | Quản lý trực tiếp & TVV Mới | [ ] |
+| **5.2** | | **Công việc đặc thù:** Tuần 1 (Ngày 4-7) | Tuần 1 | Đóng vai (Roleplay) tiếp đón, vượt qua bài test vấn đáp 7 ngày đầu. | Quản lý trực tiếp & TVV Mới | [ ] |
+| **6.1** | 6 | Quy trình tư vấn chuẩn | Tuần 2 | Hướng dẫn tất cả quy trình làm việc nội bộ phận: 🔗 [Sơ Đồ Luồng Chạy Khách](./TVV_quytrinhtuvan_v1.md) *(Phụ lục 2)* | Quản lý trực tiếp | [ ] |
+| **6.2** | | Phần mềm quản lý Remo | Tuần 2 - Tuần 4 | Hướng dẫn sử dụng công cụ đặc thù — Thành thạo 5 thao tác Remo: Tạo hồ sơ, check-in, xem lịch hẹn ghế, ghi chú tư vấn, check "Hoàn thành". | Quản lý trực tiếp | [ ] |
+| **7.1** | 7 | **Công việc đặc thù:** Tuần 2-3 (Mốc 1) | Tuần 2-3 | **Đào tạo Khí cụ & Dịch vụ Chuyên sâu:** <br> 🔗 Implant & Ghép xương: [Phụ lục 3](./TVV_implant_ghepxuong_v1.md) <br> 🔗 Răng sứ & Veneer: [Phụ lục 4](./TVV_rangsu_veneer_v1.md) <br> 📋 **ĐÁNH GIÁ MỐC 1:** [Checklist Mốc 1](./TVV_checklist_moc_1_tuan_2_3.md) *(Phụ lục 5)* | Quản lý trực tiếp & TVV Mới | [ ] |
+| **7.2** | | **Công việc đặc thù:** Tuần 4-5 (Mốc 2) | Tuần 4-5 | **Đào tạo Kịch bản Chốt Sales & Roleplay:** <br> 🔗 Kịch bản 9 phân khúc: [Phụ lục 6](./TVV_kichbanchuyensau_v1.md) <br> 🔗 Kỹ năng thấu hiểu KH: [Phụ lục 7](./TVV_thamkhao_v1.md) <br> 📋 **ĐÁNH GIÁ MỐC 2:** [Checklist Mốc 2](./TVV_checklist_moc_2_tuan_4_5.md) *(Phụ lục 8)* | TVV Mới | [ ] |
+| **7.3** | | **Công việc đặc thù:** Tuần 6-8 (Mốc 3) | Tuần 6-8 | **Thực chiến Độc lập & Xử lý Từ chối:** <br> 🔗 Bộ 20 câu từ chối & 5 câu khủng hoảng: [Phụ lục 9](./TVV_xulytuchoi_v1.md) <br> 📋 **ĐÁNH GIÁ MỐC 3 & FINAL:** [Checklist Mốc 3 & Final](./TVV_checklist_moc_3_tuan_6_8.md) *(Phụ lục 10)* | TVV Mới | [ ] |
+| **8.1** | 8 | Họp Review định kỳ | Thứ 4 hằng tuần | Họp review ngắn 15-30 phút mỗi Thứ 4 hằng tuần: Review kết quả, tháo gỡ khó khăn, giao mục tiêu tuần mới. | Quản lý trực tiếp | [ ] |
 
 ---
 
@@ -89,16 +89,20 @@ Ngay trong ngày đầu tiên nhận việc, Quản lý trực tiếp tiến hà
   4. *Bước 4:* Đứng cùng Bác sĩ trong ca khám, ghi chép lại chỉ định chuyên môn vào sổ tư vấn.
   5. *Bước 5:* Đưa khách sang phòng Tư vấn, giải thích lại phác đồ, báo giá chi tiết và chốt gói dịch vụ.
   6. *Bước 6:* Đưa khách xuống thu tiền, dặn dò chăm sóc và bấm check "Hoàn thành" trên Remo.
+
+### 3. Nhóm WBS 5: Công Việc Đặc Thù Tuần 1 (Ngày 3 - Ngày 7)
+- **Công việc Ngày 3 (WBS 5.1):** Học bảng giá cơ bản, thuộc vị trí các phòng khám, quan sát tiếp đón tại quầy Lễ tân, shadowing ca tư vấn mẫu.
+- **Công việc Ngày 4-7 (WBS 5.2):** Luyện tập nhập vai (Roleplay) tiếp đón & tư vấn cơ bản.
 - **Tài liệu kiểm tra Tuần 1:** TVV phải hoàn thiện toàn bộ hạng mục trong [Checklist 7 Ngày Thử Việc](./TVV_checklist_7_ngay_v1.md) *(Phụ lục 1)*. Cuối ngày thứ 7, Lead tổ chức bài test vấn đáp (Đạt > 80% mới được tiếp tục thử việc).
 
-### 3. Nhóm WBS 5: Quy Trình Tư Vấn & Sử Dụng Phần Mềm Remo (Tuần 2 - Tuần 4)
+### 4. Nhóm WBS 6: Quy Trình Tư Vấn & Sử Dụng Phần Mềm Remo (Tuần 2 - Tuần 4)
 - **Luồng di chuyển chuẩn:** Nắm lòng từng mắt xích trong [Sơ Đồ Luồng Chạy Khách](./TVV_quytrinhtuvan_v1.md) *(Phụ lục 2)*. Biết rõ khi nào cần chuyển khách đi chụp phim, khi nào khách đồng ý điều trị ngay và khi nào khách hẹn lại.
 - **Kỹ năng Remo (tiếp tục rèn luyện đến hết Tuần 4):**
   - Nhập đầy đủ tiền sử bệnh lý (tiểu đường, huyết áp, dị ứng).
   - Chọn đúng tên Bác sĩ chỉ định và Điều phối xếp ghế.
   - Ghi rõ nội dung tư vấn: *Dòng trụ chọn, số lượng răng, số tiền tạm ứng, cam kết khuyến mãi*.
 
-### 4. Nhóm WBS 6: Công Việc Đặc Thù - 3 Mốc Đào Tạo Chuyên Sâu (Tuần 1 - Tuần 8)
+### 5. Nhóm WBS 7: Công Việc Đặc Thù - 3 Mốc Đào Tạo Chuyên Sâu (Tuần 2 - Tuần 8)
 
 #### 🔹 Mốc 1 (Tuần 2 - Tuần 3): Làm chủ Kiến thức Khí cụ & Sản phẩm
 - **Dịch vụ Implant:** Học thuộc cấu trúc 3 phần (Trụ, Abutment, Mão sứ), ưu nhược điểm các dòng trụ Hàn Quốc, Mỹ, Thụy Sĩ; quy trình ghép xương, nâng xoang → [Phụ lục 3](./TVV_implant_ghepxuong_v1.md).
@@ -115,7 +119,7 @@ Ngay trong ngày đầu tiên nhận việc, Quản lý trực tiếp tiến hà
 - **KPI Thực chiến Tháng 2:** Đứng tư vấn độc lập 100%, chịu chỉ tiêu doanh số cá nhân (Ví dụ: Junior đạt 150 triệu, Senior đạt 300 triệu/tháng).
 - 📋 **Đánh giá cuối Mốc 3 & Final:** Hoàn thiện bộ hồ sơ theo [Checklist Mốc 3 & Final - Tuần 6-8](./TVV_checklist_moc_3_tuan_6_8.md) *(Phụ lục 10)*.
 
-### 5. Nhóm WBS 7: Họp Review Tiến Độ Hàng Tuần (WBS 7.1)
+### 6. Nhóm WBS 8: Họp Review Tiến Độ Hàng Tuần (WBS 8.1)
 Vào **Thứ 4 hằng tuần**, Quản lý trực tiếp và TVV dành 15-30 phút họp review theo cấu trúc:
 1. *Kết quả tuần qua:* Đã hoàn thành những mục WBS nào? Thao tác Remo có sai sót không?
 2. *Khó khăn thực tế:* Ca tư vấn nào bị fail? Tại sao khách chưa chốt?
