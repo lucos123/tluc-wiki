@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "raw/Managing Agent Skills.md",
+                "file": "raw/claude-code/Loop engineering Getting started with loops.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Managing Agent Skills"
+              "title": "Loop engineering Getting started with loops"
             }
           }
         ]
@@ -185,6 +185,18 @@
   },
   "active": "1c99e09fc643f7f5",
   "lastOpenFiles": [
+    "raw/claude-code/Loop engineering Getting started with loops.md",
+    "wiki/concepts/Effort Level and Model Selection.md",
+    "wiki/sources/Claude Code effort level and model selection.md",
+    "raw/claude-code/Claude Code effort level and model selection  Claude.md",
+    "raw/claude-code/Building verification loops in Claude Code with skills.md",
+    "raw/claude-code/How Anthropic runs large-scale code migrations with Claude Code.md",
+    "wiki/entities/Mike Krieger.md",
+    "wiki/entities/Jarred Sumner.md",
+    "wiki/concepts/AI Code Migration.md",
+    "wiki/sources/How Anthropic runs large-scale code migrations with Claude Code.md",
+    "claude-code/How Anthropic runs large-scale code migrations with Claude Code.md",
+    "claude-code",
     "wiki/concepts/Programmatic Tool Calling.md",
     "wiki/entities/GPT-5.6.md",
     "wiki/sources/GPT-5.6 Frontier Intelligence.md",
@@ -201,17 +213,6 @@
     "wiki/sources/Gemini CLI Skills.md",
     "raw/Agent Skills.md",
     "raw/gemini-overview-skills.md",
-    "wiki/entities/Codex.md",
-    "wiki/sources/Codex Skills.md",
-    "index.md",
-    "GEMINI.md",
-    "raw/codex-skills.md",
-    "wiki/sources/Claude Code Monorepo Setup.md",
-    "raw/cc-mono and large repo.md",
-    "wiki/sources/Claude Code Hooks.md",
-    "raw/cc-hooks.md",
-    "wiki/sources/Claude Code Skills.md",
-    "wiki/entities/OpenBrain Agents.md",
     "lint.py",
     "wiki/sources",
     "wiki/entities",
@@ -219,7 +220,6 @@
     "wiki/analyses",
     "raw/Day_1_v3.pdf",
     "Untitled",
-    "raw/assets/Day_1_v3.pdf",
-    "raw/assets/Unconfirmed 666422.crdownload"
+    "raw/assets/Day_1_v3.pdf"
   ]
 }
