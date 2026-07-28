@@ -3,7 +3,7 @@ title: "Summary: 7 AI Coding Trends to Watch This Year in 2026"
 date: 2026-06-28
 tags:
   - trends
-  - AI
+  - ai
 source: "[[raw/7 AI Coding Trends to Watch This Year in 2026.md]]"
 ---
 

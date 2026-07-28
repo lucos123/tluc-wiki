@@ -5,12 +5,12 @@ tags:
   - source
   - loop-engineering
   - langchain
-  - agents
+  - agent
+source: raw/claude-code/The Art of Loop Engineering.md
 ---
 
 # The Art of Loop Engineering: How to Build Agents That Improve Over Time
 
-**Source**: `raw/claude-code/The Art of Loop Engineering.md` (YouTube Transcript)
 **Author**: Sydney (Product Manager at LangChain)
 
 ## Overview

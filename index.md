@@ -35,7 +35,6 @@ A catalog of everything in the knowledge base.
 - [[Vibe Coding vs Agentic Engineering]]: The spectrum of AI-assisted development.
 - [[Verification Loop]]: The repeating check-and-fix cycle where an AI agent verifies its own work before reporting completion. Covers gate strengths and 4 deployment modes (Standalone, Embedded, Chained, PR).
 - [[llm-wiki]]: A pattern for building personal knowledge bases using LLMs.
-- [[quytrinh_thuviec_tvv_3c]]: Quy trình đào tạo và đánh giá thử việc dành cho vị trí Tư vấn viên tại Nha khoa 3C.
 
 ## Sources
 - [[12 Agentic Harness Patterns from Claude Code]]: Design patterns from a leaked production agent's source code.

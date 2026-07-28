@@ -3,7 +3,7 @@ title: The New SDLC With Vibe Coding
 date: 2026-06-28
 tags:
   - source
-  - ai_sdlc
+  - ai-sdlc
   - engineering_practice
 source: "[[raw/assets/Day_1_v3.pdf]]"
 ---

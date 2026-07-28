@@ -101,7 +101,7 @@ def extract_wiki_links(content):
 
 def read_index_links(index_file):
     """Extract all [[wiki links]] referenced in index.md."""
-    with open(index_file, "r", encoding="utf-8") as f:
+    with open(index_file, "r", encoding="utf-8", errors="replace") as f:
         content = f.read()
     return set(extract_wiki_links(content))
 
@@ -168,7 +168,7 @@ def lint_wiki(wiki_dir, index_file):
     title_map = defaultdict(list)
 
     for p in pages:
-        with open(p["path"], "r", encoding="utf-8") as f:
+        with open(p["path"], "r", encoding="utf-8", errors="replace") as f:
             content = f.read()
 
         # Frontmatter check

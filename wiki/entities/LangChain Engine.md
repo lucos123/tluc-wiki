@@ -4,7 +4,7 @@ date: 2026-07-28
 tags:
   - entity
   - langchain
-  - tools
+  - tool
 ---
 
 # LangChain Engine

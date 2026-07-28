@@ -55,4 +55,4 @@ Most robust safeguards to date. Layered approach: model-level protections + real
 
 ## Sources
 
-- [[GPT-5.6: Frontier Intelligence That Scales With Your Ambition]]
+- [[GPT-5.6 Frontier Intelligence|GPT-5.6: Frontier Intelligence That Scales With Your Ambition]]

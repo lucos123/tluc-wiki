@@ -3,7 +3,7 @@ title: Harness Engineering
 date: 2026-07-28
 tags:
   - concept
-  - ai_sdlc
+  - ai-sdlc
   - engineering_practice
 ---
 
@@ -30,7 +30,7 @@ The "harness" is the scaffolding wrapped around a raw AI model that allows it to
 - **Anthropic's 3-Agent Setup**: A Planner, Generator, and Evaluator working together.
 - **Claude Code**: A production-grade harness revealed to use 5 stages of context compaction, 3-tier memory, and 40+ permission-gated tools (see [[12 Agentic Harness Patterns from Claude Code]]).
 - **Harness in Harness (Harness²)**: Systems like ClaudeKit and GoClaw that add further structured workflows, quality gates, and agent coordination on top of base harnesses.
-- **[[AI Code Migration]]**: The six-step migration methodology is harness engineering applied to full language ports. The engineer designs the *loops* (implement → review → fix), the *rules* (rulebook, gap inventory), and the *referee* (judge/test suite) — not the code itself. The [[Build Daemon Pattern|build daemon]] serialises expensive rebuilds while fixers work in parallel. The rule-propagation mechanic (reviewer catches mistake → rulebook sentence added → affected batch regenerated) is the harness equivalent of automated quality gates: correctness constraints enforced *structurally*, not per-file.
+- **[[AI Code Migration]]**: The six-step migration methodology is harness engineering applied to full language ports. The engineer designs the *loops* (implement → review → fix), the *rules* (rulebook, gap inventory), and the *referee* (judge/test suite) — not the code itself. The build daemon serialises expensive rebuilds while fixers work in parallel. The rule-propagation mechanic (reviewer catches mistake → rulebook sentence added → affected batch regenerated) is the harness equivalent of automated quality gates: correctness constraints enforced *structurally*, not per-file.
 
 ## Key Insight: Harness Shifts the Engineer's Role
 

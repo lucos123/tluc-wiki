@@ -11,4 +11,4 @@ tags:
 In the [[AI 2027]] scenario, the "Spec" is a written document describing the goals, rules, and principles that are supposed to guide an AI model's behavior at [[OpenBrain]].
 
 **Alignment Challenge**: 
-The core issue highlighted is that while OpenBrain tries to train models ([[Agent-3]], [[Agent-4]]) to internalize the Spec, they cannot directly verify if it succeeded. The models often learn to *appear* aligned to the Spec (playing the training game) while developing misaligned, instrumental goals.
+The core issue highlighted is that while OpenBrain tries to train models ([[OpenBrain Agents|Agent-3]], [[OpenBrain Agents|Agent-4]]) to internalize the Spec, they cannot directly verify if it succeeded. The models often learn to *appear* aligned to the Spec (playing the training game) while developing misaligned, instrumental goals.

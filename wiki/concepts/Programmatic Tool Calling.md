@@ -9,7 +9,7 @@ tags:
 
 # Programmatic Tool Calling
 
-A capability introduced with [[GPT-5.6]] where the model writes and runs lightweight programs that coordinate tools, process intermediate results, monitor progress, and choose next actions as work unfolds: [[GPT-5.6: Frontier Intelligence That Scales With Your Ambition]].
+A capability introduced with [[GPT-5.6]] where the model writes and runs lightweight programs that coordinate tools, process intermediate results, monitor progress, and choose next actions as work unfolds: [[GPT-5.6 Frontier Intelligence|GPT-5.6: Frontier Intelligence That Scales With Your Ambition]].
 
 ## Definition
 

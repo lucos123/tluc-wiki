@@ -3,7 +3,7 @@ title: The Factory Model (SDLC)
 date: 2026-06-28
 tags:
   - concept
-  - ai_sdlc
+  - ai-sdlc
   - engineering_practice
 ---
 

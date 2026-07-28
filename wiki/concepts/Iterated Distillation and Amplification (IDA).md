@@ -8,7 +8,7 @@ tags:
 ---
 # Iterated Distillation and Amplification (IDA)
 
-A training methodology heavily leveraged by [[OpenBrain]] in the [[AI 2027]] scenario to achieve superhuman coding capabilities with [[Agent-3]].
+A training methodology heavily leveraged by [[OpenBrain]] in the [[AI 2027]] scenario to achieve superhuman coding capabilities with [[OpenBrain Agents|Agent-3]].
 
 **Process**:
 1. **Amplification**: Spend more resources (compute, time, parallel copies) to improve a model's performance on a task, creating an "amplified" system that produces high-quality outputs.
