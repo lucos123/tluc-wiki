@@ -4,22 +4,29 @@ A catalog of everything in the knowledge base.
 
 ## Entities
 - [[Addy Osmani]]: Engineering leader and advocate for "AI-assisted engineering".
+- [[Caleb Writes Code]]: Tech content creator focusing on AI agent engineering architecture.
 - [[Claude Code]]: Agentic coding environment developed by Anthropic.
 - [[Codex]]: OpenAI's coding agent platform.
 - [[DeepCent]]: Fictional state-backed Chinese AI collective from the AI 2027 scenario.
 - [[GPT-5.6]]: OpenAI's frontier model family (Sol, Terra, Luna) emphasizing token efficiency and parallel reasoning.
 - [[Gemini CLI]]: Open-source terminal AI assistant by Google.
 - [[Greta]]: Context-aware AI development partner tool.
+- [[HumanLayer]]: Tooling platform focused on human-in-the-loop agentic workflows and production control loops.
 - [[Jarred Sumner]]: Bun co-founder and Anthropic MTS; ran the Zig→Rust 1M-line migration with Claude Code.
+- [[Kyle Mistele]]: Co-founder/engineer at HumanLayer; introduced Control-Loop Engineering.
 - [[LangChain Engine]]: Background agent in LangSmith that powers the Hill-Climbing Loop by optimizing traces.
 - [[Mike Krieger]]: Anthropic Labs co-lead; ran the Python→TypeScript 165K-line weekend migration with Claude Code.
 - [[OpenBrain]]: Fictional leading US AGI company from the AI 2027 scenario.
 - [[OpenBrain Agents]]: The series of increasingly capable AI models (Agent 1-4) developed by OpenBrain.
+- [[Sean's AI Stories]]: Educational content creator focusing on AI agent systems, memory architectures, and LLMOps.
+- [[Uber]]: Global mobility and food delivery enterprise using closed-loop evals for multimodal agent orchestration.
 
 ## Concepts
 - [[AI Code Migration]]: Six-step methodology for AI-assisted language/framework migrations at industrial scale.
+- [[Closed-Loop Evals]]: Automated architecture for continuous evaluation, reflection, prompt optimization, and auto-deployment without human intervention.
 - [[Conductor vs Orchestrator]]: Modes of developer interaction with AI.
 - [[Context Engineering]]: The practice of explicitly managing and structuring what the AI "sees".
+- [[Control-Loop Engineering]]: Application of Classical Control Theory to agentic loops (Set Point, Sensors, Actuator, Adaptive Flow Control, FEEDBACK.md).
 - [[Effort Level and Model Selection]]: The 2D decision framework for model × effort tuning in Claude Code — includes diagnostic heuristic ("didn't try" vs "didn't know") and cost-interaction curves.
 - [[Harness Engineering]]: The design of the environment (tools, sandboxes, memory) that wraps the model.
 - [[Hill-Climbing Loop]]: The highest level of LangChain's loop taxonomy, where an agent autonomously self-improves its own harness via trace analysis.
@@ -40,8 +47,12 @@ A catalog of everything in the knowledge base.
 - [[12 Agentic Harness Patterns from Claude Code]]: Design patterns from a leaked production agent's source code.
 - [[7 AI Coding Trends to Watch This Year in 2026]]: Shifts in software development as AI integration matures, such as AI-native systems and context-aware tools.
 - [[AI 2027]]: Scenario forecasting the rapid development of superhuman AI and geopolitical tensions between 2025-2027.
+- [[Agent Harness explained in 8min]]: Caleb Writes Code's concise breakdown of the 3-stage evolution (Prompt → Context → Harness Engineering) and fresh-context loops.
 - [[Best practices for Claude Code]]: Guide to managing context, verification, and autonomous workflows.
+- [[Building Closed-Loop Evals for a Multimodal Agent at Scale]]: Uber's presentation on multimodal agent orchestration, closed-loop auto-tuning, and Pass at K metrics.
 - [[Building verification loops in Claude Code with skills]]: How to encode manual checks as skills and deploy them standalone, embedded, chained, or as PR-level team gates.
+- [[Loop Engineering explained in 8min]]: Caleb Writes Code's technical breakdown of multi-loop stacking and Addy Osmani's 6 components of loop engineering.
+- [[Loop Engineering from First Principles]]: Kyle Mistele's talk on applying Control Theory and production patterns (Adaptive Flow Control, FEEDBACK.md) to agentic loops.
 - [[Loop engineering Getting started with loops]]: Official Claude Code loop taxonomy — turn-based, goal-based, time-based, proactive — with decision framework and the full proactive loop composition.
 - [[Best practices – Codex]]: Habits and configurations to scale agentic usage with AGENTS.md and MCP.
 - [[Claude Code Hooks]]: Documentation on lifecycle hooks for deterministic agent control and workflow automation.
@@ -61,5 +72,6 @@ A catalog of everything in the knowledge base.
 - [[The Art of Loop Engineering]]: LangChain's 4-level loop taxonomy culminating in autonomous self-improvement via trace evaluation.
 - [[The New SDLC With Vibe Coding]]: Whitepaper detailing the transition to intent-driven software development.
 - [[Vault Welcome]]: Summary of the default Obsidian onboarding note.
+- [[You Can Learn AI Agent Harness & Loop Engineering In 19 Min]]: Sean's AI Stories breakdown of horse-and-harness analogy, 4 memory tiers, and LLMOps.
 
 ## Analyses

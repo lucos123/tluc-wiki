@@ -1,0 +1,275 @@
+---
+title: "Loop Engineering explained in 8min.."
+date: 2026-07-30
+tags:
+  - raw
+  - video-transcript
+source_type: video
+url: "https://www.youtube.com/watch?v=4biXYSNkn9Y"
+channel: "Caleb Writes Code"
+upload_date: "2026-07-03"
+duration: "8m 53s"
+---
+
+# Loop Engineering explained in 8min..
+
+**Channel**: Caleb Writes Code
+**URL**: https://www.youtube.com/watch?v=4biXYSNkn9Y
+**Upload Date**: 2026-07-03
+**Duration**: 8m 53s
+**Transcript extracted**: 2026-07-30
+
+---
+
+## Transcript
+
+Well, here we are again with yet another
+term called loop engineering. And it
+wasn't even that long ago we had harness
+engineering. So, is this just a
+marketing hype or is there actually
+something substantial behind loop
+engineering? Let's walk down from prompt
+engineering all the way to loop
+engineering to see why we need it each
+step of the way. We all know by now what
+prompt engineering is. Let's say I start
+with the prompt, you are a helpful
+customer service rep. Please be nice to
+my customers. This is prompt engineering
+because you are prompting the agent by
+implicitly telling the agent what to do.
+And we can then ask AI any question and
+the agent will impersonate a customer
+service rep based on the prompt we just
+generated. That makes sense and super
+simple. So why do we need context
+engineering? Turns out this prompt that
+we just created lives inside of the
+agents context window and we still have
+a lot of room left in our context to do
+something more useful. So what if we
+gave the agent autonomy to invoke tools
+to start filling up its own context
+based on what the prompt actually needs?
+This was the beginning of context
+engineering where the agent could now
+access files to load and make changes or
+even use MCP to start interacting with
+databases and external applications to
+load its own context. Cool. Context
+engineering makes sense. So then why do
+we need harness engineering? Well,
+there's actually no inherent flaw to
+context engineering, but rather it has
+limitations. Context engineering is not
+really good at tasks that take longer
+than 5 to 10 minutes long. And here's
+why. Tasks that take long tend to
+require more context than what the agent
+can handle. And while it could keep
+summarizing its own context as it
+approached the limit, it was extremely
+leaky where important details started to
+get lost in each step of the
+summarization. So essentially we needed
+a system outside of context engineering
+to better manage internally its own
+context from outside in and this very
+external system is what we call harness
+engineering. Harness engineering manages
+the context from the outside and helps
+the agent runtime to work on tasks that
+help break down the user's requirement
+into a more stable execution. Let's look
+at a few examples to make sure that we
+understand this more concretely and
+we'll use chatib and clot code since
+it's something that we all have hands-on
+experience in. But before we dive in,
+today's video is sponsored by Verta. If
+you write code for a living, you
+probably hit a point where your own
+machine just can't handle what you're
+trying to build. And that's the gap that
+Verta fills in. Verta is a full stack AI
+cloud built for the whole model life
+cycle. from a single GPU instance and
+instant clusters to serverless inference
+and manage endpoints. It isn't a general
+purpose cloud with AI bolted on after
+the fact. It's built specifically for AI
+work by people who actually train and
+serve models. So the workflow is
+designed around how you'd actually use
+it. And the workflow is the part that I
+like. You sign up, spin up an instance,
+and pick your GPU, anything from the new
+GB300 down to an older V100. You then
+drop in your SSH key, and you're
+straight in from your own terminal. I
+just SSH in from VS Code, drag my code
+across, and I've got all the VRAMm that
+the card gives me to run without ever
+leaving my editor. There's also a CLI if
+you'd rather stay in the terminal start
+to finish. Spin instances up, manage
+them, and connect all from the command
+line. On the hardware side, you get
+serious NVIDIA GPUs like B300's with
+NVLink, Infiniband, and fast NVME
+storage for workloads where interconnect
+and throughput actually matter. And if
+you're working with data or model
+weights you can't afford to expose, Vera
+supports confidential computing, so your
+workload stays encrypted while it's
+actually running on GPU, not just
+sitting in storage. Link in the
+description. Use code Caleb-50 to get
+$50 off of compute for just $5. That's
+90% off of your first top up. Thanks
+again, Vera, for sponsoring. Asking
+Chachib the question, "How many
+cheeseburgers can I fit between the
+Earth and the Moon?" This is solely
+using prompt engineering because it
+doesn't need anything external to answer
+a very simple question. It can just
+reason through what it already knows to
+answer my question. Now asking chacheti
+what is the latest discovery that NASA
+made. This now has to use context
+engineering because it has to search the
+web and gather relevant information from
+NASA to help answer my question. So
+context engineering helps bringing
+information from the web autonomously.
+Now when I ask clot code, can you clone
+the entire NASA website? This is all
+done by harness engineering because the
+NASA website as you can imagine is
+really complex and simply relying on
+context engineering on tasks like this
+will start to choke midway through. So
+harness engineering provides an external
+mechanism to help manage the context and
+the runtime for the agent to work
+through a long list of tasks. Now you
+might have noticed a pattern that
+emerges from this and that pattern is
+the concept of loops. For context
+engineering, there's a loop where the
+agent recursively calls tool after tool
+autonomously until it thinks that it has
+enough context to answer your question.
+And for harness engineering, there's
+also a loop where the agent has a list
+of tasks outside of the context window
+to keep iterating task after task until
+the entire operation is finished. So
+what we find is that we are essentially
+stacking loop on top of another loop.
+Now we get to loop engineering which is
+yet another loop in itself. I know is
+there even an end to this. So loop
+engineering stacks another loop outside
+of harness engineering layer to guide
+the harness externally. But why why do
+we even need yet another scaffolding?
+Again at the heart of loop engineering
+loop engineering targets the human
+interaction in actually prompting the
+agent to do something. Everything that
+we have seen so far involves a human
+asking the agent questions like, "How
+many cheeseburgers can I fit between
+Earth and the moon? What is the latest
+news on NASA?" Or even clone the NASA's
+website. These are prompts that require
+me to actually prompt the agent. But
+what if we built a scaffolding outside
+of this so that the agent can also
+prompt itself on what it thinks it needs
+to do? That is the heart and the spirit
+of what loop engineering tries to
+target. And if all of this sounds hokeyp
+pokey to you, you're probably not alone.
+There's a lot of people saying loop
+engineering is just a buzzword and
+that's trying to encourage people to
+just burn more tokens and create more AI
+slop. And so far, we have really yet to
+see loop engineering in action that
+really makes a huge difference. But it
+could be the next evolution in our
+engineering philosophy as agents expand
+its scopes in what it can help us with.
+And it does raise a really interesting
+debate and discussion around all of
+this. So what exactly is loop
+engineering and how does all of it work?
+Addiosman wrote a blog describing loop
+engineering with six components. But we
+don't want to read all of this. So
+instead of boring you with details, I'm
+going to give you a potential use case
+of loop engineering that help you wrap
+your head around what loop engineering
+could look like. Let's say I built a
+website that keeps track of the World
+Cup scores. And when I ask Codeex to
+build me a World Cup website, Codex will
+use prompt, context, and harness
+engineering to build this beautifully
+written website. Now, there's one
+problem here, and that problem is that
+the World Cup games are happening every
+single day. And that means in order to
+maintain the website that I just created
+through Codeex, I have to keep prompting
+the agent to frequently update the site
+and also work on bug fixes that people
+might find on the website. But what if I
+just created a schedule task inside of
+Codeex to check every hour for updates
+as new information becomes available?
+And what if I do the same for bug fixes
+where the agent just checks autonomously
+for bugs that are reported by users and
+fix them. What you're seeing here is
+that we are beginning to create this
+loop outside of harness engineering
+where it's self-guided rather than
+humanguided to maintain my website. And
+because I have skills and plugins
+already installed on my codeex
+environment, the agent can access an
+existing knowledge base to keep building
+and improving its knowledge along the
+way. And the agent can also use sub
+agents to verify its own work and also
+the ability to work on multiple fixes at
+the same time by using what's called
+work tree to prevent runtime
+contamination along the way. All of
+these that I just mentioned are
+essential ingredients to what makes loop
+engineering what it is. And that is the
+six components that Addi Osmani wrote in
+his blog. Automation, workree, skills,
+plugins and connectors, sub aents and
+state are components of loop
+engineering. And while this World Cup
+website that I just created is just an
+example of what loop engineering could
+look like, the true potential of what
+loop engineering could really be is
+still somewhat theoretical. And one
+thing to keep in mind is that loop
+engineering doesn't necessarily mean
+that all the engineering philosophy
+underneath is less important or even
+less needed that before. It's just
+agents growing in scope and building on
+top of each other.

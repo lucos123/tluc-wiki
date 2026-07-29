@@ -3,8 +3,10 @@ name: wiki-ingest
 description: >
   Ingest a new source document into the wiki knowledge base. Use when the user
   asks to add, process, ingest, import, or summarize a new raw source document
-  (article, paper, notes, transcript) into the wiki. Handles reading the source,
-  creating wiki pages, updating the index, and maintaining the operation log.
+  (article, paper, notes, transcript, or video URL) into the wiki. Handles
+  reading the source, creating wiki pages, updating the index, and maintaining
+  the operation log. Supports automatic YouTube transcript extraction via a
+  bundled script — no browser interaction needed.
 ---
 
 # Wiki Ingest Skill
@@ -24,6 +26,45 @@ Before doing any writing, complete these checks:
    re-ingest (update) or skip.
 3. **Read `index.md`** to understand what pages already exist and how they are
    organized. This prevents duplicate page creation.
+
+## Source Type Detection
+
+Before reading the source, identify its type and follow the matching protocol:
+
+| Source Type | Indicator | Protocol |
+|-------------|-----------|----------|
+| **File** | Path to `.md`, `.pdf`, `.docx`, `.txt` in `raw/` | Proceed directly to Step 1 |
+| **Article URL** | HTTP/HTTPS link to a blog post, paper, or doc page | Fetch the page content (use browser or `read_url_content`), save to `raw/`, then Step 1 |
+| **Video URL** | YouTube, Vimeo, or other video platform link | Run **Video Extraction Protocol** below |
+
+### Video Extraction Protocol
+
+This replaces manual browser-based transcript extraction. It is faster, token-free,
+and produces a clean, structured file.
+
+**Step V1 — Run the extraction script:**
+```powershell
+python .agents/skills/wiki-ingest/scripts/extract_youtube_transcript.py <VIDEO_URL>
+```
+
+The script will:
+- Auto-install `yt-dlp` if not present
+- Fetch video metadata (title, channel, duration, upload date)
+- Download and clean the transcript (manual captions preferred, auto-captions as fallback)
+- Save a `.md` file to `raw/video-transcripts/` with full YAML frontmatter
+- **Print the saved file path to stdout**
+
+**Step V2 — Note the output path** (printed to stdout by the script).
+
+**Step V3 — Proceed to Step 1** using the saved `.md` file as your source.
+
+**If the script fails** (no captions available, geo-blocked, private video):
+Read `references/video-ingest-guide.md` for manual fallback options and the
+video-specific source page template.
+
+> **Token efficiency**: The extraction script does all the heavy lifting outside
+> the LLM context. The model only reads the final clean transcript, not the raw
+> VTT/SRT format with timestamps.
 
 ## Step 1 — Read & Analyze the Source
 
@@ -86,6 +127,10 @@ source: "[[raw/<filename>]]"
 base? How does it connect to, support, or contradict existing pages? Note any
 tensions or evolving claims.>
 ```
+
+> **For Video Sources**: Use the extended template in
+> `references/video-ingest-guide.md` which includes `source_type`, `url`,
+> `channel`, `speaker`, and `duration` fields in the frontmatter.
 
 ### Source Page Quality Rules
 
