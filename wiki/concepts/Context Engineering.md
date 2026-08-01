@@ -25,3 +25,9 @@ The practice of providing AI agents with rich, structured information about a co
 
 ## Relationship to Harness Engineering
 Context Engineering is considered a subset of [[Harness Engineering]]. While Context Engineering focuses on *what information* the agent receives to answer correctly, Harness Engineering focuses on the *entire ecosystem* surrounding the agent (tools, permissions, feedback loops, guardrails). Tools like [[Claude Code]] manage context using progressive compaction techniques (e.g., MicroCompact, AutoCompact) to prevent "context rot" over long sessions.
+
+## Context Truncation & Preserved Thinking Patterns
+
+As explored in [[Kimi Multi-turn Context Management Guide]] and [[Preserved Thinking]]:
+- **System Prompt Pinning**: When implementing FIFO message truncation in stateless APIs, the `system` prompt must remain pinned at the top of every payload while pruning older `user` and `assistant` messages.
+- **[[Preserved Thinking]]**: Preserving historical `reasoning_content` across multi-turn tool loops allows reasoning models (`[[Kimi K3]]`, `[[Kimi K2.7 Code]]`) to retain continuous chains of thought without re-deriving decisions.

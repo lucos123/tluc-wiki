@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "raw/claude-code/Loop engineering Getting started with loops.md",
+                "file": "raw/kimi/model-capabilities/Set Parameters for Multi-turn Chat.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Loop engineering Getting started with loops"
+              "title": "Set Parameters for Multi-turn Chat"
             }
           }
         ]
@@ -185,41 +185,41 @@
   },
   "active": "1c99e09fc643f7f5",
   "lastOpenFiles": [
+    "wiki/concepts/Reasoning Effort.md",
+    "wiki/concepts/Preserved Thinking.md",
+    "wiki/sources/Kimi Thinking Models & Preserved Thinking Guide.md",
+    "wiki/sources/Kimi Multi-turn Context Management Guide.md",
+    "wiki/sources/Kimi Reasoning Effort Guide.md",
+    "wiki/concepts/Dynamic Tool Loading.md",
+    "wiki/entities/Kimi K2.7 Code.md",
+    "wiki/sources/Kimi API Quickstart & Integration.md",
+    "wiki/sources/Kimi API Model List & Deprecations.md",
+    "wiki/sources/Kimi K2.7 Code Guide.md",
+    "wiki/sources/Kimi K3 Model Guide.md",
+    "raw/kimi/model-capabilities/Reasoning Effort.md",
+    "raw/kimi/model-capabilities/Set Parameters for Multi-turn Chat.md",
+    "raw/kimi/model-capabilities/Thinking Models.md",
+    "GEMINI.md",
+    "raw/kimi/model-capabilities",
+    "raw/kimi/Kimi K2.7 Code.md",
+    "raw/kimi/Kimi K3.md",
+    "raw/kimi/Model List.md",
+    "raw/kimi/Quickstart.md",
     "raw/claude-code/Loop engineering Getting started with loops.md",
+    "raw/kimi",
     "wiki/concepts/Effort Level and Model Selection.md",
     "wiki/sources/Claude Code effort level and model selection.md",
     "raw/claude-code/Claude Code effort level and model selection  Claude.md",
     "raw/claude-code/Building verification loops in Claude Code with skills.md",
     "raw/claude-code/How Anthropic runs large-scale code migrations with Claude Code.md",
     "wiki/entities/Mike Krieger.md",
-    "wiki/entities/Jarred Sumner.md",
-    "wiki/concepts/AI Code Migration.md",
-    "wiki/sources/How Anthropic runs large-scale code migrations with Claude Code.md",
-    "claude-code/How Anthropic runs large-scale code migrations with Claude Code.md",
     "claude-code",
-    "wiki/concepts/Programmatic Tool Calling.md",
-    "wiki/entities/GPT-5.6.md",
-    "wiki/sources/GPT-5.6 Frontier Intelligence.md",
-    "Model GPT 5.6/GPT-5.6 Frontier intelligence that scales with your ambition.md",
-    "raw/GPT-5.6 Frontier intelligence that scales with your ambition.md",
-    "raw/Managing Agent Skills.md",
     "Model GPT 5.6",
-    "wiki/sources/Creating Agent Skills.md",
-    "wiki/sources/Get started with Agent Skills.md",
-    "wiki/sources/Managing Agent Skills.md",
-    "raw/Creating Agent Skills.md",
-    "raw/Get started with Agent Skills.md",
-    "raw/Best practices – Codex.md",
-    "wiki/sources/Gemini CLI Skills.md",
-    "raw/Agent Skills.md",
-    "raw/gemini-overview-skills.md",
     "lint.py",
     "wiki/sources",
     "wiki/entities",
     "wiki/concepts",
     "wiki/analyses",
-    "raw/Day_1_v3.pdf",
-    "Untitled",
-    "raw/assets/Day_1_v3.pdf"
+    "raw/Day_1_v3.pdf"
   ]
 }

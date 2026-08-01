@@ -13,9 +13,13 @@ A catalog of everything in the knowledge base.
 - [[Greta]]: Context-aware AI development partner tool.
 - [[HumanLayer]]: Tooling platform focused on human-in-the-loop agentic workflows and production control loops.
 - [[Jarred Sumner]]: Bun co-founder and Anthropic MTS; ran the Zig→Rust 1M-line migration with Claude Code.
+- [[Kimi K2.7 Code]]: Dedicated long-horizon coding and agentic model by Moonshot AI with 256K context and HighSpeed variant.
+- [[Kimi K3]]: Open-weights frontier AI model by Moonshot AI featuring 896 experts, 1.8% activation, and KDA.
 - [[Kyle Mistele]]: Co-founder/engineer at HumanLayer; introduced Control-Loop Engineering.
 - [[LangChain Engine]]: Background agent in LangSmith that powers the Hill-Climbing Loop by optimizing traces.
+- [[Leonhard Euler]]: Swiss mathematician (1707–1783) who founded Graph Theory, the theoretical basis for Graph Engineering.
 - [[Mike Krieger]]: Anthropic Labs co-lead; ran the Python→TypeScript 165K-line weekend migration with Claude Code.
+- [[Moonshot AI]]: AI research lab behind the Kimi model series.
 - [[OpenBrain]]: Fictional leading US AGI company from the AI 2027 scenario.
 - [[OpenBrain Agents]]: The series of increasingly capable AI models (Agent 1-4) developed by OpenBrain.
 - [[Sean's AI Stories]]: Educational content creator focusing on AI agent systems, memory architectures, and LLMOps.
@@ -27,7 +31,9 @@ A catalog of everything in the knowledge base.
 - [[Conductor vs Orchestrator]]: Modes of developer interaction with AI.
 - [[Context Engineering]]: The practice of explicitly managing and structuring what the AI "sees".
 - [[Control-Loop Engineering]]: Application of Classical Control Theory to agentic loops (Set Point, Sensors, Actuator, Adaptive Flow Control, FEEDBACK.md).
+- [[Dynamic Tool Loading]]: Pattern for declaring tool schemas on-demand inside system messages during chat completions.
 - [[Effort Level and Model Selection]]: The 2D decision framework for model × effort tuning in Claude Code — includes diagnostic heuristic ("didn't try" vs "didn't know") and cost-interaction curves.
+- [[Graph Engineering]]: Orchestration paradigm structuring reliable agent nodes into directed graphs (DAGs or cyclic graphs).
 - [[Harness Engineering]]: The design of the environment (tools, sandboxes, memory) that wraps the model.
 - [[Hill-Climbing Loop]]: The highest level of LangChain's loop taxonomy, where an agent autonomously self-improves its own harness via trace analysis.
 - [[Loop Engineering]]: The 4-type taxonomy (turn-based, goal-based, time-based, proactive) for designing agent loops with explicit triggers, stop conditions, and quality gates.
@@ -35,7 +41,10 @@ A catalog of everything in the knowledge base.
 - [[Model Specification (Spec)]]: Document outlining desired AI behavior and alignment rules.
 - [[Neuralese]]: High-dimensional vector memory that replaces text-based chain-of-thought.
 - [[Persistent Instruction File]]: Durable guidance for agents (e.g., AGENTS.md, CLAUDE.md).
+- [[Preserved Thinking]]: Pattern of retaining historical reasoning_content across multi-turn messages to preserve continuous chain-of-thought.
 - [[Programmatic Tool Calling]]: Model capability to write and execute code for filtering data and dynamically orchestrating tool calls.
+- [[Reasoning Effort]]: Top-level model parameter for dynamically tuning reasoning depth (low, high, max).
+- [[Stable Latent MoE]]: Ultra-sparse MoE architecture with latent token compression and quantile balancing.
 - [[Superhuman AI]]: AI systems capable of recursively improving themselves.
 - [[Superhuman Coder]]: Milestone where AI can perform coding tasks faster and cheaper than top humans.
 - [[The Factory Model (SDLC)]]: Building systems that build software.
@@ -63,10 +72,19 @@ A catalog of everything in the knowledge base.
 - [[Creating Agent Skills]]: Detailed guide on automated and manual creation of Gemini Agent Skills.
 - [[GPT-5.6 Frontier Intelligence]]: OpenAI launch announcement for GPT-5.6 (Sol, Terra, Luna) focusing on efficiency and parallel agent reasoning.
 - [[Gemini CLI Skills]]: Documentation on the Gemini CLI's implementation of Agent Skills, emphasizing progressive disclosure and explicit consent models.
+- [[Graph Engineering explained in 8min]]: Caleb Writes Code's technical breakdown of multi-agent graph topologies, node capability evolution, and prompt caching economics.
 - [[Gemini CLI Tips & Tricks]]: Dozens of pro-tips for Google's agentic command-line tool.
 - [[Get started with Agent Skills]]: Tutorial on creating an API Auditor skill for the Gemini CLI.
 - [[Harness Engineering]]: Goon Nguyen's breakdown of why the ecosystem around the model matters more than the model itself.
 - [[How Anthropic runs large-scale code migrations with Claude Code]]: Anthropic's six-step AI migration methodology; Bun Zig→Rust (1M lines, $165K) and Python→TypeScript (165K lines, 1 weekend).
+- [[Kimi API Model List & Deprecations]]: Official model IDs, context lengths, and sunset schedule for Moonshot AI APIs.
+- [[Kimi API Quickstart & Integration]]: Integration guide for Kimi models via OpenAI-compatible endpoints, streaming, and multimodal inputs.
+- [[Kimi K2.7 Code Guide]]: Moonshot AI documentation for Kimi K2.7 Code and HighSpeed variants.
+- [[Kimi K3 Model Guide]]: Technical documentation for Kimi K3, Moonshot AI's 2.8T open-source flagship model.
+- [[Kimi K3 explained in 13min]]: Caleb Writes Code's technical deep-dive into Kimi K3's architecture, Stable Latent MoE, and KDA.
+- [[Kimi Multi-turn Context Management Guide]]: Best practices for managing stateless conversation payloads, message truncation, and system prompt pinning.
+- [[Kimi Reasoning Effort Guide]]: Guidance for configuring top-level reasoning_effort in Kimi K3.
+- [[Kimi Thinking Models & Preserved Thinking Guide]]: Detailed breakdown of reasoning tokens, preserved thinking, and multi-step tool configurations across Kimi models.
 - [[Managing Agent Skills]]: Guide to slash commands, terminal utilities, and discovery tiers for Gemini Agent Skills.
 - [[My LLM coding workflow going into 2026]]: Addy Osmani's structured "AI-assisted engineering" approach.
 - [[The Art of Loop Engineering]]: LangChain's 4-level loop taxonomy culminating in autonomous self-improvement via trace evaluation.
