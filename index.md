@@ -4,11 +4,15 @@ A catalog of everything in the knowledge base.
 
 ## Entities
 - [[Addy Osmani]]: Engineering leader and advocate for "AI-assisted engineering".
+- [[Andre Karpathy]]: AI researcher and founding team member at OpenAI; framed the "smarter vs. faster" model trade-off.
 - [[Caleb Writes Code]]: Tech content creator focusing on AI agent engineering architecture.
+- [[Cerebras Systems]]: Wafer-scale AI chip manufacturer providing 750 t/s ultra-fast inference for OpenAI.
 - [[Claude Code]]: Agentic coding environment developed by Anthropic.
 - [[Codex]]: OpenAI's coding agent platform.
 - [[DeepCent]]: Fictional state-backed Chinese AI collective from the AI 2027 scenario.
 - [[GPT-5.6]]: OpenAI's frontier model family (Sol, Terra, Luna) emphasizing token efficiency and parallel reasoning.
+- [[GPT-5.6 Luna]]: Fast, cost-sensitive model tier ($0.20/$1.20) in the GPT-5.6 family for high-volume subagents.
+- [[GPT-5.6 Terra]]: Balanced model tier ($2.00/$12.00) in the GPT-5.6 family, replacing GPT-5.4/5.5 at lower cost.
 - [[Gemini CLI]]: Open-source terminal AI assistant by Google.
 - [[Greta]]: Context-aware AI development partner tool.
 - [[HumanLayer]]: Tooling platform focused on human-in-the-loop agentic workflows and production control loops.
@@ -20,6 +24,7 @@ A catalog of everything in the knowledge base.
 - [[Leonhard Euler]]: Swiss mathematician (1707–1783) who founded Graph Theory, the theoretical basis for Graph Engineering.
 - [[Mike Krieger]]: Anthropic Labs co-lead; ran the Python→TypeScript 165K-line weekend migration with Claude Code.
 - [[Moonshot AI]]: AI research lab behind the Kimi model series.
+- [[OpenAI]]: AI research and deployment company developing the GPT model series, Codex, and Responses API.
 - [[OpenBrain]]: Fictional leading US AGI company from the AI 2027 scenario.
 - [[OpenBrain Agents]]: The series of increasingly capable AI models (Agent 1-4) developed by OpenBrain.
 - [[Sean's AI Stories]]: Educational content creator focusing on AI agent systems, memory architectures, and LLMOps.
@@ -36,14 +41,17 @@ A catalog of everything in the knowledge base.
 - [[Graph Engineering]]: Orchestration paradigm structuring reliable agent nodes into directed graphs (DAGs or cyclic graphs).
 - [[Harness Engineering]]: The design of the environment (tools, sandboxes, memory) that wraps the model.
 - [[Hill-Climbing Loop]]: The highest level of LangChain's loop taxonomy, where an agent autonomously self-improves its own harness via trace analysis.
+- [[Inference Speed vs Intelligence Trade-off]]: 3D decision framework balancing model intelligence, token speed, and token efficiency in model serving.
 - [[Loop Engineering]]: The 4-type taxonomy (turn-based, goal-based, time-based, proactive) for designing agent loops with explicit triggers, stop conditions, and quality gates.
 - [[Iterated Distillation and Amplification (IDA)]]: Training methodology to amplify and distill model capabilities.
+- [[Model Context Protocol]]: Open standard enabling AI models and agent harnesses to connect to external systems.
 - [[Model Specification (Spec)]]: Document outlining desired AI behavior and alignment rules.
 - [[Neuralese]]: High-dimensional vector memory that replaces text-based chain-of-thought.
 - [[Persistent Instruction File]]: Durable guidance for agents (e.g., AGENTS.md, CLAUDE.md).
 - [[Preserved Thinking]]: Pattern of retaining historical reasoning_content across multi-turn messages to preserve continuous chain-of-thought.
 - [[Programmatic Tool Calling]]: Model capability to write and execute code for filtering data and dynamically orchestrating tool calls.
 - [[Reasoning Effort]]: Top-level model parameter for dynamically tuning reasoning depth (low, high, max).
+- [[Responses API]]: OpenAI's v1/responses endpoint succeeding Chat Completions, built for native tool use, hosted shell, and multi-agent coordination.
 - [[Stable Latent MoE]]: Ultra-sparse MoE architecture with latent token compression and quantile balancing.
 - [[Superhuman AI]]: AI systems capable of recursively improving themselves.
 - [[Superhuman Coder]]: Milestone where AI can perform coding tasks faster and cheaper than top humans.
@@ -71,6 +79,9 @@ A catalog of everything in the knowledge base.
 - [[Codex Skills]]: Documentation on how Codex implements the open Agent Skills standard using progressive disclosure.
 - [[Creating Agent Skills]]: Detailed guide on automated and manual creation of Gemini Agent Skills.
 - [[GPT-5.6 Frontier Intelligence]]: OpenAI launch announcement for GPT-5.6 (Sol, Terra, Luna) focusing on efficiency and parallel agent reasoning.
+- [[GPT-5.6 Luna Model API Reference]]: Official OpenAI API documentation, pricing, and limits for gpt-5.6-luna.
+- [[GPT-5.6 Sol Model API Reference]]: Official OpenAI API documentation, pricing, and limits for gpt-5.6-sol.
+- [[GPT-5.6 Terra Model API Reference]]: Official OpenAI API documentation, pricing, and limits for gpt-5.6-terra.
 - [[Gemini CLI Skills]]: Documentation on the Gemini CLI's implementation of Agent Skills, emphasizing progressive disclosure and explicit consent models.
 - [[Graph Engineering explained in 8min]]: Caleb Writes Code's technical breakdown of multi-agent graph topologies, node capability evolution, and prompt caching economics.
 - [[Gemini CLI Tips & Tricks]]: Dozens of pro-tips for Google's agentic command-line tool.
@@ -87,6 +98,8 @@ A catalog of everything in the knowledge base.
 - [[Kimi Thinking Models & Preserved Thinking Guide]]: Detailed breakdown of reasoning tokens, preserved thinking, and multi-step tool configurations across Kimi models.
 - [[Managing Agent Skills]]: Guide to slash commands, terminal utilities, and discovery tiers for Gemini Agent Skills.
 - [[My LLM coding workflow going into 2026]]: Addy Osmani's structured "AI-assisted engineering" approach.
+- [[OpenAI Models & Codex Integration Guide]]: Developer guide for model selection, config.toml, and reasoning effort in Codex.
+- [[OpenAI's $10B Bet on their biggest model yet]]: Caleb Writes Code's financial and architectural analysis of OpenAI's $10B Cerebras deal and GPT-5.6 2-tier serving.
 - [[The Art of Loop Engineering]]: LangChain's 4-level loop taxonomy culminating in autonomous self-improvement via trace evaluation.
 - [[The New SDLC With Vibe Coding]]: Whitepaper detailing the transition to intent-driven software development.
 - [[Vault Welcome]]: Summary of the default Obsidian onboarding note.

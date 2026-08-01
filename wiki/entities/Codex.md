@@ -13,8 +13,11 @@ An AI coding agent platform developed by OpenAI, accessible via CLI, IDE extensi
 
 ## Features
 - Relies heavily on [[Persistent Instruction File]]s via `AGENTS.md` for project conventions.
-- Supports Model Context Protocol (MCP) for connecting to external systems.
+- Configurable default model via `config.toml` (`model = "gpt-5.6"`), CLI flags (`codex -m gpt-5.6-sol`), and environment settings.
+- Powered by the [[GPT-5.6]] family (`[[GPT-5.6 Sol Model API Reference|Sol]]`, `[[GPT-5.6 Terra]]`, `[[GPT-5.6 Luna]]`) and `gpt-5.3-codex-spark`.
+- **Reasoning & Subagent Modes**: Supports `low`, `medium`, `high`, `xhigh`, `max`, and **`ultra`** (multi-agent mode spawning 4 to 16 parallel subagents for complex tasks).
+- Supports Model Context Protocol (MCP) and transitioning to the `[[Responses API]]` for hosted shell and computer use.
 - Allows packaging repeated workflows into reusable Skills (`SKILL.md`) following the open Agent Skills standard. Uses progressive disclosure and hierarchical discovery (`.agents/skills/`) to manage context efficiently (see [[Codex Skills]]).
-- Utilizes Subagents for bounded tasks (like exploration or testing) while preserving the main agent thread.
+- **Deprecations**: Legacy `gpt-5.4` and `gpt-5.4-mini` models retire on August 31, 2026 for ChatGPT sign-in users.
 
-See [[Best practices – Codex]] for more details on effective usage.
+See [[OpenAI Models & Codex Integration Guide]] and [[Best practices – Codex]] for more details.
