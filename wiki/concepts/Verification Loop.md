@@ -38,7 +38,8 @@ Four levels of verification gate, ordered by strength:
 | 1 | **In-prompt** | Ask Claude to run check and iterate in the same message. |
 | 2 | **`/goal` condition** | Separate evaluator re-checks after every turn until condition holds. |
 | 3 | **Stop hook** | Shell script blocks the turn from ending until check passes (cap: 8 blocks). |
-| 4 | **Verification subagent** | Fresh model reviews the diff — no bias from having written the code. |
+| 4 | **[[Second Opinion Pattern]]** | Fresh `claude -p` background session with Opus model — no bias from having written the code. |
+| 5 | **[[Orchestrator Skill Pattern]]** | Top-level skill orchestrates parallel specialized subagent review skills (`simplify`, `verify`, `code-review`, `design-review`) and merges findings. |
 
 ## Built-In Verification Support in Claude Code
 

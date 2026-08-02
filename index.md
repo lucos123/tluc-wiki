@@ -3,6 +3,7 @@
 A catalog of everything in the knowledge base.
 
 ## Entities
+- [[AI LABS]]: Technical content creator channel producing deep-dive analysis on AI agent engineering, graph topologies, and verification loops.
 - [[Addy Osmani]]: Engineering leader and advocate for "AI-assisted engineering".
 - [[Andre Karpathy]]: AI researcher and founding team member at OpenAI; framed the "smarter vs. faster" model trade-off.
 - [[Caleb Writes Code]]: Tech content creator focusing on AI agent engineering architecture.
@@ -52,11 +53,13 @@ A catalog of everything in the knowledge base.
 - [[Model Specification (Spec)]]: Document outlining desired AI behavior and alignment rules.
 - [[Neuralese]]: High-dimensional vector memory that replaces text-based chain-of-thought.
 - [[Obsidian Syntax Cheat Sheet]]: Quick reference guide for Obsidian wiki links, callouts, and frontmatter syntax.
+- [[Orchestrator Skill Pattern]]: Multi-agent pattern where a top-level skill coordinates parallel specialized subagent review skills and merges findings.
 - [[Persistent Instruction File]]: Durable guidance for agents (e.g., AGENTS.md, CLAUDE.md).
 - [[Preserved Thinking]]: Pattern of retaining historical reasoning_content across multi-turn messages to preserve continuous chain-of-thought.
 - [[Programmatic Tool Calling]]: Model capability to write and execute code for filtering data and dynamically orchestrating tool calls.
 - [[Reasoning Effort]]: Top-level model parameter for dynamically tuning reasoning depth (low, high, max).
 - [[Responses API]]: OpenAI's v1/responses endpoint succeeding Chat Completions, built for native tool use, hosted shell, and multi-agent coordination.
+- [[Second Opinion Pattern]]: Verification pattern using fresh-context background subagents (e.g., claude -p) with model overrides (Opus over Haiku) to eliminate worker self-review bias.
 - [[Stable Latent MoE]]: Ultra-sparse MoE architecture with latent token compression and quantile balancing.
 - [[Superhuman AI]]: AI systems capable of recursively improving themselves.
 - [[Superhuman Coder]]: Milestone where AI can perform coding tasks faster and cheaper than top humans.
@@ -70,6 +73,7 @@ A catalog of everything in the knowledge base.
 - [[7 AI Coding Trends to Watch This Year in 2026]]: Shifts in software development as AI integration matures, such as AI-native systems and context-aware tools.
 - [[AI 2027]]: Scenario forecasting the rapid development of superhuman AI and geopolitical tensions between 2025-2027.
 - [[Agent Harness explained in 8min]]: Caleb Writes Code's concise breakdown of the 3-stage evolution (Prompt → Context → Harness Engineering) and fresh-context loops.
+- [[Anthropic Just Fixed Graph Engineering's Greatest Flaw]]: AI LABS breakdown of DAG error cascading, the Second Opinion Pattern, Chrome Headless Shell verification, and the Orchestrator Skill Pattern.
 - [[Best practices for Claude Code]]: Guide to managing context, verification, and autonomous workflows.
 - [[Building Closed-Loop Evals for a Multimodal Agent at Scale]]: Uber's presentation on multimodal agent orchestration, closed-loop auto-tuning, and Pass at K metrics.
 - [[Building verification loops in Claude Code with skills]]: How to encode manual checks as skills and deploy them standalone, embedded, chained, or as PR-level team gates.

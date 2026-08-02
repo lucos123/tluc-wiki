@@ -48,6 +48,7 @@ Execution contains feedback loops where control can transition backward based on
 |-----------|------------|
 | **Token Inflation (~15x)** | Use **Prompt Caching** to reduce input token costs by up to 90%. |
 | **Runtime Contamination** | Use isolated **Git Worktrees** or sandbox containers per subagent node. |
+| **Error Cascading & Masked Root Cause** | Use the [[Second Opinion Pattern]] (`claude -p`), Opus judge models, and the [[Orchestrator Skill Pattern]] (see [[Anthropic Just Fixed Graph Engineering's Greatest Flaw]]). |
 
 ## Relationship to [[Harness Engineering]] & [[Loop Engineering]]
 
