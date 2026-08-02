@@ -4,7 +4,17 @@ description: >
   Ingest a new raw source document (web article, PDF whitepaper, YouTube video URL,
   work note, or transcript) into the wiki. Triggers when the user asks to ingest,
   add, import, process, or summarize a raw source or URL via /wiki-ingest or natural language.
+when_to_use: >
+  Use whenever a new article, URL, video, PDF, or work note needs to be processed, summarized,
+  and integrated into the tluc-wiki knowledge graph.
 argument-hint: "<url | path-to-raw-file>"
+allowed-tools:
+  - run_command
+  - view_file
+  - write_to_file
+  - replace_file_content
+  - read_url_content
+  - search_web
 ---
 
 # Wiki Ingest Skill
@@ -53,5 +63,9 @@ Follow templates in `references/ingest-templates.md` or `references/video-ingest
 1. Update `index.md` in strict alphabetical order.
 2. Append exactly one line to `wiki/log.md`: `## [YYYY-MM-DD] ingest | <Source Title>`
 
-### Step 6 — Self-Review
-Verify 0 broken links, complete frontmatter on all touched pages, and proper index coverage.
+### Step 6 — Embedded Verification Loop (Self-Linting Gate)
+Run the automated structural health check to verify 0 broken links and 100% index coverage:
+```powershell
+python .agents/skills/wiki-lint/scripts/lint_wiki.py
+```
+Confirm the output returns `"total_broken_links": 0` before reporting completion to the user.

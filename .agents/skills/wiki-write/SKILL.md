@@ -5,12 +5,21 @@ description: >
   documents, summaries, posts, visuals) using the wiki knowledge base and user
   context. Triggers when the user asks to write a report, produce a document, draft
   a blog post, create an executive summary, or generate visual diagrams via /wiki-write or natural language.
+when_to_use: >
+  Use whenever a formal report, research document, executive summary, blog post, or Mermaid visual
+  diagram needs to be generated and saved into output/.
 argument-hint: "<report|document|summary|post|visual> <title>"
 arguments:
   - name: type
     description: "The deliverable category: report, document, summary, post, or visual"
   - name: title
     description: "The title of the deliverable"
+allowed-tools:
+  - run_command
+  - view_file
+  - write_to_file
+  - replace_file_content
+  - grep_search
 ---
 
 # Wiki Write Skill
@@ -51,3 +60,10 @@ Refer to `examples/write-report-example.md` for a complete execution walkthrough
 1. Write the file to `output/<category>/<Filename>.md`.
 2. Update `index.md` under `## Generated Deliverables (output/)`.
 3. Append log entry to `wiki/log.md`: `## [YYYY-MM-DD] write | <Output Title>`
+
+### Step 5 — Embedded Verification Gate
+Run structural health check to verify all output citations resolve to valid pages:
+```powershell
+python .agents/skills/wiki-lint/scripts/lint_wiki.py
+```
+Confirm `"total_broken_links": 0` before presenting completion report to the user.

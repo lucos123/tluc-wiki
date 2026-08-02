@@ -4,7 +4,15 @@ description: >
   Perform a structural and semantic health check on the Second Brain (wiki/, mem/, output/).
   Use when the user asks to lint, audit, check, review, or validate the wiki for consistency,
   broken links, orphan pages, contradictions, stale content, or missing cross-references via /wiki-lint or natural language.
+when_to_use: >
+  Use whenever a structural or semantic health check of the Second Brain is needed, or after major content updates.
 argument-hint: "[--auto-fix]"
+allowed-tools:
+  - run_command
+  - view_file
+  - write_to_file
+  - replace_file_content
+  - multi_replace_file_content
 ---
 
 # Wiki Lint Skill
@@ -40,8 +48,12 @@ Read 5–10 pages across `wiki/`, `mem/`, and `output/`. Check:
 ### Phase 3 — Generate Structured Health Report
 Generate a Markdown health report with severity classification (🔴 Errors, 🟡 Warnings, 🔵 Info) and a 1-10 Health Score.
 
-### Phase 4 — Auto-Fix Proposals
-Separate auto-fixable issues (adding orphans to `index.md`, fixing alphabetical sort, completing missing frontmatter fields) from manual-review issues (resolving source contradictions).
+### Phase 4 — Interactive 1-Click Auto-Fix Protocol
+If `$ARGUMENTS` contains `--auto-fix` or if the user requests automatic repair:
+1. **Orphan Pages**: Automatically add orphan pages into `index.md` under the appropriate category (`## Concepts`, `## Entities`, `## Sources`, `## Personal Memory & Projects (mem/)`, or `## Generated Deliverables (output/)`).
+2. **Index Sorting**: Automatically sort all entries in `index.md` alphabetically within each section.
+3. **Missing Frontmatter**: Add standard YAML frontmatter blocks to any unformatted markdown files.
+4. **Re-run Lint**: Run `python .agents/skills/wiki-lint/scripts/lint_wiki.py` to confirm 0 errors remain.
 
 ### Phase 5 — Log Update
 Append exactly one line to `wiki/log.md`:
