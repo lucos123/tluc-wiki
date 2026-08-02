@@ -62,3 +62,4 @@ n.
 ## [2026-08-01] ingest | OpenAI's  Bet on their biggest model yet
 ## [2026-08-01] ingest | OpenAI Models Documentation Suite (GPT-5.6 Sol, Terra, Luna & Codex Models)
 ## [2026-08-02] ingest | Anthropic Just Fixed Graph Engineering's Greatest Flaw
+## [2026-08-02] manage | AI Engineering Mastery 2026
