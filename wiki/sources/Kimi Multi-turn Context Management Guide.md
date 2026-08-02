@@ -5,12 +5,12 @@ tags:
   - source
   - context-engineering
   - moonshot-ai
-source: "raw/kimi/model-capabilities/Set Parameters for Multi-turn Chat.md"
+source: "raw/articles/kimi/model-capabilities/Set Parameters for Multi-turn Chat.md"
 ---
 
 # Kimi Multi-turn Context Management Guide
 
-**Source File**: [[raw/kimi/model-capabilities/Set Parameters for Multi-turn Chat.md]]
+**Source File**: [[raw/articles/kimi/model-capabilities/Set Parameters for Multi-turn Chat.md]]
 
 Best practices for managing stateless conversation history and context windows across [[Moonshot AI]] APIs.
 

@@ -44,6 +44,7 @@ A catalog of everything in the knowledge base.
 - [[Inference Speed vs Intelligence Trade-off]]: 3D decision framework balancing model intelligence, token speed, and token efficiency in model serving.
 - [[Loop Engineering]]: The 4-type taxonomy (turn-based, goal-based, time-based, proactive) for designing agent loops with explicit triggers, stop conditions, and quality gates.
 - [[Iterated Distillation and Amplification (IDA)]]: Training methodology to amplify and distill model capabilities.
+- [[Memory Architecture]]: Reference architecture for persistent context management outside the model context window.
 - [[Model Context Protocol]]: Open standard enabling AI models and agent harnesses to connect to external systems.
 - [[Model Specification (Spec)]]: Document outlining desired AI behavior and alignment rules.
 - [[Neuralese]]: High-dimensional vector memory that replaces text-based chain-of-thought.
@@ -97,6 +98,7 @@ A catalog of everything in the knowledge base.
 - [[Kimi Reasoning Effort Guide]]: Guidance for configuring top-level reasoning_effort in Kimi K3.
 - [[Kimi Thinking Models & Preserved Thinking Guide]]: Detailed breakdown of reasoning tokens, preserved thinking, and multi-step tool configurations across Kimi models.
 - [[Managing Agent Skills]]: Guide to slash commands, terminal utilities, and discovery tiers for Gemini Agent Skills.
+- [[Memory Architecture Reference Notes]]: Reference diagram (2nd-brain.jpg) detailing 5-tier directory structure and compounding feedback loop.
 - [[My LLM coding workflow going into 2026]]: Addy Osmani's structured "AI-assisted engineering" approach.
 - [[OpenAI Models & Codex Integration Guide]]: Developer guide for model selection, config.toml, and reasoning effort in Codex.
 - [[OpenAI's $10B Bet on their biggest model yet]]: Caleb Writes Code's financial and architectural analysis of OpenAI's $10B Cerebras deal and GPT-5.6 2-tier serving.
@@ -104,5 +106,8 @@ A catalog of everything in the knowledge base.
 - [[The New SDLC With Vibe Coding]]: Whitepaper detailing the transition to intent-driven software development.
 - [[Vault Welcome]]: Summary of the default Obsidian onboarding note.
 - [[You Can Learn AI Agent Harness & Loop Engineering In 19 Min]]: Sean's AI Stories breakdown of horse-and-harness analogy, 4 memory tiers, and LLMOps.
+
+## Personal Memory & Projects (mem/)
+- [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 
 ## Analyses

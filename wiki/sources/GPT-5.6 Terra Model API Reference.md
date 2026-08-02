@@ -5,12 +5,12 @@ tags:
   - source
   - ai-models
   - openai
-source: "raw/openai/model/GPT-5.6 Terra Model  OpenAI API.md"
+source: "raw/articles/openai/model/GPT-5.6 Terra Model  OpenAI API.md"
 ---
 
 # GPT-5.6 Terra Model API Reference
 
-**Source File**: [[raw/openai/model/GPT-5.6 Terra Model  OpenAI API.md]]
+**Source File**: [[raw/articles/openai/model/GPT-5.6 Terra Model  OpenAI API.md]]
 
 Official API reference for `gpt-5.6-terra`, [[OpenAI]]'s balanced model for everyday workloads.
 

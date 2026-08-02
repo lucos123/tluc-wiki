@@ -7,12 +7,12 @@ tags:
   - agentic-design
   - loop-engineering
   - harness-engineering
-source: "[[raw/claude-code/Loop engineering Getting started with loops.md]]"
+source: "[[raw/articles/claude-code/Loop engineering Getting started with loops.md]]"
 ---
 
 # Loop engineering — Getting started with loops
 
-**Source File**: `raw/claude-code/Loop engineering Getting started with loops.md`
+**Source File**: `raw/articles/claude-code/Loop engineering Getting started with loops.md`
 **Original URL**: https://claude.com/blog/getting-started-with-loops
 **Authors**: Delba de Oliveira and Michael Segner, Claude Code team
 

@@ -6,12 +6,12 @@ tags:
   - ai-models
   - claude-code
   - moonshot-ai
-source: "raw/kimi/Kimi K3.md"
+source: "raw/articles/kimi/Kimi K3.md"
 ---
 
 # Kimi K3 Model Guide
 
-**Source File**: [[raw/kimi/Kimi K3.md]]
+**Source File**: [[raw/articles/kimi/Kimi K3.md]]
 
 Documentation for [[Kimi K3]], [[Moonshot AI]]'s 2.8-trillion parameter flagship open-source model designed for 1M-token long-horizon coding, knowledge work, and deep reasoning.
 

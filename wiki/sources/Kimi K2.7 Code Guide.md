@@ -6,12 +6,12 @@ tags:
   - ai-models
   - claude-code
   - moonshot-ai
-source: "raw/kimi/Kimi K2.7 Code.md"
+source: "raw/articles/kimi/Kimi K2.7 Code.md"
 ---
 
 # Kimi K2.7 Code Guide
 
-**Source File**: [[raw/kimi/Kimi K2.7 Code.md]]
+**Source File**: [[raw/articles/kimi/Kimi K2.7 Code.md]]
 
 Documentation for `[[Kimi K2.7 Code]]`, [[Moonshot AI]]'s dedicated long-horizon coding and agentic reasoning model.
 

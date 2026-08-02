@@ -210,9 +210,9 @@ Hệ thống tài liệu được tổ chức theo kiến trúc **Hub & Spoke** 
 1. **Bộ câu hỏi thi kiến thức (Question Bank):** Xây dựng ngân hàng 50-100 câu trắc nghiệm để chạy bài test chính thức cuối Mốc 1 & Final.
 2. **Bảng theo dõi KPI hàng tuần:** File Excel/Sheet theo dõi doanh số thực tế từng TVV trong Tuần 6-8.
 3. **Video Roleplay mẫu:** Quay lại 2-3 ca tư vấn thực tế đạt chuẩn để TVV mới xem và học theo.
-4. **Chuyển thư mục chính thức:** Sau khi Lead xác nhận toàn bộ nội dung, di chuyển bộ tài liệu từ `raw/3c/tvv-daotao-thuviec/` về `wiki/concepts/` để quản lý phiên bản chính thức.
+4. **Chuyển thư mục chính thức:** Sau khi Lead xác nhận toàn bộ nội dung, di chuyển bộ tài liệu từ `raw/notes/3c/tvv-daotao-thuviec/` về `wiki/concepts/` để quản lý phiên bản chính thức.
 
 ---
 
 *Báo cáo được lập bởi Trưởng nhóm Tư vấn viên — Nha khoa 3C*  
-*Tất cả tài liệu lưu tại: `raw/3c/tvv-daotao-thuviec/`*
+*Tất cả tài liệu lưu tại: `raw/notes/3c/tvv-daotao-thuviec/`*

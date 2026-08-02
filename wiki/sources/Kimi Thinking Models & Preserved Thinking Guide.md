@@ -5,12 +5,12 @@ tags:
   - source
   - ai-models
   - moonshot-ai
-source: "raw/kimi/model-capabilities/Thinking Models.md"
+source: "raw/articles/kimi/model-capabilities/Thinking Models.md"
 ---
 
 # Kimi Thinking Models & Preserved Thinking Guide
 
-**Source File**: [[raw/kimi/model-capabilities/Thinking Models.md]]
+**Source File**: [[raw/articles/kimi/model-capabilities/Thinking Models.md]]
 
 Deep-dive into reasoning tokens, `reasoning_content` extraction, and `[[Preserved Thinking]]` across the Kimi model family.
 

@@ -6,12 +6,12 @@ tags:
   - ai-models
   - codex
   - openai
-source: "raw/openai/model/Models.md"
+source: "raw/articles/openai/model/Models.md"
 ---
 
 # OpenAI Models & Codex Integration Guide
 
-**Source File**: [[raw/openai/model/Models.md]]
+**Source File**: [[raw/articles/openai/model/Models.md]]
 
 Documentation for selecting and configuring [[OpenAI]] models within [[Codex]] CLI, IDE extensions, and desktop applications.
 

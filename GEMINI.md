@@ -1,67 +1,104 @@
-# LLM Wiki Schema
+# Second Brain Architecture & LLM Wiki Schema
 
-This document defines the rules, structure, and operations for maintaining this knowledge base. I (the LLM) must strictly adhere to these guidelines for all interactions within this workspace.
+This document defines the rules, structure, and operational pipelines for maintaining `tluc-wiki` as a persistent **Personal & Engineering Second Brain System**. I (the LLM) must strictly adhere to these guidelines across all interactions.
 
-## 1. Directory Structure
+---
+
+## 1. Directory Structure & Architecture
 
 ```
 tluc-wiki/
-├── GEMINI.md              # This file — the schema and rules
-├── index.md               # Content catalog of the wiki
-├── raw/                   # 🔒 Immutable source of truth
-│   ├── *.md               #    Curated source documents (articles, notes, papers)
-│   └── assets/            #    Downloaded images and attachments
-├── wiki/                  # 📝 LLM-maintained knowledge base (full read/write)
-│   ├── log.md             #    Chronological, append-only record of operations
-│   ├── analyses/          #    Cross-source syntheses and comparisons
-│   ├── concepts/          #    Ideas, patterns, methodologies, frameworks
-│   ├── entities/          #    Named tools, products, organizations, people
-│   └── sources/           #    Summaries of ingested raw documents
-└── .agents/skills/        # 🔧 Agent skills for wiki operations
-    ├── wiki-ingest/       #    Skill for ingesting new source documents
-    ├── wiki-query/        #    Skill for answering questions from the wiki
-    └── wiki-lint/         #    Skill for health-checking the wiki
+├── GEMINI.md              # This file — schema, rules, and architecture specs
+├── index.md               # Master content catalog of the Second Brain
+├── raw/                   # 🔒 Immutable source of truth (Ground truth inputs)
+│   ├── articles/          #    Web articles, clippings, and text sources
+│   ├── pdfs/              #    PDF books, whitepapers, and documentation
+│   ├── screenshots/       #    Visual diagrams and image assets
+│   ├── video-transcripts/ #    Auto-extracted YouTube & media transcripts
+│   ├── notes/             #    User drafts, scratch notes, and voice transcripts
+│   └── assets/            #    Embedded attachments and media files
+├── wiki/                  # 📝 LLM-maintained evergreen knowledge base
+│   ├── log.md             #    Chronological append-only record of all operations
+│   ├── analyses/          #    Cross-source syntheses, comparisons, and evaluations
+│   ├── concepts/          #    Core ideas, patterns, frameworks, and methodologies
+│   ├── entities/          #    Tools, platforms, organizations, products, people
+│   └── sources/           #    Summaries of ingested raw source documents
+├── output/                # 📤 Generated shareable artifacts & deliverables
+│   ├── reports/           #    In-depth research reports and technical analyses
+│   ├── documents/         #    Markdown documents, specifications, and whitepapers
+│   ├── summaries/         #    Executive summaries and digest notes
+│   ├── posts/             #    Blog posts, articles, and presentations
+│   └── visuals/           #    Mermaid diagrams, mockups, and exported media
+├── ctx/                   # ⚙️ Context & interaction primitives
+│   ├── templates/         #    Standardized document templates
+│   ├── prompts/           #    Re-usable system prompts and workflows
+│   ├── rules/             #    Domain-specific guidelines and constraints
+│   └── snippets/          #    Code snippets and helper routines
+├── mem/                   # 🧠 Identity, preferences, and personal memory
+│   ├── gemini.md          #    User identity, work style, preferences, and AI persona
+│   ├── preferences/       #    Detailed workflow & coding preferences
+│   ├── goals/             #    Career, technical, and life goals
+│   ├── projects/          #    Active personal & engineering projects
+│   └── history/           #    Historical milestones and project decision logs
+└── .agents/skills/        # 🔧 Agent skills for Second Brain operations
+    ├── wiki-ingest/       #    Skill for ingesting raw sources into structured knowledge
+    ├── wiki-write/        #    Skill for synthesizing and producing deliverables in output/
+    ├── wiki-manage/       #    Skill for tracking projects, goals, and identity in mem/
+    ├── wiki-query/        #    Skill for searching, synthesizing, and compounding answers
+    └── wiki-lint/         #    Skill for health-checking link integrity & index coverage
 ```
 
-### Ownership Rules
-- **`raw/`**: Immutable. I will NEVER modify files here.
-- **`wiki/`**: I have full read/write ownership of this directory.
-- **`index.md`**: I maintain this as the content catalog.
+---
 
-## 2. Page Conventions
+## 2. Ownership Rules
 
-All markdown pages in `wiki/` must follow these rules:
-1. **Frontmatter**: Each page must begin with YAML frontmatter containing:
-   - `title`: The title of the page
-   - `date`: Date of creation/last update (YYYY-MM-DD)
-   - `tags`: List of relevant tags
-   - `source`: Links to raw sources if applicable
-2. **Cross-referencing**: Actively use Obsidian-style wiki links (`[[Page Name]]`) to connect concepts, entities, and sources.
-3. **Synthesis over duplication**: Synthesize information. Note contradictions or evolving claims clearly.
+- **`raw/`**: Immutable ground truth. I will NEVER modify or edit original files here once saved.
+- **`wiki/`**: Full read/write ownership. Evergreen, connected knowledge base.
+- **`output/`**: Full read/write ownership. Shareable outputs generated for the user.
+- **`ctx/`**: Read/write. Reusable prompt templates, rules, and workflow snippets.
+- **`mem/`**: Read/write (collaborative). Stores user identity, career/project goals, and preferences.
+- **`index.md`**: Maintained continuously as the catalog for `wiki/`, `mem/`, and `output/`.
 
-## 3. Operations
+---
 
-Each operation has a corresponding agent skill in `.agents/skills/` with detailed instructions. The skills are loaded on-demand when the operation is triggered.
+## 3. Page Conventions
 
-### A. Ingest
-When the user asks me to ingest a new source:
-1. **Read**: Read the source document from `raw/` (or the provided file).
-2. **Discuss (Optional)**: Discuss key takeaways with the user if they wish.
-3. **Create/Update Wiki Pages**: 
-   - Create a summary page in `wiki/sources/`.
-   - Update existing entity or concept pages (in `wiki/entities/` or `wiki/concepts/`) with the new information.
-4. **Update `index.md`**: Add or update entries for the touched wiki pages.
-5. **Update `wiki/log.md`**: Append an entry: `## [YYYY-MM-DD] ingest | <Source Title>`
+All markdown pages across `wiki/`, `output/`, and `mem/` must follow these rules:
+1. **YAML Frontmatter**: Each page must begin with YAML frontmatter containing:
+   - `title`: Descriptive title of the page
+   - `date`: YYYY-MM-DD
+   - `tags`: Relevant tags (e.g. `concept`, `entity`, `source`, `project`, `goal`, `output`)
+   - `source`: Links to raw sources or parent notes if applicable
+2. **Cross-Referencing**: Actively use Obsidian-style wiki links (`[[Page Name]]`) to connect concepts, entities, projects, and sources.
+3. **Synthesis & Compounding**: Synthesize information over mere duplication. Preserve contradictions, trade-offs, and evolving insights clearly.
 
-### B. Query
-When the user asks a question:
-1. **Search**: Read `index.md` to find relevant pages, then read those pages.
-2. **Synthesize**: Answer the question using citations to the wiki.
-3. **Compound**: If the answer is valuable (e.g., a new comparison, analysis), propose filing it back as a new page in `wiki/analyses/` or `wiki/concepts/`.
-4. **Update `wiki/log.md`**: Append an entry: `## [YYYY-MM-DD] query | <Short description>`
+---
 
-### C. Lint
-When the user asks for a health check:
-1. **Analyze**: Scan `index.md` and `wiki/` pages for contradictions, stale claims, orphan pages, or missing cross-references.
-2. **Report**: Suggest fixes, new questions to investigate, or missing sources.
-3. **Update `wiki/log.md`**: Append an entry: `## [YYYY-MM-DD] lint | <Short description>`
+## 4. Operational Pipelines
+
+```
+Source ──> Knowledge (Wiki) ──> Context (Ctx) ──> Output ──> Memory (Mem) ──> Re-compounds
+```
+
+### A. Ingest Pipeline (Capture $\rightarrow$ Extract $\rightarrow$ Add to Wiki)
+- Read raw input from `raw/<category>/`.
+- Extract key concepts, entities, and takeaways.
+- Create source summary in `wiki/sources/` and create/update entity & concept pages in `wiki/entities/` and `wiki/concepts/`.
+- Update `index.md` and append log to `wiki/log.md`.
+
+### B. Write Pipeline (Retrieve $\rightarrow$ Draft $\rightarrow$ Refine $\rightarrow$ Output)
+- Search `index.md` and `wiki/` for relevant context.
+- Synthesize comprehensive deliverables (reports, guides, code artifacts).
+- Save completed deliverables to `output/<category>/`.
+- Link deliverables in `index.md` and `wiki/log.md`.
+
+### C. Manage Pipeline (Decisions $\rightarrow$ Link Context $\rightarrow$ Track)
+- Track active projects and goals in `mem/projects/` and `mem/goals/`.
+- Cross-reference technical wiki concepts with personal project goals.
+
+### D. Review & Compound Pipeline (Summarize $\rightarrow$ Reflect $\rightarrow$ Update)
+- Periodically review past outputs and project logs.
+- Compound valuable insights into permanent wiki pages.
+
+### E. Maintain Pipeline (Prune $\rightarrow$ Dedupe $\rightarrow$ Improve Links)
+- Execute `wiki-lint` health check to audit broken links, orphan pages, tag typos, and index coverage.

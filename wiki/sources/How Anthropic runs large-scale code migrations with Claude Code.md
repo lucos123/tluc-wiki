@@ -7,7 +7,7 @@ tags:
   - agentic-design
   - ai-sdlc
   - harness-engineering
-source: "raw/claude-code/How Anthropic runs large-scale code migrations with Claude Code.md"
+source: "raw/articles/claude-code/How Anthropic runs large-scale code migrations with Claude Code.md"
 ---
 
 # How Anthropic runs large-scale code migrations with Claude Code

@@ -1,11 +1,11 @@
 """
-Wiki Lint Script — Enhanced structural health checker.
+Wiki Lint Script — Enhanced structural health checker for Second Brain Architecture.
 
-Scans the wiki directory for structural issues and outputs a JSON report.
+Scans the wiki/, mem/, and output/ directories for structural issues and outputs a JSON report.
 Designed to be run by the wiki-lint agent skill.
 
 Usage:
-    python .agents/skills/wiki-lint/scripts/lint_wiki.py [--wiki-dir PATH] [--index-file PATH]
+    python .agents/skills/wiki-lint/scripts/lint_wiki.py [--project-root PATH]
 
 Output: JSON to stdout with categories:
     - orphan_pages, missing_pages, broken_links, missing_frontmatter,
@@ -31,20 +31,25 @@ def find_project_root():
     return None
 
 
-def get_all_wiki_pages(wiki_dir):
-    """Recursively find all .md files in the wiki directory."""
+def get_all_wiki_pages(project_root):
+    """Recursively find all .md files in wiki/, mem/, and output/ directories."""
+    scan_dirs = ["wiki", "mem", "output"]
     pages = []
-    for root, _dirs, files in os.walk(wiki_dir):
-        for f in files:
-            if f.endswith(".md"):
-                full_path = os.path.join(root, f)
-                rel_path = os.path.relpath(full_path, os.path.dirname(wiki_dir))
-                page_name = f[:-3]  # strip .md
-                pages.append({
-                    "name": page_name,
-                    "path": full_path,
-                    "rel_path": rel_path,
-                })
+    for s_dir in scan_dirs:
+        dir_path = os.path.join(project_root, s_dir)
+        if not os.path.isdir(dir_path):
+            continue
+        for root, _dirs, files in os.walk(dir_path):
+            for f in files:
+                if f.endswith(".md"):
+                    full_path = os.path.join(root, f)
+                    rel_path = os.path.relpath(full_path, project_root)
+                    page_name = f[:-3]  # strip .md
+                    pages.append({
+                        "name": page_name,
+                        "path": full_path,
+                        "rel_path": rel_path,
+                    })
     return pages
 
 
@@ -60,13 +65,11 @@ def parse_frontmatter(content):
     fm_text = parts[1].strip()
     fields = {}
 
-    # Simple YAML parsing for flat fields
     current_key = None
     current_list = None
     for line in fm_text.split("\n"):
         stripped = line.strip()
 
-        # List item under a key
         if stripped.startswith("- ") and current_key:
             if current_list is None:
                 current_list = []
@@ -74,7 +77,6 @@ def parse_frontmatter(content):
             fields[current_key] = current_list
             continue
 
-        # Key-value pair
         if ":" in stripped:
             if current_list is not None:
                 current_list = None
@@ -95,7 +97,6 @@ def parse_frontmatter(content):
 def extract_wiki_links(content):
     """Extract all [[wiki links]] from markdown content."""
     links = re.findall(r"\[\[(.*?)\]\]", content)
-    # Handle [[Page|Display Text]] — take the page part
     return [link.split("|")[0].strip() for link in links]
 
 
@@ -117,10 +118,10 @@ def validate_date(date_str):
         return False
 
 
-def lint_wiki(wiki_dir, index_file):
-    """Run all structural checks and return a JSON-serializable report."""
+def lint_wiki(project_root, index_file):
+    """Run all structural checks across wiki/, mem/, output/ and return a JSON report."""
 
-    pages = get_all_wiki_pages(wiki_dir)
+    pages = get_all_wiki_pages(project_root)
     page_names = {p["name"] for p in pages}
     index_links = read_index_links(index_file)
 
@@ -146,9 +147,10 @@ def lint_wiki(wiki_dir, index_file):
         },
     }
 
-    # --- Check orphans and missing ---
-    # Orphans: pages in wiki/ but not in index.md
+    # Orphans: pages in wiki/ (excluding log.md) not in index.md
     for p in pages:
+        if p["name"] == "log":
+            continue
         if p["name"] not in index_links:
             report["orphan_pages"].append({
                 "name": p["name"],
@@ -156,22 +158,24 @@ def lint_wiki(wiki_dir, index_file):
             })
 
     # Missing: referenced in index.md but no corresponding page
-    # (Only check page names, not raw/ references)
     for link in index_links:
         if link.startswith("raw/"):
             continue
         if link not in page_names:
             report["missing_pages"].append(link)
 
-    # --- Per-page checks ---
+    # Per-page checks
     all_tags = Counter()
     title_map = defaultdict(list)
 
     for p in pages:
+        # Ignore log.md for frontmatter checks
+        if p["name"] == "log":
+            continue
+
         with open(p["path"], "r", encoding="utf-8", errors="replace") as f:
             content = f.read()
 
-        # Frontmatter check
         fm = parse_frontmatter(content)
         if fm is None:
             report["missing_frontmatter"].append({
@@ -182,9 +186,7 @@ def lint_wiki(wiki_dir, index_file):
         else:
             report["stats"]["pages_with_frontmatter"] += 1
 
-            # Required fields
             required = ["title", "date", "tags"]
-            # source is only required for source pages
             if "sources" in p["rel_path"]:
                 required.append("source")
 
@@ -196,7 +198,6 @@ def lint_wiki(wiki_dir, index_file):
                     "missing": missing,
                 })
 
-            # Date format validation
             if "date" in fm:
                 if not validate_date(fm["date"]):
                     report["date_format_errors"].append({
@@ -205,11 +206,9 @@ def lint_wiki(wiki_dir, index_file):
                         "date_value": str(fm["date"]),
                     })
 
-            # Title duplicate detection
             if "title" in fm:
                 title_map[fm["title"]].append(p["rel_path"])
 
-            # Tag collection
             if "tags" in fm and isinstance(fm["tags"], list):
                 for tag in fm["tags"]:
                     all_tags[tag] += 1
@@ -219,10 +218,8 @@ def lint_wiki(wiki_dir, index_file):
         report["stats"]["total_links"] += len(links)
 
         for link in links:
-            # Skip raw/ references — those are file paths, not wiki pages
             if link.startswith("raw/"):
                 continue
-            # Strip heading anchors: [[Page Name#Section]] -> "Page Name"
             page_ref = link.split("#")[0].strip()
             if page_ref and page_ref not in page_names:
                 report["broken_links"].append({
@@ -231,9 +228,6 @@ def lint_wiki(wiki_dir, index_file):
                     "broken_link": link,
                 })
 
-    # --- Post-processing ---
-
-    # Duplicate titles
     for title, paths in title_map.items():
         if len(paths) > 1:
             report["duplicate_titles"].append({
@@ -241,13 +235,11 @@ def lint_wiki(wiki_dir, index_file):
                 "pages": paths,
             })
 
-    # Tag analysis
     report["tag_analysis"]["all_tags"] = dict(all_tags.most_common())
     report["tag_analysis"]["singleton_tags"] = [
         tag for tag, count in all_tags.items() if count == 1
     ]
 
-    # Final stats
     report["stats"]["total_broken_links"] = len(report["broken_links"])
     if len(pages) > 0:
         coverage = (len(pages) - len(report["orphan_pages"])) / len(pages) * 100
@@ -259,37 +251,25 @@ def lint_wiki(wiki_dir, index_file):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Wiki structural lint checker")
+    parser = argparse.ArgumentParser(description="Second Brain structural lint checker")
     parser.add_argument(
-        "--wiki-dir",
+        "--project-root",
         default=None,
-        help="Path to the wiki/ directory (auto-detected if not provided)",
-    )
-    parser.add_argument(
-        "--index-file",
-        default=None,
-        help="Path to index.md (auto-detected if not provided)",
+        help="Path to project root (auto-detected if not provided)",
     )
     args = parser.parse_args()
 
-    # Auto-detect paths
-    project_root = find_project_root()
+    project_root = args.project_root or find_project_root()
     if project_root is None:
         print(json.dumps({"error": "Could not find project root (no index.md found)"}))
         sys.exit(1)
 
-    wiki_dir = args.wiki_dir or os.path.join(project_root, "wiki")
-    index_file = args.index_file or os.path.join(project_root, "index.md")
-
-    if not os.path.isdir(wiki_dir):
-        print(json.dumps({"error": f"Wiki directory not found: {wiki_dir}"}))
-        sys.exit(1)
-
+    index_file = os.path.join(project_root, "index.md")
     if not os.path.isfile(index_file):
         print(json.dumps({"error": f"Index file not found: {index_file}"}))
         sys.exit(1)
 
-    report = lint_wiki(wiki_dir, index_file)
+    report = lint_wiki(project_root, index_file)
     print(json.dumps(report, indent=2, ensure_ascii=False))
 
 

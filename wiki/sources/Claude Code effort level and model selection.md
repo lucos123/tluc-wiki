@@ -6,12 +6,12 @@ tags:
   - claude-code
   - model-selection
   - cost-optimization
-source: "[[raw/claude-code/Claude Code effort level and model selection  Claude.md]]"
+source: "[[raw/articles/claude-code/Claude Code effort level and model selection  Claude.md]]"
 ---
 
 # Claude Code effort level and model selection
 
-**Source File**: `raw/claude-code/Claude Code effort level and model selection  Claude.md`
+**Source File**: `raw/articles/claude-code/Claude Code effort level and model selection  Claude.md`
 **Original URL**: https://claude.com/blog/claude-model-and-effort-level-in-claude-code
 **Author**: Lydia Hallie, Member of Technical Staff, Claude Code team
 

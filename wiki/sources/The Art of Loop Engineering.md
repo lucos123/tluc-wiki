@@ -6,7 +6,7 @@ tags:
   - loop-engineering
   - langchain
   - agent
-source: raw/claude-code/The Art of Loop Engineering.md
+source: raw/articles/claude-code/The Art of Loop Engineering.md
 ---
 
 # The Art of Loop Engineering: How to Build Agents That Improve Over Time
