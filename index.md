@@ -14,6 +14,7 @@ A catalog of everything in the knowledge base.
 - [[GPT-5.6 Luna]]: Fast, cost-sensitive model tier ($0.20/$1.20) in the GPT-5.6 family for high-volume subagents.
 - [[GPT-5.6 Terra]]: Balanced model tier ($2.00/$12.00) in the GPT-5.6 family, replacing GPT-5.4/5.5 at lower cost.
 - [[Gemini CLI]]: Open-source terminal AI assistant by Google.
+- [[Goon Nguyen]]: AI Engineer and author who coined Harness Engineering.
 - [[Greta]]: Context-aware AI development partner tool.
 - [[HumanLayer]]: Tooling platform focused on human-in-the-loop agentic workflows and production control loops.
 - [[Jarred Sumner]]: Bun co-founder and Anthropic MTS; ran the Zig→Rust 1M-line migration with Claude Code.
@@ -32,6 +33,7 @@ A catalog of everything in the knowledge base.
 
 ## Concepts
 - [[AI Code Migration]]: Six-step methodology for AI-assisted language/framework migrations at industrial scale.
+- [[Agentic Engineering]]: Topic overview page covering Prompt, Context, Harness, Loop, and Graph Engineering pillars.
 - [[Closed-Loop Evals]]: Automated architecture for continuous evaluation, reflection, prompt optimization, and auto-deployment without human intervention.
 - [[Conductor vs Orchestrator]]: Modes of developer interaction with AI.
 - [[Context Engineering]]: The practice of explicitly managing and structuring what the AI "sees".
@@ -42,12 +44,14 @@ A catalog of everything in the knowledge base.
 - [[Harness Engineering]]: The design of the environment (tools, sandboxes, memory) that wraps the model.
 - [[Hill-Climbing Loop]]: The highest level of LangChain's loop taxonomy, where an agent autonomously self-improves its own harness via trace analysis.
 - [[Inference Speed vs Intelligence Trade-off]]: 3D decision framework balancing model intelligence, token speed, and token efficiency in model serving.
+- [[LLMOps & Inference]]: Topic overview page covering model serving architectures, token economics, and inference trade-offs.
 - [[Loop Engineering]]: The 4-type taxonomy (turn-based, goal-based, time-based, proactive) for designing agent loops with explicit triggers, stop conditions, and quality gates.
 - [[Iterated Distillation and Amplification (IDA)]]: Training methodology to amplify and distill model capabilities.
 - [[Memory Architecture]]: Reference architecture for persistent context management outside the model context window.
 - [[Model Context Protocol]]: Open standard enabling AI models and agent harnesses to connect to external systems.
 - [[Model Specification (Spec)]]: Document outlining desired AI behavior and alignment rules.
 - [[Neuralese]]: High-dimensional vector memory that replaces text-based chain-of-thought.
+- [[Obsidian Syntax Cheat Sheet]]: Quick reference guide for Obsidian wiki links, callouts, and frontmatter syntax.
 - [[Persistent Instruction File]]: Durable guidance for agents (e.g., AGENTS.md, CLAUDE.md).
 - [[Preserved Thinking]]: Pattern of retaining historical reasoning_content across multi-turn messages to preserve continuous chain-of-thought.
 - [[Programmatic Tool Calling]]: Model capability to write and execute code for filtering data and dynamically orchestrating tool calls.
@@ -108,6 +112,10 @@ A catalog of everything in the knowledge base.
 - [[You Can Learn AI Agent Harness & Loop Engineering In 19 Min]]: Sean's AI Stories breakdown of horse-and-harness analogy, 4 memory tiers, and LLMOps.
 
 ## Personal Memory & Projects (mem/)
+- [[2026-Q3-Milestones]]: Historical milestone log for 2nd Brain architecture and AI engineering progress.
+- [[AI Engineering Mastery 2026]]: Personal career goal for mastering agentic software engineering and Second Brain systems.
+- [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
+- [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
 
 ## Analyses

@@ -1,0 +1,21 @@
+# Technical Concept Template
+
+```markdown
+---
+title: "<Concept Name>"
+date: YYYY-MM-DD
+tags:
+  - concept
+  - <domain-tag>
+---
+
+# <Concept Name>
+
+<1-2 sentence definition citing introducing source: [[Source Title]].>
+
+## Definition & Mechanics
+<Expanded explanation.>
+
+## Key Trade-offs & Implementation
+<Implementation details citing [[Entity Name]].>
+```

@@ -59,6 +59,10 @@ tluc-wiki/
 - **`mem/`**: Read/write (collaborative). Stores user identity, career/project goals, and preferences.
 - **`index.md`**: Maintained continuously as the catalog for `wiki/`, `mem/`, and `output/`.
 
+### Subdirectory Boundary & Separation Rules
+- **`wiki/entities/` vs `mem/people/`**: `wiki/entities/` contains objective public technical entities, tools, platforms, and public figures. `mem/people/` is reserved strictly for personal network contacts and private team members.
+- **`wiki/references/` vs `mem/preferences/` vs `ctx/rules/`**: `wiki/references/` contains objective technical cheatsheets and syntax references. `ctx/rules/` contains AI operational constraints. `mem/preferences/` contains user AI interaction style and workflow preferences.
+
 ---
 
 ## 3. Page Conventions
