@@ -12,7 +12,7 @@ url: "https://www.youtube.com/watch?v=GrNbuWWJYiI"
 channel: "Sean‘s AI Stories"
 speaker: "Sean"
 duration: "20m 0s"
-source: "raw/video-transcripts/You Can Learn AI Agent Harness & Loop Engineering In 19 Min LLM Ops, Eval, Tracing, RAG.md"
+source: "raw/video-transcripts/you-can-learn-ai-agent-harness-loop-engineering-in-19-min-llm-ops-eval-tracing-rag.md"
 ---
 
 # You Can Learn AI Agent Harness & Loop Engineering In 19 Min
@@ -21,7 +21,7 @@ source: "raw/video-transcripts/You Can Learn AI Agent Harness & Loop Engineering
 **Speaker**: Sean  
 **URL**: https://www.youtube.com/watch?v=GrNbuWWJYiI  
 **Duration**: 20m 0s  
-**Transcript**: [[raw/video-transcripts/You Can Learn AI Agent Harness & Loop Engineering In 19 Min LLM Ops, Eval, Tracing, RAG.md]]
+**Transcript**: [[raw/video-transcripts/you-can-learn-ai-agent-harness-loop-engineering-in-19-min-llm-ops-eval-tracing-rag.md]]
 
 An architectural walkthrough connecting the horse-and-harness analogy, agent memory systems, loop engineering guardrails, and closed-loop LLMOps evals.
 

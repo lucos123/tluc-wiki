@@ -11,7 +11,7 @@ url: "https://www.youtube.com/watch?v=1a1VXDdIyrk"
 channel: "Caleb Writes Code"
 speaker: "Caleb"
 duration: "8m 20s"
-source: "raw/video-transcripts/Agent Harness explained in 8min...md"
+source: "raw/video-transcripts/agent-harness-explained-in-8min.md"
 ---
 
 # Agent Harness explained in 8min
@@ -20,7 +20,7 @@ source: "raw/video-transcripts/Agent Harness explained in 8min...md"
 **Speaker**: Caleb  
 **URL**: https://www.youtube.com/watch?v=1a1VXDdIyrk  
 **Duration**: 8m 20s  
-**Transcript**: [[raw/video-transcripts/Agent Harness explained in 8min...md]]
+**Transcript**: [[raw/video-transcripts/agent-harness-explained-in-8min.md]]
 
 A concise breakdown explaining the historical evolution from Prompt Engineering to Context Engineering to Harness Engineering, and why loop-driven fresh context execution solved the limits of elastic context summarization.
 

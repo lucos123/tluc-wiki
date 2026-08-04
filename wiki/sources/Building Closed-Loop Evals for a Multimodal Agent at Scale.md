@@ -11,7 +11,7 @@ url: "https://www.youtube.com/watch?v=31GUkCBD-Uc"
 channel: "AI Engineer"
 speaker: "Soumya Gupta & Jai Chopra"
 duration: "21m 38s"
-source: "raw/video-transcripts/Building Closed-Loop Evals for a Multimodal Agent at Scale — Soumya Gupta & Jai Chopra, Uber.md"
+source: "raw/video-transcripts/building-closed-loop-evals-for-a-multimodal-agent-at-scale-soumya-gupta-jai-chopra-uber.md"
 ---
 
 # Building Closed-Loop Evals for a Multimodal Agent at Scale
@@ -20,7 +20,7 @@ source: "raw/video-transcripts/Building Closed-Loop Evals for a Multimodal Agent
 **Speakers**: Soumya Gupta & Jai Chopra ([[Uber]])  
 **URL**: https://www.youtube.com/watch?v=31GUkCBD-Uc  
 **Duration**: 21m 38s  
-**Transcript**: [[raw/video-transcripts/Building Closed-Loop Evals for a Multimodal Agent at Scale — Soumya Gupta & Jai Chopra, Uber.md]]
+**Transcript**: [[raw/video-transcripts/building-closed-loop-evals-for-a-multimodal-agent-at-scale-soumya-gupta-jai-chopra-uber.md]]
 
 A technical presentation from Uber's Computer Vision team detailing how Uber Eats deploys multimodal image enhancement agents at scale ($90B run rate, 10,000 cities) using **Closed-Loop Evals** and automated prompt/config tuning without human intervention in real-time.
 

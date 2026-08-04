@@ -5,12 +5,12 @@ tags:
   - source
   - ai-models
   - moonshot-ai
-source: "raw/articles/kimi/Quickstart.md"
+source: "raw/articles/kimi/quickstart.md"
 ---
 
 # Kimi API Quickstart & Integration
 
-**Source File**: [[raw/articles/kimi/Quickstart.md]]
+**Source File**: [[raw/articles/kimi/quickstart.md]]
 
 Integration guide for connecting applications and agent tools to [[Moonshot AI]]'s API endpoints.
 

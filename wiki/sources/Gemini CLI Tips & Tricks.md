@@ -5,7 +5,7 @@ tags:
   - best-practices
   - gemini-cli
   - agentic-design
-source: "[[raw/Gemini CLI Tips & Tricks.md]]"
+source: "[[raw/gemini-cli-tips-tricks.md]]"
 ---
 
 # Gemini CLI Tips & Tricks

@@ -11,7 +11,7 @@ url: "https://www.youtube.com/watch?v=rD20wJkPUB4"
 channel: "Caleb Writes Code"
 speaker: "Caleb"
 duration: "13m 20s"
-source: "raw/video-transcripts/Kimi K3 explained in 13min...md"
+source: "raw/video-transcripts/kimi-k3-explained-in-13min.md"
 ---
 
 # Kimi K3 explained in 13min
@@ -20,7 +20,7 @@ source: "raw/video-transcripts/Kimi K3 explained in 13min...md"
 **Speaker**: Caleb  
 **URL**: https://www.youtube.com/watch?v=rD20wJkPUB4  
 **Duration**: 13m 20s  
-**Transcript**: [[raw/video-transcripts/Kimi K3 explained in 13min...md]]
+**Transcript**: [[raw/video-transcripts/kimi-k3-explained-in-13min.md]]
 
 A technical deep-dive into the model-layer architecture of [[Kimi K3]], exploring how hyper-sparse Mixture of Experts (MoE), Stable Latent MoE, Quantile Balancing, and Kimi Delta Attention (KDA) redefine inference economics for 1M+ context window frontier models.
 

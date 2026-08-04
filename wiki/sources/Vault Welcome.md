@@ -4,7 +4,7 @@ date: 2026-06-28
 tags:
   - obsidian
   - onboarding
-source: "[[raw/Welcome.md]]"
+source: "[[raw/welcome.md]]"
 ---
 
 # Vault Welcome

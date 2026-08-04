@@ -11,7 +11,7 @@ url: "https://www.youtube.com/watch?v=4biXYSNkn9Y"
 channel: "Caleb Writes Code"
 speaker: "Caleb"
 duration: "8m 53s"
-source: "raw/video-transcripts/Loop Engineering explained in 8min...md"
+source: "raw/video-transcripts/loop-engineering-explained-in-8min.md"
 ---
 
 # Loop Engineering explained in 8min
@@ -20,7 +20,7 @@ source: "raw/video-transcripts/Loop Engineering explained in 8min...md"
 **Speaker**: Caleb  
 **URL**: https://www.youtube.com/watch?v=4biXYSNkn9Y  
 **Duration**: 8m 53s  
-**Transcript**: [[raw/video-transcripts/Loop Engineering explained in 8min...md]]
+**Transcript**: [[raw/video-transcripts/loop-engineering-explained-in-8min.md]]
 
 A technical breakdown of why Loop Engineering is the necessary outer layer wrapping Harness Engineering, detailing the **Multi-Loop Stacking** paradigm and [[Addy Osmani]]'s **6 Components of Loop Engineering**.
 

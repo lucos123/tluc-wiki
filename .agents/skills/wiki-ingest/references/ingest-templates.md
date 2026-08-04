@@ -1,6 +1,19 @@
 # Source Ingest Document Templates
 
-This reference guide provides standardized frontmatter and body templates for ingesting different source types into `wiki/sources/`.
+This reference guide provides standardized frontmatter, body templates, and raw file naming guidelines for ingesting different source types into `wiki/sources/`.
+
+---
+
+## 0. Raw File Naming Standard (Kebab-Case)
+
+All raw files in `raw/` must be renamed to lower-case kebab-case filenames upon ingestion:
+- **Articles**: `raw/articles/<category>/<clean-kebab-case-title>.<ext>`
+- **PDFs**: `raw/pdfs/<clean-kebab-case-title>.pdf`
+- **Video Transcripts**: `raw/video-transcripts/<clean-kebab-case-title>.md`
+- **Notes**: `raw/notes/<category>/<clean-kebab-case-title>.<ext>`
+- **Visual Assets**: `raw/assets/<descriptive-kebab-case-name>.<ext>`
+
+Always strip trailing browser artifacts (`  Claude`, `  OpenAI API`, ` copy`, ` copy 2`), special characters, and convert spaces to hyphens. Update the `source:` frontmatter link in `wiki/sources/` accordingly.
 
 ---
 

@@ -5,12 +5,12 @@ tags:
   - source
   - ai-models
   - openai
-source: "raw/articles/openai/model/GPT-5.6 Luna Model  OpenAI API.md"
+source: "raw/articles/openai/model/gpt-5-6-luna-model-api-reference.md"
 ---
 
 # GPT-5.6 Luna Model API Reference
 
-**Source File**: [[raw/articles/openai/model/GPT-5.6 Luna Model  OpenAI API.md]]
+**Source File**: [[raw/articles/openai/model/gpt-5-6-luna-model-api-reference.md]]
 
 Official API reference for `gpt-5.6-luna`, [[OpenAI]]'s fast, cost-sensitive model tier.
 

@@ -7,12 +7,12 @@ tags:
   - frontier-ai
   - benchmarks
   - agentic-design
-source: "[[raw/GPT-5.6 Frontier intelligence that scales with your ambition.md]]"
+source: "[[raw/gpt-5-6-frontier-intelligence-that-scales-with-your-ambition.md]]"
 ---
 
 # GPT-5.6: Frontier Intelligence That Scales With Your Ambition
 
-**Source File**: [[raw/GPT-5.6 Frontier intelligence that scales with your ambition.md]]
+**Source File**: [[raw/gpt-5-6-frontier-intelligence-that-scales-with-your-ambition.md]]
 
 OpenAI's official launch announcement for the [[GPT-5.6]] model family (Sol, Terra, Luna), emphasizing efficiency-per-token and scalable compute via multi-agent coordination.
 

@@ -4,7 +4,7 @@ date: 2026-06-28
 tags:
   - harness-engineering
   - system-design
-source: "[[raw/Harness Engineering.md]]"
+source: "[[raw/harness-engineering.md]]"
 ---
 
 # Harness Engineering là gì?

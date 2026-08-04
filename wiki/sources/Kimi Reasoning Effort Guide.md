@@ -5,12 +5,12 @@ tags:
   - source
   - ai-models
   - moonshot-ai
-source: "raw/articles/kimi/model-capabilities/Reasoning Effort.md"
+source: "raw/articles/kimi/model-capabilities/reasoning-effort.md"
 ---
 
 # Kimi Reasoning Effort Guide
 
-**Source File**: [[raw/articles/kimi/model-capabilities/Reasoning Effort.md]]
+**Source File**: [[raw/articles/kimi/model-capabilities/reasoning-effort.md]]
 
 Documentation for configuring `[[Reasoning Effort]]` in [[Kimi K3]] models.
 

@@ -4,7 +4,7 @@ date: 2026-06-28
 tags:
   - workflow
   - best-practices
-source: "[[raw/My LLM coding workflow going into 2026.md]]"
+source: "[[raw/my-llm-coding-workflow-going-into-2026.md]]"
 ---
 
 # My LLM coding workflow going into 2026

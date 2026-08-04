@@ -5,7 +5,7 @@ tags:
   - best-practices
   - codex
   - agentic-design
-source: "[[raw/Best practices – Codex.md]]"
+source: "[[raw/best-practices-–-codex.md]]"
 ---
 
 # Best practices – Codex

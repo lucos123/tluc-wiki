@@ -5,7 +5,7 @@ tags:
   - patterns
   - agentic-design
   - claude-code
-source: "[[raw/12 Agentic Harness Patterns from Claude Code.md]]"
+source: "[[raw/12-agentic-harness-patterns-from-claude-code.md]]"
 ---
 
 # 12 Agentic Harness Patterns from Claude Code

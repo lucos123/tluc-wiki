@@ -64,3 +64,6 @@ n.
 ## [2026-08-02] ingest | Anthropic Just Fixed Graph Engineering's Greatest Flaw
 ## [2026-08-02] manage | AI Engineering Mastery 2026
 ## [2026-08-02] query | Graph Engineering deep synthesis and verification patterns
+## [2026-08-04] ingest | Emerging Markdown Formats That Shape Coding Agent Behavior
+## [2026-08-04] ingest | Why Graph Engineering will 10x your Claude Codex
+## [2026-08-04] ingest | The new rules of context engineering for Claude 5 generation models

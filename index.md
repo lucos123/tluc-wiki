@@ -6,6 +6,7 @@ A catalog of everything in the knowledge base.
 - [[AI LABS]]: Technical content creator channel producing deep-dive analysis on AI agent engineering, graph topologies, and verification loops.
 - [[Addy Osmani]]: Engineering leader and advocate for "AI-assisted engineering".
 - [[Andre Karpathy]]: AI researcher and founding team member at OpenAI; framed the "smarter vs. faster" model trade-off.
+- [[Bilgin Ibryam]]: Software architect and author who introduced the Metacode taxonomy and Memory Promotion Path.
 - [[Caleb Writes Code]]: Tech content creator focusing on AI agent engineering architecture.
 - [[Cerebras Systems]]: Wafer-scale AI chip manufacturer providing 750 t/s ultra-fast inference for OpenAI.
 - [[Claude Code]]: Agentic coding environment developed by Anthropic.
@@ -15,7 +16,9 @@ A catalog of everything in the knowledge base.
 - [[GPT-5.6 Luna]]: Fast, cost-sensitive model tier ($0.20/$1.20) in the GPT-5.6 family for high-volume subagents.
 - [[GPT-5.6 Terra]]: Balanced model tier ($2.00/$12.00) in the GPT-5.6 family, replacing GPT-5.4/5.5 at lower cost.
 - [[Gemini CLI]]: Open-source terminal AI assistant by Google.
+- [[GitHub Spec Kit]]: Mainstream software specification framework for AI coding agents defining spec.md, plan.md, tasks.md.
 - [[Goon Nguyen]]: AI Engineer and author who coined Harness Engineering.
+- [[Greg Isenberg]]: Tech entrepreneur and content creator who detailed Graph Engineering, Agent Graphs, and Knowledge Graph trade-offs.
 - [[Greta]]: Context-aware AI development partner tool.
 - [[HumanLayer]]: Tooling platform focused on human-in-the-loop agentic workflows and production control loops.
 - [[Jarred Sumner]]: Bun co-founder and Anthropic MTS; ran the Zig→Rust 1M-line migration with Claude Code.
@@ -30,10 +33,13 @@ A catalog of everything in the knowledge base.
 - [[OpenBrain]]: Fictional leading US AGI company from the AI 2027 scenario.
 - [[OpenBrain Agents]]: The series of increasingly capable AI models (Agent 1-4) developed by OpenBrain.
 - [[Sean's AI Stories]]: Educational content creator focusing on AI agent systems, memory architectures, and LLMOps.
+- [[Thariq Shihipar]]: Anthropic technical staff member who detailed 80% system prompt pruning, Unhobbling Claude, and Progressive Disclosure.
 - [[Uber]]: Global mobility and food delivery enterprise using closed-loop evals for multimodal agent orchestration.
 
 ## Concepts
 - [[AI Code Migration]]: Six-step methodology for AI-assisted language/framework migrations at industrial scale.
+- [[Agent Graph]]: Execution workflow topology structuring tasks across planner nodes, parallel subagents, skeptic nodes, and human gates.
+- [[Agent Onboarding Files]]: Persistent instruction files (AGENTS.md, CLAUDE.md, GEMINI.md) acting as a README for agents.
 - [[Agentic Engineering]]: Topic overview page covering Prompt, Context, Harness, Loop, and Graph Engineering pillars.
 - [[Closed-Loop Evals]]: Automated architecture for continuous evaluation, reflection, prompt optimization, and auto-deployment without human intervention.
 - [[Conductor vs Orchestrator]]: Modes of developer interaction with AI.
@@ -47,8 +53,11 @@ A catalog of everything in the knowledge base.
 - [[Inference Speed vs Intelligence Trade-off]]: 3D decision framework balancing model intelligence, token speed, and token efficiency in model serving.
 - [[LLMOps & Inference]]: Topic overview page covering model serving architectures, token economics, and inference trade-offs.
 - [[Loop Engineering]]: The 4-type taxonomy (turn-based, goal-based, time-based, proactive) for designing agent loops with explicit triggers, stop conditions, and quality gates.
+- [[Knowledge Graph vs Agent Graph]]: Comparison matrix between relational information retrieval (Knowledge Graph) and workflow execution (Agent Graph).
 - [[Iterated Distillation and Amplification (IDA)]]: Training methodology to amplify and distill model capabilities.
 - [[Memory Architecture]]: Reference architecture for persistent context management outside the model context window.
+- [[Memory Promotion Path]]: 3-step lifecycle for promoting machine-local auto memory (MEMORY.md) into shared project rules.
+- [[Metacode]]: Taxonomy of version-controlled markdown files carrying requirements, architecture, rules, and plans for coding agents.
 - [[Model Context Protocol]]: Open standard enabling AI models and agent harnesses to connect to external systems.
 - [[Model Specification (Spec)]]: Document outlining desired AI behavior and alignment rules.
 - [[Neuralese]]: High-dimensional vector memory that replaces text-based chain-of-thought.
@@ -57,6 +66,7 @@ A catalog of everything in the knowledge base.
 - [[Persistent Instruction File]]: Durable guidance for agents (e.g., AGENTS.md, CLAUDE.md).
 - [[Preserved Thinking]]: Pattern of retaining historical reasoning_content across multi-turn messages to preserve continuous chain-of-thought.
 - [[Programmatic Tool Calling]]: Model capability to write and execute code for filtering data and dynamically orchestrating tool calls.
+- [[Progressive Disclosure]]: Context engineering pattern loading instructions, tools, and skills on demand (e.g. ToolSearch, tree CLAUDE.md).
 - [[Reasoning Effort]]: Top-level model parameter for dynamically tuning reasoning depth (low, high, max).
 - [[Responses API]]: OpenAI's v1/responses endpoint succeeding Chat Completions, built for native tool use, hosted shell, and multi-agent coordination.
 - [[Second Opinion Pattern]]: Verification pattern using fresh-context background subagents (e.g., claude -p) with model overrides (Opus over Haiku) to eliminate worker self-review bias.
@@ -64,6 +74,7 @@ A catalog of everything in the knowledge base.
 - [[Superhuman AI]]: AI systems capable of recursively improving themselves.
 - [[Superhuman Coder]]: Milestone where AI can perform coding tasks faster and cheaper than top humans.
 - [[The Factory Model (SDLC)]]: Building systems that build software.
+- [[Unhobbling Claude]]: Paradigm shift removing rigid system prompt guardrails in favor of trusting model judgment and surrounding idioms.
 - [[Vibe Coding vs Agentic Engineering]]: The spectrum of AI-assisted development.
 - [[Verification Loop]]: The repeating check-and-fix cycle where an AI agent verifies its own work before reporting completion. Covers gate strengths and 4 deployment modes (Standalone, Embedded, Chained, PR).
 - [[llm-wiki]]: A pattern for building personal knowledge bases using LLMs.
@@ -77,6 +88,7 @@ A catalog of everything in the knowledge base.
 - [[Best practices for Claude Code]]: Guide to managing context, verification, and autonomous workflows.
 - [[Building Closed-Loop Evals for a Multimodal Agent at Scale]]: Uber's presentation on multimodal agent orchestration, closed-loop auto-tuning, and Pass at K metrics.
 - [[Building verification loops in Claude Code with skills]]: How to encode manual checks as skills and deploy them standalone, embedded, chained, or as PR-level team gates.
+- [[Emerging Markdown Formats That Shape Coding Agent Behavior]]: Bilgin Ibryam's comprehensive map of agent-facing Markdown formats, the Metacode layer, and memory promotion.
 - [[Loop Engineering explained in 8min]]: Caleb Writes Code's technical breakdown of multi-loop stacking and Addy Osmani's 6 components of loop engineering.
 - [[Loop Engineering from First Principles]]: Kyle Mistele's talk on applying Control Theory and production patterns (Adaptive Flow Control, FEEDBACK.md) to agentic loops.
 - [[Loop engineering Getting started with loops]]: Official Claude Code loop taxonomy — turn-based, goal-based, time-based, proactive — with decision framework and the full proactive loop composition.
@@ -112,7 +124,9 @@ A catalog of everything in the knowledge base.
 - [[OpenAI's $10B Bet on their biggest model yet]]: Caleb Writes Code's financial and architectural analysis of OpenAI's $10B Cerebras deal and GPT-5.6 2-tier serving.
 - [[The Art of Loop Engineering]]: LangChain's 4-level loop taxonomy culminating in autonomous self-improvement via trace evaluation.
 - [[The New SDLC With Vibe Coding]]: Whitepaper detailing the transition to intent-driven software development.
+- [[The new rules of context engineering for Claude 5 generation models]]: Thariq Shihipar's official Anthropic guide detailing 80% prompt reduction, Unhobbling Claude, and claude doctor.
 - [[Vault Welcome]]: Summary of the default Obsidian onboarding note.
+- [[Why Graph Engineering will 10x your Claude Codex]]: Greg Isenberg's 26-minute technical breakdown of Graph Engineering, Agent Graphs, and workflow patterns.
 - [[You Can Learn AI Agent Harness & Loop Engineering In 19 Min]]: Sean's AI Stories breakdown of horse-and-harness analogy, 4 memory tiers, and LLMOps.
 
 ## Personal Memory & Projects (mem/)

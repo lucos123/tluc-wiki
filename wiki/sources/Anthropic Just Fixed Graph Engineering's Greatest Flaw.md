@@ -7,14 +7,14 @@ tags:
   - harness-engineering
   - verification
   - ai-sdlc
-source: "[[raw/video-transcripts/Anthropic Just Fixed Graph Engineering's Greatest Flaw.md]]"
+source: "[[raw/video-transcripts/anthropic-just-fixed-graph-engineering-s-greatest-flaw.md]]"
 url: "https://www.youtube.com/watch?v=H7t3uUp3HVw"
 channel: "AI LABS"
 ---
 
 # Anthropic Just Fixed Graph Engineering's Greatest Flaw
 
-**Source File**: [[raw/video-transcripts/Anthropic Just Fixed Graph Engineering's Greatest Flaw.md]]  
+**Source File**: [[raw/video-transcripts/anthropic-just-fixed-graph-engineering-s-greatest-flaw.md]]  
 **Channel**: AI LABS  
 **URL**: https://www.youtube.com/watch?v=H7t3uUp3HVw  
 **Upload Date**: 2026-07-29  

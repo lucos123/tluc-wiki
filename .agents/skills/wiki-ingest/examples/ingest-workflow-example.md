@@ -13,24 +13,11 @@ This example demonstrates a complete end-to-end execution of the `wiki-ingest` s
 
 ## Execution Steps
 
-1. **Pre-flight Check**: Verified `raw/articles/ai-other/harness-engineering.md` exists and has not been ingested yet.
-2. **Source Summary Page Creation**: Created `wiki/sources/Harness Engineering.md`:
-   ```markdown
-   ---
-   title: "Harness Engineering"
-   date: 2026-07-28
-   tags:
-     - source
-     - harness-engineering
-     - agentic-design
-   source: "[[raw/articles/ai-other/harness-engineering.md]]"
-   ---
-
-   # Harness Engineering
-
-   **Source File**: [[raw/articles/ai-other/harness-engineering.md]]
-
-   Overview of harness engineering principles by Goon Nguyen.
-   ```
-3. **Concept & Entity Page Creation**: Created/updated `wiki/concepts/Harness Engineering.md`.
-4. **Index & Log Registration**: Updated `index.md` under `## Sources` and `## Concepts`, and appended `wiki/log.md`.
+1. **Pre-flight Check**: Verified raw input `raw/articles/ai-other/harness-engineering  Goon.md` exists.
+2. **Source Summary Page Creation**: Created `wiki/sources/Harness Engineering.md`.
+3. **Raw File Standardized Kebab-Case Renaming & Link Propagation**:
+   - Renamed raw file: `raw/articles/ai-other/Harness Engineering  Goon.md` $\rightarrow$ `raw/articles/ai-other/harness-engineering.md`
+   - Updated `source: "[[raw/articles/ai-other/harness-engineering.md]]"` in `wiki/sources/Harness Engineering.md`.
+4. **Concept & Entity Page Creation**: Created/updated `wiki/concepts/Harness Engineering.md`.
+5. **Index & Log Registration**: Updated `index.md` under `## Sources` and `## Concepts`, and appended `wiki/log.md`.
+6. **Embedded Verification Gate**: Ran `python .agents/skills/wiki-lint/scripts/lint_wiki.py` to confirm 0 broken links and 100% health score.

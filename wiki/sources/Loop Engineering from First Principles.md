@@ -11,7 +11,7 @@ url: "https://www.youtube.com/watch?v=xIt_mTQp6mY"
 channel: "AI Engineer"
 speaker: "Kyle Mistele"
 duration: "17m 57s"
-source: "raw/video-transcripts/Loop Engineering from First Principles — Kyle Mistele, HumanLayer.md"
+source: "raw/video-transcripts/loop-engineering-from-first-principles-kyle-mistele-humanlayer.md"
 ---
 
 # Loop Engineering from First Principles
@@ -20,7 +20,7 @@ source: "raw/video-transcripts/Loop Engineering from First Principles — Kyle M
 **Speaker**: Kyle Mistele (HumanLayer)  
 **URL**: https://www.youtube.com/watch?v=xIt_mTQp6mY  
 **Duration**: 17m 57s  
-**Transcript**: [[raw/video-transcripts/Loop Engineering from First Principles — Kyle Mistele, HumanLayer.md]]
+**Transcript**: [[raw/video-transcripts/loop-engineering-from-first-principles-kyle-mistele-humanlayer.md]]
 
 A presentation on moving beyond "blind Ralph loops" and unreviewable 40,000-line PRs by applying **Classical Control Theory** to agentic loop engineering in real-world production codebases.
 

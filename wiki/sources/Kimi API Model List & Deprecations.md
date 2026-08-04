@@ -5,12 +5,12 @@ tags:
   - source
   - ai-models
   - moonshot-ai
-source: "raw/articles/kimi/Model List.md"
+source: "raw/articles/kimi/model-list.md"
 ---
 
 # Kimi API Model List & Deprecations
 
-**Source File**: [[raw/articles/kimi/Model List.md]]
+**Source File**: [[raw/articles/kimi/model-list.md]]
 
 Catalog of official model IDs, context windows, and deprecation timelines across the [[Moonshot AI]] platform.
 

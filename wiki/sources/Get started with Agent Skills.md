@@ -5,12 +5,12 @@ tags:
   - source
   - documentation
   - gemini-cli
-source: "[[raw/Get started with Agent Skills.md]]"
+source: "[[raw/get-started-with-agent-skills.md]]"
 ---
 
 # Get started with Agent Skills
 
-**Source File**: [[raw/Get started with Agent Skills.md]]
+**Source File**: [[raw/get-started-with-agent-skills.md]]
 
 This tutorial outlines how to manually create a new Agent Skill for the [[Gemini CLI]], using an "API Auditor" skill as a practical example.
 

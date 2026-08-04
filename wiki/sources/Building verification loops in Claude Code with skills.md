@@ -7,12 +7,12 @@ tags:
   - agentic-design
   - verification
   - harness-engineering
-source: "[[raw/articles/claude-code/Building verification loops in Claude Code with skills.md]]"
+source: "[[raw/articles/claude-code/building-verification-loops-in-claude-code-with-skills.md]]"
 ---
 
 # Building verification loops in Claude Code with skills
 
-**Source File**: `raw/articles/claude-code/Building verification loops in Claude Code with skills.md`
+**Source File**: `raw/articles/claude-code/building-verification-loops-in-claude-code-with-skills.md`
 **Original URL**: https://claude.com/blog/building-verification-loops-in-claude-code-with-skills
 **Author**: Delba de Oliveira, Claude Code team
 

@@ -12,7 +12,7 @@ url: "https://www.youtube.com/watch?v=mBePcvqLX88"
 channel: "Caleb Writes Code"
 speaker: "Caleb"
 duration: "8m 35s"
-source: "raw/video-transcripts/Graph Engineering explained in 8min...md"
+source: "raw/video-transcripts/graph-engineering-explained-in-8min.md"
 ---
 
 # Graph Engineering explained in 8min
@@ -21,7 +21,7 @@ source: "raw/video-transcripts/Graph Engineering explained in 8min...md"
 **Speaker**: Caleb  
 **URL**: https://www.youtube.com/watch?v=mBePcvqLX88  
 **Duration**: 8m 35s  
-**Transcript**: [[raw/video-transcripts/Graph Engineering explained in 8min...md]]
+**Transcript**: [[raw/video-transcripts/graph-engineering-explained-in-8min.md]]
 
 A technical breakdown explaining why **Graph Engineering** represents the next evolutionary shift in agentic engineering, moving from optimizing single agent nodes to orchestrating dynamic graphs of specialized agents.
 

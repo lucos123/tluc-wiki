@@ -54,6 +54,13 @@ Read the source document thoroughly. Identify:
 Create a new file `wiki/sources/<Source Title>.md`.
 Follow templates in `references/ingest-templates.md` or `references/video-ingest-guide.md`.
 
+### Step 3.5 — Standardize Raw Filename (Kebab-Case) & Synchronize Links
+1. **Raw File Kebab-Case Renaming**: Rename the raw input file in `raw/` to a clean, lower-case kebab-case filename based on the document's canonical title (removing trailing browser artifacts like `  Claude`, ` copy`, ` copy 2`, punctuation, and converting spaces to hyphens):
+   - Articles/Notes: `raw/<subfolder>/<clean-kebab-case-title>.<ext>` (e.g., `raw/articles/ai-other/emerging-markdown-formats-that-shape-coding-agent-behavior.md`)
+   - Video Transcripts: `raw/video-transcripts/<clean-kebab-case-title>.md` (e.g., `raw/video-transcripts/why-graph-engineering-will-10x-your-claude-codex.md`)
+   - Assets/Images: `raw/assets/<descriptive-kebab-case-name>.<ext>` (e.g., `raw/assets/metacode-scattered-to-agent-ready.png`)
+2. **Link Synchronization**: Update `wiki/sources/<Source Title>.md` YAML frontmatter `source:` field and body `**Source File**:` link to point to the newly renamed kebab-case raw path.
+
 ### Step 4 — Update / Create Entity & Concept Pages
 - Create new page in `wiki/entities/` or `wiki/concepts/` if a topic is covered substantively.
 - Update existing pages if new information or trade-offs are introduced.
