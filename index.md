@@ -32,12 +32,14 @@ A catalog of everything in the knowledge base.
 - [[OpenAI]]: AI research and deployment company developing the GPT model series, Codex, and Responses API.
 - [[OpenBrain]]: Fictional leading US AGI company from the AI 2027 scenario.
 - [[OpenBrain Agents]]: The series of increasingly capable AI models (Agent 1-4) developed by OpenBrain.
+- [[Peter Steinberger]]: Open-source creator (author of OpenClaw) who sparked the 3M-view viral Graph Engineering debate on July 18, 2026.
 - [[Sean's AI Stories]]: Educational content creator focusing on AI agent systems, memory architectures, and LLMOps.
 - [[Thariq Shihipar]]: Anthropic technical staff member who detailed 80% system prompt pruning, Unhobbling Claude, and Progressive Disclosure.
 - [[Uber]]: Global mobility and food delivery enterprise using closed-loop evals for multimodal agent orchestration.
 
 ## Concepts
 - [[AI Code Migration]]: Six-step methodology for AI-assisted language/framework migrations at industrial scale.
+- [[Agent Engineering Ladder]]: 5-level evolutionary hierarchy of agent design: Prompt → Context → Skills → Loop → Graph Engineering.
 - [[Agent Graph]]: Execution workflow topology structuring tasks across planner nodes, parallel subagents, skeptic nodes, and human gates.
 - [[Agent Onboarding Files]]: Persistent instruction files (AGENTS.md, CLAUDE.md, GEMINI.md) acting as a README for agents.
 - [[Agentic Engineering]]: Topic overview page covering Prompt, Context, Harness, Loop, and Graph Engineering pillars.
@@ -77,6 +79,7 @@ A catalog of everything in the knowledge base.
 - [[Unhobbling Claude]]: Paradigm shift removing rigid system prompt guardrails in favor of trusting model judgment and surrounding idioms.
 - [[Vibe Coding vs Agentic Engineering]]: The spectrum of AI-assisted development.
 - [[Verification Loop]]: The repeating check-and-fix cycle where an AI agent verifies its own work before reporting completion. Covers gate strengths and 4 deployment modes (Standalone, Embedded, Chained, PR).
+- [[Waku-Agent]]: Open-source agent framework by Sean demonstrating production Graph Engineering with router nodes, memory retrieval, and eval gates.
 - [[llm-wiki]]: A pattern for building personal knowledge bases using LLMs.
 
 ## Sources
@@ -127,6 +130,7 @@ A catalog of everything in the knowledge base.
 - [[The new rules of context engineering for Claude 5 generation models]]: Thariq Shihipar's official Anthropic guide detailing 80% prompt reduction, Unhobbling Claude, and claude doctor.
 - [[Vault Welcome]]: Summary of the default Obsidian onboarding note.
 - [[Why Graph Engineering will 10x your Claude Codex]]: Greg Isenberg's 26-minute technical breakdown of Graph Engineering, Agent Graphs, and workflow patterns.
+- [[You Can Learn AI Agent Graph Engineering In 21 Min]]: Sean's AI Stories technical breakdown of the 5-level Agent Engineering Ladder, Loop vs Graph trade-offs, and Waku-Agent architecture.
 - [[You Can Learn AI Agent Harness & Loop Engineering In 19 Min]]: Sean's AI Stories breakdown of horse-and-harness analogy, 4 memory tiers, and LLMOps.
 
 ## Personal Memory & Projects (mem/)

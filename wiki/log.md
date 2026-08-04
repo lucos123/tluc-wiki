@@ -67,3 +67,4 @@ n.
 ## [2026-08-04] ingest | Emerging Markdown Formats That Shape Coding Agent Behavior
 ## [2026-08-04] ingest | Why Graph Engineering will 10x your Claude Codex
 ## [2026-08-04] ingest | The new rules of context engineering for Claude 5 generation models
+## [2026-08-04] ingest | You Can Learn AI Agent Graph Engineering In 21 Min

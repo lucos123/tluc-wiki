@@ -10,20 +10,21 @@ tags:
 
 # Graph Engineering
 
-The practice of orchestrating complex agentic workflows by structuring multiple reliable agent runtimes (nodes) into directed graphs (DAGs or cyclic graphs) connected by explicit control and data paths (edges). Detailed by [[Caleb Writes Code]] in [[Graph Engineering explained in 8min]] and [[Greg Isenberg]] in [[Why Graph Engineering will 10x your Claude Codex]].
+The practice of orchestrating complex agentic workflows by structuring multiple reliable agent runtimes (nodes) into directed graphs (DAGs or cyclic graphs) connected by explicit control and data paths (edges). Detailed by [[Caleb Writes Code]] in [[Graph Engineering explained in 8min]], [[Greg Isenberg]] in [[Why Graph Engineering will 10x your Claude Codex]], and [[Sean's AI Stories]] in [[You Can Learn AI Agent Graph Engineering In 21 Min]].
 
-## Evolution: Why Graphs Now?
+## Evolution & The [[Agent Engineering Ladder]]
 
 ```
-Prompt Engineering (2022-2023): How you ask AI a better question
-  └── Context Engineering (2023-2025): How you give AI better information
-        └── Harness Engineering (2025-2026): How you wrap AI with tools & sandboxes
-              └── Loop Engineering (2026): How you manage execution loops & gates
-                    └── Graph Engineering (2026+): How you structure work across multi-agent networks
+Prompt Engineering (Role-Playing: "act as Shakespeare")
+  └── Context Engineering (Feeding CRM/RAG data into prompts)
+        └── Skills (Procedural memory & SKILL.md playbooks)
+              └── Loop Engineering (Goal-driven tool exploration: "go figure it out")
+                    └── Graph Engineering (Controlled SOPs + Exploratory Sub-Loops)
 ```
 
-- **2023 Graph Attempts**: Early frameworks (AutoGen, early LangGraph) used graphs where nodes were simple LLM prompt calls. The system failed frequently because individual nodes were unreliable.
-- **2026 Graph Shift**: Individual nodes are now fully harnessed, reliable coding/research agents (equipped with MCP, skills, tools, and sandboxes). The engineering bottleneck has shifted from *making the node work* to *designing optimal graph topologies*.
+- **The Viral Shift**: Sparked on July 18, 2026 by [[Peter Steinberger]] (*"Are we still talking about loops or did we shift to graphs yet?"*).
+- **2023 Graph Attempts vs 2026 Shift**: Early frameworks failed because individual prompt nodes were fragile. In 2026, individual nodes are fully harnessed agents. The bottleneck shifted from *node capability* to *graph topology design*.
+- **Production Frameworks**: Open-source implementations like [[Waku-Agent]] demonstrate routing requests across dynamic graphs, memory nodes, tool calls, and eval gates.
 
 ## Knowledge Graph vs. Agent Graph
 
