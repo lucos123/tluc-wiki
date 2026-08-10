@@ -68,3 +68,8 @@ n.
 ## [2026-08-04] ingest | Why Graph Engineering will 10x your Claude Codex
 ## [2026-08-04] ingest | The new rules of context engineering for Claude 5 generation models
 ## [2026-08-04] ingest | You Can Learn AI Agent Graph Engineering In 21 Min
+## [2026-08-10] ingest | Claude Code context-memory-rules documentation batch (6 files)
+## [2026-08-10] ingest | Claude Code large-codebases-sdlc-worktrees documentation batch (5 files)
+## [2026-08-10] ingest | Claude Code agent-architecture-subagents-workflows documentation batch (8 files)
+## [2026-08-10] ingest | Claude Code hooks-tools-mcp-chrome documentation batch (6 files)
+## [2026-08-10] ingest | Claude Code costs-models-checkpoints documentation batch (6 files)

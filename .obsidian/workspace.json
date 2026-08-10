@@ -11,10 +11,10 @@
             "id": "1c99e09fc643f7f5",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -181,8 +181,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "44976060f1fcf525",
+  "active": "1c99e09fc643f7f5",
   "lastOpenFiles": [
+    "raw/articles/claude-code/The new rules of context engineering for Claude 5 generation models.md",
     "wiki/entities/Peter Steinberger.md",
     "wiki/concepts/Agent Engineering Ladder.md",
     "wiki/concepts/Waku-Agent.md",
@@ -201,7 +202,6 @@
     "wiki/concepts/Unhobbling Claude.md",
     "wiki/sources/The new rules of context engineering for Claude 5 generation models.md",
     "raw/articles/claude-code/the-new-rules-of-context-engineering-for-claude-5-generation-models.md",
-    "raw/articles/claude-code/The new rules of context engineering for Claude 5 generation models.md",
     "raw/video-transcripts/you-can-learn-ai-agent-harness-loop-engineering-in-19-min-llm-ops,-eval,-tracing,-rag.md",
     "raw/video-transcripts/the-art-of-loop-engineering-how-to-build-agents-that-improve-over-time.md",
     "raw/video-transcripts/openai-s-10b-bet-on-their-biggest-model-yet.md",
