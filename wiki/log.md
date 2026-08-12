@@ -73,3 +73,7 @@ n.
 ## [2026-08-10] ingest | Claude Code agent-architecture-subagents-workflows documentation batch (8 files)
 ## [2026-08-10] ingest | Claude Code hooks-tools-mcp-chrome documentation batch (6 files)
 ## [2026-08-10] ingest | Claude Code costs-models-checkpoints documentation batch (6 files)
+## [2026-08-12] ingest | Harness vs Model costs explained
+## [2026-08-12] ingest | 5 Best Practices for Building AI Agent Skills
+## [2026-08-12] ingest | What Is Context Engineering Why It Matters for AI Agents
+## [2026-08-12] ingest | What Is Context Engineering

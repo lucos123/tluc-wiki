@@ -12,6 +12,7 @@ A catalog of everything in the knowledge base.
 - [[Cerebras Systems]]: Wafer-scale AI chip manufacturer providing 750 t/s ultra-fast inference for OpenAI.
 - [[Chrome Extension]]: Official Chromium extension (Claude in Chrome) enabling browser automation, DOM inspection, and visual verification.
 - [[Claude Code]]: Agentic coding environment developed by Anthropic.
+- [[Cline]]: Open-source IDE agentic coding harness executing multi-turn tool operations via Model Context Protocol.
 - [[Codex]]: OpenAI's coding agent platform.
 - [[DeepCent]]: Fictional state-backed Chinese AI collective from the AI 2027 scenario.
 - [[GPT-5.6]]: OpenAI's frontier model family (Sol, Terra, Luna) emphasizing token efficiency and parallel reasoning.
@@ -23,7 +24,10 @@ A catalog of everything in the knowledge base.
 - [[Greg Isenberg]]: Tech entrepreneur and content creator who detailed Graph Engineering, Agent Graphs, and Knowledge Graph trade-offs.
 - [[Greta]]: Context-aware AI development partner tool.
 - [[HumanLayer]]: Tooling platform focused on human-in-the-loop agentic workflows and production control loops.
+- [[IBM]]: Global technology enterprise and pioneer in AI, cloud computing, and enterprise software systems.
+- [[IBM Technology]]: Official technical education channel of IBM producing deep-dives on enterprise AI architecture and agentic software design.
 - [[Jarred Sumner]]: Bun co-founder and Anthropic MTS; ran the Zig→Rust 1M-line migration with Claude Code.
+- [[Joshua Noble]]: Technical author and researcher at IBM Think specializing in context engineering and AI agent memory systems.
 - [[Kimi K2.7 Code]]: Dedicated long-horizon coding and agentic model by Moonshot AI with 256K context and HighSpeed variant.
 - [[Kimi K3]]: Open-weights frontier AI model by Moonshot AI featuring 896 experts, 1.8% activation, and KDA.
 - [[Kyle Mistele]]: Co-founder/engineer at HumanLayer; introduced Control-Loop Engineering.
@@ -36,6 +40,7 @@ A catalog of everything in the knowledge base.
 - [[OpenBrain Agents]]: The series of increasingly capable AI models (Agent 1-4) developed by OpenBrain.
 - [[Peter Steinberger]]: Open-source creator (author of OpenClaw) who sparked the 3M-view viral Graph Engineering debate on July 18, 2026.
 - [[Sean's AI Stories]]: Educational content creator focusing on AI agent systems, memory architectures, and LLMOps.
+- [[Simon Willison]]: Open-source software developer (Datasette, Django) and AI researcher who coined prompt injection.
 - [[Thariq Shihipar]]: Anthropic technical staff member who detailed 80% system prompt pruning, Unhobbling Claude, and Progressive Disclosure.
 - [[Uber]]: Global mobility and food delivery enterprise using closed-loop evals for multimodal agent orchestration.
 
@@ -47,6 +52,8 @@ A catalog of everything in the knowledge base.
 - [[Agent Onboarding Files]]: Persistent instruction files (AGENTS.md, CLAUDE.md, GEMINI.md) acting as a README for agents.
 - [[Agent SDK Architecture]]: Programmatic framework embedding native Claude Code runtimes, parallel tool execution, and fine-grained permissions.
 - [[Agent Skills Architecture]]: Modular extension paradigm (Agent Skills spec) packaging instructions, supporting files, and allowed-tools into executable units.
+- [[Agent Skills Best Practices]]: 5-principle methodology for authoring secure, token-efficient, and deterministic AI Agent Skills.
+- [[Agent Skills Security Audit]]: Security verification protocol for auditing third-party agent skills to prevent prompt injection and malware.
 - [[Agent Teams Architecture]]: Multi-session peer collaboration pattern running a Lead Agent and independent Teammates with shared task backlogs and direct messaging.
 - [[Agentic Coding Workflow]]: Structured 4-phase lifecycle (Explore → Plan → Implement → Commit) with empirical verification.
 - [[Agentic Engineering]]: Topic overview page covering Prompt, Context, Harness, Loop, and Graph Engineering pillars.
@@ -61,6 +68,10 @@ A catalog of everything in the knowledge base.
 - [[Cache Invalidation Patterns]]: Catalog of triggers (model switches, effort changes, tool denials) that bust prompt cache prefixes.
 - [[Conductor vs Orchestrator]]: Modes of developer interaction with AI.
 - [[Context Engineering]]: The practice of explicitly managing and structuring what the AI "sees".
+- [[Context Engineering Pipeline]]: Multi-stage architecture connecting data storage infrastructure to the LLM inference window.
+- [[Context Processing and Management]]: Two-phase operational framework in Context Engineering for filtering, structuring, and maintaining agent payloads.
+- [[Context Rot]]: Phenomenon where LLM reasoning quality and instruction-following decay as unmanaged context volume increases.
+- [[Context Selection and Sequencing]]: Structural optimization phase in Context Engineering governing data filtering and prompt payload ordering.
 - [[Context Window Management]]: Essential practices (CLAUDE.md hygiene, path-scoped rules, subagent isolation, compacting) to manage token degradation.
 - [[Control-Loop Engineering]]: Application of Classical Control Theory to agentic loops (Set Point, Sensors, Actuator, Adaptive Flow Control, FEEDBACK.md).
 - [[Cost Optimization]]: Active engineering techniques (context pruning, hook filtering, effort tuning) minimizing token spend.
@@ -73,6 +84,7 @@ A catalog of everything in the knowledge base.
 - [[Goal-Driven Loop]]: Autonomous multi-turn loop (/goal) evaluated after each turn by an independent fast evaluator model until completion conditions hold.
 - [[Graph Engineering]]: Orchestration paradigm structuring reliable agent nodes into directed graphs (DAGs or cyclic graphs).
 - [[Harness Engineering]]: The design of the environment (tools, sandboxes, memory) that wraps the model.
+- [[Harness Overhead vs Model Cost]]: Economic paradigm detailing how agent spend is dominated by system prompt tollgates and multi-turn loops rather than base model inference.
 - [[Hill-Climbing Loop]]: The highest level of LangChain's loop taxonomy, where an agent autonomously self-improves its own harness via trace analysis.
 - [[Inference Speed vs Intelligence Trade-off]]: 3D decision framework balancing model intelligence, token speed, and token efficiency in model serving.
 - [[Interactive Session Artifacts]]: Web-publishing feature in Claude Code rendering CLI session outputs as live HTML dashboards on claude.ai.
@@ -81,6 +93,7 @@ A catalog of everything in the knowledge base.
 - [[Loop Engineering]]: The 4-type taxonomy (turn-based, goal-based, time-based, proactive) for designing agent loops with explicit triggers, stop conditions, and quality gates.
 - [[Knowledge Graph vs Agent Graph]]: Comparison matrix between relational information retrieval (Knowledge Graph) and workflow execution (Agent Graph).
 - [[Iterated Distillation and Amplification (IDA)]]: Training methodology to amplify and distill model capabilities.
+- [[Jevons Paradox in AI]]: Economic phenomenon where falling per-token base model costs lead to exponential overall token consumption via thick agentic harnesses.
 - [[Memory Architecture]]: Reference architecture for persistent context management outside the model context window.
 - [[Memory Promotion Path]]: 3-step lifecycle for promoting machine-local auto memory (MEMORY.md) into shared project rules.
 - [[MCP Transports]]: Communication channels (HTTP streamable-http, stdio, WebSocket ws) for Model Context Protocol integrations.
@@ -127,6 +140,7 @@ A catalog of everything in the knowledge base.
 
 ## Sources
 - [[12 Agentic Harness Patterns from Claude Code]]: Design patterns from a leaked production agent's source code.
+- [[5 Best Practices for Building AI Agent Skills]]: IBM Technology's guide on trigger descriptions, gotchas, progressive disclosure, deterministic scripts, and security.
 - [[7 AI Coding Trends to Watch This Year in 2026]]: Shifts in software development as AI integration matures, such as AI-native systems and context-aware tools.
 - [[AI 2027]]: Scenario forecasting the rapid development of superhuman AI and geopolitical tensions between 2025-2027.
 - [[Agent Harness explained in 8min]]: Caleb Writes Code's concise breakdown of the 3-stage evolution (Prompt → Context → Harness Engineering) and fresh-context loops.
@@ -166,6 +180,7 @@ A catalog of everything in the knowledge base.
 - [[Gemini CLI Tips & Tricks]]: Dozens of pro-tips for Google's agentic command-line tool.
 - [[Get started with Agent Skills]]: Tutorial on creating an API Auditor skill for the Gemini CLI.
 - [[Harness Engineering]]: Goon Nguyen's breakdown of why the ecosystem around the model matters more than the model itself.
+- [[Harness vs Model costs explained]]: Caleb Writes Code's breakdown of system prompt tollgates, harness cost variance, Jevons' Paradox, and prompt caching economics.
 - [[Hooks reference]]: Official Anthropic reference manual documenting all 31 hook lifecycle events, input/output schemas, and exit codes.
 - [[How Anthropic runs large-scale code migrations with Claude Code]]: Anthropic's six-step AI migration methodology; Bun Zig→Rust (1M lines, $165K) and Python→TypeScript (165K lines, 1 weekend).
 - [[How Claude Code uses prompt caching]]: Official Anthropic guide on prompt caching, prefix matching, invalidation triggers, and TTL.
@@ -202,6 +217,8 @@ A catalog of everything in the knowledge base.
 - [[The new rules of context engineering for Claude 5 generation models]]: Thariq Shihipar's official Anthropic guide detailing 80% prompt reduction, Unhobbling Claude, and claude doctor.
 - [[Use Claude Code with Chrome]]: Official Anthropic guide on Chrome browser integration (claude-in-chrome), debugging, and visual testing.
 - [[Vault Welcome]]: Summary of the default Obsidian onboarding note.
+- [[What Is Context Engineering]]: Joshua Noble's IBM article defining the 6-step context engineering lifecycle and data pipeline.
+- [[What Is Context Engineering Why It Matters for AI Agents]]: IBM Technology's guide on context processing, context management, context rot, and working memory analogies.
 - [[Why Graph Engineering will 10x your Claude Codex]]: Greg Isenberg's 26-minute technical breakdown of Graph Engineering, Agent Graphs, and workflow patterns.
 - [[You Can Learn AI Agent Graph Engineering In 21 Min]]: Sean's AI Stories technical breakdown of the 5-level Agent Engineering Ladder, Loop vs Graph trade-offs, and Waku-Agent architecture.
 - [[You Can Learn AI Agent Harness & Loop Engineering In 19 Min]]: Sean's AI Stories breakdown of horse-and-harness analogy, 4 memory tiers, and LLMOps.
