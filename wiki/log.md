@@ -77,3 +77,6 @@ n.
 ## [2026-08-12] ingest | 5 Best Practices for Building AI Agent Skills
 ## [2026-08-12] ingest | What Is Context Engineering Why It Matters for AI Agents
 ## [2026-08-12] ingest | What Is Context Engineering
+## [2026-08-27] ingest | AI Model vs Agentic Harness What Actually Drives AI
+## [2026-08-27] ingest | Why Your Enterprise Tech Stack Isn't Ready for AI Agents
+

@@ -14,7 +14,13 @@ A core concept from [[The New SDLC With Vibe Coding]] summarized by the equation
 
 ## Definition
 The "harness" is the scaffolding wrapped around a raw AI model that allows it to actually accomplish tasks. 
-As described in [[You Can Learn AI Agent Harness & Loop Engineering In 19 Min]], the raw LLM is like a powerful **wild horse** (probabilistic, high-capacity, but unguided). The **harness** represents the bridle, saddle, and reins—the software architecture (memory pipelines, tool gates, RAG, execution loops) controlling the model to achieve maximum predictability and value.
+
+Key mental models framing the harness include:
+- **The Wild Horse Analogy** ([[You Can Learn AI Agent Harness & Loop Engineering In 19 Min]]): The raw LLM is a powerful **wild horse** (probabilistic, high-capacity, but unguided). The **harness** represents the bridle, saddle, and reins—the software architecture (memory pipelines, tool gates, RAG, execution loops) controlling the model to achieve maximum predictability and value.
+- **The "Brain in a Jar" Metaphor** ([[AI Model vs Agentic Harness What Actually Drives AI]]): On its own, a neural network is a capable "brain in a jar"—trapped, unable to open files, execute code, or navigate networks. The **agentic harness** provides embodiment, environmental sensors, actuators, and persistence.
+
+### The Narrowing Benchmark Gap Thesis
+As benchmark score gaps between frontier AI foundation models (Anthropic, OpenAI, Moonshot AI, Google) narrow to within a few percentage points, the base model itself is rarely the explanation when one AI product drastically outperforms another. Real-world capability divergence is driven predominantly by harness design.
 
 ## The 4 Memory Tiers in a Harness
 
@@ -51,6 +57,7 @@ Harness Engineering (Outer: Loops, Swarms, Fresh-Context Iterations)
 - **Anthropic's 3-Agent Setup**: A Planner, Generator, and Evaluator working together.
 - **Claude Code**: A production-grade harness revealed to use 5 stages of context compaction, 3-tier memory, and 40+ permission-gated tools (see [[12 Agentic Harness Patterns from Claude Code]]).
 - **Harness in Harness (Harness²)**: Systems like ClaudeKit and GoClaw that add further structured workflows, quality gates, and agent coordination on top of base harnesses.
+- **[[Enterprise Agent Stack]]**: Production architecture for regulated industries (healthcare, finance) utilizing immutable event logs, decoupled zero-trust payload storage, and Human-Agent Equivalency to solve enterprise compliance and escalation (see [[Why Your Enterprise Tech Stack Isn't Ready for AI Agents]]).
 - **[[AI Code Migration]]**: The six-step migration methodology is harness engineering applied to full language ports. The engineer designs the *loops* (implement → review → fix), the *rules* (rulebook, gap inventory), and the *referee* (judge/test suite) — not the code itself. The build daemon serialises expensive rebuilds while fixers work in parallel. The rule-propagation mechanic (reviewer catches mistake → rulebook sentence added → affected batch regenerated) is the harness equivalent of automated quality gates: correctness constraints enforced *structurally*, not per-file.
 
 ## Key Insight: Harness Shifts the Engineer's Role
@@ -61,3 +68,28 @@ In mature harness implementations, the engineer's most valuable hours are:
 3. **Watching patterns** (when does the same mistake recur across many files?)
 
 Everything else — execution, fixing, compiling, testing — runs in loops the harness drives. This mirrors the [[Conductor vs Orchestrator]] framing from [[My LLM coding workflow going into 2026]]: the engineer as conductor of agent workstreams.
+
+---
+
+## Strategic Implications & Fluid Boundaries (IBM Framing)
+
+### The Dual Evaluation Heuristic
+As articulated in [[AI Model vs Agentic Harness What Actually Drives AI]], asking whether "AI is good at a task" is underspecified. Practitioners must evaluate two distinct variables:
+1. **Which AI Model is used?** (Raw reasoning depth, domain knowledge, pretraining tokens).
+2. **Which Agentic Harness is wrapped around that model?** (Tool definitions, memory compaction, verification loops, permission boundaries).
+
+A capable model wrapped in an unmanaged, naive harness will quickly derail; conversely, an efficient, smaller model wrapped in a rigorous harness with automated verification will consistently deliver production results.
+
+### Fluid Boundaries & Co-Evolution
+The division between model and harness is dynamic and continuously shifting:
+- **Harness $\rightarrow$ Model**: Capabilities that originally lived entirely inside harness scaffolding (multi-step planning, self-reflection, chain-of-thought verification) are increasingly trained directly into the weights of reasoning models via thinking tokens.
+- **Model $\rightarrow$ Harness**: Multi-hour adherence, zero-regression consistency, and organizational policy enforcement are increasingly offloaded from model weights into deterministic harness conventions (`AGENTS.md`, lifecycle hooks, worktree sandboxes).
+
+---
+
+## Related Knowledge Nodes
+
+- **Concepts**: [[Enterprise Agent Stack]], [[Loop Engineering]], [[Verification Loop]], [[Context Engineering]], [[Context Window Management]], [[Agent Onboarding Files]], [[Model Context Protocol]], [[Harness Overhead vs Model Cost]].
+- **Entities**: [[IBM Technology]], [[AI Engineer]], [[Anterior]], [[Claude Code]], [[Anthropic]], [[OpenAI]], [[Codex]], [[Goon Nguyen]], [[Caleb Writes Code]].
+- **Sources**: [[AI Model vs Agentic Harness What Actually Drives AI]], [[Why Your Enterprise Tech Stack Isn't Ready for AI Agents]], [[12 Agentic Harness Patterns from Claude Code]], [[Agent Harness explained in 8min]], [[Harness vs Model costs explained]], [[You Can Learn AI Agent Harness & Loop Engineering In 19 Min]].
+

@@ -3,9 +3,11 @@
 A catalog of everything in the knowledge base.
 
 ## Entities
+- [[AI Engineer]]: Global community and technical conference series focused on AI engineering, agent architectures, and LLMOps.
 - [[AI LABS]]: Technical content creator channel producing deep-dive analysis on AI agent engineering, graph topologies, and verification loops.
 - [[Addy Osmani]]: Engineering leader and advocate for "AI-assisted engineering".
 - [[Andre Karpathy]]: AI researcher and founding team member at OpenAI; framed the "smarter vs. faster" model trade-off.
+- [[Anterior]]: Healthcare technology enterprise developing agentic systems for US health insurance workflows and HIPAA-compliant architectures.
 - [[Anthropic]]: AI research and safety company developing the Claude model series, Claude Code, and Model Context Protocol.
 - [[Bilgin Ibryam]]: Software architect and author who introduced the Metacode taxonomy and Memory Promotion Path.
 - [[Caleb Writes Code]]: Tech content creator focusing on AI agent engineering architecture.
@@ -80,6 +82,7 @@ A catalog of everything in the knowledge base.
 - [[Dynamic Tool Loading]]: Pattern for declaring tool schemas on-demand inside system messages during chat completions.
 - [[Dynamic Workflows]]: Programmatic JS script execution pattern running large-scale multi-agent audits and migrations in background runtimes.
 - [[Effort Level and Model Selection]]: The 2D decision framework for model × effort tuning in Claude Code — includes diagnostic heuristic ("didn't try" vs "didn't know") and cost-interaction curves.
+- [[Enterprise Agent Stack]]: Production architecture for regulated industries utilizing immutable event ledgers, decoupled zero-trust payload storage, and Human-Agent Equivalency.
 - [[Git Worktree Isolation]]: Harness pattern running parallel sessions in dedicated git worktrees (.claude/worktrees/) to prevent edit collisions.
 - [[Goal-Driven Loop]]: Autonomous multi-turn loop (/goal) evaluated after each turn by an independent fast evaluator model until completion conditions hold.
 - [[Graph Engineering]]: Orchestration paradigm structuring reliable agent nodes into directed graphs (DAGs or cyclic graphs).
@@ -143,6 +146,7 @@ A catalog of everything in the knowledge base.
 - [[5 Best Practices for Building AI Agent Skills]]: IBM Technology's guide on trigger descriptions, gotchas, progressive disclosure, deterministic scripts, and security.
 - [[7 AI Coding Trends to Watch This Year in 2026]]: Shifts in software development as AI integration matures, such as AI-native systems and context-aware tools.
 - [[AI 2027]]: Scenario forecasting the rapid development of superhuman AI and geopolitical tensions between 2025-2027.
+- [[AI Model vs Agentic Harness What Actually Drives AI]]: IBM Technology's breakdown of the "brain in a jar" metaphor, narrowing benchmark gaps, the 3 harness pillars (Tools, Memory, Loops), and model-harness co-evolution.
 - [[Agent Harness explained in 8min]]: Caleb Writes Code's concise breakdown of the 3-stage evolution (Prompt → Context → Harness Engineering) and fresh-context loops.
 - [[Agent Skills in the SDK]]: Official Anthropic guide on programmatically integrating and filtering disk-based Agent Skills using the Claude Agent SDK.
 - [[Anthropic Just Fixed Graph Engineering's Greatest Flaw]]: AI LABS breakdown of DAG error cascading, the Second Opinion Pattern, Chrome Headless Shell verification, and the Orchestrator Skill Pattern.
@@ -220,6 +224,7 @@ A catalog of everything in the knowledge base.
 - [[What Is Context Engineering]]: Joshua Noble's IBM article defining the 6-step context engineering lifecycle and data pipeline.
 - [[What Is Context Engineering Why It Matters for AI Agents]]: IBM Technology's guide on context processing, context management, context rot, and working memory analogies.
 - [[Why Graph Engineering will 10x your Claude Codex]]: Greg Isenberg's 26-minute technical breakdown of Graph Engineering, Agent Graphs, and workflow patterns.
+- [[Why Your Enterprise Tech Stack Isn't Ready for AI Agents]]: Christopher Lovejoy and Saul Howard's presentation on the 4 architectural primitives for enterprise agent stacks, the immutable action ledger, and Human-Agent Equivalency.
 - [[You Can Learn AI Agent Graph Engineering In 21 Min]]: Sean's AI Stories technical breakdown of the 5-level Agent Engineering Ladder, Loop vs Graph trade-offs, and Waku-Agent architecture.
 - [[You Can Learn AI Agent Harness & Loop Engineering In 19 Min]]: Sean's AI Stories breakdown of horse-and-harness analogy, 4 memory tiers, and LLMOps.
 
