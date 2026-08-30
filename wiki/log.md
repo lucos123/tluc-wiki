@@ -29,12 +29,6 @@ Append-only record of operations.
 ## [2026-07-26] ingest | Quy Trình Đào Tạo & Đánh Giá Thử Việc TVV 3C
 ## [2026-08-02] architecture | Full 5-tier Second Brain upgrade (raw/, wiki/, output/, ctx/, mem/) & Unit Test Suite
 ## [2026-07-26] ingest | Quy Trình Đào Tạo & Đánh Giá Thử Việc Tư Vấn Viên (TVV)
-## [2026-07-26] update | Tch ring ti li
-u Master Plan Hub thnh file quytrinh_thuviec_tvv_3c_impl.md, khi ph
-c l
-i quytrinh_thuviec_tvv_3c.md theo form chu
-n.
-
 
 ## [2026-07-28] ingest | Best practices for Claude Code (re-ingest)
 ## [2026-07-28] ingest | Claude Code Hooks (re-ingest)
@@ -79,4 +73,11 @@ n.
 ## [2026-08-12] ingest | What Is Context Engineering
 ## [2026-08-27] ingest | AI Model vs Agentic Harness What Actually Drives AI
 ## [2026-08-27] ingest | Why Your Enterprise Tech Stack Isn't Ready for AI Agents
+## [2026-08-30] query | Loop Engineering explanation and framework breakdown
+## [2026-08-30] ingest | Maximizing the Value of Your Claude Code Sessions
+## [2026-08-30] ingest | Token and API Price Guide (Full 10-Part Suite)
+## [2026-08-30] ingest | How Warp Builds Self-Improving Agents on Claude
+
+
+
 

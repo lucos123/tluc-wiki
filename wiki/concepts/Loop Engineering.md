@@ -77,12 +77,13 @@ The concept of Loop Engineering is universal, but different frameworks categoriz
 | 3 | **Event-Driven Loop** (Triggers) | **Time-Based** | Integration & Usage |
 | 4 | **Hill-Climbing Loop** (Self-Improvement)| **Proactive** (with Eval) | System improvement |
 
-### The Hill-Climbing Loop (Level 4)
+### The Hill-Climbing Loop (Level 4: Self-Improvement)
 While Claude Code's proactive loop focuses on autonomous *work* (e.g., triaging bugs), LangChain's Hill-Climbing loop focuses on autonomous *self-improvement*.
-- **Mechanism**: A background agent runs over the **traces** of past executions.
+- **Mechanism**: A background agent runs over the **traces** and in-situ human review comments of past executions.
+- **Production Paradigm**: As implemented in [[Self-Improving Agents]] by [[Warp]] on the [[Anthropic]] platform, an **Outer Improver Skill** running in an orchestration platform (Oz) monitors human PR feedback, generates minimal focused diffs to the **Inner Base Skill**, and opens a Git PR for maintainer approval.
 - **Action**: It identifies failures and autonomously updates the agent's prompts, tools, memory, and skills, porting changes back to the source code.
-- **Prerequisite**: Requires a robust **eval suite**. An agent cannot safely self-improve its own harness without evals to verify that the change is an actual improvement.
-- **The Principle**: "The outer loop makes each inner loop more effective."
+- **Prerequisite**: Requires a robust **eval suite** and verification harness. An agent cannot safely self-improve its own harness without evals to verify that the change is an actual improvement.
+- **The Principle**: "The outer loop makes each inner loop more effective." (See [[Self-Improving Agents]] and [[How Warp Builds Self-Improving Agents on Claude]]).
 
 ## Control-Loop Engineering (First Principles)
 

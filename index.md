@@ -45,6 +45,7 @@ A catalog of everything in the knowledge base.
 - [[Simon Willison]]: Open-source software developer (Datasette, Django) and AI researcher who coined prompt injection.
 - [[Thariq Shihipar]]: Anthropic technical staff member who detailed 80% system prompt pruning, Unhobbling Claude, and Progressive Disclosure.
 - [[Uber]]: Global mobility and food delivery enterprise using closed-loop evals for multimodal agent orchestration.
+- [[Warp]]: Modern AI-powered terminal and developer environment founded by Zach Lloyd featuring Oz orchestration and self-improving agent skills.
 
 ## Concepts
 - [[AI Code Migration]]: Six-step methodology for AI-assisted language/framework migrations at industrial scale.
@@ -122,6 +123,7 @@ A catalog of everything in the knowledge base.
 - [[SDK File Checkpointing]]: Programmatic file restoration mechanism in the Claude Agent SDK (enable_file_checkpointing=True).
 - [[SDK Subagents]]: Programmatic AgentDefinition registration in the Claude Agent SDK for instantiating dynamic worker subagents.
 - [[SDK Token Accounting]]: Programmatic token measurement and cost aggregation pattern in the Claude Agent SDK.
+- [[Self-Improving Agents]]: Autonomous architecture using dual-skill loops (inner task + outer observer) and GitOps human review gates to refine skills over time.
 - [[Session Checkpoints]]: Automatic state management mechanism in Claude Code capturing file snapshots before user prompts.
 - [[Sparse Worktree Checkouts]]: Git harness optimization using worktree.sparsePaths to check out only touched subdirectories.
 - [[Stable Latent MoE]]: Ultra-sparse MoE architecture with latent token compression and quantile balancing.
@@ -133,6 +135,7 @@ A catalog of everything in the knowledge base.
 - [[System Prompt Caching Optimization]]: Separation of static system prompts from dynamic session metadata via excludeDynamicSections for 100% cache hit rates.
 - [[The Factory Model (SDLC)]]: Building systems that build software.
 - [[Token Economics]]: Cost governance framework in Claude Code analyzing input, output, cache, and thinking tokens.
+- [[Tokenization]]: Fundamental process of breaking raw text into atomic token units and mapping to Token IDs via BPE, WordPiece, or SentencePiece.
 - [[Tool Search Architecture]]: On-demand tool discovery pattern in Claude Code deferring schema loading until runtime to scale to 10,000 tools.
 - [[Ultracode Mode]]: Advanced execution setting (/effort ultracode) pairing xhigh reasoning effort with automatic dynamic workflow generation.
 - [[Unhobbling Claude]]: Paradigm shift removing rigid system prompt guardrails in favor of trusting model judgment and surrounding idioms.
@@ -190,6 +193,7 @@ A catalog of everything in the knowledge base.
 - [[How Claude Code uses prompt caching]]: Official Anthropic guide on prompt caching, prefix matching, invalidation triggers, and TTL.
 - [[How Claude remembers your project]]: Official Anthropic guide on dual memory architecture (CLAUDE.md vs Auto Memory), load order, and path-scoped rules.
 - [[How the agent loop works]]: Official Anthropic Agent SDK reference covering turn execution, message types, tool permissions, and effort levels.
+- [[How Warp Builds Self-Improving Agents on Claude]]: Anthropic case study on Warp's dual-skill architecture, in-situ human feedback, and GitOps self-improvement.
 - [[Keep Claude working toward a goal]]: Official Anthropic guide on the /goal command, goal-driven loops, and independent model evaluation.
 - [[Kimi API Model List & Deprecations]]: Official model IDs, context lengths, and sunset schedule for Moonshot AI APIs.
 - [[Kimi API Quickstart & Integration]]: Integration guide for Kimi models via OpenAI-compatible endpoints, streaming, and multimodal inputs.
@@ -199,9 +203,10 @@ A catalog of everything in the knowledge base.
 - [[Kimi Multi-turn Context Management Guide]]: Best practices for managing stateless conversation payloads, message truncation, and system prompt pinning.
 - [[Kimi Reasoning Effort Guide]]: Guidance for configuring top-level reasoning_effort in Kimi K3.
 - [[Kimi Thinking Models & Preserved Thinking Guide]]: Detailed breakdown of reasoning tokens, preserved thinking, and multi-step tool configurations across Kimi models.
-- [[Managing Agent Skills]]: Guide to slash commands, terminal utilities, and discovery tiers for Gemini Agent Skills.
-- [[Memory Architecture Reference Notes]]: Reference diagram (2nd-brain.jpg) detailing 5-tier directory structure and compounding feedback loop.
 - [[Manage costs effectively]]: Official Anthropic guide on cost tracking (/usage), org limits, and token reduction strategies.
+- [[Managing Agent Skills]]: Guide to slash commands, terminal utilities, and discovery tiers for Gemini Agent Skills.
+- [[Maximizing the Value of Your Claude Code Sessions]]: Anthropic guide on session cost mechanics, prefill vs decode (~5x), prompt cache prefix preservation, @-mentions, and noisy command mitigation.
+- [[Memory Architecture Reference Notes]]: Reference diagram (2nd-brain.jpg) detailing 5-tier directory structure and compounding feedback loop.
 - [[Modifying system prompts]]: Official Anthropic guide on system prompt presets, output styles, append, and excludeDynamicSections prompt caching.
 - [[My LLM coding workflow going into 2026]]: Addy Osmani's structured "AI-assisted engineering" approach.
 - [[OpenAI Models & Codex Integration Guide]]: Developer guide for model selection, config.toml, and reasoning effort in Codex.
@@ -216,9 +221,10 @@ A catalog of everything in the knowledge base.
 - [[Share session output as artifacts]]: Official Anthropic guide on publishing interactive HTML artifacts and connector-backed live data.
 - [[Subagents in the SDK]]: Official Anthropic guide on programmatically defining AgentDefinition subagents using the Claude Agent SDK.
 - [[The Art of Loop Engineering]]: LangChain's 4-level loop taxonomy culminating in autonomous self-improvement via trace evaluation.
-- [[Track cost and usage]]: Official Anthropic guide on programmatic token usage and cost accounting using the Claude Agent SDK.
 - [[The New SDLC With Vibe Coding]]: Whitepaper detailing the transition to intent-driven software development.
 - [[The new rules of context engineering for Claude 5 generation models]]: Thariq Shihipar's official Anthropic guide detailing 80% prompt reduction, Unhobbling Claude, and claude doctor.
+- [[Token and API Price Guide]]: Visual guide to token units, tokenization algorithms (BPE, WordPiece, SentencePiece), and LLM API cost dynamics.
+- [[Track cost and usage]]: Official Anthropic guide on programmatic token usage and cost accounting using the Claude Agent SDK.
 - [[Use Claude Code with Chrome]]: Official Anthropic guide on Chrome browser integration (claude-in-chrome), debugging, and visual testing.
 - [[Vault Welcome]]: Summary of the default Obsidian onboarding note.
 - [[What Is Context Engineering]]: Joshua Noble's IBM article defining the 6-step context engineering lifecycle and data pipeline.

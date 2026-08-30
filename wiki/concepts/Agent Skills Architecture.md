@@ -31,5 +31,12 @@ graph TD
 1. **Progressive Disclosure**: Only the short description is present at launch; full 500+ line reference documents load only when invoked.
 2. **Deterministic Invocation Control**: `disable-model-invocation: true` prevents autonomous model execution of destructive or expensive workflows (`/deploy`).
 3. **Turn-Scoped Permissions**: `allowed-tools` grants auto-approval for specific commands (`Bash(git commit *)`) strictly during the invocation turn.
+4. **Self-Improving Dual-Skill Pattern**: As pioneered by [[Warp]], an Inner Base Skill executes domain tasks while an Outer Improver Skill asynchronously audits developer PR feedback to submit auto-generated Git pull requests to refine the skill definition over time.
 
-See [[Extend Claude with skills]], [[Dynamic Context Injection]], [[Progressive Disclosure]], and [[Orchestrator Skill Pattern]].
+---
+
+## Related Knowledge Nodes
+
+- **Concepts**: [[Self-Improving Agents]], [[Agent Skills Best Practices]], [[Loop Engineering]], [[Progressive Disclosure]], [[Orchestrator Skill Pattern]], [[Dynamic Context Injection]].
+- **Entities**: [[Warp]], [[Claude Code]], [[Anthropic]], [[Gemini CLI]].
+- **Sources**: [[How Warp Builds Self-Improving Agents on Claude]], [[5 Best Practices for Building AI Agent Skills]], [[Extend Claude with skills]].

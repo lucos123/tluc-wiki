@@ -31,8 +31,15 @@ graph TD
 
 ## Best Practices to Prevent Cache Invalidation
 
-1. **Lock Model & Effort Early**: Set `/model` and `/effort` at session startup; avoid toggling effort levels mid-task.
-2. **Use Deferred Tool Loading (`ToolSearch`)**: Defers MCP tool definitions so server state changes don't corrupt the system prompt prefix.
-3. **Prefer `/rewind` Over `/compact` for Abandoned Branches**: Rewinding truncates history to a warm cached prefix, whereas compacting generates a new summary prefix.
+1. **Lock Model & Effort Early**: Set `/model` and `/effort` at session startup; avoid toggling effort levels or switching models (including `opusplan` entering/exiting plan mode) mid-task.
+2. **Prefer `/rewind` Over `/compact` for Dead Ends**: Rewinding drops turns from the tail, preserving the warm cached prefix for **$0 prefill cost**. Compacting rewrites the conversation into a summary, breaking the previous prefix and incurring cache write costs.
+3. **Guard Against Cache TTL Expiration**: Prompt caches expire after 1 hour on subscriptions (or with `ENABLE_PROMPT_CACHING_1H=1`) and 5 minutes on API keys. Compact or finish tasks before long breaks rather than letting cold sessions trigger full 100% prefill spikes upon return.
+4. **Use Deferred Tool Loading (`ToolSearch`)**: Defers MCP tool definitions so server state changes don't corrupt the system prompt prefix.
 
-See [[How Claude Code uses prompt caching]], [[System Prompt Caching Optimization]], and [[Cost Optimization]].
+---
+
+## Related Knowledge Nodes
+
+- **Concepts**: [[Cost Optimization]], [[Token Economics]], [[System Prompt Caching Optimization]], [[Context Window Management]].
+- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Sources**: [[Maximizing the Value of Your Claude Code Sessions]], [[How Claude Code uses prompt caching]], [[Manage costs effectively]].
