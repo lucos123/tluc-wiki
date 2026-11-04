@@ -45,7 +45,8 @@ tluc-wiki/
     ├── wiki-write/        #    Skill for synthesizing and producing deliverables in output/
     ├── wiki-manage/       #    Skill for tracking projects, goals, and identity in mem/
     ├── wiki-query/        #    Skill for searching, synthesizing, and compounding answers
-    └── wiki-lint/         #    Skill for health-checking link integrity & index coverage
+    ├── wiki-lint/         #    Skill for health-checking link integrity & index coverage
+    └── dental-consult-ops/#    Skill for dental consultation operations & TVV training (Nha Khoa 3C)
 ```
 
 ---
