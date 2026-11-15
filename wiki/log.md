@@ -78,6 +78,7 @@ Append-only record of operations.
 ## [2026-08-30] ingest | Token and API Price Guide (Full 10-Part Suite)
 ## [2026-08-30] ingest | How Warp Builds Self-Improving Agents on Claude
 ## [2026-11-05] skill | Create dental-consult-ops (Dental Operations Architect & TVV Training System)
+## [2026-11-15] ingest | Prompt Engineering Handbook
 
 
 

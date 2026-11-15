@@ -24,10 +24,10 @@ Prompt Engineering (Role-Playing: "act as Shakespeare")
                     └── Graph Engineering (Controlled SOPs + Exploratory Sub-Loops)
 ```
 
-1. **Prompt Engineering**: Early role-playing and system instruction tuning.
+1. **[[Prompt Engineering]]**: Early role-playing, structured prompt anatomy, few-shot examples, and CoT tuning.
 2. **Context Engineering**: Structuring data, RAG payloads, and CRM context.
 3. **Skills**: Encapsulating procedural memory into repeatable task playbooks.
 4. **Loop Engineering**: Autonomous, goal-driven tool iterations.
 5. **Graph Engineering**: Orchestrating multi-agent networks, combining deterministic SOPs with internal goal loops.
 
-See [[Graph Engineering]], [[Loop Engineering]], and [[Context Engineering]].
+See [[Prompt Engineering]], [[Graph Engineering]], [[Loop Engineering]], and [[Context Engineering]].
