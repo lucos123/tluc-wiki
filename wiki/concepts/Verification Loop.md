@@ -126,3 +126,4 @@ The `/goal` loop type uses an *evaluator model* as its verification mechanism â€
 - [[Claude Code Hooks]]: deterministic complement â€” hooks fire at lifecycle events regardless of Claude's judgment; verification loops are invoked by or within agent turns.
 - [[AI Code Migration]]: the judge (test suite), build daemon, and six-step loop are all large-scale verification loop applications.
 - [[Best practices for Claude Code]]: defines gate strength levels and the adversarial review pattern.
+- [[Poteto Trust Pyramid]]: [[Lauren Tan]]'s production hierarchy placing deterministic codebase design & AST lint rules (`167` rules) beneath runtime verification (**feature map + custom CLI**) and formal/property testing (`TLA+`, `Lean`, `Bombadil`), allocating ~70% of agent tokens to verification to achieve `11,000 PRs/month` at a `~0.5%` revert rate.
