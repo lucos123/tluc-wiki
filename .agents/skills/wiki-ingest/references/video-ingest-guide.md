@@ -6,30 +6,30 @@ This reference covers how to ingest video content (YouTube, Vimeo, conference ta
 
 ## 3-Stage Multimodal Video Ingestion Pipeline
 
-### Stage 1 — Extract Chaptered, Timestamped Transcript
-Run `extract_youtube_transcript.py` to fetch video metadata, chapters, `[MM:SS]`-marked transcript blocks, and suggested keyframe timestamps into `raw/video-transcripts/<clean-kebab-case-slug>.md`:
+### Stage 1 — Extract Chaptered, Timestamped Transcript & Link Context
+Run `extract_youtube_transcript.py` to fetch video metadata, chapters, `[MM:SS]`-marked transcript blocks, late-chapter keyframe suggestions, and matching `index.md` wiki links in **one single call**:
 
 ```powershell
-# English transcript (default) with JSON metadata output
+# English transcript (default) with structured JSON (timestamps, safe filename, related wiki links)
 python .agents\skills\wiki-ingest\scripts\extract_youtube_transcript.py "<VIDEO_URL>" --lang en --json
 
 # Prefer Vietnamese, fallback to English
-python .agents\skills\wiki-ingest\scripts\extract_youtube_transcript.py "<VIDEO_URL>" --lang vi,en
+python .agents\skills\wiki-ingest\scripts\extract_youtube_transcript.py "<VIDEO_URL>" --lang vi,en --json
 ```
 
-Read the generated `.md` transcript file to inspect all **Chapters**, **Suggested Keyframe Timestamps**, and `[MM:SS]` cues so you can pinpoint the exact 8–12 moments where slides, diagrams, formulas, or architectural comparisons appear.
+Read the generated `.md` transcript file to refine the timestamp list (`suggested_timestamps_arg` picks late-chapter 78%–85% completion moments by default, where diagrams/slides are fully drawn), and use `related_wiki_pages` + `safe_source_page_name` directly when drafting wiki pages without running extra directory scans.
 
-### Stage 2 — Capture & Visually Verify 1080p Keyframe Slides
-Run `capture_youtube_keyframes.py` (uses `yt-dlp` + standalone `ffmpeg` via `imageio-ffmpeg` HTTP range-seeking — **no full video download needed**):
+### Stage 2 — Capture (Smart-Probe) & Curate 1080p Keyframe Slides
+Run `capture_youtube_keyframes.py` (uses `yt-dlp` + standalone `ffmpeg` via `imageio-ffmpeg` HTTP range-seeking — **no full video download needed**). By default, **3-frame single-seek smart probing** (`--smart-probe`, `--probe-offset 4.0`) extracts 3 frames around each timestamp in one seek and keeps the highest-detail JPG, automatically skipping brief talking-head camera cuts:
 
 ```powershell
-# Capture targeted timestamps identified from the transcript
+# Capture targeted timestamps (3-frame smart probe enabled by default; add --no-smart-probe for exact seek)
 python .agents\skills\wiki-ingest\scripts\capture_youtube_keyframes.py `
   --url "<VIDEO_URL>" `
   --slug "<clean-kebab-case-slug>" `
-  --timestamps "00:35=Intro,02:25=Line Shaft Era,04:10=Architecture"
+  --timestamps "01:38=Architecture,04:14=Threats,08:05=Four-Pillars"
 
-# Or auto-sample one representative frame per YouTube chapter
+# Or auto-sample one representative late-chapter frame per YouTube chapter
 python .agents\skills\wiki-ingest\scripts\capture_youtube_keyframes.py `
   --url "<VIDEO_URL>" `
   --slug "<clean-kebab-case-slug>" `
@@ -37,11 +37,21 @@ python .agents\skills\wiki-ingest\scripts\capture_youtube_keyframes.py `
 ```
 
 Inspect all captured frames in `raw/screenshots/<slug>/` using parallel `read_file` batches (6–7 images/turn):
-- **Filter pure talking-head frames:** If a frame only shows the speaker without a slide, diagram, or visual card, either re-seek to the exact timestamp inside that chapter where the slide appears, or delete uninformative duplicates and re-index so `raw/screenshots/<slug>/` contains only high-value visual frames.
+- **Atomic Curation & Renumbering (`--keep` / `--drop`):** If any frame is still redundant or low-value (or after capturing supplemental `--start-index` frames), prune and renumber in 1 deterministic command without manual PowerShell move chains:
+  ```powershell
+  # Keep specific indices in exact chronological order and renumber 01.jpg..NN.jpg
+  python .agents\skills\wiki-ingest\scripts\capture_youtube_keyframes.py --slug "<slug>" --keep "1,12,3,8"
+
+  # Or drop weak/duplicate indices and renumber the rest
+  python .agents\skills\wiki-ingest\scripts\capture_youtube_keyframes.py --slug "<slug>" --drop "2,5"
+  ```
 
 ### Stage 3 — Embed Visual Transcriptions, Synthesize Wiki & Register
 1. Embed the verified keyframe screenshots (`![Slide NN - MM:SS](../screenshots/<slug>/NN.jpg)`) and concise visual transcriptions into the raw transcript (`raw/video-transcripts/<slug>.md`).
-2. Create `wiki/sources/<Video Title>.md` (`source_type: video`) linking both the raw transcript and all kept `[[raw/screenshots/<slug>/NN.jpg]]` slides, plus entity/concept pages in `wiki/entities/` and `wiki/concepts/`.
+2. Create `wiki/sources/<safe_source_page_name>.md` (`source_type: video`) linking both the raw transcript and all kept `[[raw/screenshots/<slug>/NN.jpg]]` slides, plus entity/concept pages in `wiki/entities/` and `wiki/concepts/`. To search `index.md` for additional candidate links by keyword, run:
+   ```powershell
+   python .agents\skills\wiki-ingest\scripts\register_ingest.py --suggest-links "supply chain security sbom"
+   ```
 3. Register all new pages into `index.md`, append `wiki/log.md`, and run `lint_wiki.py` in **1 command**:
    ```powershell
    python .agents\skills\wiki-ingest\scripts\register_ingest.py `
@@ -50,7 +60,7 @@ Inspect all captured frames in `raw/screenshots/<slug>/` using parallel `read_fi
      --source-title "<Video Title>" `
      --entry "Entities|..." `
      --entry "Concepts|..." `
-     --entry "Sources|<Video Title>|..."
+     --entry "Sources|<safe_source_page_name>|..."
    ```
 
 ---
@@ -58,13 +68,13 @@ Inspect all captured frames in `raw/screenshots/<slug>/` using parallel `read_fi
 ## How the Scripts Work
 
 1. **`extract_youtube_transcript.py`**:
-   - Auto-installs `yt-dlp` if missing.
-   - Extracts metadata, `chapters`, and manual/auto VTT captions.
+   - Auto-installs `yt-dlp` if missing and fetches metadata + direct caption tracks in a single pass (preferring untranslated `en-orig`/`en` tracks to avoid HTTP 429 limits).
    - Parses cue start times (`parse_vtt_cues`), deduplicates rolling auto-captions without discarding timestamps, groups under `### [MM:SS - MM:SS] <Chapter>` sections, emits `**[MM:SS]**` markers every ~18s, and writes directly to `raw/video-transcripts/<kebab-case-title>.md`.
+   - With `--json`, emits `safe_source_page_name`, late-chapter `suggested_timestamps_arg`, and top `related_wiki_pages` ranked from `index.md`.
 2. **`capture_youtube_keyframes.py`**:
-   - Auto-installs `imageio-ffmpeg` if system `ffmpeg` is not on PATH.
-   - Selects the highest-resolution direct HTTPS stream ($\le 1080\text{p}$) and seeks concurrently (`ThreadPoolExecutor`) with `ffmpeg -ss <sec> -i <stream_url> -frames:v 1 -q:v 2`.
-   - Verifies saved JPG dimensions via pure-Python binary header inspection and outputs JSON containing `rel_path`, `wiki_link`, `md_embed`, `timestamp_sec`, `mm_ss`, and `dimensions`.
+   - Auto-installs `imageio-ffmpeg` if system `ffmpeg` is not on PATH, and auto-upgrades `yt-dlp` on HTTP 403 retry.
+   - Selects the highest-resolution direct HTTPS stream ($\le 1080\text{p}$) and seeks concurrently (`ThreadPoolExecutor`) with single-seek 3-frame smart probing (`--smart-probe`, choosing the highest-detail frame by byte size around each timestamp; `--no-smart-probe` extracts the exact timestamp frame).
+   - Verifies saved JPG dimensions via pure-Python binary header inspection and supports atomic `--keep` / `--drop` curation and renumbering (`01.jpg .. NN.jpg`).
 
 ---
 

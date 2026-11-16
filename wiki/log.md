@@ -86,3 +86,4 @@ Append-only record of operations.
 ## [2026-11-16] skill | Upgrade wiki-ingest video pipeline with timestamped chapters and 1080p keyframe capture
 ## [2026-11-16] ingest | Why Domain-specific Agents Are the Future
 ## [2026-11-16] ingest | What Is Loop Engineering? Building Better AI Agents
+## [2026-11-17] ingest | Software Supply Chain Security: What AI Coding Changes

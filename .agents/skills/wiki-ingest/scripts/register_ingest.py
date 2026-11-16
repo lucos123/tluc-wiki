@@ -224,7 +224,61 @@ def main():
         action="store_true",
         help="Preview updates and run lint without writing files",
     )
+    parser.add_argument(
+        "--suggest-links",
+        default=None,
+        help="Search index.md for existing wiki pages matching comma/space-separated keywords and print JSON matches",
+    )
+    parser.add_argument(
+        "--top-k",
+        type=int,
+        default=25,
+        help="Maximum matches returned with --suggest-links (default: 25)",
+    )
     args = parser.parse_args()
+
+    project_root = args.project_root or find_project_root()
+    index_path = os.path.join(project_root, "index.md")
+
+    if args.suggest_links is not None:
+        query_tokens = [t for t in re.findall(r"[a-z0-9]+", args.suggest_links.lower()) if len(t) >= 2]
+        matches = []
+        current_section = ""
+        if os.path.isfile(index_path):
+            with open(index_path, "r", encoding="utf-8", errors="replace") as f:
+                for line in f:
+                    if line.startswith("## "):
+                        current_section = line[3:].strip()
+                        continue
+                    m = ENTRY_LINE_RE.match(line)
+                    if not m:
+                        continue
+                    page = m.group(1).split("|")[0].strip()
+                    summary = m.group(2).strip()
+                    haystack_page = page.lower()
+                    haystack_sum = summary.lower()
+                    score = sum(
+                        (4 if t in haystack_page else 0) + (1 if t in haystack_sum else 0)
+                        for t in query_tokens
+                    )
+                    if score > 0:
+                        matches.append((score, current_section, page, line.strip()))
+        matches.sort(key=lambda item: (-item[0], item[2].lower()))
+        print(
+            json.dumps(
+                {
+                    "status": "ok",
+                    "query": args.suggest_links,
+                    "matches": [
+                        {"section": sec, "page": page, "line": line}
+                        for _, sec, page, line in matches[: args.top_k]
+                    ],
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+        return
 
     try:
         entries = [parse_entry_arg(e) for e in args.entry]
@@ -253,8 +307,6 @@ def main():
         print(json.dumps({"status": "error", "error": str(exc)}, ensure_ascii=False, indent=2))
         sys.exit(1)
 
-    project_root = args.project_root or find_project_root()
-    index_path = os.path.join(project_root, "index.md")
     log_path = os.path.join(project_root, "wiki", "log.md")
 
     with open(index_path, "r", encoding="utf-8", errors="replace") as f:

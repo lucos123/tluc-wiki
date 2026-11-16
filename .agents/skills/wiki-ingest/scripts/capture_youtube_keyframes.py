@@ -161,21 +161,9 @@ def _build_ffmpeg_headers(http_headers: dict) -> str:
     return "\r\n".join(lines) + "\r\n" if lines else ""
 
 
-def capture_single_frame(task: dict) -> dict:
-    """Seek via ffmpeg and extract a single high-quality JPG keyframe."""
-    idx_num = task["index"]
-    sec = task["timestamp_sec"]
-    label = task["label"]
-    out_dir = task["out_dir"]
-    project_root = task["project_root"]
-    slug = task["slug"]
-    ffmpeg_exe = task["ffmpeg_exe"]
-    stream_url = task["stream_url"]
-    headers_str = task["headers_str"]
-
-    filename = f"{idx_num:02d}.jpg"
-    dest_path = os.path.join(out_dir, filename)
-
+def _run_single_ffmpeg_seek(
+    ffmpeg_exe: str, stream_url: str, headers_str: str, sec: float, dest_path: str
+) -> subprocess.CompletedProcess:
     cmd = [ffmpeg_exe, "-y", "-loglevel", "error"]
     if headers_str:
         cmd.extend(["-headers", headers_str])
@@ -186,36 +174,204 @@ def capture_single_frame(task: dict) -> dict:
         "-q:v", "2",
         dest_path,
     ])
+    return subprocess.run(cmd, capture_output=True, text=True, timeout=45)
 
-    proc = subprocess.run(cmd, capture_output=True, text=True, timeout=45)
-    if proc.returncode != 0 or not os.path.isfile(dest_path) or os.path.getsize(dest_path) < 2000:
-        return {
-            "index": idx_num,
-            "timestamp_sec": sec,
-            "mm_ss": format_mm_ss(sec),
-            "label": label,
-            "status": "failed",
-            "error": proc.stderr.strip() or "ffmpeg produced empty frame",
-        }
+
+def capture_single_frame(task: dict) -> dict:
+    """Seek via ffmpeg (with single-seek 3-frame smart probe by default) and extract JPG keyframe."""
+    idx_num = task["index"]
+    sec = task["timestamp_sec"]
+    label = task["label"]
+    out_dir = task["out_dir"]
+    project_root = task["project_root"]
+    slug = task["slug"]
+    ffmpeg_exe = task["ffmpeg_exe"]
+    stream_url = task["stream_url"]
+    headers_str = task["headers_str"]
+    smart_probe = task.get("smart_probe", True)
+    probe_offset = float(task.get("probe_offset", 4.0))
+
+    filename = f"{idx_num:02d}.jpg"
+    dest_path = os.path.join(out_dir, filename)
+    chosen_sec = sec
+    probed_bytes: list[int] = []
+
+    if smart_probe and probe_offset > 0:
+        start_sec = max(0.0, sec - probe_offset)
+        probe_pattern = os.path.join(out_dir, f".probe_{idx_num:02d}_%d.jpg")
+        candidates_paths = [
+            os.path.join(out_dir, f".probe_{idx_num:02d}_{slot}.jpg")
+            for slot in (1, 2, 3)
+        ]
+        try:
+            cmd = [ffmpeg_exe, "-y", "-loglevel", "error"]
+            if headers_str:
+                cmd.extend(["-headers", headers_str])
+            cmd.extend([
+                "-ss", f"{start_sec:.3f}",
+                "-i", stream_url,
+                "-vf", f"fps=1/{probe_offset:.3f}",
+                "-frames:v", "3",
+                "-q:v", "2",
+                probe_pattern,
+            ])
+            proc = subprocess.run(cmd, capture_output=True, text=True, timeout=45)
+            valid = []
+            for slot_idx, cand_path in enumerate(candidates_paths, start=1):
+                if os.path.isfile(cand_path):
+                    sz = os.path.getsize(cand_path)
+                    if sz >= 2000:
+                        cand_sec = start_sec + (slot_idx - 1) * probe_offset
+                        valid.append({"slot": slot_idx, "path": cand_path, "bytes": sz, "sec": cand_sec})
+            if valid:
+                probed_bytes = [v["bytes"] for v in valid]
+                winner = max(valid, key=lambda v: v["bytes"])
+                chosen_sec = winner["sec"]
+                os.replace(winner["path"], dest_path)
+            else:
+                if "403" in (proc.stderr or ""):
+                    return {
+                        "index": idx_num,
+                        "timestamp_sec": sec,
+                        "mm_ss": format_mm_ss(sec),
+                        "label": label,
+                        "status": "failed",
+                        "error": proc.stderr.strip() or "ffmpeg 403 Forbidden",
+                    }
+        finally:
+            for cand_path in candidates_paths:
+                if os.path.isfile(cand_path):
+                    try:
+                        os.remove(cand_path)
+                    except OSError:
+                        pass
+
+    if not os.path.isfile(dest_path) or os.path.getsize(dest_path) < 2000:
+        proc = _run_single_ffmpeg_seek(ffmpeg_exe, stream_url, headers_str, sec, dest_path)
+        if proc.returncode != 0 or not os.path.isfile(dest_path) or os.path.getsize(dest_path) < 2000:
+            return {
+                "index": idx_num,
+                "timestamp_sec": sec,
+                "mm_ss": format_mm_ss(sec),
+                "label": label,
+                "status": "failed",
+                "error": proc.stderr.strip() or "ffmpeg produced empty frame",
+            }
+        chosen_sec = sec
+        probed_bytes = [os.path.getsize(dest_path)]
 
     with open(dest_path, "rb") as f:
         data = f.read()
     fmt, dims = detect_image_info(data)
     rel_path = os.path.relpath(dest_path, project_root).replace("\\", "/")
 
-    return {
+    result = {
         "index": idx_num,
         "filename": filename,
         "rel_path": rel_path,
         "wiki_link": f"[[{rel_path}]]",
-        "md_embed": f"![Slide {idx_num:02d} - {format_mm_ss(sec)}](../screenshots/{slug}/{filename})",
-        "timestamp_sec": sec,
-        "mm_ss": format_mm_ss(sec),
+        "md_embed": f"![Slide {idx_num:02d} - {format_mm_ss(chosen_sec)}](../screenshots/{slug}/{filename})",
+        "timestamp_sec": chosen_sec,
+        "mm_ss": format_mm_ss(chosen_sec),
+        "requested_mm_ss": format_mm_ss(sec),
         "label": label,
         "bytes": len(data),
         "format": fmt or "jpg",
         "dimensions": dims,
         "status": "ok",
+    }
+    if probed_bytes:
+        result["probed_count"] = len(probed_bytes)
+        result["probed_bytes"] = probed_bytes
+    return result
+
+
+def curate_existing_frames(
+    slug: str,
+    project_root: str,
+    keep_csv: str | None = None,
+    drop_csv: str | None = None,
+) -> dict:
+    """Filter existing NN.<ext> screenshots by --keep or --drop indices and renumber 01.<ext>..NN.<ext>."""
+    if keep_csv and drop_csv:
+        raise ValueError("Pass either --keep or --drop, not both.")
+    out_dir = os.path.join(project_root, "raw", "screenshots", slug)
+    if not os.path.isdir(out_dir):
+        raise FileNotFoundError(f"Screenshot directory not found: {out_dir}")
+
+    indexed: dict[int, str] = {}
+    for entry in os.listdir(out_dir):
+        stem, ext = os.path.splitext(entry)
+        if stem.isdigit() and ext.lower() in (".jpg", ".jpeg", ".png", ".webp"):
+            indexed[int(stem)] = os.path.join(out_dir, entry)
+
+    if not indexed:
+        raise RuntimeError(f"No numbered frames found in {out_dir}")
+
+    if keep_csv is not None:
+        keep_indices = [int(tok.strip()) for tok in keep_csv.split(",") if tok.strip()]
+        if not keep_indices:
+            raise ValueError("--keep must contain at least one integer index.")
+        missing = [idx for idx in keep_indices if idx not in indexed]
+        if missing:
+            raise ValueError(f"--keep references missing frame index(es): {missing}")
+    elif drop_csv is not None:
+        drop_set = {int(tok.strip()) for tok in drop_csv.split(",") if tok.strip()}
+        keep_indices = [idx for idx in sorted(indexed) if idx not in drop_set]
+        if not keep_indices:
+            raise ValueError("--drop would remove every frame.")
+    else:
+        keep_indices = sorted(indexed)
+
+    kept_src_paths = {indexed[idx] for idx in keep_indices}
+    removed_files = []
+    for idx in sorted(indexed):
+        src_path = indexed[idx]
+        if src_path not in kept_src_paths:
+            removed_files.append(os.path.basename(src_path))
+
+    staged = []
+    for new_idx, old_idx in enumerate(keep_indices, start=1):
+        src_path = indexed[old_idx]
+        _, ext = os.path.splitext(src_path)
+        stage_path = os.path.join(out_dir, f".stage_{new_idx:02d}{ext.lower()}")
+        os.replace(src_path, stage_path)
+        staged.append((new_idx, old_idx, stage_path, f"{new_idx:02d}{ext.lower()}"))
+
+    for idx in sorted(indexed):
+        src_path = indexed[idx]
+        if src_path not in kept_src_paths and os.path.isfile(src_path):
+            os.remove(src_path)
+
+    frames = []
+    for new_idx, old_idx, stage_path, filename in staged:
+        final_path = os.path.join(out_dir, filename)
+        os.replace(stage_path, final_path)
+        with open(final_path, "rb") as f:
+            data = f.read()
+        fmt, dims = detect_image_info(data)
+        rel_path = os.path.relpath(final_path, project_root).replace("\\", "/")
+        frames.append({
+            "index": new_idx,
+            "previous_index": old_idx,
+            "filename": filename,
+            "rel_path": rel_path,
+            "wiki_link": f"[[{rel_path}]]",
+            "bytes": len(data),
+            "format": fmt or filename.rsplit(".", 1)[-1],
+            "dimensions": dims,
+            "status": "ok",
+        })
+
+    return {
+        "status": "ok",
+        "mode": "curate",
+        "slug": slug,
+        "output_dir": os.path.relpath(out_dir, project_root).replace("\\", "/"),
+        "kept_count": len(frames),
+        "removed_count": len(removed_files),
+        "removed_files": removed_files,
+        "frames": frames,
     }
 
 
@@ -291,9 +447,9 @@ def main():
         sys.stderr.reconfigure(encoding="utf-8")
 
     parser = argparse.ArgumentParser(
-        description="Capture 1080p/720p keyframes from YouTube video timestamps or Chrome canvas JSON."
+        description="Capture 1080p/720p keyframes from YouTube video timestamps, Chrome canvas JSON, or curate existing shots."
     )
-    parser.add_argument("--url", required=True, help="YouTube video URL")
+    parser.add_argument("--url", default=None, help="YouTube video URL (required unless using --keep, --drop, or --from-data-urls-json)")
     parser.add_argument("--slug", required=True, help="Clean kebab-case folder name under raw/screenshots/")
     parser.add_argument(
         "--timestamps",
@@ -303,12 +459,40 @@ def main():
     parser.add_argument(
         "--auto-chapters",
         action="store_true",
-        help="Automatically pick one representative timestamp inside each YouTube chapter",
+        help="Automatically pick one representative timestamp near the end of each YouTube chapter",
     )
     parser.add_argument(
         "--from-data-urls-json",
         default=None,
         help="JSON file with [{timestamp_sec, label, data_url}] captured from Chrome <video> canvas",
+    )
+    parser.add_argument(
+        "--keep",
+        default=None,
+        help="Keep and renumber existing screenshot indices in order (e.g. '1,12,3,8')",
+    )
+    parser.add_argument(
+        "--drop",
+        default=None,
+        help="Drop existing screenshot indices and renumber remaining ones cleanly (e.g. '3,5')",
+    )
+    parser.add_argument(
+        "--smart-probe",
+        action="store_true",
+        help="Capture a single-seek 3-frame burst around each timestamp and keep highest-detail JPG (default: enabled)",
+    )
+    parser.add_argument(
+        "--no-smart-probe",
+        action="store_false",
+        dest="smart_probe",
+        help="Disable 3-frame smart probing and extract exact single frame at each timestamp",
+    )
+    parser.set_defaults(smart_probe=True)
+    parser.add_argument(
+        "--probe-offset",
+        type=float,
+        default=4.0,
+        help="Seconds offset around target timestamp for smart probe burst (default: 4.0)",
     )
     parser.add_argument(
         "--upgrade-yt-dlp",
@@ -323,6 +507,17 @@ def main():
 
     project_root = args.project_root or find_project_root()
 
+    if args.keep is not None or args.drop is not None:
+        try:
+            report = curate_existing_frames(
+                args.slug, project_root, keep_csv=args.keep, drop_csv=args.drop
+            )
+            print(json.dumps(report, ensure_ascii=False, indent=2))
+            return
+        except Exception as exc:  # noqa: BLE001
+            print(json.dumps({"status": "error", "error": str(exc)}, ensure_ascii=False, indent=2))
+            sys.exit(1)
+
     if args.from_data_urls_json:
         report = save_frames_from_data_urls(
             args.from_data_urls_json, args.slug, args.start_index, project_root
@@ -332,9 +527,13 @@ def main():
             sys.exit(1)
         return
 
+    if not args.url:
+        print(json.dumps({"status": "error", "error": "--url is required for stream capture."}))
+        sys.exit(1)
+
     if not args.timestamps and not args.auto_chapters:
         print(
-            json.dumps({"status": "error", "error": "Provide --timestamps, --auto-chapters, or --from-data-urls-json."}),
+            json.dumps({"status": "error", "error": "Provide --timestamps, --auto-chapters, --from-data-urls-json, or --keep/--drop."}),
             file=sys.stdout,
         )
         sys.exit(1)
@@ -366,8 +565,8 @@ def main():
                 targets.append({"timestamp_sec": sec, "label": label})
         elif args.auto_chapters:
             chapters = stream_info["chapters"]
+            dur = float(stream_info["duration"] or 600)
             if not chapters:
-                dur = float(stream_info["duration"] or 600)
                 step = max(30.0, dur / 8.0)
                 t = 10.0
                 idx = 1
@@ -378,9 +577,12 @@ def main():
             else:
                 for ch in chapters:
                     start = float(ch.get("start_time", 0))
-                    end = float(ch.get("end_time", start + 30))
+                    raw_end = ch.get("end_time")
+                    end = float(raw_end) if raw_end is not None else (dur if dur > start else start + 30.0)
                     span = max(0.0, end - start)
-                    sec = start + min(12.0, max(3.0, span * 0.25))
+                    raw_target = end - min(12.0, max(4.0, span * 0.22))
+                    upper = max(start + 3.0, end - 3.0)
+                    sec = min(upper, max(start + 3.0, raw_target))
                     targets.append({"timestamp_sec": sec, "label": ch.get("title", "")})
 
         headers_str = _build_ffmpeg_headers(stream_info["http_headers"])
@@ -395,6 +597,8 @@ def main():
                 "ffmpeg_exe": ffmpeg_exe,
                 "stream_url": stream_info["stream_url"],
                 "headers_str": headers_str,
+                "smart_probe": args.smart_probe,
+                "probe_offset": args.probe_offset,
             }
             for i, t in enumerate(targets)
         ]

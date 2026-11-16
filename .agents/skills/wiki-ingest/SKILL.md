@@ -36,7 +36,7 @@ All raw files must reside in structured subfolders under `raw/`:
 | **Web Article / Docs** | `raw/articles/<topic>/` | Save markdown/text file, then Step 1 |
 | **Social Post / Multi-Slide Visual Deck** | `raw/screenshots/<slug>/` + `raw/articles/<topic>/<slug>.md` | Follow `references/social-post-ingest-guide.md`: 1) 1-call JS gallery harvest via `browser` (~5 tool calls total), 2) `python .agents/skills/wiki-ingest/scripts/download_post_assets.py`, 3) Batch `read_file` (6–7 images/turn) |
 | **PDF Whitepaper / Book** | `raw/pdfs/` | Read PDF content, save to `raw/pdfs/`, then Step 1 |
-| **YouTube / Video URL** | `raw/video-transcripts/` + `raw/screenshots/<slug>/` | Follow `references/video-ingest-guide.md`: 1) `extract_youtube_transcript.py <URL>` (chapters + `[MM:SS]` cues), 2) `capture_youtube_keyframes.py` (1080p keyframe slides), 3) Batch `read_file` to verify & synthesize slides |
+| **YouTube / Video URL** | `raw/video-transcripts/` + `raw/screenshots/<slug>/` | Follow `references/video-ingest-guide.md`: 1) `extract_youtube_transcript.py <URL> --json` (chapters + `[MM:SS]` cues + `related_wiki_pages`), 2) `capture_youtube_keyframes.py` (1080p smart-probed slides + `--keep/--drop` curation), 3) Batch `read_file` to verify & synthesize slides |
 | **Work Notes & Drafts** | `raw/notes/<category>/` | Read note file in `raw/notes/`, then Step 1 |
 | **Standalone Attachments / Images (1–3)** | `raw/assets/` | Download via `download_post_assets.py --mode assets` or store for referencing |
 
@@ -44,10 +44,10 @@ All raw files must reside in structured subfolders under `raw/`:
 
 ### Step 1 — Pre-Flight Check & Capture
 1. Verify the source file `$ARGUMENTS` exists in `raw/` (or capture HTTP/HTTPS URL into `raw/` first):
-   - For **YouTube/Video**, follow the **3-Stage Multimodal Pipeline** in `references/video-ingest-guide.md` (`extract_youtube_transcript.py` for chaptered `[MM:SS]` transcript $\rightarrow$ `capture_youtube_keyframes.py` for 1080p slide screenshots $\rightarrow$ batch `read_file` to verify visual slides).
+   - For **YouTube/Video**, follow the **3-Stage Multimodal Pipeline** in `references/video-ingest-guide.md` (`extract_youtube_transcript.py --json` for chaptered `[MM:SS]` transcript + `related_wiki_pages` + `safe_source_page_name` $\rightarrow$ `capture_youtube_keyframes.py` with 3-frame smart probing & `--keep/--drop` curation $\rightarrow$ batch `read_file` to verify visual slides).
    - For **Facebook / X / LinkedIn / Instagram posts & visual decks**, follow the **Token- & Speed-Optimized Pipeline** in `references/social-post-ingest-guide.md`: instruct the `browser` subagent to use the **1-Call JS Gallery Harvester** (~5 tool calls total, never looping `press_key("ArrowRight")` slide-by-slide and never transcribing images inside its reply), then download via `scripts/download_post_assets.py` and inspect local images directly in parallel `read_file` batches of **6–7 images per turn**.
 2. Check `wiki/log.md` to prevent duplicate ingestion.
-3. Read `index.md` to map existing concepts/entities.
+3. Map existing concepts/entities without wasting extra file scans: use `related_wiki_pages` returned by `extract_youtube_transcript.py --json`, run `python .agents/skills/wiki-ingest/scripts/register_ingest.py --suggest-links "<keywords>"`, or inspect `index.md` directly only when broad manual lookup is needed.
 
 ### Step 2 — Read & Analyze Source
 Read the source document and any downloaded visual slides thoroughly. Identify:

@@ -258,14 +258,18 @@ def suggest_keyframe_timestamps(
     chapters: list[dict] | None = None,
     duration: int = 0,
 ) -> list[dict]:
-    """Identify candidate keyframe timestamps from chapters and visual cue phrases."""
+    """Identify candidate keyframe timestamps near chapter completions (78%-85%) and visual cue phrases."""
     candidates = []
     if chapters:
         for ch in chapters:
             start = float(ch.get("start_time", 0))
-            end = float(ch.get("end_time", start + 30))
+            raw_end = ch.get("end_time")
+            end = float(raw_end) if raw_end is not None else (float(duration) if duration > start else start + 30.0)
             span = max(0.0, end - start)
-            target = start + min(12.0, max(3.0, span * 0.25))
+            # Sample near the end of each chapter when diagrams/whiteboards are complete
+            raw_target = end - min(12.0, max(4.0, span * 0.22))
+            upper = max(start + 3.0, end - 3.0)
+            target = min(upper, max(start + 3.0, raw_target))
             candidates.append(
                 {
                     "timestamp_sec": int(round(target)),
@@ -290,6 +294,106 @@ def suggest_keyframe_timestamps(
 
     candidates.sort(key=lambda c: c["timestamp_sec"])
     return candidates
+
+
+def build_timestamps_arg(suggested_keyframes: list[dict], max_items: int = 12) -> str:
+    """Format suggested keyframes as a ready-to-use '--timestamps' string."""
+    if not suggested_keyframes:
+        return ""
+
+    chapter_items = [k for k in suggested_keyframes if k.get("reason") == "chapter"]
+    other_items = [k for k in suggested_keyframes if k.get("reason") != "chapter"]
+    selected = list(chapter_items[:max_items])
+    if len(selected) < max_items:
+        selected.extend(other_items[: max_items - len(selected)])
+    selected.sort(key=lambda k: k["timestamp_sec"])
+
+    tokens = []
+    for kf in selected:
+        raw_label = kf.get("label") or "Slide"
+        clean_label = re.sub(r"[^A-Za-z0-9]+", "-", raw_label).strip("-")[:40] or "Slide"
+        tokens.append(f"{kf['mm_ss']}={clean_label}")
+    return ",".join(tokens)
+
+
+_STOPWORDS = frozenset({
+    "the", "and", "for", "with", "that", "this", "from", "into", "what", "how",
+    "why", "when", "your", "you", "are", "was", "were", "can", "use", "using",
+    "build", "building", "make", "better", "new", "more", "about", "real", "not",
+    "all", "one", "two", "see", "define", "understand", "keep", "avoid", "use",
+})
+_INDEX_ENTRY_RE = re.compile(r"^\s*-\s*\[\[(.*?)\]\]\s*:\s*(.*)$")
+
+
+def find_related_wiki_pages(
+    project_root: Path,
+    title: str,
+    chapters: list[dict] | None = None,
+    channel: str = "",
+    top_k: int = 25,
+) -> list[dict]:
+    """Rank existing index.md wiki pages by keyword overlap with title, channel, and chapters."""
+    index_path = project_root / "index.md"
+    if not index_path.is_file():
+        return []
+
+    text_parts = [title or "", channel or ""]
+    for ch in chapters or []:
+        text_parts.append(ch.get("title", ""))
+    combined = " ".join(text_parts).lower()
+    raw_tokens = re.findall(r"[a-z0-9]{3,}", combined)
+    keywords = set(t for t in raw_tokens if t not in _STOPWORDS)
+    # Include short domain acronyms like ai, ml, ci, cd if present cleanly
+    for acronym in re.findall(r"\b(ai|ml|ci|cd|ui|ux|qa)\b", combined):
+        keywords.add(acronym)
+
+    channel_lower = (channel or "").strip().lower()
+    section_priority = {"entities": 2, "concepts": 2, "sources": 1}
+
+    current_section = ""
+    scored = []
+    for line in index_path.read_text(encoding="utf-8", errors="replace").splitlines():
+        if line.startswith("## "):
+            current_section = line[3:].strip()
+            continue
+        m = _INDEX_ENTRY_RE.match(line)
+        if not m:
+            continue
+        page = m.group(1).split("|")[0].strip()
+        summary = m.group(2).strip()
+        if page.startswith("raw/") or current_section.lower().startswith("generated deliverables"):
+            continue
+
+        page_low = page.lower()
+        sum_low = summary.lower()
+        page_tokens = set(re.findall(r"[a-z0-9]{2,}", page_low))
+        sum_tokens = set(re.findall(r"[a-z0-9]{2,}", sum_low))
+
+        score = 0
+        for kw in keywords:
+            if kw in page_tokens:
+                score += 4
+            elif kw in page_low:
+                score += 2
+            if kw in sum_tokens:
+                score += 1
+        if channel_lower and channel_lower in page_low:
+            score += 8
+        if score <= 0:
+            continue
+
+        scored.append((
+            score + section_priority.get(current_section.lower(), 0),
+            current_section,
+            page,
+            summary,
+        ))
+
+    scored.sort(key=lambda item: (-item[0], item[2].lower()))
+    return [
+        {"section": sec, "page": page, "summary": summary}
+        for _, sec, page, summary in scored[:top_k]
+    ]
 
 
 # ── Metadata extraction ────────────────────────────────────────────────────────
@@ -493,18 +597,20 @@ def main():
         )
         sys.exit(1)
 
+    project_root = Path.cwd()
+    probe = Path(__file__).resolve().parent
+    for _ in range(10):
+        if (probe / "index.md").exists():
+            project_root = probe
+            break
+        if probe.parent == probe:
+            break
+        probe = probe.parent
+
     if args.output_dir:
         out_dir = Path(args.output_dir)
     else:
-        script_dir = Path(__file__).resolve().parent
-        candidate = script_dir
-        for _ in range(10):
-            if (candidate / "index.md").exists():
-                out_dir = candidate / "raw" / "video-transcripts"
-                break
-            candidate = candidate.parent
-        else:
-            out_dir = Path.cwd() / "raw" / "video-transcripts"
+        out_dir = project_root / "raw" / "video-transcripts"
 
     out_dir.mkdir(parents=True, exist_ok=True)
     lang_list = [l.strip() for l in args.lang.split(",") if l.strip()]
@@ -605,18 +711,26 @@ duration: "{duration_str}"
     print(f"      File    : {out_path}", file=sys.stderr)
 
     if args.json:
+        safe_source_page_name = sanitize_filename(title)
+        suggested_timestamps_arg = build_timestamps_arg(suggested_keyframes)
+        related_wiki_pages = find_related_wiki_pages(
+            project_root, title, chapters=chapters, channel=channel
+        )
         print(
             json.dumps(
                 {
                     "file_path": str(out_path),
                     "slug": slug,
                     "title": title,
+                    "safe_source_page_name": safe_source_page_name,
                     "channel": channel,
                     "upload_date": upload_date,
                     "duration": duration_str,
                     "duration_sec": meta["duration"],
                     "chapters": chapters,
                     "suggested_keyframes": suggested_keyframes,
+                    "suggested_timestamps_arg": suggested_timestamps_arg,
+                    "related_wiki_pages": related_wiki_pages,
                 },
                 ensure_ascii=False,
                 indent=2,

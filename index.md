@@ -51,6 +51,7 @@ A catalog of everything in the knowledge base.
 - [[Warp]]: Modern AI-powered terminal and developer environment founded by Zach Lloyd featuring Oz orchestration and self-improving agent skills.
 
 
+
 ## Concepts
 - [[Advanced Prompting Patterns]]: Higher-order prompting strategies (ReAct, Tree-of-Thought, Self-Consistency, Prompt Chaining, Meta-Prompting) bridging prompts to agent loops.
 - [[Advisor Model Pattern]]: Dual-model escalation architecture in Claude Code (/advisor) delegating hard choices from Sonnet to Opus.
@@ -141,6 +142,7 @@ A catalog of everything in the knowledge base.
 - [[Second Opinion Pattern]]: Verification pattern using fresh-context background subagents (e.g., claude -p) with model overrides (Opus over Haiku) to eliminate worker self-review bias.
 - [[Self-Improving Agents]]: Autonomous architecture using dual-skill loops (inner task + outer observer) and GitOps human review gates to refine skills over time.
 - [[Session Checkpoints]]: Automatic state management mechanism in Claude Code capturing file snapshots before user prompts.
+- [[Software Supply Chain Security]]: Anatomy, attack vectors (Log4j, registry poisoning, SolarWinds), AI-as-supplier risks, shift-left checks, SBOMs, independent AI review, SLSA, Project Akrites & Lightwell.
 - [[Sparse Worktree Checkouts]]: Git harness optimization using worktree.sparsePaths to check out only touched subdirectories.
 - [[Stable Latent MoE]]: Ultra-sparse MoE architecture with latent token compression and quantile balancing.
 - [[Subagent Architecture]]: Multi-agent pattern spawning specialized worker agents into fresh 200K context windows to keep main session context lean.
@@ -238,6 +240,7 @@ A catalog of everything in the knowledge base.
 - [[Scale to many tools with tool search]]: Official Anthropic guide on dynamic tool search (ToolSearch) and ENABLE_TOOL_SEARCH configuration.
 - [[Set up Claude Code in a monorepo or large codebase]]: Official Anthropic guide on monorepo layering, claudeMdExcludes, permissions.deny, and sparse worktrees.
 - [[Share session output as artifacts]]: Official Anthropic guide on publishing interactive HTML artifacts and connector-backed live data.
+- [[Software Supply Chain Security What AI Coding Changes]]: IBM Technology breakdown of what AI coding changes in software supply chain security, shift-left defenses, SBOMs, independent verification, and provenance attestation.
 - [[Subagents in the SDK]]: Official Anthropic guide on programmatically defining AgentDefinition subagents using the Claude Agent SDK.
 - [[The Art of Loop Engineering]]: LangChain's 4-level loop taxonomy culminating in autonomous self-improvement via trace evaluation.
 - [[The new rules of context engineering for Claude 5 generation models]]: Thariq Shihipar's official Anthropic guide detailing 80% prompt reduction, Unhobbling Claude, and claude doctor.
@@ -262,6 +265,7 @@ A catalog of everything in the knowledge base.
 - [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 - [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
+
 
 
 
