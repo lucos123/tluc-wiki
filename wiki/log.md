@@ -79,6 +79,7 @@ Append-only record of operations.
 ## [2026-08-30] ingest | How Warp Builds Self-Improving Agents on Claude
 ## [2026-11-05] skill | Create dental-consult-ops (Dental Operations Architect & TVV Training System)
 ## [2026-11-15] ingest | Prompt Engineering Handbook
+## [2026-11-15] skill | Upgrade wiki-ingest with 2-stage social/visual pipeline and download_post_assets.py
 
 
 

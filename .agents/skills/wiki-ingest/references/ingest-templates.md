@@ -12,6 +12,7 @@ All raw files in `raw/` must be renamed to lower-case kebab-case filenames upon 
 - **Video Transcripts**: `raw/video-transcripts/<clean-kebab-case-title>.md`
 - **Notes**: `raw/notes/<category>/<clean-kebab-case-title>.<ext>`
 - **Visual Assets**: `raw/assets/<descriptive-kebab-case-name>.<ext>`
+- **Social Screenshots / Slide Decks**: `raw/screenshots/<clean-kebab-case-slug>/00.<ext>` (00-indexed for cover + numbered pages, or `raw/assets/<slug>-01.<ext>` for 1–3 standalone diagrams)
 
 Always strip trailing browser artifacts (`  Claude`, `  OpenAI API`, ` copy`, ` copy 2`), special characters, and convert spaces to hyphens. Update the `source:` frontmatter link in `wiki/sources/` accordingly.
 
@@ -104,4 +105,82 @@ source: "[[raw/notes/<category>/<filename>]]"
 ## Integration with Personal Memory
 
 <Cross-references to [[mem/projects/]] or [[mem/goals/]] if applicable.>
+```
+
+---
+
+## 4. Social Post & Visual Guide Deck Template (`raw/articles/` + `raw/screenshots/`)
+
+### A. Raw Markdown Post (`raw/articles/<category>/<slug>.md`)
+
+```markdown
+---
+title: "<Post Title>"
+source: "<Post URL>"
+original_source: "<Optional English/upstream source URL if cited>"
+author:
+  - "[[<Author Entity Name>]]"
+published: YYYY-MM-DD
+created: YYYY-MM-DD
+description: "<1-2 sentence summary of the post and attached visual slides>"
+tags:
+  - "clippings"
+  - "<topic-tag>"
+  - "visual-guide"
+---
+
+# <Post Title>
+
+- **Source URL:** <Post URL>
+- **Published:** YYYY-MM-DD
+- **Visual Assets Folder:** `raw/screenshots/<slug>/`
+
+## Verbatim Post Content
+
+> <Complete verbatim text from social post>
+
+## Visual Slide Transcriptions
+
+### Page 00 — <Cover / Slide Title>
+![Page 00](../../screenshots/<slug>/00.jpg)
+
+<Detailed transcription of diagrams, tables, formulas, and key points.>
+```
+
+### B. Wiki Source Page (`wiki/sources/<Source Title>.md`)
+
+```markdown
+---
+title: "<Source Title>"
+date: YYYY-MM-DD
+tags:
+  - source
+  - <topic-tag>
+  - visual-guide
+source: "[[raw/articles/<category>/<slug>.md]]"
+source_type: visual-notes
+---
+
+# <Source Title>
+
+**Source Files**:
+- [[raw/articles/<category>/<slug>.md]] *(Original post & visual transcriptions)*
+- [[raw/screenshots/<slug>/00.jpg]] *(Page 00 description)*
+- [[raw/screenshots/<slug>/01.jpg]] *(Page 01 description)*
+
+<1-2 sentence overview summarizing the visual handbook and its significance.>
+
+## Synthesized Knowledge Blocks
+
+- **<Block / Slide Theme>**: <Analytical synthesis with [[wiki links]] to concepts/entities.>
+
+## Synthesis Notes
+
+<Cross-source connections, trade-offs, and updates relative to existing wiki pages.>
+
+## Related Knowledge Nodes
+
+- **Entities**: [[<Author Entity>]]
+- **Concepts**: [[<Concept 1>]], [[<Concept 2>]]
+- **Sources**: [[<Related Source>]]
 ```
