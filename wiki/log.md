@@ -88,3 +88,4 @@ Append-only record of operations.
 ## [2026-11-16] ingest | What Is Loop Engineering? Building Better AI Agents
 ## [2026-11-17] ingest | Software Supply Chain Security: What AI Coding Changes
 ## [2026-11-17] ingest | All Code Is Slop (Except Mine) — Lauren Tan, SpaceXSI
+## [2026-11-17] ingest | Cẩm nang LLM bằng tiếng Việt - 50 khái niệm cần nắm vững

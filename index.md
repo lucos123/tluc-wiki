@@ -51,6 +51,7 @@ A catalog of everything in the knowledge base.
 - [[Viet Nguyen AI]]: Vietnamese AI practitioner and content creator translating technical AI visual guides into Vietnamese.
 - [[Warp]]: Modern AI-powered terminal and developer environment founded by Zach Lloyd featuring Oz orchestration and self-improving agent skills.
 
+
 ## Concepts
 - [[Advanced Prompting Patterns]]: Higher-order prompting strategies (ReAct, Tree-of-Thought, Self-Consistency, Prompt Chaining, Meta-Prompting) bridging prompts to agent loops.
 - [[Advisor Model Pattern]]: Dual-model escalation architecture in Claude Code (/advisor) delegating hard choices from Sonnet to Opus.
@@ -107,6 +108,8 @@ A catalog of everything in the knowledge base.
 - [[Iterated Distillation and Amplification (IDA)]]: Training methodology to amplify and distill model capabilities.
 - [[Jevons Paradox in AI]]: Economic phenomenon where falling per-token base model costs lead to exponential overall token consumption via thick agentic harnesses.
 - [[Knowledge Graph vs Agent Graph]]: Comparison matrix between relational information retrieval (Knowledge Graph) and workflow execution (Agent Graph).
+- [[LLM Fine-Tuning and Alignment]]: Full fine-tuning vs PEFT (LoRA/QLoRA), Instruction Tuning, 3H alignment, RLHF (SFT+RM+PPO), DPO, Constitutional AI, and Fine-tuning vs RAG decision rules.
+- [[LLM Inference Optimization and Security]]: Quantization (FP16/INT8/INT4, GPTQ/AWQ), KV Cache, Flash Attention, vLLM, Speculative Decoding, benchmarks, hallucinations, and LLM attack/privacy defenses.
 - [[llm-wiki]]: A pattern for building personal knowledge bases using LLMs.
 - [[LLMOps & Inference]]: Topic overview page covering model serving architectures, token economics, and inference trade-offs.
 - [[Loop Engineering]]: The 4-type taxonomy (turn-based, goal-based, time-based, proactive) for designing agent loops with explicit triggers, stop conditions, and quality gates.
@@ -134,6 +137,7 @@ A catalog of everything in the knowledge base.
 - [[Prompt-Based Hooks]]: Non-deterministic hooks running fast evaluator models (Haiku) on prompt payloads at turn boundaries.
 - [[Reasoning Effort]]: Top-level model parameter for dynamically tuning reasoning depth (low, high, max).
 - [[Responses API]]: OpenAI's v1/responses endpoint succeeding Chat Completions, built for native tool use, hosted shell, and multi-agent coordination.
+- [[Retrieval-Augmented Generation and Vector DBs]]: RAG architecture, recursive/semantic chunking, dense embeddings, Cosine/HNSW retrieval, Vector DB comparisons, Advanced RAG patterns, and LangChain/LlamaIndex.
 - [[REVIEW.md Governance]]: Top-level repository rule file for overriding multi-agent review severity, nit caps, and path exclusions.
 - [[SDK Agent Skills]]: Programmatic mechanism in the Claude Agent SDK for discovering, filtering, and mounting disk-based SKILL.md files into custom apps.
 - [[SDK File Checkpointing]]: Programmatic file restoration mechanism in the Claude Agent SDK (enable_file_checkpointing=True).
@@ -156,6 +160,7 @@ A catalog of everything in the knowledge base.
 - [[Token Economics]]: Cost governance framework in Claude Code analyzing input, output, cache, and thinking tokens.
 - [[Tokenization]]: Fundamental process of breaking raw text into atomic token units and mapping to Token IDs via BPE, WordPiece, or SentencePiece.
 - [[Tool Search Architecture]]: On-demand tool discovery pattern in Claude Code deferring schema loading until runtime to scale to 10,000 tools.
+- [[Transformer Architecture and Pre-training]]: Self-attention, Encoder vs Decoder, BPE tokenization, dense embeddings, next-token pre-training, Kaplan & Chinchilla scaling laws, and MoE.
 - [[Ultracode Mode]]: Advanced execution setting (/effort ultracode) pairing xhigh reasoning effort with automatic dynamic workflow generation.
 - [[Unhobbling Claude]]: Paradigm shift removing rigid system prompt guardrails in favor of trusting model judgment and surrounding idioms.
 - [[Unsupervised Learning and Dimensionality Reduction]]: Clustering (K-Means, Hierarchical, DBSCAN, GMM), Association Rules (Apriori, Eclat), and compression (PCA, LDA, t-SNE, Feature Selection).
@@ -221,6 +226,7 @@ A catalog of everything in the knowledge base.
 - [[Kimi Multi-turn Context Management Guide]]: Best practices for managing stateless conversation payloads, message truncation, and system prompt pinning.
 - [[Kimi Reasoning Effort Guide]]: Guidance for configuring top-level reasoning_effort in Kimi K3.
 - [[Kimi Thinking Models & Preserved Thinking Guide]]: Detailed breakdown of reasoning tokens, preserved thinking, and multi-step tool configurations across Kimi models.
+- [[LLM Handbook 50 Concepts]]: 20-page Vietnamese visual handbook by Viet Nguyen AI summarizing 50 core LLM foundations, training/alignment, RAG/agents, serving/security, and interview prep.
 - [[Loop Engineering explained in 8min]]: Caleb Writes Code's technical breakdown of multi-loop stacking and Addy Osmani's 6 components of loop engineering.
 - [[Loop Engineering from First Principles]]: Kyle Mistele's talk on applying Control Theory and production patterns (Adaptive Flow Control, FEEDBACK.md) to agentic loops.
 - [[Loop engineering Getting started with loops]]: Official Claude Code loop taxonomy — turn-based, goal-based, time-based, proactive — with decision framework and the full proactive loop composition.
@@ -266,6 +272,7 @@ A catalog of everything in the knowledge base.
 - [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 - [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
+
 
 
 
