@@ -168,3 +168,12 @@ Moving right along this spectrum:
 ## Key Insight: "Fix the System, Not the Instance"
 
 When a loop produces a bad result, the instinct is to fix that result. The loop engineering reflex is to ask: **what rule or verification step would have caught this?** Encode the answer so the loop never produces that failure again. This is the agentic equivalent of a CI pipeline rule or a linter config — policy over patches.
+
+## Core 4-Stage Cycle, State Spine & Human Safeguards
+
+As structured in [[IBM Technology]]'s [[What Is Loop Engineering Building Better AI Agents]], every loop implementation can also be viewed visually as a 4-stage inner execution ring (`Goal -> Action -> Observe -> Adjust`) surrounded by five engineering pillars:
+1. **Triggers**: Scheduled crons and event-driven [[Deterministic Lifecycle Hooks|hooks]] initiating the `Goal`.
+2. **Context Engineering**: Compaction ([[Context Window Management]]) and [[Progressive Disclosure]] of [[Agent Skills Architecture|skills]] feeding only high-signal context into each iteration.
+3. **The Spine (Persistent State)**: Durable Markdown execution logs inside the loop recording prior attempts, what succeeded, and what failed across passes.
+4. **Tools & Subagents**: [[Model Context Protocol|MCP]]/API integrations powering `Action`, and independent checker [[Subagent Architecture|subagents]] supporting `Observe`.
+5. **Human-in-the-Loop Safeguards**: Even well-engineered loops require humans to **write verifiable goals**, **write explicit intent** (preventing test-relaxing reward hacks), and **read outputs** to avoid [[Comprehension and Intent Debt]] and cognitive surrender. See [[raw/screenshots/ibm-loop-engineering/06.jpg]] and [[raw/screenshots/ibm-loop-engineering/09.jpg]].

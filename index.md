@@ -50,6 +50,7 @@ A catalog of everything in the knowledge base.
 - [[Viet Nguyen AI]]: Vietnamese AI practitioner and content creator translating technical AI visual guides into Vietnamese.
 - [[Warp]]: Modern AI-powered terminal and developer environment founded by Zach Lloyd featuring Oz orchestration and self-improving agent skills.
 
+
 ## Concepts
 - [[Advanced Prompting Patterns]]: Higher-order prompting strategies (ReAct, Tree-of-Thought, Self-Consistency, Prompt Chaining, Meta-Prompting) bridging prompts to agent loops.
 - [[Advisor Model Pattern]]: Dual-model escalation architecture in Claude Code (/advisor) delegating hard choices from Sonnet to Opus.
@@ -75,6 +76,7 @@ A catalog of everything in the knowledge base.
 - [[Claude Directory Architecture]]: Standardized file system layout (.claude/ & ~/.claude/) for instructions, settings, rules, skills, subagents, and workflows.
 - [[Closed-Loop Evals]]: Automated architecture for continuous evaluation, reflection, prompt optimization, and auto-deployment without human intervention.
 - [[Cloud Sandboxed Ultrareview]]: Deep off-machine diff review mode (/code-review ultra) executing verified bug detection in cloud sandboxes.
+- [[Comprehension and Intent Debt]]: Four agentic loop pitfalls (unverified code, comprehension debt, intent debt, cognitive surrender) and the minimal human responsibility triad.
 - [[Conductor vs Orchestrator]]: Modes of developer interaction with AI.
 - [[Context Engineering]]: The practice of explicitly managing and structuring what the AI "sees".
 - [[Context Engineering Pipeline]]: Multi-stage architecture connecting data storage infrastructure to the LLM inference window.
@@ -247,6 +249,7 @@ A catalog of everything in the knowledge base.
 - [[Vault Welcome]]: Summary of the default Obsidian onboarding note.
 - [[What Is Context Engineering]]: Joshua Noble's IBM article defining the 6-step context engineering lifecycle and data pipeline.
 - [[What Is Context Engineering Why It Matters for AI Agents]]: IBM Technology's guide on context processing, context management, context rot, and working memory analogies.
+- [[What Is Loop Engineering Building Better AI Agents]]: IBM Technology lightboard breakdown of the 4-stage agent loop, persistent state spine, context/tool/subagent scaffolding, and comprehension/intent debt safeguards.
 - [[Why Domain-specific Agents Are the Future]]: Justin Schroeder's Agentic AI Foundation talk on the line-shaft era of agents, domain-specific agents, Gmail agent vs skill, jagged models, and open standards.
 - [[Why Graph Engineering will 10x your Claude Codex]]: Greg Isenberg's 26-minute technical breakdown of Graph Engineering, Agent Graphs, and workflow patterns.
 - [[Why Your Enterprise Tech Stack Isn't Ready for AI Agents]]: Christopher Lovejoy and Saul Howard's presentation on the 4 architectural primitives for enterprise agent stacks, the immutable action ledger, and Human-Agent Equivalency.
@@ -259,6 +262,7 @@ A catalog of everything in the knowledge base.
 - [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 - [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
+
 
 
 
