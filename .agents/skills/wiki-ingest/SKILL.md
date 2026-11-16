@@ -34,7 +34,7 @@ All raw files must reside in structured subfolders under `raw/`:
 | Source Type | Subfolder Target | Extraction Protocol |
 |-------------|------------------|---------------------|
 | **Web Article / Docs** | `raw/articles/<topic>/` | Save markdown/text file, then Step 1 |
-| **Social Post / Multi-Slide Visual Deck** | `raw/screenshots/<slug>/` + `raw/articles/<topic>/<slug>.md` | Follow `references/social-post-ingest-guide.md`: 1) Fast browser harvest (text + direct CDN URLs only), 2) `python .agents/skills/wiki-ingest/scripts/download_post_assets.py`, 3) Batch `read_file` on local images |
+| **Social Post / Multi-Slide Visual Deck** | `raw/screenshots/<slug>/` + `raw/articles/<topic>/<slug>.md` | Follow `references/social-post-ingest-guide.md`: 1) 1-call JS gallery harvest via `browser` (~5 tool calls total), 2) `python .agents/skills/wiki-ingest/scripts/download_post_assets.py`, 3) Batch `read_file` (6–7 images/turn) |
 | **PDF Whitepaper / Book** | `raw/pdfs/` | Read PDF content, save to `raw/pdfs/`, then Step 1 |
 | **YouTube / Video URL** | `raw/video-transcripts/` | Follow `references/video-ingest-guide.md`: Run `python .agents/skills/wiki-ingest/scripts/extract_youtube_transcript.py <URL>`, then Step 1 |
 | **Work Notes & Drafts** | `raw/notes/<category>/` | Read note file in `raw/notes/`, then Step 1 |
@@ -45,7 +45,7 @@ All raw files must reside in structured subfolders under `raw/`:
 ### Step 1 — Pre-Flight Check & Capture
 1. Verify the source file `$ARGUMENTS` exists in `raw/` (or capture HTTP/HTTPS URL into `raw/` first):
    - For **YouTube/Video**, follow `references/video-ingest-guide.md`.
-   - For **Facebook / X / LinkedIn / Instagram posts & visual decks**, follow the **2-Stage Social & Visual Pipeline** in `references/social-post-ingest-guide.md` (`browser` subagent harvests text + ordered high-res image URLs without writing full image transcriptions; then download via `scripts/download_post_assets.py` and inspect local images directly with parallel `read_file` batches).
+   - For **Facebook / X / LinkedIn / Instagram posts & visual decks**, follow the **Token- & Speed-Optimized Pipeline** in `references/social-post-ingest-guide.md`: instruct the `browser` subagent to use the **1-Call JS Gallery Harvester** (~5 tool calls total, never looping `press_key("ArrowRight")` slide-by-slide and never transcribing images inside its reply), then download via `scripts/download_post_assets.py` and inspect local images directly in parallel `read_file` batches of **6–7 images per turn**.
 2. Check `wiki/log.md` to prevent duplicate ingestion.
 3. Read `index.md` to map existing concepts/entities.
 
@@ -76,13 +76,20 @@ Follow templates in `references/ingest-templates.md` or `references/video-ingest
   2. Include required frontmatter fields (`title`, `date` in `YYYY-MM-DD`, `tags`, plus `source` on all `wiki/sources/` files).
   3. Every `[[Wiki Link]]` inside `wiki/` (unless prefixed with `raw/`) MUST match the exact filename (without `.md`) of an existing page in `wiki/`, `mem/`, or `output/`.
 
-### Step 5 — Update Index & Log
-1. Insert every newly created entity, concept, and source page into `index.md` in **strict alphabetical order** under `## Entities`, `## Concepts`, or `## Sources`.
-2. Append exactly one line to `wiki/log.md`: `## [YYYY-MM-DD] ingest | <Source Title>`
+### Step 5 — Atomic Index, Log & Verification Gate (1-Command Finish)
+Instead of editing `index.md` and `wiki/log.md` manually across multiple calls, run `register_ingest.py` to atomically insert/sort all new `index.md` entries, append `wiki/log.md`, and execute `lint_wiki.py` in **1 single command**:
+```powershell
+python .agents/skills/wiki-ingest/scripts/register_ingest.py `
+  --date YYYY-MM-DD `
+  --log-type ingest `
+  --source-title "<Source Title>" `
+  --entry "Entities|<Entity Name>|<One-line summary>" `
+  --entry "Concepts|<Concept Name>|<One-line summary>" `
+  --entry "Sources|<Source Title>|<One-line summary>"
+```
+*(Or pass `--manifest path/to/entries.json`.)* Confirm the output returns `"status": "ok"`, `"total_broken_links": 0`, and `"index_coverage_pct": 100.0` before reporting completion to the user.
 
-### Step 6 — Embedded Verification Loop (Self-Linting Gate)
-Run the automated structural health check to verify 0 broken links and 100% index coverage:
+For standalone structural checks without modifying `index.md` or `wiki/log.md`, run:
 ```powershell
 python .agents/skills/wiki-lint/scripts/lint_wiki.py
 ```
-Confirm the output returns `"total_broken_links": 0` and `"index_coverage_pct": 100.0` before reporting completion to the user.

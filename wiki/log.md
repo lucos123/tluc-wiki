@@ -81,7 +81,4 @@ Append-only record of operations.
 ## [2026-11-15] ingest | Prompt Engineering Handbook
 ## [2026-11-15] skill | Upgrade wiki-ingest with 2-stage social/visual pipeline and download_post_assets.py
 ## [2026-11-16] ingest | Types of Machine Learning Handbook
-
-
-
-
+## [2026-11-16] skill | Upgrade wiki-ingest v3 with 1-call JS gallery harvester and register_ingest.py
