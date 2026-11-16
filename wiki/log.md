@@ -83,3 +83,5 @@ Append-only record of operations.
 ## [2026-11-16] ingest | Types of Machine Learning Handbook
 ## [2026-11-16] skill | Upgrade wiki-ingest v3 with 1-call JS gallery harvester and register_ingest.py
 ## [2026-11-16] ingest | AI Deployment Notes
+## [2026-11-16] skill | Upgrade wiki-ingest video pipeline with timestamped chapters and 1080p keyframe capture
+## [2026-11-16] ingest | Why Domain-specific Agents Are the Future

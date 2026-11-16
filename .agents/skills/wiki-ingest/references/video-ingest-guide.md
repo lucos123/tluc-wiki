@@ -1,66 +1,70 @@
-# Video Ingest Guide
+# Video Ingest Guide (Multimodal Transcript + 1080p Keyframe Pipeline)
 
-This reference covers how to ingest video content (YouTube, Vimeo, etc.) into the wiki
-using the automated extraction script. Read this when `SKILL.md` directs you here.
+This reference covers how to ingest video content (YouTube, Vimeo, conference talks, technical walkthroughs) into `tluc-wiki` by combining **chaptered, timestamped transcripts** with **targeted 1080p keyframe screenshots** of critical slides, diagrams, and charts.
 
 ---
 
-## Quick Start
+## 3-Stage Multimodal Video Ingestion Pipeline
 
-### Step 1 — Run the extraction script
+### Stage 1 — Extract Chaptered, Timestamped Transcript
+Run `extract_youtube_transcript.py` to fetch video metadata, chapters, `[MM:SS]`-marked transcript blocks, and suggested keyframe timestamps into `raw/video-transcripts/<clean-kebab-case-slug>.md`:
 
 ```powershell
-python .agents/skills/wiki-ingest/scripts/extract_youtube_transcript.py <VIDEO_URL>
-```
-
-**Examples:**
-```powershell
-# English transcript (default)
-python .agents/skills/wiki-ingest/scripts/extract_youtube_transcript.py https://www.youtube.com/watch?v=abc123
+# English transcript (default) with JSON metadata output
+python .agents\skills\wiki-ingest\scripts\extract_youtube_transcript.py "<VIDEO_URL>" --lang en --json
 
 # Prefer Vietnamese, fallback to English
-python .agents/skills/wiki-ingest/scripts/extract_youtube_transcript.py https://www.youtube.com/watch?v=abc123 --lang vi,en
-
-# Save to a specific directory
-python .agents/skills/wiki-ingest/scripts/extract_youtube_transcript.py https://www.youtube.com/watch?v=abc123 --output-dir raw/claude-code
+python .agents\skills\wiki-ingest\scripts\extract_youtube_transcript.py "<VIDEO_URL>" --lang vi,en
 ```
 
-### Step 2 — Use the output path
+Read the generated `.md` transcript file to inspect all **Chapters**, **Suggested Keyframe Timestamps**, and `[MM:SS]` cues so you can pinpoint the exact 8–12 moments where slides, diagrams, formulas, or architectural comparisons appear.
 
-The script prints the saved file path to **stdout**. Use that path as the source for the
-normal wiki-ingest Step 1 (Read & Analyze).
+### Stage 2 — Capture & Visually Verify 1080p Keyframe Slides
+Run `capture_youtube_keyframes.py` (uses `yt-dlp` + standalone `ffmpeg` via `imageio-ffmpeg` HTTP range-seeking — **no full video download needed**):
 
+```powershell
+# Capture targeted timestamps identified from the transcript
+python .agents\skills\wiki-ingest\scripts\capture_youtube_keyframes.py `
+  --url "<VIDEO_URL>" `
+  --slug "<clean-kebab-case-slug>" `
+  --timestamps "00:35=Intro,02:25=Line Shaft Era,04:10=Architecture"
+
+# Or auto-sample one representative frame per YouTube chapter
+python .agents\skills\wiki-ingest\scripts\capture_youtube_keyframes.py `
+  --url "<VIDEO_URL>" `
+  --slug "<clean-kebab-case-slug>" `
+  --auto-chapters
 ```
-raw/video-transcripts/The Art of Loop Engineering.md  ← use this path
-```
 
-### Step 3 — Proceed with normal ingest
+Inspect all captured frames in `raw/screenshots/<slug>/` using parallel `read_file` batches (6–7 images/turn):
+- **Filter pure talking-head frames:** If a frame only shows the speaker without a slide, diagram, or visual card, either re-seek to the exact timestamp inside that chapter where the slide appears, or delete uninformative duplicates and re-index so `raw/screenshots/<slug>/` contains only high-value visual frames.
 
-Continue from **Step 1** of `SKILL.md` using the extracted `.md` file as your source.
+### Stage 3 — Embed Visual Transcriptions, Synthesize Wiki & Register
+1. Embed the verified keyframe screenshots (`![Slide NN - MM:SS](../screenshots/<slug>/NN.jpg)`) and concise visual transcriptions into the raw transcript (`raw/video-transcripts/<slug>.md`).
+2. Create `wiki/sources/<Video Title>.md` (`source_type: video`) linking both the raw transcript and all kept `[[raw/screenshots/<slug>/NN.jpg]]` slides, plus entity/concept pages in `wiki/entities/` and `wiki/concepts/`.
+3. Register all new pages into `index.md`, append `wiki/log.md`, and run `lint_wiki.py` in **1 command**:
+   ```powershell
+   python .agents\skills\wiki-ingest\scripts\register_ingest.py `
+     --date YYYY-MM-DD `
+     --log-type ingest `
+     --source-title "<Video Title>" `
+     --entry "Entities|..." `
+     --entry "Concepts|..." `
+     --entry "Sources|<Video Title>|..."
+   ```
 
 ---
 
-## Installation
+## How the Scripts Work
 
-`yt-dlp` is auto-installed by the script if missing. If auto-install fails:
-
-```powershell
-pip install yt-dlp
-```
-
-Or with uv:
-```powershell
-uv pip install yt-dlp
-```
-
----
-
-## How the Script Works
-
-1. **Metadata fetch**: Retrieves title, channel, upload date, duration using `yt-dlp --dump-json`
-2. **Transcript download**: Tries manual subtitles first, then auto-generated captions
-3. **Cleaning**: Strips timestamps, sequence numbers, HTML tags, and deduplicates overlapping caption lines
-4. **Output**: Saves a `.md` file with YAML frontmatter (title, url, channel, duration, date)
+1. **`extract_youtube_transcript.py`**:
+   - Auto-installs `yt-dlp` if missing.
+   - Extracts metadata, `chapters`, and manual/auto VTT captions.
+   - Parses cue start times (`parse_vtt_cues`), deduplicates rolling auto-captions without discarding timestamps, groups under `### [MM:SS - MM:SS] <Chapter>` sections, emits `**[MM:SS]**` markers every ~18s, and writes directly to `raw/video-transcripts/<kebab-case-title>.md`.
+2. **`capture_youtube_keyframes.py`**:
+   - Auto-installs `imageio-ffmpeg` if system `ffmpeg` is not on PATH.
+   - Selects the highest-resolution direct HTTPS stream ($\le 1080\text{p}$) and seeks concurrently (`ThreadPoolExecutor`) with `ffmpeg -ss <sec> -i <stream_url> -frames:v 1 -q:v 2`.
+   - Verifies saved JPG dimensions via pure-Python binary header inspection and outputs JSON containing `rel_path`, `wiki_link`, `md_embed`, `timestamp_sec`, `mm_ss`, and `dimensions`.
 
 ---
 
@@ -72,8 +76,6 @@ uv pip install yt-dlp
 | Vietnamese video | `--lang vi,en` |
 | Auto-detect best available | `--lang en,vi,zh,ja,ko` |
 
-The script tries each language in order and uses the first one available.
-
 ---
 
 ## Fallback: Manual Transcript Extraction
@@ -82,26 +84,12 @@ If the script fails (video has no captions, private video, geo-blocked, etc.):
 
 ### Option A — YouTube built-in transcript viewer
 1. Open the video in Chrome/Edge
-2. Click `...` (more options) → **Open transcript**
-3. Select language in the transcript panel
-4. Open browser DevTools Console (`F12`)
-5. Run this JS snippet to extract all text:
-```javascript
-(() => {
-  const segments = document.querySelectorAll('ytd-transcript-segment-renderer');
-  const lines = Array.from(segments).map(s => s.querySelector('.segment-text').textContent.trim());
-  copy(lines.join('\n'));
-  console.log(`Copied ${lines.length} lines to clipboard.`);
-})();
-```
-6. Paste into a new file in `raw/video-transcripts/`
+2. Click `...` (more options) $\rightarrow$ **Open transcript**
+3. Select language in the transcript panel and copy text into `raw/video-transcripts/`
 
 ### Option B — yt-dlp direct download (command line)
 ```powershell
-# Download all available subtitles
 yt-dlp --write-subs --write-auto-subs --skip-download --sub-format vtt <URL>
-
-# List available subtitle tracks
 yt-dlp --list-subs <URL>
 ```
 
@@ -109,23 +97,20 @@ yt-dlp --list-subs <URL>
 
 ## Source Page Template for Videos
 
-When creating the `wiki/sources/` page for a video, use this extended template that
-includes video-specific fields:
-
 ```markdown
 ---
-title: <Video Title>
-date: <YYYY-MM-DD of today>
+title: "<Video Title>"
+date: <YYYY-MM-DD>
 tags:
   - source
   - <topic-tag-1>
   - <topic-tag-2>
-source: raw/video-transcripts/<filename>.md
+source: "[[raw/video-transcripts/<slug>.md]]"
 source_type: video
 url: "<YouTube URL>"
 channel: "<Channel Name>"
-speaker: "<Speaker Name (if known)>"
-duration: "<e.g., 32m 15s>"
+speaker: "<Speaker Name>"
+duration: "<e.g., 24m 38s>"
 ---
 
 # <Video Title>
@@ -134,7 +119,8 @@ duration: "<e.g., 32m 15s>"
 **Speaker**: <Speaker Name>
 **URL**: <YouTube URL>
 **Duration**: <duration>
-**Transcript**: [[raw/video-transcripts/<filename>.md]]
+**Transcript**: [[raw/video-transcripts/<slug>.md]]
+**Key Slides**: [[raw/screenshots/<slug>/01.jpg]], ...
 
 <1-2 sentence overview: what this video is about and why it matters.>
 
@@ -144,30 +130,77 @@ duration: "<e.g., 32m 15s>"
 
 ## Synthesis Notes
 
-<Analytical commentary. How does this video connect to the knowledge base? 
-What does it add, confirm, or contradict?>
+<Analytical commentary. How does this video connect to the knowledge base?>
 ```
 
 ---
 
-## Quality Checklist for Video Ingestion
-
-Before proceeding to wiki page creation, verify the extracted transcript is usable:
-
-- [ ] Transcript has at least 200 lines (thin transcripts = auto-captions may have failed)
-- [ ] Text is readable (not garbled Unicode or repeated artifacts)
-- [ ] Speaker names or sections are identifiable in the content
-- [ ] No major gaps (check if the transcript covers the whole video)
-
-If the transcript quality is poor, switch to the manual fallback (Option A or B above).
-
----
-
-## Known Limitations
+## Known Limitations & Zero-403 Canvas Fallback
 
 | Issue | Cause | Workaround |
 |-------|-------|------------|
 | `No transcript available` | Video has no captions enabled | Manual fallback |
 | Garbled text | Auto-captions with heavy accent | Use manual subtitles `--lang en` |
-| Script hangs | Network timeout | Re-run; check VPN/firewall |
+| Stream `ffmpeg` seek returns `403 Forbidden` | YouTube PO-token enforcement blocks CLI stream URLs | Run the **1-Call Chrome `<video>` + `<canvas>` Keyframe Harvester** below via the `browser` subagent, then pass `--from-data-urls-json` |
 | Short transcript | Only intro captured | Check if video is private or age-gated |
+
+### Fallback: 1-Call Chrome HTML5 `<video>` + `<canvas>` Keyframe Harvester
+When `ffmpeg` receives `403 Forbidden`, invoke the `browser` subagent to open `<VIDEO_URL>`, skip any pre-roll ad, and execute this `mcp_chrome_devtools_evaluate_script` function (captures raw HD frames directly from the `<video>` element with zero YouTube player chrome):
+
+```javascript
+async () => {
+  const targets = [
+    { sec: 82, label: "Factory Line Shaft" },
+    // ... { sec: <seconds>, label: "<label>" }
+  ];
+  const video = document.querySelector("video.html5-main-video");
+  if (!video) return { error: "No html5-main-video element found" };
+  video.pause();
+  video.muted = true;
+  const player = document.getElementById("movie_player");
+  if (player?.setPlaybackQualityRange) {
+    try { player.setPlaybackQualityRange("hd1080", "hd1080"); } catch {}
+  }
+  const waitSeek = (t) =>
+    new Promise((resolve) => {
+      let done = false;
+      const finish = () => {
+        if (done) return;
+        done = true;
+        video.removeEventListener("seeked", onSeek);
+        setTimeout(resolve, 180);
+      };
+      const onSeek = () => finish();
+      video.addEventListener("seeked", onSeek, { once: true });
+      video.currentTime = t;
+      setTimeout(finish, 3000);
+    });
+
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+  const out = [];
+  for (const item of targets) {
+    await waitSeek(item.sec);
+    const w = Math.min(1280, video.videoWidth || 1280);
+    const h = Math.round((w * (video.videoHeight || 720)) / (video.videoWidth || 1280));
+    canvas.width = w;
+    canvas.height = h;
+    ctx.drawImage(video, 0, 0, w, h);
+    out.push({
+      timestamp_sec: item.sec,
+      label: item.label,
+      dims: `${w}x${h}`,
+      data_url: canvas.toDataURL("image/jpeg", 0.82),
+    });
+  }
+  return out;
+}
+```
+
+Save the returned JSON array to a scratch file and decode it via:
+```powershell
+python .agents\skills\wiki-ingest\scripts\capture_youtube_keyframes.py `
+  --url "<VIDEO_URL>" `
+  --slug "<clean-kebab-case-slug>" `
+  --from-data-urls-json path\to\frames.json
+```

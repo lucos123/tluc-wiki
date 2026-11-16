@@ -3,9 +3,9 @@
 A catalog of everything in the knowledge base.
 
 ## Entities
+- [[Addy Osmani]]: Engineering leader and advocate for "AI-assisted engineering".
 - [[AI Engineer]]: Global community and technical conference series focused on AI engineering, agent architectures, and LLMOps.
 - [[AI LABS]]: Technical content creator channel producing deep-dive analysis on AI agent engineering, graph topologies, and verification loops.
-- [[Addy Osmani]]: Engineering leader and advocate for "AI-assisted engineering".
 - [[Andre Karpathy]]: AI researcher and founding team member at OpenAI; framed the "smarter vs. faster" model trade-off.
 - [[Anterior]]: Healthcare technology enterprise developing agentic systems for US health insurance workflows and HIPAA-compliant architectures.
 - [[Anthropic]]: AI research and safety company developing the Claude model series, Claude Code, and Model Context Protocol.
@@ -17,12 +17,12 @@ A catalog of everything in the knowledge base.
 - [[Cline]]: Open-source IDE agentic coding harness executing multi-turn tool operations via Model Context Protocol.
 - [[Codex]]: OpenAI's coding agent platform.
 - [[DeepCent]]: Fictional state-backed Chinese AI collective from the AI 2027 scenario.
-- [[GPT-5.6]]: OpenAI's frontier model family (Sol, Terra, Luna) emphasizing token efficiency and parallel reasoning.
-- [[GPT-5.6 Luna]]: Fast, cost-sensitive model tier ($0.20/$1.20) in the GPT-5.6 family for high-volume subagents.
-- [[GPT-5.6 Terra]]: Balanced model tier ($2.00/$12.00) in the GPT-5.6 family, replacing GPT-5.4/5.5 at lower cost.
 - [[Gemini CLI]]: Open-source terminal AI assistant by Google.
 - [[GitHub Spec Kit]]: Mainstream software specification framework for AI coding agents defining spec.md, plan.md, tasks.md.
 - [[Goon Nguyen]]: AI Engineer and author who coined Harness Engineering.
+- [[GPT-5.6]]: OpenAI's frontier model family (Sol, Terra, Luna) emphasizing token efficiency and parallel reasoning.
+- [[GPT-5.6 Luna]]: Fast, cost-sensitive model tier ($0.20/$1.20) in the GPT-5.6 family for high-volume subagents.
+- [[GPT-5.6 Terra]]: Balanced model tier ($2.00/$12.00) in the GPT-5.6 family, replacing GPT-5.4/5.5 at lower cost.
 - [[Greg Isenberg]]: Tech entrepreneur and content creator who detailed Graph Engineering, Agent Graphs, and Knowledge Graph trade-offs.
 - [[Greta]]: Context-aware AI development partner tool.
 - [[HumanLayer]]: Tooling platform focused on human-in-the-loop agentic workflows and production control loops.
@@ -30,6 +30,7 @@ A catalog of everything in the knowledge base.
 - [[IBM Technology]]: Official technical education channel of IBM producing deep-dives on enterprise AI architecture and agentic software design.
 - [[Jarred Sumner]]: Bun co-founder and Anthropic MTS; ran the Zig→Rust 1M-line migration with Claude Code.
 - [[Joshua Noble]]: Technical author and researcher at IBM Think specializing in context engineering and AI agent memory systems.
+- [[Justin Schroeder]]: Founder at Standard Agents who presented the factory electrification analogy and domain-specific agent architecture at the Agentic AI Foundation.
 - [[Kimi K2.7 Code]]: Dedicated long-horizon coding and agentic model by Moonshot AI with 256K context and HighSpeed variant.
 - [[Kimi K3]]: Open-weights frontier AI model by Moonshot AI featuring 896 experts, 1.8% activation, and KDA.
 - [[Kyle Mistele]]: Co-founder/engineer at HumanLayer; introduced Control-Loop Engineering.
@@ -43,11 +44,11 @@ A catalog of everything in the knowledge base.
 - [[Peter Steinberger]]: Open-source creator (author of OpenClaw) who sparked the 3M-view viral Graph Engineering debate on July 18, 2026.
 - [[Sean's AI Stories]]: Educational content creator focusing on AI agent systems, memory architectures, and LLMOps.
 - [[Simon Willison]]: Open-source software developer (Datasette, Django) and AI researcher who coined prompt injection.
+- [[Standard Agents]]: AI organization developing domain-specific agent architectures and an open-source agent specification and runtime.
 - [[Thariq Shihipar]]: Anthropic technical staff member who detailed 80% system prompt pruning, Unhobbling Claude, and Progressive Disclosure.
 - [[Uber]]: Global mobility and food delivery enterprise using closed-loop evals for multimodal agent orchestration.
 - [[Viet Nguyen AI]]: Vietnamese AI practitioner and content creator translating technical AI visual guides into Vietnamese.
 - [[Warp]]: Modern AI-powered terminal and developer environment founded by Zach Lloyd featuring Oz orchestration and self-improving agent skills.
-
 
 ## Concepts
 - [[Advanced Prompting Patterns]]: Higher-order prompting strategies (ReAct, Tree-of-Thought, Self-Consistency, Prompt Chaining, Meta-Prompting) bridging prompts to agent loops.
@@ -84,6 +85,7 @@ A catalog of everything in the knowledge base.
 - [[Control-Loop Engineering]]: Application of Classical Control Theory to agentic loops (Set Point, Sensors, Actuator, Adaptive Flow Control, FEEDBACK.md).
 - [[Cost Optimization]]: Active engineering techniques (context pruning, hook filtering, effort tuning) minimizing token spend.
 - [[Deterministic Lifecycle Hooks]]: Harness control mechanism executing shell scripts at exact agent events (PreToolUse, PostToolUse) with exit code enforcement.
+- [[Domain-Specific Agents]]: Architectural paradigm favoring narrow, business-process-specific agents over monolithic generalist agents (Line Shaft vs Electric Motor analogy, Gmail Agent vs Skill, jagged models).
 - [[Dynamic Context Injection]]: Harness feature executing inline shell commands (!cmd) at render time to inject live output into skills before prompt submission.
 - [[Dynamic Tool Loading]]: Pattern for declaring tool schemas on-demand inside system messages during chat completions.
 - [[Dynamic Workflows]]: Programmatic JS script execution pattern running large-scale multi-agent audits and migrations in background runtimes.
@@ -245,6 +247,7 @@ A catalog of everything in the knowledge base.
 - [[Vault Welcome]]: Summary of the default Obsidian onboarding note.
 - [[What Is Context Engineering]]: Joshua Noble's IBM article defining the 6-step context engineering lifecycle and data pipeline.
 - [[What Is Context Engineering Why It Matters for AI Agents]]: IBM Technology's guide on context processing, context management, context rot, and working memory analogies.
+- [[Why Domain-specific Agents Are the Future]]: Justin Schroeder's Agentic AI Foundation talk on the line-shaft era of agents, domain-specific agents, Gmail agent vs skill, jagged models, and open standards.
 - [[Why Graph Engineering will 10x your Claude Codex]]: Greg Isenberg's 26-minute technical breakdown of Graph Engineering, Agent Graphs, and workflow patterns.
 - [[Why Your Enterprise Tech Stack Isn't Ready for AI Agents]]: Christopher Lovejoy and Saul Howard's presentation on the 4 architectural primitives for enterprise agent stacks, the immutable action ledger, and Human-Agent Equivalency.
 - [[You Can Learn AI Agent Graph Engineering In 21 Min]]: Sean's AI Stories technical breakdown of the 5-level Agent Engineering Ladder, Loop vs Graph trade-offs, and Waku-Agent architecture.
@@ -256,6 +259,7 @@ A catalog of everything in the knowledge base.
 - [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 - [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
+
 
 
 ## Analyses
