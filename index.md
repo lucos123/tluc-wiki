@@ -102,12 +102,14 @@ A catalog of everything in the knowledge base.
 - [[Knowledge Graph vs Agent Graph]]: Comparison matrix between relational information retrieval (Knowledge Graph) and workflow execution (Agent Graph).
 - [[Iterated Distillation and Amplification (IDA)]]: Training methodology to amplify and distill model capabilities.
 - [[Jevons Paradox in AI]]: Economic phenomenon where falling per-token base model costs lead to exponential overall token consumption via thick agentic harnesses.
+- [[Machine Learning Paradigms]]: Taxonomy of Supervised, Unsupervised, Semi-Supervised, Self-Supervised, and Reinforcement Learning paradigms.
 - [[Memory Architecture]]: Reference architecture for persistent context management outside the model context window.
 - [[Memory Promotion Path]]: 3-step lifecycle for promoting machine-local auto memory (MEMORY.md) into shared project rules.
 - [[MCP Transports]]: Communication channels (HTTP streamable-http, stdio, WebSocket ws) for Model Context Protocol integrations.
 - [[Metacode]]: Taxonomy of version-controlled markdown files carrying requirements, architecture, rules, and plans for coding agents.
 - [[Monorepo Context Engineering]]: Structuring per-package rules, claudeMdExcludes, and sparse worktrees to keep context windows focused in large codebases.
 - [[Model Context Protocol]]: Open standard enabling AI models and agent harnesses to connect to external systems.
+- [[Model Evaluation and Validation]]: Classification metrics (Accuracy, Precision, Recall, F1, ROC-AUC), Regression metrics (MAE, MSE, RMSE, R²), and K-Fold Cross-Validation.
 - [[Model Specification (Spec)]]: Document outlining desired AI behavior and alignment rules.
 - [[Neuralese]]: High-dimensional vector memory that replaces text-based chain-of-thought.
 - [[Obsidian Syntax Cheat Sheet]]: Quick reference guide for Obsidian wiki links, callouts, and frontmatter syntax.
@@ -135,6 +137,7 @@ A catalog of everything in the knowledge base.
 - [[Subagent Architecture]]: Multi-agent pattern spawning specialized worker agents into fresh 200K context windows to keep main session context lean.
 - [[Subagent Context Isolation]]: Delegation pattern running heavy research or exploration in a fresh, isolated 200K context window.
 - [[Subagent Worktree Isolation]]: Subagent configuration (isolation: worktree) forcing subagent runs inside temporary isolated worktrees.
+- [[Supervised Learning Algorithms]]: Regression (Linear, Polynomial, Ridge, Lasso, Elastic Net) and Classification (Logistic, KNN, Decision Tree, Random Forest, SVM, Naive Bayes) models.
 - [[Superhuman AI]]: AI systems capable of recursively improving themselves.
 - [[Superhuman Coder]]: Milestone where AI can perform coding tasks faster and cheaper than top humans.
 - [[System Prompt Caching Optimization]]: Separation of static system prompts from dynamic session metadata via excludeDynamicSections for 100% cache hit rates.
@@ -144,6 +147,7 @@ A catalog of everything in the knowledge base.
 - [[Tool Search Architecture]]: On-demand tool discovery pattern in Claude Code deferring schema loading until runtime to scale to 10,000 tools.
 - [[Ultracode Mode]]: Advanced execution setting (/effort ultracode) pairing xhigh reasoning effort with automatic dynamic workflow generation.
 - [[Unhobbling Claude]]: Paradigm shift removing rigid system prompt guardrails in favor of trusting model judgment and surrounding idioms.
+- [[Unsupervised Learning and Dimensionality Reduction]]: Clustering (K-Means, Hierarchical, DBSCAN, GMM), Association Rules (Apriori, Eclat), and compression (PCA, LDA, t-SNE, Feature Selection).
 - [[Vibe Coding vs Agentic Engineering]]: The spectrum of AI-assisted development.
 - [[Verification Loop]]: The repeating check-and-fix cycle where an AI agent verifies its own work before reporting completion. Covers gate strengths and 4 deployment modes (Standalone, Embedded, Chained, PR).
 - [[Waku-Agent]]: Open-source agent framework by Sean demonstrating production Graph Engineering with router nodes, memory retrieval, and eval gates.
@@ -231,6 +235,7 @@ A catalog of everything in the knowledge base.
 - [[The new rules of context engineering for Claude 5 generation models]]: Thariq Shihipar's official Anthropic guide detailing 80% prompt reduction, Unhobbling Claude, and claude doctor.
 - [[Token and API Price Guide]]: Visual guide to token units, tokenization algorithms (BPE, WordPiece, SentencePiece), and LLM API cost dynamics.
 - [[Track cost and usage]]: Official Anthropic guide on programmatic token usage and cost accounting using the Claude Agent SDK.
+- [[Types of Machine Learning Handbook]]: 13-page Vietnamese visual guide covering ML paradigms, Regression/Classification/Clustering/Dimensionality Reduction algorithms, evaluation metrics, and interview cheat sheets.
 - [[Use Claude Code with Chrome]]: Official Anthropic guide on Chrome browser integration (claude-in-chrome), debugging, and visual testing.
 - [[Vault Welcome]]: Summary of the default Obsidian onboarding note.
 - [[What Is Context Engineering]]: Joshua Noble's IBM article defining the 6-step context engineering lifecycle and data pipeline.
