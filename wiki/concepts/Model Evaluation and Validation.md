@@ -40,13 +40,17 @@ Given `TP` (True Positive), `TN` (True Negative), `FP` (False Positive), and `FN
 ## 3. Validation, Trade-offs & Model Selection
 
 - **K-Fold Cross-Validation:** Partitions training data into $K$ folds (commonly $K = 5$ or $10$), iteratively training on $K - 1$ folds and validating on the remaining fold, then averaging performance for fair model comparison.
+- **Fit Diagnostics (`Train` vs. `Test`):**
+  - **Underfitting:** Low Train / Low Test (model overly simple).
+  - **Good Fit:** High Train / High Test (captures signal without noise).
+  - **Overfitting:** Very High Train / Low Test (memorizes noise — also requires external hyperparameter tuning such as `learning rate`, `max depth`, or ensemble size; see [[Data Preprocessing and Feature Engineering]]).
 - **Core Selection Principles:**
   - Account for **Bias–Variance Tradeoff**, **Feature Scaling** (Standardization/Normalization), **Hyperparameter Tuning** (Grid/Random Search), training latency, and interpretability alongside raw metric scores.
   - Heuristic from [[Types of Machine Learning Handbook]]: *"Better features > complex models."*
-- **Agentic Connection:** Systematic evaluation gates and benchmark validation in classical ML extend into automated production loops in [[Closed-Loop Evals]].
+- **Agentic Connection:** Systematic evaluation gates and benchmark validation in classical ML extend into automated production loops in [[Closed-Loop Evals]] and [[LLM-as-a-Judge and Eval Alignment]].
 
 ---
 
 ## Related Pages
-- **Sources**: [[Types of Machine Learning Handbook]], [[AI Eval Concepts Explained in 15 Minutes]]
-- **Concepts**: [[Machine Learning Paradigms]], [[Supervised Learning Algorithms]], [[Unsupervised Learning and Dimensionality Reduction]], [[Closed-Loop Evals]], [[Product Evals and Error Analysis]], [[LLM-as-a-Judge and Eval Alignment]]
+- **Sources**: [[Types of Machine Learning Handbook]], [[AI Eval Concepts Explained in 15 Minutes]], [[Machine Learning Basics Notes]]
+- **Concepts**: [[Machine Learning Paradigms]], [[Supervised Learning Algorithms]], [[Unsupervised Learning and Dimensionality Reduction]], [[Data Preprocessing and Feature Engineering]], [[Closed-Loop Evals]], [[Product Evals and Error Analysis]], [[LLM-as-a-Judge and Eval Alignment]]

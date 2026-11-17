@@ -53,6 +53,7 @@ A catalog of everything in the knowledge base.
 - [[Viet Nguyen AI]]: Vietnamese AI practitioner and content creator translating technical AI visual guides into Vietnamese.
 - [[Warp]]: Modern AI-powered terminal and developer environment founded by Zach Lloyd featuring Oz orchestration and self-improving agent skills.
 
+
 ## Concepts
 - [[Advanced Prompting Patterns]]: Higher-order prompting strategies (ReAct, Tree-of-Thought, Self-Consistency, Prompt Chaining, Meta-Prompting) bridging prompts to agent loops.
 - [[Advisor Model Pattern]]: Dual-model escalation architecture in Claude Code (/advisor) delegating hard choices from Sonnet to Opus.
@@ -91,6 +92,7 @@ A catalog of everything in the knowledge base.
 - [[Context Window Management]]: Essential practices (CLAUDE.md hygiene, path-scoped rules, subagent isolation, compacting) to manage token degradation.
 - [[Control-Loop Engineering]]: Application of Classical Control Theory to agentic loops (Set Point, Sensors, Actuator, Adaptive Flow Control, FEEDBACK.md).
 - [[Cost Optimization]]: Active engineering techniques (context pruning, hook filtering, effort tuning) minimizing token spend.
+- [[Data Preprocessing and Feature Engineering]]: Structured/unstructured data, 5-step preprocessing pipeline (imputation, deduplication, scaling, encoding, splitting), feature extraction/selection, overfitting curves, hyperparameters, and Python ML stack.
 - [[Deterministic Lifecycle Hooks]]: Harness control mechanism executing shell scripts at exact agent events (PreToolUse, PostToolUse) with exit code enforcement.
 - [[Domain-Specific Agents]]: Architectural paradigm favoring narrow, business-process-specific agents over monolithic generalist agents (Line Shaft vs Electric Motor analogy, Gmail Agent vs Skill, jagged models).
 - [[Dynamic Context Injection]]: Harness feature executing inline shell commands (!cmd) at render time to inject live output into skills before prompt submission.
@@ -240,6 +242,7 @@ A catalog of everything in the knowledge base.
 - [[Loop Engineering explained in 8min]]: Caleb Writes Code's technical breakdown of multi-loop stacking and Addy Osmani's 6 components of loop engineering.
 - [[Loop Engineering from First Principles]]: Kyle Mistele's talk on applying Control Theory and production patterns (Adaptive Flow Control, FEEDBACK.md) to agentic loops.
 - [[Loop engineering Getting started with loops]]: Official Claude Code loop taxonomy — turn-based, goal-based, time-based, proactive — with decision framework and the full proactive loop composition.
+- [[Machine Learning Basics Notes]]: 9-page Vietnamese handwritten visual notebook covering ML workflow, data types, 5-step preprocessing, Feature Engineering, fit diagnostics, Cross-Validation, and Python ML libraries.
 - [[Manage costs effectively]]: Official Anthropic guide on cost tracking (/usage), org limits, and token reduction strategies.
 - [[Managing Agent Skills]]: Guide to slash commands, terminal utilities, and discovery tiers for Gemini Agent Skills.
 - [[Maximizing the Value of Your Claude Code Sessions]]: Anthropic guide on session cost mechanics, prefill vs decode (~5x), prompt cache prefix preservation, @-mentions, and noisy command mitigation.
@@ -283,6 +286,7 @@ A catalog of everything in the knowledge base.
 - [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 - [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
+
 
 
 

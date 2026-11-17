@@ -92,3 +92,4 @@ Append-only record of operations.
 ## [2026-11-17] ingest | AI Eval Concepts Explained in 15 Minutes
 ## [2026-11-18] ingest | Python Handbook (Cẩm nang Python bằng tiếng Việt)
 ## [2026-11-18] ingest | AWS Core Services Notes (Ghi chú các dịch vụ AWS cốt lõi bằng tiếng Việt)
+## [2026-11-18] ingest | Machine Learning Basics Notes (Machine Learning cơ bản bằng tiếng Việt)
