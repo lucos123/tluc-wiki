@@ -91,3 +91,4 @@ Append-only record of operations.
 ## [2026-11-17] ingest | Cẩm nang LLM bằng tiếng Việt - 50 khái niệm cần nắm vững
 ## [2026-11-17] ingest | AI Eval Concepts Explained in 15 Minutes
 ## [2026-11-18] ingest | Python Handbook (Cẩm nang Python bằng tiếng Việt)
+## [2026-11-18] ingest | AWS Core Services Notes (Ghi chú các dịch vụ AWS cốt lõi bằng tiếng Việt)
