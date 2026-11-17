@@ -30,3 +30,8 @@ The Hill-Climbing loop cannot function safely without evaluation. As Sydney from
 
 ## Contrast with Claude Code
 In the official [[Claude Code]] taxonomy, Level 4 is the **Proactive Loop** (fully autonomous execution of work streams like issue triage). LangChain defines Level 4 as autonomous *self-improvement* of the agent itself, rather than just autonomous task execution.
+
+## Evaluator Calibration & Anti-Hacking Safeguards
+Complementing LangChain's trace-driven loop, [[Hamel Husain]] notes in [[AI Eval Concepts Explained in 15 Minutes]] that autonomous hill-climbing can hack incomplete metrics or generate bloated prompts unless:
+- Evals are derived from empirical failure counting in [[Product Evals and Error Analysis]] and validated across held-out `Dev / Test` splits via [[LLM-as-a-Judge and Eval Alignment]].
+- A human reviews and distils candidate prompts alongside checks on unseen test cases (similar to GitOps gates in [[Self-Improving Agents]]).

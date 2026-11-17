@@ -25,6 +25,7 @@ A catalog of everything in the knowledge base.
 - [[GPT-5.6 Terra]]: Balanced model tier ($2.00/$12.00) in the GPT-5.6 family, replacing GPT-5.4/5.5 at lower cost.
 - [[Greg Isenberg]]: Tech entrepreneur and content creator who detailed Graph Engineering, Agent Graphs, and Knowledge Graph trade-offs.
 - [[Greta]]: Context-aware AI development partner tool.
+- [[Hamel Husain]]: AI practitioner and technical educator teaching trace-first error analysis, binary evals, and evaluator alignment.
 - [[HumanLayer]]: Tooling platform focused on human-in-the-loop agentic workflows and production control loops.
 - [[IBM]]: Global technology enterprise and pioneer in AI, cloud computing, and enterprise software systems.
 - [[IBM Technology]]: Official technical education channel of IBM producing deep-dives on enterprise AI architecture and agentic software design.
@@ -110,6 +111,7 @@ A catalog of everything in the knowledge base.
 - [[Knowledge Graph vs Agent Graph]]: Comparison matrix between relational information retrieval (Knowledge Graph) and workflow execution (Agent Graph).
 - [[LLM Fine-Tuning and Alignment]]: Full fine-tuning vs PEFT (LoRA/QLoRA), Instruction Tuning, 3H alignment, RLHF (SFT+RM+PPO), DPO, Constitutional AI, and Fine-tuning vs RAG decision rules.
 - [[LLM Inference Optimization and Security]]: Quantization (FP16/INT8/INT4, GPTQ/AWQ), KV Cache, Flash Attention, vLLM, Speculative Decoding, benchmarks, hallucinations, and LLM attack/privacy defenses.
+- [[LLM-as-a-Judge and Eval Alignment]]: Automated binary trace grading validated via Train/Dev/Test splits, production deployment targets, and guarded optimization loops.
 - [[llm-wiki]]: A pattern for building personal knowledge bases using LLMs.
 - [[LLMOps & Inference]]: Topic overview page covering model serving architectures, token economics, and inference trade-offs.
 - [[Loop Engineering]]: The 4-type taxonomy (turn-based, goal-based, time-based, proactive) for designing agent loops with explicit triggers, stop conditions, and quality gates.
@@ -131,10 +133,13 @@ A catalog of everything in the knowledge base.
 - [[Persistent Instruction File]]: Durable guidance for agents (e.g., AGENTS.md, CLAUDE.md).
 - [[Poteto Trust Pyramid]]: Five-layer inverse trust hierarchy prioritizing deterministic codebase design and AST lint rules (167 rules) over runtime/formal verification, prose (AGENTS.md), and human review.
 - [[Preserved Thinking]]: Pattern of retaining historical reasoning_content across multi-turn messages to preserve continuous chain-of-thought.
+- [[Product Evals and Error Analysis]]: Workflow contrasting domain-specific product evals against foundation benchmarks using traces, failure taxonomies, and binary gates.
 - [[Programmatic Tool Calling]]: Model capability to write and execute code for filtering data and dynamically orchestrating tool calls.
 - [[Progressive Disclosure]]: Context engineering pattern loading instructions, tools, and skills on demand (e.g. ToolSearch, tree CLAUDE.md).
 - [[Prompt Engineering]]: Foundational discipline of designing structured prompts (Role, Context, Task, Input, Constraints, Format) and frameworks (CO-STAR, R-T-F, CLEAR).
 - [[Prompt-Based Hooks]]: Non-deterministic hooks running fast evaluator models (Haiku) on prompt payloads at turn boundaries.
+- [[Python Collections and File Handling]]: Comparison and operations across List, Tuple, Set, Dictionary (O(1) lookup, 3.7+ order) plus open() modes and with context-manager file I/O.
+- [[Python Core Syntax and Control Flow]]: Dynamic typing, 7 operator families, truthiness, loops (for/while/range), functions (DRY/lambda/unpacking), and immutable string indexing/slicing.
 - [[Reasoning Effort]]: Top-level model parameter for dynamically tuning reasoning depth (low, high, max).
 - [[Responses API]]: OpenAI's v1/responses endpoint succeeding Chat Completions, built for native tool use, hosted shell, and multi-agent coordination.
 - [[Retrieval-Augmented Generation and Vector DBs]]: RAG architecture, recursive/semantic chunking, dense embeddings, Cosine/HNSW retrieval, Vector DB comparisons, Advanced RAG patterns, and LangChain/LlamaIndex.
@@ -176,6 +181,7 @@ A catalog of everything in the knowledge base.
 - [[Agent Skills in the SDK]]: Official Anthropic guide on programmatically integrating and filtering disk-based Agent Skills using the Claude Agent SDK.
 - [[AI 2027]]: Scenario forecasting the rapid development of superhuman AI and geopolitical tensions between 2025-2027.
 - [[AI Deployment Notes]]: 12-page Vietnamese visual guide covering AI deployment lifecycle, Dev/Staging/Prod, packaging/versioning, serving patterns, and inference servers.
+- [[AI Eval Concepts Explained in 15 Minutes]]: Hamel Husain's 15-minute masterclass on product evals, traces, error analysis, trace sampling, LLM judges, traps, and model downsizing.
 - [[AI Model vs Agentic Harness What Actually Drives AI]]: IBM Technology's breakdown of the "brain in a jar" metaphor, narrowing benchmark gaps, the 3 harness pillars (Tools, Memory, Loops), and model-harness co-evolution.
 - [[All Code Is Slop (Except Mine) — Lauren Tan, SpaceXSI]]: AI Engineer Code Summit talk by Lauren Tan (@poteto) on scaling Grok Bot to 11,000 PRs/mo (~0.5% revert rate) via deterministic guardrails and runtime/formal verification.
 - [[Anthropic Just Fixed Graph Engineering's Greatest Flaw]]: AI LABS breakdown of DAG error cascading, the Second Opinion Pattern, Chrome Headless Shell verification, and the Orchestrator Skill Pattern.
@@ -241,6 +247,7 @@ A catalog of everything in the knowledge base.
 - [[Orchestrate subagents at scale with dynamic workflows]]: Official Anthropic guide on dynamic workflows (ultracode), /deep-research, and JS runtime orchestration.
 - [[Orchestrate teams of Claude Code sessions]]: Official Anthropic guide on Agent Teams, Team Leads, shared task lists, inter-agent mailboxes, and tmux split panes.
 - [[Prompt Engineering Handbook]]: 11-page Vietnamese visual sketchnote guide covering prompt anatomy, prompting types, CO-STAR/R-T-F/CLEAR, CoT/ReAct/ToT, and checklists.
+- [[Python Handbook]]: 10-page Vietnamese visual guide covering Python basics, types, operators, conditionals, loops, functions, strings, collections, and file handling.
 - [[Rewind file changes with checkpointing]]: Official Anthropic guide on programmatic SDK file checkpointing and rewind_files().
 - [[Run agents in parallel]]: Official Anthropic comparison guide on Subagents, Agent View, Agent Teams, and Dynamic Workflows.
 - [[Run parallel sessions with worktrees]]: Official Anthropic guide on git worktree isolation (--worktree), .worktreeinclude, and subagent worktrees.
@@ -272,6 +279,8 @@ A catalog of everything in the knowledge base.
 - [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 - [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
+
+
 
 
 

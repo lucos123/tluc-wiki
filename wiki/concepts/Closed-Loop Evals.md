@@ -34,3 +34,9 @@ Production Runs ──> Mismatch Detection ──> Diagnosis Agent ──> Refle
 ## Relationship to [[Hill-Climbing Loop]] & [[Control-Loop Engineering]]
 
 Closed-Loop Evals represents the enterprise production implementation of LangChain's [[Hill-Climbing Loop]] (Level 4 loop engineering). While [[Control-Loop Engineering]] focuses on codebase modification PRs, Closed-Loop Evals focuses on high-throughput user-facing services (e.g. image processing, customer support).
+
+## Guardrails & Alignment Prerequisites
+
+In [[AI Eval Concepts Explained in 15 Minutes]], [[Hamel Husain]] emphasizes that automated improvement loops require strict prerequisites before operating safely:
+- Automated graders (`Code`, `Classifier`, `LLM-as-a-Judge`) must emit calibrated binary `Pass / Fail` judgments validated across `Train / Dev / Test` splits against human labels (see [[LLM-as-a-Judge and Eval Alignment]]).
+- Unless the eval suite comprehensively spans observed product failure modes ([[Product Evals and Error Analysis]]), autonomous prompt optimizers risk **metric hacking** and prompt bloat—making human review and unseen test checks essential before merging candidate prompts.
