@@ -80,6 +80,6 @@ Because eval suites are costly to author and maintain, resist generic `1–5` sc
 ---
 
 ## Related Pages
-- **Sources**: [[AI Eval Concepts Explained in 15 Minutes]]
+- **Sources**: [[AI Eval Concepts Explained in 15 Minutes]], [[AI Complete Handbook]]
 - **Entities**: [[Hamel Husain]]
-- **Concepts**: [[LLM-as-a-Judge and Eval Alignment]], [[Model Evaluation and Validation]], [[Verification Loop]], [[Poteto Trust Pyramid]], [[Retrieval-Augmented Generation and Vector DBs]]
+- **Concepts**: [[LLM-as-a-Judge and Eval Alignment]], [[Model Evaluation and Validation]], [[AI Evaluation, Safety and Governance]], [[Verification Loop]], [[Poteto Trust Pyramid]], [[Retrieval-Augmented Generation and Vector DBs]]

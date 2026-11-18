@@ -78,6 +78,7 @@ Rather than activating all parameters for every token, **MoE** layers route each
 
 ## Relationships
 
-- **Foundational Input Layer**: Directly extends [[Tokenization]] and feeds [[LLM Fine-Tuning and Alignment]].
+- **Foundational Input Layer**: Directly extends [[Tokenization]] and neural building blocks ($z = \sum w_i x_i + b$, `Sigmoid`/`Tanh`/`ReLU`/`Leaky ReLU`, `MSE`/`BCE`/`CCE`, Backpropagation across `CNN`/`RNN`/`LSTM`/`Autoencoder`/`GAN`; [[AI Complete Handbook]]), feeding [[LLM Fine-Tuning and Alignment]].
 - **Context & Retrieval**: Governs how [[Context Window Management]] and [[Retrieval-Augmented Generation and Vector DBs]] allocate scarce attention capacity.
 - **Inference Trade-offs**: Connects to [[LLM Inference Optimization and Security]] (`KV Cache`, `Flash Attention`, and `MoE` routing efficiency).
+- **Vision & Multimodal Extension**: Adapts `Patchification + Positional Encoding + Encoder` architectures into [[Vision Transformers and Multimodal AI]] (`ViT`, `DETR`, `CLIP`, Multimodal fusion; [[Computer Vision Handbook]]).

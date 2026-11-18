@@ -96,3 +96,6 @@ Append-only record of operations.
 ## [2026-11-18] ingest | The Home Repo: The effortless multi-repo agent setup
 ## [2026-11-18] ingest | Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic
 ## [2026-11-18] skill | Upgrade wiki-ingest with post-ingest self-improvement loop, --update-transcript, and smart-probe slide heuristic
+## [2026-11-19] ingest | Computer Vision Handbook (Bộ tổng hợp Computer Vision: 12 bài)
+## [2026-11-19] skill | Upgrade wiki-lint (ignore code-span nested brackets) and download_post_assets.py (--init-raw scaffold)
+## [2026-11-19] ingest | AI Complete Handbook (Cẩm nang AI toàn tập bằng tiếng Việt)

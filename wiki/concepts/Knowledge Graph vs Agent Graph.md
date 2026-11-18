@@ -31,4 +31,4 @@ In state-of-the-art enterprise AI agent systems, **Knowledge Graphs and Agent Gr
 - The **Knowledge Graph** provides the agent swarm with deep relational memory over company codebase, architecture, and customer history.
 - The **Agent Graph** orchestrates how agents plan, execute, verify, and deliver code changes or research reports.
 
-See [[Graph Engineering]] and [[Agent Graph]].
+See [[Graph Engineering]], [[Agent Graph]], and [[Knowledge Representation, Logic and Bayesian Inference]] (for symbolic Semantic Networks, Frames, and `OWL` Ontologies).

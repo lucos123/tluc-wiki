@@ -20,6 +20,7 @@ import struct
 import sys
 import time
 import urllib.request
+from datetime import date as dt_date
 
 
 USER_AGENT = (
@@ -249,6 +250,122 @@ def load_manifest_or_args(args):
     return slug, mode, start_index, raw_items
 
 
+def _yaml_escape(text):
+    """Escape double quotes and collapse newlines for single-line YAML string values."""
+    return str(text).replace("\\", "\\\\").replace('"', '\\"').replace("\n", " ").strip()
+
+
+def extract_raw_meta(args):
+    """Merge --raw-* CLI flags and optional --manifest metadata into a raw scaffolding dict."""
+    manifest = {}
+    if getattr(args, "manifest", None):
+        with open(args.manifest, "r", encoding="utf-8") as f:
+            manifest = json.load(f)
+
+    return {
+        "init_raw": bool(getattr(args, "init_raw", False) or manifest.get("init_raw", False)),
+        "raw_subdir": getattr(args, "raw_subdir", None) or manifest.get("raw_subdir") or "ai-other",
+        "title": getattr(args, "raw_title", None) or manifest.get("raw_title"),
+        "source": getattr(args, "raw_source", None) or manifest.get("raw_source"),
+        "original_source": getattr(args, "raw_original_source", None) or manifest.get("raw_original_source"),
+        "author": getattr(args, "raw_author", None) or manifest.get("raw_author"),
+        "published": getattr(args, "raw_published", None) or manifest.get("raw_published"),
+        "created": getattr(args, "raw_created", None) or manifest.get("raw_created") or dt_date.today().strftime("%Y-%m-%d"),
+        "description": getattr(args, "raw_description", None) or manifest.get("raw_description"),
+        "text": getattr(args, "raw_text", None) or manifest.get("raw_text"),
+        "tags": manifest.get("raw_tags") or ["clippings", "visual-guide"],
+    }
+
+
+def scaffold_raw_article(slug, files, project_root, meta):
+    """Create raw/articles/<subdir>/<slug>.md with frontmatter, post text, and slide embeds if not already present."""
+    subdir = (meta.get("raw_subdir") or "ai-other").strip().strip("/\\")
+    raw_dir = os.path.join(project_root, "raw", "articles", subdir)
+    raw_path = os.path.join(raw_dir, f"{slug}.md")
+    rel_path = os.path.relpath(raw_path, project_root).replace("\\", "/")
+
+    if os.path.isfile(raw_path):
+        return rel_path, "skipped_existing"
+
+    os.makedirs(raw_dir, exist_ok=True)
+
+    title = meta.get("title") or slug.replace("-", " ").title()
+    source_url = meta.get("source") or ""
+    original_source = meta.get("original_source") or ""
+    author = meta.get("author") or ""
+    published = meta.get("published") or ""
+    created = meta.get("created") or dt_date.today().strftime("%Y-%m-%d")
+    description = meta.get("description") or f"Visual guide and captured slides for {title}."
+    post_text = (meta.get("text") or "").strip()
+    tags = meta.get("tags") or ["clippings", "visual-guide"]
+
+    lines = [
+        "---",
+        f'title: "{_yaml_escape(title)}"',
+    ]
+    if source_url:
+        lines.append(f'source: "{_yaml_escape(source_url)}"')
+    if original_source:
+        lines.append(f'original_source: "{_yaml_escape(original_source)}"')
+    if author:
+        author_val = author if author.startswith("[[") else f"[[{author}]]"
+        lines.append("author:")
+        lines.append(f'  - "{_yaml_escape(author_val)}"')
+    if published:
+        lines.append(f"published: {published}")
+    lines.append(f"created: {created}")
+    lines.append(f'description: "{_yaml_escape(description)}"')
+    lines.append("tags:")
+    for t in tags:
+        lines.append(f'  - "{_yaml_escape(t)}"')
+    lines.extend([
+        "---",
+        "",
+        f"# {title}",
+        "",
+    ])
+    if source_url:
+        lines.append(f"- **Nguồn bài viết:** {source_url}")
+    if published:
+        lines.append(f"- **Thời gian đăng:** {published}")
+    if original_source:
+        lines.append(f"- **Nguồn gốc tiếng Anh được tác giả trích dẫn:** {original_source}")
+
+    ok_files = [f for f in files if f.get("source_used") != "failed"]
+    lines.append(f"- **Thư mục hình ảnh gốc ({len(ok_files)} trang):** `raw/screenshots/{slug}/`")
+    lines.extend(["", "---", ""])
+
+    if post_text:
+        lines.append("## Nội Dung Nguyên Văn Bài Đăng")
+        lines.append("")
+        for p_line in post_text.splitlines():
+            lines.append(f"> {p_line}" if p_line.strip() else ">")
+        lines.extend(["", "---", ""])
+
+    lines.append(f"## Chi Tiết {len(ok_files)} Trang Hình Ảnh Đính Kèm (Visual Transcription)")
+    lines.append("")
+    for i, item in enumerate(ok_files):
+        filename = item["filename"]
+        dims = item.get("dimensions", "")
+        dims_note = f" *({dims})*" if dims and dims != "unknown" else ""
+        if item.get("md_embed") and str(item["md_embed"]).startswith("![Asset"):
+            embed = item["md_embed"]
+        else:
+            embed = f"![Trang {i + 1}](../../screenshots/{slug}/{filename})"
+        lines.extend([
+            f"### Trang {i + 1} / {len(ok_files)}{dims_note}",
+            embed,
+            "",
+            "<!-- Điền nội dung tổng hợp / ghi chú đọc từ ảnh tại đây -->",
+            "",
+        ])
+
+    with open(raw_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+
+    return rel_path, "created"
+
+
 def main():
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
@@ -275,10 +392,21 @@ def main():
     parser.add_argument("--project-root", help="Optional project root path containing index.md")
     parser.add_argument("--min-bytes", type=int, default=5000, help="Minimum valid image payload bytes")
     parser.add_argument("--workers", type=int, default=6, help="Concurrent download worker count")
+    parser.add_argument("--init-raw", action="store_true", help="Scaffold raw/articles/<subdir>/<slug>.md if not yet created")
+    parser.add_argument("--raw-subdir", default=None, help="Subdirectory under raw/articles/ for --init-raw (default: ai-other)")
+    parser.add_argument("--raw-title", default=None, help="Title for scaffolded raw article")
+    parser.add_argument("--raw-source", default=None, help="Source URL for scaffolded raw article")
+    parser.add_argument("--raw-original-source", default=None, help="Original cited URL for scaffolded raw article")
+    parser.add_argument("--raw-author", default=None, help="Author entity name for scaffolded raw article")
+    parser.add_argument("--raw-published", default=None, help="Published date/timestamp string for scaffolded raw article")
+    parser.add_argument("--raw-created", default=None, help="YYYY-MM-DD creation date (default: today)")
+    parser.add_argument("--raw-description", default=None, help="Description field for scaffolded raw article")
+    parser.add_argument("--raw-text", default=None, help="Verbatim post text for scaffolded raw article")
     args = parser.parse_args()
 
     try:
         slug, mode, start_index, raw_items = load_manifest_or_args(args)
+        raw_meta = extract_raw_meta(args)
     except Exception as exc:  # noqa: BLE001
         print(json.dumps({"status": "error", "error": str(exc)}, ensure_ascii=False, indent=2))
         sys.exit(1)
@@ -322,6 +450,10 @@ def main():
         "failed_count": len(failed),
         "files": results,
     }
+    if raw_meta.get("init_raw") and len(failed) < len(tasks):
+        scaffold_path, scaffold_status = scaffold_raw_article(slug, results, project_root, raw_meta)
+        report["raw_scaffold_path"] = scaffold_path
+        report["raw_scaffold_status"] = scaffold_status
     print(json.dumps(report, ensure_ascii=False, indent=2))
     if failed and len(failed) == len(tasks):
         sys.exit(1)

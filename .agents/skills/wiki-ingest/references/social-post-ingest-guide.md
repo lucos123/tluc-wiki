@@ -124,6 +124,7 @@ Write a scratch manifest JSON file (cleanest for long CDN query strings) and run
 ```powershell
 python .agents\skills\wiki-ingest\scripts\download_post_assets.py --manifest path\to\manifest.json
 ```
+*(Optional: pass `--init-raw`—or `"init_raw": true` alongside `"raw_title"`, `"raw_source"`, `"raw_author"`, `"raw_text"` inside `--manifest`—to auto-scaffold `raw/articles/<topic>/<slug>.md` with YAML frontmatter, verbatim blockquote text, and all `00.jpg..NN.jpg` image embeds if that raw file does not yet exist.)*
 
 ### 2. Batch Parallel Visual Reading (6–7 Images/Turn)
 Call `read_file` directly on the downloaded local images in **parallel batches of 6–7 images per turn**:

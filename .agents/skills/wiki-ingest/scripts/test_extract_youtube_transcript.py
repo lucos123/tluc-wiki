@@ -2,6 +2,7 @@
 Unit Test Suite for extract_youtube_transcript.py and capture_youtube_keyframes.py curation helpers
 """
 
+import importlib.util
 import os
 import sys
 import tempfile
@@ -9,9 +10,27 @@ import unittest
 from pathlib import Path
 
 # Add parent directory to path
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+SCRIPTS_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, SCRIPTS_DIR)
 import capture_youtube_keyframes
+import download_post_assets
 import extract_youtube_transcript
+
+
+def _load_lint_wiki():
+    """Dynamically load lint_wiki.py from sibling wiki-lint skill scripts."""
+    lint_path = os.path.abspath(
+        os.path.join(SCRIPTS_DIR, "..", "..", "wiki-lint", "scripts", "lint_wiki.py")
+    )
+    spec = importlib.util.spec_from_file_location("lint_wiki", lint_path)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"Cannot load lint_wiki module from {lint_path}")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+lint_wiki = _load_lint_wiki()
 
 
 class TestExtractYoutubeTranscript(unittest.TestCase):
@@ -252,6 +271,78 @@ this AI tutorial.
             self.assertIn("![02:00 - Architecture](../screenshots/demo-talk/03.jpg)", body3)
             self.assertNotIn("Webcam Cut", body3)
             self.assertNotIn("04.jpg", body3)
+
+    def test_lint_wiki_ignores_nested_arrays_and_code_spans(self):
+        sample_md = """---
+title: "Sobel Filter Note"
+date: 2026-11-19
+tags:
+  - concept
+source: "[[Valid Source]]"
+---
+
+Inline nested array math `[[-1,0,1],[-2,0,2],[-1,0,1]]` and raw array [[-1,0,1],[0,1,0]] should be ignored.
+
+```python
+kernel = [[-1, 0, 1], [-2, 0, 2]]
+comment = "ignore [[Fake Code Block Link]] here"
+```
+
+Meanwhile [[Real Concept|Alias]] must still be extracted cleanly.
+"""
+        extracted = lint_wiki.extract_wiki_links(sample_md)
+        self.assertIn("Valid Source", extracted)
+        self.assertIn("Real Concept", extracted)
+        self.assertNotIn("Fake Code Block Link", extracted)
+        self.assertFalse(any("-1,0,1" in item for item in extracted))
+
+    def test_download_post_assets_scaffold_raw_article_immutability(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            files = [
+                {
+                    "index": 0,
+                    "filename": "00.jpg",
+                    "dimensions": "1536x2048",
+                    "source_used": "url",
+                },
+                {
+                    "index": 1,
+                    "filename": "01.jpg",
+                    "dimensions": "1536x2048",
+                    "source_used": "url",
+                },
+            ]
+            meta = {
+                "raw_subdir": "ai-other",
+                "title": "Sample Visual Guide",
+                "source": "https://web.facebook.com/example/posts/123",
+                "author": "Viet Nguyen AI",
+                "published": "2026-11-19",
+                "created": "2026-11-19",
+                "text": "Line 1 of post.\nLine 2 of post.",
+                "tags": ["clippings", "visual-guide"],
+            }
+            rel1, status1 = download_post_assets.scaffold_raw_article(
+                "sample-visual-guide", files, tmp, meta
+            )
+            self.assertEqual(rel1, "raw/articles/ai-other/sample-visual-guide.md")
+            self.assertEqual(status1, "created")
+
+            raw_file = Path(tmp) / rel1
+            content = raw_file.read_text(encoding="utf-8")
+            self.assertIn('title: "Sample Visual Guide"', content)
+            self.assertIn('> Line 1 of post.', content)
+            self.assertIn('![Trang 1](../../screenshots/sample-visual-guide/00.jpg)', content)
+            self.assertIn('![Trang 2](../../screenshots/sample-visual-guide/01.jpg)', content)
+
+            # Mutate file content manually and verify second call respects raw/ immutability
+            raw_file.write_text("USER EDITED", encoding="utf-8")
+            rel2, status2 = download_post_assets.scaffold_raw_article(
+                "sample-visual-guide", files, tmp, meta
+            )
+            self.assertEqual(rel2, rel1)
+            self.assertEqual(status2, "skipped_existing")
+            self.assertEqual(raw_file.read_text(encoding="utf-8"), "USER EDITED")
 
 
 if __name__ == "__main__":

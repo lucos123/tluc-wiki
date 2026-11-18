@@ -94,10 +94,34 @@ def parse_frontmatter(content):
     return fields
 
 
+def _strip_code_and_math_spans(content):
+    """Strip fenced code blocks and inline code spans in the Markdown body while preserving frontmatter."""
+    if content.startswith("---"):
+        parts = content.split("---", 2)
+        if len(parts) == 3:
+            fm_header = f"---{parts[1]}---"
+            body = parts[2]
+        else:
+            fm_header, body = "", content
+    else:
+        fm_header, body = "", content
+
+    body = re.sub(r"````.*?````|```.*?```|~~~.*?~~~", "", body, flags=re.S)
+    body = re.sub(r"`[^`\n]+`", "", body)
+    return fm_header + body
+
+
 def extract_wiki_links(content):
-    """Extract all [[wiki links]] from markdown content."""
-    links = re.findall(r"\[\[(.*?)\]\]", content)
-    return [link.split("|")[0].strip() for link in links]
+    """Extract all [[wiki links]] from markdown content, ignoring code spans and nested arrays."""
+    cleaned = _strip_code_and_math_spans(content)
+    links = re.findall(r"\[\[(.*?)\]\]", cleaned)
+    results = []
+    for link in links:
+        target = link.split("|")[0].strip()
+        if not target or "[" in target or "]" in target or "\n" in target:
+            continue
+        results.append(target)
+    return results
 
 
 def read_index_links(index_file):
