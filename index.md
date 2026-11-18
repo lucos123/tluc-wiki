@@ -39,6 +39,7 @@ A catalog of everything in the knowledge base.
 - [[LangChain Engine]]: Background agent in LangSmith that powers the Hill-Climbing Loop by optimizing traces.
 - [[Lauren Tan]]: Principal Engineer at SpaceX / Grok Bot (@poteto), former Cursor engineer; creator of the Poteto Trust Pyramid, Dune architecture, and pstack verification skills.
 - [[Leonhard Euler]]: Swiss mathematician (1707–1783) who founded Graph Theory, the theoretical basis for Graph Engineering.
+- [[Matt Pocock]]: Creator of AI Hero, CVM, Sandcastle, and mattpocock/skills; author of the Home Repo Pattern and personal-wiki unified CLI setup.
 - [[Mike Krieger]]: Anthropic Labs co-lead; ran the Python→TypeScript 165K-line weekend migration with Claude Code.
 - [[Moonshot AI]]: AI research lab behind the Kimi model series.
 - [[OpenAI]]: AI research and deployment company developing the GPT model series, Codex, and Responses API.
@@ -52,7 +53,6 @@ A catalog of everything in the knowledge base.
 - [[Uber]]: Global mobility and food delivery enterprise using closed-loop evals for multimodal agent orchestration.
 - [[Viet Nguyen AI]]: Vietnamese AI practitioner and content creator translating technical AI visual guides into Vietnamese.
 - [[Warp]]: Modern AI-powered terminal and developer environment founded by Zach Lloyd featuring Oz orchestration and self-improving agent skills.
-
 
 ## Concepts
 - [[Advanced Prompting Patterns]]: Higher-order prompting strategies (ReAct, Tree-of-Thought, Self-Consistency, Prompt Chaining, Meta-Prompting) bridging prompts to agent loops.
@@ -107,6 +107,7 @@ A catalog of everything in the knowledge base.
 - [[Harness Engineering]]: The design of the environment (tools, sandboxes, memory) that wraps the model.
 - [[Harness Overhead vs Model Cost]]: Economic paradigm detailing how agent spend is dominated by system prompt tollgates and multi-turn loops rather than base model inference.
 - [[Hill-Climbing Loop]]: The highest level of LangChain's loop taxonomy, where an agent autonomously self-improves its own harness via trace analysis.
+- [[Home Repo Pattern]]: Multi-repo agent architecture centralizing private .claude/skills, settings.json, CLAUDE.md/AGENTS.md repo pointers, Karpathy-style llm-wiki, and unified CLI tooling inside one hub repository.
 - [[Inference Serving and Deployment Patterns]]: Batch vs Real-Time vs Async inference, Offline vs Online predictions, Cloud vs Edge topology, and LLM inference servers.
 - [[Inference Speed vs Intelligence Trade-off]]: 3D decision framework balancing model intelligence, token speed, and token efficiency in model serving.
 - [[Inter-Agent Messaging]]: Peer-to-peer JSON mailbox protocol (~/.claude/teams/) enabling direct communication between agent team members.
@@ -264,6 +265,7 @@ A catalog of everything in the knowledge base.
 - [[Software Supply Chain Security What AI Coding Changes]]: IBM Technology breakdown of what AI coding changes in software supply chain security, shift-left defenses, SBOMs, independent verification, and provenance attestation.
 - [[Subagents in the SDK]]: Official Anthropic guide on programmatically defining AgentDefinition subagents using the Claude Agent SDK.
 - [[The Art of Loop Engineering]]: LangChain's 4-level loop taxonomy culminating in autonomous self-improvement via trace evaluation.
+- [[The Home Repo The effortless multi-repo agent setup]]: Matt Pocock's walkthrough of the Home Repo multi-repo setup, worktree auto-bootstrapping, Progressive Disclosure beyond 40 repos, and unified wiki CLI.
 - [[The new rules of context engineering for Claude 5 generation models]]: Thariq Shihipar's official Anthropic guide detailing 80% prompt reduction, Unhobbling Claude, and claude doctor.
 - [[The New SDLC With Vibe Coding]]: Whitepaper detailing the transition to intent-driven software development.
 - [[Token and API Price Guide]]: Visual guide to token units, tokenization algorithms (BPE, WordPiece, SentencePiece), and LLM API cost dynamics.
@@ -286,6 +288,7 @@ A catalog of everything in the knowledge base.
 - [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 - [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
+
 
 
 

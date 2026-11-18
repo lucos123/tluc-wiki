@@ -33,4 +33,8 @@ graph TD
 2. **Explicit Exclusions (`claudeMdExcludes`)**: Static glob filtering to skip loading documentation from unrelated team packages.
 3. **LSP Code Intelligence**: Offloading symbol navigation to Language Server Protocol plugins (`typescript-lsp`) to avoid expensive file scans.
 
-See [[Set up Claude Code in a monorepo or large codebase]], [[Claude Code Monorepo Setup]], and [[Sparse Worktree Checkouts]].
+## Alternative for Multi-Repo Orgs: The [[Home Repo Pattern]]
+
+When mixed public/private repository visibility or organizational boundaries prevent consolidating into one monorepo, [[Matt Pocock]]'s [[Home Repo Pattern]] ([[The Home Repo The effortless multi-repo agent setup]]) inverts the model: a single private "home repository" stores centralized `.claude/skills/`, `settings.json`, CLI tooling, and tiered `AGENTS.md`/`CLAUDE.md` path pointers referencing `20–40+` (or via [[Progressive Disclosure]], `400+`) external target repos via on-demand clones and git worktrees.
+
+See [[Set up Claude Code in a monorepo or large codebase]], [[Claude Code Monorepo Setup]], [[Sparse Worktree Checkouts]], and [[Home Repo Pattern]].

@@ -29,5 +29,6 @@ Detailed by [[Bilgin Ibryam]] in [[Emerging Markdown Formats That Shape Coding A
 
 - **Onboarding Files (`AGENTS.md`)**: Describe *standing rules, constraints, and project context* that remain true across all tasks.
 - **Skill Files (`SKILL.md`)**: Describe a *repeatable procedure* invoked for a specific, discrete task.
+- **Multi-Repo Routing Hubs ([[Home Repo Pattern]])**: As demonstrated by [[Matt Pocock]] in [[The Home Repo The effortless multi-repo agent setup]], central onboarding files can also hold `## Other Repos` pointer tables, `GLOSSARY-MAP.md` domain disambiguation links, and tiered category indexes (`docs/FRONTEND.md`, `docs/BACKEND.md`) via [[Progressive Disclosure]] so a single agent session navigates dozens or hundreds of repositories seamlessly.
 
-See [[Metacode]] and [[Context Engineering]].
+See [[Metacode]], [[Context Engineering]], and [[Home Repo Pattern]].
