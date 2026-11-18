@@ -56,6 +56,7 @@ A catalog of everything in the knowledge base.
 - [[Viet Nguyen AI]]: Vietnamese AI practitioner and content creator translating technical AI visual guides into Vietnamese.
 - [[Warp]]: Modern AI-powered terminal and developer environment founded by Zach Lloyd featuring Oz orchestration and self-improving agent skills.
 
+
 ## Concepts
 - [[Advanced Prompting Patterns]]: Higher-order prompting strategies (ReAct, Tree-of-Thought, Self-Consistency, Prompt Chaining, Meta-Prompting) bridging prompts to agent loops.
 - [[Advisor Model Pattern]]: Dual-model escalation architecture in Claude Code (/advisor) delegating hard choices from Sonnet to Opus.
@@ -80,6 +81,7 @@ A catalog of everything in the knowledge base.
 - [[AWS Databases, Containers and Messaging]]: Managed relational RDS vs serverless DynamoDB (keys, consistency, RCU/WCU), SQS Standard/FIFO queues & DLQ, plus ECR image scanning and ECS/EKS orchestration.
 - [[AWS Foundation, Networking and Compute]]: AWS Regions/AZs, IAM, Multi-AZ VPC networking (Public/Private Subnets, IGW/NAT, SG/NACL), EC2, EBS volume tiers, ELB/ALB/NLB comparison, and Route 53 routing policies.
 - [[AWS Observability and Cryptographic Security]]: CloudWatch metrics/logs/alarms vs CloudTrail API auditing, Secrets Manager Lambda auto-rotation, and KMS FIPS 140-2 Level 3 HSM key governance.
+- [[Behavioral and HR Interview Strategy]]: Five behavioral screening axes (value/weakness framing, company fit, failure/conflict, Urgent x Important prioritization, negotiation/reverse Q&As) paired with engineering interview execution.
 - [[Cache Invalidation Patterns]]: Catalog of triggers (model switches, effort changes, tool denials) that bust prompt cache prefixes.
 - [[Chain-of-Thought Prompting]]: Stepwise reasoning technique prompting LLMs to decompose multi-step logic before emitting final conclusions.
 - [[Chrome Integration Architecture]]: Browser automation subsystem in Claude Code connecting CLI sessions to Chromium browsers via Native Messaging Host.
@@ -190,6 +192,7 @@ A catalog of everything in the knowledge base.
 
 ## Sources
 - [[12 Agentic Harness Patterns from Claude Code]]: Design patterns from a leaked production agent's source code.
+- [[25 HR Interview Questions in Vietnamese]]: 8-page bilingual HR & behavioral interview playbook curated by Viet Nguyen AI featuring 25 common questions with fill-in-the-blank Vietnamese templates and 7 closing principles.
 - [[5 Best Practices for Building AI Agent Skills]]: IBM Technology's guide on trigger descriptions, gotchas, progressive disclosure, deterministic scripts, and security.
 - [[7 AI Coding Trends to Watch This Year in 2026]]: Shifts in software development as AI integration matures, such as AI-native systems and context-aware tools.
 - [[Agent Harness explained in 8min]]: Caleb Writes Code's concise breakdown of the 3-stage evolution (Prompt → Context → Harness Engineering) and fresh-context loops.
@@ -301,6 +304,7 @@ A catalog of everything in the knowledge base.
 - [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 - [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
+
 
 
 

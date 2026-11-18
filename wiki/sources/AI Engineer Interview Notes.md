@@ -52,5 +52,6 @@ source: "[[raw/articles/ai-other/ai-engineer-interview-notes.md]]"
 
 ## Related Pages
 - **Entities**: [[Koteswara]], [[Viet Nguyen AI]], [[Hamel Husain]]
-- **Core Concepts**: [[AI System Design and Production Architecture]], [[Retrieval-Augmented Generation and Vector DBs]], [[Prompt Engineering]], [[LLM-as-a-Judge and Eval Alignment]], [[LLM Fine-Tuning and Alignment]], [[Cost Optimization]]
+- **Core Concepts**: [[AI System Design and Production Architecture]], [[Retrieval-Augmented Generation and Vector DBs]], [[Prompt Engineering]], [[LLM-as-a-Judge and Eval Alignment]], [[LLM Fine-Tuning and Alignment]], [[Cost Optimization]], [[Behavioral and HR Interview Strategy]]
+- **Companion Behavioral Guide**: [[25 HR Interview Questions in Vietnamese]]
 - **Personal Goals**: [[AI Engineering Mastery 2026]]
