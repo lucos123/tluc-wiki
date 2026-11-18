@@ -46,6 +46,13 @@ To optimize judge alignment without overfitting (analogous to classical resampli
 
 ![Can We Trust It? Evaluator Validation and Alignment](../../raw/screenshots/ai-eval-concepts-explained-in-15-minutes/10.jpg)
 
+### Known Judge Biases & Countermeasures
+Beyond statistical calibration, production `LLM-as-a-Judge` harnesses must actively control four systematic failure modes documented in [[AI Engineer Interview Notes]]:
+- **Verbosity Bias**: Judges disproportionately score longer answers higher; counter with concise-grounding rubric clauses and length-controlled checks.
+- **Position Bias**: Judges favor whichever option appears first in comparisons; mitigate via **pairwise comparison with position swapping**.
+- **Self-Preference**: Models favor prose matching their own architecture's stylistic fingerprint; **never use a model as the sole uncalibrated judge of its own outputs**.
+- **Leniency Drift**: Judge pass thresholds inflate over iterative prompt edits without **reference-based rubrics** anchored to human-labeled samples.
+
 ---
 
 ## 3. Three Deployment Targets for Automated Evals
@@ -72,6 +79,6 @@ Verified product evals power two high-leverage engineering loops:
 ---
 
 ## Related Pages
-- **Sources**: [[AI Eval Concepts Explained in 15 Minutes]], [[Building Closed-Loop Evals for a Multimodal Agent at Scale]]
+- **Sources**: [[AI Eval Concepts Explained in 15 Minutes]], [[Building Closed-Loop Evals for a Multimodal Agent at Scale]], [[AI Engineer Interview Notes]]
 - **Entities**: [[Hamel Husain]]
-- **Concepts**: [[Product Evals and Error Analysis]], [[Closed-Loop Evals]], [[Hill-Climbing Loop]], [[Verification Loop]], [[Self-Improving Agents]], [[Model Evaluation and Validation]], [[Few-Shot Prompting]], [[Cost Optimization]]
+- **Concepts**: [[Product Evals and Error Analysis]], [[Closed-Loop Evals]], [[Hill-Climbing Loop]], [[Verification Loop]], [[Self-Improving Agents]], [[Model Evaluation and Validation]], [[Few-Shot Prompting]], [[Cost Optimization]], [[AI System Design and Production Architecture]]

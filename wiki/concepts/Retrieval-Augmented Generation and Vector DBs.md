@@ -52,11 +52,23 @@ When naive single-pass chunk retrieval misses nuanced queries, production pipeli
 | Store / Library | Deployment Model | Key Characteristics |
 | :--- | :--- | :--- |
 | **Chroma** | Open Source (Local / Client) | Python-native (`chroma.Client()`), ideal for prototyping & local RAG |
+| **pgvector** | Postgres Extension | Zero-new-infra SQL + vector search; strong default when already running PostgreSQL at moderate scale ([[AI Engineer Interview Notes]]) |
 | **Pinecone** | Managed Cloud | Serverless scaling, low operational overhead, high throughput |
 | **Weaviate** | Open Source | Hybrid vector + keyword search with GraphQL API |
 | **FAISS** | Open Source Library (Meta AI) | Ultra-fast in-memory similarity search library (not a full database server) |
 | **Qdrant** | Open Source (Rust) | High-speed filtering + low-latency production vector engine |
 | **Milvus** | Open Source Distributed | Built for billion-scale enterprise vector collections |
+
+---
+
+## Production Quality, Security & RAG Evaluation (Senior Signals)
+
+Synthesized from [[AI Engineer Interview Notes]]:
+- **Embedding Parity & Privacy**: Choose API embeddings to ship fast, or self-hosted open weights (`BGE`, `E5`, `Nomic`) for zero per-token inference cost and strict VPC data boundaries—and **always keep index-time and query-time embedding models identical**.
+- **Hybrid Search + Cross-Encoder Reranking**: Combine dense vector similarity with sparse **`BM25`** keyword scoring whenever queries involve SKUs, error codes, version numbers, or proper nouns; fetch `Top-50` cheaply and cross-encoder rerank to `Top-5`.
+- **Pre-Retrieval ACL Metadata Filtering**: Enforce document permissions via chunk metadata filters **before** vector similarity search runs—never rely on prompting an LLM to withhold unauthorized chunks already stuffed into context.
+- **Document-Structure Chunking Rule**: Never split markdown tables or code blocks across chunk boundaries; escalate from `512`-token overlap baselines to semantic/hierarchical chunking only when `recall@k` metrics diagnose context fragmentation.
+- **RAG Evaluation Triad**: Measure retrieval independently (**`Recall@k`** / hit rate on a golden question $\rightarrow$ expected-chunk dataset) alongside generation (**Faithfulness**, answer relevance, and source citation accuracy) to isolate retrieval bugs from prompt bugs.
 
 ---
 
@@ -68,6 +80,7 @@ Modern RAG and tool-using [[Agent Loop Lifecycle|agents]] commonly leverage **La
 
 ## Relationships
 
-- **Memory & Context Layer**: Directly powers the retrieval tier of [[Context Engineering Pipeline]] and external memory for [[Agent Loop Lifecycle]].
+- **Sources**: [[LLM Handbook 50 Concepts]], [[AI Engineer Interview Notes]], [[AI Complete Handbook]]
+- **Memory & Context Layer**: Directly powers the retrieval tier of [[Context Engineering Pipeline]], [[AI System Design and Production Architecture]], and external memory for [[Agent Loop Lifecycle]].
 - **Alternative to Weight Updates**: Contrasts cleanly against parameter modification in [[LLM Fine-Tuning and Alignment]].
-- **Hallucination & Eval Mitigation**: Reduces extrinsic hallucinations measured in [[LLM Inference Optimization and Security]] and [[Model Evaluation and Validation]].
+- **Hallucination & Eval Mitigation**: Reduces extrinsic hallucinations measured in [[LLM Inference Optimization and Security]], [[Product Evals and Error Analysis]], and [[Model Evaluation and Validation]].

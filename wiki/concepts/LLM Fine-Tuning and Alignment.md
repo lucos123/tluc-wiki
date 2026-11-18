@@ -45,18 +45,24 @@ Replaces heavy human feedback labeling for safety principles with an explicit wr
 
 ---
 
-## Decision Boundary: Fine-Tuning vs. RAG
+## Decision Boundary: Prompting vs. RAG vs. Fine-Tuning
+
+In production systems ([[AI Engineer Interview Notes]], [[LLM Handbook 50 Concepts]]), teams follow a strict 3-rung escalation rule—*"Prompting is cheapest to change but weakest at knowledge; RAG grounds answers in fresh data at the cost of retrieval latency and pipeline complexity; fine-tuning bakes in behavior at the cost of upfront data and training effort"*:
+1. **Prompting First**: Free to iterate; sufficient for most format, tone, and CoT reasoning tasks.
+2. **RAG Second** ([[Retrieval-Augmented Generation and Vector DBs]]): Chosen for dynamic, external, or proprietary factual knowledge requiring attribution and suppressed hallucinations.
+3. **Fine-Tuning (`LoRA` / Distillation) Last**: Chosen only after prompting + RAG prove inadequate, when demanding strict domain style across thousands of calls (`100s+` curated pairs) or distilling a specialized workflow onto a smaller, faster model—**never to inject rapidly changing facts**.
 
 | Criterion | Choose **RAG** ([[Retrieval-Augmented Generation and Vector DBs]]) | Choose **Fine-Tuning** (`LoRA / SFT`) |
 | :--- | :--- | :--- |
-| **Primary Goal** | Inject fresh, proprietary, or fast-changing factual knowledge | Adapt response style, tone, strict formatting, or specialized reasoning habits |
-| **Cost & Iteration** | Cheaper, instant updates by re-indexing documents | Higher compute/dataset preparation upfront |
-| **Attribution** | Supports explicit source citations and reduces hallucination | Encodes knowledge implicitly into model weights |
+| **Primary Goal** | Inject fresh, proprietary, or fast-changing factual knowledge | Adapt response style, tone, strict formatting, or distill smaller/faster models |
+| **Cost & Iteration** | Moderate ongoing infra + retrieval tokens; instant doc updates | Upfront curation (`100s+` pairs) & GPU training + hosting |
+| **Attribution** | Supports explicit source citations and reduces hallucination | Encodes patterns implicitly; risks overfitting & catastrophic forgetting |
 
 ---
 
 ## Relationships
 
+- **Sources**: [[LLM Handbook 50 Concepts]], [[AI Engineer Interview Notes]]
 - **Upstream Foundation**: Adapts base checkpoints from [[Transformer Architecture and Pre-training]].
-- **Complementary Knowledge Injection**: Pairs with [[Retrieval-Augmented Generation and Vector DBs]] and [[Prompt Engineering]] (the lowest-cost adaptation layer).
+- **Complementary Knowledge Injection**: Pairs with [[Retrieval-Augmented Generation and Vector DBs]], [[Prompt Engineering]], and [[AI System Design and Production Architecture]].
 - **Safety & Evaluation**: Connects to **Red Teaming**, **Guardrails**, and alignment evaluation in [[LLM Inference Optimization and Security]] and [[Closed-Loop Evals]].

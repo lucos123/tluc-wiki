@@ -100,3 +100,4 @@ Append-only record of operations.
 ## [2026-11-19] skill | Upgrade wiki-lint (ignore code-span nested brackets) and download_post_assets.py (--init-raw scaffold)
 ## [2026-11-19] ingest | AI Complete Handbook (Cẩm nang AI toàn tập bằng tiếng Việt)
 ## [2026-11-19] skill | Upgrade download_post_assets.py (--manifest urls support & immutable --init-raw)
+## [2026-11-19] ingest | AI Engineer Interview Notes (by Koteswara, shared by Viet Nguyen AI)

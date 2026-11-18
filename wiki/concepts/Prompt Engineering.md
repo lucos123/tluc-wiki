@@ -52,6 +52,20 @@ Prompt = Role + Context + Task / Instruction + Input Data + Constraints + Output
 
 ---
 
+## Systematic Prompt Debugging & Injection Defense (Production)
+
+Synthesized from [[AI Engineer Interview Notes]] (`koteswar.AI`):
+1. **Six-Step Systematic Debugging Framework** *(replacing "prompt-tweaking by vibes")*:
+   - **Reproduce**: Pin exact failing input and output.
+   - **Isolate**: Test instruction alone with known-good context to distinguish instruction ambiguity from bad [[Retrieval-Augmented Generation and Vector DBs|RAG retrieval]].
+   - **Inspect**: Factual miss $\rightarrow$ fix retrieval/grounding; task misunderstanding $\rightarrow$ rewrite instruction.
+   - **Change One Variable**: Adjust instruction, few-shot examples, *or* temperature—never all three at once (never tune `temperature` and `top-p` together).
+   - **Build a Regression Set**: Lock fixes against `10–20` repeatable eval test cases.
+   - **Version Prompts**: Store prompts strictly in versioned code/config, never ephemeral chat threads, putting role/goal first and repeating critical constraints near the end to counter `Lost in the middle`.
+2. **Indirect Prompt Injection Defense-in-Depth**: Malicious instructions embedded inside retrieved webpages or user data cannot be fixed by a single rule; layer **untrusted-data delimitation** (`<user_content>...</user_content>`), **least-privilege tool scopes**, **I/O pattern filtering**, **human confirmation for irreversible actions** (email, delete, purchase), and **anomalous tool-call monitoring**.
+
+---
+
 ## Related Pages
-- **Sources**: [[Prompt Engineering Handbook]], [[Token and API Price Guide]]
-- **Concepts**: [[Few-Shot Prompting]], [[Chain-of-Thought Prompting]], [[Advanced Prompting Patterns]], [[Context Engineering]], [[Agent Engineering Ladder]]
+- **Sources**: [[Prompt Engineering Handbook]], [[Token and API Price Guide]], [[AI Engineer Interview Notes]], [[AI Complete Handbook]]
+- **Concepts**: [[Few-Shot Prompting]], [[Chain-of-Thought Prompting]], [[Advanced Prompting Patterns]], [[Context Engineering]], [[Agent Engineering Ladder]], [[AI System Design and Production Architecture]]
