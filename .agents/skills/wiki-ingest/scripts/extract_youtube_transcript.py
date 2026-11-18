@@ -34,7 +34,8 @@ from pathlib import Path
 VISUAL_CUE_RE = re.compile(
     r"\b(slide|diagram|chart|graph|figure|table|architecture|screenshot|"
     r"on the screen|here you can see|you can see here|look at this|"
-    r"as you can see|on this slide|next slide|let's look at)\b",
+    r"as you can see|on this slide|next slide|let's look at|"
+    r"look like this|looks like this|here it is|in a study|pareto|pyramid)\b",
     re.IGNORECASE,
 )
 
@@ -266,6 +267,16 @@ def suggest_keyframe_timestamps(
             raw_end = ch.get("end_time")
             end = float(raw_end) if raw_end is not None else (float(duration) if duration > start else start + 30.0)
             span = max(0.0, end - start)
+            if span >= 150.0:
+                mid_target = start + span * 0.48
+                candidates.append(
+                    {
+                        "timestamp_sec": int(round(mid_target)),
+                        "mm_ss": format_mm_ss(mid_target),
+                        "reason": "chapter_mid",
+                        "label": f"{ch.get('title', 'Chapter')} (Mid)",
+                    }
+                )
             # Sample near the end of each chapter when diagrams/whiteboards are complete
             raw_target = end - min(12.0, max(4.0, span * 0.22))
             upper = max(start + 3.0, end - 3.0)
@@ -301,7 +312,7 @@ def build_timestamps_arg(suggested_keyframes: list[dict], max_items: int = 12) -
     if not suggested_keyframes:
         return ""
 
-    chapter_items = [k for k in suggested_keyframes if k.get("reason") == "chapter"]
+    chapter_items = [k for k in suggested_keyframes if k.get("reason") in ("chapter", "chapter_mid")]
     other_items = [k for k in suggested_keyframes if k.get("reason") != "chapter"]
     selected = list(chapter_items[:max_items])
     if len(selected) < max_items:

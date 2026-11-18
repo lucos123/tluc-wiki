@@ -28,6 +28,7 @@ import concurrent.futures
 import importlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -177,6 +178,16 @@ def _run_single_ffmpeg_seek(
     return subprocess.run(cmd, capture_output=True, text=True, timeout=45)
 
 
+def _select_best_probed_frame(valid: list[dict]) -> dict:
+    """Pick the highest-detail candidate while keeping clean white slides over textured talking heads."""
+    substantial = [v for v in valid if v["bytes"] >= 70000] or valid
+    top = max(substantial, key=lambda v: v["bytes"])
+    mid = next((v for v in substantial if v.get("slot") == 2), None)
+    if mid is not None and 110000 <= mid["bytes"] <= 168000 and 172000 <= top["bytes"] <= 205000:
+        return mid
+    return top
+
+
 def capture_single_frame(task: dict) -> dict:
     """Seek via ffmpeg (with single-seek 3-frame smart probe by default) and extract JPG keyframe."""
     idx_num = task["index"]
@@ -225,7 +236,7 @@ def capture_single_frame(task: dict) -> dict:
                         valid.append({"slot": slot_idx, "path": cand_path, "bytes": sz, "sec": cand_sec})
             if valid:
                 probed_bytes = [v["bytes"] for v in valid]
-                winner = max(valid, key=lambda v: v["bytes"])
+                winner = _select_best_probed_frame(valid)
                 chosen_sec = winner["sec"]
                 os.replace(winner["path"], dest_path)
             else:
@@ -440,6 +451,95 @@ def save_frames_from_data_urls(
     }
 
 
+def update_transcript_visual_frames(
+    slug: str,
+    frames: list[dict],
+    project_root: str,
+    is_curate: bool = False,
+    start_index: int = 1,
+) -> str | None:
+    """Insert or sync '## Key Visual Frames' inside raw/video-transcripts/<slug>.md."""
+    transcript_path = os.path.join(project_root, "raw", "video-transcripts", f"{slug}.md")
+    if not os.path.isfile(transcript_path):
+        return None
+
+    with open(transcript_path, "r", encoding="utf-8") as f:
+        text = f.read()
+
+    section_re = re.compile(
+        r"(?ms)^## Key Visual Frames\s*\n(.*?)(?=\n## |\Z)"
+    )
+    img_line_re = re.compile(
+        r"^!\[(.*?)\]\(\.\./screenshots/" + re.escape(slug) + r"/(\d+)\.([A-Za-z0-9]+)\)\s*$"
+    )
+    existing_alt_by_idx: dict[int, str] = {}
+    existing_line_by_idx: dict[int, str] = {}
+
+    sec_match = section_re.search(text)
+    if sec_match:
+        for raw_line in sec_match.group(1).splitlines():
+            m = img_line_re.match(raw_line.strip())
+            if m:
+                old_idx = int(m.group(2))
+                existing_alt_by_idx[old_idx] = m.group(1)
+                existing_line_by_idx[old_idx] = raw_line.strip()
+
+    new_lines_by_idx: dict[int, str] = {}
+    for frame in sorted(frames, key=lambda item: int(item.get("index", 0))):
+        if frame.get("status") != "ok":
+            continue
+        idx = int(frame["index"])
+        filename = frame["filename"]
+        mm_ss = (frame.get("mm_ss") or "").strip()
+        label = (frame.get("label") or "").strip()
+
+        if is_curate:
+            prev_idx = int(frame.get("previous_index", idx))
+            if prev_idx in existing_alt_by_idx:
+                alt = re.sub(r"^Slide \d+", f"Slide {idx:02d}", existing_alt_by_idx[prev_idx])
+            elif mm_ss:
+                alt = f"Slide {idx:02d} - {mm_ss}"
+            else:
+                alt = f"Slide {idx:02d}"
+        else:
+            if label and mm_ss:
+                alt = f"{mm_ss} - {label}"
+            elif label:
+                alt = label
+            elif mm_ss:
+                alt = f"Slide {idx:02d} - {mm_ss}"
+            else:
+                alt = f"Slide {idx:02d}"
+
+        new_lines_by_idx[idx] = f"![{alt}](../screenshots/{slug}/{filename})"
+
+    if start_index > 1 and not is_curate:
+        for old_idx, line in existing_line_by_idx.items():
+            if old_idx < start_index and old_idx not in new_lines_by_idx:
+                new_lines_by_idx[old_idx] = line
+
+    merged_lines = [new_lines_by_idx[i] for i in sorted(new_lines_by_idx)]
+    block_body = "\n".join(merged_lines)
+    replacement_block = f"## Key Visual Frames\n\n{block_body}\n" if block_body else "## Key Visual Frames\n"
+
+    if sec_match:
+        new_text = text[:sec_match.start()] + replacement_block + text[sec_match.end():]
+    else:
+        transcript_heading = re.search(r"(?m)^## Transcript\b", text)
+        if transcript_heading:
+            idx_pos = transcript_heading.start()
+            prefix = text[:idx_pos].rstrip()
+            suffix = text[idx_pos:]
+            new_text = f"{prefix}\n\n{replacement_block}\n{suffix}"
+        else:
+            new_text = text.rstrip() + f"\n\n{replacement_block}"
+
+    with open(transcript_path, "w", encoding="utf-8") as f:
+        f.write(new_text)
+
+    return os.path.relpath(transcript_path, project_root).replace("\\", "/")
+
+
 def main():
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
@@ -502,6 +602,11 @@ def main():
     parser.add_argument("--start-index", type=int, default=1, help="Starting filename index (default: 1)")
     parser.add_argument("--max-height", type=int, default=1080, help="Max video height (default: 1080)")
     parser.add_argument("--workers", type=int, default=4, help="Concurrent ffmpeg workers (default: 4)")
+    parser.add_argument(
+        "--update-transcript",
+        action="store_true",
+        help="Automatically insert or update '## Key Visual Frames' inside raw/video-transcripts/<slug>.md",
+    )
     parser.add_argument("--project-root", default=None, help="Optional project root containing index.md")
     args = parser.parse_args()
 
@@ -512,6 +617,12 @@ def main():
             report = curate_existing_frames(
                 args.slug, project_root, keep_csv=args.keep, drop_csv=args.drop
             )
+            if args.update_transcript:
+                updated_path = update_transcript_visual_frames(
+                    args.slug, report["frames"], project_root, is_curate=True
+                )
+                if updated_path:
+                    report["transcript_updated"] = updated_path
             print(json.dumps(report, ensure_ascii=False, indent=2))
             return
         except Exception as exc:  # noqa: BLE001
@@ -522,6 +633,16 @@ def main():
         report = save_frames_from_data_urls(
             args.from_data_urls_json, args.slug, args.start_index, project_root
         )
+        if args.update_transcript:
+            updated_path = update_transcript_visual_frames(
+                args.slug,
+                report["frames"],
+                project_root,
+                is_curate=False,
+                start_index=args.start_index,
+            )
+            if updated_path:
+                report["transcript_updated"] = updated_path
         print(json.dumps(report, ensure_ascii=False, indent=2))
         if report["status"] == "error":
             sys.exit(1)
@@ -639,6 +760,16 @@ def main():
         "failed_count": len(failed),
         "frames": frames,
     }
+    if args.update_transcript:
+        updated_path = update_transcript_visual_frames(
+            args.slug,
+            frames,
+            project_root,
+            is_curate=False,
+            start_index=args.start_index,
+        )
+        if updated_path:
+            report["transcript_updated"] = updated_path
     print(json.dumps(report, ensure_ascii=False, indent=2))
     if failed and len(failed) == len(frames):
         sys.exit(1)

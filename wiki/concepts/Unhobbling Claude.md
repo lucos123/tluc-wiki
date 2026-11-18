@@ -29,6 +29,6 @@ Anthropic demonstrated that **removing over 80% of Claude Code's system prompt**
 
 1. **Replace Rigid Rules with Adaptive Guidance**: Instead of "never write multi-line comments", instruct the agent to "write code that matches the surrounding comment density, naming, and idiom".
 2. **Shift from Few-shot Examples to Interface Design**: Avoid overly prescriptive few-shot examples that constrain exploration; instead, design clean tool parameters and typed enumerations.
-3. **Use `/doctor` (`claude doctor`)**: Run automated context audits to prune stale, overconstrained rules from `CLAUDE.md` and `SKILL.md`.
+3. **Run `/doctor prompt-audit` & Retain Only Non-Code Facts**: As [[Lydia Hallie]] notes in [[Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic]], on frontier models (`Opus 5.5`), stale directives (`"IMPORTANT!"`, `"We're on Node 18"`, `"Think hard"`) actively degrade performance via extra tool calls; keep *only* facts invisible in source code (`"src/legacy still serves our mobile apps"`).
 
-See [[Context Engineering]] and [[Progressive Disclosure]].
+See [[Context Engineering]], [[Progressive Disclosure]], and [[Best practices for Claude Code]].

@@ -68,9 +68,12 @@ Claude Code (with Claude Fable 5 / Opus 4.8) has demonstrated the ability to run
 
 The [[AI Code Migration]] methodology uses Claude Code for: multi-agent implementation fan-out, adversarial review loops, build daemon orchestration, and autonomous overnight test generation. The core shift: engineers design *loops and rules*, not code.
 
+- **Best Practices (Late-2026 Shift)**: See [[Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic]] — [[Lydia Hallie]]'s architecture replacing manual loops with `/doctor prompt-audit` minimalism, plain-English `autoMode` + `deny` boundaries, OS `/sandbox` vs. disposable Cloud Sessions with Network Secrets ([[Cloud Agent Sandbox and Auto Mode]]), `exit 2` verification hooks, CI auto-merge, and `Claude Code Projects` (`Fable` orchestrator + `Opus 5.5` worker threads).
+
 ## Related Sources
 
 - [[Best practices for Claude Code]] — practitioner's guide to context, verification, and scaling.
+- [[Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic]] — late-2026 out-of-the-loop best practices (Auto Mode study, Cloud Sessions, Hooks `exit 2`, CI auto-merge, Claude Code Projects).
 - [[Claude Code Skills]] — modular capability extension system.
 - [[Claude Code Hooks]] — deterministic lifecycle event automation.
 - [[Claude Code Monorepo Setup]] — large codebase scoping.

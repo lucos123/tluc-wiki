@@ -93,3 +93,13 @@ For standalone structural checks without modifying `index.md` or `wiki/log.md`, 
 ```powershell
 python .agents/skills/wiki-lint/scripts/lint_wiki.py
 ```
+
+### Step 6 — Post-Ingest Reflection & Skill Improvement Proposal (Human-Gated)
+At the end of every ingestion run—especially after extracting complex videos, social carousels, or dense technical docs—perform a brief pipeline retrospective covering:
+- **Execution Friction & Token Efficiency**: Extra tool calls, manual formatting edits, browser retries, or redundant context reads that could be automated.
+- **Script & Extraction Quality**: Visual keyframe probing accuracy (`--smart-probe` false positives, missed mid-chapter slides), transcript formatting gaps, or `register_ingest.py` edge cases.
+- **Test & Verification Coverage**: Missing unit tests for newly discovered edge cases (`test_extract_youtube_transcript.py`, downloader, or lint checks).
+
+Append a concise final section (`### 💡 Nhận xét & Đề xuất Cải thiện Skill / Pipeline`) to your reply to the user:
+- If concrete improvements were spotted, list 1–3 prioritized, actionable proposals (file/script, problem observed, proposed fix) and ask for the user's approval before editing any skill files (**human-gated self-improvement**: never modify `.agents/skills/` scripts silently during an ingest turn without explicit user sign-off).
+- If the run executed cleanly with zero friction, confirm briefly that the current skill pipeline operated smoothly with no new gaps observed.

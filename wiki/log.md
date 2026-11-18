@@ -94,3 +94,5 @@ Append-only record of operations.
 ## [2026-11-18] ingest | AWS Core Services Notes (Ghi chú các dịch vụ AWS cốt lõi bằng tiếng Việt)
 ## [2026-11-18] ingest | Machine Learning Basics Notes (Machine Learning cơ bản bằng tiếng Việt)
 ## [2026-11-18] ingest | The Home Repo: The effortless multi-repo agent setup
+## [2026-11-18] ingest | Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic
+## [2026-11-18] skill | Upgrade wiki-ingest with post-ingest self-improvement loop, --update-transcript, and smart-probe slide heuristic

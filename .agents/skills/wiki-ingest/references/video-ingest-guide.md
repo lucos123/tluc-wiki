@@ -17,37 +17,38 @@ python .agents\skills\wiki-ingest\scripts\extract_youtube_transcript.py "<VIDEO_
 python .agents\skills\wiki-ingest\scripts\extract_youtube_transcript.py "<VIDEO_URL>" --lang vi,en --json
 ```
 
-Read the generated `.md` transcript file to refine the timestamp list (`suggested_timestamps_arg` picks late-chapter 78%–85% completion moments by default, where diagrams/slides are fully drawn), and use `related_wiki_pages` + `safe_source_page_name` directly when drafting wiki pages without running extra directory scans.
+Read the generated `.md` transcript file to refine the timestamp list (`suggested_timestamps_arg` samples late-chapter 78%–85% completion moments by default, automatically adds a 48% mid-chapter marker for long chapters $\ge 150\text{s}$, and scans expanded `VISUAL_CUE_RE` phrases), using `related_wiki_pages` and `safe_source_page_name` directly when drafting wiki pages without running extra directory scans.
 
 ### Stage 2 — Capture (Smart-Probe) & Curate 1080p Keyframe Slides
-Run `capture_youtube_keyframes.py` (uses `yt-dlp` + standalone `ffmpeg` via `imageio-ffmpeg` HTTP range-seeking — **no full video download needed**). By default, **3-frame single-seek smart probing** (`--smart-probe`, `--probe-offset 4.0`) extracts 3 frames around each timestamp in one seek and keeps the highest-detail JPG, automatically skipping brief talking-head camera cuts:
+Run `capture_youtube_keyframes.py` (uses `yt-dlp` + standalone `ffmpeg` via `imageio-ffmpeg` HTTP range-seeking — **no full video download needed**). By default, **3-frame single-seek smart probing** (`--smart-probe`, `--probe-offset 4.0`) extracts 3 frames around each timestamp in one seek and uses `_select_best_probed_frame()` to filter low-byte fade/cut frames (`<70KB`) while keeping crisp white/Excalidraw slides (`110–168KB`) from being overridden by textured full-screen webcam cuts (`172–205KB`). Pass **`--update-transcript`** to insert/sync `## Key Visual Frames` inside `raw/video-transcripts/<slug>.md` automatically without extra manual `edit_file` calls:
 
 ```powershell
-# Capture targeted timestamps (3-frame smart probe enabled by default; add --no-smart-probe for exact seek)
+# Capture targeted timestamps and auto-embed ## Key Visual Frames in the transcript
 python .agents\skills\wiki-ingest\scripts\capture_youtube_keyframes.py `
   --url "<VIDEO_URL>" `
   --slug "<clean-kebab-case-slug>" `
-  --timestamps "01:38=Architecture,04:14=Threats,08:05=Four-Pillars"
+  --timestamps "01:38=Architecture,04:14=Threats,08:05=Four-Pillars" `
+  --update-transcript
 
-# Or auto-sample one representative late-chapter frame per YouTube chapter
+# Or auto-sample representative chapter keyframes directly
 python .agents\skills\wiki-ingest\scripts\capture_youtube_keyframes.py `
   --url "<VIDEO_URL>" `
   --slug "<clean-kebab-case-slug>" `
-  --auto-chapters
+  --auto-chapters --update-transcript
 ```
 
 Inspect all captured frames in `raw/screenshots/<slug>/` using parallel `read_file` batches (6–7 images/turn):
-- **Atomic Curation & Renumbering (`--keep` / `--drop`):** If any frame is still redundant or low-value (or after capturing supplemental `--start-index` frames), prune and renumber in 1 deterministic command without manual PowerShell move chains:
+- **Atomic Curation & Renumbering (`--keep` / `--drop` + `--update-transcript`):** If any frame is still redundant or low-value (or after capturing supplemental `--start-index` frames), prune, renumber `01.jpg..NN.jpg`, and re-sync the transcript embeds in 1 deterministic command without manual PowerShell move chains:
   ```powershell
-  # Keep specific indices in exact chronological order and renumber 01.jpg..NN.jpg
-  python .agents\skills\wiki-ingest\scripts\capture_youtube_keyframes.py --slug "<slug>" --keep "1,12,3,8"
+  # Keep specific indices in exact chronological order, renumber, and update transcript links
+  python .agents\skills\wiki-ingest\scripts\capture_youtube_keyframes.py --slug "<slug>" --keep "1,12,3,8" --update-transcript
 
-  # Or drop weak/duplicate indices and renumber the rest
-  python .agents\skills\wiki-ingest\scripts\capture_youtube_keyframes.py --slug "<slug>" --drop "2,5"
+  # Or drop weak/duplicate indices and sync remaining links
+  python .agents\skills\wiki-ingest\scripts\capture_youtube_keyframes.py --slug "<slug>" --drop "2,5" --update-transcript
   ```
 
 ### Stage 3 — Embed Visual Transcriptions, Synthesize Wiki & Register
-1. Embed the verified keyframe screenshots (`![Slide NN - MM:SS](../screenshots/<slug>/NN.jpg)`) and concise visual transcriptions into the raw transcript (`raw/video-transcripts/<slug>.md`).
+1. Verify that `raw/video-transcripts/<slug>.md` contains the curated `## Key Visual Frames` links (`![MM:SS - <Label>](../screenshots/<slug>/NN.jpg)`), adding any concise visual transcriptions if needed (or omit manual `edit_file` entirely when `--update-transcript` already synced them cleanly).
 2. Create `wiki/sources/<safe_source_page_name>.md` (`source_type: video`) linking both the raw transcript and all kept `[[raw/screenshots/<slug>/NN.jpg]]` slides, plus entity/concept pages in `wiki/entities/` and `wiki/concepts/`. To search `index.md` for additional candidate links by keyword, run:
    ```powershell
    python .agents\skills\wiki-ingest\scripts\register_ingest.py --suggest-links "supply chain security sbom"
@@ -70,11 +71,11 @@ Inspect all captured frames in `raw/screenshots/<slug>/` using parallel `read_fi
 1. **`extract_youtube_transcript.py`**:
    - Auto-installs `yt-dlp` if missing and fetches metadata + direct caption tracks in a single pass (preferring untranslated `en-orig`/`en` tracks to avoid HTTP 429 limits).
    - Parses cue start times (`parse_vtt_cues`), deduplicates rolling auto-captions without discarding timestamps, groups under `### [MM:SS - MM:SS] <Chapter>` sections, emits `**[MM:SS]**` markers every ~18s, and writes directly to `raw/video-transcripts/<kebab-case-title>.md`.
-   - With `--json`, emits `safe_source_page_name`, late-chapter `suggested_timestamps_arg`, and top `related_wiki_pages` ranked from `index.md`.
+   - With `--json`, emits `safe_source_page_name`, multi-point chapter suggestions (adding a `48%` midpoint candidate for chapters $\ge 150\text{s}$), expanded `VISUAL_CUE_RE` markers, and top `related_wiki_pages` ranked from `index.md`.
 2. **`capture_youtube_keyframes.py`**:
    - Auto-installs `imageio-ffmpeg` if system `ffmpeg` is not on PATH, and auto-upgrades `yt-dlp` on HTTP 403 retry.
-   - Selects the highest-resolution direct HTTPS stream ($\le 1080\text{p}$) and seeks concurrently (`ThreadPoolExecutor`) with single-seek 3-frame smart probing (`--smart-probe`, choosing the highest-detail frame by byte size around each timestamp; `--no-smart-probe` extracts the exact timestamp frame).
-   - Verifies saved JPG dimensions via pure-Python binary header inspection and supports atomic `--keep` / `--drop` curation and renumbering (`01.jpg .. NN.jpg`).
+   - Selects the highest-resolution direct HTTPS stream ($\le 1080\text{p}$) and seeks concurrently (`ThreadPoolExecutor`) with single-seek 3-frame smart probing (`--smart-probe`, scored via `_select_best_probed_frame()` to discard `<70KB` fades without letting `172–205KB` textured camera cuts override `110–168KB` clean slides; `--no-smart-probe` extracts the exact timestamp frame).
+   - Verifies saved JPG dimensions via pure-Python binary header inspection, supports atomic `--keep` / `--drop` curation and renumbering (`01.jpg .. NN.jpg`), and syncs `## Key Visual Frames` inside `raw/video-transcripts/<slug>.md` when passed `--update-transcript`.
 
 ---
 

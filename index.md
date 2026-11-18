@@ -39,6 +39,7 @@ A catalog of everything in the knowledge base.
 - [[LangChain Engine]]: Background agent in LangSmith that powers the Hill-Climbing Loop by optimizing traces.
 - [[Lauren Tan]]: Principal Engineer at SpaceX / Grok Bot (@poteto), former Cursor engineer; creator of the Poteto Trust Pyramid, Dune architecture, and pstack verification skills.
 - [[Leonhard Euler]]: Swiss mathematician (1707–1783) who founded Graph Theory, the theoretical basis for Graph Engineering.
+- [[Lydia Hallie]]: Claude Code team engineer at Anthropic; presented out-of-the-loop best practices (autoMode, Cloud Sessions, hooks exit 2, and Claude Code Projects orchestration).
 - [[Matt Pocock]]: Creator of AI Hero, CVM, Sandcastle, and mattpocock/skills; author of the Home Repo Pattern and personal-wiki unified CLI setup.
 - [[Mike Krieger]]: Anthropic Labs co-lead; ran the Python→TypeScript 165K-line weekend migration with Claude Code.
 - [[Moonshot AI]]: AI research lab behind the Kimi model series.
@@ -81,6 +82,7 @@ A catalog of everything in the knowledge base.
 - [[Chrome Integration Architecture]]: Browser automation subsystem in Claude Code connecting CLI sessions to Chromium browsers via Native Messaging Host.
 - [[Claude Directory Architecture]]: Standardized file system layout (.claude/ & ~/.claude/) for instructions, settings, rules, skills, subagents, and workflows.
 - [[Closed-Loop Evals]]: Automated architecture for continuous evaluation, reflection, prompt optimization, and auto-deployment without human intervention.
+- [[Cloud Agent Sandbox and Auto Mode]]: Layered agent safety stack combining plain-English autoMode classifier (89% vs 14% human), pre-classifier deny rules, OS /sandbox, and disposable Cloud Sessions with Network Secrets.
 - [[Cloud Sandboxed Ultrareview]]: Deep off-machine diff review mode (/code-review ultra) executing verified bug detection in cloud sandboxes.
 - [[Comprehension and Intent Debt]]: Four agentic loop pitfalls (unverified code, comprehension debt, intent debt, cognitive surrender) and the minimal human responsibility triad.
 - [[Conductor vs Orchestrator]]: Modes of developer interaction with AI.
@@ -256,6 +258,7 @@ A catalog of everything in the knowledge base.
 - [[Orchestrate teams of Claude Code sessions]]: Official Anthropic guide on Agent Teams, Team Leads, shared task lists, inter-agent mailboxes, and tmux split panes.
 - [[Prompt Engineering Handbook]]: 11-page Vietnamese visual sketchnote guide covering prompt anatomy, prompting types, CO-STAR/R-T-F/CLEAR, CoT/ReAct/ToT, and checklists.
 - [[Python Handbook]]: 10-page Vietnamese visual guide covering Python basics, types, operators, conditionals, loops, functions, strings, collections, and file handling.
+- [[Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic]]: Anthropic engineer Lydia Hallie on scaling Claude Code to 30,000+ daily changes via /doctor prompt-audit, autoMode, Cloud Sessions, tri-stage exit 2 hooks, CI auto-merge, and Fable/Opus 5.5 orchestration.
 - [[Rewind file changes with checkpointing]]: Official Anthropic guide on programmatic SDK file checkpointing and rewind_files().
 - [[Run agents in parallel]]: Official Anthropic comparison guide on Subagents, Agent View, Agent Teams, and Dynamic Workflows.
 - [[Run parallel sessions with worktrees]]: Official Anthropic guide on git worktree isolation (--worktree), .worktreeinclude, and subagent worktrees.
@@ -288,6 +291,7 @@ A catalog of everything in the knowledge base.
 - [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 - [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
+
 
 
 

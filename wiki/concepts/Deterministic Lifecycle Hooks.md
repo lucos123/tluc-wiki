@@ -28,7 +28,7 @@ graph TD
 ## Key Applications
 
 1. **File Edit Protection**: Intercepting `Edit` and `Write` calls to reject modifications to `.env` or `package-lock.json`.
-2. **Auto-Formatting**: Running `prettier` or `eslint` via `PostToolUse` immediately after file writes.
+2. **Tri-Stage Verification Pipeline** (from [[Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic]]): Bind `PostToolUse` -> **linter on every edit**, `TaskCompleted` -> **scoped tests per task**, and `Stop` -> **full test suite at session end**. **Critical Implementation Rule**: test runners emit exit code `1` on failure (which allows `Claude Code` to mark the task complete anyway); wrap checks so failures explicitly exit with **`exit 2`** to force the agent back to iterate.
 3. **Environment Sync**: Dynamically exporting `direnv` environment variables into `$CLAUDE_ENV_FILE` on `CwdChanged` events.
 
-See [[Automate actions with hooks]], [[Claude Code Hooks]], and [[Prompt-Based Hooks]].
+See [[Automate actions with hooks]], [[Claude Code Hooks]], [[Prompt-Based Hooks]], and [[Verification Loop]].
