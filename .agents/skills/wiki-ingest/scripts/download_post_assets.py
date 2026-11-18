@@ -144,6 +144,27 @@ def build_md_embed(mode, slug, filename, idx_num):
     return f"![Asset {idx_num:02d}](../../assets/{filename})"
 
 
+def _build_item_result(task, filename, dest_path, byte_count, ext, dims, source_used, url_error=None):
+    """Build normalized metadata dict for a successfully acquired asset."""
+    rel_path = os.path.relpath(dest_path, task["project_root"]).replace("\\", "/")
+    result = {
+        "index": task["index"],
+        "filename": filename,
+        "rel_path": rel_path,
+        "wiki_link": f"[[{rel_path}]]",
+        "md_embed": build_md_embed(task["mode"], task["slug"], filename, task["index"]),
+        "bytes": byte_count,
+        "format": ext,
+        "dimensions": dims,
+        "source_used": source_used,
+    }
+    if url_error is not None:
+        result["url_error"] = url_error
+    if task.get("note"):
+        result["note"] = task["note"]
+    return result
+
+
 def process_item(task):
     """Download or copy a single asset and return structured metadata."""
     idx_num = task["index"]
@@ -152,7 +173,6 @@ def process_item(task):
     mode = task["mode"]
     slug = task["slug"]
     out_dir = task["out_dir"]
-    project_root = task["project_root"]
     min_bytes = task["min_bytes"]
 
     err_msg = None
@@ -165,18 +185,7 @@ def process_item(task):
                 dest_path = os.path.join(out_dir, filename)
                 with open(dest_path, "wb") as f:
                     f.write(data)
-                rel_path = os.path.relpath(dest_path, project_root).replace("\\", "/")
-                return {
-                    "index": idx_num,
-                    "filename": filename,
-                    "rel_path": rel_path,
-                    "wiki_link": f"[[{rel_path}]]",
-                    "md_embed": build_md_embed(mode, slug, filename, idx_num),
-                    "bytes": len(data),
-                    "format": ext,
-                    "dimensions": dims,
-                    "source_used": "url",
-                }
+                return _build_item_result(task, filename, dest_path, len(data), ext, dims, "url")
             err_msg = f"Invalid or tiny payload ({len(data)} bytes, ext={ext})"
 
     if fallback and os.path.isfile(fallback):
@@ -187,25 +196,50 @@ def process_item(task):
         filename = build_target_filename(mode, slug, idx_num, ext)
         dest_path = os.path.join(out_dir, filename)
         shutil.copy2(fallback, dest_path)
-        rel_path = os.path.relpath(dest_path, project_root).replace("\\", "/")
-        return {
-            "index": idx_num,
-            "filename": filename,
-            "rel_path": rel_path,
-            "wiki_link": f"[[{rel_path}]]",
-            "md_embed": build_md_embed(mode, slug, filename, idx_num),
-            "bytes": len(fb_data),
-            "format": ext,
-            "dimensions": dims,
-            "source_used": "fallback",
-            "url_error": err_msg,
-        }
+        return _build_item_result(
+            task, filename, dest_path, len(fb_data), ext, dims, "fallback", url_error=err_msg
+        )
 
     return {
         "index": idx_num,
         "source_used": "failed",
         "error": err_msg or "No valid URL or fallback file provided",
     }
+
+
+def _normalize_manifest_items(manifest):
+    """Normalize 'items' (dict or URL string) or flat 'urls'/'fallbacks' arrays into item dicts."""
+    raw_items_in = manifest.get("items")
+    if raw_items_in:
+        normalized = []
+        for entry in raw_items_in:
+            if isinstance(entry, str):
+                normalized.append({"url": entry})
+            elif isinstance(entry, dict):
+                item = {
+                    "url": entry.get("url") or entry.get("src"),
+                    "fallback": entry.get("fallback"),
+                }
+                note = entry.get("note") or entry.get("transcription")
+                if note:
+                    item["note"] = note
+                normalized.append(item)
+        return normalized
+
+    urls = manifest.get("urls") or []
+    fallbacks = manifest.get("fallbacks") or []
+    notes = manifest.get("notes") or []
+    count = max(len(urls), len(fallbacks))
+    normalized = []
+    for i in range(count):
+        item = {
+            "url": urls[i] if i < len(urls) else None,
+            "fallback": fallbacks[i] if i < len(fallbacks) else None,
+        }
+        if isinstance(notes, list) and i < len(notes) and notes[i]:
+            item["note"] = notes[i]
+        normalized.append(item)
+    return normalized
 
 
 def load_manifest_or_args(args):
@@ -220,7 +254,7 @@ def load_manifest_or_args(args):
             if args.start_index is not None
             else manifest.get("start_index", 0 if mode == "screenshots" else 1)
         )
-        raw_items = manifest.get("items", [])
+        raw_items = _normalize_manifest_items(manifest)
     else:
         slug = args.slug
         mode = args.mode or "screenshots"
@@ -274,7 +308,24 @@ def extract_raw_meta(args):
         "description": getattr(args, "raw_description", None) or manifest.get("raw_description"),
         "text": getattr(args, "raw_text", None) or manifest.get("raw_text"),
         "tags": manifest.get("raw_tags") or ["clippings", "visual-guide"],
+        "notes": manifest.get("raw_notes") or manifest.get("notes") or [],
     }
+
+
+def _resolve_slide_note(item, idx, meta_notes):
+    """Resolve optional transcription/note text for slide idx without emitting placeholder comments."""
+    if item.get("note"):
+        return str(item["note"]).strip()
+    if item.get("transcription"):
+        return str(item["transcription"]).strip()
+    if isinstance(meta_notes, list) and idx < len(meta_notes) and meta_notes[idx]:
+        return str(meta_notes[idx]).strip()
+    if isinstance(meta_notes, dict):
+        fname = item.get("filename")
+        val = meta_notes.get(fname) or meta_notes.get(str(idx))
+        if val:
+            return str(val).strip()
+    return ""
 
 
 def scaffold_raw_article(slug, files, project_root, meta):
@@ -298,6 +349,7 @@ def scaffold_raw_article(slug, files, project_root, meta):
     description = meta.get("description") or f"Visual guide and captured slides for {title}."
     post_text = (meta.get("text") or "").strip()
     tags = meta.get("tags") or ["clippings", "visual-guide"]
+    meta_notes = meta.get("notes") or []
 
     lines = [
         "---",
@@ -342,7 +394,12 @@ def scaffold_raw_article(slug, files, project_root, meta):
             lines.append(f"> {p_line}" if p_line.strip() else ">")
         lines.extend(["", "---", ""])
 
-    lines.append(f"## Chi Tiết {len(ok_files)} Trang Hình Ảnh Đính Kèm (Visual Transcription)")
+    section_heading = (
+        f"## Thư Viện {len(ok_files)} Trang Hình Ảnh Đính Kèm"
+        if not meta_notes and not any(f.get("note") or f.get("transcription") for f in ok_files)
+        else f"## Chi Tiết {len(ok_files)} Trang Hình Ảnh Đính Kèm (Visual Transcription)"
+    )
+    lines.append(section_heading)
     lines.append("")
     for i, item in enumerate(ok_files):
         filename = item["filename"]
@@ -356,9 +413,10 @@ def scaffold_raw_article(slug, files, project_root, meta):
             f"### Trang {i + 1} / {len(ok_files)}{dims_note}",
             embed,
             "",
-            "<!-- Điền nội dung tổng hợp / ghi chú đọc từ ảnh tại đây -->",
-            "",
         ])
+        note_text = _resolve_slide_note(item, i, meta_notes)
+        if note_text:
+            lines.extend([note_text, ""])
 
     with open(raw_path, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))
@@ -423,6 +481,7 @@ def main():
             "index": start_index + i,
             "url": item.get("url"),
             "fallback": item.get("fallback"),
+            "note": item.get("note"),
             "mode": mode,
             "slug": slug,
             "out_dir": out_dir,

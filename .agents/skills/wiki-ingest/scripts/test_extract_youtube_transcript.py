@@ -334,6 +334,7 @@ Meanwhile [[Real Concept|Alias]] must still be extracted cleanly.
             self.assertIn('> Line 1 of post.', content)
             self.assertIn('![Trang 1](../../screenshots/sample-visual-guide/00.jpg)', content)
             self.assertIn('![Trang 2](../../screenshots/sample-visual-guide/01.jpg)', content)
+            self.assertNotIn('<!-- Điền nội dung', content)
 
             # Mutate file content manually and verify second call respects raw/ immutability
             raw_file.write_text("USER EDITED", encoding="utf-8")
@@ -343,6 +344,65 @@ Meanwhile [[Real Concept|Alias]] must still be extracted cleanly.
             self.assertEqual(rel2, rel1)
             self.assertEqual(status2, "skipped_existing")
             self.assertEqual(raw_file.read_text(encoding="utf-8"), "USER EDITED")
+
+            # Optional per-slide notes are rendered cleanly without placeholders
+            meta_with_notes = dict(meta, raw_subdir="with-notes", notes=["Intro slide caption", "Second slide caption"])
+            rel3, status3 = download_post_assets.scaffold_raw_article(
+                "sample-with-notes", files, tmp, meta_with_notes
+            )
+            self.assertEqual(status3, "created")
+            content3 = (Path(tmp) / rel3).read_text(encoding="utf-8")
+            self.assertIn("Intro slide caption", content3)
+            self.assertIn("Second slide caption", content3)
+            self.assertNotIn('<!-- Điền nội dung', content3)
+
+    def test_download_post_assets_manifest_urls_and_items_normalization(self):
+        import argparse
+        import json
+
+        with tempfile.TemporaryDirectory() as tmp:
+            m1_path = Path(tmp) / "m_urls.json"
+            m1_path.write_text(
+                json.dumps({
+                    "slug": "flat-urls-deck",
+                    "mode": "screenshots",
+                    "urls": ["https://example.com/0.jpg", "https://example.com/1.jpg"],
+                }),
+                encoding="utf-8",
+            )
+            args1 = argparse.Namespace(
+                manifest=str(m1_path), slug=None, mode=None, start_index=None, urls=None, fallbacks=None
+            )
+            slug1, mode1, start1, items1 = download_post_assets.load_manifest_or_args(args1)
+            self.assertEqual(slug1, "flat-urls-deck")
+            self.assertEqual(mode1, "screenshots")
+            self.assertEqual(start1, 0)
+            self.assertEqual(items1, [
+                {"url": "https://example.com/0.jpg", "fallback": None},
+                {"url": "https://example.com/1.jpg", "fallback": None},
+            ])
+
+            m2_path = Path(tmp) / "m_items.json"
+            m2_path.write_text(
+                json.dumps({
+                    "slug": "mixed-items-deck",
+                    "items": [
+                        "https://example.com/str.jpg",
+                        {"src": "https://example.com/obj.jpg", "note": "Slide 2 visual"},
+                    ],
+                }),
+                encoding="utf-8",
+            )
+            args2 = argparse.Namespace(
+                manifest=str(m2_path), slug=None, mode=None, start_index=None, urls=None, fallbacks=None
+            )
+            _, _, _, items2 = download_post_assets.load_manifest_or_args(args2)
+            self.assertEqual(items2[0], {"url": "https://example.com/str.jpg"})
+            self.assertEqual(items2[1], {
+                "url": "https://example.com/obj.jpg",
+                "fallback": None,
+                "note": "Slide 2 visual",
+            })
 
 
 if __name__ == "__main__":

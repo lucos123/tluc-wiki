@@ -121,10 +121,19 @@ If the `browser` subagent reports `DevToolsActivePort (ENOENT)`:
 | **Article / Post with 1–3 Diagrams** | `assets` | `raw/assets/<slug>-01.<ext>` .. | `raw/articles/<topic>/<slug>.md` |
 
 Write a scratch manifest JSON file (cleanest for long CDN query strings) and run:
+```json
+{
+  "slug": "your-post-slug",
+  "mode": "screenshots",
+  "urls": ["https://...", "https://..."]
+}
+```
+*(Both `"urls": [...]` and structured `"items": [{"url": "...", "note": "..."}]` are accepted inside `--manifest`.)*
+
 ```powershell
 python .agents\skills\wiki-ingest\scripts\download_post_assets.py --manifest path\to\manifest.json
 ```
-*(Optional: pass `--init-raw`—or `"init_raw": true` alongside `"raw_title"`, `"raw_source"`, `"raw_author"`, `"raw_text"` inside `--manifest`—to auto-scaffold `raw/articles/<topic>/<slug>.md` with YAML frontmatter, verbatim blockquote text, and all `00.jpg..NN.jpg` image embeds if that raw file does not yet exist.)*
+*(Immutable `raw/` workflow: either pass `--init-raw` / `"init_raw": true` during download to save a clean, finalized raw post + image gallery in one step without placeholder comments and synthesize slides directly into `wiki/sources/<Source Title>.md`; or omit `--init-raw`, read all slides first, and write `raw/articles/<topic>/<slug>.md` once with full slide-by-slide transcriptions.)*
 
 ### 2. Batch Parallel Visual Reading (6–7 Images/Turn)
 Call `read_file` directly on the downloaded local images in **parallel batches of 6–7 images per turn**:
