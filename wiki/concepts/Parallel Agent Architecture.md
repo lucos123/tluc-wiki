@@ -33,5 +33,6 @@ graph TD
 2. **Agent View**: Use when managing multiple completely independent feature tasks across git worktrees.
 3. **Agent Teams**: Use when a complex project requires peer agents with specialized roles communicating via a shared task backlog.
 4. **Dynamic Workflows**: Use when fanning out audits or refactors to 100+ agents with automated cross-verification.
+5. **Claude Code Projects (Two-Model Orchestration, beta)** ([[Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic]]): Eliminates human context switching by routing work through one planner/evaluator Orchestrator (`Fable`) that spawns isolated coding worker threads (`Opus 5.5`), checks verification output before acceptance, and manages context automatically (no manual `/compact` or `/clear`).
 
-See [[Run agents in parallel]], [[Subagent Architecture]], [[Dynamic Workflows]], and [[Git Worktree Isolation]].
+See [[Run agents in parallel]], [[Subagent Architecture]], [[Dynamic Workflows]], [[Git Worktree Isolation]], and [[Cloud Agent Sandbox and Auto Mode]].
