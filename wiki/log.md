@@ -105,3 +105,5 @@ Append-only record of operations.
 ## [2026-11-21] ingest | AI Harness 6 Core Components (AI Harness làm gì để agent hoàn thành công việc?)
 ## [2026-11-21] ingest | LLM Handwritten Study Guide 15 Pages (Cẩm nang LLM viết tay bằng tiếng Việt)
 ## [2026-11-21] ingest | Transformers Detailed Notes and Revision Guide (@techyy_bandaa)
+## [2026-11-21] skill | Upgrade wiki-ingest v4 (Multi-domain harvesters A-E, get_harvester.py duplicate check, Zero-URL-Relay --from-harvest-file)
+## [2026-11-21] skill | Self-check & harden wiki-ingest v4.1 (Harvesters A-E DOM/srcset/table fixes, get_harvester guards & boundary dedup, download_post_assets restore & non-AVIF/zero-relay)

@@ -405,5 +405,530 @@ Meanwhile [[Real Concept|Alias]] must still be extracted cleanly.
             })
 
 
+class TestMultiDomainV4Ingest(unittest.TestCase):
+    def test_all_harvester_js_files_parse_and_are_async_callables(self):
+        import json
+        import shutil
+        import subprocess
+
+        harvesters_dir = Path(__file__).resolve().parent / "harvesters"
+        expected = ["facebook.js", "instagram.js", "x_twitter.js", "linkedin.js", "web_article.js"]
+        for fname in expected:
+            self.assertTrue((harvesters_dir / fname).is_file(), f"Missing harvester JS: {fname}")
+
+        node_bin = shutil.which("node")
+        self.assertIsNotNone(node_bin, "Node.js is required to syntax-validate harvesters/*.js")
+        js_check = (
+            "const fs = require('fs'); const path = require('path'); "
+            "const dir = process.argv[1]; "
+            "for (const name of JSON.parse(process.argv[2])) { "
+            "  const src = fs.readFileSync(path.join(dir, name), 'utf8').trim(); "
+            "  const fn = new Function('return (' + src + ')')(); "
+            "  if (typeof fn !== 'function') throw new Error(name + ' did not evaluate to function'); "
+            "  if (fn.constructor.name !== 'AsyncFunction') throw new Error(name + ' is not async function'); "
+            "}"
+        )
+        proc = subprocess.run(
+            [node_bin, "-e", js_check, str(harvesters_dir), json.dumps(expected)],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        self.assertEqual(proc.returncode, 0, f"JS validation failed: {proc.stderr or proc.stdout}")
+
+    def test_web_article_and_x_harvester_real_js_behavior_in_node(self):
+        import json
+        import shutil
+        import subprocess
+
+        node_bin = shutil.which("node")
+        self.assertIsNotNone(node_bin, "Node.js is required for JS behavior tests")
+        harvesters_dir = Path(__file__).resolve().parent / "harvesters"
+
+        # Lightweight DOM harness testing web_article.js (@graph JSON-LD, GFM table, code lang, comma-in-URL srcset)
+        node_test = r"""
+const fs = require('fs');
+const path = require('path');
+const dir = process.argv[1];
+
+class FakeEl {
+  constructor(tag, attrs = {}, text = '', children = []) {
+    this.nodeType = 1;
+    this.tagName = tag.toUpperCase();
+    this.attrs = { ...attrs };
+    this.className = attrs.class || '';
+    this._text = text;
+    this.children = [];
+    this.parent = null;
+    this.src = attrs.src || '';
+    this.currentSrc = attrs.currentSrc || attrs.src || '';
+    this.srcset = attrs.srcset || '';
+    this.alt = attrs.alt || '';
+    this.href = attrs.href || '';
+    this.naturalWidth = attrs.naturalWidth || 0;
+    this.naturalHeight = attrs.naturalHeight || 0;
+    for (const c of children) this.appendChild(c);
+  }
+  appendChild(c) { c.parent = this; this.children.push(c); return c; }
+  getAttribute(k) { return this.attrs[k] ?? null; }
+  get textContent() { return this.children.length ? this._text + this.children.map(c => c.textContent).join('') : this._text; }
+  get innerText() { return this.textContent; }
+  getBoundingClientRect() { return { width: this.attrs._w ?? 800, height: this.attrs._h ?? 500, top: 20, bottom: 520, left: 0 }; }
+  remove() { if (this.parent) this.parent.children = this.parent.children.filter(c => c !== this); }
+  cloneNode() {
+    const c = new FakeEl(this.tagName, { ...this.attrs }, this._text);
+    c.children = this.children.map(ch => { const k = ch.cloneNode(true); k.parent = c; return k; });
+    return c;
+  }
+  matchesOne(sel) {
+    sel = sel.trim();
+    if (sel === 'article') return this.tagName === 'ARTICLE';
+    if (sel === 'main article' || sel === '[role="main"] article') return this.tagName === 'ARTICLE' && !!this.closest('main');
+    if (sel === 'main') return this.tagName === 'MAIN';
+    if (sel === 'tr') return this.tagName === 'TR';
+    if (sel === 'th') return this.tagName === 'TH';
+    if (sel === 'td') return this.tagName === 'TD';
+    if (sel === 'code') return this.tagName === 'CODE';
+    if (sel === 'img') return this.tagName === 'IMG';
+    if (sel === 'figure') return this.tagName === 'FIGURE';
+    if (sel === 'figcaption') return this.tagName === 'FIGCAPTION';
+    if (sel === 'nav') return this.tagName === 'NAV';
+    if (sel === 'aside') return this.tagName === 'ASIDE';
+    if (sel === 'footer') return this.tagName === 'FOOTER';
+    if (sel === 'a[href^="http"]') return this.tagName === 'A' && this.href.startsWith('http');
+    if (sel === 'script[type="application/ld+json"]') return this.tagName === 'SCRIPT' && this.attrs.type === 'application/ld+json';
+    if (sel === 'link[rel="canonical"]') return this.tagName === 'LINK' && this.attrs.rel === 'canonical';
+    if (sel === 'time[datetime]') return this.tagName === 'TIME' && !!this.attrs.datetime;
+    if (sel.startsWith('meta[')) {
+      const m = sel.match(/meta\[(property|name)="([^"]+)"\]/);
+      return m ? (this.tagName === 'META' && this.attrs[m[1]] === m[2]) : false;
+    }
+    return false;
+  }
+  matches(selectorList) {
+    return selectorList.split(',').some(s => this.matchesOne(s));
+  }
+  closest(selectorList) {
+    let cur = this;
+    while (cur) { if (cur.matches(selectorList)) return cur; cur = cur.parent; }
+    return null;
+  }
+  querySelectorAll(selectorList) {
+    const out = [];
+    const walk = (n) => {
+      for (const ch of n.children) {
+        if (ch.matches(selectorList)) out.push(ch);
+        walk(ch);
+      }
+    };
+    walk(this);
+    return out;
+  }
+  querySelector(selectorList) { return this.querySelectorAll(selectorList)[0] || null; }
+}
+
+(async () => {
+  const ldScript = new FakeEl('script', { type: 'application/ld+json' }, JSON.stringify({
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'WebSite', name: 'TestBlog' },
+      { '@type': 'TechArticle', headline: 'Scaling Agents', datePublished: '2026-10-05T12:00:00Z', author: { name: 'Jane Doe' } }
+    ]
+  }));
+  const table = new FakeEl('table', {}, '', [
+    new FakeEl('tr', {}, '', [new FakeEl('th', {}, 'Model'), new FakeEl('th', {}, 'Score')]),
+    new FakeEl('tr', {}, '', [new FakeEl('td', {}, 'Alpha'), new FakeEl('td', {}, '94.2')]),
+  ]);
+  const pre = new FakeEl('pre', {}, '', [new FakeEl('code', { class: 'language-python' }, 'print("hi")')]);
+  const fig = new FakeEl('figure', {}, '', [
+    new FakeEl('img', {
+      src: 'https://substackcdn.com/image/fetch/w_424,c_limit,f_auto/https%3A%2F%2Fimg.png',
+      srcset: 'https://substackcdn.com/image/fetch/w_424,c_limit,f_auto/https%3A%2F%2Fimg.png 424w, https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto/https%3A%2F%2Fimg.png 1456w',
+      naturalWidth: 1456, naturalHeight: 900, _w: 700, _h: 450,
+    }),
+    new FakeEl('figcaption', {}, 'Agent Loop Architecture')
+  ]);
+  const article = new FakeEl('article', {}, '', [
+    new FakeEl('nav', {}, 'Home About Pricing'),
+    new FakeEl('h1', {}, 'Scaling Agents'),
+    new FakeEl('p', {}, 'A comprehensive architectural deep dive into autonomous agent loops and benchmark evaluations across production workloads. '.repeat(3)),
+    table,
+    pre,
+    fig,
+  ]);
+  const doc = new FakeEl('html', {}, '', [ldScript, new FakeEl('main', {}, '', [article])]);
+  doc.body = doc;
+  doc.title = 'Fallback Title';
+
+  global.document = doc;
+  global.location = new URL('https://newsletter.example.com/p/scaling-agents');
+  global.window = { innerHeight: 900, scrollY: 0, scrollBy() {}, scrollTo() {} };
+
+  const webFn = new Function('return (' + fs.readFileSync(path.join(dir, 'web_article.js'), 'utf8').trim() + ')')();
+  const res = await webFn();
+  console.log(JSON.stringify(res));
+})();
+"""
+        proc = subprocess.run(
+            [node_bin, "-e", node_test, str(harvesters_dir)],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        self.assertEqual(proc.returncode, 0, f"Node web_article behavior test failed: {proc.stderr or proc.stdout}")
+        res = json.loads(proc.stdout)
+        self.assertEqual(res["title"], "Scaling Agents")
+        self.assertEqual(res["author"], "Jane Doe")
+        self.assertEqual(res["published"], "2026-10-05T12:00:00Z")
+        self.assertIn("| Model | Score |", res["text"])
+        self.assertIn("| Alpha | 94.2 |", res["text"])
+        self.assertIn("```python\nprint(\"hi\")\n```", res["text"])
+        self.assertNotIn("Home About Pricing", res["text"])
+        self.assertEqual(res["total_slides"], 1)
+        self.assertEqual(
+            res["slides"][0]["src"],
+            "https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto/https%3A%2F%2Fimg.png",
+        )
+        self.assertEqual(res["slides"][0]["note"], "Agent Loop Architecture")
+
+    def test_get_harvester_platform_detection_guards_and_fingerprints(self):
+        import get_harvester
+
+        self.assertEqual(get_harvester.detect_platform("https://web.facebook.com/vietnh1009/posts/pfbid02tqE2H"), "facebook")
+        self.assertEqual(get_harvester.detect_platform("https://fb.watch/abc123/"), "facebook")
+        self.assertEqual(
+            get_harvester.detect_platform("https://www.instagram.com/techyy_bandaa/p/DdQPCJoEuaU/?img_index=1"),
+            "instagram",
+        )
+        self.assertEqual(get_harvester.detect_platform("https://instagr.am/reels/DdQPCJoEuaU/"), "instagram")
+        self.assertEqual(get_harvester.detect_platform("https://x.com/karpathy/status/1890000000000000000"), "x_twitter")
+        self.assertEqual(
+            get_harvester.detect_platform("https://www.linkedin.com/posts/alex_ai-activity-7123456789012345678-AbCd"),
+            "linkedin",
+        )
+        self.assertEqual(
+            get_harvester.detect_platform("https://www.anthropic.com/engineering/building-effective-agents"),
+            "web_article",
+        )
+        # Guard YouTube & PDF URLs from falling back to web_article
+        self.assertEqual(get_harvester.detect_platform("https://www.youtube.com/watch?v=dQw4w9WgXcQ"), "youtube")
+        self.assertEqual(get_harvester.detect_platform("https://youtu.be/dQw4w9WgXcQ"), "youtube")
+        self.assertEqual(get_harvester.detect_platform("https://arxiv.org/pdf/2401.12345"), "pdf")
+        self.assertEqual(get_harvester.detect_platform("https://example.com/whitepaper.pdf"), "pdf")
+
+        ig_tokens = get_harvester.extract_url_fingerprints("https://instagr.am/reels/DdQPCJoEuaU/?img_index=1")
+        self.assertIn("DdQPCJoEuaU", ig_tokens)
+
+        fb_tokens = get_harvester.extract_url_fingerprints("https://www.facebook.com/share/p/1AbCdEfGhI/")
+        self.assertIn("1AbCdEfGhI", fb_tokens)
+
+        x_tokens = get_harvester.extract_url_fingerprints("https://x.com/user/article/1890000000000000000")
+        self.assertIn("1890000000000000000", x_tokens)
+
+        li_tokens = get_harvester.extract_url_fingerprints("https://www.linkedin.com/feed/update/urn:li:ugcPost:7123456789012345678/")
+        self.assertIn("7123456789012345678", li_tokens)
+
+        web_tokens = get_harvester.extract_url_fingerprints("https://www.anthropic.com/engineering/building-effective-agents/")
+        self.assertIn("anthropic.com/engineering/building-effective-agents", web_tokens)
+
+    def test_get_harvester_duplicate_detection_and_compact_cli_stdout(self):
+        import json
+        import subprocess
+        import get_harvester
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "index.md").write_text("# Index\n", encoding="utf-8")
+            (root / "raw" / "articles" / "ai").mkdir(parents=True)
+            (root / "wiki" / "sources").mkdir(parents=True)
+            (root / "raw" / "articles" / "ai" / "transformers.md").write_text(
+                '---\ntitle: "Transformers"\nsource: "https://www.instagram.com/techyy_bandaa/p/DdQPCJoEuaU/"\n---\n',
+                encoding="utf-8",
+            )
+            (root / "wiki" / "sources" / "ref.md").write_text(
+                '---\ntitle: "Ref"\noriginal_source: "https://www.instagram.com/p/DdQPCJoEuaU/"\n---\n',
+                encoding="utf-8",
+            )
+            # Test www vs non-www match on web articles & ensure prefix slug does NOT false-match longer slug
+            (root / "raw" / "articles" / "ai" / "agents.md").write_text(
+                '---\ntitle: "Agents"\nsource: "https://anthropic.com/engineering/building-effective-agents"\n---\n',
+                encoding="utf-8",
+            )
+            (root / "raw" / "articles" / "ai" / "agents-v2.md").write_text(
+                '---\ntitle: "Agents v2"\nsource: "https://anthropic.com/engineering/building-effective-agents-part-2"\n---\n',
+                encoding="utf-8",
+            )
+            (root / "raw" / "video-transcripts").mkdir(parents=True)
+            (root / "raw" / "video-transcripts" / "other-video.md").write_text(
+                '---\ntitle: "Other"\nurl: "https://www.youtube.com/watch?v=OTHER123456"\n---\n',
+                encoding="utf-8",
+            )
+
+            matches = get_harvester.find_duplicate_ingestions(
+                "https://www.instagram.com/techyy_bandaa/p/DdQPCJoEuaU/?img_index=1",
+                str(root),
+            )
+            roles = {m["file"]: m["match_role"] for m in matches}
+            self.assertEqual(roles.get("raw/articles/ai/transformers.md"), "primary_source")
+            self.assertEqual(roles.get("wiki/sources/ref.md"), "original_source")
+
+            web_matches = get_harvester.find_duplicate_ingestions(
+                "https://www.anthropic.com/engineering/building-effective-agents/",
+                str(root),
+            )
+            self.assertEqual(len(web_matches), 1)
+            self.assertEqual(web_matches[0]["file"], "raw/articles/ai/agents.md")
+            self.assertEqual(web_matches[0]["match_role"], "primary_source")
+
+            # Generic query endpoint (/watch) MUST NOT false-match other YouTube videos
+            yt_unseen = get_harvester.find_duplicate_ingestions(
+                "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                str(root),
+            )
+            self.assertEqual(yt_unseen, [])
+            yt_seen = get_harvester.find_duplicate_ingestions(
+                "https://youtu.be/OTHER123456",
+                str(root),
+            )
+            self.assertEqual(len(yt_seen), 1)
+            self.assertEqual(yt_seen[0]["file"], "raw/video-transcripts/other-video.md")
+
+            # CLI verification: default output omits duplicate raw harvester_js, and redirects YouTube
+            script_path = Path(__file__).resolve().parent / "get_harvester.py"
+            p_ig = subprocess.run(
+                [sys.executable, str(script_path), "--url", "https://www.instagram.com/techyy_bandaa/p/DdQPCJoEuaU/", "--project-root", str(root)],
+                capture_output=True, text=True, check=True,
+            )
+            ig_out = json.loads(p_ig.stdout)
+            self.assertTrue(ig_out["already_ingested"])
+            self.assertTrue(ig_out["has_original_source_overlap"])
+            self.assertIn("browser_prompt", ig_out)
+            self.assertNotIn("harvester_js", ig_out)
+
+            p_yt = subprocess.run(
+                [sys.executable, str(script_path), "--url", "https://youtu.be/dQw4w9WgXcQ", "--project-root", str(root)],
+                capture_output=True, text=True, check=True,
+            )
+            yt_out = json.loads(p_yt.stdout)
+            self.assertEqual(yt_out["status"], "redirect_video")
+            self.assertEqual(yt_out["platform"], "youtube")
+            self.assertNotIn("browser_prompt", yt_out)
+
+    def test_download_post_assets_parse_fenced_harvest_auto_mode_and_zero_relay_cli(self):
+        import argparse
+        import json
+        import subprocess
+
+        with tempfile.TemporaryDirectory() as tmp:
+            tdir = Path(tmp)
+            (tdir / "index.md").write_text("# Index\n", encoding="utf-8")
+            fenced_2 = tdir / "ig_output.txt"
+            payload_2 = {
+                "platform": "instagram",
+                "status": "ok",
+                "url": "https://www.instagram.com/techyy_bandaa/p/DdQPCJoEuaU/?img_index=1",
+                "canonical_url": "https://www.instagram.com/techyy_bandaa/p/DdQPCJoEuaU/",
+                "author": "Techie",
+                "published": "2025-08-12T08:00:00.000Z",
+                "text": "Comment PDF",
+                "slides": [
+                    {"index": 1, "src": "https://instagram.fsgn8-4.fna.fbcdn.net/1.webp"},
+                    {"index": 2, "src": "https://instagram.fsgn8-4.fna.fbcdn.net/2.webp"},
+                ],
+            }
+            fenced_2.write_text(
+                f"## Script output\n```json\n{json.dumps(payload_2)}\n```\nPage navigated to https://www.instagram.com/.\n",
+                encoding="utf-8",
+            )
+
+            parsed, meta = download_post_assets.parse_harvest_file(str(fenced_2))
+            self.assertEqual(parsed["platform"], "instagram")
+            self.assertEqual(meta["author"], "Techie")
+            self.assertEqual(meta["url"], "https://www.instagram.com/techyy_bandaa/p/DdQPCJoEuaU/")
+
+            args_auto_assets = argparse.Namespace(
+                from_harvest_file=str(fenced_2), manifest=None, slug="two-diagram-post",
+                mode=None, start_index=None, urls=None, fallbacks=None, probe_cover=None,
+            )
+            slug_a, mode_a, start_a, items_a = download_post_assets.load_manifest_or_args(args_auto_assets)
+            self.assertEqual((slug_a, mode_a, start_a, len(items_a)), ("two-diagram-post", "assets", 1, 2))
+
+            fenced_5 = tdir / "deck_output.txt"
+            fenced_5.write_text(
+                json.dumps({"platform": "instagram", "slides": [{"src": f"https://example.com/{i}.webp"} for i in range(5)]}),
+                encoding="utf-8",
+            )
+            args_auto_shots = argparse.Namespace(
+                from_harvest_file=str(fenced_5), manifest=None, slug="five-slide-deck",
+                mode="auto", start_index=None, urls=None, fallbacks=None, probe_cover=None,
+            )
+            slug_s, mode_s, start_s, items_s = download_post_assets.load_manifest_or_args(args_auto_shots)
+            self.assertEqual((slug_s, mode_s, start_s, len(items_s)), ("five-slide-deck", "screenshots", 0, 5))
+
+            # End-to-end CLI test on a 0-image long Web Article: stdout truncates preview, raw file gets full body & clean Markdown
+            long_body = "# Architecture\n\n| Metric | Value |\n| --- | --- |\n| Latency | 12ms |\n\n" + ("Detailed paragraph content. " * 120)
+            long_article = tdir / "web_output.txt"
+            long_article.write_text(
+                "```json\n" + json.dumps({
+                    "platform": "web_article",
+                    "status": "ok",
+                    "title": "Deep Architecture Guide",
+                    "canonical_url": "https://blog.example.com/deep-arch",
+                    "author": "Jane Doe",
+                    "published": "2026-10-05T14:30:00Z",
+                    "text": long_body,
+                    "external_links": ["https://arxiv.org/abs/2401.00001"],
+                    "slides": [],
+                }) + "\n```\n",
+                encoding="utf-8",
+            )
+            script_path = Path(__file__).resolve().parent / "download_post_assets.py"
+            proc = subprocess.run(
+                [
+                    sys.executable, str(script_path),
+                    "--slug", "deep-architecture-guide",
+                    "--mode", "auto",
+                    "--from-harvest-file", str(long_article),
+                    "--init-raw", "--raw-subdir", "ai-other",
+                    "--project-root", str(tdir),
+                ],
+                capture_output=True, text=True, check=True,
+            )
+            cli_rep = json.loads(proc.stdout)
+            self.assertEqual(cli_rep["status"], "ok")
+            self.assertEqual(cli_rep["total_requested"], 0)
+            self.assertTrue(cli_rep["harvest_meta"]["text_truncated"])
+            self.assertIn("text_preview", cli_rep["harvest_meta"])
+            self.assertNotIn("text", cli_rep["harvest_meta"])
+
+            raw_md = (tdir / "raw" / "articles" / "ai-other" / "deep-architecture-guide.md").read_text(encoding="utf-8")
+            self.assertIn("published: 2026-10-05", raw_md)
+            self.assertIn("## Nội Dung Nguyên Văn Bài Viết", raw_md)
+            self.assertIn("| Metric | Value |", raw_md)
+            self.assertNotIn("> | Metric | Value |", raw_md)
+            self.assertNotIn("raw/screenshots/deep-architecture-guide", raw_md)
+            self.assertNotIn("Thư Viện 0 Trang", raw_md)
+            self.assertIn("https://arxiv.org/abs/2401.00001", raw_md)
+            self.assertGreater(len(raw_md), len(long_body))
+
+    def test_download_post_assets_403_referer_retry_assets_scaffold_and_probe_cover(self):
+        import urllib.error
+        from unittest import mock
+
+        self.assertEqual(
+            download_post_assets._infer_referer("https://instagram.fsgn8-4.fna.fbcdn.net/v/t51.82787-15/1.webp"),
+            "https://www.instagram.com/",
+        )
+        self.assertEqual(
+            download_post_assets._infer_referer("https://scontent.fsgn5-2.fna.fbcdn.net/v/t39/2.jpg"),
+            "https://www.facebook.com/",
+        )
+        self.assertEqual(
+            download_post_assets._infer_referer("https://pbs.twimg.com/media/AbCdEf?format=jpg&name=orig"),
+            "https://x.com/",
+        )
+        self.assertEqual(
+            download_post_assets._infer_referer("https://media.licdn.com/dms/image/D4D22AQF/0"),
+            "https://www.linkedin.com/",
+        )
+
+        # Verify fetch_url_bytes sends non-AVIF Accept header and retries 403 with Instagram Referer
+        seen_headers = []
+
+        class _FakeResp:
+            def __enter__(self): return self
+            def __exit__(self, *a): return False
+            def read(self): return b"OK_BYTES"
+
+        def _fake_urlopen(req, timeout=20):
+            hdrs = {k.lower(): v for k, v in req.header_items()}
+            seen_headers.append(hdrs)
+            if len(seen_headers) == 1:
+                raise urllib.error.HTTPError(req.full_url, 403, "Forbidden", {}, None)
+            return _FakeResp()
+
+        with mock.patch("urllib.request.urlopen", side_effect=_fake_urlopen):
+            data, err = download_post_assets.fetch_url_bytes(
+                "https://instagram.fsgn8-4.fna.fbcdn.net/v/t51/img.webp", retries=0
+            )
+        self.assertEqual(data, b"OK_BYTES")
+        self.assertIsNone(err)
+        self.assertEqual(len(seen_headers), 2)
+        self.assertNotIn("avif", seen_headers[0]["accept"].lower())
+        self.assertNotIn("referer", seen_headers[0])
+        self.assertEqual(seen_headers[1]["referer"], "https://www.instagram.com/")
+
+        # Verify scaffold_raw_article assets mode + colon-containing published quoting + explicit probe_cover
+        minimal_png = (
+            b"\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x02\x00\x00\x00\x03"
+            b"\x08\x02\x00\x00\x00\x00\x00\x00\x00" + (b"\x00" * 32)
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            tdir = Path(tmp)
+            src_img = tdir / "src.png"
+            src_img.write_bytes(minimal_png)
+            probe_dest = tdir / "scratch" / "cover.png"
+
+            res = download_post_assets.process_item({
+                "index": 0,
+                "url": None,
+                "fallback": str(src_img),
+                "mode": "screenshots",
+                "slug": "probe-cover",
+                "out_dir": str(probe_dest.parent),
+                "explicit_dest_path": str(probe_dest),
+                "project_root": str(tdir),
+                "min_bytes": 10,
+            })
+            self.assertEqual(res["source_used"], "fallback")
+            self.assertEqual(res["filename"], "cover.png")
+            self.assertTrue(probe_dest.is_file())
+            self.assertFalse((tdir / "raw").exists())
+
+            rel_a, st_a = download_post_assets.scaffold_raw_article(
+                "two-diagrams",
+                [{
+                    "index": 1,
+                    "filename": "two-diagrams-01.png",
+                    "rel_path": "raw/assets/two-diagrams-01.png",
+                    "md_embed": "![Asset 01](../../assets/two-diagrams-01.png)",
+                    "dimensions": "1200x800",
+                    "source_used": "url",
+                }],
+                str(tdir),
+                {
+                    "platform": "facebook",
+                    "raw_subdir": "ai-other",
+                    "title": "Two Diagrams",
+                    "published": "14 tháng 11 lúc 18:30",
+                    "text": "Short caption",
+                },
+            )
+            self.assertEqual(st_a, "created")
+            assets_md = (tdir / rel_a).read_text(encoding="utf-8")
+            self.assertIn('published: "14 tháng 11 lúc 18:30"', assets_md)
+            self.assertIn("`raw/assets/`", assets_md)
+            self.assertNotIn("raw/screenshots/two-diagrams", assets_md)
+
+    def test_register_ingest_suggest_links_supports_vietnamese_unicode(self):
+        import json
+        import subprocess
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "index.md").write_text(
+                "# Index\n\n## Concepts\n- [[Quy Trình Tư Vấn Nha Khoa 3C]]: Quy trình tư vấn khách hàng nha khoa.\n",
+                encoding="utf-8",
+            )
+            script_path = Path(__file__).resolve().parent / "register_ingest.py"
+            proc = subprocess.run(
+                [sys.executable, str(script_path), "--project-root", str(root), "--suggest-links", "tư vấn nha khoa"],
+                capture_output=True, text=True, check=True,
+            )
+            out = json.loads(proc.stdout)
+            self.assertEqual(len(out["matches"]), 1)
+            self.assertEqual(out["matches"][0]["page"], "Quy Trình Tư Vấn Nha Khoa 3C")
+
+
 if __name__ == "__main__":
     unittest.main()

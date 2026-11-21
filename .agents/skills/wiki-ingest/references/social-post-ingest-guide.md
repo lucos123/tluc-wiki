@@ -1,155 +1,62 @@
-# Social Post & Visual Guide Ingest Guide (v3 — Token- & Speed-Optimized)
+# Social Post & Multi-Domain Web Ingest Guide (v4.1 — Progressive Disclosure & Zero-URL-Relay)
 
-This reference documents the **Fast 2-Stage Pipeline** for capturing, downloading, and analyzing social media posts (Facebook, X/Twitter, LinkedIn, Instagram) and multi-slide visual handbooks/infographics into `tluc-wiki`.
-
----
-
-## Why This Architecture?
-
-1. **Zero 60s Timeouts & Zero Manual `press_key` Loops:** Running an exact, visible-DOM-aware JS gallery harvester inside `mcp_chrome_devtools_evaluate_script` extracts 13–20 high-res CDN URLs in **1 tool call (~4–6s)** instead of 13+ LLM `press_key("ArrowRight")` round trips (~400K–500K wasted tokens).
-2. **Zero Output Truncation:** The `browser` subagent returns **only** metadata, verbatim post text, links/comments, and ordered CDN URLs—never writing slide transcriptions inside its reply.
-3. **2-Turn Vision + 1-Command Registration:** `download_post_assets.py` pulls all images concurrently in seconds, parallel `read_file` batches (6–7 images/turn) inspect full-res slides in 2 turns, and `register_ingest.py` atomically updates `index.md`, `wiki/log.md`, and runs `lint_wiki.py` in 1 command.
+This reference defines the **v4.1 Multi-Domain Ingest Pipeline** for capturing visual decks, social threads, PDF slides, and technical web articles across **Facebook, Instagram, X/Twitter, LinkedIn, and arbitrary Web Articles (Substack, Medium, blogs, docs)** into `tluc-wiki`.
 
 ---
 
-## Stage 1 — Fast Browser Harvesting (~5 Browser Tool Calls Total)
+## Key Architecture Pillars
 
-Invoke the `browser` subagent (`invoke_subagent` with `TypeName: "browser"`) using this prompt template:
-
-```text
-Navigate to: <POST_URL>
-
-Execute fast DOM harvesting ONLY (target ~5 tool calls total):
-1. Dismiss any closeable login modal (`X`). If login strictly blocks all content with no close button, stop and report BLOCKED.
-2. Click "See more" / "Xem thêm" if truncated, and extract post metadata (author, exact timestamp, engagement), verbatim post text, and author comments/links via 1 `evaluate_script` call.
-3. For multi-image posts (Facebook gallery/carousel):
-   - Click the first photo thumbnail to enter the photo viewer (`/photo?fbid=...`).
-   - Run the 1-Call Gallery Harvester JS snippet below in a SINGLE `evaluate_script` call (targets ONLY the visible stage `<img>` with `rect.width > 200 && rect.height > 200`, `80ms` poll, `1500ms` per-slide cap, `40000ms` total cap):
-     * CRITICAL: Do NOT use `document.querySelector('[role="main"] img[src*="scontent"]')` (matches hidden preloaded images and triggers 60s timeouts).
-     * CRITICAL: Do NOT iterate slide-by-slide using repeated `press_key("ArrowRight")` LLM turns unless the 1-call JS snippet fails twice.
-4. Return ONLY:
-   (a) Author, profile URL, exact timestamp, engagement
-   (b) Complete verbatim post text & comments/external links
-   (c) Ordered list of direct high-resolution CDN image URLs (`fbid`, dimensions, `src`)
-   - Do NOT transcribe image text in your reply.
-```
-
-### Reference JS Snippets for Facebook (`mcp_chrome_devtools_evaluate_script`)
-
-#### Snippet A — Visible-Stage 1-Call Gallery Harvester (Run once inside `/photo?fbid=...`)
-```javascript
-async () => {
-  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-  const startedAt = Date.now();
-  const MAX_TOTAL_MS = 40000;
-  const PER_SLIDE_MS = 1500;
-
-  const getVisibleStageImg = () => {
-    const candidates = Array.from(
-      document.querySelectorAll('img[data-visualcompletion="media-vc-image"], [role="main"] img[src*="scontent"], img[src*="scontent"]')
-    ).filter((el) => {
-      const r = el.getBoundingClientRect();
-      const st = getComputedStyle(el);
-      return r.width > 200 && r.height > 200 && st.display !== "none" && st.visibility !== "hidden" && st.opacity !== "0";
-    });
-    candidates.sort((a, b) => {
-      const ra = a.getBoundingClientRect();
-      const rb = b.getBoundingClientRect();
-      return rb.width * rb.height - ra.width * ra.height;
-    });
-    return candidates[0] || null;
-  };
-
-  const snap = () => {
-    const fbid = new URL(location.href).searchParams.get("fbid");
-    const img = getVisibleStageImg();
-    return {
-      fbid,
-      src: img ? img.src : null,
-      dims: img ? `${img.naturalWidth}x${img.naturalHeight}` : null,
-    };
-  };
-
-  const results = [];
-  const seen = new Set();
-  let cur = snap();
-  if (!cur.fbid || !cur.src) return { error: "Stage image or fbid not found", cur };
-  seen.add(cur.fbid);
-  results.push({ index: 1, ...cur });
-
-  while (Date.now() - startedAt < MAX_TOTAL_MS && results.length < 40) {
-    const prevFbid = cur.fbid;
-    const prevSrc = cur.src;
-    const nextBtn = document.querySelector('[aria-label="Next photo"], [aria-label="Ảnh tiếp theo"]');
-    if (!nextBtn) break;
-    nextBtn.click();
-
-    const stepStart = Date.now();
-    let updated = null;
-    while (Date.now() - stepStart < PER_SLIDE_MS) {
-      await sleep(80);
-      const probe = snap();
-      if (probe.fbid && probe.fbid !== prevFbid && probe.src && probe.src !== prevSrc) {
-        updated = probe;
-        break;
-      }
-    }
-    if (!updated) updated = snap();
-    if (!updated.fbid || seen.has(updated.fbid)) break;
-    seen.add(updated.fbid);
-    cur = updated;
-    results.push({ index: results.length + 1, ...cur });
-  }
-
-  return { total: results.length, elapsedMs: Date.now() - startedAt, results };
-}
-```
-
-### Chrome Remote Debugging Recovery
-If the `browser` subagent reports `DevToolsActivePort (ENOENT)`:
-1. Ask the user to open Chrome, enable remote debugging at `chrome://inspect/#remote-debugging`, and approve the prompt.
-2. **Do not** spawn a duplicate subagent — reuse the existing `browser` subagent `conversationId` via `send_message`.
+1. **Progressive Disclosure & Redirect Guards via `get_harvester.py`:** Never inline bulky JS harvesters inside prompts upfront. Run `get_harvester.py --url "<URL>"` first—it checks `raw/articles/`, `raw/video-transcripts/`, and `wiki/sources/` for duplicate ingestion (`primary_source` vs `original_source`), guards against accidentally routing YouTube or `.pdf` URLs to `web_article.js`, classifies the platform, and emits **only** the matching `.js` prompt (without duplicating a second raw JS field).
+2. **Zero-URL-Relay & Zero-Article-Relay (`steps/<N>/output.txt` $\rightarrow$ `--from-harvest-file`):** When `mcp_chrome_devtools_evaluate_script` writes large output to `steps/<N>/output.txt`, the `browser` subagent **never copies 10–20 signed CDN URLs or 35KB article bodies back into chat**. Instead, it returns ONLY compact metadata + the exact `steps/<N>/output.txt` path. `download_post_assets.py --from-harvest-file ... --init-raw` parses it natively, writes full untruncated text straight to `raw/articles/<topic>/<slug>.md`, and returns a compact stdout summary (`text_preview` for bodies `> 1500` chars unless `--full-meta` is passed).
+3. **Cover-First Slug Resolution (`--probe-cover`):** On platforms with short CTA-only captions (`"Comment PDF"` on Instagram/LinkedIn), download only Slide 1 via `--probe-cover scratch/cover.webp` and read it first to determine the exact canonical title and `<slug>` before writing to `raw/`.
+4. **Auto Storage Routing (`--mode auto`) & Reliable CDN Downloads:** Automatically routes `1–3` diagrams to `raw/assets/<slug>-01.<ext>` (`assets` mode) and `>= 4` visual slides to `raw/screenshots/<slug>/00.<ext>..NN.<ext>` (`screenshots` mode). Sends explicit non-AVIF `Accept: image/webp,image/png,image/jpeg,image/gif;q=0.9,*/*;q=0.1` headers and automatically retries HTTP `401`/`403` once with a domain-matched `Referer` (checking `instagram`/`cdninstagram` before `fbcdn.net`).
+5. **Bilingual Layer Separation:** Always keep visual assets in their **native original language** (English `.webp`/`.jpg` or Vietnamese `.jpg`); write `raw/articles/...` in Vietnamese + verbatim English terms/formulas, and maintain `wiki/` concepts/entities in canonical English (or matching language per target page).
 
 ---
 
-## Stage 2 — Parallel Asset Download & 2-Turn Multimodal `read_file`
+## Supported Platforms & Harvesters (`Snippets A–E`)
 
-### 1. Choose Storage Mode & Run Downloader
-| Content Type | `--mode` | Target Image Path | Target Raw Markdown |
+| Platform | Script (`scripts/harvesters/`) | How It Extracts Accurately & Saves Tokens | Auth / Special Caveats |
 | :--- | :--- | :--- | :--- |
-| **Visual Guide / Carousel ($\ge 4$ slides)** | `screenshots` | `raw/screenshots/<slug>/00.<ext>` .. `NN.<ext>` | `raw/articles/ai-other/<slug>.md` |
-| **Article / Post with 1–3 Diagrams** | `assets` | `raw/assets/<slug>-01.<ext>` .. | `raw/articles/<topic>/<slug>.md` |
-
-Write a scratch manifest JSON file (cleanest for long CDN query strings) and run:
-```json
-{
-  "slug": "your-post-slug",
-  "mode": "screenshots",
-  "urls": ["https://...", "https://..."]
-}
-```
-*(Both `"urls": [...]` and structured `"items": [{"url": "...", "note": "..."}]` are accepted inside `--manifest`.)*
-
-```powershell
-python .agents\skills\wiki-ingest\scripts\download_post_assets.py --manifest path\to\manifest.json
-```
-*(Immutable `raw/` workflow: either pass `--init-raw` / `"init_raw": true` during download to save a clean, finalized raw post + image gallery in one step without placeholder comments and synthesize slides directly into `wiki/sources/<Source Title>.md`; or omit `--init-raw`, read all slides first, and write `raw/articles/<topic>/<slug>.md` once with full slide-by-slide transcriptions.)*
-
-### 2. Batch Parallel Visual Reading (6–7 Images/Turn)
-Call `read_file` directly on the downloaded local images in **parallel batches of 6–7 images per turn**:
-- For an 11–14 slide deck, read slides `00..06` in Turn 1 and `07..13` in Turn 2 (**2 turns total**).
-- Extract exact formulas, tables, diagrams, arrows, and Vietnamese/English text verbatim at native CDN resolution.
+| **Facebook** | `facebook.js` *(Snippet A)* | Auto-detects post view vs `/photo?fbid=...` & `/photos/...` Page albums; supports English + Vietnamese login/UI labels; filters comment photos; steps Visible-Stage `rect > 200` carousel (`80ms` poll, `fbid` + `pathname` dedup) | Works on most public posts; if `status === "needs_gallery_open"`, open `first_photo_href` and run `facebook.js` once inside photo viewer |
+| **Instagram** | `instagram.js` *(Snippet B)* | Auto-rewinds `?img_index=K` to Slide 1; expands captions; scopes strictly to post carousel & excludes `"More posts from @author"` thumbnails; comma-safe `srcset` max-res picker; ISO `<time datetime>`, co-authors, `videos_found` | **Requires logged-in Chrome session** for full carousels (`status: "blocked"` otherwise); native `.webp` renders cleanly via `read_file`; probe Slide 1 to name `<slug>` |
+| **X / Twitter** | `x_twitter.js` *(Snippet C)* | Anchors strictly on focal `/status/<id>` tweet; expands in-tweet `"Show more"`; scrolls virtualized timeline to capture full same-author threads (stopping at other-author replies) + X Longform Articles; upgrades `pbs.twimg.com/media` to **`?name=orig`** | Check `videos_found` / external paper links if tweet quotes an external article |
+| **LinkedIn** | `linkedin.js` *(Snippet D)* | Supports both logged-in feed DOM & public post DOM + `SocialMediaPosting` JSON-LD (exact ISO `datePublished`); separates `author_headline` from `published`; steps `.ssplayer-carousel` / `.carousel-next-btn` with stale-stop guard | Checks `/authwall`; if slide deck renders inside a cross-origin PDF iframe, use returned `document_iframe_url` |
+| **Web Articles** *(Substack, Medium, Blogs, Docs)* | `web_article.js` *(Snippet E)* | Parses `@graph`-aware JSON-LD + OpenGraph; selects largest text-rich article container; strips nav/aside/footer/comments; converts headings, language-tagged `<pre>` code fences, **GFM `<table>`s**, and nested lists (capped 45K chars) + comma-safe `srcset` `<figure>`s | Zero screenshot overhead for text-first articles; pass `--from-harvest-file ... --init-raw` to write clean Markdown directly to `raw/articles/` |
 
 ---
 
-## Stage 3 — Raw Documentation, Wiki Synthesis & 1-Command Registration
+## End-to-End 3-Stage Workflow
 
-1. **Save Raw Article (`raw/articles/<topic>/<slug>.md`):**
-   - Write YAML frontmatter (`title`, `source`, `original_source` if cited, `author`, `published`, `created`, `description`, `tags`).
-   - Include verbatim post text, author links/comments, relative image embeds (`![Page 00](../../screenshots/<slug>/00.jpg)`), and slide-by-slide transcriptions.
-2. **Create/Update Wiki Pages (`wiki/sources/`, `wiki/concepts/`, `wiki/entities/`):**
-   - Create `wiki/sources/<Source Title>.md` (`source_type: visual-notes`), entity/concept pages with multiline YAML `tags:` lists and verified `[[Wiki Links]]`.
-3. **Register Index, Log & Lint in 1 Single Command:**
+### Stage 1 — Duplicate Pre-Check & Dispatch (`get_harvester.py`)
+```powershell
+python .agents/skills/wiki-ingest/scripts/get_harvester.py --url "<TARGET_URL>"
+```
+1. Check `"status"` (`redirect_video` $\rightarrow$ `video-ingest-guide.md`; `redirect_pdf` $\rightarrow$ `raw/pdfs/`) and inspect `"already_ingested"`, `"has_original_source_overlap"`, and `"duplicate_matches"`.
+2. Invoke the `browser` subagent (`TypeName: "browser"`) using the generated `"browser_prompt"` field directly.
+3. If the subagent reports `DevToolsActivePort (ENOENT)`: ask the user to enable remote debugging at `chrome://inspect/#remote-debugging`, then reuse the **same** subagent `conversationId` via `send_message`.
+
+### Stage 2 — Cover Probe (If CTA-Only Caption) & Concurrent Download / Zero-Relay Scaffold
+- **Optional Slide-1 Probe** (for Instagram/LinkedIn posts without descriptive captions):
+  ```powershell
+  python .agents\skills\wiki-ingest\scripts\download_post_assets.py `
+    --from-harvest-file "C:\...\steps\6\output.txt" `
+    --probe-cover "C:\...\scratch\cover.webp"
+  ```
+  Inspect `cover.webp` with `read_file` to establish `<slug>` cleanly.
+- **Full Concurrent Download (`--mode auto`) & Optional Raw Scaffolding (`--init-raw`)**:
+  ```powershell
+  python .agents\skills\wiki-ingest\scripts\download_post_assets.py `
+    --slug "<slug>" --mode auto `
+    --from-harvest-file "C:\...\steps\6\output.txt"
+  ```
+  *(For long Web Articles, add `--init-raw --raw-subdir "<topic>"` to write the full Markdown + figure embeds straight into `raw/articles/<topic>/<slug>.md` with zero context bloat, then read `raw/articles/<topic>/<slug>.md` directly.)*
+
+### Stage 3 — Parallel `read_file`, Immutable `raw/`, Wiki Synthesis & 1-Command Registration
+1. Call `read_file` on downloaded local images (`.jpg`, `.png`, `.webp`) in **parallel batches of 5–7 images per turn**.
+2. Finalize `raw/articles/<topic>/<slug>.md` **once** (immutable: YAML frontmatter + verbatim post/article content + full bilingual visual transcription with `![Page XX](../../screenshots/<slug>/XX.<ext>)` or `![Asset XX](../../assets/<slug>-XX.<ext>)`).
+3. Run `python .agents\skills\wiki-ingest\scripts\register_ingest.py --suggest-links "<keywords>"` (supports both English and Vietnamese Unicode keywords) and create/update `wiki/entities/`, `wiki/sources/`, and `wiki/concepts/` pages with multiline YAML `tags:` lists and zero broken links.
+4. Register atomically in **1 command**:
    ```powershell
    python .agents\skills\wiki-ingest\scripts\register_ingest.py `
      --date YYYY-MM-DD `

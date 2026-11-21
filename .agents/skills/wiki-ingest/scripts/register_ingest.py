@@ -241,7 +241,7 @@ def main():
     index_path = os.path.join(project_root, "index.md")
 
     if args.suggest_links is not None:
-        query_tokens = [t for t in re.findall(r"[a-z0-9]+", args.suggest_links.lower()) if len(t) >= 2]
+        query_tokens = [t for t in re.findall(r"[^\W_]+", args.suggest_links.lower()) if len(t) >= 2]
         matches = []
         current_section = ""
         if os.path.isfile(index_path):

@@ -1,32 +1,44 @@
 """
-Deterministic Social & Visual Asset Downloader for wiki-ingest.
+Deterministic Social & Web Asset Downloader for wiki-ingest (v4.1).
 
-Concurrently downloads high-resolution post images (or falls back to local
+Concurrently downloads high-resolution post/article images (or falls back to local
 screenshots) into raw/screenshots/<slug>/ or raw/assets/ using pure Python
 standard library modules (zero external dependencies like PIL/requests).
 
+Supports Zero-URL-Relay parsing from Chrome DevTools `steps/<N>/output.txt`
+(`--from-harvest-file`), Cover-First probing (`--probe-cover`), Auto storage routing
+(`--mode auto`: 1-3 -> assets, >=4 -> screenshots), non-AVIF content negotiation,
+and automatic domain-matched Referer fallback on HTTP 401/403.
+
 Usage:
     python .agents/skills/wiki-ingest/scripts/download_post_assets.py \
-        --slug prompt-engineering-handbook --mode screenshots \
-        --urls "https://..." "https://..."
+        --slug transformers-detailed-notes --mode auto \
+        --from-harvest-file "C:\\...\\steps\\6\\output.txt"
 """
 
 import argparse
 import concurrent.futures
 import json
 import os
+import re
 import shutil
 import struct
 import sys
 import time
+import urllib.error
 import urllib.request
 from datetime import date as dt_date
+from urllib.parse import urlparse
 
 
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 )
+# Explicitly request formats supported by pure-Python header detection & multimodal read_file
+# (avoids Cloudflare/Substack/IG CDNs negotiating image/avif).
+ACCEPT_IMAGE_HEADER = "image/webp,image/png,image/jpeg,image/gif;q=0.9,*/*;q=0.1"
+STDOUT_TEXT_PREVIEW_LIMIT = 1200
 
 
 def find_project_root(start_dir=None):
@@ -113,19 +125,59 @@ def detect_image_info(data):
     return None, "unknown"
 
 
+def _infer_referer(url):
+    """Return a domain-matched Referer header to satisfy CDN anti-hotlink checks."""
+    parsed = urlparse(url)
+    host = (parsed.hostname or "").lower()
+    # Check Instagram before fbcdn.net because IG CDN URLs use *.fna.fbcdn.net
+    if "instagram" in host or "cdninstagram" in host:
+        return "https://www.instagram.com/"
+    if "fbcdn" in host or "facebook" in host or "fbsbx" in host:
+        return "https://www.facebook.com/"
+    if "licdn" in host or "linkedin" in host:
+        return "https://www.linkedin.com/"
+    if "twimg" in host or "twitter" in host or host == "x.com" or host.endswith(".x.com"):
+        return "https://x.com/"
+    if parsed.scheme and parsed.netloc:
+        return f"{parsed.scheme}://{parsed.netloc}/"
+    return None
+
+
+def _safe_relpath(path, base_dir):
+    """Compute forward-slash relative path, falling back to absolute path across drives."""
+    try:
+        return os.path.relpath(path, base_dir).replace("\\", "/")
+    except ValueError:
+        return os.path.abspath(path).replace("\\", "/")
+
+
 def fetch_url_bytes(url, retries=2, timeout=20):
-    """Download URL bytes with retry/backoff and browser User-Agent."""
+    """Download URL bytes with retry/backoff, non-AVIF Accept header, and 401/403 Referer fallback."""
     last_err = None
-    headers = {"User-Agent": USER_AGENT, "Accept": "image/*,*/*;q=0.8"}
-    for attempt in range(retries + 1):
+    headers = {"User-Agent": USER_AGENT, "Accept": ACCEPT_IMAGE_HEADER}
+    referer_tried = False
+    attempt = 0
+    while attempt <= retries:
         try:
             req = urllib.request.Request(url, headers=headers)
             with urllib.request.urlopen(req, timeout=timeout) as resp:
                 return resp.read(), None
+        except urllib.error.HTTPError as exc:
+            last_err = str(exc)
+            if exc.code in (401, 403) and not referer_tried:
+                referer = _infer_referer(url)
+                if referer:
+                    headers["Referer"] = referer
+                    referer_tried = True
+                    continue
+            if attempt < retries:
+                time.sleep(0.8 * (attempt + 1))
+            attempt += 1
         except Exception as exc:  # noqa: BLE001
             last_err = str(exc)
             if attempt < retries:
                 time.sleep(0.8 * (attempt + 1))
+            attempt += 1
     return None, last_err
 
 
@@ -146,7 +198,7 @@ def build_md_embed(mode, slug, filename, idx_num):
 
 def _build_item_result(task, filename, dest_path, byte_count, ext, dims, source_used, url_error=None):
     """Build normalized metadata dict for a successfully acquired asset."""
-    rel_path = os.path.relpath(dest_path, task["project_root"]).replace("\\", "/")
+    rel_path = _safe_relpath(dest_path, task["project_root"])
     result = {
         "index": task["index"],
         "filename": filename,
@@ -174,6 +226,14 @@ def process_item(task):
     slug = task["slug"]
     out_dir = task["out_dir"]
     min_bytes = task["min_bytes"]
+    explicit_dest = task.get("explicit_dest_path")
+
+    def resolve_dest(ext_val):
+        if explicit_dest:
+            os.makedirs(os.path.dirname(os.path.abspath(explicit_dest)), exist_ok=True)
+            return os.path.basename(explicit_dest), os.path.abspath(explicit_dest)
+        fname = build_target_filename(mode, slug, idx_num, ext_val)
+        return fname, os.path.join(out_dir, fname)
 
     err_msg = None
     if url:
@@ -181,8 +241,7 @@ def process_item(task):
         if data is not None:
             ext, dims = detect_image_info(data)
             if ext and len(data) >= min_bytes:
-                filename = build_target_filename(mode, slug, idx_num, ext)
-                dest_path = os.path.join(out_dir, filename)
+                filename, dest_path = resolve_dest(ext)
                 with open(dest_path, "wb") as f:
                     f.write(data)
                 return _build_item_result(task, filename, dest_path, len(data), ext, dims, "url")
@@ -193,8 +252,7 @@ def process_item(task):
             fb_data = f.read()
         ext, dims = detect_image_info(fb_data)
         ext = ext or os.path.splitext(fallback)[1].lstrip(".").lower() or "png"
-        filename = build_target_filename(mode, slug, idx_num, ext)
-        dest_path = os.path.join(out_dir, filename)
+        filename, dest_path = resolve_dest(ext)
         shutil.copy2(fallback, dest_path)
         return _build_item_result(
             task, filename, dest_path, len(fb_data), ext, dims, "fallback", url_error=err_msg
@@ -207,18 +265,112 @@ def process_item(task):
     }
 
 
+def _extract_json_payload(raw_text):
+    """Extract JSON dict/list from raw JSON or Chrome DevTools evaluate_script output.txt."""
+    text = raw_text.strip()
+    if not text:
+        raise ValueError("Harvest file is empty")
+
+    fences = re.findall(r"```(?:json)?\s*([\s\S]*?)\s*```", text, flags=re.IGNORECASE)
+    for block in reversed(fences):
+        candidate = block.strip()
+        if candidate.startswith(("{", "[")):
+            try:
+                return json.loads(candidate)
+            except json.JSONDecodeError:
+                pass
+
+    if text.startswith(("{", "[")):
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError:
+            pass
+
+    decoder = json.JSONDecoder()
+    for i, ch in enumerate(text):
+        if ch in ("{", "["):
+            try:
+                obj, _ = decoder.raw_decode(text, i)
+                return obj
+            except json.JSONDecodeError:
+                continue
+
+    raise ValueError("Could not locate valid JSON payload in harvest file")
+
+
+def parse_harvest_file(path):
+    """Load Chrome DevTools steps/<N>/output.txt or JSON harvest payload and full metadata."""
+    with open(path, "r", encoding="utf-8") as f:
+        raw_text = f.read()
+
+    payload = _extract_json_payload(raw_text)
+    if isinstance(payload, list):
+        payload = {"slides": payload}
+    elif not isinstance(payload, dict):
+        raise ValueError(f"Expected JSON object in harvest file, got {type(payload).__name__}")
+
+    meta = {
+        "platform": payload.get("platform"),
+        "status": payload.get("status"),
+        "title": payload.get("title"),
+        "url": payload.get("canonical_url") or payload.get("url"),
+        "author": payload.get("author"),
+        "author_headline": payload.get("author_headline"),
+        "handle": payload.get("handle"),
+        "co_authors": payload.get("co_authors") or [],
+        "published": payload.get("published"),
+        "text": payload.get("text") or payload.get("sidebar_text") or "",
+        "comments": payload.get("comments") or [],
+        "external_links": payload.get("external_links") or [],
+        "videos_found": payload.get("videos_found") or [],
+        "document_iframe_url": payload.get("document_iframe_url"),
+        "first_photo_href": payload.get("first_photo_href"),
+        "engagement": payload.get("engagement"),
+    }
+    clean_meta = {k: v for k, v in meta.items() if v not in (None, [], "", {})}
+    return payload, clean_meta
+
+
+def summarize_harvest_meta_for_stdout(harvest_meta, full_meta=False):
+    """Keep CLI stdout token-efficient by truncating very long article bodies unless --full-meta is set."""
+    if not harvest_meta:
+        return None
+    out = dict(harvest_meta)
+    text = out.get("text")
+    if isinstance(text, str) and not full_meta and len(text) > STDOUT_TEXT_PREVIEW_LIMIT + 300:
+        out["text_length"] = len(text)
+        out["text_truncated"] = True
+        out["text_preview"] = text[:STDOUT_TEXT_PREVIEW_LIMIT].rstrip() + "..."
+        del out["text"]
+    return out
+
+
+def resolve_storage_mode(requested_mode, item_count):
+    """Resolve 'auto' storage mode (1-3 -> assets, >=4 -> screenshots)."""
+    mode = (requested_mode or "screenshots").lower()
+    if mode == "auto":
+        return "assets" if 1 <= item_count <= 3 else "screenshots"
+    if mode not in ("screenshots", "assets"):
+        raise ValueError("--mode must be 'screenshots', 'assets', or 'auto'")
+    return mode
+
+
 def _normalize_manifest_items(manifest):
-    """Normalize 'items' (dict or URL string) or flat 'urls'/'fallbacks' arrays into item dicts."""
-    raw_items_in = manifest.get("items")
+    """Normalize 'items', 'slides', 'results', or flat 'urls'/'fallbacks' arrays into item dicts."""
+    raw_items_in = manifest.get("items") or manifest.get("slides") or manifest.get("results")
     if raw_items_in:
         normalized = []
         for entry in raw_items_in:
-            if isinstance(entry, str):
-                normalized.append({"url": entry})
+            if isinstance(entry, str) and entry.strip():
+                normalized.append({"url": entry.strip()})
             elif isinstance(entry, dict):
+                url = entry.get("url") or entry.get("src")
+                fallback = entry.get("fallback")
+                if not url and not fallback:
+                    continue
                 item = {
-                    "url": entry.get("url") or entry.get("src"),
-                    "fallback": entry.get("fallback"),
+                    "url": url,
+                    "fallback": fallback,
                 }
                 note = entry.get("note") or entry.get("transcription")
                 if note:
@@ -232,9 +384,13 @@ def _normalize_manifest_items(manifest):
     count = max(len(urls), len(fallbacks))
     normalized = []
     for i in range(count):
+        url = urls[i] if i < len(urls) else None
+        fallback = fallbacks[i] if i < len(fallbacks) else None
+        if not url and not fallback:
+            continue
         item = {
-            "url": urls[i] if i < len(urls) else None,
-            "fallback": fallbacks[i] if i < len(fallbacks) else None,
+            "url": url,
+            "fallback": fallback,
         }
         if isinstance(notes, list) and i < len(notes) and notes[i]:
             item["note"] = notes[i]
@@ -243,26 +399,32 @@ def _normalize_manifest_items(manifest):
 
 
 def load_manifest_or_args(args):
-    """Build normalized configuration and item list from --manifest or CLI flags."""
-    if args.manifest:
-        with open(args.manifest, "r", encoding="utf-8") as f:
-            manifest = json.load(f)
-        slug = args.slug or manifest.get("slug")
-        mode = args.mode or manifest.get("mode", "screenshots")
+    """Build normalized configuration and item list from --from-harvest-file, --manifest, or CLI flags."""
+    harvest_file = getattr(args, "from_harvest_file", None)
+    probe_cover = getattr(args, "probe_cover", None)
+    requested_mode = getattr(args, "mode", None)
+    manifest_file = getattr(args, "manifest", None)
+    allow_empty = False
+
+    if harvest_file or manifest_file:
+        if harvest_file:
+            config, _ = parse_harvest_file(harvest_file)
+            default_mode = "auto"
+            allow_empty = not bool(probe_cover)
+        else:
+            with open(manifest_file, "r", encoding="utf-8") as f:
+                config = json.load(f)
+            default_mode = "screenshots"
+        raw_items = _normalize_manifest_items(config)
+        slug = args.slug or config.get("slug") or ("probe-cover" if probe_cover else None)
+        mode = resolve_storage_mode(requested_mode or config.get("mode") or default_mode, len(raw_items))
         start_index = (
             args.start_index
             if args.start_index is not None
-            else manifest.get("start_index", 0 if mode == "screenshots" else 1)
+            else config.get("start_index", 0 if mode == "screenshots" else 1)
         )
-        raw_items = _normalize_manifest_items(manifest)
     else:
-        slug = args.slug
-        mode = args.mode or "screenshots"
-        start_index = (
-            args.start_index
-            if args.start_index is not None
-            else (0 if mode == "screenshots" else 1)
-        )
+        slug = args.slug or ("probe-cover" if probe_cover else None)
         urls = args.urls or []
         fallbacks = args.fallbacks or []
         count = max(len(urls), len(fallbacks))
@@ -272,14 +434,19 @@ def load_manifest_or_args(args):
                 "fallback": fallbacks[i] if i < len(fallbacks) else None,
             }
             for i in range(count)
+            if (urls[i] if i < len(urls) else None) or (fallbacks[i] if i < len(fallbacks) else None)
         ]
+        mode = resolve_storage_mode(requested_mode or "screenshots", len(raw_items))
+        start_index = (
+            args.start_index
+            if args.start_index is not None
+            else (0 if mode == "screenshots" else 1)
+        )
 
     if not slug:
         raise ValueError("--slug is required (either via CLI or inside --manifest)")
-    if mode not in ("screenshots", "assets"):
-        raise ValueError("--mode must be 'screenshots' or 'assets'")
-    if not raw_items:
-        raise ValueError("Provide at least one image via --urls, --fallbacks, or --manifest")
+    if not raw_items and not allow_empty:
+        raise ValueError("Provide at least one image via --urls, --fallbacks, --manifest, or --from-harvest-file")
 
     return slug, mode, start_index, raw_items
 
@@ -289,24 +456,36 @@ def _yaml_escape(text):
     return str(text).replace("\\", "\\\\").replace('"', '\\"').replace("\n", " ").strip()
 
 
-def extract_raw_meta(args):
-    """Merge --raw-* CLI flags and optional --manifest metadata into a raw scaffolding dict."""
+def _format_yaml_published(published_val):
+    """Normalize ISO timestamps to YYYY-MM-DD and safely quote non-ISO published strings."""
+    s = str(published_val).strip()
+    iso_match = re.match(r"^(\d{4}-\d{2}-\d{2})(?:[T\s].*)?$", s)
+    if iso_match:
+        return iso_match.group(1)
+    return f'"{_yaml_escape(s)}"'
+
+
+def extract_raw_meta(args, harvest_meta=None):
+    """Merge --raw-* CLI flags, --manifest metadata, and --from-harvest-file metadata."""
     manifest = {}
     if getattr(args, "manifest", None):
         with open(args.manifest, "r", encoding="utf-8") as f:
             manifest = json.load(f)
+    hmeta = harvest_meta or {}
 
     return {
         "init_raw": bool(getattr(args, "init_raw", False) or manifest.get("init_raw", False)),
+        "platform": manifest.get("platform") or hmeta.get("platform"),
         "raw_subdir": getattr(args, "raw_subdir", None) or manifest.get("raw_subdir") or "ai-other",
-        "title": getattr(args, "raw_title", None) or manifest.get("raw_title"),
-        "source": getattr(args, "raw_source", None) or manifest.get("raw_source"),
+        "title": getattr(args, "raw_title", None) or manifest.get("raw_title") or hmeta.get("title"),
+        "source": getattr(args, "raw_source", None) or manifest.get("raw_source") or hmeta.get("url"),
         "original_source": getattr(args, "raw_original_source", None) or manifest.get("raw_original_source"),
-        "author": getattr(args, "raw_author", None) or manifest.get("raw_author"),
-        "published": getattr(args, "raw_published", None) or manifest.get("raw_published"),
+        "author": getattr(args, "raw_author", None) or manifest.get("raw_author") or hmeta.get("author"),
+        "published": getattr(args, "raw_published", None) or manifest.get("raw_published") or hmeta.get("published"),
         "created": getattr(args, "raw_created", None) or manifest.get("raw_created") or dt_date.today().strftime("%Y-%m-%d"),
         "description": getattr(args, "raw_description", None) or manifest.get("raw_description"),
-        "text": getattr(args, "raw_text", None) or manifest.get("raw_text"),
+        "text": getattr(args, "raw_text", None) or manifest.get("raw_text") or hmeta.get("text"),
+        "external_links": manifest.get("external_links") or hmeta.get("external_links") or [],
         "tags": manifest.get("raw_tags") or ["clippings", "visual-guide"],
         "notes": manifest.get("raw_notes") or manifest.get("notes") or [],
     }
@@ -329,26 +508,41 @@ def _resolve_slide_note(item, idx, meta_notes):
 
 
 def scaffold_raw_article(slug, files, project_root, meta):
-    """Create raw/articles/<subdir>/<slug>.md with frontmatter, post text, and slide embeds if not already present."""
+    """Create raw/articles/<subdir>/<slug>.md with frontmatter, text, and slide/asset embeds if not already present."""
     subdir = (meta.get("raw_subdir") or "ai-other").strip().strip("/\\")
     raw_dir = os.path.join(project_root, "raw", "articles", subdir)
     raw_path = os.path.join(raw_dir, f"{slug}.md")
-    rel_path = os.path.relpath(raw_path, project_root).replace("\\", "/")
+    rel_path = _safe_relpath(raw_path, project_root)
 
     if os.path.isfile(raw_path):
         return rel_path, "skipped_existing"
 
     os.makedirs(raw_dir, exist_ok=True)
 
+    platform = (meta.get("platform") or "").lower()
     title = meta.get("title") or slug.replace("-", " ").title()
     source_url = meta.get("source") or ""
     original_source = meta.get("original_source") or ""
     author = meta.get("author") or ""
     published = meta.get("published") or ""
     created = meta.get("created") or dt_date.today().strftime("%Y-%m-%d")
-    description = meta.get("description") or f"Visual guide and captured slides for {title}."
+    ok_files = [f for f in files if f.get("source_used") != "failed"]
+    is_assets_mode = bool(
+        ok_files
+        and (
+            str(ok_files[0].get("rel_path", "")).startswith("raw/assets/")
+            or str(ok_files[0].get("md_embed", "")).startswith("![Asset")
+        )
+    )
+    default_desc = (
+        f"Captured web article for {title}."
+        if platform == "web_article" and not ok_files
+        else f"Visual guide and captured slides for {title}."
+    )
+    description = meta.get("description") or default_desc
     post_text = (meta.get("text") or "").strip()
-    tags = meta.get("tags") or ["clippings", "visual-guide"]
+    external_links = meta.get("external_links") or []
+    tags = meta.get("tags") or (["clippings", "web-article"] if platform == "web_article" and not ok_files else ["clippings", "visual-guide"])
     meta_notes = meta.get("notes") or []
 
     lines = [
@@ -364,7 +558,7 @@ def scaffold_raw_article(slug, files, project_root, meta):
         lines.append("author:")
         lines.append(f'  - "{_yaml_escape(author_val)}"')
     if published:
-        lines.append(f"published: {published}")
+        lines.append(f"published: {_format_yaml_published(published)}")
     lines.append(f"created: {created}")
     lines.append(f'description: "{_yaml_escape(description)}"')
     lines.append("tags:")
@@ -383,40 +577,55 @@ def scaffold_raw_article(slug, files, project_root, meta):
     if original_source:
         lines.append(f"- **Nguồn gốc tiếng Anh được tác giả trích dẫn:** {original_source}")
 
-    ok_files = [f for f in files if f.get("source_used") != "failed"]
-    lines.append(f"- **Thư mục hình ảnh gốc ({len(ok_files)} trang):** `raw/screenshots/{slug}/`")
+    if ok_files:
+        if is_assets_mode:
+            lines.append(f"- **Hình ảnh đính kèm ({len(ok_files)} ảnh):** `raw/assets/`")
+        else:
+            lines.append(f"- **Thư mục hình ảnh gốc ({len(ok_files)} trang):** `raw/screenshots/{slug}/`")
     lines.extend(["", "---", ""])
 
     if post_text:
-        lines.append("## Nội Dung Nguyên Văn Bài Đăng")
-        lines.append("")
-        for p_line in post_text.splitlines():
-            lines.append(f"> {p_line}" if p_line.strip() else ">")
+        if platform == "web_article":
+            lines.append("## Nội Dung Nguyên Văn Bài Viết")
+            lines.append("")
+            lines.append(post_text)
+        else:
+            lines.append("## Nội Dung Nguyên Văn Bài Đăng")
+            lines.append("")
+            for p_line in post_text.splitlines():
+                lines.append(f"> {p_line}" if p_line.strip() else ">")
         lines.extend(["", "---", ""])
 
-    section_heading = (
-        f"## Thư Viện {len(ok_files)} Trang Hình Ảnh Đính Kèm"
-        if not meta_notes and not any(f.get("note") or f.get("transcription") for f in ok_files)
-        else f"## Chi Tiết {len(ok_files)} Trang Hình Ảnh Đính Kèm (Visual Transcription)"
-    )
-    lines.append(section_heading)
-    lines.append("")
-    for i, item in enumerate(ok_files):
-        filename = item["filename"]
-        dims = item.get("dimensions", "")
-        dims_note = f" *({dims})*" if dims and dims != "unknown" else ""
-        if item.get("md_embed") and str(item["md_embed"]).startswith("![Asset"):
-            embed = item["md_embed"]
-        else:
-            embed = f"![Trang {i + 1}](../../screenshots/{slug}/{filename})"
-        lines.extend([
-            f"### Trang {i + 1} / {len(ok_files)}{dims_note}",
-            embed,
-            "",
-        ])
-        note_text = _resolve_slide_note(item, i, meta_notes)
-        if note_text:
-            lines.extend([note_text, ""])
+    if ok_files:
+        section_heading = (
+            f"## Thư Viện {len(ok_files)} Trang Hình Ảnh Đính Kèm"
+            if not meta_notes and not any(f.get("note") or f.get("transcription") for f in ok_files)
+            else f"## Chi Tiết {len(ok_files)} Trang Hình Ảnh Đính Kèm (Visual Transcription)"
+        )
+        lines.append(section_heading)
+        lines.append("")
+        for i, item in enumerate(ok_files):
+            filename = item["filename"]
+            dims = item.get("dimensions", "")
+            dims_note = f" *({dims})*" if dims and dims != "unknown" else ""
+            if item.get("md_embed") and str(item["md_embed"]).startswith("![Asset"):
+                embed = item["md_embed"]
+            else:
+                embed = f"![Trang {i + 1}](../../screenshots/{slug}/{filename})"
+            lines.extend([
+                f"### Trang {i + 1} / {len(ok_files)}{dims_note}",
+                embed,
+                "",
+            ])
+            note_text = _resolve_slide_note(item, i, meta_notes)
+            if note_text:
+                lines.extend([note_text, ""])
+
+    if external_links:
+        lines.extend(["## Liên Kết Tham Khảo", ""])
+        for link in external_links[:20]:
+            lines.append(f"- {link}")
+        lines.append("")
 
     with open(raw_path, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))
@@ -429,14 +638,14 @@ def main():
         sys.stdout.reconfigure(encoding="utf-8")
 
     parser = argparse.ArgumentParser(
-        description="Download social post images concurrently into raw/screenshots or raw/assets."
+        description="Download social/web post images concurrently into raw/screenshots or raw/assets."
     )
-    parser.add_argument("--slug", help="Clean kebab-case slug (e.g. prompt-engineering-handbook)")
+    parser.add_argument("--slug", help="Clean kebab-case slug (e.g. transformers-detailed-notes)")
     parser.add_argument(
         "--mode",
-        choices=["screenshots", "assets"],
+        choices=["screenshots", "assets", "auto"],
         default=None,
-        help="Target storage mode: 'screenshots' (default) or 'assets'",
+        help="Target storage mode: 'screenshots', 'assets', or 'auto' (1-3 -> assets, >=4 -> screenshots)",
     )
     parser.add_argument(
         "--start-index",
@@ -447,6 +656,19 @@ def main():
     parser.add_argument("--urls", nargs="*", help="Ordered list of direct image URLs")
     parser.add_argument("--fallbacks", nargs="*", help="Ordered list of local screenshot fallback paths")
     parser.add_argument("--manifest", help="Optional JSON manifest file defining slug, mode, and items")
+    parser.add_argument(
+        "--from-harvest-file",
+        help="Zero-URL-Relay path to Chrome DevTools steps/<N>/output.txt or harvester JSON file",
+    )
+    parser.add_argument(
+        "--probe-cover",
+        help="Download ONLY slide 1 directly to this local file path (e.g. scratch/cover.webp) to determine topic/slug",
+    )
+    parser.add_argument(
+        "--full-meta",
+        action="store_true",
+        help="Print full untruncated harvest_meta.text on stdout (default truncates text >1500 chars to save tokens)",
+    )
     parser.add_argument("--project-root", help="Optional project root path containing index.md")
     parser.add_argument("--min-bytes", type=int, default=5000, help="Minimum valid image payload bytes")
     parser.add_argument("--workers", type=int, default=6, help="Concurrent download worker count")
@@ -463,58 +685,86 @@ def main():
     args = parser.parse_args()
 
     try:
+        harvest_meta = None
+        if args.from_harvest_file:
+            _, harvest_meta = parse_harvest_file(args.from_harvest_file)
         slug, mode, start_index, raw_items = load_manifest_or_args(args)
-        raw_meta = extract_raw_meta(args)
+        raw_meta = extract_raw_meta(args, harvest_meta=harvest_meta)
     except Exception as exc:  # noqa: BLE001
         print(json.dumps({"status": "error", "error": str(exc)}, ensure_ascii=False, indent=2))
         sys.exit(1)
 
     project_root = args.project_root or find_project_root()
-    if mode == "screenshots":
-        out_dir = os.path.join(project_root, "raw", "screenshots", slug)
-    else:
-        out_dir = os.path.join(project_root, "raw", "assets")
-    os.makedirs(out_dir, exist_ok=True)
 
-    tasks = [
-        {
-            "index": start_index + i,
-            "url": item.get("url"),
-            "fallback": item.get("fallback"),
-            "note": item.get("note"),
-            "mode": mode,
-            "slug": slug,
-            "out_dir": out_dir,
-            "project_root": project_root,
-            "min_bytes": args.min_bytes,
-        }
-        for i, item in enumerate(raw_items)
-    ]
+    if args.probe_cover:
+        probe_abs = os.path.abspath(args.probe_cover)
+        out_dir = os.path.dirname(probe_abs)
+        raw_items = raw_items[:1]
+        tasks = [
+            {
+                "index": start_index,
+                "url": raw_items[0].get("url"),
+                "fallback": raw_items[0].get("fallback"),
+                "note": raw_items[0].get("note"),
+                "mode": mode,
+                "slug": slug,
+                "out_dir": out_dir,
+                "explicit_dest_path": probe_abs,
+                "project_root": project_root,
+                "min_bytes": args.min_bytes,
+            }
+        ]
+    else:
+        if mode == "screenshots":
+            out_dir = os.path.join(project_root, "raw", "screenshots", slug)
+        else:
+            out_dir = os.path.join(project_root, "raw", "assets")
+        if raw_items:
+            os.makedirs(out_dir, exist_ok=True)
+        tasks = [
+            {
+                "index": start_index + i,
+                "url": item.get("url"),
+                "fallback": item.get("fallback"),
+                "note": item.get("note"),
+                "mode": mode,
+                "slug": slug,
+                "out_dir": out_dir,
+                "project_root": project_root,
+                "min_bytes": args.min_bytes,
+            }
+            for i, item in enumerate(raw_items)
+        ]
 
     results = []
-    with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as pool:
-        for res in pool.map(process_item, tasks):
-            results.append(res)
+    if tasks:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as pool:
+            for res in pool.map(process_item, tasks):
+                results.append(res)
+        results.sort(key=lambda r: r["index"])
 
-    results.sort(key=lambda r: r["index"])
     failed = [r for r in results if r["source_used"] == "failed"]
 
     report = {
         "status": "ok" if not failed else "partial",
         "slug": slug,
         "mode": mode,
-        "output_dir": os.path.relpath(out_dir, project_root).replace("\\", "/"),
+        "output_dir": _safe_relpath(out_dir, project_root),
         "total_requested": len(tasks),
         "succeeded_count": len(tasks) - len(failed),
         "failed_count": len(failed),
         "files": results,
     }
-    if raw_meta.get("init_raw") and len(failed) < len(tasks):
+    if args.probe_cover:
+        report["probe_cover"] = os.path.abspath(args.probe_cover).replace("\\", "/")
+    if harvest_meta:
+        report["harvest_meta"] = summarize_harvest_meta_for_stdout(harvest_meta, full_meta=args.full_meta)
+    if raw_meta.get("init_raw") and not args.probe_cover and (not tasks or len(failed) < len(tasks)):
         scaffold_path, scaffold_status = scaffold_raw_article(slug, results, project_root, raw_meta)
         report["raw_scaffold_path"] = scaffold_path
         report["raw_scaffold_status"] = scaffold_status
     print(json.dumps(report, ensure_ascii=False, indent=2))
-    if failed and len(failed) == len(tasks):
+    if tasks and failed and len(failed) == len(tasks):
         sys.exit(1)
 
 
