@@ -57,6 +57,7 @@ A catalog of everything in the knowledge base.
 - [[Warp]]: Modern AI-powered terminal and developer environment founded by Zach Lloyd featuring Oz orchestration and self-improving agent skills.
 
 
+
 ## Concepts
 - [[Advanced Prompting Patterns]]: Higher-order prompting strategies (ReAct, Tree-of-Thought, Self-Consistency, Prompt Chaining, Meta-Prompting) bridging prompts to agent loops.
 - [[Advisor Model Pattern]]: Dual-model escalation architecture in Claude Code (/advisor) delegating hard choices from Sonnet to Opus.
@@ -190,6 +191,7 @@ A catalog of everything in the knowledge base.
 - [[Vision Transformers and Multimodal AI]]: ViT patchification & self-attention (DETR/DINO/Mask2Former/MAE), CLIP contrastive alignment & zero-shot classification, Multimodal fusion (Early/Cross-Attention/Late), and Vision AI deployment stack.
 - [[Waku-Agent]]: Open-source agent framework by Sean demonstrating production Graph Engineering with router nodes, memory retrieval, and eval gates.
 
+
 ## Sources
 - [[12 Agentic Harness Patterns from Claude Code]]: Design patterns from a leaked production agent's source code.
 - [[25 HR Interview Questions in Vietnamese]]: 8-page bilingual HR & behavioral interview playbook curated by Viet Nguyen AI featuring 25 common questions with fill-in-the-blank Vietnamese templates and 7 closing principles.
@@ -202,6 +204,7 @@ A catalog of everything in the knowledge base.
 - [[AI Deployment Notes]]: 12-page Vietnamese visual guide covering AI deployment lifecycle, Dev/Staging/Prod, packaging/versioning, serving patterns, and inference servers.
 - [[AI Engineer Interview Notes]]: 17-page practical interview guide by Koteswara (shared by Viet Nguyen AI) covering LLM fundamentals, 6-step prompt debugging, Hybrid RAG/recall@k evals, ReAct guardrails, Fine-tuning vs RAG, LLM-Judge biases, 10M-user System Design, and 30-day prep checklist.
 - [[AI Eval Concepts Explained in 15 Minutes]]: Hamel Husain's 15-minute masterclass on product evals, traces, error analysis, trace sampling, LLM judges, traps, and model downsizing.
+- [[AI Harness 6 Core Components]]: Viet Nguyen AI's concise visual guide explaining Agent = Model + Harness across 6 core subsystems (Agent Loop, Tool Calling, Context Management, Checkpointing, Permissions & Sandboxing, Guardrails).
 - [[AI Model vs Agentic Harness What Actually Drives AI]]: IBM Technology's breakdown of the "brain in a jar" metaphor, narrowing benchmark gaps, the 3 harness pillars (Tools, Memory, Loops), and model-harness co-evolution.
 - [[All Code Is Slop (Except Mine) — Lauren Tan, SpaceXSI]]: AI Engineer Code Summit talk by Lauren Tan (@poteto) on scaling Grok Bot to 11,000 PRs/mo (~0.5% revert rate) via deterministic guardrails and runtime/formal verification.
 - [[Anthropic Just Fixed Graph Engineering's Greatest Flaw]]: AI LABS breakdown of DAG error cascading, the Second Opinion Pattern, Chrome Headless Shell verification, and the Orchestrator Skill Pattern.
@@ -304,6 +307,7 @@ A catalog of everything in the knowledge base.
 - [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 - [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
+
 
 
 

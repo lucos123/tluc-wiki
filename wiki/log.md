@@ -102,3 +102,4 @@ Append-only record of operations.
 ## [2026-11-19] skill | Upgrade download_post_assets.py (--manifest urls support & immutable --init-raw)
 ## [2026-11-19] ingest | AI Engineer Interview Notes (by Koteswara, shared by Viet Nguyen AI)
 ## [2026-11-19] ingest | 25 HR Interview Questions in Vietnamese (25 câu hỏi phỏng vấn bằng tiếng Việt)
+## [2026-11-21] ingest | AI Harness 6 Core Components (AI Harness làm gì để agent hoàn thành công việc?)

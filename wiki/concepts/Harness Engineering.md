@@ -87,9 +87,21 @@ The division between model and harness is dynamic and continuously shifting:
 
 ---
 
+## Minimal 6-Component Execution Loop (Non-Coding Domain Reference)
+
+While coding harnesses layer IDE hooks, AST linters, and worktree sandboxes, transactional [[Domain-Specific Agents]] (such as an order-lookup customer support bot profiled in [[AI Harness 6 Core Components]]) rely on six minimal cooperating primitives—**each with a distinct responsibility and non-zero residual error surface**:
+1. **Agent Loop** ([[Agent Loop Lifecycle]] / [[Loop Engineering]]): Cycles `Model -> Tool -> Observation` until completion, escalation, or hard step limits.
+2. **Tool Calling**: Harness validates requested function/args, executes safely, and injects structured results back into context.
+3. **Context Management** ([[Context Window Management]]): Preserves active policy and system instructions while hooks/prompts compact aged conversation turns.
+4. **External Checkpointing** ([[Session Checkpoints]]): Stores progress outside the model so interrupted tasks reload from the last verified step (e.g., cached order lookup) rather than re-running from scratch.
+5. **Permissions & Sandboxing** ([[Cloud Agent Sandbox and Auto Mode]]): Deterministically allows low-risk reads (`read order ✓`) while blocking high-risk mutations (`issue refund ✗`).
+6. **Guardrails & Human Approval**: Inspects inputs, tool requests, and drafts (`Draft -> Pending Human Approval -> Sent`)—paired cleanly with confidence-gated routing in [[AI System Design and Production Architecture]].
+
+---
+
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Enterprise Agent Stack]], [[Loop Engineering]], [[Verification Loop]], [[Context Engineering]], [[Context Window Management]], [[Agent Onboarding Files]], [[Model Context Protocol]], [[Harness Overhead vs Model Cost]].
-- **Entities**: [[IBM Technology]], [[AI Engineer]], [[Anterior]], [[Claude Code]], [[Anthropic]], [[OpenAI]], [[Codex]], [[Goon Nguyen]], [[Caleb Writes Code]].
-- **Sources**: [[AI Model vs Agentic Harness What Actually Drives AI]], [[Why Your Enterprise Tech Stack Isn't Ready for AI Agents]], [[12 Agentic Harness Patterns from Claude Code]], [[Agent Harness explained in 8min]], [[Harness vs Model costs explained]], [[You Can Learn AI Agent Harness & Loop Engineering In 19 Min]].
+- **Concepts**: [[Enterprise Agent Stack]], [[Loop Engineering]], [[Verification Loop]], [[Context Engineering]], [[Context Window Management]], [[Agent Onboarding Files]], [[Model Context Protocol]], [[Harness Overhead vs Model Cost]], [[Session Checkpoints]], [[Cloud Agent Sandbox and Auto Mode]], [[Domain-Specific Agents]], [[AI System Design and Production Architecture]].
+- **Entities**: [[IBM Technology]], [[AI Engineer]], [[Anterior]], [[Claude Code]], [[Anthropic]], [[OpenAI]], [[Codex]], [[Goon Nguyen]], [[Caleb Writes Code]], [[Viet Nguyen AI]].
+- **Sources**: [[AI Model vs Agentic Harness What Actually Drives AI]], [[Why Your Enterprise Tech Stack Isn't Ready for AI Agents]], [[12 Agentic Harness Patterns from Claude Code]], [[Agent Harness explained in 8min]], [[Harness vs Model costs explained]], [[You Can Learn AI Agent Harness & Loop Engineering In 19 Min]], [[AI Harness 6 Core Components]].
 
