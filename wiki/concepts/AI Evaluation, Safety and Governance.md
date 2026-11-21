@@ -24,9 +24,9 @@ Production evaluation extends beyond classical `Accuracy` and `F1-Score` (covere
 | Metric Category | What It Measures | Representative Metrics / Probes | Primary Use Case |
 | :--- | :--- | :--- | :--- |
 | **Accuracy-Based** | Ground-truth output correctness | `Accuracy`, `Precision`, `Recall`, `F1` | Classification, extractive QA |
-| **NLP / Generative** | Text quality & semantic overlap | `BLEU`, `ROUGE`, `BERTScore` | Translation, summarization, NLP |
+| **NLP / Generative** | Text quality & semantic overlap | `BLEU`, `ROUGE`, `BERTScore`, `MMLU`/`GSM8K`/`TruthfulQA`/`HELM` | Translation, summarization, LLM capability baselines (*benchmarks $\neq$ real-world utility*) |
 | **Human Evaluation** | Perceived helpfulness, coherence, factuality | Side-by-side human ratings | Open-ended Chatbots & LLMs |
-| **Safety Evaluation** | Harmful, toxic, or disallowed output propensity | `Toxicity Rate`, `Red Teaming` | Content moderation, jailbreak defense |
+| **Safety Evaluation** | Harmful, toxic, or disallowed output propensity | `Toxicity Rate` (`0–1` via `Perspective API`, `Detoxify`, `HateCheck`), `Red Teaming` | Content moderation, jailbreak defense ([[LLM Handwritten Study Guide 15 Pages]]) |
 | **Bias & Fairness** | Disparate outcomes across demographic subgroups | `Demographic Parity` | Responsible hiring, credit, healthcare AI |
 | **Robustness** | Stability under perturbation or distribution shift | `Adversarial Testing` | Safety-critical real-world deployment |
 
@@ -79,6 +79,6 @@ AI Safety mitigates five operational hazards:
 ---
 
 ## Related Pages
-- **Sources**: [[AI Complete Handbook]]
+- **Sources**: [[AI Complete Handbook]], [[LLM Handwritten Study Guide 15 Pages]]
 - **Empirical Evals**: [[Product Evals and Error Analysis]], [[LLM-as-a-Judge and Eval Alignment]], [[Closed-Loop Evals]], [[Model Evaluation and Validation]]
 - **Security & Trust**: [[LLM Inference Optimization and Security]], [[Software Supply Chain Security]], [[Cloud Agent Sandbox and Auto Mode]]

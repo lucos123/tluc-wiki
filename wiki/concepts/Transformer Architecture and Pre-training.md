@@ -40,21 +40,27 @@ Raw Input Text ──▶ Tokenization (Token IDs)
 
 ## Core Architectural Mechanisms
 
-### 1. Scaled Dot-Product & Multi-Head Self-Attention
-Self-attention computes dynamic contextual weights measuring how strongly every token attends to all other tokens in the sequence (e.g., resolving `"it"` back to `"cat"` in `"The cat sat because it was tired"`):
+### 1. Scaled Dot-Product, Masking & Multi-Head Self-Attention
+Self-attention projects input embeddings $X \in \mathbb{R}^{n \times d_{\text{model}}}$ via learned weight matrices ($Q = XW_Q, K = XW_K, V = XW_V$) and computes contextual weights across all tokens, with optional mask matrix $M$ ($0$ valid, $-\infty$ masked):
 
-$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}} + M\right)V$$
 
-Where `Q` = Query, `K` = Key, `V` = Value, and `d_k` scales variance cleanly. **Multi-Head Attention** runs multiple attention projections in parallel (e.g., `12 heads × 64 dims`) so different heads capture distinct syntactic, semantic, and coreference relationships simultaneously.
+Where `Q` = Query, `K` = Key, `V` = Value, and `d_k` scales dot-product variance. **Multi-Head Attention** concatenates $h$ parallel heads ($\text{MultiHead}(Q,K,V) = \text{Concat}(\text{head}_1, \dots, \text{head}_h)W_O$) so different subspaces track syntax, coreference, and semantics simultaneously. Because computing $QK^T$ and Softmax takes **$O(n^2 \cdot d)$ time and $O(n^2)$ memory** in sequence length $n$, long-context scaling motivates sparse/linear attention variants (`Sparse Transformer`, `Longformer`, `BigBird`) ([[LLM Handwritten Study Guide 15 Pages]]).
 
-### 2. Encoder vs. Decoder Topologies
+### 2. LayerNorm, Residual Blocks, Positional Math & Feed-Forward Sublayers
+- **Residual + Layer Normalization**: Replaces batch-dependent BatchNorm with per-feature stabilization $y = \text{LayerNorm}(x + \text{Sublayer}(x))$ where $\text{LN}(x) = \frac{x - \mu}{\sqrt{\sigma^2 + \epsilon}}\cdot\gamma + \beta$.
+- **Feed-Forward Network (`FFN`)**: Position-wise 2-layer MLP expanding $d_{\text{model}} = 512 \rightarrow d_{\text{ff}} = 2048$ with `ReLU` or `GELU`: $\text{FFN}(x) = \text{GELU}(xW_1 + b_1)W_2 + b_2$.
+- **Sinusoidal Positional Encoding**: Injects deterministic sequence order allowing length extrapolation via $PE(pos, 2i) = \sin(pos / 10000^{2i/d_{\text{model}}})$ and $PE(pos, 2i+1) = \cos(pos / 10000^{2i/d_{\text{model}}})$.
+
+### 3. Encoder vs. Decoder vs. Encoder-Decoder Topologies
 | Architecture | Attention Direction | Primary Objective | Canonical Examples |
 | :--- | :--- | :--- | :--- |
-| **Encoder-Only** | Bidirectional (sees past + future tokens) | Masked understanding, classification, dense representation | BERT, sentence embedding models |
-| **Decoder-Only** | Unidirectional / Causal (attends strictly to past tokens) | Autoregressive **next-token prediction** | GPT family (`GPT-2` to `GPT-4`), Claude, Llama |
+| **Encoder-Only** | Bidirectional (sees past + future tokens) | Masked understanding, classification, NER, dense retrieval embeddings | `BERT`, `RoBERTa`, `ALBERT` |
+| **Decoder-Only** | Unidirectional / Causal upper-triangle mask | Autoregressive **next-token prediction** | `GPT` family, `Claude`, `LLaMA`, `Mistral` |
+| **Encoder-Decoder** | Bidirectional Encoder + Causal & **Cross-Attention** Decoder ($Q$ from Decoder, $K/V$ from Encoder) | Sequence-to-sequence translation & structured summarization | `T5`, `BART`, `mT5` |
 
-### 3. Sparse Scaling via Mixture of Experts (`MoE`)
-Rather than activating all parameters for every token, **MoE** layers route each token to only a subset of specialized feed-forward "expert" subnetworks (e.g., `Mixtral 8x7B` contains 8 experts totaling `47B` parameters, yet activates only 2 experts / `~13B` params per forward pass), drastically improving quality-per-FLOP.
+### 4. Sparse Scaling via Mixture of Experts (`MoE`)
+Rather than activating all parameters for every token, **MoE** gating networks (`Switch Transformer`, `GLaM`, `Mixtral`) route each token to only a subset of specialized feed-forward "expert" subnetworks (e.g., `Mixtral 8x7B` contains 8 experts totaling `47B` parameters, yet activates only 2 experts / `~13B` params per forward pass), drastically improving quality-per-FLOP.
 
 ---
 
@@ -78,7 +84,8 @@ Rather than activating all parameters for every token, **MoE** layers route each
 
 ## Relationships
 
-- **Foundational Input Layer**: Directly extends [[Tokenization]] and neural building blocks ($z = \sum w_i x_i + b$, `Sigmoid`/`Tanh`/`ReLU`/`Leaky ReLU`, `MSE`/`BCE`/`CCE`, Backpropagation across `CNN`/`RNN`/`LSTM`/`Autoencoder`/`GAN`; [[AI Complete Handbook]]), feeding [[LLM Fine-Tuning and Alignment]].
+- **Sources**: [[LLM Handbook 50 Concepts]], [[LLM Handwritten Study Guide 15 Pages]], [[AI Complete Handbook]]
+- **Foundational Input Layer**: Directly extends [[Tokenization]] and neural building blocks ($z = \sum w_i x_i + b$, `Sigmoid`/`Tanh`/`ReLU`/`Leaky ReLU`, `MSE`/`BCE`/`CCE`, Backpropagation across `CNN`/`RNN`/`LSTM`/`Autoencoder`/`GAN`), feeding [[LLM Pretraining, Optimization and Decoding]] and [[LLM Fine-Tuning and Alignment]].
 - **Context & Retrieval**: Governs how [[Context Window Management]] and [[Retrieval-Augmented Generation and Vector DBs]] allocate scarce attention capacity.
 - **Inference Trade-offs**: Connects to [[LLM Inference Optimization and Security]] (`KV Cache`, `Flash Attention`, and `MoE` routing efficiency).
 - **Vision & Multimodal Extension**: Adapts `Patchification + Positional Encoding + Encoder` architectures into [[Vision Transformers and Multimodal AI]] (`ViT`, `DETR`, `CLIP`, Multimodal fusion; [[Computer Vision Handbook]]).

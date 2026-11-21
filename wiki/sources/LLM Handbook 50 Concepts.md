@@ -81,6 +81,6 @@ A 20-page Vietnamese visual sketchnote handbook translating and adapting 50 core
 
 ## Synthesis Connections
 
-- **Foundations**: Anchors [[Transformer Architecture and Pre-training]] and extends [[Tokenization]] + [[Prompt Engineering]].
+- **Foundations**: Anchors [[Transformer Architecture and Pre-training]] and extends [[Tokenization]] + [[Prompt Engineering]] (paired with equation-level study notes in [[LLM Handwritten Study Guide 15 Pages]] and [[LLM Pretraining, Optimization and Decoding]]).
 - **Post-Training & Knowledge Retrieval**: Synthesized into [[LLM Fine-Tuning and Alignment]] and [[Retrieval-Augmented Generation and Vector DBs]] (complementing [[Context Engineering Pipeline]]).
 - **Production & Safety**: Synthesized into [[LLM Inference Optimization and Security]], bridging [[Inference Serving and Deployment Patterns]], [[LLMOps & Inference]], [[Cost Optimization]], [[Closed-Loop Evals]], and [[Agent Skills Security Audit]].
