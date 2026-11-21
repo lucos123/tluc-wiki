@@ -22,7 +22,7 @@ Deploying large models (`7B–175B+`) in production requires balancing **latency
 | :--- | :--- | :--- |
 | **FP32 $\rightarrow$ FP16** | Half-precision float weights | `2×` smaller footprint, faster mixed-precision compute |
 | **INT8 Quantization** | 8-bit integer weight representation | `4×` smaller memory with minimal quality degradation |
-| **INT4 (`GPTQ` / `AWQ`)** | 4-bit weights (**AWQ** preserves activation-salient weights, often outperforming GPTQ) | `8×` memory savings vs FP32; powers edge 7B inference and **QLoRA** |
+| **INT4 (`GPTQ` / `AWQ`)** | 4-bit weights via Post-Training Quantization (**`PTQ`**) or Quantization-Aware Training (**`QAT`**); `AWQ` preserves activation-salient weights | `8×` memory savings vs FP32; powers edge 7B inference and **QLoRA** ([[Transformers Detailed Notes and Revision Guide]]) |
 | **Pruning** | Zero out/remove ~50% low-salience weights or connections | Smaller model footprint and lower compute |
 | **Knowledge Distillation** | Train small `7B` *student* model to mimic large `70B` *teacher* outputs | Retains strong task accuracy at a fraction of inference cost |
 
@@ -30,8 +30,8 @@ Deploying large models (`7B–175B+`) in production requires balancing **latency
 
 ## 2. Inference Acceleration & Serving Economics
 
-- **KV Cache**: Caches attention Key and Value tensors across prior decoding steps to avoid redundant recomputation (`>2×` faster token generation).
-- **Flash Attention**: IO-aware GPU SRAM tiling minimizing HBM memory reads/writes and VRAM footprint.
+- **KV Cache**: Caches attention Key and Value tensors across prior decoding steps to avoid redundant recomputation (`>2×` faster token generation; cache grows linearly with sequence length).
+- **Flash Attention vs. Standard & Linear Attention**: IO-aware GPU block tiling with intermediate activation recomputation eliminates materializing the full $n \times n$ attention matrix in HBM (`2–4×` faster in `Llama 3` / `Mistral`), reducing Space Complexity from quadratic **$O(n^2)$ down to linear $O(n)$** while keeping exact $O(n^2)$ Time Complexity (compared with `Linear Attention` approximations reaching $O(n)$ Time and $O(n)$ Space).
 - **Continuous Batching & `vLLM`**: Dynamic request batching combined with **PagedAttention** cuts GPU memory fragmentation—delivering up to **24× higher throughput** over naive Hugging Face Transformers baselines alongside **Hugging Face TGI** and **NVIDIA TensorRT-LLM** (see [[Inference Serving and Deployment Patterns]] and [[LLMOps & Inference]]).
 - **Speculative Decoding**: A small fast *draft* model proposes multi-token lookaheads verified in parallel by the large target model (`>2×` speedup with mathematically unchanged distribution).
 - **Model Parallelism & A100 Sizing Reference**:

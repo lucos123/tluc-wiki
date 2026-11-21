@@ -104,3 +104,4 @@ Append-only record of operations.
 ## [2026-11-19] ingest | 25 HR Interview Questions in Vietnamese (25 câu hỏi phỏng vấn bằng tiếng Việt)
 ## [2026-11-21] ingest | AI Harness 6 Core Components (AI Harness làm gì để agent hoàn thành công việc?)
 ## [2026-11-21] ingest | LLM Handwritten Study Guide 15 Pages (Cẩm nang LLM viết tay bằng tiếng Việt)
+## [2026-11-21] ingest | Transformers Detailed Notes and Revision Guide (@techyy_bandaa)

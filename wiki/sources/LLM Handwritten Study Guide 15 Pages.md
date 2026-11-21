@@ -53,7 +53,7 @@ source: "[[raw/articles/ai-other/llm-handwritten-handbook-15-pages.md]]"
 ---
 
 ## Related Pages
-- **Entities**: [[Viet Nguyen AI]]
-- **Companion Overview**: [[LLM Handbook 50 Concepts]], [[AI Complete Handbook]]
+- **Entities**: [[Viet Nguyen AI]], [[Abhinav Gupta]]
+- **Companion Overview**: [[LLM Handbook 50 Concepts]], [[Transformers Detailed Notes and Revision Guide]], [[AI Complete Handbook]]
 - **Primary Concept Created**: [[LLM Pretraining, Optimization and Decoding]]
 - **Enriched Concepts**: [[Transformer Architecture and Pre-training]], [[LLM Fine-Tuning and Alignment]], [[AI Evaluation, Safety and Governance]], [[Tokenization]], [[Retrieval-Augmented Generation and Vector DBs]]

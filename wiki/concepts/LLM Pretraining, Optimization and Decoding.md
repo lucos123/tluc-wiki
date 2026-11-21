@@ -39,10 +39,11 @@ Training `10B–100B+` frontier models across GPU/TPU clusters combines **Data P
 
 | Hyperparameter / Component | Mechanism & Formula | Production Standard for LLMs |
 | :--- | :--- | :--- |
-| **Gradient Descent** | $\theta_{t+1} = \theta_t - \eta \nabla L(\theta_t)$ via backprop chain rule | Combined with gradient clipping & warmup |
-| **`AdamW` Optimizer** | Decouples weight decay from adaptive gradient momentum updates | Preferred over vanilla `SGD` / `Adam` for stronger LLM generalization |
-| **Cosine Annealing LR** | $\eta_t = \eta_{\min} + \frac{1}{2}(\eta_{\max} - \eta_{\min})\left(1 + \cos\left(\frac{\pi t}{T}\right)\right)$ | Paired with linear **warmup + decay** to stabilize early training |
-| **Batch Size Trade-off** | Small (noisy gradients escape sharp minima) vs. Large (stable gradients, high GPU throughput) | Tuned to saturate accelerator memory (`gradient accumulation`) |
+| **Gradient Descent & Loss** | $\theta_{t+1} = \theta_t - \eta \nabla L(\theta_t)$ minimizing batch Cross-Entropy $L = -\frac{1}{N}\sum_{i=1}^N\sum_{v=1}^V y_{i,v}\log(p_{i,v})$ | Paired with **Label Smoothing** to mitigate overconfidence/overfitting ([[Transformers Detailed Notes and Revision Guide]]) |
+| **Adam / `AdamW` / `Lion`** | $m_t = \beta_1 m_{t-1} + (1-\beta_1)g_t,\; v_t = \beta_2 v_{t-1} + (1-\beta_2)g_t^2,\; \theta_t = \theta_{t-1} - \alpha\frac{\hat{m}_t}{\sqrt{\hat{v}_t}+\epsilon}$ | **`AdamW`** decouples weight decay for stronger generalization; **`Lion`** reduces optimizer state memory |
+| **Cosine Annealing LR** | $\eta_t = \eta_{\min} + \frac{1}{2}(\eta_{\max} - \eta_{\min})\left(1 + \cos\left(\frac{\pi t}{T}\right)\right)$ | Paired with linear **warmup** to stabilize early gradients |
+| **Teacher Forcing** | Feeds **ground-truth target tokens** (not previous model outputs) as Decoder inputs *solely during training* | Accelerates convergence and avoids exposure-bias compounding; disabled at inference |
+| **Memory & Batch Scaling** | **Gradient Accumulation** (virtual larger batches across micro-steps) + **Gradient Checkpointing** (recompute activations vs storing all) | Essential for fitting `7B–70B+` training inside limited GPU VRAM |
 | **Mixed Precision (`BF16`)** | Uses `16-bit` Brain Float (`torch.cuda.amp`, `GradScaler`) over `FP32` | **`BF16` strongly preferred over `FP16`** for dynamic-range stability without overflow |
 | **GPU vs. TPU** | GPUs (general compute, high memory bandwidth) vs. Cloud TPUs (matrix-multiply systolic arrays natively running `BF16`, e.g., `PaLM`) | GPUs for flexible research; TPUs for massive hyperscale training |
 
@@ -69,6 +70,6 @@ Across production workloads (accelerated by **KV Cache** storing historical `K, 
 ---
 
 ## Related Pages
-- **Sources**: [[LLM Handwritten Study Guide 15 Pages]], [[LLM Handbook 50 Concepts]], [[AI Engineer Interview Notes]]
+- **Sources**: [[LLM Handwritten Study Guide 15 Pages]], [[Transformers Detailed Notes and Revision Guide]], [[LLM Handbook 50 Concepts]], [[AI Engineer Interview Notes]]
 - **Upstream Architecture**: [[Transformer Architecture and Pre-training]], [[Tokenization]]
 - **Post-Training & Serving**: [[LLM Fine-Tuning and Alignment]], [[LLM Inference Optimization and Security]], [[Inference Serving and Deployment Patterns]]

@@ -3,6 +3,7 @@
 A catalog of everything in the knowledge base.
 
 ## Entities
+- [[Abhinav Gupta]]: Technical educator and visual note creator (@techyy_bandaa) authoring handwritten revision guides on Transformers, LLMs, and core AI engineering.
 - [[Addy Osmani]]: Engineering leader and advocate for "AI-assisted engineering".
 - [[AI Engineer]]: Global community and technical conference series focused on AI engineering, agent architectures, and LLMOps.
 - [[AI LABS]]: Technical content creator channel producing deep-dive analysis on AI agent engineering, graph topologies, and verification loops.
@@ -55,9 +56,6 @@ A catalog of everything in the knowledge base.
 - [[Uber]]: Global mobility and food delivery enterprise using closed-loop evals for multimodal agent orchestration.
 - [[Viet Nguyen AI]]: Vietnamese AI practitioner and content creator translating technical AI visual guides into Vietnamese.
 - [[Warp]]: Modern AI-powered terminal and developer environment founded by Zach Lloyd featuring Oz orchestration and self-improving agent skills.
-
-
-
 
 ## Concepts
 - [[Advanced Prompting Patterns]]: Higher-order prompting strategies (ReAct, Tree-of-Thought, Self-Consistency, Prompt Chaining, Meta-Prompting) bridging prompts to agent loops.
@@ -193,6 +191,7 @@ A catalog of everything in the knowledge base.
 - [[Vision Transformers and Multimodal AI]]: ViT patchification & self-attention (DETR/DINO/Mask2Former/MAE), CLIP contrastive alignment & zero-shot classification, Multimodal fusion (Early/Cross-Attention/Late), and Vision AI deployment stack.
 - [[Waku-Agent]]: Open-source agent framework by Sean demonstrating production Graph Engineering with router nodes, memory retrieval, and eval gates.
 
+
 ## Sources
 - [[12 Agentic Harness Patterns from Claude Code]]: Design patterns from a leaked production agent's source code.
 - [[25 HR Interview Questions in Vietnamese]]: 8-page bilingual HR & behavioral interview playbook curated by Viet Nguyen AI featuring 25 common questions with fill-in-the-blank Vietnamese templates and 7 closing principles.
@@ -291,6 +290,7 @@ A catalog of everything in the knowledge base.
 - [[The New SDLC With Vibe Coding]]: Whitepaper detailing the transition to intent-driven software development.
 - [[Token and API Price Guide]]: Visual guide to token units, tokenization algorithms (BPE, WordPiece, SentencePiece), and LLM API cost dynamics.
 - [[Track cost and usage]]: Official Anthropic guide on programmatic token usage and cost accounting using the Claude Agent SDK.
+- [[Transformers Detailed Notes and Revision Guide]]: Original 16-page English handwritten revision guide by Abhinav Gupta (@techyy_bandaa) covering Encoder/Decoder math, Permutation Invariance, GELU/LayerNorm, Teacher Forcing, Adam moments, BERT variants, RoPE/ALiBi/YaRN, Flash Attention O(n) space, PTQ/QAT, and 10 interview questions.
 - [[Types of Machine Learning Handbook]]: 13-page Vietnamese visual guide covering ML paradigms, Regression/Classification/Clustering/Dimensionality Reduction algorithms, evaluation metrics, and interview cheat sheets.
 - [[Use Claude Code with Chrome]]: Official Anthropic guide on Chrome browser integration (claude-in-chrome), debugging, and visual testing.
 - [[Vault Welcome]]: Summary of the default Obsidian onboarding note.
@@ -309,6 +309,7 @@ A catalog of everything in the knowledge base.
 - [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 - [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
+
 
 
 
