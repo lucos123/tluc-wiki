@@ -46,18 +46,27 @@ async () => {
   }
   root = root || document.body;
 
+  const paywalled = Boolean(
+    root.querySelector('.paywall, [data-testid="paywall"], .paywall-jump, .paywall-title, .paywall-cta') ||
+    /\bthis post is for paid subscribers\b/i.test(root.textContent || "")
+  );
+
   const clone = root.cloneNode(true);
   for (const junk of clone.querySelectorAll(
     "script, style, noscript, nav, aside, footer, iframe, form, " +
     "[role='navigation'], [role='complementary'], .sidebar, .comments, #comments, .related-posts, .share-buttons, " +
     ".subscribe-widget, .subscription-widget, .subscription-widget-wrap, .captioned-button-wrap, .post-ufi, .facepile, " +
-    ".button-wrapper, [data-testid='subscribe-widget'], .newsletter-post-promo"
+    ".button-wrapper, [data-testid='subscribe-widget'], .newsletter-post-promo, " +
+    ".paywall, [data-testid='paywall'], .paywall-jump, .paywall-title, .paywall-cta"
   )) {
     junk.remove();
   }
 
   const txtOf = (node) => node.textContent || "";
-  const isBoilerplate = (t) => /is a reader-supported publication\.\s*To receive new posts/i.test(t);
+  const isBoilerplate = (t) =>
+    /is a reader-supported publication\.\s*To receive new posts/i.test(t) ||
+    /^this post is for paid subscribers\.?$/i.test(t) ||
+    /^upgrade to paid$/i.test(t);
   const stripTrailingPromo = (t) =>
     t.replace(/([.!?])\s*[^.!?]*is a reader-supported publication\.\s*To receive new posts[\s\S]*$/i, "$1").trim();
   const cellText = (cell) => txtOf(cell).replace(/\s+/g, " ").replace(/\|/g, "\\|").trim();
@@ -88,7 +97,7 @@ async () => {
     if (/^h[1-6]$/.test(tag)) {
       const lvl = "#".repeat(parseInt(tag[1], 10));
       const t = txtOf(el).replace(/\s+/g, " ").trim();
-      if (t) lines.push(`\n${lvl} ${t}`);
+      if (t && !isBoilerplate(t)) lines.push(`\n${lvl} ${t}`);
       return;
     }
     if (tag === "pre") {
@@ -187,6 +196,7 @@ async () => {
   return {
     platform: "web_article",
     status: "ok",
+    paywalled,
     url: location.href,
     canonical_url: document.querySelector('link[rel="canonical"]')?.href || getMeta("og:url") || location.href,
     title: ldData.headline || getMeta("og:title") || document.title,
@@ -198,7 +208,7 @@ async () => {
     comments: [],
     external_links: Array.from(root.querySelectorAll('a[href^="http"]'))
       .filter((a) => {
-        if (a.closest("nav, aside, footer, .comments, #comments, .post-ufi, .facepile, .subscription-widget-wrap, .captioned-button-wrap")) {
+        if (a.closest("nav, aside, footer, .comments, #comments, .post-ufi, .facepile, .subscription-widget-wrap, .captioned-button-wrap, .paywall, [data-testid='paywall'], .paywall-cta")) {
           return false;
         }
         if (a.classList?.contains("image-link")) return false;
@@ -206,7 +216,11 @@ async () => {
         if (
           h.includes("substackcdn.com/image/") ||
           h.includes("substack.com/profile/") ||
+          h.includes("substack.com/@") ||
           h.includes("substack.com/note/") ||
+          h.includes("substack.com/sign-in") ||
+          h.includes("utm_source=paywall") ||
+          /\.substack\.com\/subscribe(?:\?|\/|$)/i.test(h) ||
           h.includes("/restacks")
         ) {
           return false;

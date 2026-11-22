@@ -43,6 +43,35 @@ source: "[[raw/test.md]]"
         links = lint_wiki.extract_wiki_links(content)
         self.assertEqual(links, ["Page A", "Page B", "Page C#Section"])
 
+    def test_extract_wiki_links_table_escaped_pipe(self):
+        content = (
+            "| Target | Link |\n"
+            "| :--- | :--- |\n"
+            r"| Cell 1 | [[Page A\|Alias A]] and [[Page B#Section\|Alias B]] |"
+            "\n"
+            r"| Cell 2 | [[Page C \| Alias C]] |"
+        )
+        links = lint_wiki.extract_wiki_links(content)
+        self.assertEqual(links, ["Page A", "Page B#Section", "Page C"])
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            index_path = os.path.join(tmp_dir, "index.md")
+            with open(index_path, "w", encoding="utf-8") as f:
+                f.write("# Index\n- [[Page A]]\n- [[Page B]]\n")
+            wiki_dir = os.path.join(tmp_dir, "wiki")
+            os.makedirs(wiki_dir)
+            with open(os.path.join(wiki_dir, "Page A.md"), "w", encoding="utf-8") as f:
+                f.write(
+                    "---\ntitle: Page A\ndate: 2026-11-22\ntags:\n  - test\n---\n\n"
+                    "| Col | Ref |\n| :--- | :--- |\n"
+                    r"| Row | [[Page B\|Display]] |"
+                )
+            with open(os.path.join(wiki_dir, "Page B.md"), "w", encoding="utf-8") as f:
+                f.write("---\ntitle: Page B\ndate: 2026-11-22\ntags:\n  - test\n---\n# Page B\n")
+            report = lint_wiki.lint_wiki(tmp_dir, index_path)
+            self.assertEqual(report["stats"]["total_broken_links"], 0)
+            self.assertEqual(report["broken_links"], [])
+
     def test_validate_date(self):
         self.assertTrue(lint_wiki.validate_date("2026-08-02"))
         self.assertFalse(lint_wiki.validate_date("02-08-2026"))

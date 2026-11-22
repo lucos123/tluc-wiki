@@ -1,5 +1,5 @@
 """
-Progressive-Disclosure Platform Harvester Dispatcher & Duplicate Checker for wiki-ingest (v4.1).
+Progressive-Disclosure Platform Harvester Dispatcher & Duplicate Checker for wiki-ingest (v4.3).
 
 Routes any HTTP/HTTPS URL to its matching lightweight JS DOM harvester
 (facebook, instagram, x_twitter, linkedin, or web_article), guards against
@@ -48,8 +48,9 @@ PLATFORM_HINTS = {
         "3) If `document_iframe_url` is returned for a cross-origin PDF slide viewer, include it prominently in your reply."
     ),
     "web_article": (
-        "1) Wait for main article content to settle.\n"
-        "2) Run the `web_article` JS harvester ONCE to extract JSON-LD (@graph-aware) / OG metadata, "
+        "1) Dismiss any closeable subscribe/sign-in modal (`Continue reading` / `No thanks` / `X`) and wait for main article content to settle.\n"
+        "2) Scroll briefly down the article so lazy-loaded `<figure>` images load (`naturalWidth > 0`).\n"
+        "3) Run the `web_article` JS harvester ONCE to extract JSON-LD (@graph-aware) / OG metadata, paywall flag, "
         "clean structured Markdown (headings, code blocks with language, GFM tables, nested lists), and high-res `<figure>` URLs."
     ),
 }
@@ -221,7 +222,7 @@ def build_browser_prompt(url, platform, js_code):
         f"- If `mcp_chrome_devtools_evaluate_script` saves large output to a `steps/<N>/output.txt` file, "
         f"do NOT paste long CDN image URLs or 30KB article text into your text reply.\n"
         f"- Return cleanly:\n"
-        f"  1) `status`, `author`, `handle`, `published`, `engagement`, `total_slides`\n"
+        f"  1) `status`, `author`, `handle`, `published`, `engagement`, `total_slides`, and `paywalled` (when true)\n"
         f"  2) Exact saved `steps/<N>/output.txt` path (or inline `text` / `slides` ONLY when small, e.g. <= 3 slides and <= 1500 chars)\n"
         f"  3) Brief non-image metadata (comments / external links / `document_iframe_url` / `videos_found` if any). Never transcribe slide text.\n\n"
         f"Run this exact JS snippet in `mcp_chrome_devtools_evaluate_script`:\n"

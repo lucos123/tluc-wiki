@@ -34,7 +34,7 @@ All raw files must reside in structured subfolders under `raw/`:
 | Source Type | Subfolder Target | Extraction Protocol |
 |-------------|------------------|---------------------|
 | **Web Article / Docs (HTTP URL)** | `raw/articles/<topic>/` + `raw/assets/` | Follow `references/social-post-ingest-guide.md`: 1) `get_harvester.py --url <URL>` (`web_article.js` clean Markdown + GFM tables + figure URLs), 2) `download_post_assets.py --from-harvest-file <steps/N/output.txt> --slug <slug> --mode auto --init-raw` (writes full text directly to `raw/` without context bloat), then Step 2 |
-| **Social Post / Visual Deck (FB, IG, X, LinkedIn)** | `raw/screenshots/<slug>/` or `raw/assets/` + `raw/articles/<topic>/<slug>.md` | Follow `references/social-post-ingest-guide.md` v4.1: 1) `get_harvester.py --url <URL>` (duplicate check + YouTube/PDF guard + single `harvesters/<platform>.js` prompt + **Zero-URL-Relay**), 2) `download_post_assets.py --from-harvest-file` (`--probe-cover` + `--mode auto`), 3) Batch `read_file` (5–7 images/turn) |
+| **Social Post / Visual Deck (FB, IG, X, LinkedIn)** | `raw/screenshots/<slug>/` or `raw/assets/` + `raw/articles/<topic>/<slug>.md` | Follow `references/social-post-ingest-guide.md` v4.3: 1) `get_harvester.py --url <URL>` (duplicate check + YouTube/PDF guard + single `harvesters/<platform>.js` prompt + **Zero-URL-Relay**), 2) `download_post_assets.py --from-harvest-file` (`--probe-cover` + `--mode auto`), 3) Batch `read_file` (5–7 images/turn) |
 | **PDF Whitepaper / Book** | `raw/pdfs/` | Read PDF content, save to `raw/pdfs/`, then Step 1 |
 | **YouTube / Video URL** | `raw/video-transcripts/` + `raw/screenshots/<slug>/` | Follow `references/video-ingest-guide.md`: 1) `extract_youtube_transcript.py <URL> --json` (chapters + `[MM:SS]` cues + `related_wiki_pages`), 2) `capture_youtube_keyframes.py` (1080p smart-probed slides + `--keep/--drop` curation), 3) Batch `read_file` to verify & synthesize slides |
 | **Work Notes & Drafts** | `raw/notes/<category>/` | Read note file in `raw/notes/`, then Step 1 |
@@ -75,10 +75,10 @@ Follow templates in `references/ingest-templates.md` or `references/video-ingest
 - **Mandatory `lint_wiki.py` Rules**:
   1. Always format `tags:` as a **multiline YAML list** (`tags:\n  - concept\n  - ...`), NEVER inline `tags: [a, b]`.
   2. Include required frontmatter fields (`title`, `date` in `YYYY-MM-DD`, `tags`, plus `source` on all `wiki/sources/` files).
-  3. Every `[[Wiki Link]]` inside `wiki/` (unless prefixed with `raw/`) MUST match the exact filename (without `.md`) of an existing page in `wiki/`, `mem/`, or `output/`.
+  3. Every `[[Wiki Link]]` inside `wiki/` (unless prefixed with `raw/`) MUST match the exact filename (without `.md`) of an existing page in `wiki/`, `mem/`, or `output/`. Both standard `[[Page|Alias]]` and Markdown-table-escaped `[[Page\|Alias]]` aliases are supported cleanly by `lint_wiki.py`.
 
 ### Step 5 — Atomic Index, Log & Verification Gate (1-Command Finish)
-Instead of editing `index.md` and `wiki/log.md` manually across multiple calls, run `register_ingest.py` to atomically insert/sort all new `index.md` entries, append `wiki/log.md`, and execute `lint_wiki.py` in **1 single command**:
+Instead of editing `index.md` and `wiki/log.md` manually across multiple calls, run `register_ingest.py` to atomically insert/sort all new `index.md` entries, append `wiki/log.md`, and execute `lint_wiki.py` in **1 single command** *(uses `--date`, `--log-type`, `--source-title`, and repeatable `--entry "Section|Page|Summary"` — no `--summary` flag)*:
 ```powershell
 python .agents/skills/wiki-ingest/scripts/register_ingest.py `
   --date YYYY-MM-DD `

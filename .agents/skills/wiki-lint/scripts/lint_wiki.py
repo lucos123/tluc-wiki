@@ -117,7 +117,7 @@ def extract_wiki_links(content):
     links = re.findall(r"\[\[(.*?)\]\]", cleaned)
     results = []
     for link in links:
-        target = link.split("|")[0].strip()
+        target = re.split(r"\\?\|", link, maxsplit=1)[0].strip()
         if not target or "[" in target or "]" in target or "\n" in target:
             continue
         results.append(target)

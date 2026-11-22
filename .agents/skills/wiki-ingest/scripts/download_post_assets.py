@@ -1,5 +1,5 @@
 """
-Deterministic Social & Web Asset Downloader for wiki-ingest (v4.1).
+Deterministic Social & Web Asset Downloader for wiki-ingest (v4.3).
 
 Concurrently downloads high-resolution post/article images (or falls back to local
 screenshots) into raw/screenshots/<slug>/ or raw/assets/ using pure Python
@@ -8,7 +8,8 @@ standard library modules (zero external dependencies like PIL/requests).
 Supports Zero-URL-Relay parsing from Chrome DevTools `steps/<N>/output.txt`
 (`--from-harvest-file`), Cover-First probing (`--probe-cover`), Auto storage routing
 (`--mode auto`: 1-3 -> assets, >=4 -> screenshots), non-AVIF content negotiation,
-and automatic domain-matched Referer fallback on HTTP 401/403.
+automatic domain-matched Referer fallback on HTTP 401/403, paywall metadata capture,
+and multi-author YAML normalization.
 
 Usage:
     python .agents/skills/wiki-ingest/scripts/download_post_assets.py \
@@ -312,6 +313,7 @@ def parse_harvest_file(path):
     meta = {
         "platform": payload.get("platform"),
         "status": payload.get("status"),
+        "paywalled": True if payload.get("paywalled") else None,
         "title": payload.get("title"),
         "url": payload.get("canonical_url") or payload.get("url"),
         "author": payload.get("author"),
@@ -513,6 +515,7 @@ def extract_raw_meta(args, harvest_meta=None):
         "external_links": manifest.get("external_links") or hmeta.get("external_links") or [],
         "tags": manifest.get("raw_tags") or None,
         "notes": manifest.get("raw_notes") or manifest.get("notes") or [],
+        "paywalled": bool(manifest.get("paywalled") or hmeta.get("paywalled")),
     }
 
 
@@ -530,6 +533,45 @@ def _resolve_slide_note(item, idx, meta_notes):
         if val:
             return str(val).strip()
     return ""
+
+
+def _normalize_authors(author):
+    """Normalize single/multi-author string or list into deduplicated [[Wiki Link]] entries."""
+    if not author:
+        return []
+    if isinstance(author, (list, tuple)):
+        raw_items = []
+        for entry in author:
+            if entry:
+                raw_items.extend(_normalize_authors(str(entry)))
+        seen = set()
+        out = []
+        for item in raw_items:
+            if item.lower() not in seen:
+                seen.add(item.lower())
+                out.append(item)
+        return out
+
+    text = str(author).strip()
+    if not text:
+        return []
+
+    parts = re.split(
+        r"(?:\s*;\s*|\s*,\s+(?!(?:Inc\.?|LLC|Ltd\.?|Corp\.?|Jr\.?|Sr\.?|II|III|Ph\.?D\.?|M\.?D\.?)(?:\b|$)))(?![^\[]*\]\])",
+        text,
+    )
+    seen = set()
+    out = []
+    for part in parts:
+        cleaned = part.strip().strip('"').strip("'")
+        if not cleaned:
+            continue
+        val = cleaned if cleaned.startswith("[[") and cleaned.endswith("]]") else f"[[{cleaned}]]"
+        key = val.lower()
+        if key not in seen:
+            seen.add(key)
+            out.append(val)
+    return out
 
 
 def scaffold_raw_article(slug, files, project_root, meta):
@@ -583,13 +625,16 @@ def scaffold_raw_article(slug, files, project_root, meta):
         lines.append(f'source: "{_yaml_escape(source_url)}"')
     if original_source:
         lines.append(f'original_source: "{_yaml_escape(original_source)}"')
-    if author:
-        author_val = author if author.startswith("[[") else f"[[{author}]]"
+    authors = _normalize_authors(author)
+    if authors:
         lines.append("author:")
-        lines.append(f'  - "{_yaml_escape(author_val)}"')
+        for author_val in authors:
+            lines.append(f'  - "{_yaml_escape(author_val)}"')
     if published:
         lines.append(f"published: {_format_yaml_published(published)}")
     lines.append(f"created: {created}")
+    if meta.get("paywalled"):
+        lines.append("paywalled: true")
     lines.append(f'description: "{_yaml_escape(description)}"')
     lines.append("tags:")
     for t in tags:
@@ -604,6 +649,8 @@ def scaffold_raw_article(slug, files, project_root, meta):
         lines.append(f"- **Nguồn bài viết:** {source_url}")
     if published:
         lines.append(f"- **Thời gian đăng:** {_format_display_published(published)}")
+    if meta.get("paywalled"):
+        lines.append("- **Trạng thái paywall:** Partial preview (phần cuối bài nằm sau paywall)")
     if original_source:
         lines.append(f"- **Nguồn gốc tiếng Anh được tác giả trích dẫn:** {original_source}")
 

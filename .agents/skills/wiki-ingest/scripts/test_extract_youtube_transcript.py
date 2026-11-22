@@ -288,11 +288,12 @@ kernel = [[-1, 0, 1], [-2, 0, 2]]
 comment = "ignore [[Fake Code Block Link]] here"
 ```
 
-Meanwhile [[Real Concept|Alias]] must still be extracted cleanly.
+Meanwhile [[Real Concept|Alias]] and table-escaped [[Table Concept\\|Escaped Alias]] must still be extracted cleanly.
 """
         extracted = lint_wiki.extract_wiki_links(sample_md)
         self.assertIn("Valid Source", extracted)
         self.assertIn("Real Concept", extracted)
+        self.assertIn("Table Concept", extracted)
         self.assertNotIn("Fake Code Block Link", extracted)
         self.assertFalse(any("-1,0,1" in item for item in extracted))
 
@@ -507,6 +508,8 @@ class FakeEl {
       const m = sel.match(/meta\[(property|name)="([^"]+)"\]/);
       return m ? (this.tagName === 'META' && this.attrs[m[1]] === m[2]) : false;
     }
+    const dm = sel.match(/^\[data-testid=['"]([^'"]+)['"]\]$/);
+    if (dm) return this.attrs['data-testid'] === dm[1];
     return false;
   }
   matches(selectorList) {
@@ -565,6 +568,13 @@ class FakeEl {
     new FakeEl('p', {}, 'Jam with AI is a reader-supported publication. To receive new posts and support my work, consider becoming a free or paid subscriber.'),
     new FakeEl('p', {}, 'Read the companion paper: ', [new FakeEl('a', { href: 'https://arxiv.org/abs/2401.00001' }, 'arXiv')]),
     new FakeEl('a', { href: 'https://substack.com/profile/123-user' }, 'Reader Profile'),
+    new FakeEl('a', { href: 'https://substack.com/@shantanuladhwe' }, 'Co-Author'),
+    new FakeEl('a', { href: 'https://substack.com/sign-in?redirect=%2Fp%2Fscaling-agents' }, 'Sign in'),
+    new FakeEl('h2', {}, 'This post is for paid subscribers'),
+    new FakeEl('div', { class: 'paywall', 'data-testid': 'paywall' }, '', [
+      new FakeEl('p', {}, 'Upgrade to paid to continue reading.'),
+      new FakeEl('a', { href: 'https://jamwithai.substack.com/subscribe?simple=true&utm_source=paywall' }, 'Upgrade'),
+    ]),
     table,
     pre,
     fig,
@@ -593,15 +603,21 @@ class FakeEl {
         self.assertEqual(res["title"], "Scaling Agents")
         self.assertEqual(res["author"], "Jane Doe")
         self.assertEqual(res["published"], "2026-10-05T12:00:00Z")
+        self.assertTrue(res["paywalled"])
         self.assertIn("| Model | Score |", res["text"])
         self.assertIn("| Alpha | 94.2 |", res["text"])
         self.assertIn("```python\nprint(\"hi\")\n```", res["text"])
         self.assertNotIn("Home About Pricing", res["text"])
         self.assertNotIn("Subscribe now box", res["text"])
         self.assertNotIn("reader-supported publication", res["text"])
+        self.assertNotIn("paid subscribers", res["text"])
+        self.assertNotIn("Upgrade to paid", res["text"])
         self.assertIn("https://arxiv.org/abs/2401.00001", res["external_links"])
         self.assertFalse(any("substackcdn.com/image/" in u for u in res["external_links"]))
         self.assertFalse(any("substack.com/profile/" in u for u in res["external_links"]))
+        self.assertFalse(any("@shantanuladhwe" in u for u in res["external_links"]))
+        self.assertFalse(any("utm_source=paywall" in u for u in res["external_links"]))
+        self.assertFalse(any("substack.com/sign-in" in u for u in res["external_links"]))
         self.assertFalse(any("substack.com/subscribe" in u for u in res["external_links"]))
         self.assertEqual(res["total_slides"], 1)
         self.assertEqual(
@@ -1008,6 +1024,66 @@ class FakeEl {
             self.assertEqual(content.count("# System Design for AI Engineers: 7 patterns"), 1)
             self.assertIn("## Hình Ảnh & Sơ Đồ Đính Kèm (1 ảnh)", content)
             self.assertIn("### Hình 1 / 1 *(1440x606)*", content)
+
+    def test_download_post_assets_multi_author_and_paywall_metadata(self):
+        import argparse
+        import json
+
+        self.assertEqual(
+            download_post_assets._normalize_authors("Shantanu Ladhwe, Shirin Khosravi Jam"),
+            ["[[Shantanu Ladhwe]]", "[[Shirin Khosravi Jam]]"],
+        )
+        self.assertEqual(
+            download_post_assets._normalize_authors("Acme, Inc."),
+            ["[[Acme, Inc.]]"],
+        )
+        self.assertEqual(
+            download_post_assets._normalize_authors(["[[Alice]]", "Bob", "Alice"]),
+            ["[[Alice]]", "[[Bob]]"],
+        )
+
+        with tempfile.TemporaryDirectory() as tmp:
+            harvest_path = Path(tmp) / "paywalled_harvest.txt"
+            harvest_path.write_text(
+                json.dumps({
+                    "platform": "web_article",
+                    "status": "ok",
+                    "paywalled": True,
+                    "title": "Paywalled Article",
+                    "canonical_url": "https://jamwithai.substack.com/p/demo",
+                    "author": "Shantanu Ladhwe, Shirin Khosravi Jam",
+                    "published": "2026-07-01T16:41:23+07:00",
+                    "text": "# Paywalled Article\n\nSection 1 content.",
+                    "slides": [],
+                }),
+                encoding="utf-8",
+            )
+            _, hmeta = download_post_assets.parse_harvest_file(str(harvest_path))
+            self.assertTrue(hmeta.get("paywalled"))
+
+            args = argparse.Namespace(
+                init_raw=True,
+                manifest=None,
+                raw_subdir="ai-other",
+                raw_title=None,
+                raw_source=None,
+                raw_original_source=None,
+                raw_author=None,
+                raw_published=None,
+                raw_created="2026-11-22",
+                raw_description=None,
+                raw_text=None,
+            )
+            rmeta = download_post_assets.extract_raw_meta(args, harvest_meta=hmeta)
+            self.assertTrue(rmeta["paywalled"])
+
+            rel_p, st_p = download_post_assets.scaffold_raw_article("paywalled-demo", [], tmp, rmeta)
+            self.assertEqual(st_p, "created")
+            content = (Path(tmp) / rel_p).read_text(encoding="utf-8")
+            self.assertIn('  - "[[Shantanu Ladhwe]]"', content)
+            self.assertIn('  - "[[Shirin Khosravi Jam]]"', content)
+            self.assertIn("paywalled: true", content)
+            self.assertIn("- **Trạng thái paywall:**", content)
 
 
 if __name__ == "__main__":
