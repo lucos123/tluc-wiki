@@ -390,10 +390,10 @@ Complete 17-part reference catalog preserving all **162 system design concepts**
 - [[How a Production AI Agent System Actually Works]] — Inner 9-layer Python agent service stack ([[Production AI Agent Service Stack]]).
 - [[AI Agent Memory 7 Types Explained in 12 Minutes]] — Seven functional memory types & storage mapping ([[AI Agent Memory Types]]).
 - [[System Design for AI Engineers 7 Patterns]] — AI interview-focused breakdown of the 7 infrastructure patterns.
+- [[All GPU Related Concepts Simply Explained]] — Visual hardware-to-cluster GPU guide synthesized in [[GPU Architecture and Distributed Scaling]].
 
 ### Further External Reading Linked at End of Guide *(Not Opened/Ingested)*
 - [20 AI Engineering Concepts Explained](https://jamwithai.substack.com/p/20-ai-engineering-concepts-explained)
-- [All GPU related concepts simply explained](https://jamwithai.substack.com/p/all-gpu-related-concepts-simply-explained)
 - [LLM Inference 101](https://jamwithai.substack.com/p/llm-inference-101)
 - [Agentic RAG System Course](https://jamwithai.com/courses/rag/)
 

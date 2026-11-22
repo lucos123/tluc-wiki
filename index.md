@@ -63,6 +63,7 @@ A catalog of everything in the knowledge base.
 
 
 
+
 ## Concepts
 - [[Advanced Prompting Patterns]]: Higher-order prompting strategies (ReAct, Tree-of-Thought, Self-Consistency, Prompt Chaining, Meta-Prompting) bridging prompts to agent loops.
 - [[Advisor Model Pattern]]: Dual-model escalation architecture in Claude Code (/advisor) delegating hard choices from Sonnet to Opus.
@@ -119,6 +120,7 @@ A catalog of everything in the knowledge base.
 - [[Few-Shot Prompting]]: In-context learning technique supplying input-output demonstration pairs to govern formatting, style, and pattern accuracy.
 - [[Git Worktree Isolation]]: Harness pattern running parallel sessions in dedicated git worktrees (.claude/worktrees/) to prevent edit collisions.
 - [[Goal-Driven Loop]]: Autonomous multi-turn loop (/goal) evaluated after each turn by an independent fast evaluator model until completion conditions hold.
+- [[GPU Architecture and Distributed Scaling]]: Hardware-to-cluster AI compute reference covering SM/CUDA/Tensor Core execution, HBM capacity vs bandwidth, precision spectrum, NVIDIA generations, compute- vs memory-bound diagnostics, 3D parallelism, NVLink/NVSwitch/NCCL/AllReduce, and scaling bottlenecks.
 - [[Graph Engineering]]: Orchestration paradigm structuring reliable agent nodes into directed graphs (DAGs or cyclic graphs).
 - [[Harness Engineering]]: The design of the environment (tools, sandboxes, memory) that wraps the model.
 - [[Harness Overhead vs Model Cost]]: Economic paradigm detailing how agent spend is dominated by system prompt tollgates and multi-turn loops rather than base model inference.
@@ -219,6 +221,7 @@ A catalog of everything in the knowledge base.
 - [[AI Model vs Agentic Harness What Actually Drives AI]]: IBM Technology's breakdown of the "brain in a jar" metaphor, narrowing benchmark gaps, the 3 harness pillars (Tools, Memory, Loops), and model-harness co-evolution.
 - [[AI System Design 7 Patterns Explained in 17 Minutes]]: 17m 11s Jam With AI walkthrough by Shirin Khosravi Jam explaining 7 production AI system design patterns around a Core AI Service, observability triad, and interview approach.
 - [[All Code Is Slop (Except Mine) — Lauren Tan, SpaceXSI]]: AI Engineer Code Summit talk by Lauren Tan (@poteto) on scaling Grok Bot to 11,000 PRs/mo (~0.5% revert rate) via deterministic guardrails and runtime/formal verification.
+- [[All GPU Related Concepts Simply Explained]]: Jam With AI's visual guide explaining 55+ GPU concepts across fundamentals, HBM memory hierarchy, numerical precision (TF32/BF16/FP8/FP4), NVIDIA V100-B200 generations, DP/TP/PP parallelism, NVLink/NCCL/AllReduce, and scaling efficiency.
 - [[Anthropic Just Fixed Graph Engineering's Greatest Flaw]]: AI LABS breakdown of DAG error cascading, the Second Opinion Pattern, Chrome Headless Shell verification, and the Orchestrator Skill Pattern.
 - [[Automate actions with hooks]]: Official Anthropic guide on lifecycle hooks, configuration, notification scripts, and environment loading.
 - [[AWS Core Services Notes]]: 18-page Vietnamese visual notebook by Viet Nguyen AI summarizing 17 core AWS infrastructure, compute, database, container, observability, and security services.
@@ -324,6 +327,7 @@ A catalog of everything in the knowledge base.
 - [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 - [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
+
 
 
 

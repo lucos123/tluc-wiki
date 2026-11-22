@@ -38,9 +38,11 @@ url: "https://www.youtube.com/@JamWithAI"
 - [[AI System Design 7 Patterns Explained in 17 Minutes]] *(2026-09-10, Video 2)* — Complete video walkthrough of the 7 surrounding production infrastructure patterns wrapping the Core AI Service under load, plus AI observability and system design interview methodology.
 - [[System Design for AI Engineers 7 Patterns]] *(2026-04-09, Companion Substack)* — Companion interview-focused article adding interview signals, Denial-of-Wallet defense, weighted/least-connections GPU load balancing, semantic caching nuances, and reference books.
 - [[System Design for Engineers 162 Concepts]] *(Substack Resource Map)* — Curated 17-part, 162-concept system design curriculum (324 article/video links, 15 ⭐ core concepts, per-part interview signals, and 8 follow-up diagnostics); full link catalog in [[System Design 162 Concepts Resource Map]].
+- [[All GPU Related Concepts Simply Explained]] *(Substack Visual Guide)* — Visual reference covering 55+ GPU hardware, memory hierarchy, numerical precision (`TF32`/`BF16`/`FP8`/`FP4`), NVIDIA generations (`V100`–`B200`), `DP`/`TP`/`PP` parallelism, `NVLink`/`NCCL`/`AllReduce`, and scaling bottlenecks; synthesized into [[GPU Architecture and Distributed Scaling]].
 
 ## Related Pages
 - [[System Design 162 Concepts Resource Map]]
+- [[GPU Architecture and Distributed Scaling]]
 - [[Production AI Agent Service Stack]]
 - [[Production AI Resilience and Scaling Patterns]]
 - [[AI Agent Memory Types]]

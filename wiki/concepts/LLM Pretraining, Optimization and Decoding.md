@@ -70,6 +70,6 @@ Across production workloads (accelerated by **KV Cache** storing historical `K, 
 ---
 
 ## Related Pages
-- **Sources**: [[LLM Handwritten Study Guide 15 Pages]], [[Transformers Detailed Notes and Revision Guide]], [[LLM Handbook 50 Concepts]], [[AI Engineer Interview Notes]]
-- **Upstream Architecture**: [[Transformer Architecture and Pre-training]], [[Tokenization]]
+- **Sources**: [[LLM Handwritten Study Guide 15 Pages]], [[Transformers Detailed Notes and Revision Guide]], [[LLM Handbook 50 Concepts]], [[AI Engineer Interview Notes]], [[All GPU Related Concepts Simply Explained]]
+- **Upstream Architecture**: [[Transformer Architecture and Pre-training]], [[Tokenization]], [[GPU Architecture and Distributed Scaling]]
 - **Post-Training & Serving**: [[LLM Fine-Tuning and Alignment]], [[LLM Inference Optimization and Security]], [[Inference Serving and Deployment Patterns]]

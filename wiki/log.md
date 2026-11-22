@@ -114,3 +114,4 @@ Append-only record of operations.
 ## [2026-11-22] ingest | AI Agent Memory: 7 Types Explained in 12 Minutes
 ## [2026-11-22] ingest | Agent Memory: the 7 types you should know before you ship to production
 ## [2026-11-22] ingest | System Design for Engineers 162 Concepts
+## [2026-11-22] ingest | All GPU Related Concepts Simply Explained

@@ -66,6 +66,6 @@ Deploying large models (`7B–175B+`) in production requires balancing **latency
 
 ## Relationships
 
-- **Serving & Economics**: Deepens [[Inference Serving and Deployment Patterns]], [[LLMOps & Inference]], [[AI Deployment Lifecycle and Environments]], and [[Cost Optimization]].
+- **Serving & Economics**: Deepens [[Inference Serving and Deployment Patterns]], [[LLMOps & Inference]], [[GPU Architecture and Distributed Scaling]], [[AI Deployment Lifecycle and Environments]], and [[Cost Optimization]] (see also [[All GPU Related Concepts Simply Explained]]).
 - **Evaluation & Verification**: Pairs with [[Model Evaluation and Validation]], [[Closed-Loop Evals]], and [[Verification Loop]].
 - **Security**: Complements [[Agent Skills Security Audit]] and [[Software Supply Chain Security]].

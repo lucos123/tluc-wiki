@@ -99,10 +99,9 @@ Rather than tackling terms in isolation, the guide organizes request flow, persi
   - [[AI System Design 7 Patterns Explained in 17 Minutes]] (`0jCss9xfOiw`)
   - [[How a Production AI Agent System Actually Works]] (`sKzL0wSN9vQ`)
   - [[AI Agent Memory 7 Types Explained in 12 Minutes]] (`bK1clrG-boc`)
-- **AI-Era Pattern Deep Dive Referenced in Part XV**: [[System Design for AI Engineers 7 Patterns]]
+- **AI-Era Pattern & Hardware Companions**: [[System Design for AI Engineers 7 Patterns]], [[All GPU Related Concepts Simply Explained]] *(synthesized in [[GPU Architecture and Distributed Scaling]])*
 - **Additional Substack & Course Pointers Retained *(Not Opened/Ingested)***:
   - [20 AI Engineering Concepts Explained](https://jamwithai.substack.com/p/20-ai-engineering-concepts-explained)
-  - [All GPU related concepts simply explained](https://jamwithai.substack.com/p/all-gpu-related-concepts-simply-explained)
   - [LLM Inference 101](https://jamwithai.substack.com/p/llm-inference-101)
   - [Agentic RAG System Course](https://jamwithai.com/courses/rag/)
 
