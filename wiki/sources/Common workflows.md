@@ -7,20 +7,20 @@ tags:
   - recipes
   - harness-engineering
   - claude-code
-source: "[[raw/articles/claude-code/large-codebases-sdlc-worktrees/common-workflows.md]]"
+source: "raw/articles/claude-code/large-codebases-sdlc-worktrees/common-workflows.md"
 url: "https://code.claude.com/docs/en/common-workflows.md"
 ---
 
 # Common workflows
 
 **URL**: https://code.claude.com/docs/en/common-workflows.md  
-**Source File**: [[raw/articles/claude-code/large-codebases-sdlc-worktrees/common-workflows.md]]  
+**Source File**: [raw/articles/claude-code/large-codebases-sdlc-worktrees/common-workflows.md](../../raw/articles/claude-code/large-codebases-sdlc-worktrees/common-workflows.md)  
 
 ---
 
 ## Executive Summary
 
-This official Anthropic guide provides concrete prompt recipes and operational patterns for everyday software engineering tasks in [[Claude Code]], including codebase exploration, bug fixing, refactoring, test generation, PR creation, session resuming, and shell piping.
+This official Anthropic guide provides concrete prompt recipes and operational patterns for everyday software engineering tasks in [Claude Code](../entities/Claude%20Code.md), including codebase exploration, bug fixing, refactoring, test generation, PR creation, session resuming, and shell piping.
 
 ---
 
@@ -57,5 +57,9 @@ Codebase Exploration ──> Bug Fixing ──> Refactoring ──> Testing ─�
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Agentic Workflow Recipes]], [[Agentic Coding Workflow]], [[Git Worktree Isolation]], [[Subagent Context Isolation]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Agentic Workflow Recipes](../concepts/Agentic%20Workflow%20Recipes.md)
+  - [Agentic Coding Workflow](../concepts/Agentic%20Coding%20Workflow.md)
+  - [Git Worktree Isolation](../concepts/Git%20Worktree%20Isolation.md)
+  - [Subagent Context Isolation](../concepts/Subagent%20Context%20Isolation.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

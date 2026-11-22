@@ -8,20 +8,20 @@ tags:
   - context-engineering
   - harness-engineering
   - claude-code
-source: "[[raw/articles/claude-code/large-codebases-sdlc-worktrees/large-codebases.md]]"
+source: "raw/articles/claude-code/large-codebases-sdlc-worktrees/large-codebases.md"
 url: "https://code.claude.com/docs/en/large-codebases.md"
 ---
 
 # Set up Claude Code in a monorepo or large codebase
 
 **URL**: https://code.claude.com/docs/en/large-codebases.md  
-**Source File**: [[raw/articles/claude-code/large-codebases-sdlc-worktrees/large-codebases.md]]  
+**Source File**: [raw/articles/claude-code/large-codebases-sdlc-worktrees/large-codebases.md](../../raw/articles/claude-code/large-codebases-sdlc-worktrees/large-codebases.md)  
 
 ---
 
 ## Executive Summary
 
-This official Anthropic guide details how to configure [[Claude Code]] for large single-tree repositories and monorepos. In large codebases, default configurations risk filling context windows with instructions, file reads, and build output from unrelated subsystems.
+This official Anthropic guide details how to configure [Claude Code](../entities/Claude%20Code.md) for large single-tree repositories and monorepos. In large codebases, default configurations risk filling context windows with instructions, file reads, and build output from unrelated subsystems.
 
 The guide outlines 6 core optimization techniques:
 1. **Per-directory `CLAUDE.md` Layering**: Root instructions cover global standards while package-level `CLAUDE.md` files provide local context.
@@ -48,5 +48,10 @@ The guide outlines 6 core optimization techniques:
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Monorepo Context Engineering]], [[Sparse Worktree Checkouts]], [[Claude Code Monorepo Setup]], [[Path-Scoped Rules]], [[Context Window Management]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Monorepo Context Engineering](../concepts/Monorepo%20Context%20Engineering.md)
+  - [Sparse Worktree Checkouts](../concepts/Sparse%20Worktree%20Checkouts.md)
+  - [Claude Code Monorepo Setup](Claude%20Code%20Monorepo%20Setup.md)
+  - [Path-Scoped Rules](../concepts/Path-Scoped%20Rules.md)
+  - [Context Window Management](../concepts/Context%20Window%20Management.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

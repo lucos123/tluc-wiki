@@ -6,12 +6,12 @@ tags:
   - agent-sdk
   - token-economics
   - claude-code
-source: "[[Track cost and usage]]"
+source: "wiki/sources/Track cost and usage.md"
 ---
 
 # SDK Token Accounting
 
-**SDK Token Accounting** is the programmatic token measurement and cost aggregation pattern used in the [[Agent SDK Architecture|Claude Agent SDK]] to capture input, output, cache creation, and cache read tokens across multi-turn agent execution trees.
+**SDK Token Accounting** is the programmatic token measurement and cost aggregation pattern used in the [Claude Agent SDK](Agent%20SDK%20Architecture.md) to capture input, output, cache creation, and cache read tokens across multi-turn agent execution trees.
 
 ---
 
@@ -32,4 +32,4 @@ graph TD
 2. **Subagent Tree Aggregation**: Standard `usage` excludes subagents; developers must read `modelUsage` or `total_cost_usd` for whole-tree cost accounting.
 3. **Client-Side Pricing Tables**: `total_cost_usd` is a build-time client-side estimate, not an authoritative financial invoice.
 
-See [[Track cost and usage]], [[Token Economics]], and [[Agent SDK Architecture]].
+See [Track cost and usage](../sources/Track%20cost%20and%20usage.md), [Token Economics](Token%20Economics.md), and [Agent SDK Architecture](Agent%20SDK%20Architecture.md).

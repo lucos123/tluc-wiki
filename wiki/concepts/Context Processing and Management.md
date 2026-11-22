@@ -5,12 +5,12 @@ tags:
   - concept
   - context-engineering
   - harness-engineering
-source: "[[What Is Context Engineering Why It Matters for AI Agents]]"
+source: "wiki/sources/What Is Context Engineering Why It Matters for AI Agents.md"
 ---
 
 # Context Processing and Management
 
-**Context Processing and Management** is the two-phase operational framework in [[Context Engineering]] governing how raw data is transformed into structured context payloads (Processing) and maintained across multi-turn agent execution lifecycles (Management).
+**Context Processing and Management** is the two-phase operational framework in [Context Engineering](Context%20Engineering.md) governing how raw data is transformed into structured context payloads (Processing) and maintained across multi-turn agent execution lifecycles (Management).
 
 ---
 
@@ -45,4 +45,4 @@ graph TD
 - **Lifecycle Invalidation**: Overwrite stale state when new API results arrive.
 - **Coherence**: Resolve contradictions between tool outputs and system state.
 
-See [[What Is Context Engineering Why It Matters for AI Agents]], [[Context Engineering]], and [[Context Rot]].
+See [What Is Context Engineering Why It Matters for AI Agents](../sources/What%20Is%20Context%20Engineering%20Why%20It%20Matters%20for%20AI%20Agents.md), [Context Engineering](Context%20Engineering.md), and [Context Rot](Context%20Rot.md).

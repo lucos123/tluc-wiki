@@ -11,13 +11,13 @@ source: "https://web.facebook.com/vietnh1009/posts/pfbid02wJj6RDERuLsVqGBvCBp71d
 
 # Python Handbook (Cẩm nang Python bằng tiếng Việt)
 
-**Author**: [[Viet Nguyen AI]] | **Source**: [Facebook Post](https://web.facebook.com/vietnh1009/posts/pfbid02wJj6RDERuLsVqGBvCBp71djHx1goEu2TdcUYfyiTzGCXWdMDuSqowFBtfPTPySj2l) | **Raw Transcript & Visuals**: [[raw/articles/ai-other/python-handbook.md]] | **Pages**: 10 visual sketchnote slides (`2026-11-17`)
+**Author**: [Viet Nguyen AI](../entities/Viet%20Nguyen%20AI.md) | **Source**: [Facebook Post](https://web.facebook.com/vietnh1009/posts/pfbid02wJj6RDERuLsVqGBvCBp71djHx1goEu2TdcUYfyiTzGCXWdMDuSqowFBtfPTPySj2l) | **Raw Transcript & Visuals**: [raw/articles/ai-other/python-handbook.md](../../raw/articles/ai-other/python-handbook.md) | **Pages**: 10 visual sketchnote slides (`2026-11-17`)
 
 ---
 
 ## Executive Summary
 
-A 10-page Vietnamese visual handbook by [[Viet Nguyen AI]] condensing foundational **Python** programming concepts, syntax comparisons, control-flow diagrams, and quick-reference tables. Designed as both a beginner onboarding primer and a daily cheat sheet covering core execution semantics (`high-level`, `interpreted`, `dynamically typed`), control structures, functions (`DRY`, keyword/default arguments, `lambda`), immutable string operations, the 4 built-in collections (`List`, `Tuple`, `Set`, `Dictionary`), and safe file I/O using `with` context managers.
+A 10-page Vietnamese visual handbook by [Viet Nguyen AI](../entities/Viet%20Nguyen%20AI.md) condensing foundational **Python** programming concepts, syntax comparisons, control-flow diagrams, and quick-reference tables. Designed as both a beginner onboarding primer and a daily cheat sheet covering core execution semantics (`high-level`, `interpreted`, `dynamically typed`), control structures, functions (`DRY`, keyword/default arguments, `lambda`), immutable string operations, the 4 built-in collections (`List`, `Tuple`, `Set`, `Dictionary`), and safe file I/O using `with` context managers.
 
 ---
 
@@ -56,11 +56,14 @@ A 10-page Vietnamese visual handbook by [[Viet Nguyen AI]] condensing foundation
 - **Editorial Note on Visual Infographics**:
   1. **Page 8 (Set Mutability)**: The printed card titles `SET (Immutable, Unordered)` and marks Mutable as `Không *`; technically, Python's `set` container itself *is* mutable (`add`, `remove`, `discard`, `pop` mutate it in place), while only its **elements** must be immutable/hashable (contrast `frozenset` for an immutable set).
   2. **Page 3 (Arithmetic Table Typos)**: The example under `-` prints `7 - 2 = 14` (`7 * 2 = 14`; subtraction should be `7 - 2 = 5`).
-- **Second Brain Synergy**: Establishes the foundational programming reference beneath Python-heavy AI engineering workflows across [[Types of Machine Learning Handbook]], [[LLM Handbook 50 Concepts]], [[Programmatic Tool Calling]], and [[How Anthropic runs large-scale code migrations with Claude Code]].
+- **Second Brain Synergy**: Establishes the foundational programming reference beneath Python-heavy AI engineering workflows across [Types of Machine Learning Handbook](Types%20of%20Machine%20Learning%20Handbook.md), [LLM Handbook 50 Concepts](LLM%20Handbook%2050%20Concepts.md), [Programmatic Tool Calling](../concepts/Programmatic%20Tool%20Calling.md), and [How Anthropic runs large-scale code migrations with Claude Code](How%20Anthropic%20runs%20large-scale%20code%20migrations%20with%20Claude%20Code.md).
 
 ---
 
 ## Related Pages
-- **Entities**: [[Viet Nguyen AI]]
-- **Concepts**: [[Python Core Syntax and Control Flow]], [[Python Collections and File Handling]], [[Programmatic Tool Calling]]
-- **Sibling Handbooks**: [[Types of Machine Learning Handbook]], [[LLM Handbook 50 Concepts]]
+- **Entities**: [Viet Nguyen AI](../entities/Viet%20Nguyen%20AI.md)
+- **Concepts**:
+  - [Python Core Syntax and Control Flow](../concepts/Python%20Core%20Syntax%20and%20Control%20Flow.md)
+  - [Python Collections and File Handling](../concepts/Python%20Collections%20and%20File%20Handling.md)
+  - [Programmatic Tool Calling](../concepts/Programmatic%20Tool%20Calling.md)
+- **Sibling Handbooks**: [Types of Machine Learning Handbook](Types%20of%20Machine%20Learning%20Handbook.md), [LLM Handbook 50 Concepts](LLM%20Handbook%2050%20Concepts.md)

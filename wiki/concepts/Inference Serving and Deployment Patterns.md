@@ -6,12 +6,12 @@ tags:
   - ai-deployment
   - llmops
   - inference-economics
-source: "[[AI Deployment Notes]]"
+source: "wiki/sources/AI Deployment Notes.md"
 ---
 
 # Inference Serving and Deployment Patterns
 
-**Inference Serving and Deployment Patterns** defines how trained models execute predictions across workload shapes (`Batch`, `Real-Time`, `Async`), timing (`Offline` vs `Online`), physical topology (`Cloud`, `Edge`, `Hybrid`), and multi-layer serving infrastructure. See [[AI Deployment Notes]].
+**Inference Serving and Deployment Patterns** defines how trained models execute predictions across workload shapes (`Batch`, `Real-Time`, `Async`), timing (`Offline` vs `Online`), physical topology (`Cloud`, `Edge`, `Hybrid`), and multi-layer serving infrastructure. See [AI Deployment Notes](../sources/AI%20Deployment%20Notes.md).
 
 ---
 
@@ -54,10 +54,15 @@ source: "[[AI Deployment Notes]]"
 ```
 User Prompt → Tokenization → Prefill (input processing) → Iterative Token Generation → Streaming / Full Response
 ```
-- **Key Metrics:** **Time to First Token (`TTFT`)**, **Tokens per Second (`TPS` / throughput)**, **Inter-token latency**, **Context length** (KV-cache memory footprint), **GPU memory utilization**, and concurrent sessions—connecting directly to [[Inference Speed vs Intelligence Trade-off]], [[Tokenization]], and [[Token Economics]].
+- **Key Metrics:** **Time to First Token (`TTFT`)**, **Tokens per Second (`TPS` / throughput)**, **Inter-token latency**, **Context length** (KV-cache memory footprint), **GPU memory utilization**, and concurrent sessions—connecting directly to [Inference Speed vs Intelligence Trade-off](Inference%20Speed%20vs%20Intelligence%20Trade-off.md), [Tokenization](Tokenization.md), and [Token Economics](Token%20Economics.md).
 
 ---
 
 ## Related Pages
-- **Sources**: [[AI Deployment Notes]]
-- **Concepts**: [[AI Deployment Lifecycle and Environments]], [[Model Packaging and Versioning]], [[Inference Speed vs Intelligence Trade-off]], [[Tokenization]], [[Token Economics]]
+- **Sources**: [AI Deployment Notes](../sources/AI%20Deployment%20Notes.md)
+- **Concepts**:
+  - [AI Deployment Lifecycle and Environments](AI%20Deployment%20Lifecycle%20and%20Environments.md)
+  - [Model Packaging and Versioning](Model%20Packaging%20and%20Versioning.md)
+  - [Inference Speed vs Intelligence Trade-off](Inference%20Speed%20vs%20Intelligence%20Trade-off.md)
+  - [Tokenization](Tokenization.md)
+  - [Token Economics](Token%20Economics.md)

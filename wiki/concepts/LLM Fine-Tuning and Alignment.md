@@ -6,18 +6,18 @@ tags:
   - llm-foundations
   - machine-learning
   - alignment
-source: "[[LLM Handbook 50 Concepts]]"
+source: "wiki/sources/LLM Handbook 50 Concepts.md"
 ---
 
 # LLM Fine-Tuning and Alignment
 
-A **Pre-trained Base Model** (produced via [[Transformer Architecture and Pre-training]]) predicts plausible continuations rather than following instructions safely or accurately. Transforming a base completion model into a helpful, reliable assistant requires two sequential adaptation phases: **Instruction Fine-Tuning** (including parameter-efficient methods like **LoRA** / **QLoRA**) and **Human Preference Alignment** (**RLHF**, **DPO**, and **Constitutional AI**) ([[LLM Handbook 50 Concepts]]).
+A **Pre-trained Base Model** (produced via [Transformer Architecture and Pre-training](Transformer%20Architecture%20and%20Pre-training.md)) predicts plausible continuations rather than following instructions safely or accurately. Transforming a base completion model into a helpful, reliable assistant requires two sequential adaptation phases: **Instruction Fine-Tuning** (including parameter-efficient methods like **LoRA** / **QLoRA**) and **Human Preference Alignment** (**RLHF**, **DPO**, and **Constitutional AI**) ([LLM Handbook 50 Concepts](../sources/LLM%20Handbook%2050%20Concepts.md)).
 
 ---
 
 ## Instruction Tuning & Fine-Tuning Paradigms
 
-- **Base Model vs. Instruction-Tuned Behavior**: Given `"What is AI?"`, a raw base model may simply repeat or continue surrounding prompt text, whereas an instruction-tuned model trained under Supervised Fine-Tuning loss ($L_{\text{SFT}} = -\frac{1}{N}\sum_{i=1}^N \log p(y_i \mid x_i)$) over `(instruction, response)` corpora (`FLAN`, `T0`, `Dolly`, `ShareGPT`, `OpenAssistant`, `Self-Instruct`, `Distilabel`) directly answers queries as an assistant ([[LLM Handwritten Study Guide 15 Pages]]).
+- **Base Model vs. Instruction-Tuned Behavior**: Given `"What is AI?"`, a raw base model may simply repeat or continue surrounding prompt text, whereas an instruction-tuned model trained under Supervised Fine-Tuning loss ($L_{\text{SFT}} = -\frac{1}{N}\sum_{i=1}^N \log p(y_i \mid x_i)$) over `(instruction, response)` corpora (`FLAN`, `T0`, `Dolly`, `ShareGPT`, `OpenAssistant`, `Self-Instruct`, `Distilabel`) directly answers queries as an assistant ([LLM Handwritten Study Guide 15 Pages](../sources/LLM%20Handwritten%20Study%20Guide%2015%20Pages.md)).
 - **Fine-Tuning Approaches**:
 
 | Method | Parameters Updated | Hardware / Cost Profile | Key Mechanism |
@@ -43,19 +43,19 @@ Eliminates the complexity and instability of training a separate Reward Model an
 
 $$\mathcal{L}_{\text{DPO}} = -\mathbb{E}\left[\log \sigma\left(\beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} - \beta \log \frac{\pi_\theta(y_l \mid x)}{\pi_{\text{ref}}(y_l \mid x)}\right)\right]$$
 
-### 3. Constitutional AI (`[[Anthropic]]`)
+### 3. Constitutional AI ([Anthropic](../entities/Anthropic.md))
 Replaces heavy human feedback labeling for safety principles with an explicit written constitution: the model critiques and revises its own responses against constitutional rules (`RLAIF`).
 
 ---
 
 ## Decision Boundary: Prompting vs. RAG vs. Fine-Tuning
 
-In production systems ([[AI Engineer Interview Notes]], [[LLM Handbook 50 Concepts]]), teams follow a strict 3-rung escalation rule—*"Prompting is cheapest to change but weakest at knowledge; RAG grounds answers in fresh data at the cost of retrieval latency and pipeline complexity; fine-tuning bakes in behavior at the cost of upfront data and training effort"*:
+In production systems ([AI Engineer Interview Notes](../sources/AI%20Engineer%20Interview%20Notes.md), [LLM Handbook 50 Concepts](../sources/LLM%20Handbook%2050%20Concepts.md)), teams follow a strict 3-rung escalation rule—*"Prompting is cheapest to change but weakest at knowledge; RAG grounds answers in fresh data at the cost of retrieval latency and pipeline complexity; fine-tuning bakes in behavior at the cost of upfront data and training effort"*:
 1. **Prompting First**: Free to iterate; sufficient for most format, tone, and CoT reasoning tasks.
-2. **RAG Second** ([[Retrieval-Augmented Generation and Vector DBs]]): Chosen for dynamic, external, or proprietary factual knowledge requiring attribution and suppressed hallucinations.
+2. **RAG Second** ([Retrieval-Augmented Generation and Vector DBs](Retrieval-Augmented%20Generation%20and%20Vector%20DBs.md)): Chosen for dynamic, external, or proprietary factual knowledge requiring attribution and suppressed hallucinations.
 3. **Fine-Tuning (`LoRA` / Distillation) Last**: Chosen only after prompting + RAG prove inadequate, when demanding strict domain style across thousands of calls (`100s+` curated pairs) or distilling a specialized workflow onto a smaller, faster model—**never to inject rapidly changing facts**.
 
-| Criterion | Choose **RAG** ([[Retrieval-Augmented Generation and Vector DBs]]) | Choose **Fine-Tuning** (`LoRA / SFT`) |
+| Criterion | Choose **RAG** ([Retrieval-Augmented Generation and Vector DBs](Retrieval-Augmented%20Generation%20and%20Vector%20DBs.md)) | Choose **Fine-Tuning** (`LoRA / SFT`) |
 | :--- | :--- | :--- |
 | **Primary Goal** | Inject fresh, proprietary, or fast-changing factual knowledge | Adapt response style, tone, strict formatting, or distill smaller/faster models |
 | **Cost & Iteration** | Moderate ongoing infra + retrieval tokens; instant doc updates | Upfront curation (`100s+` pairs) & GPU training + hosting |
@@ -65,7 +65,7 @@ In production systems ([[AI Engineer Interview Notes]], [[LLM Handbook 50 Concep
 
 ## Relationships
 
-- **Sources**: [[LLM Handbook 50 Concepts]], [[LLM Handwritten Study Guide 15 Pages]], [[AI Engineer Interview Notes]]
-- **Upstream Foundation**: Adapts base checkpoints from [[Transformer Architecture and Pre-training]] and [[LLM Pretraining, Optimization and Decoding]].
-- **Complementary Knowledge Injection**: Pairs with [[Retrieval-Augmented Generation and Vector DBs]], [[Prompt Engineering]], and [[AI System Design and Production Architecture]].
-- **Safety & Evaluation**: Connects to **Red Teaming**, **Guardrails**, and alignment evaluation in [[AI Evaluation, Safety and Governance]], [[LLM Inference Optimization and Security]], and [[Closed-Loop Evals]].
+- **Sources**: [LLM Handbook 50 Concepts](../sources/LLM%20Handbook%2050%20Concepts.md), [LLM Handwritten Study Guide 15 Pages](../sources/LLM%20Handwritten%20Study%20Guide%2015%20Pages.md), [AI Engineer Interview Notes](../sources/AI%20Engineer%20Interview%20Notes.md)
+- **Upstream Foundation**: Adapts base checkpoints from [Transformer Architecture and Pre-training](Transformer%20Architecture%20and%20Pre-training.md) and [LLM Pretraining, Optimization and Decoding](LLM%20Pretraining%2C%20Optimization%20and%20Decoding.md).
+- **Complementary Knowledge Injection**: Pairs with [Retrieval-Augmented Generation and Vector DBs](Retrieval-Augmented%20Generation%20and%20Vector%20DBs.md), [Prompt Engineering](Prompt%20Engineering.md), and [AI System Design and Production Architecture](AI%20System%20Design%20and%20Production%20Architecture.md).
+- **Safety & Evaluation**: Connects to **Red Teaming**, **Guardrails**, and alignment evaluation in [AI Evaluation, Safety and Governance](AI%20Evaluation%2C%20Safety%20and%20Governance.md), [LLM Inference Optimization and Security](LLM%20Inference%20Optimization%20and%20Security.md), and [Closed-Loop Evals](Closed-Loop%20Evals.md).

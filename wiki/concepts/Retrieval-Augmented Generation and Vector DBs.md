@@ -6,12 +6,12 @@ tags:
   - context-engineering
   - llm-foundations
   - architecture
-source: "[[LLM Handbook 50 Concepts]]"
+source: "wiki/sources/LLM Handbook 50 Concepts.md"
 ---
 
 # Retrieval-Augmented Generation and Vector DBs
 
-**Retrieval-Augmented Generation (RAG)** anchors LLM responses in external, verifiable knowledge retrieved at query time rather than relying exclusively on static parametric memory from pre-training. Paired with **Vector Databases** and dense semantic **Embeddings**, RAG overcomes model knowledge cutoffs, protects private data boundaries, enables source citations, and suppresses hallucinations ([[LLM Handbook 50 Concepts]]).
+**Retrieval-Augmented Generation (RAG)** anchors LLM responses in external, verifiable knowledge retrieved at query time rather than relying exclusively on static parametric memory from pre-training. Paired with **Vector Databases** and dense semantic **Embeddings**, RAG overcomes model knowledge cutoffs, protects private data boundaries, enables source citations, and suppresses hallucinations ([LLM Handbook 50 Concepts](../sources/LLM%20Handbook%2050%20Concepts.md)).
 
 ---
 
@@ -40,7 +40,7 @@ When naive single-pass chunk retrieval misses nuanced queries, production pipeli
 
 | Component | Standard Choices & Parameters | Engineering Trade-offs |
 | :--- | :--- | :--- |
-| **Embedding Models** | `text-embedding-ada-002` ([[OpenAI]], `1536 dims`), `all-mpnet-base-v2` (`768 dims`, open), `all-MiniLM-L6-v2` (`384 dims`, lightweight/free) | Higher dimensions capture richer nuance; small open models slash cost & latency |
+| **Embedding Models** | `text-embedding-ada-002` ([OpenAI](../entities/OpenAI.md), `1536 dims`), `all-mpnet-base-v2` (`768 dims`, open), `all-MiniLM-L6-v2` (`384 dims`, lightweight/free) | Higher dimensions capture richer nuance; small open models slash cost & latency |
 | **Chunking Strategy** | **Fixed** (`500` / overlap `50`), **Recursive** (`500–1000` / overlap `50–100`), **Semantic** (split on similarity drop) | **Recursive chunking** (respecting paragraphs/sentences) is the recommended default |
 | **Similarity Metrics** | **Cosine Similarity** ($\frac{A \cdot B}{\|A\|\|B\|} \in [-1, 1]$), Dot Product, Euclidean | Cosine similarity is magnitude-invariant and standard for text embeddings |
 | **ANN Indexing** | **HNSW** (*Hierarchical Navigable Small World*) | Fast approximate nearest-neighbor graph traversal trading tiny recall loss for low latency |
@@ -52,7 +52,7 @@ When naive single-pass chunk retrieval misses nuanced queries, production pipeli
 | Store / Library | Deployment Model | Key Characteristics |
 | :--- | :--- | :--- |
 | **Chroma** | Open Source (Local / Client) | Python-native (`chroma.Client()`), ideal for prototyping & local RAG |
-| **pgvector** | Postgres Extension | Zero-new-infra SQL + vector search; strong default when already running PostgreSQL at moderate scale ([[AI Engineer Interview Notes]]) |
+| **pgvector** | Postgres Extension | Zero-new-infra SQL + vector search; strong default when already running PostgreSQL at moderate scale ([AI Engineer Interview Notes](../sources/AI%20Engineer%20Interview%20Notes.md)) |
 | **Pinecone** | Managed Cloud | Serverless scaling, low operational overhead, high throughput |
 | **Weaviate** | Open Source | Hybrid vector + keyword search with GraphQL API |
 | **FAISS** | Open Source Library (Meta AI) | Ultra-fast in-memory similarity search library (not a full database server) |
@@ -63,7 +63,7 @@ When naive single-pass chunk retrieval misses nuanced queries, production pipeli
 
 ## Production Quality, Security & RAG Evaluation (Senior Signals)
 
-Synthesized from [[AI Engineer Interview Notes]]:
+Synthesized from [AI Engineer Interview Notes](../sources/AI%20Engineer%20Interview%20Notes.md):
 - **Embedding Parity & Privacy**: Choose API embeddings to ship fast, or self-hosted open weights (`BGE`, `E5`, `Nomic`) for zero per-token inference cost and strict VPC data boundaries—and **always keep index-time and query-time embedding models identical**.
 - **Hybrid Search + Cross-Encoder Reranking**: Combine dense vector similarity with sparse **`BM25`** keyword scoring whenever queries involve SKUs, error codes, version numbers, or proper nouns; fetch `Top-50` cheaply and cross-encoder rerank to `Top-5`.
 - **Pre-Retrieval ACL Metadata Filtering**: Enforce document permissions via chunk metadata filters **before** vector similarity search runs—never rely on prompting an LLM to withhold unauthorized chunks already stuffed into context.
@@ -74,13 +74,13 @@ Synthesized from [[AI Engineer Interview Notes]]:
 
 ## Orchestration Ecosystem
 
-Modern RAG and tool-using [[Agent Loop Lifecycle|agents]] commonly leverage **LangChain** (`PromptTemplate`, `RecursiveCharacterTextSplitter`, `VectorStoreRetriever`), **LlamaIndex** (data-framework specialized for indexing and retrieval), **LangGraph** (stateful cyclic agent graphs), **Haystack**, and **Semantic Kernel**.
+Modern RAG and tool-using [agents](Agent%20Loop%20Lifecycle.md) commonly leverage **LangChain** (`PromptTemplate`, `RecursiveCharacterTextSplitter`, `VectorStoreRetriever`), **LlamaIndex** (data-framework specialized for indexing and retrieval), **LangGraph** (stateful cyclic agent graphs), **Haystack**, and **Semantic Kernel**.
 
 ---
 
 ## Relationships
 
-- **Sources**: [[LLM Handbook 50 Concepts]], [[AI Engineer Interview Notes]], [[AI Complete Handbook]]
-- **Memory & Context Layer**: Directly powers the retrieval tier of [[Context Engineering Pipeline]], [[AI System Design and Production Architecture]], and external memory for [[Agent Loop Lifecycle]].
-- **Alternative to Weight Updates**: Contrasts cleanly against parameter modification in [[LLM Fine-Tuning and Alignment]].
-- **Hallucination & Eval Mitigation**: Reduces extrinsic hallucinations measured in [[LLM Inference Optimization and Security]], [[Product Evals and Error Analysis]], and [[Model Evaluation and Validation]].
+- **Sources**: [LLM Handbook 50 Concepts](../sources/LLM%20Handbook%2050%20Concepts.md), [AI Engineer Interview Notes](../sources/AI%20Engineer%20Interview%20Notes.md), [AI Complete Handbook](../sources/AI%20Complete%20Handbook.md)
+- **Memory & Context Layer**: Directly powers the retrieval tier of [Context Engineering Pipeline](Context%20Engineering%20Pipeline.md), [AI System Design and Production Architecture](AI%20System%20Design%20and%20Production%20Architecture.md), and external memory for [Agent Loop Lifecycle](Agent%20Loop%20Lifecycle.md).
+- **Alternative to Weight Updates**: Contrasts cleanly against parameter modification in [LLM Fine-Tuning and Alignment](LLM%20Fine-Tuning%20and%20Alignment.md).
+- **Hallucination & Eval Mitigation**: Reduces extrinsic hallucinations measured in [LLM Inference Optimization and Security](LLM%20Inference%20Optimization%20and%20Security.md), [Product Evals and Error Analysis](Product%20Evals%20and%20Error%20Analysis.md), and [Model Evaluation and Validation](Model%20Evaluation%20and%20Validation.md).

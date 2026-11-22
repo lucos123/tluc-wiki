@@ -35,5 +35,7 @@ Upgrading `tluc-wiki` into a full 5-tier Second Brain system based on `2nd-brain
 
 ## Related Wiki Concepts
 
-- Cross-references: [[Memory Architecture]], [[Harness Engineering]].
+- Cross-references:
+  - [Memory Architecture](../../wiki/concepts/Memory%20Architecture.md)
+  - [Harness Engineering](../../wiki/concepts/Harness%20Engineering.md)
 ```

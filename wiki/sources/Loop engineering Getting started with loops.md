@@ -7,7 +7,7 @@ tags:
   - agentic-design
   - loop-engineering
   - harness-engineering
-source: "[[raw/articles/claude-code/loop-engineering-getting-started-with-loops.md]]"
+source: "raw/articles/claude-code/loop-engineering-getting-started-with-loops.md"
 ---
 
 # Loop engineering — Getting started with loops
@@ -110,7 +110,7 @@ and responded to. When fixing a bug, use a workflow to explore three
 solutions in parallel worktrees and have a judge adversarially review them.
 ```
 
-This single prompt composes: `/schedule` (trigger), `/goal` (exit condition), dynamic workflows (parallel exploration), auto mode (unattended execution), adversarial review (quality gate). This is the complete [[Harness Engineering]] stack in one prompt.
+This single prompt composes: `/schedule` (trigger), `/goal` (exit condition), dynamic workflows (parallel exploration), auto mode (unattended execution), adversarial review (quality gate). This is the complete [Harness Engineering](../concepts/Harness%20Engineering.md) stack in one prompt.
 
 ---
 
@@ -128,7 +128,7 @@ This single prompt composes: `/schedule` (trigger), `/goal` (exit condition), dy
 ## Maintaining Code Quality in Loops
 
 - **Keep codebase clean**: Claude follows existing patterns and conventions. Clean patterns → better loop output.
-- **Give Claude a way to verify its own work**: Encode what "good" looks like with skills (see [[Claude Code Skills]] and [[Verification Loop]]).
+- **Give Claude a way to verify its own work**: Encode what "good" looks like with skills (see [Claude Code Skills](Claude%20Code%20Skills.md) and [Verification Loop](../concepts/Verification%20Loop.md)).
 - **Make docs easy to reach**: Framework/library docs kept accessible in context.
 - **Second agent for code review**: Fresh context = less bias, not influenced by main agent's reasoning. Use `/code-review` or GitHub Code Review integration.
 - **Fix the system, not just the instance**: When an individual result misses the standard, encode the fix as a rule/skill so all future iterations improve.
@@ -141,19 +141,19 @@ This single prompt composes: `/schedule` (trigger), `/goal` (exit condition), dy
 - **Use scripts for deterministic work**: Running a script < reasoning through steps. A PDF skill can ship a form-filling script Claude runs each time, instead of re-deriving the code each run.
 - **Match interval to change frequency**: Don't run routines more often than the thing you're watching changes.
 - **Review usage**: `/usage` (by skills/subagents/MCPs), `/goal` with no args (turns + tokens so far), `/workflows` (per-agent token usage, stop any agent mid-run).
-- **Model + effort = biggest cost lever**: See [[Effort Level and Model Selection]].
+- **Model + effort = biggest cost lever**: See [Effort Level and Model Selection](../concepts/Effort%20Level%20and%20Model%20Selection.md).
 
 ## Synthesis Notes
 
-This is the structural companion to [[Verification Loop]] (which covers *how* to build checks) and [[Best practices for Claude Code]] (which covers *when* to verify). Together, all three form a complete loop engineering curriculum:
+This is the structural companion to [Verification Loop](../concepts/Verification%20Loop.md) (which covers *how* to build checks) and [Best practices for Claude Code](Best%20practices%20for%20Claude%20Code.md) (which covers *when* to verify). Together, all three form a complete loop engineering curriculum:
 - **This source**: *what kind* of loop to use (taxonomy + primitives)
-- **[[Verification Loop]]**: *how* to build the check inside a loop
-- **[[Best practices for Claude Code]]**: *gate strength* levels and autonomous operation patterns
+- **[Verification Loop](../concepts/Verification%20Loop.md)**: *how* to build the check inside a loop
+- **[Best practices for Claude Code](Best%20practices%20for%20Claude%20Code.md)**: *gate strength* levels and autonomous operation patterns
 
-The **proactive loop** is the most significant concept here because it formalises what [[AI Code Migration]] and overnight autonomous test runs do in practice — a scheduled trigger, goal-based exit conditions, parallel dynamic workflows, and auto mode. The migration article used this pattern; this article names and systematises it.
+The **proactive loop** is the most significant concept here because it formalises what [AI Code Migration](../concepts/AI%20Code%20Migration.md) and overnight autonomous test runs do in practice — a scheduled trigger, goal-based exit conditions, parallel dynamic workflows, and auto mode. The migration article used this pattern; this article names and systematises it.
 
-The **"fix the system, not the instance"** quality principle directly echoes [[AI Code Migration]]'s rule-propagation mechanic: when a reviewer catches a mistake across many files, the fix is a rulebook sentence (not per-file patches). The same principle now stated as a general loop engineering best practice.
+The **"fix the system, not the instance"** quality principle directly echoes [AI Code Migration](../concepts/AI%20Code%20Migration.md)'s rule-propagation mechanic: when a reviewer catches a mistake across many files, the fix is a rulebook sentence (not per-file patches). The same principle now stated as a general loop engineering best practice.
 
 The insight that **scripts are cheaper than reasoning** is a subtle but important cost-optimisation principle: for deterministic work (form-filling, PDF manipulation, data transformation), packaging logic as an executable script that Claude runs is far more token-efficient than having Claude reason through the steps each time.
 
-Cross-references: [[Loop Engineering]], [[Verification Loop]], [[Claude Code Skills]], [[Claude Code Hooks]], [[Best practices for Claude Code]], [[AI Code Migration]], [[Effort Level and Model Selection]], [[Harness Engineering]].
+Cross-references: [Loop Engineering](../concepts/Loop%20Engineering.md), [Verification Loop](../concepts/Verification%20Loop.md), [Claude Code Skills](Claude%20Code%20Skills.md), [Claude Code Hooks](Claude%20Code%20Hooks.md), [Best practices for Claude Code](Best%20practices%20for%20Claude%20Code.md), [AI Code Migration](../concepts/AI%20Code%20Migration.md), [Effort Level and Model Selection](../concepts/Effort%20Level%20and%20Model%20Selection.md), [Harness Engineering](../concepts/Harness%20Engineering.md).

@@ -20,7 +20,7 @@ source: "raw/video-transcripts/agent-harness-explained-in-8min.md"
 **Speaker**: Caleb  
 **URL**: https://www.youtube.com/watch?v=1a1VXDdIyrk  
 **Duration**: 8m 20s  
-**Transcript**: [[raw/video-transcripts/agent-harness-explained-in-8min.md]]
+**Transcript**: [raw/video-transcripts/agent-harness-explained-in-8min.md](../../raw/video-transcripts/agent-harness-explained-in-8min.md)
 
 A concise breakdown explaining the historical evolution from Prompt Engineering to Context Engineering to Harness Engineering, and why loop-driven fresh context execution solved the limits of elastic context summarization.
 
@@ -39,6 +39,6 @@ A concise breakdown explaining the historical evolution from Prompt Engineering 
 
 ## Synthesis Notes
 
-This source provides a valuable historical taxonomy for how `[[Harness Engineering]]` relates to `[[Context Engineering]]`. 
+This source provides a valuable historical taxonomy for how [Harness Engineering](../concepts/Harness%20Engineering.md) relates to [Context Engineering](../concepts/Context%20Engineering.md). 
 
-It explains *why* `[[Loop Engineering]]` became necessary: elastic context compaction (summarization mid-task) eventually loses fidelity on long tasks, causing agents to skip steps or falsely claim work is done. By resetting context per task iteration while tracking progress in a PRD/JSON checklist, harnesses eliminate context rot while maintaining task continuity.
+It explains *why* [Loop Engineering](../concepts/Loop%20Engineering.md) became necessary: elastic context compaction (summarization mid-task) eventually loses fidelity on long tasks, causing agents to skip steps or falsely claim work is done. By resetting context per task iteration while tracking progress in a PRD/JSON checklist, harnesses eliminate context rot while maintaining task continuity.

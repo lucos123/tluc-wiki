@@ -5,12 +5,12 @@ tags:
   - entity
   - organization
   - agentic-design
-source: "[[Why Domain-specific Agents Are the Future]]"
+source: "wiki/sources/Why Domain-specific Agents Are the Future.md"
 ---
 
 # Standard Agents
 
-**Standard Agents** is an AI engineering company led by [[Justin Schroeder]] building [[Domain-Specific Agents]] architectures, an open-source specification for portable agent harnesses, and competing runtime environments analogous to Node.js or Python for software packages.
+**Standard Agents** is an AI engineering company led by [Justin Schroeder](Justin%20Schroeder.md) building [Domain-Specific Agents](../concepts/Domain-Specific%20Agents.md) architectures, an open-source specification for portable agent harnesses, and competing runtime environments analogous to Node.js or Python for software packages.
 
 ---
 
@@ -21,6 +21,10 @@ source: "[[Why Domain-specific Agents Are the Future]]"
 ---
 
 ## Related Pages
-- **Entities**: [[Justin Schroeder]]
-- **Concepts**: [[Domain-Specific Agents]], [[Harness Engineering]], [[Agent Skills Architecture]], [[Enterprise Agent Stack]]
-- **Sources**: [[Why Domain-specific Agents Are the Future]]
+- **Entities**: [Justin Schroeder](Justin%20Schroeder.md)
+- **Concepts**:
+  - [Domain-Specific Agents](../concepts/Domain-Specific%20Agents.md)
+  - [Harness Engineering](../concepts/Harness%20Engineering.md)
+  - [Agent Skills Architecture](../concepts/Agent%20Skills%20Architecture.md)
+  - [Enterprise Agent Stack](../concepts/Enterprise%20Agent%20Stack.md)
+- **Sources**: [Why Domain-specific Agents Are the Future](../sources/Why%20Domain-specific%20Agents%20Are%20the%20Future.md)

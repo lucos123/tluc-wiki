@@ -8,7 +8,7 @@ tags:
   - agentic-design
   - loop-engineering
   - code-quality
-source: "[[raw/video-transcripts/all-code-is-slop-except-mine-lauren-tan-spacexsi.md]]"
+source: "raw/video-transcripts/all-code-is-slop-except-mine-lauren-tan-spacexsi.md"
 source_type: video
 url: "https://www.youtube.com/watch?v=O_zcc6Xl12g"
 channel: "AI Engineer"
@@ -18,15 +18,15 @@ duration: "17m 31s"
 
 # All Code Is Slop (Except Mine) — Lauren Tan, SpaceXSI
 
-**Source**: [[raw/video-transcripts/all-code-is-slop-except-mine-lauren-tan-spacexsi.md]] | **Speaker**: [[Lauren Tan]] (`@poteto`, Principal Engineer, SpaceX / Grok Bot) | **Channel**: [[AI Engineer]] (AI Engineer Code Summit, presented by Google DeepMind) | **URL**: https://www.youtube.com/watch?v=O_zcc6Xl12g | **Uploaded**: 2026-11-14 | **Duration**: 17m 31s
+**Source**: [raw/video-transcripts/all-code-is-slop-except-mine-lauren-tan-spacexsi.md](../../raw/video-transcripts/all-code-is-slop-except-mine-lauren-tan-spacexsi.md) | **Speaker**: [Lauren Tan](../entities/Lauren%20Tan.md) (`@poteto`, Principal Engineer, SpaceX / Grok Bot) | **Channel**: [AI Engineer](../entities/AI%20Engineer.md) (AI Engineer Code Summit, presented by Google DeepMind) | **URL**: https://www.youtube.com/watch?v=O_zcc6Xl12g | **Uploaded**: 2026-11-14 | **Duration**: 17m 31s
 
 ---
 
 ## Executive Summary
 
-[[Lauren Tan]] explains how her engineering team turned high-volume AI coding output from brittle "slop" into production-grade software—scaling **Grok Bot** (`SpaceXSI` / xAI) to **11,000 merged pull requests in a single month** (daily stable releases, 227 contributors, **~0.5% revert rate**) while improving cold launch and chat typing latency by **38%–65%**.
+[Lauren Tan](../entities/Lauren%20Tan.md) explains how her engineering team turned high-volume AI coding output from brittle "slop" into production-grade software—scaling **Grok Bot** (`SpaceXSI` / xAI) to **11,000 merged pull requests in a single month** (daily stable releases, 227 contributors, **~0.5% revert rate**) while improving cold launch and chat typing latency by **38%–65%**.
 
-The talk's central thesis is **investing in the agent's environment rather than blind trust**, codified in the **[[Poteto Trust Pyramid]]**: maximize leverage via codebase design and deterministic static analysis first, layer on token-efficient runtime and formal verification (`TLA+`, `Lean`, `Bombadil`), reserve prose (`AGENTS.md`, skills) strictly for judgment calls, and reduce human review to inspecting verification artifacts before running autonomous outer-loop release fuzzers.
+The talk's central thesis is **investing in the agent's environment rather than blind trust**, codified in the **[Poteto Trust Pyramid](../concepts/Poteto%20Trust%20Pyramid.md)**: maximize leverage via codebase design and deterministic static analysis first, layer on token-efficient runtime and formal verification (`TLA+`, `Lean`, `Bombadil`), reserve prose (`AGENTS.md`, skills) strictly for judgment calls, and reduce human review to inspecting verification artifacts before running autonomous outer-loop release fuzzers.
 
 ---
 
@@ -72,23 +72,23 @@ The talk's central thesis is **investing in the agent's environment rather than 
 
 | Slide | Timestamp | Topic | Screenshot | Key Visual Elements |
 | :--- | :--- | :--- | :--- | :--- |
-| 01 | `00:25` | Title & Speaker Intro | [[raw/screenshots/all-code-is-slop-lauren-tan/01.jpg]] | `All Code Is Slop (Except Mine)` — Lauren Tan (`@poteto`), SpaceXSI |
-| 02 | `02:14` | Poteto Inverse Trust Pyramid | [[raw/screenshots/all-code-is-slop-lauren-tan/02.jpg]] | 5 layers (`codebase` -> `static analysis` -> `verification` -> `prose` -> `human review`) + cost axis |
-| 03 | `04:10` | Organic Architecture | [[raw/screenshots/all-code-is-slop-lauren-tan/03.jpg]] | Architectural concrete foundations supporting garden vegetation growth |
-| 04 | `05:45` | Better APIs vs Slop | [[raw/screenshots/all-code-is-slop-lauren-tan/04.jpg]] | `"nuance tends to lead to slop — just design better APIs"` |
-| 05 | `06:36` | Directory Structure as Context | [[raw/screenshots/all-code-is-slop-lauren-tan/05.jpg]] | Dune (`electron-renderer/` vs `electron-main/` + `shared/`) & `tibo.dog` (`tick.hot.ts`) |
-| 06 | `08:01` | Timer & Comment Spread | [[raw/screenshots/all-code-is-slop-lauren-tan/06.jpg]] | `Sep 9` comment hack -> `Oct 3` shared module -> `Oct 17: 183 timers` |
-| 07 | `09:15` | Custom Lint Rule Growth | [[raw/screenshots/all-code-is-slop-lauren-tan/07.jpg]] | Step chart `Jul 1` (`7`) to `Nov 1` (`167` lint rules) |
-| 08 | `10:39` | Runtime Verification Stack | [[raw/screenshots/all-code-is-slop-lauren-tan/08.jpg]] | `feature map` + `CLI` (`aria-click`, `snapshot`, `screenshot proof.png`) |
-| 09 | `11:42` | UI Property-Based Testing | [[raw/screenshots/all-code-is-slop-lauren-tan/09.jpg]] | `Bombadil` fuzzing `dev smoke` chat session with adversarial inputs |
-| 10 | `12:22` | Full Verification Matrix | [[raw/screenshots/all-code-is-slop-lauren-tan/10.jpg]] | Pre-production (20 methods) + Testing in Production (`Deploy`, `Release`, `Post Release`) |
-| 11 | `14:39` | Velocity Without Compromise | [[raw/screenshots/all-code-is-slop-lauren-tan/11.jpg]] | May vs Now latency telemetry (`-39%` startup, `-65%` long chat typing) |
-| 12 | `16:40` | Grok Bot Outer Loop | [[raw/screenshots/all-code-is-slop-lauren-tan/12.jpg]] | `sandcastle` fuzz report (`50 distinct bugs`) driving auto-PR fixes |
+| 01 | `00:25` | Title & Speaker Intro | [raw/screenshots/all-code-is-slop-lauren-tan/01.jpg](../../raw/screenshots/all-code-is-slop-lauren-tan/01.jpg) | `All Code Is Slop (Except Mine)` — Lauren Tan (`@poteto`), SpaceXSI |
+| 02 | `02:14` | Poteto Inverse Trust Pyramid | [raw/screenshots/all-code-is-slop-lauren-tan/02.jpg](../../raw/screenshots/all-code-is-slop-lauren-tan/02.jpg) | 5 layers (`codebase` -> `static analysis` -> `verification` -> `prose` -> `human review`) + cost axis |
+| 03 | `04:10` | Organic Architecture | [raw/screenshots/all-code-is-slop-lauren-tan/03.jpg](../../raw/screenshots/all-code-is-slop-lauren-tan/03.jpg) | Architectural concrete foundations supporting garden vegetation growth |
+| 04 | `05:45` | Better APIs vs Slop | [raw/screenshots/all-code-is-slop-lauren-tan/04.jpg](../../raw/screenshots/all-code-is-slop-lauren-tan/04.jpg) | `"nuance tends to lead to slop — just design better APIs"` |
+| 05 | `06:36` | Directory Structure as Context | [raw/screenshots/all-code-is-slop-lauren-tan/05.jpg](../../raw/screenshots/all-code-is-slop-lauren-tan/05.jpg) | Dune (`electron-renderer/` vs `electron-main/` + `shared/`) & `tibo.dog` (`tick.hot.ts`) |
+| 06 | `08:01` | Timer & Comment Spread | [raw/screenshots/all-code-is-slop-lauren-tan/06.jpg](../../raw/screenshots/all-code-is-slop-lauren-tan/06.jpg) | `Sep 9` comment hack -> `Oct 3` shared module -> `Oct 17: 183 timers` |
+| 07 | `09:15` | Custom Lint Rule Growth | [raw/screenshots/all-code-is-slop-lauren-tan/07.jpg](../../raw/screenshots/all-code-is-slop-lauren-tan/07.jpg) | Step chart `Jul 1` (`7`) to `Nov 1` (`167` lint rules) |
+| 08 | `10:39` | Runtime Verification Stack | [raw/screenshots/all-code-is-slop-lauren-tan/08.jpg](../../raw/screenshots/all-code-is-slop-lauren-tan/08.jpg) | `feature map` + `CLI` (`aria-click`, `snapshot`, `screenshot proof.png`) |
+| 09 | `11:42` | UI Property-Based Testing | [raw/screenshots/all-code-is-slop-lauren-tan/09.jpg](../../raw/screenshots/all-code-is-slop-lauren-tan/09.jpg) | `Bombadil` fuzzing `dev smoke` chat session with adversarial inputs |
+| 10 | `12:22` | Full Verification Matrix | [raw/screenshots/all-code-is-slop-lauren-tan/10.jpg](../../raw/screenshots/all-code-is-slop-lauren-tan/10.jpg) | Pre-production (20 methods) + Testing in Production (`Deploy`, `Release`, `Post Release`) |
+| 11 | `14:39` | Velocity Without Compromise | [raw/screenshots/all-code-is-slop-lauren-tan/11.jpg](../../raw/screenshots/all-code-is-slop-lauren-tan/11.jpg) | May vs Now latency telemetry (`-39%` startup, `-65%` long chat typing) |
+| 12 | `16:40` | Grok Bot Outer Loop | [raw/screenshots/all-code-is-slop-lauren-tan/12.jpg](../../raw/screenshots/all-code-is-slop-lauren-tan/12.jpg) | `sandcastle` fuzz report (`50 distinct bugs`) driving auto-PR fixes |
 
 ---
 
 ## Connections & Wiki Synthesis
 
-- **Verification & Trust**: Pairs directly with [[Verification Loop]], [[Poteto Trust Pyramid]], [[Second Opinion Pattern]], and [[Automated Multi-Agent Code Review]].
-- **Codebase Discipline vs Prose**: Complements [[Agent Onboarding Files]] and [[Deterministic Lifecycle Hooks]] by showing why prose rules (`AGENTS.md`) sit near the bottom of leverage compared to compiler/AST constraints.
-- **Outer-Loop Prerequisites**: Reinforces [[Loop Engineering]], [[Harness Engineering]], and [[Comprehension and Intent Debt]] ("foundations before software factories").
+- **Verification & Trust**: Pairs directly with [Verification Loop](../concepts/Verification%20Loop.md), [Poteto Trust Pyramid](../concepts/Poteto%20Trust%20Pyramid.md), [Second Opinion Pattern](../concepts/Second%20Opinion%20Pattern.md), and [Automated Multi-Agent Code Review](../concepts/Automated%20Multi-Agent%20Code%20Review.md).
+- **Codebase Discipline vs Prose**: Complements [Agent Onboarding Files](../concepts/Agent%20Onboarding%20Files.md) and [Deterministic Lifecycle Hooks](../concepts/Deterministic%20Lifecycle%20Hooks.md) by showing why prose rules (`AGENTS.md`) sit near the bottom of leverage compared to compiler/AST constraints.
+- **Outer-Loop Prerequisites**: Reinforces [Loop Engineering](../concepts/Loop%20Engineering.md), [Harness Engineering](../concepts/Harness%20Engineering.md), and [Comprehension and Intent Debt](../concepts/Comprehension%20and%20Intent%20Debt.md) ("foundations before software factories").

@@ -6,7 +6,7 @@ tags:
   - context-engineering
   - cost-optimization
   - claude-code
-source: "[[Modifying system prompts]]"
+source: "wiki/sources/Modifying system prompts.md"
 ---
 
 # System Prompt Caching Optimization
@@ -29,4 +29,4 @@ graph TD
 1. **Distributed Agent Fleets**: Fleet agents running on different containers/machines share identical system prompt cache entries.
 2. **Cost Reduction**: Substantially lowers input token costs on subsequent turn calls across multi-tenant worker nodes.
 
-See [[Modifying system prompts]], [[Context Window Management]], and [[Agent SDK Architecture]].
+See [Modifying system prompts](../sources/Modifying%20system%20prompts.md), [Context Window Management](Context%20Window%20Management.md), and [Agent SDK Architecture](Agent%20SDK%20Architecture.md).

@@ -6,7 +6,7 @@ tags:
   - token-economics
   - inference-economics
   - agentic-engineering
-source: "[[Harness vs Model costs explained]]"
+source: "wiki/sources/Harness vs Model costs explained.md"
 ---
 
 # Jevons' Paradox in AI
@@ -30,6 +30,6 @@ source: "[[Harness vs Model costs explained]]"
   Net Increase in Total Token Spend per Developer ($150 - $250 / month)
 ```
 
-As models (e.g. GPT-5.6 Sol, Kimi K3) become cheaper and faster, developers shift from single-turn chat completion interfaces to **thick agentic harnesses** ([[Claude Code]], Cursor, [[Cline]]) that consume 4× to 15× more tokens per task via system prompt tollgates and recursive tool execution loops.
+As models (e.g. GPT-5.6 Sol, Kimi K3) become cheaper and faster, developers shift from single-turn chat completion interfaces to **thick agentic harnesses** ([Claude Code](../entities/Claude%20Code.md), Cursor, [Cline](../entities/Cline.md)) that consume 4× to 15× more tokens per task via system prompt tollgates and recursive tool execution loops.
 
-See [[Harness vs Model costs explained]], [[Harness Overhead vs Model Cost]], and [[Token Economics]].
+See [Harness vs Model costs explained](../sources/Harness%20vs%20Model%20costs%20explained.md), [Harness Overhead vs Model Cost](Harness%20Overhead%20vs%20Model%20Cost.md), and [Token Economics](Token%20Economics.md).

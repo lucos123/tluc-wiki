@@ -6,12 +6,12 @@ tags:
   - harness-engineering
   - parallelism
   - claude-code
-source: "[[Run parallel sessions with worktrees]]"
+source: "wiki/sources/Run parallel sessions with worktrees.md"
 ---
 
 # Git Worktree Isolation
 
-**Git Worktree Isolation** is a core [[Harness Engineering]] pattern in [[Claude Code]] where each parallel agent session is assigned a dedicated Git worktree (`.claude/worktrees/<name>/`), isolating file modifications and branch state from other concurrent sessions.
+**Git Worktree Isolation** is a core [Harness Engineering](Harness%20Engineering.md) pattern in [Claude Code](../entities/Claude%20Code.md) where each parallel agent session is assigned a dedicated Git worktree (`.claude/worktrees/<name>/`), isolating file modifications and branch state from other concurrent sessions.
 
 ---
 
@@ -31,4 +31,4 @@ graph TD
 2. **Environment Mirroring (`.worktreeinclude`)**: Automatically copies `.env` and local credentials into fresh worktrees.
 3. **Subagent Worktree Isolation**: Subagents configured with `isolation: worktree` run inside temporary worktrees that automatically self-clean upon completion.
 
-See [[Run parallel sessions with worktrees]], [[Subagent Worktree Isolation]], and [[Sparse Worktree Checkouts]].
+See [Run parallel sessions with worktrees](../sources/Run%20parallel%20sessions%20with%20worktrees.md), [Subagent Worktree Isolation](Subagent%20Worktree%20Isolation.md), and [Sparse Worktree Checkouts](Sparse%20Worktree%20Checkouts.md).

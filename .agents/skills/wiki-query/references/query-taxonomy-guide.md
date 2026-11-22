@@ -11,7 +11,7 @@ This guide details the 5 Question Types and their respective synthesis strategie
 - **Output Format**:
   - Direct 1-2 sentence answer.
   - Bulleted list of specifications.
-  - Citation format: `According to [[Page Name]], ...`
+  - Citation format: `According to [Page Name](wiki/concepts/Page%20Name.md), ...`
 
 ---
 
@@ -22,7 +22,7 @@ This guide details the 5 Question Types and their respective synthesis strategie
 - **Output Format**:
   - Structured Comparison Table (Metrics / Features / Trade-offs).
   - Analytical breakdown of key differentiators.
-  - Side-by-side citations: `[[Entity A]] features X, while [[Entity B]] features Y.`
+  - Side-by-side citations: `[Entity A](wiki/entities/Entity%20A.md) features X, while [Entity B](wiki/entities/Entity%20B.md) features Y.`
 
 ---
 
@@ -52,7 +52,7 @@ This guide details the 5 Question Types and their respective synthesis strategie
 ## 5. Exploratory Query
 
 - **Objective**: Map relationships, dependencies, and connections across concepts.
-- **Search Scope**: Trace `[[wiki links]]` across multiple pages.
+- **Search Scope**: Trace Markdown cross-links (`[...](...)`) across multiple pages.
 - **Output Format**:
   - Concept Graph Overview.
   - Section-by-section breakdown of linked nodes.

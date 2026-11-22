@@ -6,20 +6,20 @@ tags:
   - context-engineering
   - harness-engineering
   - claude-code
-source: "[[raw/articles/claude-code/context-memory-rules/claude-directory.md]]"
+source: "raw/articles/claude-code/context-memory-rules/claude-directory.md"
 url: "https://code.claude.com/docs/en/claude-directory.md"
 ---
 
 # Explore the .claude directory
 
 **URL**: https://code.claude.com/docs/en/claude-directory.md  
-**Source File**: [[raw/articles/claude-code/context-memory-rules/claude-directory.md]]  
+**Source File**: [raw/articles/claude-code/context-memory-rules/claude-directory.md](../../raw/articles/claude-code/context-memory-rules/claude-directory.md)  
 
 ---
 
 ## Executive Summary
 
-This interactive reference document maps the exact file tree architecture of the `.claude/` project directory and `~/.claude/` global home directory used by [[Claude Code]].
+This interactive reference document maps the exact file tree architecture of the `.claude/` project directory and `~/.claude/` global home directory used by [Claude Code](../entities/Claude%20Code.md).
 
 ---
 
@@ -63,5 +63,10 @@ your-project/
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Claude Directory Architecture]], [[Persistent Instruction File]], [[Path-Scoped Rules]], [[Auto Memory]], [[Subagent Context Isolation]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Claude Directory Architecture](../concepts/Claude%20Directory%20Architecture.md)
+  - [Persistent Instruction File](../concepts/Persistent%20Instruction%20File.md)
+  - [Path-Scoped Rules](../concepts/Path-Scoped%20Rules.md)
+  - [Auto Memory](../concepts/Auto%20Memory.md)
+  - [Subagent Context Isolation](../concepts/Subagent%20Context%20Isolation.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

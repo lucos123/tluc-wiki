@@ -6,12 +6,12 @@ tags:
   - harness-engineering
   - effort-tuning
   - claude-code
-source: "[[Orchestrate subagents at scale with dynamic workflows]]"
+source: "wiki/sources/Orchestrate subagents at scale with dynamic workflows.md"
 ---
 
 # Ultracode Mode
 
-**Ultracode Mode** (`/effort ultracode` or `ultracode:` keyword) is an advanced execution configuration in [[Claude Code]] that pairs `xhigh` reasoning effort with automatic [[Dynamic Workflows]] script generation for substantive tasks.
+**Ultracode Mode** (`/effort ultracode` or `ultracode:` keyword) is an advanced execution configuration in [Claude Code](../entities/Claude%20Code.md) that pairs `xhigh` reasoning effort with automatic [Dynamic Workflows](Dynamic%20Workflows.md) script generation for substantive tasks.
 
 ---
 
@@ -21,4 +21,4 @@ source: "[[Orchestrate subagents at scale with dynamic workflows]]"
 2. **Session Effort Level**: `/effort ultracode` (locks session into `xhigh` effort and forces workflow planning for all substantive tasks).
 3. **CLI Startup Flag**: `claude --effort ultracode`.
 
-See [[Orchestrate subagents at scale with dynamic workflows]], [[Dynamic Workflows]], and [[Effort Level and Model Selection]].
+See [Orchestrate subagents at scale with dynamic workflows](../sources/Orchestrate%20subagents%20at%20scale%20with%20dynamic%20workflows.md), [Dynamic Workflows](Dynamic%20Workflows.md), and [Effort Level and Model Selection](Effort%20Level%20and%20Model%20Selection.md).

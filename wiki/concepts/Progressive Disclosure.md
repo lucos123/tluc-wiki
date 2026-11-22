@@ -5,14 +5,14 @@ tags:
   - concept
   - context-engineering
   - harness-engineering
-source: "[[The new rules of context engineering for Claude 5 generation models]]"
+source: "wiki/sources/The new rules of context engineering for Claude 5 generation models.md"
 ---
 
 # Progressive Disclosure
 
 **Progressive Disclosure** is a context engineering architectural pattern where instructions, tool definitions, and skill playbooks are loaded on demand at the exact moment they are needed, rather than being stuffed upfront into the agent's system prompt.
 
-Detailed by [[Thariq Shihipar]] in [[The new rules of context engineering for Claude 5 generation models]].
+Detailed by [Thariq Shihipar](../entities/Thariq%20Shihipar.md) in [The new rules of context engineering for Claude 5 generation models](../sources/The%20new%20rules%20of%20context%20engineering%20for%20Claude%205%20generation%20models.md).
 
 ---
 
@@ -29,4 +29,4 @@ Detailed by [[Thariq Shihipar]] in [[The new rules of context engineering for Cl
 - **Token Economy**: Reduces standing system prompt token footprint by up to 80%.
 - **Context Rot Prevention**: Prevents degradation of agent reasoning caused by large, noisy prompt payloads.
 
-See [[Context Engineering]], [[Metacode]], and [[Unhobbling Claude]].
+See [Context Engineering](Context%20Engineering.md), [Metacode](Metacode.md), and [Unhobbling Claude](Unhobbling%20Claude.md).

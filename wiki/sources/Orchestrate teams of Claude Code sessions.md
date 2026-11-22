@@ -7,20 +7,20 @@ tags:
   - harness-engineering
   - parallelism
   - claude-code
-source: "[[raw/articles/claude-code/agent-architecture-subagents-workflows/agent-teams.md]]"
+source: "raw/articles/claude-code/agent-architecture-subagents-workflows/agent-teams.md"
 url: "https://code.claude.com/docs/en/agent-teams.md"
 ---
 
 # Orchestrate teams of Claude Code sessions
 
 **URL**: https://code.claude.com/docs/en/agent-teams.md  
-**Source File**: [[raw/articles/claude-code/agent-architecture-subagents-workflows/agent-teams.md]]  
+**Source File**: [raw/articles/claude-code/agent-architecture-subagents-workflows/agent-teams.md](../../raw/articles/claude-code/agent-architecture-subagents-workflows/agent-teams.md)  
 
 ---
 
 ## Executive Summary
 
-This official Anthropic guide details **Agent Teams**, an experimental multi-session orchestration system in [[Claude Code]] (enabled via `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`).
+This official Anthropic guide details **Agent Teams**, an experimental multi-session orchestration system in [Claude Code](../entities/Claude%20Code.md) (enabled via `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`).
 
 Unlike Subagents (which only report summaries back to a single parent session), Agent Teams consist of a **Team Lead** and independent **Teammates** that share a unified task backlog (`~/.claude/tasks/`) and communicate directly via peer-to-peer mailboxes (`~/.claude/teams/`).
 
@@ -46,5 +46,9 @@ Unlike Subagents (which only report summaries back to a single parent session), 
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Agent Teams Architecture]], [[Inter-Agent Messaging]], [[Parallel Agent Architecture]], [[Subagent Architecture]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Agent Teams Architecture](../concepts/Agent%20Teams%20Architecture.md)
+  - [Inter-Agent Messaging](../concepts/Inter-Agent%20Messaging.md)
+  - [Parallel Agent Architecture](../concepts/Parallel%20Agent%20Architecture.md)
+  - [Subagent Architecture](../concepts/Subagent%20Architecture.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

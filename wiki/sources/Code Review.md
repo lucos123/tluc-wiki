@@ -7,20 +7,20 @@ tags:
   - harness-engineering
   - verification
   - claude-code
-source: "[[raw/articles/claude-code/large-codebases-sdlc-worktrees/code-review.md]]"
+source: "raw/articles/claude-code/large-codebases-sdlc-worktrees/code-review.md"
 url: "https://code.claude.com/docs/en/code-review.md"
 ---
 
 # Code Review
 
 **URL**: https://code.claude.com/docs/en/code-review.md  
-**Source File**: [[raw/articles/claude-code/large-codebases-sdlc-worktrees/code-review.md]]  
+**Source File**: [raw/articles/claude-code/large-codebases-sdlc-worktrees/code-review.md](../../raw/articles/claude-code/large-codebases-sdlc-worktrees/code-review.md)  
 
 ---
 
 ## Executive Summary
 
-This official Anthropic guide details [[Claude Code]]'s managed **Code Review** feature. Code Review uses a fleet of specialized subagents to analyze GitHub pull requests in parallel against the entire codebase, identifying logic bugs, security vulnerabilities, and subtle regressions while running verification checks to eliminate false positives.
+This official Anthropic guide details [Claude Code](../entities/Claude%20Code.md)'s managed **Code Review** feature. Code Review uses a fleet of specialized subagents to analyze GitHub pull requests in parallel against the entire codebase, identifying logic bugs, security vulnerabilities, and subtle regressions while running verification checks to eliminate false positives.
 
 ---
 
@@ -55,5 +55,10 @@ Placing a `REVIEW.md` file at the repository root injects top-priority instructi
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Automated Multi-Agent Code Review]], [[REVIEW.md Governance]], [[Verification Loop]], [[Second Opinion Pattern]], [[Claude Code Monorepo Setup]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Automated Multi-Agent Code Review](../concepts/Automated%20Multi-Agent%20Code%20Review.md)
+  - [REVIEW.md Governance](../concepts/REVIEW.md%20Governance.md)
+  - [Verification Loop](../concepts/Verification%20Loop.md)
+  - [Second Opinion Pattern](../concepts/Second%20Opinion%20Pattern.md)
+  - [Claude Code Monorepo Setup](Claude%20Code%20Monorepo%20Setup.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

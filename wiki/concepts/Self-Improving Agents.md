@@ -7,7 +7,7 @@ tags:
   - loop-engineering
   - harness-engineering
   - self-improvement
-source: "[[How Warp Builds Self-Improving Agents on Claude]]"
+source: "wiki/sources/How Warp Builds Self-Improving Agents on Claude.md"
 ---
 
 # Self-Improving Agents
@@ -18,7 +18,7 @@ source: "[[How Warp Builds Self-Improving Agents on Claude]]"
 
 ## Kiến Trúc 2 Vòng Lặp Kỹ Năng (Dual-Skill Architecture)
 
-Kiến trúc chuẩn hóa được tiên phong bởi [[Warp]] và [[Anthropic]] tổ chức quá trình tự hoàn thiện thành hai vòng lặp lồng nhau tách biệt:
+Kiến trúc chuẩn hóa được tiên phong bởi [Warp](../entities/Warp.md) và [Anthropic](../entities/Anthropic.md) tổ chức quá trình tự hoàn thiện thành hai vòng lặp lồng nhau tách biệt:
 
 ```mermaid
 graph TD
@@ -47,7 +47,7 @@ graph TD
 - Chìa khóa then chốt: **Giải thích lý do (The "Why")** để tác nhân hiểu bối cảnh đằng sau convention thay vì chỉ nhận tín hiệu nhị phân (thumbs up/down).
 
 ### 3. Vòng Lặp Giám Sát & Nâng Cấp (Outer / Improver Skill)
-- Hoạt động như một tác nhân quan sát (Observer Agent) chạy định kỳ (scheduled) trên nền tảng điều phối (ví dụ: Oz của [[Warp]]).
+- Hoạt động như một tác nhân quan sát (Observer Agent) chạy định kỳ (scheduled) trên nền tảng điều phối (ví dụ: Oz của [Warp](../entities/Warp.md)).
 - Quét toàn bộ phản hồi tích lũy, đối chiếu đề xuất của agent với phản hồi của kỹ sư, tìm ra quy luật thiếu sót và sinh ra bản chỉnh sửa nhỏ nhất (**minimal focused diff**) vào tệp `SKILL.md` của Base Skill.
 
 ### 4. Cổng Kiểm Soát Con Người (GitOps Approval Gate)
@@ -97,6 +97,20 @@ graph TD
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Loop Engineering]], [[Agent Skills Architecture]], [[Agent Skills Best Practices]], [[Verification Loop]], [[Harness Engineering]], [[Progressive Disclosure]], [[Iterated Distillation and Amplification (IDA)]].
-- **Entities**: [[Warp]], [[Anthropic]], [[Claude Code]], [[OpenAI]].
-- **Sources**: [[How Warp Builds Self-Improving Agents on Claude]], [[The Art of Loop Engineering]], [[5 Best Practices for Building AI Agent Skills]].
+- **Concepts**:
+  - [Loop Engineering](Loop%20Engineering.md)
+  - [Agent Skills Architecture](Agent%20Skills%20Architecture.md)
+  - [Agent Skills Best Practices](Agent%20Skills%20Best%20Practices.md)
+  - [Verification Loop](Verification%20Loop.md)
+  - [Harness Engineering](Harness%20Engineering.md)
+  - [Progressive Disclosure](Progressive%20Disclosure.md)
+  - [Iterated Distillation and Amplification (IDA)](Iterated%20Distillation%20and%20Amplification%20%28IDA%29.md)
+- **Entities**:
+  - [Warp](../entities/Warp.md)
+  - [Anthropic](../entities/Anthropic.md)
+  - [Claude Code](../entities/Claude%20Code.md)
+  - [OpenAI](../entities/OpenAI.md)
+- **Sources**:
+  - [How Warp Builds Self-Improving Agents on Claude](../sources/How%20Warp%20Builds%20Self-Improving%20Agents%20on%20Claude.md)
+  - [The Art of Loop Engineering](../sources/The%20Art%20of%20Loop%20Engineering.md)
+  - [5 Best Practices for Building AI Agent Skills](../sources/5%20Best%20Practices%20for%20Building%20AI%20Agent%20Skills.md)

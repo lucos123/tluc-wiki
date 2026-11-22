@@ -6,7 +6,7 @@ tags:
   - person
   - transformer-architecture
   - visual-guide
-source: "[[Transformers Detailed Notes and Revision Guide]]"
+source: "wiki/sources/Transformers Detailed Notes and Revision Guide.md"
 ---
 
 # Abhinav Gupta
@@ -16,16 +16,19 @@ source: "[[Transformers Detailed Notes and Revision Guide]]"
 ---
 
 ## Contributions in Knowledge Base
-- **[[Transformers Detailed Notes and Revision Guide]]** (`2026-09-14`): Authored an original 16-page English visual notebook (*"From Attention to Intelligence"*) spanning Transformer sublayers, sinusoidal & learned positional encodings, explicit Adam/Cross-Entropy/GELU/LayerNorm math, Teacher Forcing, BERT encoder variants (`RoBERTa`, `ALBERT`, `DistilBERT`, `ELECTRA`, `DeBERTa`), Flash Attention $O(n)$ space complexity, long-context PE scaling (`RoPE`, `ALiBi`, `LongRoPE`, `YaRN`), PTQ/QAT quantization, and 10 Transformer interview questions.
+- **[Transformers Detailed Notes and Revision Guide](../sources/Transformers%20Detailed%20Notes%20and%20Revision%20Guide.md)** (`2026-09-14`): Authored an original 16-page English visual notebook (*"From Attention to Intelligence"*) spanning Transformer sublayers, sinusoidal & learned positional encodings, explicit Adam/Cross-Entropy/GELU/LayerNorm math, Teacher Forcing, BERT encoder variants (`RoBERTa`, `ALBERT`, `DistilBERT`, `ELECTRA`, `DeBERTa`), Flash Attention $O(n)$ space complexity, long-context PE scaling (`RoPE`, `ALiBi`, `LongRoPE`, `YaRN`), PTQ/QAT quantization, and 10 Transformer interview questions.
 
 ---
 
 ## Cross-Ecosystem Note
-Several visual handbooks curated and translated into Vietnamese inside `tluc-wiki` by [[Viet Nguyen AI]]—such as [[LLM Handwritten Study Guide 15 Pages]]—follow this same handwritten notebook format and pedagogical structure originating on Instagram.
+Several visual handbooks curated and translated into Vietnamese inside `tluc-wiki` by [Viet Nguyen AI](Viet%20Nguyen%20AI.md)—such as [LLM Handwritten Study Guide 15 Pages](../sources/LLM%20Handwritten%20Study%20Guide%2015%20Pages.md)—follow this same handwritten notebook format and pedagogical structure originating on Instagram.
 
 ---
 
 ## Related Pages
-- **Sources**: [[Transformers Detailed Notes and Revision Guide]], [[LLM Handwritten Study Guide 15 Pages]]
-- **Entities**: [[Viet Nguyen AI]]
-- **Concepts**: [[Transformer Architecture and Pre-training]], [[LLM Pretraining, Optimization and Decoding]], [[LLM Inference Optimization and Security]]
+- **Sources**: [Transformers Detailed Notes and Revision Guide](../sources/Transformers%20Detailed%20Notes%20and%20Revision%20Guide.md), [LLM Handwritten Study Guide 15 Pages](../sources/LLM%20Handwritten%20Study%20Guide%2015%20Pages.md)
+- **Entities**: [Viet Nguyen AI](Viet%20Nguyen%20AI.md)
+- **Concepts**:
+  - [Transformer Architecture and Pre-training](../concepts/Transformer%20Architecture%20and%20Pre-training.md)
+  - [LLM Pretraining, Optimization and Decoding](../concepts/LLM%20Pretraining%2C%20Optimization%20and%20Decoding.md)
+  - [LLM Inference Optimization and Security](../concepts/LLM%20Inference%20Optimization%20and%20Security.md)

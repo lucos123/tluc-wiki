@@ -5,13 +5,13 @@ tags:
   - patterns
   - agentic-design
   - claude-code
-source: "[[raw/12-agentic-harness-patterns-from-claude-code.md]]"
+source: "raw/articles/ai-other/12-agentic-harness-patterns-from-claude-code.md"
 ---
 
 # 12 Agentic Harness Patterns from Claude Code
 
 ## Summary
-This article outlines 12 design patterns extracted from the leaked source code of Anthropic's [[Claude Code]]. The patterns are categorized into Memory & Context, Workflow & Orchestration, Tools & Permissions, and Automation, demonstrating how production-grade agents rely heavily on their harness.
+This article outlines 12 design patterns extracted from the leaked source code of Anthropic's [Claude Code](../entities/Claude%20Code.md). The patterns are categorized into Memory & Context, Workflow & Orchestration, Tools & Permissions, and Automation, demonstrating how production-grade agents rely heavily on their harness.
 
 ## The Patterns
 ### Memory and Context
@@ -35,5 +35,5 @@ This article outlines 12 design patterns extracted from the leaked source code o
 12. **Deterministic Lifecycle Hooks**: Running necessary shell commands automatically at specific lifecycle points outside the LLM prompt.
 
 ## Associated Entities & Concepts
-- [[Claude Code]]
-- [[Harness Engineering]]
+- [Claude Code](../entities/Claude%20Code.md)
+- [Harness Engineering](../concepts/Harness%20Engineering.md)

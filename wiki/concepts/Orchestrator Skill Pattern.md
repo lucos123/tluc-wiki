@@ -6,14 +6,14 @@ tags:
   - agentic-design
   - harness-engineering
   - verification
-source: "[[Anthropic Just Fixed Graph Engineering's Greatest Flaw]]"
+source: "wiki/sources/Anthropic Just Fixed Graph Engineering's Greatest Flaw.md"
 ---
 
 # Orchestrator Skill Pattern
 
 The **Orchestrator Skill Pattern** is a multi-agent architectural pattern where a single top-level "orchestrator skill" coordinates a fleet of parallel, specialized subagent review skills (e.g. `code-review`, `simplify`, `verify`, `design-review`) and merges their findings into a single unified report.
 
-First detailed in [[Anthropic Just Fixed Graph Engineering's Greatest Flaw]] by [[AI LABS]].
+First detailed in [Anthropic Just Fixed Graph Engineering's Greatest Flaw](../sources/Anthropic%20Just%20Fixed%20Graph%20Engineering%27s%20Greatest%20Flaw.md) by [AI LABS](../entities/AI%20LABS.md).
 
 ---
 
@@ -45,6 +45,6 @@ graph TD
 
 ## Relationship to Other Patterns
 
-- **[[Graph Engineering]]**: Implements the Diamond and Fan-out / Fan-in topologies.
-- **[[Second Opinion Pattern]]**: Each subagent node runs in fresh context to avoid self-review bias.
-- **[[Harness Engineering]]**: Extends agent capabilities through composable skills.
+- **[Graph Engineering](Graph%20Engineering.md)**: Implements the Diamond and Fan-out / Fan-in topologies.
+- **[Second Opinion Pattern](Second%20Opinion%20Pattern.md)**: Each subagent node runs in fresh context to avoid self-review bias.
+- **[Harness Engineering](Harness%20Engineering.md)**: Extends agent capabilities through composable skills.

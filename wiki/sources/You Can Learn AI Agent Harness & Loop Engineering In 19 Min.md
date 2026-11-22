@@ -21,7 +21,7 @@ source: "raw/video-transcripts/you-can-learn-ai-agent-harness-loop-engineering-i
 **Speaker**: Sean  
 **URL**: https://www.youtube.com/watch?v=GrNbuWWJYiI  
 **Duration**: 20m 0s  
-**Transcript**: [[raw/video-transcripts/you-can-learn-ai-agent-harness-loop-engineering-in-19-min-llm-ops-eval-tracing-rag.md]]
+**Transcript**: [raw/video-transcripts/you-can-learn-ai-agent-harness-loop-engineering-in-19-min-llm-ops-eval-tracing-rag.md](../../raw/video-transcripts/you-can-learn-ai-agent-harness-loop-engineering-in-19-min-llm-ops-eval-tracing-rag.md)
 
 An architectural walkthrough connecting the horse-and-harness analogy, agent memory systems, loop engineering guardrails, and closed-loop LLMOps evals.
 
@@ -42,6 +42,6 @@ An architectural walkthrough connecting the horse-and-harness analogy, agent mem
 
 ## Synthesis Notes
 
-This source bridges `[[Harness Engineering]]`, `[[Loop Engineering]]`, and `[[Closed-Loop Evals]]` into a unified architectural diagram.
+This source bridges [Harness Engineering](../concepts/Harness%20Engineering.md), [Loop Engineering](../concepts/Loop%20Engineering.md), and [Closed-Loop Evals](../concepts/Closed-Loop%20Evals.md) into a unified architectural diagram.
 
 It reinforces the principle that harnesses control LLM randomness, while loop engineering provides the operational stopping rules and notification hooks. The breakdown of memory consolidation (Summarizer Agent transforming Episodic event streams into Semantic durable facts) connects directly to Anthropic's autoDream pattern and Uber's closed-loop evals.

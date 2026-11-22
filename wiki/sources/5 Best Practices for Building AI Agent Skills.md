@@ -7,7 +7,7 @@ tags:
   - harness-engineering
   - best-practices
   - video-transcript
-source: "[[raw/video-transcripts/5-best-practices-for-building-ai-agent-skills.md]]"
+source: "raw/video-transcripts/5-best-practices-for-building-ai-agent-skills.md"
 url: "https://www.youtube.com/watch?v=qYNs80FKIVc"
 channel: "IBM Technology"
 duration: "13m 22s"
@@ -16,14 +16,14 @@ duration: "13m 22s"
 # 5 Best Practices for Building AI Agent Skills
 
 **URL**: https://www.youtube.com/watch?v=qYNs80FKIVc  
-**Channel**: [[IBM Technology]]  
-**Source File**: [[raw/video-transcripts/5-best-practices-for-building-ai-agent-skills.md]]  
+**Channel**: [IBM Technology](../entities/IBM%20Technology.md)  
+**Source File**: [raw/video-transcripts/5-best-practices-for-building-ai-agent-skills.md](../../raw/video-transcripts/5-best-practices-for-building-ai-agent-skills.md)  
 
 ---
 
 ## Executive Summary
 
-In this 13-minute video by [[IBM Technology]], experts break down the **5 Best Practices for Building AI Agent Skills** based on the Open Agent Skills Standard (`agentskills.io`).
+In this 13-minute video by [IBM Technology](../entities/IBM%20Technology.md), experts break down the **5 Best Practices for Building AI Agent Skills** based on the Open Agent Skills Standard (`agentskills.io`).
 
 Agent skills deliver procedural domain knowledge to LLM agents via `SKILL.md` files. Because skills combine markdown guidance with executable code scripts and file system access, adhering to structural boundaries, progressive disclosure, deterministic scripting, and security auditing is critical to avoid generic output, context bloat, and malware vulnerabilities.
 
@@ -72,5 +72,14 @@ Agent skills deliver procedural domain knowledge to LLM agents via `SKILL.md` fi
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Agent Skills Best Practices]], [[Agent Skills Security Audit]], [[Agent Skills Architecture]], [[Progressive Disclosure]], [[Deterministic Lifecycle Hooks]].
-- **Entities**: [[IBM Technology]], [[Simon Willison]], [[Claude Code]], [[Gemini CLI]].
+- **Concepts**:
+  - [Agent Skills Best Practices](../concepts/Agent%20Skills%20Best%20Practices.md)
+  - [Agent Skills Security Audit](../concepts/Agent%20Skills%20Security%20Audit.md)
+  - [Agent Skills Architecture](../concepts/Agent%20Skills%20Architecture.md)
+  - [Progressive Disclosure](../concepts/Progressive%20Disclosure.md)
+  - [Deterministic Lifecycle Hooks](../concepts/Deterministic%20Lifecycle%20Hooks.md)
+- **Entities**:
+  - [IBM Technology](../entities/IBM%20Technology.md)
+  - [Simon Willison](../entities/Simon%20Willison.md)
+  - [Claude Code](../entities/Claude%20Code.md)
+  - [Gemini CLI](../entities/Gemini%20CLI.md)

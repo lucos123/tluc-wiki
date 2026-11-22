@@ -20,7 +20,7 @@ source: "raw/video-transcripts/loop-engineering-from-first-principles-kyle-miste
 **Speaker**: Kyle Mistele (HumanLayer)  
 **URL**: https://www.youtube.com/watch?v=xIt_mTQp6mY  
 **Duration**: 17m 57s  
-**Transcript**: [[raw/video-transcripts/loop-engineering-from-first-principles-kyle-mistele-humanlayer.md]]
+**Transcript**: [raw/video-transcripts/loop-engineering-from-first-principles-kyle-mistele-humanlayer.md](../../raw/video-transcripts/loop-engineering-from-first-principles-kyle-mistele-humanlayer.md)
 
 A presentation on moving beyond "blind Ralph loops" and unreviewable 40,000-line PRs by applying **Classical Control Theory** to agentic loop engineering in real-world production codebases.
 
@@ -42,6 +42,6 @@ A presentation on moving beyond "blind Ralph loops" and unreviewable 40,000-line
 
 ## Synthesis Notes
 
-This presentation grounds [[Loop Engineering]] in established software engineering discipline (Control Theory) and directly complements [[The Art of Loop Engineering]] (LangChain) and [[Loop engineering Getting started with loops]] (Claude Code). 
+This presentation grounds [Loop Engineering](../concepts/Loop%20Engineering.md) in established software engineering discipline (Control Theory) and directly complements [The Art of Loop Engineering](The%20Art%20of%20Loop%20Engineering.md) (LangChain) and [Loop engineering Getting started with loops](Loop%20engineering%20Getting%20started%20with%20loops.md) (Claude Code). 
 
-While Anthropic focuses on internal large-scale migrations ([[How Anthropic runs large-scale code migrations with Claude Code]]) using subagents and build daemons, Kyle Mistele addresses team-based, production codebases with active SLAs where human code review remains mandatory. The concept of **Adaptive Flow Control** and **Human-on-the-Loop Resteering** via `FEEDBACK.md` fills a major operational gap in building production-grade agent harnesses ([[Harness Engineering]]).
+While Anthropic focuses on internal large-scale migrations ([How Anthropic runs large-scale code migrations with Claude Code](How%20Anthropic%20runs%20large-scale%20code%20migrations%20with%20Claude%20Code.md)) using subagents and build daemons, Kyle Mistele addresses team-based, production codebases with active SLAs where human code review remains mandatory. The concept of **Adaptive Flow Control** and **Human-on-the-Loop Resteering** via `FEEDBACK.md` fills a major operational gap in building production-grade agent harnesses ([Harness Engineering](../concepts/Harness%20Engineering.md)).

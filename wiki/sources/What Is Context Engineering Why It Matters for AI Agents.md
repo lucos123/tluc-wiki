@@ -6,7 +6,7 @@ tags:
   - context-engineering
   - harness-engineering
   - video-transcript
-source: "[[raw/video-transcripts/what-is-context-engineering-why-it-matters-for-ai-agents.md]]"
+source: "raw/video-transcripts/what-is-context-engineering-why-it-matters-for-ai-agents.md"
 url: "https://www.youtube.com/watch?v=Qx0fCqpkBus"
 channel: "IBM Technology"
 duration: "9m 56s"
@@ -15,14 +15,14 @@ duration: "9m 56s"
 # What Is Context Engineering? Why It Matters for AI Agents
 
 **URL**: https://www.youtube.com/watch?v=Qx0fCqpkBus  
-**Channel**: [[IBM Technology]]  
-**Source File**: [[raw/video-transcripts/what-is-context-engineering-why-it-matters-for-ai-agents.md]]  
+**Channel**: [IBM Technology](../entities/IBM%20Technology.md)  
+**Source File**: [raw/video-transcripts/what-is-context-engineering-why-it-matters-for-ai-agents.md](../../raw/video-transcripts/what-is-context-engineering-why-it-matters-for-ai-agents.md)  
 
 ---
 
 ## Executive Summary
 
-In this 10-minute technical overview, [[IBM Technology]] defines **Context Engineering** as the deliberate practice of structuring, filtering, and managing the complete information environment passed to an LLM or AI agent at inference time.
+In this 10-minute technical overview, [IBM Technology](../entities/IBM%20Technology.md) defines **Context Engineering** as the deliberate practice of structuring, filtering, and managing the complete information environment passed to an LLM or AI agent at inference time.
 
 As AI models evolve from single-turn Q&A to multi-step agentic workflows, Prompt Engineering is recognized as merely one component of Context Engineering. Despite 2M+ token context windows, unmanaged context causes **Context Rot** and reasoning degradation, requiring rigorous context processing and lifecycle management.
 
@@ -60,5 +60,13 @@ As AI models evolve from single-turn Q&A to multi-step agentic workflows, Prompt
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Context Engineering]], [[Context Rot]], [[Context Processing and Management]], [[Context Window Management]], [[Harness Engineering]].
-- **Entities**: [[IBM Technology]], [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Context Engineering](../concepts/Context%20Engineering.md)
+  - [Context Rot](../concepts/Context%20Rot.md)
+  - [Context Processing and Management](../concepts/Context%20Processing%20and%20Management.md)
+  - [Context Window Management](../concepts/Context%20Window%20Management.md)
+  - [Harness Engineering](../concepts/Harness%20Engineering.md)
+- **Entities**:
+  - [IBM Technology](../entities/IBM%20Technology.md)
+  - [Claude Code](../entities/Claude%20Code.md)
+  - [Anthropic](../entities/Anthropic.md)

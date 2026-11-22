@@ -7,20 +7,20 @@ tags:
   - ultrareview
   - verification
   - claude-code
-source: "[[raw/articles/claude-code/large-codebases-sdlc-worktrees/ultrareview.md]]"
+source: "raw/articles/claude-code/large-codebases-sdlc-worktrees/ultrareview.md"
 url: "https://code.claude.com/docs/en/ultrareview.md"
 ---
 
 # Find bugs with ultrareview
 
 **URL**: https://code.claude.com/docs/en/ultrareview.md  
-**Source File**: [[raw/articles/claude-code/large-codebases-sdlc-worktrees/ultrareview.md]]  
+**Source File**: [raw/articles/claude-code/large-codebases-sdlc-worktrees/ultrareview.md](../../raw/articles/claude-code/large-codebases-sdlc-worktrees/ultrareview.md)  
 
 ---
 
 ## Executive Summary
 
-This official Anthropic guide introduces **Ultrareview** (`/code-review ultra` or `/ultrareview`), a deep cloud-sandboxed multi-agent code review architecture in [[Claude Code]].
+This official Anthropic guide introduces **Ultrareview** (`/code-review ultra` or `/ultrareview`), a deep cloud-sandboxed multi-agent code review architecture in [Claude Code](../entities/Claude%20Code.md).
 
 Unlike local `/code-review`, Ultrareview uploads the branch diff or GitHub PR to a remote cloud sandbox where a multi-agent reviewer fleet inspects, reproduces, and independently verifies every finding before surfacing results.
 
@@ -59,5 +59,9 @@ claude ultrareview --json --timeout 30
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Cloud Sandboxed Ultrareview]], [[Automated Multi-Agent Code Review]], [[Verification Loop]], [[REVIEW.md Governance]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Cloud Sandboxed Ultrareview](../concepts/Cloud%20Sandboxed%20Ultrareview.md)
+  - [Automated Multi-Agent Code Review](../concepts/Automated%20Multi-Agent%20Code%20Review.md)
+  - [Verification Loop](../concepts/Verification%20Loop.md)
+  - [REVIEW.md Governance](../concepts/REVIEW.md%20Governance.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

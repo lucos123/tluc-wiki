@@ -7,14 +7,14 @@ tags:
   - agent-sdk
   - harness-engineering
   - claude-code
-source: "[[raw/articles/claude-code/costs-models-checkpoints/file-checkpointing.md]]"
+source: "raw/articles/claude-code/costs-models-checkpoints/file-checkpointing.md"
 url: "https://code.claude.com/docs/en/file-checkpointing.md"
 ---
 
 # Rewind file changes with checkpointing
 
 **URL**: https://code.claude.com/docs/en/file-checkpointing.md  
-**Source File**: [[raw/articles/claude-code/costs-models-checkpoints/file-checkpointing.md]]  
+**Source File**: [raw/articles/claude-code/costs-models-checkpoints/file-checkpointing.md](../../raw/articles/claude-code/costs-models-checkpoints/file-checkpointing.md)  
 
 ---
 
@@ -64,5 +64,9 @@ await rewindQuery.rewindFiles(checkpointId);
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[SDK File Checkpointing]], [[Session Checkpoints]], [[Agent SDK Architecture]], [[Harness Engineering]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [SDK File Checkpointing](../concepts/SDK%20File%20Checkpointing.md)
+  - [Session Checkpoints](../concepts/Session%20Checkpoints.md)
+  - [Agent SDK Architecture](../concepts/Agent%20SDK%20Architecture.md)
+  - [Harness Engineering](../concepts/Harness%20Engineering.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

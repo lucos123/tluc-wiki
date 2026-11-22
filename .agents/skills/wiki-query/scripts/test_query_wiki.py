@@ -49,6 +49,18 @@ class TestQueryWiki(unittest.TestCase):
         matches = query_wiki.search_content_files(self.temp_dir, "NonExistentKeyword")
         self.assertEqual(len(matches), 0)
 
+    def test_search_index_standard_markdown_links(self):
+        with open(self.index_path, "w", encoding="utf-8") as f:
+            f.write(
+                "# Index\n"
+                "- [Harness Engineering](wiki/concepts/Harness%20Engineering.md): Scaffolding around model.\n"
+                "- [Loop Engineering](wiki/concepts/Loop%20Engineering.md): Agent loops.\n"
+            )
+        matches = query_wiki.search_index(self.index_path, "Harness")
+        self.assertEqual(len(matches), 1)
+        self.assertEqual(matches[0]["page_name"], "Harness Engineering")
+        self.assertEqual(matches[0]["rel_path"], "wiki/concepts/Harness Engineering.md")
+
 
 if __name__ == "__main__":
     unittest.main()

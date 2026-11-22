@@ -9,7 +9,7 @@ tags:
 
 # Reasoning Effort
 
-**Reasoning Effort** is a top-level model control parameter used in reasoning LLMs like [[Kimi K3]] to dynamically adjust the depth, token budget, and latency of internal chain-of-thought processing before producing a final answer.
+**Reasoning Effort** is a top-level model control parameter used in reasoning LLMs like [Kimi K3](../entities/Kimi%20K3.md) to dynamically adjust the depth, token budget, and latency of internal chain-of-thought processing before producing a final answer.
 
 ## Levels of Effort
 
@@ -17,10 +17,10 @@ tags:
 - **`high`**: Allocates significant reasoning budget for moderate-to-complex analytical or algorithmic tasks.
 - **`max`** *(Default)*: Unlocks maximum reasoning budget for hard mathematical proofs, complex multi-step refactoring, and high-difficulty agentic planning.
 
-## Integration with [[Effort Level and Model Selection]]
+## Integration with [Effort Level and Model Selection](Effort%20Level%20and%20Model%20Selection.md)
 
 Reasoning Effort allows developers to implement 2D optimization (Model Choice $\times$ Effort Level):
-- Fast, low-effort runs for routine checks inside `[[Verification Loop]]`s.
+- Fast, low-effort runs for routine checks inside [Verification Loop](Verification%20Loop.md)s.
 - Max-effort runs for initial planning and root-cause debugging.
 
-See [[Kimi Reasoning Effort Guide]] and [[Effort Level and Model Selection]].
+See [Kimi Reasoning Effort Guide](../sources/Kimi%20Reasoning%20Effort%20Guide.md) and [Effort Level and Model Selection](Effort%20Level%20and%20Model%20Selection.md).

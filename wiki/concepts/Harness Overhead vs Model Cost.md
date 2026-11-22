@@ -7,7 +7,7 @@ tags:
   - token-economics
   - cost-optimization
   - claude-code
-source: "[[Harness vs Model costs explained]]"
+source: "wiki/sources/Harness vs Model costs explained.md"
 ---
 
 # Harness Overhead vs Model Cost
@@ -37,4 +37,4 @@ graph TD
 2. **Multi-Turn Oscillation**: Agentic loops oscillate recursively between model requests and harness tool executions (e.g., check file $\rightarrow$ write file $\rightarrow$ run test $\rightarrow$ fix error), multiplying system prompt token billing on each turn.
 3. **Harness Architecture Variance**: Harnesses vary in system prompt size for the exact same prompt (e.g., Claude Code ~$0.37 vs. Cline ~$0.07 vs. Pi ~$0.025).
 
-See [[Harness vs Model costs explained]], [[Jevons Paradox in AI]], [[Token Economics]], and [[System Prompt Caching Optimization]].
+See [Harness vs Model costs explained](../sources/Harness%20vs%20Model%20costs%20explained.md), [Jevons Paradox in AI](Jevons%20Paradox%20in%20AI.md), [Token Economics](Token%20Economics.md), and [System Prompt Caching Optimization](System%20Prompt%20Caching%20Optimization.md).

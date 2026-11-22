@@ -6,12 +6,12 @@ tags:
   - context-engineering
   - harness-engineering
   - claude-code
-source: "[[Explore the context window]]"
+source: "wiki/sources/Explore the context window.md"
 ---
 
 # Subagent Context Isolation
 
-**Subagent Context Isolation** is a core pattern in [[Harness Engineering]] and [[Context Engineering]] where heavy research, file exploration, or code auditing is delegated to an auxiliary subagent running in a separate, isolated context window.
+**Subagent Context Isolation** is a core pattern in [Harness Engineering](Harness%20Engineering.md) and [Context Engineering](Context%20Engineering.md) where heavy research, file exploration, or code auditing is delegated to an auxiliary subagent running in a separate, isolated context window.
 
 ---
 
@@ -31,4 +31,4 @@ graph TD
 2. **Cost Efficiency**: Reduces input token costs on subsequent main turn calls by keeping the main context slim.
 3. **Task Specialization**: Subagents run with custom system prompts, specialized skill subsets, or path restrictions tailored to their specific subtask.
 
-See [[Explore the context window]], [[Context Window Management]], and [[Second Opinion Pattern]].
+See [Explore the context window](../sources/Explore%20the%20context%20window.md), [Context Window Management](Context%20Window%20Management.md), and [Second Opinion Pattern](Second%20Opinion%20Pattern.md).

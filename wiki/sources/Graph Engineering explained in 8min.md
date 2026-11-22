@@ -21,7 +21,7 @@ source: "raw/video-transcripts/graph-engineering-explained-in-8min.md"
 **Speaker**: Caleb  
 **URL**: https://www.youtube.com/watch?v=mBePcvqLX88  
 **Duration**: 8m 35s  
-**Transcript**: [[raw/video-transcripts/graph-engineering-explained-in-8min.md]]
+**Transcript**: [raw/video-transcripts/graph-engineering-explained-in-8min.md](../../raw/video-transcripts/graph-engineering-explained-in-8min.md)
 
 A technical breakdown explaining why **Graph Engineering** represents the next evolutionary shift in agentic engineering, moving from optimizing single agent nodes to orchestrating dynamic graphs of specialized agents.
 
@@ -41,6 +41,6 @@ A technical breakdown explaining why **Graph Engineering** represents the next e
 
 ## Synthesis Notes
 
-This source establishes `[[Graph Engineering]]` as the natural progression above `[[Loop Engineering]]` and `[[Harness Engineering]]`.
+This source establishes [Graph Engineering](../concepts/Graph%20Engineering.md) as the natural progression above [Loop Engineering](../concepts/Loop%20Engineering.md) and [Harness Engineering](../concepts/Harness%20Engineering.md).
 
-While Harness Engineering optimizes the single-agent runtime environment and Loop Engineering manages execution loops, Graph Engineering scales execution horizontally across dynamic multi-agent topologies. It connects directly to [[How Anthropic runs large-scale code migrations with Claude Code]] (where 12 parallel Sonnet subagents migrate code) and [[Claude Code Monorepo Setup]] (using worktrees to prevent state contamination across graph nodes).
+While Harness Engineering optimizes the single-agent runtime environment and Loop Engineering manages execution loops, Graph Engineering scales execution horizontally across dynamic multi-agent topologies. It connects directly to [How Anthropic runs large-scale code migrations with Claude Code](How%20Anthropic%20runs%20large-scale%20code%20migrations%20with%20Claude%20Code.md) (where 12 parallel Sonnet subagents migrate code) and [Claude Code Monorepo Setup](Claude%20Code%20Monorepo%20Setup.md) (using worktrees to prevent state contamination across graph nodes).

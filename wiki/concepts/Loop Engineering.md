@@ -17,7 +17,7 @@ The practice of designing agent workflows as explicit **loops** — cycles of wo
 
 > **Loops = agents repeating cycles of work until a stop condition is met.**
 
-Loop engineering is the deliberate design of: trigger, stop condition, primitive, verification mechanism, and model/cost strategy for each loop type. It is the operational layer of [[Harness Engineering]] — the point where abstract scaffold design becomes concrete agent behaviour.
+Loop engineering is the deliberate design of: trigger, stop condition, primitive, verification mechanism, and model/cost strategy for each loop type. It is the operational layer of [Harness Engineering](Harness%20Engineering.md) — the point where abstract scaffold design becomes concrete agent behaviour.
 
 ## The Four Loop Types
 
@@ -27,7 +27,7 @@ Loop engineering is the deliberate design of: trigger, stop condition, primitive
 - **Primitive**: The basic agentic loop
 - **Use when**: Exploring, deciding, shorter one-off tasks
 
-Every prompt starts a turn-based loop. The human is the stop condition. The key improvement lever is encoding manual checks as [[Claude Code Skills|skills]] so Claude can self-verify without asking.
+Every prompt starts a turn-based loop. The human is the stop condition. The key improvement lever is encoding manual checks as [skills](../sources/Claude%20Code%20Skills.md) so Claude can self-verify without asking.
 
 ### Goal-Based (`/goal`)
 - **Trigger**: Manual prompt
@@ -65,11 +65,11 @@ and responded to. When fixing a bug, use a workflow to explore three solutions
 in parallel worktrees and have a judge adversarially review them.
 ```
 
-This single prompt composes trigger + exit condition + parallel exploration + unattended execution + adversarial quality gate — the complete [[Harness Engineering]] stack.
+This single prompt composes trigger + exit condition + parallel exploration + unattended execution + adversarial quality gate — the complete [Harness Engineering](Harness%20Engineering.md) stack.
 
 ## Tri-Framework Loop Taxonomies (Claude Code, LangChain & IBM)
 
-The concept of Loop Engineering is universal, though teams slice autonomy and self-improvement slightly differently. **LangChain** isolates **Hill-Climbing** (self-modifying prompts/skills from traces) as Level 4, **Claude Code** groups `/schedule` + `/goal` + workflows under **Proactive**, and [[IBM Technology]] ([[4 Types of AI Agent Loops From Human-Led to Autonomous]]) classifies loops by **which control boundary leaves the human**:
+The concept of Loop Engineering is universal, though teams slice autonomy and self-improvement slightly differently. **LangChain** isolates **Hill-Climbing** (self-modifying prompts/skills from traces) as Level 4, **Claude Code** groups `/schedule` + `/goal` + workflows under **Proactive**, and [IBM Technology](../entities/IBM%20Technology.md) ([4 Types of AI Agent Loops From Human-Led to Autonomous](../sources/4%20Types%20of%20AI%20Agent%20Loops%20From%20Human-Led%20to%20Autonomous.md)) classifies loops by **which control boundary leaves the human**:
 
 | Tier | Claude Code Taxonomy | LangChain Taxonomy | IBM Technology Taxonomy | Primary Handoff / Focus |
 | :-: | :--- | :--- | :--- | :--- |
@@ -81,14 +81,14 @@ The concept of Loop Engineering is universal, though teams slice autonomy and se
 ### The Hill-Climbing Loop (Level 4: Self-Improvement)
 While Claude Code's proactive loop focuses on autonomous *work* (e.g., triaging bugs), LangChain's Hill-Climbing loop focuses on autonomous *self-improvement*.
 - **Mechanism**: A background agent runs over the **traces** and in-situ human review comments of past executions.
-- **Production Paradigm**: As implemented in [[Self-Improving Agents]] by [[Warp]] on the [[Anthropic]] platform, an **Outer Improver Skill** running in an orchestration platform (Oz) monitors human PR feedback, generates minimal focused diffs to the **Inner Base Skill**, and opens a Git PR for maintainer approval.
+- **Production Paradigm**: As implemented in [Self-Improving Agents](Self-Improving%20Agents.md) by [Warp](../entities/Warp.md) on the [Anthropic](../entities/Anthropic.md) platform, an **Outer Improver Skill** running in an orchestration platform (Oz) monitors human PR feedback, generates minimal focused diffs to the **Inner Base Skill**, and opens a Git PR for maintainer approval.
 - **Action**: It identifies failures and autonomously updates the agent's prompts, tools, memory, and skills, porting changes back to the source code.
 - **Prerequisite**: Requires a robust **eval suite** and verification harness. An agent cannot safely self-improve its own harness without evals to verify that the change is an actual improvement.
-- **The Principle**: "The outer loop makes each inner loop more effective." (See [[Self-Improving Agents]] and [[How Warp Builds Self-Improving Agents on Claude]]).
+- **The Principle**: "The outer loop makes each inner loop more effective." (See [Self-Improving Agents](Self-Improving%20Agents.md) and [How Warp Builds Self-Improving Agents on Claude](../sources/How%20Warp%20Builds%20Self-Improving%20Agents%20on%20Claude.md)).
 
 ## Control-Loop Engineering (First Principles)
 
-Introduced by [[Kyle Mistele]] at [[HumanLayer]] in [[Loop Engineering from First Principles]], **[[Control-Loop Engineering]]** grounds agentic loop design in Classical Control Theory to solve the problem of unreviewable "blind Ralph loops" in production team codebases.
+Introduced by [Kyle Mistele](../entities/Kyle%20Mistele.md) at [HumanLayer](../entities/HumanLayer.md) in [Loop Engineering from First Principles](../sources/Loop%20Engineering%20from%20First%20Principles.md), **[Control-Loop Engineering](Control-Loop%20Engineering.md)** grounds agentic loop design in Classical Control Theory to solve the problem of unreviewable "blind Ralph loops" in production team codebases.
 
 Key components and patterns include:
 - **Set Point & Sensors**: Define target states and measure errors using deterministic tools (`ast-grep`, ESLint) or agent skills.
@@ -97,14 +97,14 @@ Key components and patterns include:
 
 ## Multi-Loop Stacking & The 6 Components
 
-As analyzed in [[Loop Engineering explained in 8min]], agent architectures function by **stacking loops on top of loops**:
-1. **Level 1 (Context Loop)**: Tool-calling loop inside [[Context Engineering]] (Model $\rightarrow$ Tool $\rightarrow$ Observation $\rightarrow$ Answer).
-2. **Level 2 (Harness Loop)**: PRD/checklist task iteration loop inside [[Harness Engineering]] (Task 1 $\rightarrow$ Task 2 $\rightarrow$ Task 3 with fresh context).
+As analyzed in [Loop Engineering explained in 8min](../sources/Loop%20Engineering%20explained%20in%208min.md), agent architectures function by **stacking loops on top of loops**:
+1. **Level 1 (Context Loop)**: Tool-calling loop inside [Context Engineering](Context%20Engineering.md) (Model $\rightarrow$ Tool $\rightarrow$ Observation $\rightarrow$ Answer).
+2. **Level 2 (Harness Loop)**: PRD/checklist task iteration loop inside [Harness Engineering](Harness%20Engineering.md) (Task 1 $\rightarrow$ Task 2 $\rightarrow$ Task 3 with fresh context).
 3. **Level 3 (Loop Engineering)**: Self-guided automation loop (Scheduled/Event trigger $\rightarrow$ Harness Run $\rightarrow$ Verification $\rightarrow$ Repeat).
 
 ### Addy Osmani's 6 Components of Loop Engineering
 
-To build a self-guided loop that prompts itself, [[Addy Osmani]] identifies 6 core components:
+To build a self-guided loop that prompts itself, [Addy Osmani](../entities/Addy%20Osmani.md) identifies 6 core components:
 1. **Automation**: Scheduled or event-driven triggers (cron, webhooks, `/schedule`).
 2. **Worktrees**: Git worktrees to isolate context and state across parallel task executions.
 3. **Skills**: Modular domain execution skills (`SKILL.md`).
@@ -126,9 +126,9 @@ To build a self-guided loop that prompts itself, [[Addy Osmani]] identifies 6 co
 ## Loop Quality Principles
 
 1. **Keep the codebase clean**: Claude follows existing patterns. Clean patterns → better loop output.
-2. **Verify inside the loop**: Encode what "good" looks like as skills. The more quantitative, the better. (See [[Verification Loop]].)
+2. **Verify inside the loop**: Encode what "good" looks like as skills. The more quantitative, the better. (See [Verification Loop](Verification%20Loop.md).)
 3. **Use a second agent for review**: Fresh context = no bias from having done the work. Use `/code-review` or Code Review on GitHub.
-4. **Fix the system, not the instance**: When one result fails, encode the fix as a rule/skill so all future iterations improve. (Same principle as [[AI Code Migration]]'s rule-propagation mechanic.)
+4. **Fix the system, not the instance**: When one result fails, encode the fix as a rule/skill so all future iterations improve. (Same principle as [AI Code Migration](AI%20Code%20Migration.md)'s rule-propagation mechanic.)
 5. **Make docs reachable**: Framework docs kept accessible so Claude has authoritative references.
 
 ## Token Cost Management
@@ -139,18 +139,18 @@ To build a self-guided loop that prompts itself, [[Addy Osmani]] identifies 6 co
 - **Scripts over reasoning for deterministic work**: Running a script is far cheaper than having Claude reason through steps each time. Package deterministic logic as an executable.
 - **Match interval to change frequency**: Don't poll faster than the thing you're watching changes.
 - **Monitor**: `/usage`, `/goal` (turns + tokens), `/workflows` (per-agent usage; can stop any agent mid-run).
-- **Model + effort are the biggest cost levers**: See [[Effort Level and Model Selection]].
+- **Model + effort are the biggest cost levers**: See [Effort Level and Model Selection](Effort%20Level%20and%20Model%20Selection.md).
 
-## Relationship to [[Verification Loop]]
+## Relationship to [Verification Loop](Verification%20Loop.md)
 
-[[Verification Loop]] is the internal mechanism *inside* a loop — the check-and-fix cycle that runs within a single turn or goal iteration. Loop Engineering is the *outer* structure — which loop type to use, how to trigger it, when to stop it.
+[Verification Loop](Verification%20Loop.md) is the internal mechanism *inside* a loop — the check-and-fix cycle that runs within a single turn or goal iteration. Loop Engineering is the *outer* structure — which loop type to use, how to trigger it, when to stop it.
 
 ```
 Loop Engineering  (outer: which loop type, when, how stopped)
     └── Verification Loop  (inner: what check runs, how failure is fixed)
 ```
 
-## Relationship to [[Harness Engineering]]
+## Relationship to [Harness Engineering](Harness%20Engineering.md)
 
 Loop engineering is where harness design becomes operational. The harness provides the tools; loop engineering specifies *how often*, *under what conditions*, and *with what quality gates* those tools are used. The proactive loop is the harness running fully autonomously — no human in the loop.
 
@@ -172,20 +172,20 @@ When a loop produces a bad result, the instinct is to fix that result. The loop 
 
 ## Core 4-Stage Cycle, State Spine & Human Safeguards
 
-As structured in [[IBM Technology]]'s [[What Is Loop Engineering Building Better AI Agents]], every loop implementation can also be viewed visually as a 4-stage inner execution ring (`Goal -> Action -> Observe -> Adjust`) surrounded by five engineering pillars:
-1. **Triggers**: Scheduled crons and event-driven [[Deterministic Lifecycle Hooks|hooks]] initiating the `Goal`.
-2. **Context Engineering**: Compaction ([[Context Window Management]]) and [[Progressive Disclosure]] of [[Agent Skills Architecture|skills]] feeding only high-signal context into each iteration.
+As structured in [IBM Technology](../entities/IBM%20Technology.md)'s [What Is Loop Engineering Building Better AI Agents](../sources/What%20Is%20Loop%20Engineering%20Building%20Better%20AI%20Agents.md), every loop implementation can also be viewed visually as a 4-stage inner execution ring (`Goal -> Action -> Observe -> Adjust`) surrounded by five engineering pillars:
+1. **Triggers**: Scheduled crons and event-driven [hooks](Deterministic%20Lifecycle%20Hooks.md) initiating the `Goal`.
+2. **Context Engineering**: Compaction ([Context Window Management](Context%20Window%20Management.md)) and [Progressive Disclosure](Progressive%20Disclosure.md) of [skills](Agent%20Skills%20Architecture.md) feeding only high-signal context into each iteration.
 3. **The Spine (Persistent State)**: Durable Markdown execution logs inside the loop recording prior attempts, what succeeded, and what failed across passes.
-4. **Tools & Subagents**: [[Model Context Protocol|MCP]]/API integrations powering `Action`, and independent checker [[Subagent Architecture|subagents]] supporting `Observe`.
-5. **Human-in-the-Loop Safeguards**: Even well-engineered loops require humans to **write verifiable goals**, **write explicit intent** (preventing test-relaxing reward hacks), and **read outputs** to avoid [[Comprehension and Intent Debt]] and cognitive surrender. See [[raw/screenshots/ibm-loop-engineering/06.jpg]] and [[raw/screenshots/ibm-loop-engineering/09.jpg]].
+4. **Tools & Subagents**: [MCP](Model%20Context%20Protocol.md)/API integrations powering `Action`, and independent checker [subagents](Subagent%20Architecture.md) supporting `Observe`.
+5. **Human-in-the-Loop Safeguards**: Even well-engineered loops require humans to **write verifiable goals**, **write explicit intent** (preventing test-relaxing reward hacks), and **read outputs** to avoid [Comprehension and Intent Debt](Comprehension%20and%20Intent%20Debt.md) and cognitive surrender. See [raw/screenshots/ibm-loop-engineering/06.jpg](../../raw/screenshots/ibm-loop-engineering/06.jpg) and [raw/screenshots/ibm-loop-engineering/09.jpg](../../raw/screenshots/ibm-loop-engineering/09.jpg).
 
 ### IBM Control-Handoff Model: Interactive $\rightarrow$ Delegated $\rightarrow$ Scheduled $\rightarrow$ Event-Driven
 
-In [[4 Types of AI Agent Loops From Human-Led to Autonomous]], [[IBM Technology]] expands the same `Goal -> Action -> Observe -> Adjust` ring across two design axes—**who starts the loop** and **who decides completion**—showing each step's exact human-to-agent handoff:
+In [4 Types of AI Agent Loops From Human-Led to Autonomous](../sources/4%20Types%20of%20AI%20Agent%20Loops%20From%20Human-Led%20to%20Autonomous.md), [IBM Technology](../entities/IBM%20Technology.md) expands the same `Goal -> Action -> Observe -> Adjust` ring across two design axes—**who starts the loop** and **who decides completion**—showing each step's exact human-to-agent handoff:
 - **Interactive Loop**: Best when finish criteria are fuzzy; humans type the initial goal and inspect/judge *every* turn (`Human Judges -> Done or Re-prompt`). Breaks down under repetitive scale.
 - **Delegated Loop**: Human pairs the goal with a verifiable **stopping condition** (*"stop when the build turns green"*); an automated **`Check`** node intercepts `Adjust` and loops back to `Goal` until passing, escalating only finished output to `Human Review`.
 - **Scheduled Loop**: Replaces manual human initiation with a **`Clock`** trigger for work that goes stale over time (*nightly dependency audits*); retains `Check` + `Human Review` per run and lets humans `Cancel` or retune the schedule when obsolete.
-- **Event-Driven Loop (`Reviewer Agent` + Exception Escalation)**: Replaces the clock with an external **`Event`** (*e.g., PR opened*) tailoring each run's goal, AND replaces default human review with an independent **`Reviewer Agent`** running in **fresh isolated context** ([[Subagent Context Isolation]], [[Second Opinion Pattern]], optionally on a separate model). Approved runs finish (`Done`), incomplete runs restart, and **`Human Review` receives uncertain exceptions only**.
+- **Event-Driven Loop (`Reviewer Agent` + Exception Escalation)**: Replaces the clock with an external **`Event`** (*e.g., PR opened*) tailoring each run's goal, AND replaces default human review with an independent **`Reviewer Agent`** running in **fresh isolated context** ([Subagent Context Isolation](Subagent%20Context%20Isolation.md), [Second Opinion Pattern](Second%20Opinion%20Pattern.md), optionally on a separate model). Approved runs finish (`Done`), incomplete runs restart, and **`Human Review` receives uncertain exceptions only**.
 
 ![IBM Delegated Loop With Automated Check](../../raw/screenshots/4-types-of-ai-agent-loops-from-human-led-to-autonomous/03.jpg)
 

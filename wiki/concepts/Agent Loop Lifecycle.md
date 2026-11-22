@@ -6,7 +6,7 @@ tags:
   - harness-engineering
   - agentic-design
   - claude-code
-source: "[[How the agent loop works]]"
+source: "wiki/sources/How the agent loop works.md"
 ---
 
 # Agent Loop Lifecycle
@@ -31,4 +31,4 @@ graph TD
 - **Termination Signal**: The agent loop terminates when the model outputs a text-only `AssistantMessage` containing zero tool calls.
 - **Circuit Breakers**: Loops are bounded using `max_turns` or `max_budget_usd`.
 
-See [[How the agent loop works]], [[Agent SDK Architecture]], and [[Reasoning Effort]].
+See [How the agent loop works](../sources/How%20the%20agent%20loop%20works.md), [Agent SDK Architecture](Agent%20SDK%20Architecture.md), and [Reasoning Effort](Reasoning%20Effort.md).

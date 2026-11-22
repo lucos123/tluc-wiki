@@ -5,12 +5,12 @@ tags:
   - concept
   - machine-learning
   - verification
-source: "[[Types of Machine Learning Handbook]]"
+source: "wiki/sources/Types of Machine Learning Handbook.md"
 ---
 
 # Model Evaluation and Validation
 
-**Model Evaluation and Validation** measures how accurately an ML model generalizes to unseen data, selects appropriate loss/business metrics across classification and regression, and prevents overfitting through resampling strategies such as K-Fold Cross-Validation. See [[Types of Machine Learning Handbook]].
+**Model Evaluation and Validation** measures how accurately an ML model generalizes to unseen data, selects appropriate loss/business metrics across classification and regression, and prevents overfitting through resampling strategies such as K-Fold Cross-Validation. See [Types of Machine Learning Handbook](../sources/Types%20of%20Machine%20Learning%20Handbook.md).
 
 ---
 
@@ -43,14 +43,26 @@ Given `TP` (True Positive), `TN` (True Negative), `FP` (False Positive), and `FN
 - **Fit Diagnostics (`Train` vs. `Test`):**
   - **Underfitting:** Low Train / Low Test (model overly simple).
   - **Good Fit:** High Train / High Test (captures signal without noise).
-  - **Overfitting:** Very High Train / Low Test (memorizes noise — also requires external hyperparameter tuning such as `learning rate`, `max depth`, or ensemble size; see [[Data Preprocessing and Feature Engineering]]).
+  - **Overfitting:** Very High Train / Low Test (memorizes noise — also requires external hyperparameter tuning such as `learning rate`, `max depth`, or ensemble size; see [Data Preprocessing and Feature Engineering](Data%20Preprocessing%20and%20Feature%20Engineering.md)).
 - **Core Selection Principles:**
   - Account for **Bias–Variance Tradeoff**, **Feature Scaling** (Standardization/Normalization), **Hyperparameter Tuning** (Grid/Random Search), training latency, and interpretability alongside raw metric scores.
-  - Heuristic from [[Types of Machine Learning Handbook]]: *"Better features > complex models."*
-- **Agentic Connection:** Systematic evaluation gates and benchmark validation in classical ML extend into automated production loops in [[Closed-Loop Evals]] and [[LLM-as-a-Judge and Eval Alignment]].
+  - Heuristic from [Types of Machine Learning Handbook](../sources/Types%20of%20Machine%20Learning%20Handbook.md): *"Better features > complex models."*
+- **Agentic Connection:** Systematic evaluation gates and benchmark validation in classical ML extend into automated production loops in [Closed-Loop Evals](Closed-Loop%20Evals.md) and [LLM-as-a-Judge and Eval Alignment](LLM-as-a-Judge%20and%20Eval%20Alignment.md).
 
 ---
 
 ## Related Pages
-- **Sources**: [[Types of Machine Learning Handbook]], [[AI Eval Concepts Explained in 15 Minutes]], [[Machine Learning Basics Notes]], [[Machine Learning and Deep Learning Cheat Sheets]]
-- **Concepts**: [[Machine Learning Paradigms]], [[Supervised Learning Algorithms]], [[Unsupervised Learning and Dimensionality Reduction]], [[Data Preprocessing and Feature Engineering]], [[Neural Networks and Deep Learning Foundations]], [[Closed-Loop Evals]], [[Product Evals and Error Analysis]], [[LLM-as-a-Judge and Eval Alignment]]
+- **Sources**:
+  - [Types of Machine Learning Handbook](../sources/Types%20of%20Machine%20Learning%20Handbook.md)
+  - [AI Eval Concepts Explained in 15 Minutes](../sources/AI%20Eval%20Concepts%20Explained%20in%2015%20Minutes.md)
+  - [Machine Learning Basics Notes](../sources/Machine%20Learning%20Basics%20Notes.md)
+  - [Machine Learning and Deep Learning Cheat Sheets](../sources/Machine%20Learning%20and%20Deep%20Learning%20Cheat%20Sheets.md)
+- **Concepts**:
+  - [Machine Learning Paradigms](Machine%20Learning%20Paradigms.md)
+  - [Supervised Learning Algorithms](Supervised%20Learning%20Algorithms.md)
+  - [Unsupervised Learning and Dimensionality Reduction](Unsupervised%20Learning%20and%20Dimensionality%20Reduction.md)
+  - [Data Preprocessing and Feature Engineering](Data%20Preprocessing%20and%20Feature%20Engineering.md)
+  - [Neural Networks and Deep Learning Foundations](Neural%20Networks%20and%20Deep%20Learning%20Foundations.md)
+  - [Closed-Loop Evals](Closed-Loop%20Evals.md)
+  - [Product Evals and Error Analysis](Product%20Evals%20and%20Error%20Analysis.md)
+  - [LLM-as-a-Judge and Eval Alignment](LLM-as-a-Judge%20and%20Eval%20Alignment.md)

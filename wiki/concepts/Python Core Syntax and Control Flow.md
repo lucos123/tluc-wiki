@@ -5,12 +5,12 @@ tags:
   - concept
   - python
   - programming
-source: "[[Python Handbook]]"
+source: "wiki/sources/Python Handbook.md"
 ---
 
 # Python Core Syntax and Control Flow
 
-Foundational execution model, dynamic typing, operator semantics, control structures, modular functions, and immutable string manipulation in **Python** (created by Guido van Rossum, released 1991). Synthesized from [[Python Handbook]] (Pages 1–7).
+Foundational execution model, dynamic typing, operator semantics, control structures, modular functions, and immutable string manipulation in **Python** (created by Guido van Rossum, released 1991). Synthesized from [Python Handbook](../sources/Python%20Handbook.md) (Pages 1–7).
 
 ---
 
@@ -64,6 +64,6 @@ Foundational execution model, dynamic typing, operator semantics, control struct
 ---
 
 ## Related Pages
-- **Sources**: [[Python Handbook]]
-- **Entities**: [[Viet Nguyen AI]]
-- **Concepts**: [[Python Collections and File Handling]], [[Programmatic Tool Calling]]
+- **Sources**: [Python Handbook](../sources/Python%20Handbook.md)
+- **Entities**: [Viet Nguyen AI](../entities/Viet%20Nguyen%20AI.md)
+- **Concepts**: [Python Collections and File Handling](Python%20Collections%20and%20File%20Handling.md), [Programmatic Tool Calling](Programmatic%20Tool%20Calling.md)

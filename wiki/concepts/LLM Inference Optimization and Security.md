@@ -7,12 +7,12 @@ tags:
   - cost-optimization
   - security
   - verification
-source: "[[LLM Handbook 50 Concepts]]"
+source: "wiki/sources/LLM Handbook 50 Concepts.md"
 ---
 
 # LLM Inference Optimization and Security
 
-Deploying large models (`7B–175B+`) in production requires balancing **latency, GPU memory, and unit economics** alongside **rigorous evaluation, hallucination mitigation, adversarial security, and data privacy**. Together, these optimization and governance layers turn raw foundation models into reliable production systems ([[LLM Handbook 50 Concepts]]).
+Deploying large models (`7B–175B+`) in production requires balancing **latency, GPU memory, and unit economics** alongside **rigorous evaluation, hallucination mitigation, adversarial security, and data privacy**. Together, these optimization and governance layers turn raw foundation models into reliable production systems ([LLM Handbook 50 Concepts](../sources/LLM%20Handbook%2050%20Concepts.md)).
 
 ---
 
@@ -22,7 +22,7 @@ Deploying large models (`7B–175B+`) in production requires balancing **latency
 | :--- | :--- | :--- |
 | **FP32 $\rightarrow$ FP16** | Half-precision float weights | `2×` smaller footprint, faster mixed-precision compute |
 | **INT8 Quantization** | 8-bit integer weight representation | `4×` smaller memory with minimal quality degradation |
-| **INT4 (`GPTQ` / `AWQ`)** | 4-bit weights via Post-Training Quantization (**`PTQ`**) or Quantization-Aware Training (**`QAT`**); `AWQ` preserves activation-salient weights | `8×` memory savings vs FP32; powers edge 7B inference and **QLoRA** ([[Transformers Detailed Notes and Revision Guide]]) |
+| **INT4 (`GPTQ` / `AWQ`)** | 4-bit weights via Post-Training Quantization (**`PTQ`**) or Quantization-Aware Training (**`QAT`**); `AWQ` preserves activation-salient weights | `8×` memory savings vs FP32; powers edge 7B inference and **QLoRA** ([Transformers Detailed Notes and Revision Guide](../sources/Transformers%20Detailed%20Notes%20and%20Revision%20Guide.md)) |
 | **Pruning** | Zero out/remove ~50% low-salience weights or connections | Smaller model footprint and lower compute |
 | **Knowledge Distillation** | Train small `7B` *student* model to mimic large `70B` *teacher* outputs | Retains strong task accuracy at a fraction of inference cost |
 
@@ -32,7 +32,7 @@ Deploying large models (`7B–175B+`) in production requires balancing **latency
 
 - **KV Cache**: Caches attention Key and Value tensors across prior decoding steps to avoid redundant recomputation (`>2×` faster token generation; cache grows linearly with sequence length).
 - **Flash Attention vs. Standard & Linear Attention**: IO-aware GPU block tiling with intermediate activation recomputation eliminates materializing the full $n \times n$ attention matrix in HBM (`2–4×` faster in `Llama 3` / `Mistral`), reducing Space Complexity from quadratic **$O(n^2)$ down to linear $O(n)$** while keeping exact $O(n^2)$ Time Complexity (compared with `Linear Attention` approximations reaching $O(n)$ Time and $O(n)$ Space).
-- **Continuous Batching & `vLLM`**: Dynamic request batching combined with **PagedAttention** cuts GPU memory fragmentation—delivering up to **24× higher throughput** over naive Hugging Face Transformers baselines alongside **Hugging Face TGI** and **NVIDIA TensorRT-LLM** (see [[Inference Serving and Deployment Patterns]] and [[LLMOps & Inference]]).
+- **Continuous Batching & `vLLM`**: Dynamic request batching combined with **PagedAttention** cuts GPU memory fragmentation—delivering up to **24× higher throughput** over naive Hugging Face Transformers baselines alongside **Hugging Face TGI** and **NVIDIA TensorRT-LLM** (see [Inference Serving and Deployment Patterns](Inference%20Serving%20and%20Deployment%20Patterns.md) and [LLMOps & Inference](../topics/LLMOps%20%26%20Inference.md)).
 - **Speculative Decoding**: A small fast *draft* model proposes multi-token lookaheads verified in parallel by the large target model (`>2×` speedup with mathematically unchanged distribution).
 - **Model Parallelism & A100 Sizing Reference**:
 
@@ -48,7 +48,7 @@ Deploying large models (`7B–175B+`) in production requires balancing **latency
 ## 3. Evaluation Benchmarks, Contamination & Hallucinations
 
 - **Automated Metrics & Benchmarks**: `Perplexity` (lower = better next-token calibration), `Accuracy`, `F1`, `BLEU/ROUGE`; alongside capability benchmarks `MMLU` (`GPT-3 43% -> GPT-4 86%`), `GSM8K` math (`15% -> 92%`), `HumanEval` (`164` coding problems), `HellaSwag`, `TruthfulQA`, `BIG-Bench`, and **Chatbot Arena** human Elo ratings.
-- **Data Contamination**: Benchmark leakage into training data inflates apparent scores through memorization rather than true generalization (mitigated via fresh private evals in [[Closed-Loop Evals]] and [[Model Evaluation and Validation]]).
+- **Data Contamination**: Benchmark leakage into training data inflates apparent scores through memorization rather than true generalization (mitigated via fresh private evals in [Closed-Loop Evals](Closed-Loop%20Evals.md) and [Model Evaluation and Validation](Model%20Evaluation%20and%20Validation.md)).
 - **Hallucination Taxonomy & Mitigations**: Distinguishes **Intrinsic Hallucinations** (contradicting provided context) from **Extrinsic Hallucinations** (unverifiable against sources). Mitigate with RAG citations, lower temperature, grounded prompting, truthful fine-tuning, and automated fact checking.
 
 ---
@@ -57,15 +57,15 @@ Deploying large models (`7B–175B+`) in production requires balancing **latency
 
 | Threat / Attack Vector | Mechanism | Defensive Controls |
 | :--- | :--- | :--- |
-| **Prompt Injection** | Adversarial input (`"Ignore previous instructions..."`) hijacking system behavior | Input Validation/sanitization, context isolation, privilege separation (see [[Agent Skills Security Audit]]) |
+| **Prompt Injection** | Adversarial input (`"Ignore previous instructions..."`) hijacking system behavior | Input Validation/sanitization, context isolation, privilege separation (see [Agent Skills Security Audit](Agent%20Skills%20Security%20Audit.md)) |
 | **Jailbreaking** | Role-play bypasses (`DAN - Do Anything Now`) circumventing safety filters | **RLHF / DPO / Constitutional AI**, Red Teaming, Output Filtering, Guardrails (`NeMo Guardrails`, `Llama Guard`) |
-| **Data Poisoning** | Corrupting training/fine-tuning corpora with backdoors or bias | Strict training data validation, provenance auditing ([[Software Supply Chain Security]]) |
+| **Data Poisoning** | Corrupting training/fine-tuning corpora with backdoors or bias | Strict training data validation, provenance auditing ([Software Supply Chain Security](Software%20Supply%20Chain%20Security.md)) |
 | **Model Inversion / Leakage** | Extracting memorized PII or training secrets via targeted querying | **Differential Privacy**, **Federated Learning**, **PII Anonymization**, opt-out of training on user data |
 
 ---
 
 ## Relationships
 
-- **Serving & Economics**: Deepens [[Inference Serving and Deployment Patterns]], [[LLMOps & Inference]], [[GPU Architecture and Distributed Scaling]], [[AI Deployment Lifecycle and Environments]], and [[Cost Optimization]] (see also [[All GPU Related Concepts Simply Explained]]).
-- **Evaluation & Verification**: Pairs with [[Model Evaluation and Validation]], [[Closed-Loop Evals]], and [[Verification Loop]].
-- **Security**: Complements [[Agent Skills Security Audit]] and [[Software Supply Chain Security]].
+- **Serving & Economics**: Deepens [Inference Serving and Deployment Patterns](Inference%20Serving%20and%20Deployment%20Patterns.md), [LLMOps & Inference](../topics/LLMOps%20%26%20Inference.md), [GPU Architecture and Distributed Scaling](GPU%20Architecture%20and%20Distributed%20Scaling.md), [AI Deployment Lifecycle and Environments](AI%20Deployment%20Lifecycle%20and%20Environments.md), and [Cost Optimization](Cost%20Optimization.md) (see also [All GPU Related Concepts Simply Explained](../sources/All%20GPU%20Related%20Concepts%20Simply%20Explained.md)).
+- **Evaluation & Verification**: Pairs with [Model Evaluation and Validation](Model%20Evaluation%20and%20Validation.md), [Closed-Loop Evals](Closed-Loop%20Evals.md), and [Verification Loop](Verification%20Loop.md).
+- **Security**: Complements [Agent Skills Security Audit](Agent%20Skills%20Security%20Audit.md) and [Software Supply Chain Security](Software%20Supply%20Chain%20Security.md).

@@ -8,24 +8,24 @@ tags:
   - agentic-engineering
   - architecture
   - production-ai
-source: "[[raw/articles/ai-other/agent-memory-the-7-types-you-should-know.md]]"
+source: "raw/articles/ai-other/agent-memory-the-7-types-you-should-know.md"
 source_type: article
 url: "https://jamwithai.substack.com/p/agent-memory-the-7-types-you-should"
-author: "[[Jam With AI]]"
+author: "Jam With AI"
 published: 2026-07-01
 ---
 
 # Agent Memory: the 7 types you should know before you ship to production
 
-**Authors**: Shantanu Ladhwe, Shirin Khosravi Jam ([[Jam With AI]])
+**Authors**: Shantanu Ladhwe, Shirin Khosravi Jam ([Jam With AI](../entities/Jam%20With%20AI.md))
 **URL**: https://jamwithai.substack.com/p/agent-memory-the-7-types-you-should *(Published 2026-07-01)*
-**Companion YouTube Video**: [[AI Agent Memory 7 Types Explained in 12 Minutes]] *(Published 2026-08-28)*
-**Source File**: [[raw/articles/ai-other/agent-memory-the-7-types-you-should-know.md]]
-**Visual Diagrams**: [[raw/screenshots/agent-memory-the-7-types-you-should-know/01.jpg]], [[raw/screenshots/agent-memory-the-7-types-you-should-know/02.jpg]], [[raw/screenshots/agent-memory-the-7-types-you-should-know/03.jpg]], [[raw/screenshots/agent-memory-the-7-types-you-should-know/04.jpg]], [[raw/screenshots/agent-memory-the-7-types-you-should-know/05.jpg]], [[raw/screenshots/agent-memory-the-7-types-you-should-know/06.jpg]], [[raw/screenshots/agent-memory-the-7-types-you-should-know/07.jpg]], [[raw/screenshots/agent-memory-the-7-types-you-should-know/08.jpg]] *(Note: `00.jpg` in raw capture is an embedded AWS Marketplace sponsor panel card)*
+**Companion YouTube Video**: [AI Agent Memory 7 Types Explained in 12 Minutes](AI%20Agent%20Memory%207%20Types%20Explained%20in%2012%20Minutes.md) *(Published 2026-08-28)*
+**Source File**: [raw/articles/ai-other/agent-memory-the-7-types-you-should-know.md](../../raw/articles/ai-other/agent-memory-the-7-types-you-should-know.md)
+**Visual Diagrams**: [raw/screenshots/agent-memory-the-7-types-you-should-know/01.jpg](../../raw/screenshots/agent-memory-the-7-types-you-should-know/01.jpg), [raw/screenshots/agent-memory-the-7-types-you-should-know/02.jpg](../../raw/screenshots/agent-memory-the-7-types-you-should-know/02.jpg), [raw/screenshots/agent-memory-the-7-types-you-should-know/03.jpg](../../raw/screenshots/agent-memory-the-7-types-you-should-know/03.jpg), [raw/screenshots/agent-memory-the-7-types-you-should-know/04.jpg](../../raw/screenshots/agent-memory-the-7-types-you-should-know/04.jpg), [raw/screenshots/agent-memory-the-7-types-you-should-know/05.jpg](../../raw/screenshots/agent-memory-the-7-types-you-should-know/05.jpg), [raw/screenshots/agent-memory-the-7-types-you-should-know/06.jpg](../../raw/screenshots/agent-memory-the-7-types-you-should-know/06.jpg), [raw/screenshots/agent-memory-the-7-types-you-should-know/07.jpg](../../raw/screenshots/agent-memory-the-7-types-you-should-know/07.jpg), [raw/screenshots/agent-memory-the-7-types-you-should-know/08.jpg](../../raw/screenshots/agent-memory-the-7-types-you-should-know/08.jpg) *(Note: `00.jpg` in raw capture is an embedded AWS Marketplace sponsor panel card)*
 
 A production-oriented engineering framework organizing agent memory into **seven distinct systems** rooted in cognitive science and **CoALA**—diagnosing why naive *"just dump everything into a vector DB"* designs fail and detailing exact storage mechanisms, failure modes, and runtime loops for each memory type.
 
-> **Coverage Note**: The free article preview captures the complete foundational mental model and all seven memory types (`~19,000` characters across `01.jpg–08.jpg`), while the concluding `"How the seven work together"` end-to-end walkthrough is gated behind a paid Substack paywall. That missing synthesis example is fully covered in the companion video [[AI Agent Memory 7 Types Explained in 12 Minutes]].
+> **Coverage Note**: The free article preview captures the complete foundational mental model and all seven memory types (`~19,000` characters across `01.jpg–08.jpg`), while the concluding `"How the seven work together"` end-to-end walkthrough is gated behind a paid Substack paywall. That missing synthesis example is fully covered in the companion video [AI Agent Memory 7 Types Explained in 12 Minutes](AI%20Agent%20Memory%207%20Types%20Explained%20in%2012%20Minutes.md).
 
 ![7 Types of Agent Memory Overview](../../raw/screenshots/agent-memory-the-7-types-you-should-know/01.jpg)
 
@@ -50,7 +50,7 @@ Rather than inventing ad-hoc vocabulary, the taxonomy maps cognitive science cla
 | **03** | **Episodic Memory** *(Diagram `04.jpg`)* | Append-only event diary of past runs (`objective`, `actions`, `tool calls/observations`, `errors`, `feedback`, `outcome`) paired with **post-task Reflection** (`Recall & Apply` loop) modeled on **Generative Agents** (Park et al., 2023 — `https://arxiv.org/abs/2304.03442`) | *"Ten thousand old runs is just an archive"* unless distilled. Reuse **short reflection summaries** of what worked vs. failed next to the trace—never raw full transcripts. |
 | **04** | **Procedural Memory** *(Diagram `05.jpg`)* | `Behavior Sources` (`Policies`, `Skills`, `Rules`, `Lessons`) compiled into a `Reusable Procedure` (`Search -> Validate -> Approve -> Execute`) protected by explicit **`Guardrails`** (`prompts`, `tool descriptions`, workflow sequences, reusable skills) | Jumbled mega-prompts cause rule collisions and brittle edits. Conversely, **promoting a single unlucky run into a standing rule encodes a bad permanent habit**; graduate only repeated episodic patterns (e.g., repeated deploy crashes from missing env vars $\rightarrow$ mandatory pre-deploy env check). |
 | **05** | **External / Retrieval Memory** *(Diagram `06.jpg`)* | `External Knowledge` (`Vector DB`, `SQL`, `Docs`, `Graph`) bridged into `Current Context` via **5 query-matched lookup paths**: (1) semantic similarity, (2) **exact SQL/KV lookup** (`plan`, `order ID`), (3) **permission/category filters**, (4) **time-based deadline lookups**, and (5) **graph/link traversal** | Defaulting to vector similarity fails exact factual queries, time windows, or multi-tenant isolation; a router/dispatcher should pick the lookup mechanism per question type before injecting results into Working Memory. |
-| **06** | **Parametric Memory** *(Diagram `07.jpg`)* | Immutable weights baked from `Training Data + Patterns + Language -> Model Weights -> Reasoning + General Knowledge + Skills` | Frozen at training cutoff, lacks private company data, and hallucinates confidently. [[LLM Fine-Tuning and Alignment]] shifts behavior/style, **not** mutable factual truth (*keep reimbursement limits in External Memory*). |
+| **06** | **Parametric Memory** *(Diagram `07.jpg`)* | Immutable weights baked from `Training Data + Patterns + Language -> Model Weights -> Reasoning + General Knowledge + Skills` | Frozen at training cutoff, lacks private company data, and hallucinates confidently. [LLM Fine-Tuning and Alignment](../concepts/LLM%20Fine-Tuning%20and%20Alignment.md) shifts behavior/style, **not** mutable factual truth (*keep reimbursement limits in External Memory*). |
 | **07** | **Prospective Memory** *(Diagram `08.jpg`)* | `Store Now (Schedule, Trigger) -> Future Task -> Resume Later (Queue, Resume)` cyclic engine powered by **cron, task queues, schedulers, and durable workflow runtimes (`Temporal`)** | Chat closes before Tuesday/Friday arrives. Persist 5 required fields per task: **what to do**, **time/event trigger**, **resumption context**, **completion state**, and **pre-execution human approver** so tasks *"neither nag forever nor quietly disappear."* |
 
 ![Procedural Memory Reusable Workflow and Guardrails](../../raw/screenshots/agent-memory-the-7-types-you-should-know/05.jpg)
@@ -60,7 +60,7 @@ Rather than inventing ad-hoc vocabulary, the taxonomy maps cognitive science cla
 ---
 
 ## 3. Synthesis & Companion Diff vs. Video
-This July 1, 2026 written post (co-authored by Shantanu Ladhwe and Shirin Khosravi Jam) serves as the theoretical and architectural blueprint preceding Shirin's August 28, 2026 video [[AI Agent Memory 7 Types Explained in 12 Minutes]]:
+This July 1, 2026 written post (co-authored by Shantanu Ladhwe and Shirin Khosravi Jam) serves as the theoretical and architectural blueprint preceding Shirin's August 28, 2026 video [AI Agent Memory 7 Types Explained in 12 Minutes](AI%20Agent%20Memory%207%20Types%20Explained%20in%2012%20Minutes.md):
 
 - **What This Written Guide Adds Beyond the Video**:
   - Anchors the taxonomy explicitly in peer-reviewed research (**CoALA** `2309.02427`, **MemGPT** `2310.08560`, **Generative Agents** `2304.03442`).
@@ -75,7 +75,21 @@ This July 1, 2026 written post (co-authored by Shantanu Ladhwe and Shirin Khosra
 ---
 
 ## Related Pages
-- **Companion Source & Entity**: [[AI Agent Memory 7 Types Explained in 12 Minutes]], [[Jam With AI]]
-- **Canonical Concept**: [[AI Agent Memory Types]]
-- **Related Concepts**: [[Context Engineering]], [[Context Rot]], [[Context Window Management]], [[Retrieval-Augmented Generation and Vector DBs]], [[Memory Architecture]], [[Memory Promotion Path]], [[Agent Skills Architecture]], [[Production AI Agent Service Stack]], [[Production AI Resilience and Scaling Patterns]], [[LLM Fine-Tuning and Alignment]], [[Product Evals and Error Analysis]]
-- **Series Siblings**: [[How a Production AI Agent System Actually Works]], [[AI System Design 7 Patterns Explained in 17 Minutes]], [[System Design for AI Engineers 7 Patterns]]
+- **Companion Source & Entity**: [AI Agent Memory 7 Types Explained in 12 Minutes](AI%20Agent%20Memory%207%20Types%20Explained%20in%2012%20Minutes.md), [Jam With AI](../entities/Jam%20With%20AI.md)
+- **Canonical Concept**: [AI Agent Memory Types](../concepts/AI%20Agent%20Memory%20Types.md)
+- **Related Concepts**:
+  - [Context Engineering](../concepts/Context%20Engineering.md)
+  - [Context Rot](../concepts/Context%20Rot.md)
+  - [Context Window Management](../concepts/Context%20Window%20Management.md)
+  - [Retrieval-Augmented Generation and Vector DBs](../concepts/Retrieval-Augmented%20Generation%20and%20Vector%20DBs.md)
+  - [Memory Architecture](../concepts/Memory%20Architecture.md)
+  - [Memory Promotion Path](../concepts/Memory%20Promotion%20Path.md)
+  - [Agent Skills Architecture](../concepts/Agent%20Skills%20Architecture.md)
+  - [Production AI Agent Service Stack](../concepts/Production%20AI%20Agent%20Service%20Stack.md)
+  - [Production AI Resilience and Scaling Patterns](../concepts/Production%20AI%20Resilience%20and%20Scaling%20Patterns.md)
+  - [LLM Fine-Tuning and Alignment](../concepts/LLM%20Fine-Tuning%20and%20Alignment.md)
+  - [Product Evals and Error Analysis](../concepts/Product%20Evals%20and%20Error%20Analysis.md)
+- **Series Siblings**:
+  - [How a Production AI Agent System Actually Works](How%20a%20Production%20AI%20Agent%20System%20Actually%20Works.md)
+  - [AI System Design 7 Patterns Explained in 17 Minutes](AI%20System%20Design%207%20Patterns%20Explained%20in%2017%20Minutes.md)
+  - [System Design for AI Engineers 7 Patterns](System%20Design%20for%20AI%20Engineers%207%20Patterns.md)

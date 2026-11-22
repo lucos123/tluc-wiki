@@ -50,7 +50,7 @@ Read the user's project update, decision log, goal adjustment, or preference cha
 ### Step 2 — Create or Update Memory Page
 1. Load schema from `references/memory-management-guide.md`.
 2. Format page in `mem/<category>/<Name>.md` with frontmatter (`title`, `date`, `tags`, `status`).
-3. **Automated Cross-Linking**: Search `wiki/concepts/` and `wiki/entities/` to cross-reference relevant technical concepts using `[[Concept Name]]` or `[[Entity Name]]`.
+3. **Automated Cross-Linking**: Search `wiki/concepts/` and `wiki/entities/` to cross-reference relevant technical concepts using Standard Relative Markdown Links (`[Concept Name](../../wiki/concepts/Concept%20Name.md)` or `[Entity Name](../../wiki/entities/Entity%20Name.md)`).
 
 ### Step 3 — Register & Log
 1. Update `index.md` under `## Personal Memory & Projects (mem/)`.

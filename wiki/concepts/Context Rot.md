@@ -5,7 +5,7 @@ tags:
   - concept
   - context-engineering
   - harness-engineering
-source: "[[What Is Context Engineering Why It Matters for AI Agents]]"
+source: "wiki/sources/What Is Context Engineering Why It Matters for AI Agents.md"
 ---
 
 # Context Rot
@@ -41,4 +41,4 @@ source: "[[What Is Context Engineering Why It Matters for AI Agents]]"
 2. **Context Compaction & Pruning**: Use `/clear`, `/compact`, and automated background compaction to discard stale turns.
 3. **Structured Context Processing**: Filter, summarize, and label incoming payloads before prompt submission.
 
-See [[What Is Context Engineering Why It Matters for AI Agents]], [[Context Engineering]], and [[Context Window Management]].
+See [What Is Context Engineering Why It Matters for AI Agents](../sources/What%20Is%20Context%20Engineering%20Why%20It%20Matters%20for%20AI%20Agents.md), [Context Engineering](Context%20Engineering.md), and [Context Window Management](Context%20Window%20Management.md).

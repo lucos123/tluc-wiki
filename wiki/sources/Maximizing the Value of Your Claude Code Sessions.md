@@ -7,22 +7,22 @@ tags:
   - cost-optimization
   - token-economics
   - prompt-caching
-source: "[[raw/articles/claude-code/maximizing-the-value-of-your-claude-code-sessions.md]]"
+source: "raw/articles/claude-code/maximizing-the-value-of-your-claude-code-sessions.md"
 url: "https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions"
-publisher: "[[Anthropic]]"
+publisher: "Anthropic"
 ---
 
 # Maximizing the Value of Your Claude Code Sessions
 
-**Publisher**: [[Anthropic]]  
-**Source File**: [[raw/articles/claude-code/maximizing-the-value-of-your-claude-code-sessions.md]]  
+**Publisher**: [Anthropic](../entities/Anthropic.md)  
+**Source File**: [raw/articles/claude-code/maximizing-the-value-of-your-claude-code-sessions.md](../../raw/articles/claude-code/maximizing-the-value-of-your-claude-code-sessions.md)  
 **URL**: https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions  
 
 ---
 
 ## Executive Summary
 
-This engineering guide from Anthropic details the economic mechanics of agentic coding sessions in [[Claude Code]]. Unlike traditional flat-fee developer tools, agentic coding incurs variable per-task inference costs determined by:
+This engineering guide from Anthropic details the economic mechanics of agentic coding sessions in [Claude Code](../entities/Claude%20Code.md). Unlike traditional flat-fee developer tools, agentic coding incurs variable per-task inference costs determined by:
 1. **Token Price**: Model tier, prefill (input) vs. decode (output, ~5x input cost), and prompt cache hit rate (0.1x read).
 2. **Context Volume & Turn Drag**: How many tokens enter the context window, how many turns they persist, and how many parallel subagent contexts run concurrently.
 
@@ -71,7 +71,7 @@ Compact Session:
 - Stating *"fix the test in `@utils.test.ts`"* attaches the file directly to Turn 1, eliminating a tool call and preventing search noise.
 
 ### 2. Noisy Command Mitigation & Output Limits
-- Outputs above 30,000 characters are automatically truncated to file by [[Claude Code]] (`BASH_MAX_OUTPUT_LENGTH`).
+- Outputs above 30,000 characters are automatically truncated to file by [Claude Code](../entities/Claude%20Code.md) (`BASH_MAX_OUTPUT_LENGTH`).
 - Outputs under 30,000 characters (e.g. 400 lines of passing tests) stay in the context for **all subsequent turns**.
 - **Mitigation**: Add quiet flags directly to `CLAUDE.md` (e.g. `npx vitest run <file> --reporter=dot`), install pre-execution output filtering hooks, or offload noisy runs to subagents.
 
@@ -108,6 +108,17 @@ Compact Session:
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Cost Optimization]], [[Token Economics]], [[Cache Invalidation Patterns]], [[Context Window Management]], [[Subagent Context Isolation]], [[Harness Overhead vs Model Cost]], [[Effort Level and Model Selection]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
-- **Sources**: [[Manage costs effectively]], [[How Claude Code uses prompt caching]], [[Claude Code effort level and model selection]], [[Explore the context window]].
+- **Concepts**:
+  - [Cost Optimization](../concepts/Cost%20Optimization.md)
+  - [Token Economics](../concepts/Token%20Economics.md)
+  - [Cache Invalidation Patterns](../concepts/Cache%20Invalidation%20Patterns.md)
+  - [Context Window Management](../concepts/Context%20Window%20Management.md)
+  - [Subagent Context Isolation](../concepts/Subagent%20Context%20Isolation.md)
+  - [Harness Overhead vs Model Cost](../concepts/Harness%20Overhead%20vs%20Model%20Cost.md)
+  - [Effort Level and Model Selection](../concepts/Effort%20Level%20and%20Model%20Selection.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).
+- **Sources**:
+  - [Manage costs effectively](Manage%20costs%20effectively.md)
+  - [How Claude Code uses prompt caching](How%20Claude%20Code%20uses%20prompt%20caching.md)
+  - [Claude Code effort level and model selection](Claude%20Code%20effort%20level%20and%20model%20selection.md)
+  - [Explore the context window](Explore%20the%20context%20window.md)

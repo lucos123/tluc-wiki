@@ -39,7 +39,7 @@ python .agents/skills/wiki-ingest/scripts/download_post_assets.py `
 - **Auto Storage Routing (`--mode auto`)**: `1–3` images go to `raw/assets/<slug>-NN.<ext>` (`start_index=1`); `>= 4` images go to `raw/screenshots/<slug>/00.<ext>..NN.<ext>` (`start_index=0`).
 - **SHA-256 Deduplication**: Each file's SHA-256 checksum is compared against existing images in `raw/assets/` and `raw/screenshots/`. If an identical file already exists, `duplicate_existing_path` is reported in stdout JSON so you can reuse or avoid re-ingesting duplicate visuals.
 - **When to omit vs. include `--init-raw`**:
-  - *Single standalone infographic (`1–2` images)*: Often sufficient to archive into `raw/assets/` and point `wiki/sources/<Title>.md` `source:` directly to `[[raw/assets/<slug>-01.<ext>]]` (matching `Memory Architecture Reference Notes.md`), OR pass `--init-raw` if accompanied by user notes/caption text.
+  - *Single standalone infographic (`1–2` images)*: Often sufficient to archive into `raw/assets/` and point `wiki/sources/<Title>.md` `source:` directly to `"raw/assets/<slug>-01.<ext>"` (matching `Memory Architecture Reference Notes.md`), OR pass `--init-raw` if accompanied by user notes/caption text.
   - *Multi-page deck (`>= 4` images)*: Pass `--init-raw --raw-subdir <topic> --raw-title "<Title>"` to generate `raw/articles/<topic>/<slug>.md` with `infographic` tags cleanly.
 
 ---

@@ -10,7 +10,7 @@ tags:
 
 # Preserved Thinking
 
-**Preserved Thinking** is an architectural pattern in reasoning models (pioneered by [[Moonshot AI]] in [[Kimi K3]] and [[Kimi K2.7 Code]]) where intermediate reasoning tokens (`reasoning_content`) from prior turns are preserved and passed back into the conversation context payload.
+**Preserved Thinking** is an architectural pattern in reasoning models (pioneered by [Moonshot AI](../entities/Moonshot%20AI.md) in [Kimi K3](../entities/Kimi%20K3.md) and [Kimi K2.7 Code](../entities/Kimi%20K2.7%20Code.md)) where intermediate reasoning tokens (`reasoning_content`) from prior turns are preserved and passed back into the conversation context payload.
 
 ## How it Works
 
@@ -35,4 +35,4 @@ Turn 2: User Prompt ──> Agent Reason (builds on Turn 1 reasoning) ──> Fi
 | **Multi-Turn Coherence**: Prevents the model from forgetting why it made prior decisions in complex workflows. | **Context & Token Inflation**: Historical reasoning tokens consume context budget and increase input token billing. |
 | **Tool Calling Stability**: Ensures multi-step tool loops retain the rationale behind intermediate function invocations. | **Strict Payload Requirements**: Missing or modifying `reasoning_content` in turns can trigger API validation errors on enforced models like `kimi-k2.7-code`. |
 
-See [[Kimi Thinking Models & Preserved Thinking Guide]] and [[Context Engineering]].
+See [Kimi Thinking Models & Preserved Thinking Guide](../sources/Kimi%20Thinking%20Models%20%26%20Preserved%20Thinking%20Guide.md) and [Context Engineering](Context%20Engineering.md).

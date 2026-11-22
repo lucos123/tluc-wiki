@@ -6,12 +6,12 @@ tags:
   - harness-engineering
   - agentic-design
   - claude-code
-source: "[[Create custom subagents]]"
+source: "wiki/sources/Create custom subagents.md"
 ---
 
 # Subagent Architecture
 
-**Subagent Architecture** is the multi-agent delegation pattern in [[Claude Code]] where a primary orchestrator agent spawns specialized worker subagents operating in isolated, fresh 200K context windows.
+**Subagent Architecture** is the multi-agent delegation pattern in [Claude Code](../entities/Claude%20Code.md) where a primary orchestrator agent spawns specialized worker subagents operating in isolated, fresh 200K context windows.
 
 ---
 
@@ -31,4 +31,4 @@ graph TD
 3. **Granular Permissions & Sandboxing**: Restricts tool pools (`disallowedTools: Write, Edit`) or forces worktree isolation (`isolation: worktree`).
 4. **Scoped MCP Servers**: Connects heavy MCP servers (like Playwright or database connectors) strictly inside subagent windows, keeping their tool definitions out of the main prompt.
 
-See [[Create custom subagents]], [[Subagent Context Isolation]], [[Subagent Worktree Isolation]], and [[Orchestrator Skill Pattern]].
+See [Create custom subagents](../sources/Create%20custom%20subagents.md), [Subagent Context Isolation](Subagent%20Context%20Isolation.md), [Subagent Worktree Isolation](Subagent%20Worktree%20Isolation.md), and [Orchestrator Skill Pattern](Orchestrator%20Skill%20Pattern.md).

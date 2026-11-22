@@ -35,7 +35,7 @@ python .agents/skills/wiki-query/scripts/query_wiki.py "$ARGUMENTS"
 ```
 
 ### Layer 2: Master Index Scan & Targeted Page Reads
-Read matching pages identified by the script across `wiki/`, `mem/`, and `output/`. Extract key metrics and cross-references (`[[wiki links]]`).
+Read matching pages identified by the script across `wiki/`, `mem/`, and `output/`. Extract key metrics and cross-references (Standard Relative Markdown Links `[Page](path.md)`).
 
 ### Layer 3: Deep Search (Grep)
 If Layers 1-2 don't provide complete coverage, use `grep_search` to find exact keyword matches across all markdown files in `wiki/`, `mem/`, and `output/`.

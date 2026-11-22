@@ -24,5 +24,5 @@ status: active
 - **YYYY-MM-DD**: Decision detail.
 
 ## Related Concepts
-- Cites [[Concept Name]].
+- Cites [Concept Name](../../wiki/concepts/Concept%20Name.md).
 ```

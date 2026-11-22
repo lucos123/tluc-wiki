@@ -7,12 +7,12 @@ tags:
   - security
   - observability
   - devops
-source: "[[AWS Core Services Notes]]"
+source: "wiki/sources/AWS Core Services Notes.md"
 ---
 
 # AWS Observability and Cryptographic Security
 
-Operational telemetry, immutable API governance auditing, dynamic credential rotation, and hardware-backed encryption across [[Amazon Web Services (AWS)|AWS]]. Synthesized from [[AWS Core Services Notes]] (Pages 14–17).
+Operational telemetry, immutable API governance auditing, dynamic credential rotation, and hardware-backed encryption across [AWS](../entities/Amazon%20Web%20Services%20%28AWS%29.md). Synthesized from [AWS Core Services Notes](../sources/AWS%20Core%20Services%20Notes.md) (Pages 14–17).
 
 ---
 
@@ -61,6 +61,10 @@ A frequent architectural distinction in AWS operations separates *system health/
 ---
 
 ## Related Pages
-- **Sources**: [[AWS Core Services Notes]]
-- **Entities**: [[Amazon Web Services (AWS)]], [[Viet Nguyen AI]]
-- **Concepts**: [[AWS Foundation, Networking and Compute]], [[AWS Databases, Containers and Messaging]], [[Enterprise Agent Stack]], [[Software Supply Chain Security]]
+- **Sources**: [AWS Core Services Notes](../sources/AWS%20Core%20Services%20Notes.md)
+- **Entities**: [Amazon Web Services (AWS)](../entities/Amazon%20Web%20Services%20%28AWS%29.md), [Viet Nguyen AI](../entities/Viet%20Nguyen%20AI.md)
+- **Concepts**:
+  - [AWS Foundation, Networking and Compute](AWS%20Foundation%2C%20Networking%20and%20Compute.md)
+  - [AWS Databases, Containers and Messaging](AWS%20Databases%2C%20Containers%20and%20Messaging.md)
+  - [Enterprise Agent Stack](Enterprise%20Agent%20Stack.md)
+  - [Software Supply Chain Security](Software%20Supply%20Chain%20Security.md)

@@ -8,8 +8,8 @@ tags:
 
 # OpenBrain
 
-A fictional leading US-based Artificial General Intelligence (AGI) company depicted in the [[AI 2027]] scenario.
+A fictional leading US-based Artificial General Intelligence (AGI) company depicted in the [AI 2027](../sources/AI%202027.md) scenario.
 
 - **Role**: OpenBrain represents the vanguard of AI development, analogous to real-world companies like OpenAI, Google DeepMind, or Anthropic.
-- **Key Models**: They develop a series of increasingly autonomous agents ([[OpenBrain Agents|Agent-1, Agent-2, Agent-3]]) focused on automating AI research and development.
+- **Key Models**: They develop a series of increasingly autonomous agents ([Agent-1, Agent-2, Agent-3](OpenBrain%20Agents.md)) focused on automating AI research and development.
 - **Challenges**: They face massive security threats from nation-states (specifically China) attempting to steal their model weights.

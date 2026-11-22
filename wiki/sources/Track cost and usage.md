@@ -7,14 +7,14 @@ tags:
   - agent-sdk
   - token-economics
   - claude-code
-source: "[[raw/articles/claude-code/costs-models-checkpoints/cost-tracking.md]]"
+source: "raw/articles/claude-code/costs-models-checkpoints/cost-tracking.md"
 url: "https://code.claude.com/docs/en/cost-tracking.md"
 ---
 
 # Track cost and usage
 
 **URL**: https://code.claude.com/docs/en/cost-tracking.md  
-**Source File**: [[raw/articles/claude-code/costs-models-checkpoints/cost-tracking.md]]  
+**Source File**: [raw/articles/claude-code/costs-models-checkpoints/cost-tracking.md](../../raw/articles/claude-code/costs-models-checkpoints/cost-tracking.md)  
 
 ---
 
@@ -52,5 +52,9 @@ if (!seenIds.has(msgId)) {
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[SDK Token Accounting]], [[Token Economics]], [[Cost Optimization]], [[Agent SDK Architecture]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [SDK Token Accounting](../concepts/SDK%20Token%20Accounting.md)
+  - [Token Economics](../concepts/Token%20Economics.md)
+  - [Cost Optimization](../concepts/Cost%20Optimization.md)
+  - [Agent SDK Architecture](../concepts/Agent%20SDK%20Architecture.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

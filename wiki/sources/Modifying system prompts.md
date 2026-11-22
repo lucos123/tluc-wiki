@@ -7,20 +7,20 @@ tags:
   - context-engineering
   - harness-engineering
   - claude-code
-source: "[[raw/articles/claude-code/context-memory-rules/modifying-system-prompts.md]]"
+source: "raw/articles/claude-code/context-memory-rules/modifying-system-prompts.md"
 url: "https://code.claude.com/docs/en/agent-sdk/modifying-system-prompts.md"
 ---
 
 # Modifying system prompts
 
 **URL**: https://code.claude.com/docs/en/agent-sdk/modifying-system-prompts.md  
-**Source File**: [[raw/articles/claude-code/context-memory-rules/modifying-system-prompts.md]]  
+**Source File**: [raw/articles/claude-code/context-memory-rules/modifying-system-prompts.md](../../raw/articles/claude-code/context-memory-rules/modifying-system-prompts.md)  
 
 ---
 
 ## Executive Summary
 
-This guide explains how to customize and optimize system prompts in [[Claude Code]] and the Agent SDK. It details the 3 starting points (`minimal`, `claude_code` preset, custom string), 4 customization methods (`CLAUDE.md`, output styles, `append`, custom prompt), and how `excludeDynamicSections` maximizes prompt cache hits across fleet sessions.
+This guide explains how to customize and optimize system prompts in [Claude Code](../entities/Claude%20Code.md) and the Agent SDK. It details the 3 starting points (`minimal`, `claude_code` preset, custom string), 4 customization methods (`CLAUDE.md`, output styles, `append`, custom prompt), and how `excludeDynamicSections` maximizes prompt cache hits across fleet sessions.
 
 ---
 
@@ -45,5 +45,9 @@ Setting `excludeDynamicSections: true` moves working directory and environment i
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[System Prompt Caching Optimization]], [[Agent SDK Architecture]], [[Persistent Instruction File]], [[Context Window Management]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [System Prompt Caching Optimization](../concepts/System%20Prompt%20Caching%20Optimization.md)
+  - [Agent SDK Architecture](../concepts/Agent%20SDK%20Architecture.md)
+  - [Persistent Instruction File](../concepts/Persistent%20Instruction%20File.md)
+  - [Context Window Management](../concepts/Context%20Window%20Management.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

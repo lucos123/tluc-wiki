@@ -7,32 +7,32 @@ tags:
   - video-transcript
   - agentic-design
   - harness-engineering
-source: "[[raw/video-transcripts/why-your-enterprise-tech-stack-isnt-ready-for-ai-agents.md]]"
+source: "raw/video-transcripts/why-your-enterprise-tech-stack-isnt-ready-for-ai-agents.md"
 source_type: video
 url: "https://www.youtube.com/watch?v=mav15aW9lLM"
-channel: "[[AI Engineer]]"
+channel: "AI Engineer"
 speakers:
   - "Christopher Lovejoy"
   - "Saul Howard"
-organization: "[[Anterior]]"
+organization: "Anterior"
 upload_date: "2026-08-19"
 duration: "19m 15s"
 ---
 
 # Why Your Enterprise Tech Stack Isn't Ready for AI Agents
 
-**Channel**: [[AI Engineer]]  
-**Speakers**: Christopher Lovejoy (Forward Deployed Engineer) & Saul Howard (VP of Engineering, [[Anterior]])  
+**Channel**: [AI Engineer](../entities/AI%20Engineer.md)  
+**Speakers**: Christopher Lovejoy (Forward Deployed Engineer) & Saul Howard (VP of Engineering, [Anterior](../entities/Anterior.md))  
 **URL**: https://www.youtube.com/watch?v=mav15aW9lLM  
 **Upload Date**: 2026-08-19  
 **Duration**: 19m 15s  
-**Source File**: [[raw/video-transcripts/why-your-enterprise-tech-stack-isnt-ready-for-ai-agents.md]]  
+**Source File**: [raw/video-transcripts/why-your-enterprise-tech-stack-isnt-ready-for-ai-agents.md](../../raw/video-transcripts/why-your-enterprise-tech-stack-isnt-ready-for-ai-agents.md)  
 
 ---
 
 ## Executive Summary
 
-In this presentation from the AI Engineer conference, Christopher Lovejoy and Saul Howard from [[Anterior]] (deploying agentic AI for US health insurance systems) examine why standard enterprise IT architectures fail when transitioning from AI proofs-of-concept (POCs) to production deployments.
+In this presentation from the AI Engineer conference, Christopher Lovejoy and Saul Howard from [Anterior](../entities/Anterior.md) (deploying agentic AI for US health insurance systems) examine why standard enterprise IT architectures fail when transitioning from AI proofs-of-concept (POCs) to production deployments.
 
 The authors identify the **"Enterprise POC Trap"**: a 4-week prototype achieves high benchmark accuracy, leading stakeholders to believe the hard part is finished. However, productionizing agents in regulated domains (healthcare, finance, defense, government) requires solving four fundamental enterprise constraints: legal auditability, sensitive data handling (PHI/PII), dynamic human escalation, and continuous offline/online evaluations.
 
@@ -92,5 +92,17 @@ Rather than engineering a separate evaluation harness, evals emerge as a natural
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Enterprise Agent Stack]], [[Harness Engineering]], [[Loop Engineering]], [[Verification Loop]], [[Context Engineering]], [[Agentic Coding Workflow]].
-- **Entities**: [[AI Engineer]], [[Anterior]], [[IBM Technology]], [[Simon Willison]], [[HumanLayer]], [[Anthropic]].
+- **Concepts**:
+  - [Enterprise Agent Stack](../concepts/Enterprise%20Agent%20Stack.md)
+  - [Harness Engineering](../concepts/Harness%20Engineering.md)
+  - [Loop Engineering](../concepts/Loop%20Engineering.md)
+  - [Verification Loop](../concepts/Verification%20Loop.md)
+  - [Context Engineering](../concepts/Context%20Engineering.md)
+  - [Agentic Coding Workflow](../concepts/Agentic%20Coding%20Workflow.md)
+- **Entities**:
+  - [AI Engineer](../entities/AI%20Engineer.md)
+  - [Anterior](../entities/Anterior.md)
+  - [IBM Technology](../entities/IBM%20Technology.md)
+  - [Simon Willison](../entities/Simon%20Willison.md)
+  - [HumanLayer](../entities/HumanLayer.md)
+  - [Anthropic](../entities/Anthropic.md)

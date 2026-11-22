@@ -14,18 +14,18 @@ tags:
 
 ## Core Architectural Contributions
 
-- **[[Home Repo Pattern]]** ([[The Home Repo The effortless multi-repo agent setup]]): Solves skill duplication and steering drift across multi-repo organizations (`20–40+` repos) by establishing a single central "home repository" (`personal-wiki`) housing versioned `.claude/skills/`, `settings.json`, `CLAUDE.md` / `AGENTS.md` repo pointer maps, and shared CLI tooling from which every agent session launches.
-- **Karpathy-Style [[llm-wiki]] With Unified CLI Tooling**: Implements an operational business & personal knowledge base inside `personal-wiki/wiki/` (`audience/`, `me/`, `people/`, `research/`, `index.md`, `log.md`) driven by a single discoverable **`wiki <source> <verb>`** CLI uniting Gmail, Slack, Discord, X, YouTube, GitHub, Google Calendar, AI Hero CMS, Todoist, Cold Turkey, Vercel Reports, Buffer, and automated editing workflows.
+- **[Home Repo Pattern](../concepts/Home%20Repo%20Pattern.md)** ([The Home Repo The effortless multi-repo agent setup](../sources/The%20Home%20Repo%20The%20effortless%20multi-repo%20agent%20setup.md)): Solves skill duplication and steering drift across multi-repo organizations (`20–40+` repos) by establishing a single central "home repository" (`personal-wiki`) housing versioned `.claude/skills/`, `settings.json`, `CLAUDE.md` / `AGENTS.md` repo pointer maps, and shared CLI tooling from which every agent session launches.
+- **Karpathy-Style [llm-wiki](../concepts/llm-wiki.md) With Unified CLI Tooling**: Implements an operational business & personal knowledge base inside `personal-wiki/wiki/` (`audience/`, `me/`, `people/`, `research/`, `index.md`, `log.md`) driven by a single discoverable **`wiki <source> <verb>`** CLI uniting Gmail, Slack, Discord, X, YouTube, GitHub, Google Calendar, AI Hero CMS, Todoist, Cold Turkey, Vercel Reports, Buffer, and automated editing workflows.
 
 ## Ingested Works
 
-- [[The Home Repo The effortless multi-repo agent setup]] (`2026-11-12`): 8m 53s walkthrough of the Home Repo setup, `CLAUDE.md` multi-repo pointers, automated git worktrees, `>40` repo scaling via progressive disclosure, and his `personal-wiki` CLI ecosystem.
+- [The Home Repo The effortless multi-repo agent setup](../sources/The%20Home%20Repo%20The%20effortless%20multi-repo%20agent%20setup.md) (`2026-11-12`): 8m 53s walkthrough of the Home Repo setup, `CLAUDE.md` multi-repo pointers, automated git worktrees, `>40` repo scaling via progressive disclosure, and his `personal-wiki` CLI ecosystem.
 
 ## Related Concepts
 
-- [[Home Repo Pattern]]
-- [[Monorepo Context Engineering]]
-- [[llm-wiki]]
-- [[Progressive Disclosure]]
-- [[Agent Onboarding Files]]
-- [[Git Worktree Isolation]]
+- [Home Repo Pattern](../concepts/Home%20Repo%20Pattern.md)
+- [Monorepo Context Engineering](../concepts/Monorepo%20Context%20Engineering.md)
+- [llm-wiki](../concepts/llm-wiki.md)
+- [Progressive Disclosure](../concepts/Progressive%20Disclosure.md)
+- [Agent Onboarding Files](../concepts/Agent%20Onboarding%20Files.md)
+- [Git Worktree Isolation](../concepts/Git%20Worktree%20Isolation.md)

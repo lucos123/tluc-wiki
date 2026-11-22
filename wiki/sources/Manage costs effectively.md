@@ -7,20 +7,20 @@ tags:
   - token-economics
   - cost-optimization
   - claude-code
-source: "[[raw/articles/claude-code/costs-models-checkpoints/costs.md]]"
+source: "raw/articles/claude-code/costs-models-checkpoints/costs.md"
 url: "https://code.claude.com/docs/en/costs.md"
 ---
 
 # Manage costs effectively
 
 **URL**: https://code.claude.com/docs/en/costs.md  
-**Source File**: [[raw/articles/claude-code/costs-models-checkpoints/costs.md]]  
+**Source File**: [raw/articles/claude-code/costs-models-checkpoints/costs.md](../../raw/articles/claude-code/costs-models-checkpoints/costs.md)  
 
 ---
 
 ## Executive Summary
 
-This official Anthropic guide details how to track, govern, and optimize token costs in [[Claude Code]].
+This official Anthropic guide details how to track, govern, and optimize token costs in [Claude Code](../entities/Claude%20Code.md).
 
 Enterprise deployment averages ~$13 per developer per active day ($150–$250/month), with 90% of developers remaining below $30/day. Token consumption is governed by context size, model selection, reasoning effort, prompt caching, and subagent/MCP server execution.
 
@@ -57,5 +57,10 @@ Enterprise deployment averages ~$13 per developer per active day ($150–$250/mo
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Token Economics]], [[Cost Optimization]], [[Context Window Management]], [[Effort Level and Model Selection]], [[System Prompt Caching Optimization]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Token Economics](../concepts/Token%20Economics.md)
+  - [Cost Optimization](../concepts/Cost%20Optimization.md)
+  - [Context Window Management](../concepts/Context%20Window%20Management.md)
+  - [Effort Level and Model Selection](../concepts/Effort%20Level%20and%20Model%20Selection.md)
+  - [System Prompt Caching Optimization](../concepts/System%20Prompt%20Caching%20Optimization.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

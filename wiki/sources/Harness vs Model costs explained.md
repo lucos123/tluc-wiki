@@ -7,7 +7,7 @@ tags:
   - token-economics
   - cost-optimization
   - video-transcript
-source: "[[raw/video-transcripts/harness-vs-model-costs-explained.md]]"
+source: "raw/video-transcripts/harness-vs-model-costs-explained.md"
 url: "https://www.youtube.com/watch?v=8ji5vURIllM"
 channel: "Caleb Writes Code"
 ---
@@ -15,8 +15,8 @@ channel: "Caleb Writes Code"
 # Harness vs Model costs explained
 
 **URL**: https://www.youtube.com/watch?v=8ji5vURIllM  
-**Channel**: [[Caleb Writes Code]]  
-**Source File**: [[raw/video-transcripts/harness-vs-model-costs-explained.md]]  
+**Channel**: [Caleb Writes Code](../entities/Caleb%20Writes%20Code.md)  
+**Source File**: [raw/video-transcripts/harness-vs-model-costs-explained.md](../../raw/video-transcripts/harness-vs-model-costs-explained.md)  
 
 ---
 
@@ -24,7 +24,7 @@ channel: "Caleb Writes Code"
 
 In this 9-minute technical breakdown, **Caleb Writes Code** analyzes why the financial cost of running AI coding agents is dominated by **Harness Overhead** rather than the raw cost of the LLM base model.
 
-While base model inference costs have dropped by 2–3x (e.g. GPT-5.6 Sol, open-weight models like Kimi K3, Qwen 3.8 Max, DeepSeek V4), thick agentic harnesses like [[Claude Code]], Cursor, OpenCode, and [[Cline]] introduce massive system prompt "tollgates" (8,000–30,000 tokens per turn) and multi-turn roundtrip oscillations that inflate cost per task by **4× to 15×** (up to 30× on simple prompts) compared to raw chat completions.
+While base model inference costs have dropped by 2–3x (e.g. GPT-5.6 Sol, open-weight models like Kimi K3, Qwen 3.8 Max, DeepSeek V4), thick agentic harnesses like [Claude Code](../entities/Claude%20Code.md), Cursor, OpenCode, and [Cline](../entities/Cline.md) introduce massive system prompt "tollgates" (8,000–30,000 tokens per turn) and multi-turn roundtrip oscillations that inflate cost per task by **4× to 15×** (up to 30× on simple prompts) compared to raw chat completions.
 
 ---
 
@@ -55,5 +55,15 @@ While base model inference costs have dropped by 2–3x (e.g. GPT-5.6 Sol, open-
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Harness Overhead vs Model Cost]], [[Jevons Paradox in AI]], [[Harness Engineering]], [[Token Economics]], [[System Prompt Caching Optimization]].
-- **Entities**: [[Caleb Writes Code]], [[Claude Code]], [[Cline]], [[Anthropic]], [[OpenAI]].
+- **Concepts**:
+  - [Harness Overhead vs Model Cost](../concepts/Harness%20Overhead%20vs%20Model%20Cost.md)
+  - [Jevons Paradox in AI](../concepts/Jevons%20Paradox%20in%20AI.md)
+  - [Harness Engineering](../concepts/Harness%20Engineering.md)
+  - [Token Economics](../concepts/Token%20Economics.md)
+  - [System Prompt Caching Optimization](../concepts/System%20Prompt%20Caching%20Optimization.md)
+- **Entities**:
+  - [Caleb Writes Code](../entities/Caleb%20Writes%20Code.md)
+  - [Claude Code](../entities/Claude%20Code.md)
+  - [Cline](../entities/Cline.md)
+  - [Anthropic](../entities/Anthropic.md)
+  - [OpenAI](../entities/OpenAI.md)

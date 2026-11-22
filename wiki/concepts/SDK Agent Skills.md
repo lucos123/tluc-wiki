@@ -7,12 +7,12 @@ tags:
   - skills
   - harness-engineering
   - claude-code
-source: "[[Agent Skills in the SDK]]"
+source: "wiki/sources/Agent Skills in the SDK.md"
 ---
 
 # SDK Agent Skills
 
-**SDK Agent Skills** is the programmatic mechanism within the Claude Agent SDK for discovering, filtering, and mounting filesystem-based [[Agent Skills Architecture|Agent Skills]] into custom agent applications.
+**SDK Agent Skills** is the programmatic mechanism within the Claude Agent SDK for discovering, filtering, and mounting filesystem-based [Agent Skills](Agent%20Skills%20Architecture.md) into custom agent applications.
 
 ---
 
@@ -31,4 +31,4 @@ graph TD
 1. **Strict Filesystem Binding**: Skills cannot be registered inline as in-memory code objects; they must be saved on disk as `SKILL.md` files.
 2. **Central Tool Authorization**: `allowed-tools` inside `SKILL.md` is ignored by the SDK; permissions must be declared in `ClaudeAgentOptions.allowed_tools`.
 
-See [[Agent Skills in the SDK]], [[Agent Skills Architecture]], and [[Agent SDK Architecture]].
+See [Agent Skills in the SDK](../sources/Agent%20Skills%20in%20the%20SDK.md), [Agent Skills Architecture](Agent%20Skills%20Architecture.md), and [Agent SDK Architecture](Agent%20SDK%20Architecture.md).

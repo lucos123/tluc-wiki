@@ -6,12 +6,12 @@ tags:
   - prompt-caching
   - cost-optimization
   - claude-code
-source: "[[How Claude Code uses prompt caching]]"
+source: "wiki/sources/How Claude Code uses prompt caching.md"
 ---
 
 # Cache Invalidation Patterns
 
-**Cache Invalidation Patterns** catalog the technical triggers in [[Claude Code]] that break prompt cache prefix matching, causing subsequent turns to re-process input tokens at full uncached rates (`cache_creation_input_tokens`).
+**Cache Invalidation Patterns** catalog the technical triggers in [Claude Code](../entities/Claude%20Code.md) that break prompt cache prefix matching, causing subsequent turns to re-process input tokens at full uncached rates (`cache_creation_input_tokens`).
 
 ---
 
@@ -40,6 +40,13 @@ graph TD
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Cost Optimization]], [[Token Economics]], [[System Prompt Caching Optimization]], [[Context Window Management]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
-- **Sources**: [[Maximizing the Value of Your Claude Code Sessions]], [[How Claude Code uses prompt caching]], [[Manage costs effectively]].
+- **Concepts**:
+  - [Cost Optimization](Cost%20Optimization.md)
+  - [Token Economics](Token%20Economics.md)
+  - [System Prompt Caching Optimization](System%20Prompt%20Caching%20Optimization.md)
+  - [Context Window Management](Context%20Window%20Management.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).
+- **Sources**:
+  - [Maximizing the Value of Your Claude Code Sessions](../sources/Maximizing%20the%20Value%20of%20Your%20Claude%20Code%20Sessions.md)
+  - [How Claude Code uses prompt caching](../sources/How%20Claude%20Code%20uses%20prompt%20caching.md)
+  - [Manage costs effectively](../sources/Manage%20costs%20effectively.md)

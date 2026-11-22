@@ -7,14 +7,14 @@ tags:
   - agentic-design
   - claude-code
   - context-engineering
-source: "[[raw/cc-mono-and-large-repo.md]]"
+source: "raw/articles/claude-code/cc-mono-and-large-repo.md"
 ---
 
 # Claude Code Monorepo Setup
 
-**Source File**: [[raw/cc-mono-and-large-repo.md]]
+**Source File**: [raw/articles/claude-code/cc-mono-and-large-repo.md](../../raw/articles/claude-code/cc-mono-and-large-repo.md)
 
-Official guide for configuring [[Claude Code]] in monorepos and large single-tree codebases. All techniques address one problem: a large codebase fills the context window with irrelevant content, degrading performance. The solution is to scope Claude to only the code relevant to the current task.
+Official guide for configuring [Claude Code](../entities/Claude%20Code.md) in monorepos and large single-tree codebases. All techniques address one problem: a large codebase fills the context window with irrelevant content, degrading performance. The solution is to scope Claude to only the code relevant to the current task.
 
 ## Key Concepts
 
@@ -46,10 +46,10 @@ Official guide for configuring [[Claude Code]] in monorepos and large single-tre
 
 ## Synthesis Notes
 
-This document is the applied implementation of [[Context Engineering]] at the codebase-organisation level. The principle throughout: access to *everything* paradoxically *degrades* performance. The entire configuration system is a series of knobs for reducing what Claude sees.
+This document is the applied implementation of [Context Engineering](../concepts/Context%20Engineering.md) at the codebase-organisation level. The principle throughout: access to *everything* paradoxically *degrades* performance. The entire configuration system is a series of knobs for reducing what Claude sees.
 
 The distinction between `additionalDirectories` (file access only) and `--add-dir`/`/add-dir` (file access + skills) is subtle but consequential: teams that want consistent skill availability across sibling packages must use `--add-dir`, not the static setting.
 
-The `sparsePaths` + `symlinkDirectories` combination for worktrees is directly relevant to the subagent fan-out patterns in [[Best practices for Claude Code]]: subagents each get a lightweight sparse checkout instead of duplicating the full repo.
+The `sparsePaths` + `symlinkDirectories` combination for worktrees is directly relevant to the subagent fan-out patterns in [Best practices for Claude Code](Best%20practices%20for%20Claude%20Code.md): subagents each get a lightweight sparse checkout instead of duplicating the full repo.
 
-Cross-references: [[Claude Code Skills]] for per-directory skills details, [[Claude Code Hooks]] for the `SessionStart` plugin-recommendation hook, [[Persistent Instruction File]] for CLAUDE.md hierarchy, [[Context Engineering]] for the theoretical frame.
+Cross-references: [Claude Code Skills](Claude%20Code%20Skills.md) for per-directory skills details, [Claude Code Hooks](Claude%20Code%20Hooks.md) for the `SessionStart` plugin-recommendation hook, [Persistent Instruction File](../concepts/Persistent%20Instruction%20File.md) for CLAUDE.md hierarchy, [Context Engineering](../concepts/Context%20Engineering.md) for the theoretical frame.

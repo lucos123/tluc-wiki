@@ -7,20 +7,20 @@ tags:
   - parallelism
   - harness-engineering
   - claude-code
-source: "[[raw/articles/claude-code/agent-architecture-subagents-workflows/agents.md]]"
+source: "raw/articles/claude-code/agent-architecture-subagents-workflows/agents.md"
 url: "https://code.claude.com/docs/en/agents.md"
 ---
 
 # Run agents in parallel
 
 **URL**: https://code.claude.com/docs/en/agents.md  
-**Source File**: [[raw/articles/claude-code/agent-architecture-subagents-workflows/agents.md]]  
+**Source File**: [raw/articles/claude-code/agent-architecture-subagents-workflows/agents.md](../../raw/articles/claude-code/agent-architecture-subagents-workflows/agents.md)  
 
 ---
 
 ## Executive Summary
 
-This official Anthropic guide presents the unified decision taxonomy for running parallel agent execution models in [[Claude Code]]: **Subagents**, **Agent View**, **Agent Teams**, and **Dynamic Workflows**.
+This official Anthropic guide presents the unified decision taxonomy for running parallel agent execution models in [Claude Code](../entities/Claude%20Code.md): **Subagents**, **Agent View**, **Agent Teams**, and **Dynamic Workflows**.
 
 ---
 
@@ -37,5 +37,10 @@ This official Anthropic guide presents the unified decision taxonomy for running
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Parallel Agent Architecture]], [[Subagent Architecture]], [[Dynamic Workflows]], [[Git Worktree Isolation]], [[Agent Teams Architecture]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Parallel Agent Architecture](../concepts/Parallel%20Agent%20Architecture.md)
+  - [Subagent Architecture](../concepts/Subagent%20Architecture.md)
+  - [Dynamic Workflows](../concepts/Dynamic%20Workflows.md)
+  - [Git Worktree Isolation](../concepts/Git%20Worktree%20Isolation.md)
+  - [Agent Teams Architecture](../concepts/Agent%20Teams%20Architecture.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

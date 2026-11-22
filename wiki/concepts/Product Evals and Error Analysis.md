@@ -6,12 +6,12 @@ tags:
   - evals
   - ai-engineering
   - verification
-source: "[[AI Eval Concepts Explained in 15 Minutes]]"
+source: "wiki/sources/AI Eval Concepts Explained in 15 Minutes.md"
 ---
 
 # Product Evals and Error Analysis
 
-**Product Evals and Error Analysis** form the human-grounded foundation of production AI engineering: shifting evaluation away from generic foundation-model benchmarks toward trace inspection, structured failure taxonomies, and binary product-specific checks. Formalized by [[Hamel Husain]] in [[AI Eval Concepts Explained in 15 Minutes]].
+**Product Evals and Error Analysis** form the human-grounded foundation of production AI engineering: shifting evaluation away from generic foundation-model benchmarks toward trace inspection, structured failure taxonomies, and binary product-specific checks. Formalized by [Hamel Husain](../entities/Hamel%20Husain.md) in [AI Eval Concepts Explained in 15 Minutes](../sources/AI%20Eval%20Concepts%20Explained%20in%2015%20Minutes.md).
 
 ---
 
@@ -23,7 +23,7 @@ source: "[[AI Eval Concepts Explained in 15 Minutes]]"
 | **Measurement Scope** | General capability of raw model weights | Full agent system outcome (context retrieval + multi-call orchestration + tool side effects) |
 | **Cost–Quality Frontier** | Public Pareto curve plotting generic score vs. token cost | **Shifted Pareto frontier** where cheaper or lower-ranked models often outperform frontier models on the exact domain task |
 
-Because public benchmarks test general intelligence rather than workflow-specific state transitions (e.g., whether an e-commerce agent actually canceled an order cleanly), selecting models solely off public Pareto charts misses optimal product price-performance candidates (see [[Inference Speed vs Intelligence Trade-off]] and [[Effort Level and Model Selection]]).
+Because public benchmarks test general intelligence rather than workflow-specific state transitions (e.g., whether an e-commerce agent actually canceled an order cleanly), selecting models solely off public Pareto charts misses optimal product price-performance candidates (see [Inference Speed vs Intelligence Trade-off](Inference%20Speed%20vs%20Intelligence%20Trade-off.md) and [Effort Level and Model Selection](Effort%20Level%20and%20Model%20Selection.md)).
 
 ![Foundation Model Benchmarks vs Product Evals Pareto Shift](../../raw/screenshots/ai-eval-concepts-explained-in-15-minutes/02.jpg)
 
@@ -61,7 +61,7 @@ To review high-volume traces efficiently, combine three strategies across the **
 
 When production traffic is sparse:
 - **Simulate User Inputs Only (Never Fake Whole Traces)**: Generate messy real-world inputs across explicit scenario dimensions (e.g., *before vs. after shipping*, ambiguous queries like `"please cancel the blue one"` without an order ID), execute the live app to produce genuine traces, and review them manually.
-- **Reverse Synthetic Eval for [[Retrieval-Augmented Generation and Vector DBs|RAG]]**: Sample source document chunks (e.g., a 30-day return policy), prompt an LLM to draft realistic questions answerable by each chunk, and verify that retrieval surfaces the exact source chunk.
+- **Reverse Synthetic Eval for [RAG](Retrieval-Augmented%20Generation%20and%20Vector%20DBs.md)**: Sample source document chunks (e.g., a 30-day return policy), prompt an LLM to draft realistic questions answerable by each chunk, and verify that retrieval surfaces the exact source chunk.
 
 ![Sampling Traces Spectrum](../../raw/screenshots/ai-eval-concepts-explained-in-15-minutes/06.jpg)
 
@@ -80,6 +80,12 @@ Because eval suites are costly to author and maintain, resist generic `1–5` sc
 ---
 
 ## Related Pages
-- **Sources**: [[AI Eval Concepts Explained in 15 Minutes]], [[AI Complete Handbook]]
-- **Entities**: [[Hamel Husain]]
-- **Concepts**: [[LLM-as-a-Judge and Eval Alignment]], [[Model Evaluation and Validation]], [[AI Evaluation, Safety and Governance]], [[Verification Loop]], [[Poteto Trust Pyramid]], [[Retrieval-Augmented Generation and Vector DBs]]
+- **Sources**: [AI Eval Concepts Explained in 15 Minutes](../sources/AI%20Eval%20Concepts%20Explained%20in%2015%20Minutes.md), [AI Complete Handbook](../sources/AI%20Complete%20Handbook.md)
+- **Entities**: [Hamel Husain](../entities/Hamel%20Husain.md)
+- **Concepts**:
+  - [LLM-as-a-Judge and Eval Alignment](LLM-as-a-Judge%20and%20Eval%20Alignment.md)
+  - [Model Evaluation and Validation](Model%20Evaluation%20and%20Validation.md)
+  - [AI Evaluation, Safety and Governance](AI%20Evaluation%2C%20Safety%20and%20Governance.md)
+  - [Verification Loop](Verification%20Loop.md)
+  - [Poteto Trust Pyramid](Poteto%20Trust%20Pyramid.md)
+  - [Retrieval-Augmented Generation and Vector DBs](Retrieval-Augmented%20Generation%20and%20Vector%20DBs.md)

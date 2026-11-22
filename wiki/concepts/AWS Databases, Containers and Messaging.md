@@ -7,12 +7,12 @@ tags:
   - databases
   - containers
   - devops
-source: "[[AWS Core Services Notes]]"
+source: "wiki/sources/AWS Core Services Notes.md"
 ---
 
 # AWS Databases, Containers and Messaging
 
-Managed persistence, asynchronous decoupling, and container orchestration primitives in [[Amazon Web Services (AWS)|AWS]]—comparing relational **RDS** vs. serverless NoSQL **DynamoDB**, queuing in **SQS**, and container execution across **ECR**, **ECS**, and **EKS**. Synthesized from [[AWS Core Services Notes]] (Pages 8–13).
+Managed persistence, asynchronous decoupling, and container orchestration primitives in [AWS](../entities/Amazon%20Web%20Services%20%28AWS%29.md)—comparing relational **RDS** vs. serverless NoSQL **DynamoDB**, queuing in **SQS**, and container execution across **ECR**, **ECS**, and **EKS**. Synthesized from [AWS Core Services Notes](../sources/AWS%20Core%20Services%20Notes.md) (Pages 8–13).
 
 ---
 
@@ -42,7 +42,7 @@ Managed persistence, asynchronous decoupling, and container orchestration primit
 
 ## 3. Container Registry & Orchestration (`ECR`, `ECS`, `EKS`)
 
-Containers standardize AI inference servers and backend microservices (see [[Model Packaging and Versioning]] and [[Inference Serving and Deployment Patterns]]):
+Containers standardize AI inference servers and backend microservices (see [Model Packaging and Versioning](Model%20Packaging%20and%20Versioning.md) and [Inference Serving and Deployment Patterns](Inference%20Serving%20and%20Deployment%20Patterns.md)):
 
 - **ECR (Elastic Container Registry)**: Fully managed Docker registry (`<acct>.dkr.ecr.<region>.amazonaws.com/repo:tag`) replicated across AZs, integrated with IAM roles, KMS encryption, **Amazon Inspector** automated CVE vulnerability scanning, and Lifecycle Policies to prune stale image tags.
 - **ECS vs. EKS Orchestration Comparison**:
@@ -55,6 +55,11 @@ Containers standardize AI inference servers and backend microservices (see [[Mod
 ---
 
 ## Related Pages
-- **Sources**: [[AWS Core Services Notes]]
-- **Entities**: [[Amazon Web Services (AWS)]], [[Viet Nguyen AI]]
-- **Concepts**: [[AWS Foundation, Networking and Compute]], [[AWS Observability and Cryptographic Security]], [[Model Packaging and Versioning]], [[Inference Serving and Deployment Patterns]], [[AI Deployment Lifecycle and Environments]]
+- **Sources**: [AWS Core Services Notes](../sources/AWS%20Core%20Services%20Notes.md)
+- **Entities**: [Amazon Web Services (AWS)](../entities/Amazon%20Web%20Services%20%28AWS%29.md), [Viet Nguyen AI](../entities/Viet%20Nguyen%20AI.md)
+- **Concepts**:
+  - [AWS Foundation, Networking and Compute](AWS%20Foundation%2C%20Networking%20and%20Compute.md)
+  - [AWS Observability and Cryptographic Security](AWS%20Observability%20and%20Cryptographic%20Security.md)
+  - [Model Packaging and Versioning](Model%20Packaging%20and%20Versioning.md)
+  - [Inference Serving and Deployment Patterns](Inference%20Serving%20and%20Deployment%20Patterns.md)
+  - [AI Deployment Lifecycle and Environments](AI%20Deployment%20Lifecycle%20and%20Environments.md)

@@ -5,12 +5,12 @@ tags:
   - concept
   - graph-engineering
   - agentic-design
-source: "[[Why Graph Engineering will 10x your Claude Codex]]"
+source: "wiki/sources/Why Graph Engineering will 10x your Claude Codex.md"
 ---
 
 # Knowledge Graph vs Agent Graph
 
-The architectural distinction between **Knowledge Graphs** and **Agent Graphs** in AI agent system design, as detailed by [[Greg Isenberg]] in [[Why Graph Engineering will 10x your Claude Codex]].
+The architectural distinction between **Knowledge Graphs** and **Agent Graphs** in AI agent system design, as detailed by [Greg Isenberg](../entities/Greg%20Isenberg.md) in [Why Graph Engineering will 10x your Claude Codex](../sources/Why%20Graph%20Engineering%20will%2010x%20your%20Claude%20Codex.md).
 
 ---
 
@@ -31,4 +31,4 @@ In state-of-the-art enterprise AI agent systems, **Knowledge Graphs and Agent Gr
 - The **Knowledge Graph** provides the agent swarm with deep relational memory over company codebase, architecture, and customer history.
 - The **Agent Graph** orchestrates how agents plan, execute, verify, and deliver code changes or research reports.
 
-See [[Graph Engineering]], [[Agent Graph]], and [[Knowledge Representation, Logic and Bayesian Inference]] (for symbolic Semantic Networks, Frames, and `OWL` Ontologies).
+See [Graph Engineering](Graph%20Engineering.md), [Agent Graph](Agent%20Graph.md), and [Knowledge Representation, Logic and Bayesian Inference](Knowledge%20Representation%2C%20Logic%20and%20Bayesian%20Inference.md) (for symbolic Semantic Networks, Frames, and `OWL` Ontologies).

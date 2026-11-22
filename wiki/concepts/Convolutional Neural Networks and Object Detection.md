@@ -5,19 +5,19 @@ tags:
   - concept
   - computer-vision
   - deep-learning
-source: "[[Computer Vision Handbook]]"
+source: "wiki/sources/Computer Vision Handbook.md"
 ---
 
 # Convolutional Neural Networks and Object Detection
 
-Core spatial computer-vision architectures—from raw pixel tensor representations and **Convolutional Neural Networks (CNNs)** to **Image Classification**, single-stage real-time **YOLO Object Detection**, and pixel-level **Image Segmentation**. Synthesized from [[Computer Vision Handbook]] (Lessons 1–8).
+Core spatial computer-vision architectures—from raw pixel tensor representations and **Convolutional Neural Networks (CNNs)** to **Image Classification**, single-stage real-time **YOLO Object Detection**, and pixel-level **Image Segmentation**. Synthesized from [Computer Vision Handbook](../sources/Computer%20Vision%20Handbook.md) (Lessons 1–8).
 
 ---
 
 ## 1. Image Tensors & Compositional Feature Hierarchy
 
 Computers process visual scenes strictly as numeric grids:
-- **RGB 3D Tensor**: Color images take shape **`(Height, Width, Channels)`** with `Channels = 3` (`R`, `G`, `B` in `0..255`, e.g., `224 x 224 x 3`), typically scaled into `[0, 1]` or `[-1, 1]` before inference (analogous to tabular scaling in [[Data Preprocessing and Feature Engineering]]).
+- **RGB 3D Tensor**: Color images take shape **`(Height, Width, Channels)`** with `Channels = 3` (`R`, `G`, `B` in `0..255`, e.g., `224 x 224 x 3`), typically scaled into `[0, 1]` or `[-1, 1]` before inference (analogous to tabular scaling in [Data Preprocessing and Feature Engineering](Data%20Preprocessing%20and%20Feature%20Engineering.md)).
 - **Hierarchical Representation Learning**:
   1. **Low-Level (Edges)**: Contrast transitions extracted via directional filters (e.g., `Sobel X` `3x3` vertical edge detector `[ [-1, 0, 1], [-2, 0, 2], [-1, 0, 1] ]`).
   2. **Mid-Level (Textures & Shapes)**: Early CNN layers combine edges into oriented patterns and surface textures.
@@ -62,6 +62,10 @@ Computers process visual scenes strictly as numeric grids:
 ---
 
 ## Related Pages
-- **Sources**: [[Computer Vision Handbook]]
-- **Entities**: [[Viet Nguyen AI]]
-- **Concepts**: [[Vision Transformers and Multimodal AI]], [[Machine Learning Paradigms]], [[Data Preprocessing and Feature Engineering]], [[Model Evaluation and Validation]]
+- **Sources**: [Computer Vision Handbook](../sources/Computer%20Vision%20Handbook.md)
+- **Entities**: [Viet Nguyen AI](../entities/Viet%20Nguyen%20AI.md)
+- **Concepts**:
+  - [Vision Transformers and Multimodal AI](Vision%20Transformers%20and%20Multimodal%20AI.md)
+  - [Machine Learning Paradigms](Machine%20Learning%20Paradigms.md)
+  - [Data Preprocessing and Feature Engineering](Data%20Preprocessing%20and%20Feature%20Engineering.md)
+  - [Model Evaluation and Validation](Model%20Evaluation%20and%20Validation.md)

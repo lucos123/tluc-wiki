@@ -7,14 +7,14 @@ tags:
   - agentic-design
   - claude-code
   - harness-engineering
-source: "[[raw/cc-hooks.md]]"
+source: "raw/articles/claude-code/cc-hooks.md"
 ---
 
 # Claude Code Hooks
 
-**Source File**: [[raw/cc-hooks.md]]
+**Source File**: [raw/articles/claude-code/cc-hooks.md](../../raw/articles/claude-code/cc-hooks.md)
 
-Official documentation for [[Claude Code]]'s lifecycle hooks system — user-defined shell commands that execute deterministically at specific points in the agent's workflow. Hooks are the primary mechanism for enforcing guaranteed behaviours outside the LLM's judgment.
+Official documentation for [Claude Code](../entities/Claude%20Code.md)'s lifecycle hooks system — user-defined shell commands that execute deterministically at specific points in the agent's workflow. Hooks are the primary mechanism for enforcing guaranteed behaviours outside the LLM's judgment.
 
 ## Key Concepts
 
@@ -68,9 +68,9 @@ Official documentation for [[Claude Code]]'s lifecycle hooks system — user-def
 
 ## Synthesis Notes
 
-Hooks are the "scaffolding" in `Agent = Model + Harness`. While [[Claude Code Skills]] give Claude modular capabilities it *can* invoke, hooks provide deterministic guarantees about what the system *must* do — regardless of the model's choices. This dual design allows high autonomy while remaining bounded by security policy.
+Hooks are the "scaffolding" in `Agent = Model + Harness`. While [Claude Code Skills](Claude%20Code%20Skills.md) give Claude modular capabilities it *can* invoke, hooks provide deterministic guarantees about what the system *must* do — regardless of the model's choices. This dual design allows high autonomy while remaining bounded by security policy.
 
-The `prompt` and `agent` hook types are notable: they create a meta-layer where one Claude model (Haiku) reviews or verifies the actions of the primary Claude session. This is the programmatic form of the adversarial review pattern documented in [[Best practices for Claude Code]].
+The `prompt` and `agent` hook types are notable: they create a meta-layer where one Claude model (Haiku) reviews or verifies the actions of the primary Claude session. This is the programmatic form of the adversarial review pattern documented in [Best practices for Claude Code](Best%20practices%20for%20Claude%20Code.md).
 
 `PreToolUse` hooks enforce policy that users *cannot bypass* even in `bypassPermissions` mode — making hooks the ultimate security primitive in the Claude Code architecture.
 

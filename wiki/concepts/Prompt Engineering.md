@@ -6,18 +6,18 @@ tags:
   - prompt-engineering
   - context-engineering
   - llm-foundations
-source: "[[Prompt Engineering Handbook]]"
+source: "wiki/sources/Prompt Engineering Handbook.md"
 ---
 
 # Prompt Engineering
 
-**Prompt Engineering** is the discipline of designing, structuring, and iteratively refining inputs (prompts) to guide Large Language Models (LLMs) toward accurate, consistent, and useful outputs. On the [[Agent Engineering Ladder]], Prompt Engineering represents the foundational first rung that evolved into [[Context Engineering]], Agent Skills, [[Loop Engineering]], and [[Graph Engineering]].
+**Prompt Engineering** is the discipline of designing, structuring, and iteratively refining inputs (prompts) to guide Large Language Models (LLMs) toward accurate, consistent, and useful outputs. On the [Agent Engineering Ladder](Agent%20Engineering%20Ladder.md), Prompt Engineering represents the foundational first rung that evolved into [Context Engineering](Context%20Engineering.md), Agent Skills, [Loop Engineering](Loop%20Engineering.md), and [Graph Engineering](Graph%20Engineering.md).
 
 ---
 
 ## Anatomy of an Effective Prompt (6 Core Components)
 
-As synthesized in [[Prompt Engineering Handbook]], a well-structured prompt combines up to six explicit building blocks:
+As synthesized in [Prompt Engineering Handbook](../sources/Prompt%20Engineering%20Handbook.md), a well-structured prompt combines up to six explicit building blocks:
 
 ```
 Prompt = Role + Context + Task / Instruction + Input Data + Constraints + Output Format (+ Examples)
@@ -46,18 +46,18 @@ Prompt = Role + Context + Task / Instruction + Input Data + Constraints + Output
 
 1. **6-Step Creation Loop:** Understand Problem $\rightarrow$ Plan Context $\rightarrow$ Write Prompt $\rightarrow$ Inspect Output $\rightarrow$ Refine $\rightarrow$ Final Output.
 2. **Core Principles:** Be specific, give context, specify format and tone, add constraints, use examples, decompose complex tasks, keep phrasing simple, and iterate.
-3. **Common Failure Modes:** Overly vague requests, excessively verbose prompts causing noise (related to [[Context Rot]]), missing output formatting, missing source context, and accepting the first output without review.
+3. **Common Failure Modes:** Overly vague requests, excessively verbose prompts causing noise (related to [Context Rot](Context%20Rot.md)), missing output formatting, missing source context, and accepting the first output without review.
 
-> ⚠️ **Evolving claim / Frontier Model Nuance:** While structured constraints and negative guardrails improve outputs in basic single-turn tasks, [[Unhobbling Claude]] (via [[The new rules of context engineering for Claude 5 generation models]]) notes that over-constraining frontier reasoning/coding models with rigid negative rules in system prompts can trigger prompt clashes—requiring balance between explicit task specs and model autonomy.
+> ⚠️ **Evolving claim / Frontier Model Nuance:** While structured constraints and negative guardrails improve outputs in basic single-turn tasks, [Unhobbling Claude](Unhobbling%20Claude.md) (via [The new rules of context engineering for Claude 5 generation models](../sources/The%20new%20rules%20of%20context%20engineering%20for%20Claude%205%20generation%20models.md)) notes that over-constraining frontier reasoning/coding models with rigid negative rules in system prompts can trigger prompt clashes—requiring balance between explicit task specs and model autonomy.
 
 ---
 
 ## Systematic Prompt Debugging & Injection Defense (Production)
 
-Synthesized from [[AI Engineer Interview Notes]] (`koteswar.AI`):
+Synthesized from [AI Engineer Interview Notes](../sources/AI%20Engineer%20Interview%20Notes.md) (`koteswar.AI`):
 1. **Six-Step Systematic Debugging Framework** *(replacing "prompt-tweaking by vibes")*:
    - **Reproduce**: Pin exact failing input and output.
-   - **Isolate**: Test instruction alone with known-good context to distinguish instruction ambiguity from bad [[Retrieval-Augmented Generation and Vector DBs|RAG retrieval]].
+   - **Isolate**: Test instruction alone with known-good context to distinguish instruction ambiguity from bad [RAG retrieval](Retrieval-Augmented%20Generation%20and%20Vector%20DBs.md).
    - **Inspect**: Factual miss $\rightarrow$ fix retrieval/grounding; task misunderstanding $\rightarrow$ rewrite instruction.
    - **Change One Variable**: Adjust instruction, few-shot examples, *or* temperature—never all three at once (never tune `temperature` and `top-p` together).
    - **Build a Regression Set**: Lock fixes against `10–20` repeatable eval test cases.
@@ -67,5 +67,15 @@ Synthesized from [[AI Engineer Interview Notes]] (`koteswar.AI`):
 ---
 
 ## Related Pages
-- **Sources**: [[Prompt Engineering Handbook]], [[Token and API Price Guide]], [[AI Engineer Interview Notes]], [[AI Complete Handbook]]
-- **Concepts**: [[Few-Shot Prompting]], [[Chain-of-Thought Prompting]], [[Advanced Prompting Patterns]], [[Context Engineering]], [[Agent Engineering Ladder]], [[AI System Design and Production Architecture]]
+- **Sources**:
+  - [Prompt Engineering Handbook](../sources/Prompt%20Engineering%20Handbook.md)
+  - [Token and API Price Guide](../sources/Token%20and%20API%20Price%20Guide.md)
+  - [AI Engineer Interview Notes](../sources/AI%20Engineer%20Interview%20Notes.md)
+  - [AI Complete Handbook](../sources/AI%20Complete%20Handbook.md)
+- **Concepts**:
+  - [Few-Shot Prompting](Few-Shot%20Prompting.md)
+  - [Chain-of-Thought Prompting](Chain-of-Thought%20Prompting.md)
+  - [Advanced Prompting Patterns](Advanced%20Prompting%20Patterns.md)
+  - [Context Engineering](Context%20Engineering.md)
+  - [Agent Engineering Ladder](Agent%20Engineering%20Ladder.md)
+  - [AI System Design and Production Architecture](AI%20System%20Design%20and%20Production%20Architecture.md)

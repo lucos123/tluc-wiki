@@ -32,7 +32,8 @@ python .agents/skills/wiki-lint/scripts/lint_wiki.py
 The script audits:
 - `orphan_pages`: Pages in `wiki/`, `mem/`, or `output/` not listed in `index.md`.
 - `missing_pages`: Links in `index.md` pointing to non-existent pages.
-- `broken_links`: `[[wiki links]]` pointing to missing targets.
+- `broken_links`: Standard Markdown links (and any frontmatter `source:` paths) pointing to missing targets on disk.
+- `legacy_wikilinks`: Any leftover `[[...]]` Obsidian wikilink syntax remaining outside fenced/inline code blocks.
 - `missing_frontmatter`: Pages missing the `---` frontmatter block.
 - `missing_fields`: Incomplete required frontmatter (`title`, `date`, `tags`, `source`).
 - `duplicate_titles`: Duplicate `title:` values in frontmatter.

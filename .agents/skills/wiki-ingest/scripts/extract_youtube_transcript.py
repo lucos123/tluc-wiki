@@ -30,6 +30,7 @@ import urllib.request
 from collections import deque
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import unquote
 
 
 VISUAL_CUE_RE = re.compile(
@@ -334,6 +335,7 @@ _STOPWORDS = frozenset({
     "build", "building", "make", "better", "new", "more", "about", "real", "not",
     "all", "one", "two", "see", "define", "understand", "keep", "avoid", "use",
 })
+_INDEX_MD_ENTRY_RE = re.compile(r"^\s*-\s*\[([^\[\]\n]+)\]\(([^)\n]+)\)\s*:\s*(.*)$")
 _INDEX_ENTRY_RE = re.compile(r"^\s*-\s*\[\[(.*?)\]\]\s*:\s*(.*)$")
 
 
@@ -368,12 +370,25 @@ def find_related_wiki_pages(
         if line.startswith("## "):
             current_section = line[3:].strip()
             continue
-        m = _INDEX_ENTRY_RE.match(line)
-        if not m:
-            continue
-        page = m.group(1).split("|")[0].strip()
-        summary = m.group(2).strip()
-        if page.startswith("raw/") or current_section.lower().startswith("generated deliverables"):
+
+        rel_path = None
+        m_md = _INDEX_MD_ENTRY_RE.match(line)
+        if m_md:
+            page = m_md.group(1).strip()
+            rel_path = unquote(m_md.group(2).strip().partition("#")[0]).lstrip("./")
+            summary = m_md.group(3).strip()
+            if rel_path.startswith("raw/"):
+                continue
+        else:
+            m = _INDEX_ENTRY_RE.match(line)
+            if not m:
+                continue
+            page = re.split(r"\\?\|", m.group(1), maxsplit=1)[0].strip()
+            summary = m.group(2).strip()
+            if page.startswith("raw/"):
+                continue
+
+        if current_section.lower().startswith("generated deliverables"):
             continue
 
         page_low = page.lower()
@@ -398,13 +413,19 @@ def find_related_wiki_pages(
             score + section_priority.get(current_section.lower(), 0),
             current_section,
             page,
+            rel_path,
             summary,
         ))
 
     scored.sort(key=lambda item: (-item[0], item[2].lower()))
     return [
-        {"section": sec, "page": page, "summary": summary}
-        for _, sec, page, summary in scored[:top_k]
+        {
+            "section": sec,
+            "page": page,
+            **({"path": rel_path} if rel_path else {}),
+            "summary": summary,
+        }
+        for _, sec, page, rel_path, summary in scored[:top_k]
     ]
 
 

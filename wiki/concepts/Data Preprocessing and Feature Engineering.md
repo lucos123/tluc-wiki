@@ -6,12 +6,12 @@ tags:
   - machine-learning
   - data-engineering
   - python
-source: "[[Machine Learning Basics Notes]]"
+source: "wiki/sources/Machine Learning Basics Notes.md"
 ---
 
 # Data Preprocessing and Feature Engineering
 
-The upstream data preparation, feature construction, fit-diagnostic, and hyperparameter tuning workflow that transforms raw data into clean model signals (*"Better Data -> Better Model -> Better Decisions"*). Synthesized from [[Machine Learning Basics Notes]] (Pages 2, 7–9) and connected to [[Types of Machine Learning Handbook]].
+The upstream data preparation, feature construction, fit-diagnostic, and hyperparameter tuning workflow that transforms raw data into clean model signals (*"Better Data -> Better Model -> Better Decisions"*). Synthesized from [Machine Learning Basics Notes](../sources/Machine%20Learning%20Basics%20Notes.md) (Pages 2, 7–9) and connected to [Types of Machine Learning Handbook](../sources/Types%20of%20Machine%20Learning%20Handbook.md).
 
 ---
 
@@ -45,7 +45,7 @@ Raw datasets contain missing values, duplicates, incompatible scales, and non-nu
 ## 3. Feature Engineering & Model Selection Pipeline
 
 **Feature Engineering** constructs, selects, or transforms input variables to expose underlying domain structure to learning algorithms:
-- **Feature Selection**: Prune redundant/noisy columns (`Filter`, `Wrapper RFE`, `Embedded Lasso/Tree` — see [[Unsupervised Learning and Dimensionality Reduction]]).
+- **Feature Selection**: Prune redundant/noisy columns (`Filter`, `Wrapper RFE`, `Embedded Lasso/Tree` — see [Unsupervised Learning and Dimensionality Reduction](Unsupervised%20Learning%20and%20Dimensionality%20Reduction.md)).
 - **Feature Extraction**: Synthesize high-signal derived features from raw fields (e.g., computing *Age* from *Date of Birth*, or *Total Price* = *Quantity × Unit Price*).
 - **Feature Transformation & Class Imbalance**: Non-linear transforms, scaling adjustments, and handling skewed label distributions via **resampling, class weights, and imbalance-aware metrics** (`Precision`, `Recall`, `F1` instead of raw Accuracy).
 
@@ -65,7 +65,7 @@ Raw datasets contain missing values, duplicates, incompatible scales, and non-nu
 
 ## 4. Foundational Python ML Library Stack
 
-Practical implementation leverages six core Python packages (built on [[Python Core Syntax and Control Flow]] and [[Python Collections and File Handling]]):
+Practical implementation leverages six core Python packages (built on [Python Core Syntax and Control Flow](Python%20Core%20Syntax%20and%20Control%20Flow.md) and [Python Collections and File Handling](Python%20Collections%20and%20File%20Handling.md)):
 - **Data Wrangling & Math**: **`NumPy`** (vectorized numerical arrays) & **`Pandas`** (tabular DataFrames & analysis).
 - **Classical ML**: **`Scikit-learn`** (preprocessing transformers, classification, regression, clustering, cross-validation).
 - **Deep Learning**: **`PyTorch`** (flexible research & neural training), **`TensorFlow`** (scalable neural networks), and **`Keras`** (high-level DL API).
@@ -73,6 +73,15 @@ Practical implementation leverages six core Python packages (built on [[Python C
 ---
 
 ## Related Pages
-- **Sources**: [[Machine Learning Basics Notes]], [[Types of Machine Learning Handbook]], [[Machine Learning and Deep Learning Cheat Sheets]]
-- **Entities**: [[Viet Nguyen AI]]
-- **Concepts**: [[Model Evaluation and Validation]], [[Machine Learning Paradigms]], [[Supervised Learning Algorithms]], [[Unsupervised Learning and Dimensionality Reduction]], [[Neural Networks and Deep Learning Foundations]], [[Python Core Syntax and Control Flow]]
+- **Sources**:
+  - [Machine Learning Basics Notes](../sources/Machine%20Learning%20Basics%20Notes.md)
+  - [Types of Machine Learning Handbook](../sources/Types%20of%20Machine%20Learning%20Handbook.md)
+  - [Machine Learning and Deep Learning Cheat Sheets](../sources/Machine%20Learning%20and%20Deep%20Learning%20Cheat%20Sheets.md)
+- **Entities**: [Viet Nguyen AI](../entities/Viet%20Nguyen%20AI.md)
+- **Concepts**:
+  - [Model Evaluation and Validation](Model%20Evaluation%20and%20Validation.md)
+  - [Machine Learning Paradigms](Machine%20Learning%20Paradigms.md)
+  - [Supervised Learning Algorithms](Supervised%20Learning%20Algorithms.md)
+  - [Unsupervised Learning and Dimensionality Reduction](Unsupervised%20Learning%20and%20Dimensionality%20Reduction.md)
+  - [Neural Networks and Deep Learning Foundations](Neural%20Networks%20and%20Deep%20Learning%20Foundations.md)
+  - [Python Core Syntax and Control Flow](Python%20Core%20Syntax%20and%20Control%20Flow.md)

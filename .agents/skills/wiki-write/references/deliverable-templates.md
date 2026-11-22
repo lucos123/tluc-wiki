@@ -32,7 +32,7 @@ type: report
 ## Deep Architectural Analysis
 
 ### 1. <Topic Theme>
-<Detailed analysis citing [[Concept Name]] and [[Source Name]] pages.>
+<Detailed analysis citing [Concept Name](../../wiki/concepts/Concept%20Name.md) and [Source Name](../../wiki/sources/Source%20Name.md) pages.>
 
 ## Recommendations & Next Steps
 
@@ -69,7 +69,7 @@ flowchart TD
 ```
 
 ## 3. Component Specifications
-<Detailed technical specs citing [[Entity Name]] pages.>
+<Detailed technical specs citing [Entity Name](../../wiki/entities/Entity%20Name.md) pages.>
 ```
 
 ---
@@ -94,7 +94,7 @@ type: summary
 - Bullet 2
 
 ## Summary Breakdown
-<Structured notes cross-referencing [[Page Name]].>
+<Structured notes cross-referencing [Page Name](../../wiki/concepts/Page%20Name.md).>
 ```
 
 ---

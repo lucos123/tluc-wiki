@@ -7,20 +7,20 @@ tags:
   - rewind
   - harness-engineering
   - claude-code
-source: "[[raw/articles/claude-code/costs-models-checkpoints/checkpointing.md]]"
+source: "raw/articles/claude-code/costs-models-checkpoints/checkpointing.md"
 url: "https://code.claude.com/docs/en/checkpointing.md"
 ---
 
 # Checkpointing
 
 **URL**: https://code.claude.com/docs/en/checkpointing.md  
-**Source File**: [[raw/articles/claude-code/costs-models-checkpoints/checkpointing.md]]  
+**Source File**: [raw/articles/claude-code/costs-models-checkpoints/checkpointing.md](../../raw/articles/claude-code/costs-models-checkpoints/checkpointing.md)  
 
 ---
 
 ## Executive Summary
 
-This official Anthropic guide details **Session Checkpointing** in [[Claude Code]].
+This official Anthropic guide details **Session Checkpointing** in [Claude Code](../entities/Claude%20Code.md).
 
 Checkpointing automatically captures code state before each user prompt (storing the 100 most recent snapshots for 30 days), allowing developers to undo bad edits, branch conversations, and rewind session state using `/rewind` or pressing `Esc` twice.
 
@@ -52,5 +52,9 @@ Checkpointing automatically captures code state before each user prompt (storing
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Session Checkpoints]], [[Context Window Management]], [[Harness Engineering]], [[Cache Invalidation Patterns]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Session Checkpoints](../concepts/Session%20Checkpoints.md)
+  - [Context Window Management](../concepts/Context%20Window%20Management.md)
+  - [Harness Engineering](../concepts/Harness%20Engineering.md)
+  - [Cache Invalidation Patterns](../concepts/Cache%20Invalidation%20Patterns.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

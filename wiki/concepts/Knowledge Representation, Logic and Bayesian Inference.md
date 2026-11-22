@@ -6,12 +6,12 @@ tags:
   - artificial-intelligence
   - knowledge-representation
   - bayesian-inference
-source: "[[AI Complete Handbook]]"
+source: "wiki/sources/AI Complete Handbook.md"
 ---
 
 # Knowledge Representation, Logic and Bayesian Inference
 
-**Knowledge Representation (KR), Formal Logic, and Bayesian Inference** form the twin reasoning pillars of AI systems: structuring real-world facts into machine-interpretable schemas for deterministic deductive inference, while quantifying uncertainty mathematically to update beliefs as noisy evidence arrives ([[AI Complete Handbook]], Pages `07.jpg`–`09.jpg`).
+**Knowledge Representation (KR), Formal Logic, and Bayesian Inference** form the twin reasoning pillars of AI systems: structuring real-world facts into machine-interpretable schemas for deterministic deductive inference, while quantifying uncertainty mathematically to update beliefs as noisy evidence arrives ([AI Complete Handbook](../sources/AI%20Complete%20Handbook.md), Pages `07.jpg`–`09.jpg`).
 
 ![Bayesian Inference and Uncertainty](../../raw/screenshots/ai-complete-handbook/09.jpg)
 
@@ -24,11 +24,11 @@ KR encodes world state formally across five epistemic types—**Factual** (*obje
 | KR Method | Structural Primitive | Best Used For | Modern Ecosystem Descendant |
 | :--- | :--- | :--- | :--- |
 | **Logic-Based** | Propositional / First-Order predicates | Verifiable theorem proving & rule consistency | Constraint solvers, formal verification |
-| **Semantic Networks** | Labeled concept nodes & directed relation edges (`is-a`, `has`, `can`) | Taxonomies & relational traversal | [[Knowledge Graph vs Agent Graph|Knowledge Graphs]] (`GraphRAG`) |
+| **Semantic Networks** | Labeled concept nodes & directed relation edges (`is-a`, `has`, `can`) | Taxonomies & relational traversal | [Knowledge Graphs](Knowledge%20Graph%20vs%20Agent%20Graph.md) (`GraphRAG`) |
 | **Frames** | Structured object templates with named `Slots` & defaults | Object-oriented domain modeling | JSON Schema / Typed Entity Classes |
-| **Scripts** | Stereotypical temporal event sequences | Narrative & workflow expectation tracking | Multi-step runbooks & [[Agentic Workflow Recipes]] |
+| **Scripts** | Stereotypical temporal event sequences | Narrative & workflow expectation tracking | Multi-step runbooks & [Agentic Workflow Recipes](Agentic%20Workflow%20Recipes.md) |
 | **Ontologies** | Formal vocabulary specifications of domain classes & relations | Cross-system interoperability (`DBpedia`, `Schema.org`, `OWL`) | Enterprise semantic layers & metadata schemas |
-| **Rule-Based** | Deterministic `IF condition THEN action` productions | Expert troubleshooting systems | Policy guardrails & [[Deterministic Lifecycle Hooks]] |
+| **Rule-Based** | Deterministic `IF condition THEN action` productions | Expert troubleshooting systems | Policy guardrails & [Deterministic Lifecycle Hooks](Deterministic%20Lifecycle%20Hooks.md) |
 | **Probabilistic** | Directed graphical conditional dependencies | Reasoning under incomplete or noisy data | Bayesian Networks & probabilistic models |
 
 ---
@@ -71,6 +71,9 @@ Bayesian updating prevents intuition errors when **Prior probabilities (`base ra
 ---
 
 ## Related Pages
-- **Sources**: [[AI Complete Handbook]]
-- **Foundations**: [[Classical AI Agents and State-Space Search]]
-- **Graph & Retrieval Systems**: [[Knowledge Graph vs Agent Graph]], [[Retrieval-Augmented Generation and Vector DBs]], [[Context Engineering]]
+- **Sources**: [AI Complete Handbook](../sources/AI%20Complete%20Handbook.md)
+- **Foundations**: [Classical AI Agents and State-Space Search](Classical%20AI%20Agents%20and%20State-Space%20Search.md)
+- **Graph & Retrieval Systems**:
+  - [Knowledge Graph vs Agent Graph](Knowledge%20Graph%20vs%20Agent%20Graph.md)
+  - [Retrieval-Augmented Generation and Vector DBs](Retrieval-Augmented%20Generation%20and%20Vector%20DBs.md)
+  - [Context Engineering](Context%20Engineering.md)

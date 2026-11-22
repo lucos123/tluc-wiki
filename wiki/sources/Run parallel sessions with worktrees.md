@@ -7,20 +7,20 @@ tags:
   - harness-engineering
   - parallelism
   - claude-code
-source: "[[raw/articles/claude-code/large-codebases-sdlc-worktrees/worktrees.md]]"
+source: "raw/articles/claude-code/large-codebases-sdlc-worktrees/worktrees.md"
 url: "https://code.claude.com/docs/en/worktrees.md"
 ---
 
 # Run parallel sessions with worktrees
 
 **URL**: https://code.claude.com/docs/en/worktrees.md  
-**Source File**: [[raw/articles/claude-code/large-codebases-sdlc-worktrees/worktrees.md]]  
+**Source File**: [raw/articles/claude-code/large-codebases-sdlc-worktrees/worktrees.md](../../raw/articles/claude-code/large-codebases-sdlc-worktrees/worktrees.md)  
 
 ---
 
 ## Executive Summary
 
-This official Anthropic guide explains how to use Git worktrees (`--worktree`) in [[Claude Code]] to isolate parallel agent sessions so file modifications never collide across concurrent tasks.
+This official Anthropic guide explains how to use Git worktrees (`--worktree`) in [Claude Code](../entities/Claude%20Code.md) to isolate parallel agent sessions so file modifications never collide across concurrent tasks.
 
 ---
 
@@ -66,5 +66,9 @@ Claude Code enforces strict sandbox boundaries:
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Git Worktree Isolation]], [[Subagent Worktree Isolation]], [[Sparse Worktree Checkouts]], [[Monorepo Context Engineering]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Git Worktree Isolation](../concepts/Git%20Worktree%20Isolation.md)
+  - [Subagent Worktree Isolation](../concepts/Subagent%20Worktree%20Isolation.md)
+  - [Sparse Worktree Checkouts](../concepts/Sparse%20Worktree%20Checkouts.md)
+  - [Monorepo Context Engineering](../concepts/Monorepo%20Context%20Engineering.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

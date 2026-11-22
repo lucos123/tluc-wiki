@@ -10,9 +10,9 @@ source: "raw/articles/kimi/model-capabilities/reasoning-effort.md"
 
 # Kimi Reasoning Effort Guide
 
-**Source File**: [[raw/articles/kimi/model-capabilities/reasoning-effort.md]]
+**Source File**: [raw/articles/kimi/model-capabilities/reasoning-effort.md](../../raw/articles/kimi/model-capabilities/reasoning-effort.md)
 
-Documentation for configuring `[[Reasoning Effort]]` in [[Kimi K3]] models.
+Documentation for configuring [Reasoning Effort](../concepts/Reasoning%20Effort.md) in [Kimi K3](../entities/Kimi%20K3.md) models.
 
 ## Key Concepts
 
@@ -22,4 +22,4 @@ Documentation for configuring `[[Reasoning Effort]]` in [[Kimi K3]] models.
 
 ## Synthesis Notes
 
-`[[Reasoning Effort]]` gives developers programmatic control over inference latency and token spend in reasoning models. It integrates directly with `[[Effort Level and Model Selection]]` principles.
+[Reasoning Effort](../concepts/Reasoning%20Effort.md) gives developers programmatic control over inference latency and token spend in reasoning models. It integrates directly with [Effort Level and Model Selection](../concepts/Effort%20Level%20and%20Model%20Selection.md) principles.

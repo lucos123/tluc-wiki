@@ -5,7 +5,7 @@ tags:
   - entity
   - person
   - agentic-design
-source: "[[5 Best Practices for Building AI Agent Skills]]"
+source: "wiki/sources/5 Best Practices for Building AI Agent Skills.md"
 ---
 
 # Simon Willison
@@ -16,6 +16,6 @@ source: "[[5 Best Practices for Building AI Agent Skills]]"
 
 ## Notable Principles
 
-- **Domain Expertise Axiom**: *"Keep the domain expertise and let the agent do the routine part."* (Highlighted in [[5 Best Practices for Building AI Agent Skills]]).
+- **Domain Expertise Axiom**: *"Keep the domain expertise and let the agent do the routine part."* (Highlighted in [5 Best Practices for Building AI Agent Skills](../sources/5%20Best%20Practices%20for%20Building%20AI%20Agent%20Skills.md)).
 
-See [[5 Best Practices for Building AI Agent Skills]] and [[Agent Skills Best Practices]].
+See [5 Best Practices for Building AI Agent Skills](../sources/5%20Best%20Practices%20for%20Building%20AI%20Agent%20Skills.md) and [Agent Skills Best Practices](../concepts/Agent%20Skills%20Best%20Practices.md).

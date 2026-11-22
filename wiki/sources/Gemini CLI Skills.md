@@ -6,14 +6,14 @@ tags:
   - documentation
   - agentic-design
   - gemini-cli
-source: "[[raw/gemini-overview-skills.md]]"
+source: "raw/articles/geminicli/gemini-overview-skills.md"
 ---
 
 # Gemini CLI Skills
 
-**Source File**: [[raw/gemini-overview-skills.md]]
+**Source File**: [raw/articles/geminicli/gemini-overview-skills.md](../../raw/articles/geminicli/gemini-overview-skills.md)
 
-This document describes how the [[Gemini CLI]] implements Agent Skills, aligning with the open `agentskills.io` standard also used by [[Claude Code]] and [[Codex]].
+This document describes how the [Gemini CLI](../entities/Gemini%20CLI.md) implements Agent Skills, aligning with the open `agentskills.io` standard also used by [Claude Code](../entities/Claude%20Code.md) and [Codex](../entities/Codex.md).
 
 ## Key Concepts
 
@@ -29,4 +29,4 @@ This document describes how the [[Gemini CLI]] implements Agent Skills, aligning
 
 ## Synthesis Notes
 
-The Gemini CLI's approach to Agent Skills reinforces a broader trend in [[Harness Engineering]]: shifting away from monolithic [[Persistent Instruction File|Persistent Instruction Files]] (like `GEMINI.md`) towards on-demand, modular expertise. Its strict reliance on the `activate_skill` tool and user consent provides an interesting security model, ensuring that the LLM cannot arbitrarily access bundled scripts or templates without explicit user authorization.
+The Gemini CLI's approach to Agent Skills reinforces a broader trend in [Harness Engineering](../concepts/Harness%20Engineering.md): shifting away from monolithic [Persistent Instruction Files](../concepts/Persistent%20Instruction%20File.md) (like `GEMINI.md`) towards on-demand, modular expertise. Its strict reliance on the `activate_skill` tool and user consent provides an interesting security model, ensuring that the LLM cannot arbitrarily access bundled scripts or templates without explicit user authorization.

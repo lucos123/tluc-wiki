@@ -29,7 +29,7 @@ Gather context → Take action → Verify results → (loop if results fail)
 ```
 Verification is the third step. Agents already consume deterministic signals from the environment (compiler errors, type failures, lint output). Verification loops extend this to project-specific, workflow-specific, or qualitative checks.
 
-## Gate Strength (from [[Best practices for Claude Code]])
+## Gate Strength (from [Best practices for Claude Code](../sources/Best%20practices%20for%20Claude%20Code.md))
 
 Four levels of verification gate, ordered by strength:
 
@@ -38,8 +38,8 @@ Four levels of verification gate, ordered by strength:
 | 1 | **In-prompt** | Ask Claude to run check and iterate in the same message. |
 | 2 | **`/goal` condition** | Separate evaluator re-checks after every turn until condition holds. |
 | 3 | **Stop hook** | Shell script blocks the turn from ending until check passes (cap: 8 blocks). |
-| 4 | **[[Second Opinion Pattern]]** | Fresh `claude -p` background session with Opus model — no bias from having written the code. |
-| 5 | **[[Orchestrator Skill Pattern]]** | Top-level skill orchestrates parallel specialized subagent review skills (`simplify`, `verify`, `code-review`, `design-review`) and merges findings. |
+| 4 | **[Second Opinion Pattern](Second%20Opinion%20Pattern.md)** | Fresh `claude -p` background session with Opus model — no bias from having written the code. |
+| 5 | **[Orchestrator Skill Pattern](Orchestrator%20Skill%20Pattern.md)** | Top-level skill orchestrates parallel specialized subagent review skills (`simplify`, `verify`, `code-review`, `design-review`) and merges findings. |
 
 ## Built-In Verification Support in Claude Code
 
@@ -52,7 +52,7 @@ Four levels of verification gate, ordered by strength:
 | Spec validation skill | Checks changes against a markdown spec |
 | Rubrics in Claude Managed Agents (beta) | Grader agent evaluates against rubric; failures loop back automatically |
 
-## Four Deployment Modes (from [[Building verification loops in Claude Code with skills]])
+## Four Deployment Modes (from [Building verification loops in Claude Code with skills](../sources/Building%20verification%20loops%20in%20Claude%20Code%20with%20skills.md))
 
 ### Standalone
 Invoked explicitly. Best for cross-cutting checks that don't apply every time (security scans, accessibility audits, license headers). Outgrown when you run it after *every* change — that's the signal to promote it.
@@ -104,13 +104,13 @@ Each step removes a dependency on human memory.
 - **Code quality**: linting, type-checking, style enforcement after edits.
 - **Security**: blocking commits to `.env`, detecting credential leaks.
 - **Specification compliance**: checking changes against a `DESIGN.md` or architecture spec.
-- **Migration parity**: diffing translated code against the original (see [[AI Code Migration]]).
+- **Migration parity**: diffing translated code against the original (see [AI Code Migration](AI%20Code%20Migration.md)).
 - **Behavioral parity**: running 7 real-world scenarios against both original and port.
 - **Autonomous overnight testing**: Claude generates and runs its own test suite iteratively.
 
 ## Relationship to Loop Engineering
 
-[[Loop Engineering]] is the outer structure — which loop type to use (turn-based, goal-based, time-based, proactive), how to trigger it, when to stop it. The Verification Loop is the *inner mechanism* — the check-and-fix cycle that runs within a loop iteration.
+[Loop Engineering](Loop%20Engineering.md) is the outer structure — which loop type to use (turn-based, goal-based, time-based, proactive), how to trigger it, when to stop it. The Verification Loop is the *inner mechanism* — the check-and-fix cycle that runs within a loop iteration.
 
 ```
 Loop Engineering  (which loop type, trigger, stop condition)
@@ -121,11 +121,11 @@ The `/goal` loop type uses an *evaluator model* as its verification mechanism �
 
 ## Related Concepts
 
-- [[Harness Engineering]]: verification loops are a core mechanism of the harness — the "Verify results" step.
-- [[Claude Code Skills]]: primary packaging mechanism for verification loops.
-- [[Claude Code Hooks]]: deterministic complement — hooks fire at lifecycle events regardless of Claude's judgment; verification loops are invoked by or within agent turns.
-- [[AI Code Migration]]: the judge (test suite), build daemon, and six-step loop are all large-scale verification loop applications.
-- [[Best practices for Claude Code]]: defines gate strength levels and the adversarial review pattern.
-- [[Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic]]: [[Lydia Hallie]]'s late-2026 verification cadence (`PostToolUse` lint -> `TaskCompleted` scoped tests -> `Stop` full suite returning **`exit 2`** on failure), CI `auto-fix`, fresh-context PR verification, and risk-tiered `Merge when ready`.
-- [[Cloud Agent Sandbox and Auto Mode]]: containment stack (`autoMode` classifier, pre-classifier `deny` rules, `/sandbox`, isolated Cloud Sessions) ensuring verification runs safely out of the human approval loop.
-- [[Poteto Trust Pyramid]]: [[Lauren Tan]]'s production hierarchy placing deterministic codebase design & AST lint rules (`167` rules) beneath runtime verification (**feature map + custom CLI**) and formal/property testing (`TLA+`, `Lean`, `Bombadil`), allocating ~70% of agent tokens to verification to achieve `11,000 PRs/month` at a `~0.5%` revert rate.
+- [Harness Engineering](Harness%20Engineering.md): verification loops are a core mechanism of the harness — the "Verify results" step.
+- [Claude Code Skills](../sources/Claude%20Code%20Skills.md): primary packaging mechanism for verification loops.
+- [Claude Code Hooks](../sources/Claude%20Code%20Hooks.md): deterministic complement — hooks fire at lifecycle events regardless of Claude's judgment; verification loops are invoked by or within agent turns.
+- [AI Code Migration](AI%20Code%20Migration.md): the judge (test suite), build daemon, and six-step loop are all large-scale verification loop applications.
+- [Best practices for Claude Code](../sources/Best%20practices%20for%20Claude%20Code.md): defines gate strength levels and the adversarial review pattern.
+- [Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic](../sources/Rethinking%20Claude%20Code%20Best%20Practices%20%E2%80%94%20Lydia%20Hallie%2C%20Anthropic.md): [Lydia Hallie](../entities/Lydia%20Hallie.md)'s late-2026 verification cadence (`PostToolUse` lint -> `TaskCompleted` scoped tests -> `Stop` full suite returning **`exit 2`** on failure), CI `auto-fix`, fresh-context PR verification, and risk-tiered `Merge when ready`.
+- [Cloud Agent Sandbox and Auto Mode](Cloud%20Agent%20Sandbox%20and%20Auto%20Mode.md): containment stack (`autoMode` classifier, pre-classifier `deny` rules, `/sandbox`, isolated Cloud Sessions) ensuring verification runs safely out of the human approval loop.
+- [Poteto Trust Pyramid](Poteto%20Trust%20Pyramid.md): [Lauren Tan](../entities/Lauren%20Tan.md)'s production hierarchy placing deterministic codebase design & AST lint rules (`167` rules) beneath runtime verification (**feature map + custom CLI**) and formal/property testing (`TLA+`, `Lean`, `Bombadil`), allocating ~70% of agent tokens to verification to achieve `11,000 PRs/month` at a `~0.5%` revert rate.

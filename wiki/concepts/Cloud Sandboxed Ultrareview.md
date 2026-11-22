@@ -6,12 +6,12 @@ tags:
   - verification
   - agentic-design
   - claude-code
-source: "[[Find bugs with ultrareview]]"
+source: "wiki/sources/Find bugs with ultrareview.md"
 ---
 
 # Cloud Sandboxed Ultrareview
 
-**Cloud Sandboxed Ultrareview** (`/code-review ultra`) is the premium deep-verification mode in [[Claude Code]] that offloads codebase diff review to an off-machine multi-agent fleet running in a cloud sandbox on `claude.ai` infrastructure.
+**Cloud Sandboxed Ultrareview** (`/code-review ultra`) is the premium deep-verification mode in [Claude Code](../entities/Claude%20Code.md) that offloads codebase diff review to an off-machine multi-agent fleet running in a cloud sandbox on `claude.ai` infrastructure.
 
 ---
 
@@ -29,4 +29,4 @@ graph TD
 2. **Zero Local Overhead**: Frees local terminal CPU/memory for active developer work while the 5–10 minute review runs asynchronously.
 3. **Headless CI Automation**: Executable non-interactively in CI/CD pipelines via `claude ultrareview --json`.
 
-See [[Find bugs with ultrareview]], [[Automated Multi-Agent Code Review]], and [[Verification Loop]].
+See [Find bugs with ultrareview](../sources/Find%20bugs%20with%20ultrareview.md), [Automated Multi-Agent Code Review](Automated%20Multi-Agent%20Code%20Review.md), and [Verification Loop](Verification%20Loop.md).

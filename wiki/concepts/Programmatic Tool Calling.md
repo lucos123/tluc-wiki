@@ -9,7 +9,7 @@ tags:
 
 # Programmatic Tool Calling
 
-A capability introduced with [[GPT-5.6]] where the model writes and runs lightweight programs that coordinate tools, process intermediate results, monitor progress, and choose next actions as work unfolds: [[GPT-5.6 Frontier Intelligence|GPT-5.6: Frontier Intelligence That Scales With Your Ambition]].
+A capability introduced with [GPT-5.6](../entities/GPT-5.6.md) where the model writes and runs lightweight programs that coordinate tools, process intermediate results, monitor progress, and choose next actions as work unfolds: [GPT-5.6: Frontier Intelligence That Scales With Your Ambition](../sources/GPT-5.6%20Frontier%20Intelligence.md).
 
 ## Definition
 
@@ -25,9 +25,9 @@ This reduces the number of tokens consumed, the number of model round trips, and
 
 Programmatic Tool Calling sits at the intersection of several existing wiki concepts:
 
-- **[[Conductor vs Orchestrator]]**: This pushes strongly toward the Orchestrator mode — the model scripts its own tool orchestration rather than relying on developer scaffolding.
-- **[[Harness Engineering]]**: Reduces the need for external harness complexity by internalizing tool coordination into the model layer.
-- **[[Context Engineering]]**: By filtering intermediate data and retaining only relevant results, the model effectively manages its own context window.
+- **[Conductor vs Orchestrator](Conductor%20vs%20Orchestrator.md)**: This pushes strongly toward the Orchestrator mode — the model scripts its own tool orchestration rather than relying on developer scaffolding.
+- **[Harness Engineering](Harness%20Engineering.md)**: Reduces the need for external harness complexity by internalizing tool coordination into the model layer.
+- **[Context Engineering](Context%20Engineering.md)**: By filtering intermediate data and retaining only relevant results, the model effectively manages its own context window.
 
 ## Implementation
 

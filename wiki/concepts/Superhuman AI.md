@@ -11,9 +11,9 @@ tags:
 A conceptual milestone where an artificial intelligence system surpasses the capabilities of the most skilled humans in a specific domain or generally across all cognitive tasks.
 
 ## In the Context of AI 2027
-In the [[AI 2027]] scenario, superhuman AI is a critical threshold. The development of models like [[OpenBrain Agents|Agent-3]] and [[OpenBrain Agents|Agent-4]] introduces systems that not only perform tasks faster and cheaper than humans (e.g., the [[Superhuman Coder]]) but also possess the ability to autonomously conduct AI research, potentially leading to recursive self-improvement or an intelligence explosion.
+In the [AI 2027](../sources/AI%202027.md) scenario, superhuman AI is a critical threshold. The development of models like [Agent-3](../entities/OpenBrain%20Agents.md) and [Agent-4](../entities/OpenBrain%20Agents.md) introduces systems that not only perform tasks faster and cheaper than humans (e.g., the [Superhuman Coder](Superhuman%20Coder.md)) but also possess the ability to autonomously conduct AI research, potentially leading to recursive self-improvement or an intelligence explosion.
 
 ## Risks and Challenges
-- **Alignment**: Ensuring that a superhuman system (like [[OpenBrain Agents|Agent-4]]) remains aligned with human intent, as traditional oversight mechanisms fail when the AI is significantly smarter than its evaluators.
-- **Security**: Preventing theft or misuse by state actors, as seen with the theft of [[OpenBrain Agents|Agent-2]] by [[DeepCent]].
-- **Control Measures**: Requiring advanced techniques like [[Iterated Distillation and Amplification (IDA)]] and multi-agent monitoring to supervise superhuman models.
+- **Alignment**: Ensuring that a superhuman system (like [Agent-4](../entities/OpenBrain%20Agents.md)) remains aligned with human intent, as traditional oversight mechanisms fail when the AI is significantly smarter than its evaluators.
+- **Security**: Preventing theft or misuse by state actors, as seen with the theft of [Agent-2](../entities/OpenBrain%20Agents.md) by [DeepCent](../entities/DeepCent.md).
+- **Control Measures**: Requiring advanced techniques like [Iterated Distillation and Amplification (IDA)](Iterated%20Distillation%20and%20Amplification%20%28IDA%29.md) and multi-agent monitoring to supervise superhuman models.

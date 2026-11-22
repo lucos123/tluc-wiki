@@ -11,9 +11,9 @@ source: "raw/articles/kimi/kimi-k2-7-code.md"
 
 # Kimi K2.7 Code Guide
 
-**Source File**: [[raw/articles/kimi/kimi-k2-7-code.md]]
+**Source File**: [raw/articles/kimi/kimi-k2-7-code.md](../../raw/articles/kimi/kimi-k2-7-code.md)
 
-Documentation for `[[Kimi K2.7 Code]]`, [[Moonshot AI]]'s dedicated long-horizon coding and agentic reasoning model.
+Documentation for [Kimi K2.7 Code](../entities/Kimi%20K2.7%20Code.md), [Moonshot AI](../entities/Moonshot%20AI.md)'s dedicated long-horizon coding and agentic reasoning model.
 
 ## Key Concepts
 
@@ -28,4 +28,4 @@ Documentation for `[[Kimi K2.7 Code]]`, [[Moonshot AI]]'s dedicated long-horizon
 
 ## Synthesis Notes
 
-`[[Kimi K2.7 Code]]` provides a targeted alternative to generalist models for agentic software engineering. Its HighSpeed variant (180–260 t/s) directly addresses developer latency bottlenecks in turn-based and goal-based loops (`[[Loop Engineering]]`), while its strict requirement to retain `reasoning_content` reflects Moonshot's approach to state preservation in multi-step tool calling.
+[Kimi K2.7 Code](../entities/Kimi%20K2.7%20Code.md) provides a targeted alternative to generalist models for agentic software engineering. Its HighSpeed variant (180–260 t/s) directly addresses developer latency bottlenecks in turn-based and goal-based loops ([Loop Engineering](../concepts/Loop%20Engineering.md)), while its strict requirement to retain `reasoning_content` reflects Moonshot's approach to state preservation in multi-step tool calling.

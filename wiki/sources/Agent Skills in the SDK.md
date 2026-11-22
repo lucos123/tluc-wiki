@@ -7,14 +7,14 @@ tags:
   - skills
   - harness-engineering
   - claude-code
-source: "[[raw/articles/claude-code/agent-architecture-subagents-workflows/agent-sdk-skills.md]]"
+source: "raw/articles/claude-code/agent-architecture-subagents-workflows/agent-sdk-skills.md"
 url: "https://code.claude.com/docs/en/agent-sdk-skills.md"
 ---
 
 # Agent Skills in the SDK
 
 **URL**: https://code.claude.com/docs/en/agent-sdk-skills.md  
-**Source File**: [[raw/articles/claude-code/agent-architecture-subagents-workflows/agent-sdk-skills.md]]  
+**Source File**: [raw/articles/claude-code/agent-architecture-subagents-workflows/agent-sdk-skills.md](../../raw/articles/claude-code/agent-architecture-subagents-workflows/agent-sdk-skills.md)  
 
 ---
 
@@ -53,5 +53,9 @@ options = ClaudeAgentOptions(
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[SDK Agent Skills]], [[Agent Skills Architecture]], [[Agent SDK Architecture]], [[Progressive Disclosure]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [SDK Agent Skills](../concepts/SDK%20Agent%20Skills.md)
+  - [Agent Skills Architecture](../concepts/Agent%20Skills%20Architecture.md)
+  - [Agent SDK Architecture](../concepts/Agent%20SDK%20Architecture.md)
+  - [Progressive Disclosure](../concepts/Progressive%20Disclosure.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

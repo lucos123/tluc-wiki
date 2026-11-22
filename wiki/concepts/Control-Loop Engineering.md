@@ -9,7 +9,7 @@ tags:
 
 # Control-Loop Engineering
 
-The application of **Classical Control Theory** to agentic software engineering. Introduced by [[Kyle Mistele]] at [[HumanLayer]] in [[Loop Engineering from First Principles]], it frames codebase modification as driving a dynamic system toward a desired state via incremental, measured feedback loops rather than all-at-once code generation.
+The application of **Classical Control Theory** to agentic software engineering. Introduced by [Kyle Mistele](../entities/Kyle%20Mistele.md) at [HumanLayer](../entities/HumanLayer.md) in [Loop Engineering from First Principles](../sources/Loop%20Engineering%20from%20First%20Principles.md), it frames codebase modification as driving a dynamic system toward a desired state via incremental, measured feedback loops rather than all-at-once code generation.
 
 ## Contrast with "Blind Ralph Loops"
 
@@ -43,6 +43,6 @@ Once a loop's reliability is established, scale velocity by:
 - Spawning separate implementation context windows per item.
 - Running parallel workflows assigning PRs across team members.
 
-## Relationship to [[Harness Engineering]] & [[Loop Engineering]]
+## Relationship to [Harness Engineering](Harness%20Engineering.md) & [Loop Engineering](Loop%20Engineering.md)
 
-Control-Loop Engineering serves as an operational framework within [[Loop Engineering]] for team-based production environments. While [[Verification Loop]] provides inner-loop test/linter feedback, Control-Loop Engineering structures the outer control system governing PR generation, team review, and feedback persistence.
+Control-Loop Engineering serves as an operational framework within [Loop Engineering](Loop%20Engineering.md) for team-based production environments. While [Verification Loop](Verification%20Loop.md) provides inner-loop test/linter feedback, Control-Loop Engineering structures the outer control system governing PR generation, team review, and feedback persistence.

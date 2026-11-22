@@ -118,3 +118,4 @@ Append-only record of operations.
 ## [2026-11-22] ingest | 4 Types of AI Agent Loops: From Human-Led to Autonomous
 ## [2026-11-22] ingest | Master AI Agents Roadmap Blueprint
 ## [2026-11-22] ingest | Machine Learning and Deep Learning Cheat Sheets
+## [2026-11-22] maintain | Migrated entire vault (index.md, wiki/, mem/) to Standard Relative Markdown Links, expanded dense Related Pages into nested sub-bullets, and upgraded wiki-lint/wiki-ingest/wiki-query/wiki-write/wiki-manage schemas & scripts

@@ -13,6 +13,6 @@ tags:
 
 ## Key Sources & Ingested Works
 
-- [[Why Your Enterprise Tech Stack Isn't Ready for AI Agents]]: Presentation by Christopher Lovejoy (Forward Deployed Engineer) and Saul Howard (VP of Engineering) detailing production enterprise agent primitives.
+- [Why Your Enterprise Tech Stack Isn't Ready for AI Agents](../sources/Why%20Your%20Enterprise%20Tech%20Stack%20Isn%27t%20Ready%20for%20AI%20Agents.md): Presentation by Christopher Lovejoy (Forward Deployed Engineer) and Saul Howard (VP of Engineering) detailing production enterprise agent primitives.
 
-See also [[Enterprise Agent Stack]] and [[AI Engineer]].
+See also [Enterprise Agent Stack](../concepts/Enterprise%20Agent%20Stack.md) and [AI Engineer](AI%20Engineer.md).

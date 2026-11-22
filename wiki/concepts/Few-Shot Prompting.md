@@ -5,12 +5,12 @@ tags:
   - concept
   - prompt-engineering
   - context-engineering
-source: "[[Prompt Engineering Handbook]]"
+source: "wiki/sources/Prompt Engineering Handbook.md"
 ---
 
 # Few-Shot Prompting
 
-**Few-Shot Prompting** (or in-context example-based prompting) is a technique in [[Prompt Engineering]] where an LLM is supplied with a small number of demonstration input–output pairs inside the prompt so it infers the desired pattern, formatting, and decision boundary before processing a new query.
+**Few-Shot Prompting** (or in-context example-based prompting) is a technique in [Prompt Engineering](Prompt%20Engineering.md) where an LLM is supplied with a small number of demonstration input–output pairs inside the prompt so it infers the desired pattern, formatting, and decision boundary before processing a new query.
 
 ---
 
@@ -31,10 +31,14 @@ source: "[[Prompt Engineering Handbook]]"
 
 - **Quality over quantity:** A few well-chosen, unambiguous demonstrations outperform many noisy examples.
 - **High-quality criteria:** Directly relevant to the target task, covers edge-case variations, pairs concise unambiguous inputs with exact target outputs, and maintains uniform formatting across every demonstration.
-- **Anti-patterns:** Off-topic demonstrations, overly long/bloated examples (increasing token spend and [[Context Rot]]), or inconsistent output schemas across shots.
+- **Anti-patterns:** Off-topic demonstrations, overly long/bloated examples (increasing token spend and [Context Rot](Context%20Rot.md)), or inconsistent output schemas across shots.
 
 ---
 
 ## Related Pages
-- **Sources**: [[Prompt Engineering Handbook]], [[Token and API Price Guide]]
-- **Concepts**: [[Prompt Engineering]], [[Chain-of-Thought Prompting]], [[Context Engineering]], [[Token Economics]]
+- **Sources**: [Prompt Engineering Handbook](../sources/Prompt%20Engineering%20Handbook.md), [Token and API Price Guide](../sources/Token%20and%20API%20Price%20Guide.md)
+- **Concepts**:
+  - [Prompt Engineering](Prompt%20Engineering.md)
+  - [Chain-of-Thought Prompting](Chain-of-Thought%20Prompting.md)
+  - [Context Engineering](Context%20Engineering.md)
+  - [Token Economics](Token%20Economics.md)

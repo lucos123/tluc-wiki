@@ -17,4 +17,4 @@ An AI coding tool and development partner designed to help developers reason thr
 - **Responsible AI**: Supports ethical development practices and transparent decision-making.
 
 ## Mentions
-- [[7 AI Coding Trends to Watch This Year in 2026]]
+- [7 AI Coding Trends to Watch This Year in 2026](../sources/7%20AI%20Coding%20Trends%20to%20Watch%20This%20Year%20in%202026.md)

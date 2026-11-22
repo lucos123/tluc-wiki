@@ -7,21 +7,21 @@ tags:
   - agentic-design
   - ai-sdlc
   - harness-engineering
-source: "raw/articles/claude-code/How Anthropic runs large-scale code migrations with Claude Code.md"
+source: "raw/articles/claude-code/how-anthropic-runs-large-scale-code-migrations-with-claude-code.md"
 ---
 
 # How Anthropic runs large-scale code migrations with Claude Code
 
-**Source File**: `claude-code/How Anthropic runs large-scale code migrations with Claude Code.md`
+**Source File**: [raw/articles/claude-code/how-anthropic-runs-large-scale-code-migrations-with-claude-code.md](../../raw/articles/claude-code/how-anthropic-runs-large-scale-code-migrations-with-claude-code.md)
 **Original URL**: https://claude.com/blog/ai-code-migration
 
-Anthropic's engineering blog post documenting how individual developers ran million-line code migrations using [[Claude Code]], Claude Fable 5, and Claude Opus 4.8. Presents two real case studies and a generalised six-step methodology with open-source starter kit.
+Anthropic's engineering blog post documenting how individual developers ran million-line code migrations using [Claude Code](../entities/Claude%20Code.md), Claude Fable 5, and Claude Opus 4.8. Presents two real case studies and a generalised six-step methodology with open-source starter kit.
 
 ## Core Insight
 
 > **"You don't fix the code. You fix the process (loop) that produced the code."**
 
-Individual failures are the loop's job. Human attention belongs on the patterns. This reframes large migrations from a code-quality problem into a workflow-design problem — a direct application of [[Harness Engineering]].
+Individual failures are the loop's job. Human attention belongs on the patterns. This reframes large migrations from a code-quality problem into a workflow-design problem — a direct application of [Harness Engineering](../concepts/Harness%20Engineering.md).
 
 ## Case Studies
 
@@ -101,15 +101,15 @@ Use multiple model tiers deliberately:
 - **Don't use largest model for everything** — tiered model usage by role.
 
 ## New Entities & Concepts Introduced
-- [[Jarred Sumner]]: Bun co-founder, Anthropic MTS — ran Zig→Rust migration
-- [[Mike Krieger]]: Anthropic Labs co-lead — ran Python→TypeScript migration
-- [[AI Code Migration]]: the six-step methodology itself
+- [Jarred Sumner](../entities/Jarred%20Sumner.md): Bun co-founder, Anthropic MTS — ran Zig→Rust migration
+- [Mike Krieger](../entities/Mike%20Krieger.md): Anthropic Labs co-lead — ran Python→TypeScript migration
+- [AI Code Migration](../concepts/AI%20Code%20Migration.md): the six-step methodology itself
 
 ## Synthesis Notes
 
-This source marks a qualitative shift in what [[Claude Code]] is used for. Previous sources covered coding assistance and agentic workflows within existing codebases. This source shows that entire *language ecosystems* can be ported by a single engineer over days — a formerly multi-year, multi-million-dollar endeavour.
+This source marks a qualitative shift in what [Claude Code](../entities/Claude%20Code.md) is used for. Previous sources covered coding assistance and agentic workflows within existing codebases. This source shows that entire *language ecosystems* can be ported by a single engineer over days — a formerly multi-year, multi-million-dollar endeavour.
 
-The "fix the loop, not the code" insight directly extends [[Harness Engineering]]: the engineer's job shifts from writing or reviewing code to designing and iterating the rules, verification machinery, and agent orchestration that *produces* correct code. The most valuable human hours are now in the prerequisites and Step 2 (shakedown cruise) — everything after is execution.
+The "fix the loop, not the code" insight directly extends [Harness Engineering](../concepts/Harness%20Engineering.md): the engineer's job shifts from writing or reviewing code to designing and iterating the rules, verification machinery, and agent orchestration that *produces* correct code. The most valuable human hours are now in the prerequisites and Step 2 (shakedown cruise) — everything after is execution.
 
 The tiered model usage (Fable for rule-writers/reviewers, Sonnet for implementers) is a cost-optimisation pattern that will likely become standard practice: token spend concentrates in the loops, so loops should use cheaper models, while the "upstream" decisions (rules that every downstream agent follows) warrant the best model.
 
@@ -117,4 +117,4 @@ The "build daemon" in Step 6 is an elegant concurrency solution: multiple fixer 
 
 Mike's approach of running the entire migration 3 times and discarding output until the 3rd run contrasts with Jarred's incremental approach — showing that for redesigns, convergence of the rulebook is more valuable than incremental progress.
 
-Cross-references: [[Harness Engineering]], [[Claude Code]], [[Best practices for Claude Code]] (adversarial review, subagents), [[My LLM coding workflow going into 2026]] (parallel agentic workflows).
+Cross-references: [Harness Engineering](../concepts/Harness%20Engineering.md), [Claude Code](../entities/Claude%20Code.md), [Best practices for Claude Code](Best%20practices%20for%20Claude%20Code.md) (adversarial review, subagents), [My LLM coding workflow going into 2026](My%20LLM%20coding%20workflow%20going%20into%202026.md) (parallel agentic workflows).

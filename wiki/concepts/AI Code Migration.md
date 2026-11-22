@@ -10,7 +10,7 @@ tags:
 
 # AI Code Migration
 
-A methodology for using AI agents to port a production codebase to a new language or framework, compressing what were formerly multi-year, multi-million-dollar projects into days or weeks for a single engineer. First documented at scale by [[How Anthropic runs large-scale code migrations with Claude Code]].
+A methodology for using AI agents to port a production codebase to a new language or framework, compressing what were formerly multi-year, multi-million-dollar projects into days or weeks for a single engineer. First documented at scale by [How Anthropic runs large-scale code migrations with Claude Code](../sources/How%20Anthropic%20runs%20large-scale%20code%20migrations%20with%20Claude%20Code.md).
 
 ## Core Principle
 
@@ -88,11 +88,11 @@ A separate process that is the *only process allowed to rebuild the binary*. Fix
 The rulebook and stress-test (Steps 1–2) require the most human judgment. Everything after Steps 1–2 is queues burning down. Return on invested human time is highest at the front.
 
 ## Related Entities
-- [[Jarred Sumner]]: ran Zig→Rust migration of Bun (~1M lines)
-- [[Mike Krieger]]: ran Python→TypeScript migration (165K lines)
-- [[Claude Code]]: the agent environment used for these migrations
+- [Jarred Sumner](../entities/Jarred%20Sumner.md): ran Zig→Rust migration of Bun (~1M lines)
+- [Mike Krieger](../entities/Mike%20Krieger.md): ran Python→TypeScript migration (165K lines)
+- [Claude Code](../entities/Claude%20Code.md): the agent environment used for these migrations
 
 ## Connections
-- Embodies [[Harness Engineering]]: the engineer designs the rules and loops, not the code.
-- Extends [[Context Engineering]]: the old codebase is the context/spec; the judge is the verification harness.
-- Relates to [[The Factory Model (SDLC)]]: systems that build software, applied to migration.
+- Embodies [Harness Engineering](Harness%20Engineering.md): the engineer designs the rules and loops, not the code.
+- Extends [Context Engineering](Context%20Engineering.md): the old codebase is the context/spec; the judge is the verification harness.
+- Relates to [The Factory Model (SDLC)](The%20Factory%20Model%20%28SDLC%29.md): systems that build software, applied to migration.

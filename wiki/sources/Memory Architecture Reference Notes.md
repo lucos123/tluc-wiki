@@ -10,7 +10,7 @@ source: "raw/assets/2nd-brain.jpg"
 
 # Memory Architecture Reference Notes
 
-**Source File**: [[raw/assets/2nd-brain.jpg]]
+**Source File**: [raw/assets/2nd-brain.jpg](../../raw/assets/2nd-brain.jpg)
 
 Reference architecture diagram (Version 1.0, 2025-05-12) defining persistent context management, a 5-tier directory structure (`raw/`, `wiki/`, `output/`, `ctx/`, `mem/`), and a knowledge compounding feedback loop.
 
@@ -26,4 +26,4 @@ Reference architecture diagram (Version 1.0, 2025-05-12) defining persistent con
 - **Knowledge Compounding Feedback Loop**:
   $$\text{Source} \longrightarrow \text{Knowledge} \longrightarrow \text{Context} \longrightarrow \text{Output} \longrightarrow \text{Memory} \longrightarrow \text{Source/Knowledge}$$
 
-See [[Memory Architecture]], `GEMINI.md`, [[Harness Engineering]], and [[Context Engineering]].
+See [Memory Architecture](../concepts/Memory%20Architecture.md), `GEMINI.md`, [Harness Engineering](../concepts/Harness%20Engineering.md), and [Context Engineering](../concepts/Context%20Engineering.md).

@@ -6,7 +6,7 @@ tags:
   - claude-code
   - model-selection
   - cost-optimization
-source: "[[raw/articles/claude-code/claude-code-effort-level-and-model-selection.md]]"
+source: "raw/articles/claude-code/claude-code-effort-level-and-model-selection.md"
 ---
 
 # Claude Code effort level and model selection
@@ -15,7 +15,7 @@ source: "[[raw/articles/claude-code/claude-code-effort-level-and-model-selection
 **Original URL**: https://claude.com/blog/claude-model-and-effort-level-in-claude-code
 **Author**: Lydia Hallie, Member of Technical Staff, Claude Code team
 
-A technical deep-dive into how [[Claude Code]]'s two primary performance dials — **model selection** and **effort level** — actually work under the hood, and a practical decision framework for when to change each.
+A technical deep-dive into how [Claude Code](../entities/Claude%20Code.md)'s two primary performance dials — **model selection** and **effort level** — actually work under the hood, and a practical decision framework for when to change each.
 
 ## Key Takeaways (verbatim from source)
 
@@ -100,11 +100,11 @@ The critical insight: effort and model are not substitutes on hard tasks. A smal
 
 ## Synthesis Notes
 
-This source fills a critical gap in the wiki's [[Claude Code]] coverage: the mechanics of why model and effort behave as they do (weights are frozen; effort is trained-in behavior; tokens are the universal unit). Understanding this directly informs:
+This source fills a critical gap in the wiki's [Claude Code](../entities/Claude%20Code.md) coverage: the mechanics of why model and effort behave as they do (weights are frozen; effort is trained-in behavior; tokens are the universal unit). Understanding this directly informs:
 
-- **[[AI Code Migration]]**: The tiered model pattern (Fable for rule-writers/reviewers, Sonnet for implementation fan-out) now has a principled basis. Sonnet at high effort covers your specific codebase thoroughly; Fable is saved for the cross-file pattern recognition that determines whether entire batches get regenerated.
-- **[[Verification Loop]]**: Higher effort = more verification steps before reporting done. The Stop hook (one of the 4 gate strengths) interacts with this — Claude at low effort might not self-verify; a Stop hook enforces it regardless.
-- **[[Context Engineering]]**: Context steers predictions but doesn't teach the model. CLAUDE.md and skills don't add to weights — they are steering inputs. This reframes the entire [[Persistent Instruction File]] concept: it's pure steering, not training.
-- **[[Harness Engineering]]**: The effort system shows that "harness" now includes the model itself as a configurable component — not just the scaffolding around it.
+- **[AI Code Migration](../concepts/AI%20Code%20Migration.md)**: The tiered model pattern (Fable for rule-writers/reviewers, Sonnet for implementation fan-out) now has a principled basis. Sonnet at high effort covers your specific codebase thoroughly; Fable is saved for the cross-file pattern recognition that determines whether entire batches get regenerated.
+- **[Verification Loop](../concepts/Verification%20Loop.md)**: Higher effort = more verification steps before reporting done. The Stop hook (one of the 4 gate strengths) interacts with this — Claude at low effort might not self-verify; a Stop hook enforces it regardless.
+- **[Context Engineering](../concepts/Context%20Engineering.md)**: Context steers predictions but doesn't teach the model. CLAUDE.md and skills don't add to weights — they are steering inputs. This reframes the entire [Persistent Instruction File](../concepts/Persistent%20Instruction%20File.md) concept: it's pure steering, not training.
+- **[Harness Engineering](../concepts/Harness%20Engineering.md)**: The effort system shows that "harness" now includes the model itself as a configurable component — not just the scaffolding around it.
 
-Cross-references: [[Effort Level and Model Selection]], [[Claude Code]], [[Context Engineering]], [[AI Code Migration]], [[Verification Loop]], [[Harness Engineering]].
+Cross-references: [Effort Level and Model Selection](../concepts/Effort%20Level%20and%20Model%20Selection.md), [Claude Code](../entities/Claude%20Code.md), [Context Engineering](../concepts/Context%20Engineering.md), [AI Code Migration](../concepts/AI%20Code%20Migration.md), [Verification Loop](../concepts/Verification%20Loop.md), [Harness Engineering](../concepts/Harness%20Engineering.md).

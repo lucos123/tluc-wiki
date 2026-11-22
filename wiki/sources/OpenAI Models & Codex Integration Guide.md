@@ -11,9 +11,9 @@ source: "raw/articles/openai/model/models.md"
 
 # OpenAI Models & Codex Integration Guide
 
-**Source File**: [[raw/articles/openai/model/models.md]]
+**Source File**: [raw/articles/openai/model/models.md](../../raw/articles/openai/model/models.md)
 
-Documentation for selecting and configuring [[OpenAI]] models within [[Codex]] CLI, IDE extensions, and desktop applications.
+Documentation for selecting and configuring [OpenAI](../entities/OpenAI.md) models within [Codex](../entities/Codex.md) CLI, IDE extensions, and desktop applications.
 
 ## Key Concepts
 
@@ -30,8 +30,8 @@ Documentation for selecting and configuring [[OpenAI]] models within [[Codex]] C
   - `gpt-5.3-codex-spark`: Text-only real-time research model (>1,000 t/s) available to Pro subscribers for near-instant coding loops.
 - **Deprecation Schedule**:
   - `gpt-5.4` and `gpt-5.4-mini` retire from Codex ChatGPT sign-in on **August 31, 2026**. (Migrate configs to `gpt-5.6-terra` and `gpt-5.6-luna`).
-  - Chat Completions API support in Codex CLI is deprecated in favor of `[[Responses API]]`.
+  - Chat Completions API support in Codex CLI is deprecated in favor of [Responses API](../concepts/Responses%20API.md).
 
 ## Synthesis Notes
 
-This guide illustrates how `[[Codex]]` harnesses `[[GPT-5.6]]` models. The inclusion of `ultra` mode (spawning parallel subagents) bridges single-agent harness execution with multi-agent `[[Graph Engineering]]`.
+This guide illustrates how [Codex](../entities/Codex.md) harnesses [GPT-5.6](../entities/GPT-5.6.md) models. The inclusion of `ultra` mode (spawning parallel subagents) bridges single-agent harness execution with multi-agent [Graph Engineering](../concepts/Graph%20Engineering.md).

@@ -6,7 +6,7 @@ tags:
   - agent-skills
   - harness-engineering
   - best-practices
-source: "[[5 Best Practices for Building AI Agent Skills]]"
+source: "wiki/sources/5 Best Practices for Building AI Agent Skills.md"
 ---
 
 # Agent Skills Best Practices
@@ -33,4 +33,4 @@ graph TD
 4. **Deterministic Scripting**: Offload fragile or exact steps (math, data transforms) to executable scripts in `scripts/` to eliminate LLM hallucinations and conserve tokens.
 5. **Security Gate**: Audit third-party skills for prompt injection and credential exfiltration prior to mounting.
 
-See [[5 Best Practices for Building AI Agent Skills]], [[Agent Skills Architecture]], [[Progressive Disclosure]], and [[Agent Skills Security Audit]].
+See [5 Best Practices for Building AI Agent Skills](../sources/5%20Best%20Practices%20for%20Building%20AI%20Agent%20Skills.md), [Agent Skills Architecture](Agent%20Skills%20Architecture.md), [Progressive Disclosure](Progressive%20Disclosure.md), and [Agent Skills Security Audit](Agent%20Skills%20Security%20Audit.md).

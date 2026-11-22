@@ -9,7 +9,7 @@ tags:
 
 # Mike Krieger
 
-Co-lead of Anthropic Labs. Known for executing a Python-to-TypeScript migration of 165,000 lines over a single weekend using [[Claude Code]], and for his iterative "discard and re-run" methodology.
+Co-lead of Anthropic Labs. Known for executing a Python-to-TypeScript migration of 165,000 lines over a single weekend using [Claude Code](Claude%20Code.md), and for his iterative "discard and re-run" methodology.
 
 ## Python → TypeScript Migration (2026)
 
@@ -33,6 +33,6 @@ Migrated an internal tool codebase — 165,000 lines of Python — to TypeScript
 The "discard-and-re-run" pattern for redesign migrations is the equivalent of what Jarred Sumner's stress-test (Step 2) does for structure-preserving migrations: it validates and refines the rulebook/design before committing to incremental progress. The difference is scale — Mike discarded full end-to-end runs rather than 3-file samples.
 
 ## See Also
-- [[AI Code Migration]] — generalised methodology
-- [[How Anthropic runs large-scale code migrations with Claude Code]] — primary source
-- [[Jarred Sumner]] — counterpart case study (structure-preserving migration)
+- [AI Code Migration](../concepts/AI%20Code%20Migration.md) — generalised methodology
+- [How Anthropic runs large-scale code migrations with Claude Code](../sources/How%20Anthropic%20runs%20large-scale%20code%20migrations%20with%20Claude%20Code.md) — primary source
+- [Jarred Sumner](Jarred%20Sumner.md) — counterpart case study (structure-preserving migration)

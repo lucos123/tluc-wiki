@@ -9,7 +9,7 @@ tags:
 
 # Kimi K2.7 Code
 
-`kimi-k2.7-code` is a dedicated long-horizon coding and agentic model developed by [[Moonshot AI]].
+`kimi-k2.7-code` is a dedicated long-horizon coding and agentic model developed by [Moonshot AI](Moonshot%20AI.md).
 
 ## Key Features
 
@@ -18,4 +18,4 @@ tags:
 - **Always-on Thinking & Strict Parameters**: Runs with mandatory thinking mode (`thinking: {"type": "enabled"}`). Enforces fixed API parameters (`temperature=1.0`, `top_p=0.95`, `n=1`) and requires `reasoning_content` retention in multi-turn tool calling.
 - **Multimodal Tool Use**: Supports joint vision understanding (text, image, video) and function calling.
 
-See [[Kimi K2.7 Code Guide]].
+See [Kimi K2.7 Code Guide](../sources/Kimi%20K2.7%20Code%20Guide.md).

@@ -10,9 +10,9 @@ source: "raw/articles/kimi/model-capabilities/set-parameters-for-multi-turn-chat
 
 # Kimi Multi-turn Context Management Guide
 
-**Source File**: [[raw/articles/kimi/model-capabilities/set-parameters-for-multi-turn-chat.md]]
+**Source File**: [raw/articles/kimi/model-capabilities/set-parameters-for-multi-turn-chat.md](../../raw/articles/kimi/model-capabilities/set-parameters-for-multi-turn-chat.md)
 
-Best practices for managing stateless conversation history and context windows across [[Moonshot AI]] APIs.
+Best practices for managing stateless conversation history and context windows across [Moonshot AI](../entities/Moonshot%20AI.md) APIs.
 
 ## Key Concepts
 
@@ -26,4 +26,4 @@ Best practices for managing stateless conversation history and context windows a
 
 ## Synthesis Notes
 
-This guide provides concrete patterns for `[[Context Engineering]]`. Preserving system prompts while sliding context windows is critical when building durable agents in `[[Harness Engineering]]`.
+This guide provides concrete patterns for [Context Engineering](../concepts/Context%20Engineering.md). Preserving system prompts while sliding context windows is critical when building durable agents in [Harness Engineering](../concepts/Harness%20Engineering.md).

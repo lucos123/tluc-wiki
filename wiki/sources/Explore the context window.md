@@ -6,20 +6,20 @@ tags:
   - context-engineering
   - cost-optimization
   - claude-code
-source: "[[raw/articles/claude-code/context-memory-rules/context-window.md]]"
+source: "raw/articles/claude-code/context-memory-rules/context-window.md"
 url: "https://code.claude.com/docs/en/context-window.md"
 ---
 
 # Explore the context window
 
 **URL**: https://code.claude.com/docs/en/context-window.md  
-**Source File**: [[raw/articles/claude-code/context-memory-rules/context-window.md]]  
+**Source File**: [raw/articles/claude-code/context-memory-rules/context-window.md](../../raw/articles/claude-code/context-memory-rules/context-window.md)  
 
 ---
 
 ## Executive Summary
 
-This interactive guide from Anthropic details how [[Claude Code]]'s 200,000 token context window fills up during a live session, what loads at startup, how file reads and hooks consume tokens, and how subagents protect main session context.
+This interactive guide from Anthropic details how [Claude Code](../entities/Claude%20Code.md)'s 200,000 token context window fills up during a live session, what loads at startup, how file reads and hooks consume tokens, and how subagents protect main session context.
 
 ---
 
@@ -44,5 +44,10 @@ This interactive guide from Anthropic details how [[Claude Code]]'s 200,000 toke
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Context Window Management]], [[Subagent Context Isolation]], [[Path-Scoped Rules]], [[Progressive Disclosure]], [[Persistent Instruction File]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Context Window Management](../concepts/Context%20Window%20Management.md)
+  - [Subagent Context Isolation](../concepts/Subagent%20Context%20Isolation.md)
+  - [Path-Scoped Rules](../concepts/Path-Scoped%20Rules.md)
+  - [Progressive Disclosure](../concepts/Progressive%20Disclosure.md)
+  - [Persistent Instruction File](../concepts/Persistent%20Instruction%20File.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

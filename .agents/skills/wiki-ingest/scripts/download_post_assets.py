@@ -31,7 +31,7 @@ import time
 import urllib.error
 import urllib.request
 from datetime import date as dt_date
-from urllib.parse import urlparse
+from urllib.parse import quote, urlparse
 
 
 USER_AGENT = (
@@ -240,7 +240,7 @@ def _build_item_result(
         "index": task["index"],
         "filename": filename,
         "rel_path": rel_path,
-        "wiki_link": f"[[{rel_path}]]",
+        "markdown_link": f"[{rel_path}](../../{quote(rel_path, safe='/-._~')})",
         "md_embed": build_md_embed(task["mode"], task["slug"], filename, task["index"]),
         "bytes": byte_count,
         "format": ext,
@@ -638,7 +638,7 @@ def _resolve_slide_note(item, idx, meta_notes):
 
 
 def _normalize_authors(author):
-    """Normalize single/multi-author string or list into deduplicated [[Wiki Link]] entries."""
+    """Normalize single/multi-author string or list into deduplicated plain canonical names."""
     if not author:
         return []
     if isinstance(author, (list, tuple)):
@@ -666,13 +666,14 @@ def _normalize_authors(author):
     out = []
     for part in parts:
         cleaned = part.strip().strip('"').strip("'")
+        if cleaned.startswith("[[") and cleaned.endswith("]]"):
+            cleaned = re.split(r"\\?\|", cleaned[2:-2], maxsplit=1)[0].strip()
         if not cleaned:
             continue
-        val = cleaned if cleaned.startswith("[[") and cleaned.endswith("]]") else f"[[{cleaned}]]"
-        key = val.lower()
+        key = cleaned.lower()
         if key not in seen:
             seen.add(key)
-            out.append(val)
+            out.append(cleaned)
     return out
 
 

@@ -5,12 +5,12 @@ tags:
   - concept
   - machine-learning
   - llm-foundations
-source: "[[Types of Machine Learning Handbook]]"
+source: "wiki/sources/Types of Machine Learning Handbook.md"
 ---
 
 # Unsupervised Learning and Dimensionality Reduction
 
-**Unsupervised Learning** discovers hidden patterns, groupings, and compact structure in unlabeled data without predefined target labels—spanning **Clustering**, **Association Rules**, and **Dimensionality Reduction**. See [[Types of Machine Learning Handbook]].
+**Unsupervised Learning** discovers hidden patterns, groupings, and compact structure in unlabeled data without predefined target labels—spanning **Clustering**, **Association Rules**, and **Dimensionality Reduction**. See [Types of Machine Learning Handbook](../sources/Types%20of%20Machine%20Learning%20Handbook.md).
 
 ---
 
@@ -43,5 +43,8 @@ Dimensionality reduction compresses high-dimensional features into low-dimension
 ---
 
 ## Related Pages
-- **Sources**: [[Types of Machine Learning Handbook]]
-- **Concepts**: [[Machine Learning Paradigms]], [[Supervised Learning Algorithms]], [[Model Evaluation and Validation]]
+- **Sources**: [Types of Machine Learning Handbook](../sources/Types%20of%20Machine%20Learning%20Handbook.md)
+- **Concepts**:
+  - [Machine Learning Paradigms](Machine%20Learning%20Paradigms.md)
+  - [Supervised Learning Algorithms](Supervised%20Learning%20Algorithms.md)
+  - [Model Evaluation and Validation](Model%20Evaluation%20and%20Validation.md)

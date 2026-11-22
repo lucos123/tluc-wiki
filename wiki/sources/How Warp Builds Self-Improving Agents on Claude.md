@@ -15,7 +15,7 @@ source_type: article
 # How Warp Builds Self-Improving Agents on Claude
 
 **Publication**: Anthropic Customer Spotlight / Case Study  
-**Company / Product**: [[Warp]] (AI-powered Terminal & Agentic Development Environment)  
+**Company / Product**: [Warp](../entities/Warp.md) (AI-powered Terminal & Agentic Development Environment)  
 **Founders / Leaders**: Zach Lloyd (CEO & Founder)  
 **Source URL**: [Anthropic Case Study & Webinar](https://www.anthropic.com/webinars/how-warp-builds-self-improving-agents-on-claude)  
 **Demo Repository**: [warpdotdev/warp-agents-demo-github-issue-triage](https://github.com/warpdotdev/warp-agents-demo-github-issue-triage)
@@ -24,9 +24,9 @@ source_type: article
 
 ## Executive Summary
 
-When [[Warp]] deployed internal AI agents for code review and issue triage, they ran into the classic **"noisy experience" problem**: a first-pass prompt that is 80% accurate creates noisy, low-value comments that frustrate developers. Manual prompt rewrites and bloated context files (`AGENTS.md`) failed to scale because agent feedback disappeared as soon as sessions terminated.
+When [Warp](../entities/Warp.md) deployed internal AI agents for code review and issue triage, they ran into the classic **"noisy experience" problem**: a first-pass prompt that is 80% accurate creates noisy, low-value comments that frustrate developers. Manual prompt rewrites and bloated context files (`AGENTS.md`) failed to scale because agent feedback disappeared as soon as sessions terminated.
 
-To solve this, Warp pioneered a **Dual-Skill Self-Improvement Architecture** on the [[Anthropic]] Claude Platform. By structuring agents around two complementary file-based skills—an **Inner Base Skill** executing domain tasks and an **Outer Improver Skill** analyzing human feedback and opening Git pull requests—Warp established an autonomous self-improving loop governed by human code-review gates.
+To solve this, Warp pioneered a **Dual-Skill Self-Improvement Architecture** on the [Anthropic](../entities/Anthropic.md) Claude Platform. By structuring agents around two complementary file-based skills—an **Inner Base Skill** executing domain tasks and an **Outer Improver Skill** analyzing human feedback and opening Git pull requests—Warp established an autonomous self-improving loop governed by human code-review gates.
 
 ```mermaid
 graph LR
@@ -86,6 +86,19 @@ graph LR
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Self-Improving Agents]], [[Loop Engineering]], [[Agent Skills Architecture]], [[Agent Skills Best Practices]], [[Verification Loop]], [[Harness Engineering]], [[Progressive Disclosure]].
-- **Entities**: [[Warp]], [[Anthropic]], [[Claude Code]].
-- **Sources**: [[5 Best Practices for Building AI Agent Skills]], [[The Art of Loop Engineering]], [[12 Agentic Harness Patterns from Claude Code]].
+- **Concepts**:
+  - [Self-Improving Agents](../concepts/Self-Improving%20Agents.md)
+  - [Loop Engineering](../concepts/Loop%20Engineering.md)
+  - [Agent Skills Architecture](../concepts/Agent%20Skills%20Architecture.md)
+  - [Agent Skills Best Practices](../concepts/Agent%20Skills%20Best%20Practices.md)
+  - [Verification Loop](../concepts/Verification%20Loop.md)
+  - [Harness Engineering](../concepts/Harness%20Engineering.md)
+  - [Progressive Disclosure](../concepts/Progressive%20Disclosure.md)
+- **Entities**:
+  - [Warp](../entities/Warp.md)
+  - [Anthropic](../entities/Anthropic.md)
+  - [Claude Code](../entities/Claude%20Code.md)
+- **Sources**:
+  - [5 Best Practices for Building AI Agent Skills](5%20Best%20Practices%20for%20Building%20AI%20Agent%20Skills.md)
+  - [The Art of Loop Engineering](The%20Art%20of%20Loop%20Engineering.md)
+  - [12 Agentic Harness Patterns from Claude Code](12%20Agentic%20Harness%20Patterns%20from%20Claude%20Code.md)

@@ -6,12 +6,12 @@ tags:
   - ai-deployment
   - llmops
   - system-design
-source: "[[AI Deployment Notes]]"
+source: "wiki/sources/AI Deployment Notes.md"
 ---
 
 # AI Deployment Lifecycle and Environments
 
-**AI Deployment Lifecycle and Environments** covers the end-to-end journey of moving an AI/ML model from experimental training into reliable, monitored production systems—alongside environment promotion (`Development → Staging → Production`) and the structural differences between traditional software and probabilistic AI applications. See [[AI Deployment Notes]].
+**AI Deployment Lifecycle and Environments** covers the end-to-end journey of moving an AI/ML model from experimental training into reliable, monitored production systems—alongside environment promotion (`Development → Staging → Production`) and the structural differences between traditional software and probabilistic AI applications. See [AI Deployment Notes](../sources/AI%20Deployment%20Notes.md).
 
 ---
 
@@ -53,7 +53,7 @@ An AI application wraps the inner **Model Lifecycle** (`Data → Train → Evalu
 ## 3. Traditional Software vs. Probabilistic AI Systems
 
 - **Traditional Software:** Code is the primary asset; behavior is largely **deterministic** (`same input → same output`); monitoring tracks uptime, latency, and error rates.
-- **AI Systems:** Core assets span **code + model + data + prompts + retrieval**. Behavior is **probabilistic** and degrades over time via **data drift** and **model drift**, requiring simultaneous tracking of system health and model quality ([[Model Evaluation and Validation]], [[Closed-Loop Evals]]) alongside A/B testing and controlled rollouts.
+- **AI Systems:** Core assets span **code + model + data + prompts + retrieval**. Behavior is **probabilistic** and degrades over time via **data drift** and **model drift**, requiring simultaneous tracking of system health and model quality ([Model Evaluation and Validation](Model%20Evaluation%20and%20Validation.md), [Closed-Loop Evals](Closed-Loop%20Evals.md)) alongside A/B testing and controlled rollouts.
 
 ---
 
@@ -69,5 +69,10 @@ An AI application wraps the inner **Model Lifecycle** (`Data → Train → Evalu
 ---
 
 ## Related Pages
-- **Sources**: [[AI Deployment Notes]]
-- **Concepts**: [[Model Packaging and Versioning]], [[Inference Serving and Deployment Patterns]], [[Model Evaluation and Validation]], [[Closed-Loop Evals]], [[Enterprise Agent Stack]]
+- **Sources**: [AI Deployment Notes](../sources/AI%20Deployment%20Notes.md)
+- **Concepts**:
+  - [Model Packaging and Versioning](Model%20Packaging%20and%20Versioning.md)
+  - [Inference Serving and Deployment Patterns](Inference%20Serving%20and%20Deployment%20Patterns.md)
+  - [Model Evaluation and Validation](Model%20Evaluation%20and%20Validation.md)
+  - [Closed-Loop Evals](Closed-Loop%20Evals.md)
+  - [Enterprise Agent Stack](Enterprise%20Agent%20Stack.md)

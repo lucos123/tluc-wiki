@@ -6,12 +6,12 @@ tags:
   - artificial-intelligence
   - search-algorithms
   - game-playing
-source: "[[AI Complete Handbook]]"
+source: "wiki/sources/AI Complete Handbook.md"
 ---
 
 # Classical AI Agents and State-Space Search
 
-**Classical AI Agents and State-Space Search** establish the rational problem-solving foundations of Artificial Intelligence—modeling intelligent behavior as a **Perceive $\rightarrow$ Reason/Learn $\rightarrow$ Act** feedback loop inside an environment and systematically exploring discrete state spaces to reach optimal goals or outplay adversaries ([[AI Complete Handbook]], Pages `02.jpg`–`06.jpg`).
+**Classical AI Agents and State-Space Search** establish the rational problem-solving foundations of Artificial Intelligence—modeling intelligent behavior as a **Perceive $\rightarrow$ Reason/Learn $\rightarrow$ Act** feedback loop inside an environment and systematically exploring discrete state spaces to reach optimal goals or outplay adversaries ([AI Complete Handbook](../sources/AI%20Complete%20Handbook.md), Pages `02.jpg`–`06.jpg`).
 
 ![BFS DFS UCS Comparison](../../raw/screenshots/ai-complete-handbook/04.jpg)
 
@@ -24,11 +24,11 @@ An **Intelligent Agent** perceives its environment through **Sensors**, maps per
 ### Five Classical Agent Classes
 | Agent Type | Internal Mechanism | Limitation / Strength | Modern GenAI Parallel |
 | :--- | :--- | :--- | :--- |
-| **Simple Reflex Agent** | Condition–action (`if-then`) rules on current percept only | Zero memory; fails in partially observable worlds | [[Deterministic Lifecycle Hooks]] / rule routers |
+| **Simple Reflex Agent** | Condition–action (`if-then`) rules on current percept only | Zero memory; fails in partially observable worlds | [Deterministic Lifecycle Hooks](Deterministic%20Lifecycle%20Hooks.md) / rule routers |
 | **Model-Based Reflex Agent** | Maintains internal world-state model | Tracks unobserved state transitions | Stateful runtime / session memory |
-| **Goal-Based Agent** | Evaluates future actions against explicit target states | Flexible replanning toward goal criteria | [[Goal-Driven Loop]] (`/goal`) |
-| **Utility-Based Agent** | Maximizes continuous utility/trade-off function | Resolves conflicting goals (speed vs. cost/safety) | [[Effort Level and Model Selection]] / Pareto tuning |
-| **Learning Agent** | `Problem Generator` (exploration) + `Learning Element` (feedback) $\rightarrow$ updates `Performance Element` | Self-improves behavior over experience | [[Self-Improving Agents]] & [[Hill-Climbing Loop]] |
+| **Goal-Based Agent** | Evaluates future actions against explicit target states | Flexible replanning toward goal criteria | [Goal-Driven Loop](Goal-Driven%20Loop.md) (`/goal`) |
+| **Utility-Based Agent** | Maximizes continuous utility/trade-off function | Resolves conflicting goals (speed vs. cost/safety) | [Effort Level and Model Selection](Effort%20Level%20and%20Model%20Selection.md) / Pareto tuning |
+| **Learning Agent** | `Problem Generator` (exploration) + `Learning Element` (feedback) $\rightarrow$ updates `Performance Element` | Self-improves behavior over experience | [Self-Improving Agents](Self-Improving%20Agents.md) & [Hill-Climbing Loop](Hill-Climbing%20Loop.md) |
 
 Desirable agent engineering properties include **Autonomy**, **Reactivity**, **Proactiveness**, **Social Ability** (multi-agent interaction), and **Rationality** (maximizing expected performance—not omniscience).
 
@@ -87,6 +87,11 @@ In competitive, two-player, **zero-sum** environments (Chess, Go, Tic-Tac-Toe, c
 ---
 
 ## Related Pages
-- **Sources**: [[AI Complete Handbook]]
-- **Modern Agentic Extensions**: [[Agentic Engineering]], [[Domain-Specific Agents]], [[Loop Engineering]], [[Control-Loop Engineering]], [[Graph Engineering]]
-- **Symbolic Foundations**: [[Knowledge Representation, Logic and Bayesian Inference]]
+- **Sources**: [AI Complete Handbook](../sources/AI%20Complete%20Handbook.md)
+- **Modern Agentic Extensions**:
+  - [Agentic Engineering](../topics/Agentic%20Engineering.md)
+  - [Domain-Specific Agents](Domain-Specific%20Agents.md)
+  - [Loop Engineering](Loop%20Engineering.md)
+  - [Control-Loop Engineering](Control-Loop%20Engineering.md)
+  - [Graph Engineering](Graph%20Engineering.md)
+- **Symbolic Foundations**: [Knowledge Representation, Logic and Bayesian Inference](Knowledge%20Representation%2C%20Logic%20and%20Bayesian%20Inference.md)

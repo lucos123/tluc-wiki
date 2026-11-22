@@ -23,5 +23,5 @@ type: report
 | ...       | ...      | ...      |
 
 ## Architectural Deep Dive
-<Detailed analysis citing [[Concept Name]]>
+<Detailed analysis citing [Concept Name](../../wiki/concepts/Concept%20Name.md)>
 ```

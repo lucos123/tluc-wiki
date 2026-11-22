@@ -4,13 +4,13 @@ date: 2026-06-28
 tags:
   - workflow
   - best-practices
-source: "[[raw/my-llm-coding-workflow-going-into-2026.md]]"
+source: "raw/articles/ai-other/my-llm-coding-workflow-going-into-2026.md"
 ---
 
 # My LLM coding workflow going into 2026
 
 ## Summary
-[[Addy Osmani]] outlines a disciplined "AI-assisted engineering" approach for 2026. He emphasizes that while AI coding assistants are powerful, they require clear direction, context, and oversight. The developer remains the accountable director, avoiding the pitfalls of unstructured prompt-and-pray coding.
+[Addy Osmani](../entities/Addy%20Osmani.md) outlines a disciplined "AI-assisted engineering" approach for 2026. He emphasizes that while AI coding assistants are powerful, they require clear direction, context, and oversight. The developer remains the accountable director, avoiding the pitfalls of unstructured prompt-and-pray coding.
 
 ## Key Workflow Steps
 1. **Plan first (Specs before code)**: Brainstorm a detailed specification (`spec.md`) and project plan with the AI before writing code.
@@ -24,6 +24,6 @@ source: "[[raw/my-llm-coding-workflow-going-into-2026.md]]"
 9. **Embrace automation**: CI/CD, linters, and review bots catch mistakes automatically, allowing the AI to learn and fix them.
 
 ## Associated Entities & Concepts
-- [[Addy Osmani]]
-- [[Vibe Coding vs Agentic Engineering]]: This workflow strongly advocates for structured Agentic Engineering over naive Vibe Coding.
-- [[Conductor vs Orchestrator]]: Mentions orchestration tools like "Conductor" for running multiple agents asynchronously.
+- [Addy Osmani](../entities/Addy%20Osmani.md)
+- [Vibe Coding vs Agentic Engineering](../concepts/Vibe%20Coding%20vs%20Agentic%20Engineering.md): This workflow strongly advocates for structured Agentic Engineering over naive Vibe Coding.
+- [Conductor vs Orchestrator](../concepts/Conductor%20vs%20Orchestrator.md): Mentions orchestration tools like "Conductor" for running multiple agents asynchronously.

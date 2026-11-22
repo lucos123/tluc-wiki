@@ -73,8 +73,8 @@ All markdown pages across `wiki/`, `output/`, and `mem/` must follow these rules
    - `title`: Descriptive title of the page
    - `date`: YYYY-MM-DD
    - `tags`: Relevant tags (e.g. `concept`, `entity`, `source`, `project`, `goal`, `output`)
-   - `source`: Links to raw sources or parent notes if applicable
-2. **Cross-Referencing**: Actively use Obsidian-style wiki links (`[[Page Name]]`) to connect concepts, entities, projects, and sources.
+   - `source`: Clean repo-relative path(s) to raw sources or parent notes if applicable (e.g. `"raw/articles/<topic>/<slug>.md"` or `"wiki/sources/<Title>.md"`)
+2. **Cross-Referencing**: Actively use **Standard Relative Markdown Links** (`[Page Name](../concepts/Page%20Name.md)`, percent-encoded via `quote(rel_path, safe="/-._~")`) to connect concepts, entities, projects, and sources so every link works natively in **IDE Preview, GitHub, and Obsidian**. In `## Related Pages`, format groups with `>= 3` links as nested sub-bullets (`- **Concepts**:\n  - [Page A](...)`) instead of comma-separated blocks.
 3. **Synthesis & Compounding**: Synthesize information over mere duplication. Preserve contradictions, trade-offs, and evolving insights clearly.
 
 ---

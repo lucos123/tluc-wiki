@@ -9,6 +9,6 @@ tags:
 
 # Model Context Protocol
 
-The **Model Context Protocol (MCP)** is an open standard that enables AI models and agent harnesses (e.g. `[[Claude Code]]`, `[[Codex]]`, `[[Gemini CLI]]`) to securely connect to external tools, databases, and enterprise systems via standardized client-server interfaces.
+The **Model Context Protocol (MCP)** is an open standard that enables AI models and agent harnesses (e.g. [Claude Code](../entities/Claude%20Code.md), [Codex](../entities/Codex.md), [Gemini CLI](../entities/Gemini%20CLI.md)) to securely connect to external tools, databases, and enterprise systems via standardized client-server interfaces.
 
-See [[Harness Engineering]] and [[Responses API]].
+See [Harness Engineering](Harness%20Engineering.md) and [Responses API](Responses%20API.md).

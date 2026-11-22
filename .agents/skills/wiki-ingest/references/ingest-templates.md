@@ -28,18 +28,18 @@ tags:
   - source
   - <topic-tag-1>
   - <topic-tag-2>
-source: "[[raw/articles/<category>/<filename>]]"
+source: "raw/articles/<category>/<filename>"
 ---
 
 # <Article Title>
 
-**Source File**: [[raw/articles/<category>/<filename>]]
+**Source File**: [raw/articles/<category>/<filename>](../../raw/articles/<category>/<filename>)
 
 <1-2 sentence overview summarizing what this article covers and why it is significant.>
 
 ## Key Concepts
 
-- **<Concept Name>**: <Concise explanation with [[wiki links]] to related concept/entity pages.>
+- **<Concept Name>**: <Concise explanation with [Markdown links](../concepts/Concept%20Name.md) to related concept/entity pages.>
 - **<Feature/Architecture>**: <Analytical breakdown with key specifications.>
 
 ## Synthesis Notes
@@ -59,12 +59,12 @@ tags:
   - source
   - pdf
   - <topic-tag>
-source: "[[raw/pdfs/<filename>]]"
+source: "raw/pdfs/<filename>"
 ---
 
 # <Book or Paper Title>
 
-**Source File**: [[raw/pdfs/<filename>]]
+**Source File**: [raw/pdfs/<filename>](../../raw/pdfs/<filename>)
 
 <Executive summary of the whitepaper/book, main thesis, and scope.>
 
@@ -89,12 +89,12 @@ tags:
   - source
   - notes
   - <topic-tag>
-source: "[[raw/notes/<category>/<filename>]]"
+source: "raw/notes/<category>/<filename>"
 ---
 
 # <Note Title>
 
-**Source File**: [[raw/notes/<category>/<filename>]]
+**Source File**: [raw/notes/<category>/<filename>](../../raw/notes/<category>/<filename>)
 
 <Context of user notes, meeting takeaways, or training material.>
 
@@ -104,7 +104,7 @@ source: "[[raw/notes/<category>/<filename>]]"
 
 ## Integration with Personal Memory
 
-<Cross-references to [[mem/projects/]] or [[mem/goals/]] if applicable.>
+<Cross-references to [Project Name](../../mem/projects/Project%20Name.md) or [Goal Name](../../mem/goals/Goal%20Name.md) if applicable.>
 ```
 
 ---
@@ -119,7 +119,7 @@ title: "<Post Title>"
 source: "<Post URL>"
 original_source: "<Optional English/upstream source URL if cited>"
 author:
-  - "[[<Author Entity Name>]]"
+  - "<Author Entity Name>"
 published: YYYY-MM-DD
 created: YYYY-MM-DD
 description: "<1-2 sentence summary of the post and attached visual slides>"
@@ -157,30 +157,33 @@ tags:
   - source
   - <topic-tag>
   - visual-guide
-source: "[[raw/articles/<category>/<slug>.md]]"
+source: "raw/articles/<category>/<slug>.md"
 source_type: visual-notes
 ---
 
 # <Source Title>
 
 **Source Files**:
-- [[raw/articles/<category>/<slug>.md]] *(Original post & visual transcriptions)*
-- [[raw/screenshots/<slug>/00.jpg]] *(Page 00 description)*
-- [[raw/screenshots/<slug>/01.jpg]] *(Page 01 description)*
+- [raw/articles/<category>/<slug>.md](../../raw/articles/<category>/<slug>.md) *(Original post & visual transcriptions)*
+- [raw/screenshots/<slug>/00.jpg](../../raw/screenshots/<slug>/00.jpg) *(Page 00 description)*
+- [raw/screenshots/<slug>/01.jpg](../../raw/screenshots/<slug>/01.jpg) *(Page 01 description)*
 
 <1-2 sentence overview summarizing the visual handbook and its significance.>
 
 ## Synthesized Knowledge Blocks
 
-- **<Block / Slide Theme>**: <Analytical synthesis with [[wiki links]] to concepts/entities.>
+- **<Block / Slide Theme>**: <Analytical synthesis with [Markdown links](../concepts/Concept%20Name.md) to concepts/entities.>
 
 ## Synthesis Notes
 
 <Cross-source connections, trade-offs, and updates relative to existing wiki pages.>
 
-## Related Knowledge Nodes
+## Related Pages
 
-- **Entities**: [[<Author Entity>]]
-- **Concepts**: [[<Concept 1>]], [[<Concept 2>]]
-- **Sources**: [[<Related Source>]]
+- **Entities**: [Author Entity](../entities/Author%20Entity.md)
+- **Concepts**:
+  - [Concept 1](../concepts/Concept%201.md)
+  - [Concept 2](../concepts/Concept%202.md)
+  - [Concept 3](../concepts/Concept%203.md)
+- **Sources**: [Related Source](Related%20Source.md)
 ```

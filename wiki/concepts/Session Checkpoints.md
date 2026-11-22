@@ -6,12 +6,12 @@ tags:
   - harness-engineering
   - state-management
   - claude-code
-source: "[[Checkpointing]]"
+source: "wiki/sources/Checkpointing.md"
 ---
 
 # Session Checkpoints
 
-**Session Checkpoints** is an automatic state management mechanism in [[Claude Code]] that captures file snapshots before every user prompt (retaining up to 100 recent checkpoints per session) to enable instant code and conversation rewinding (`/rewind`).
+**Session Checkpoints** is an automatic state management mechanism in [Claude Code](../entities/Claude%20Code.md) that captures file snapshots before every user prompt (retaining up to 100 recent checkpoints per session) to enable instant code and conversation rewinding (`/rewind`).
 
 ---
 
@@ -21,4 +21,4 @@ source: "[[Checkpointing]]"
 2. **Context Summarization**: Compresses transcript history forward or backward from any selected checkpoint to recover context window budget without losing file changes.
 3. **Cache Preservation**: Rewinding to an earlier prompt restores a warm, pre-existing prompt cache prefix.
 
-See [[Checkpointing]], [[Context Window Management]], and [[Harness Engineering]].
+See [Checkpointing](../sources/Checkpointing.md), [Context Window Management](Context%20Window%20Management.md), and [Harness Engineering](Harness%20Engineering.md).

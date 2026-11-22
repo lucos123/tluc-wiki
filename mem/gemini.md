@@ -27,5 +27,5 @@ This file defines user preferences, career focus, interaction style, and active 
 
 ## Active Projects & Goals
 
-- **[[Memory Architecture]]**: Scaling `tluc-wiki` into an evergreen 2nd Brain system.
+- **[Memory Architecture](../wiki/concepts/Memory%20Architecture.md)**: Scaling `tluc-wiki` into an evergreen 2nd Brain system.
 - **AI Agent Engineering Mastery**: Synthesizing frontier patterns from Anthropic, OpenAI, Moonshot AI, Uber, and HumanLayer into actionable skills.

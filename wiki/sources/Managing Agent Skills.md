@@ -5,14 +5,14 @@ tags:
   - source
   - documentation
   - gemini-cli
-source: "[[raw/managing-agent-skills.md]]"
+source: "raw/articles/geminicli/managing-agent-skills.md"
 ---
 
 # Managing Agent Skills
 
-**Source File**: [[raw/managing-agent-skills.md]]
+**Source File**: [raw/articles/geminicli/managing-agent-skills.md](../../raw/articles/geminicli/managing-agent-skills.md)
 
-This document provides a guide on managing Agent Skills within the [[Gemini CLI]]. It expands upon the concepts introduced in [[Gemini CLI Skills]].
+This document provides a guide on managing Agent Skills within the [Gemini CLI](../entities/Gemini%20CLI.md). It expands upon the concepts introduced in [Gemini CLI Skills](Gemini%20CLI%20Skills.md).
 
 ## Key Concepts
 

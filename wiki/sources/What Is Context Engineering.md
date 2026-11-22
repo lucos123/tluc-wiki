@@ -7,22 +7,22 @@ tags:
   - harness-engineering
   - ibm
   - article
-source: "[[raw/articles/ai-other/what-is-context-engineering.md]]"
+source: "raw/articles/ai-other/what-is-context-engineering.md"
 url: "https://www.ibm.com/think/topics/context-engineering"
-author: "[[Joshua Noble]]"
+author: "Joshua Noble"
 ---
 
 # What Is Context Engineering?
 
 **URL**: https://www.ibm.com/think/topics/context-engineering  
-**Author**: [[Joshua Noble]] (IBM Think)  
-**Source File**: [[raw/articles/ai-other/what-is-context-engineering.md]]  
+**Author**: [Joshua Noble](../entities/Joshua%20Noble.md) (IBM Think)  
+**Source File**: [raw/articles/ai-other/what-is-context-engineering.md](../../raw/articles/ai-other/what-is-context-engineering.md)  
 
 ---
 
 ## Executive Summary
 
-This foundational IBM article by [[Joshua Noble]] defines **Context Engineering** as the holistic discipline of designing, structuring, and optimizing everything an LLM or AI agent sees at inference time.
+This foundational IBM article by [Joshua Noble](../entities/Joshua%20Noble.md) defines **Context Engineering** as the holistic discipline of designing, structuring, and optimizing everything an LLM or AI agent sees at inference time.
 
 Context Engineering unifies **Prompt Engineering** (instruction phrasing) and **Retrieval-Augmented Generation (RAG)** (document retrieval) into an interdependent 6-step lifecycle (Selection $\rightarrow$ Structuring $\rightarrow$ Prompt Design $\rightarrow$ Compression $\rightarrow$ Sequencing $\rightarrow$ Tool/Memory Integration) to eliminate context rot, prevent hallucinations, and maximize multi-step agent reasoning reliability.
 
@@ -65,5 +65,14 @@ graph TD
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Context Engineering]], [[Context Selection and Sequencing]], [[Context Engineering Pipeline]], [[Context Processing and Management]], [[Context Rot]], [[Harness Engineering]].
-- **Entities**: [[Joshua Noble]], [[IBM]], [[IBM Technology]].
+- **Concepts**:
+  - [Context Engineering](../concepts/Context%20Engineering.md)
+  - [Context Selection and Sequencing](../concepts/Context%20Selection%20and%20Sequencing.md)
+  - [Context Engineering Pipeline](../concepts/Context%20Engineering%20Pipeline.md)
+  - [Context Processing and Management](../concepts/Context%20Processing%20and%20Management.md)
+  - [Context Rot](../concepts/Context%20Rot.md)
+  - [Harness Engineering](../concepts/Harness%20Engineering.md)
+- **Entities**:
+  - [Joshua Noble](../entities/Joshua%20Noble.md)
+  - [IBM](../entities/IBM.md)
+  - [IBM Technology](../entities/IBM%20Technology.md)

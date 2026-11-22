@@ -12,7 +12,7 @@ tags:
 LangChain Engine (often just "Engine") is a background agent running within the LangSmith platform designed for "agent engineering". It acts as an agent *for* agents.
 
 ## Role in Loop Engineering
-In LangChain's 4-level taxonomy of [[Loop Engineering]], Engine is the driving force behind the Level 4 **Hill-Climbing Loop** (Self-Improvement Loop).
+In LangChain's 4-level taxonomy of [Loop Engineering](../concepts/Loop%20Engineering.md), Engine is the driving force behind the Level 4 **Hill-Climbing Loop** (Self-Improvement Loop).
 
 When a primary agent (like a coding agent or an email assistant) runs and completes its task, Engine runs asynchronously over the **traces** of that execution. Its job is to:
 1. **Analyze**: Detect failure modes (e.g., missed tool calls, ignored user preferences, inefficient trajectories).

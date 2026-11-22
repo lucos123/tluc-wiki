@@ -5,14 +5,14 @@ tags:
   - concept
   - memory
   - context-engineering
-source: "[[Emerging Markdown Formats That Shape Coding Agent Behavior]]"
+source: "wiki/sources/Emerging Markdown Formats That Shape Coding Agent Behavior.md"
 ---
 
 # Memory Promotion Path
 
 The **Memory Promotion Path** is the 3-step lifecycle process for transitioning machine-local, agent-written memory (`MEMORY.md`, `debugging.md`) into shared, durable project rules (`AGENTS.md`, `SKILL.md`, `ARCHITECTURE.md`).
 
-Detailed by [[Bilgin Ibryam]] in [[Emerging Markdown Formats That Shape Coding Agent Behavior]].
+Detailed by [Bilgin Ibryam](../entities/Bilgin%20Ibryam.md) in [Emerging Markdown Formats That Shape Coding Agent Behavior](../sources/Emerging%20Markdown%20Formats%20That%20Shape%20Coding%20Agent%20Behavior.md).
 
 ---
 
@@ -32,6 +32,6 @@ graph TD
 
 ## Related Concepts
 
-- **[[Metacode]]**: The overarching layer of Markdown formats.
-- **[[Memory Architecture]]**: The 5-tier Second Brain memory model.
-- **[[Agent Onboarding Files]]**: The shared repository rules target.
+- **[Metacode](Metacode.md)**: The overarching layer of Markdown formats.
+- **[Memory Architecture](Memory%20Architecture.md)**: The 5-tier Second Brain memory model.
+- **[Agent Onboarding Files](Agent%20Onboarding%20Files.md)**: The shared repository rules target.

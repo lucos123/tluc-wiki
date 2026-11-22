@@ -11,11 +11,11 @@ tags:
 
 # <Concept Name>
 
-<1-2 sentence definition citing introducing source: [[Source Title]].>
+<1-2 sentence definition citing introducing source: [Source Title](../sources/Source%20Title.md).>
 
 ## Definition & Mechanics
 <Expanded explanation.>
 
 ## Key Trade-offs & Implementation
-<Implementation details citing [[Entity Name]].>
+<Implementation details citing [Entity Name](../entities/Entity%20Name.md).>
 ```

@@ -8,12 +8,12 @@ tags:
   - parallelism
   - inference
   - system-design
-source: "[[All GPU Related Concepts Simply Explained]]"
+source: "wiki/sources/All GPU Related Concepts Simply Explained.md"
 ---
 
 # GPU Architecture and Distributed Scaling
 
-**GPU Architecture and Distributed Scaling** spans the hardware-to-cluster stack governing modern AI training and inference performance: from **SM / CUDA Core / Tensor Core execution** and the **Registers $\rightarrow$ L1 $\rightarrow$ L2 $\rightarrow$ HBM memory hierarchy**, through **numerical precision formats (`TF32`, `BF16`, `FP8`, `FP4`, `INT4`)** and **NVIDIA generations (`V100` $\rightarrow$ `B200`)**, up to **3D parallelism (`DP`, `TP`, `PP`)**, **interconnects (`PCIe`, `NVLink`, `NVSwitch`, `NCCL`, `AllReduce`)**, and **multi-GPU scaling efficiency** ([[All GPU Related Concepts Simply Explained]]).
+**GPU Architecture and Distributed Scaling** spans the hardware-to-cluster stack governing modern AI training and inference performance: from **SM / CUDA Core / Tensor Core execution** and the **Registers $\rightarrow$ L1 $\rightarrow$ L2 $\rightarrow$ HBM memory hierarchy**, through **numerical precision formats (`TF32`, `BF16`, `FP8`, `FP4`, `INT4`)** and **NVIDIA generations (`V100` $\rightarrow$ `B200`)**, up to **3D parallelism (`DP`, `TP`, `PP`)**, **interconnects (`PCIe`, `NVLink`, `NVSwitch`, `NCCL`, `AllReduce`)**, and **multi-GPU scaling efficiency** ([All GPU Related Concepts Simply Explained](../sources/All%20GPU%20Related%20Concepts%20Simply%20Explained.md)).
 
 > *"A better GPU does not fix every problem. GPU performance depends on how well compute, memory, precision, parallelism, and communication work together."*
 
@@ -47,7 +47,7 @@ source: "[[All GPU Related Concepts Simply Explained]]"
 - **Three Drivers of GPU Memory Consumption**:
   - **Model Weights**: Parameters consumed statically (`7B × 2 bytes/param ≈ 14 GB` in `FP16`).
   - **Activations**: Intermediate forward-pass values retained during training for backward-pass gradient computation (plus **gradients + optimizer states**, making full training far heavier than weight size alone).
-  - **KV Cache (Inference)**: Stores reusable attention `Key` / `Value` tensors from prior tokens to avoid recomputing context on every generated token (`The cat sat -> [KV Cache] + New token -> Attention`). Grows rapidly with **context length × batch size × concurrent users**, causing servers to OOM even when static weights fit comfortably (*"Model size determines part of your memory requirement; your workload determines the rest"*). See also [[LLM Inference Optimization and Security]].
+  - **KV Cache (Inference)**: Stores reusable attention `Key` / `Value` tensors from prior tokens to avoid recomputing context on every generated token (`The cat sat -> [KV Cache] + New token -> Attention`). Grows rapidly with **context length × batch size × concurrent users**, causing servers to OOM even when static weights fit comfortably (*"Model size determines part of your memory requirement; your workload determines the rest"*). See also [LLM Inference Optimization and Security](LLM%20Inference%20Optimization%20and%20Security.md).
 
 ![KV Cache During Token Generation](../../raw/screenshots/all-gpu-related-concepts-simply-explained/03.webp)
 
@@ -65,7 +65,7 @@ Fewer bits reduce VRAM footprint per value and unlock higher Tensor Core through
 | **`FP8`** | `8` | Native Transformer Engine format on Hopper+; boosts both VRAM efficiency & throughput | `~4×` smaller (`1 byte`) |
 | **`INT8` / `INT4` / `FP4`** | `8` / `4` | Aggressive inference compression via **quantization** (`FP16 -> INT8/INT4`); fits multi-GPU models onto fewer GPUs at accuracy risk | `4×–8×` vs `FP32` |
 
-- **Mixed Precision**: Keeps compute-heavy matmuls in **`BF16`** while retaining **`FP32`** only for numerically sensitive operations and accumulation ([[LLM Pretraining, Optimization and Decoding]]).
+- **Mixed Precision**: Keeps compute-heavy matmuls in **`BF16`** while retaining **`FP32`** only for numerically sensitive operations and accumulation ([LLM Pretraining, Optimization and Decoding](LLM%20Pretraining%2C%20Optimization%20and%20Decoding.md)).
 - **FLOPS Caveat**: Theoretical **FLOPS** never predicts end-to-end LLM latency alone—real speed depends equally on **memory bandwidth**, **inter-GPU communication**, **model architecture**, **batch size**, and **kernel/software efficiency**.
 
 ![Mixed Precision Execution](../../raw/screenshots/all-gpu-related-concepts-simply-explained/04.webp)
@@ -126,6 +126,15 @@ Every additional GPU improves aggregate capacity/compute while adding communicat
 ---
 
 ## Related Pages
-- **Primary Source & Author**: [[All GPU Related Concepts Simply Explained]], [[Jam With AI]]
-- **LLMOps, Training & Inference**: [[LLMOps & Inference]], [[LLM Inference Optimization and Security]], [[LLM Pretraining, Optimization and Decoding]], [[Inference Serving and Deployment Patterns]], [[Inference Speed vs Intelligence Trade-off]]
-- **AI Production & System Design**: [[AI System Design and Production Architecture]], [[Production AI Resilience and Scaling Patterns]], [[AI Deployment Lifecycle and Environments]], [[System Prompt Caching Optimization]]
+- **Primary Source & Author**: [All GPU Related Concepts Simply Explained](../sources/All%20GPU%20Related%20Concepts%20Simply%20Explained.md), [Jam With AI](../entities/Jam%20With%20AI.md)
+- **LLMOps, Training & Inference**:
+  - [LLMOps & Inference](../topics/LLMOps%20%26%20Inference.md)
+  - [LLM Inference Optimization and Security](LLM%20Inference%20Optimization%20and%20Security.md)
+  - [LLM Pretraining, Optimization and Decoding](LLM%20Pretraining%2C%20Optimization%20and%20Decoding.md)
+  - [Inference Serving and Deployment Patterns](Inference%20Serving%20and%20Deployment%20Patterns.md)
+  - [Inference Speed vs Intelligence Trade-off](Inference%20Speed%20vs%20Intelligence%20Trade-off.md)
+- **AI Production & System Design**:
+  - [AI System Design and Production Architecture](AI%20System%20Design%20and%20Production%20Architecture.md)
+  - [Production AI Resilience and Scaling Patterns](Production%20AI%20Resilience%20and%20Scaling%20Patterns.md)
+  - [AI Deployment Lifecycle and Environments](AI%20Deployment%20Lifecycle%20and%20Environments.md)
+  - [System Prompt Caching Optimization](System%20Prompt%20Caching%20Optimization.md)

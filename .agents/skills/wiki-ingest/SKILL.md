@@ -72,11 +72,11 @@ Follow templates in `references/ingest-templates.md` or `references/video-ingest
 ### Step 4 — Update / Create Entity & Concept Pages (Strict Lint Compliance)
 - Create new page in `wiki/entities/` or `wiki/concepts/` if a topic is covered substantively.
 - Update existing pages if new information or trade-offs are introduced.
-- Note evolving claims explicitly (`⚠️ Evolving claim: [[Source A]] states X, while [[Source B]] states Y.`).
+- Note evolving claims explicitly (`⚠️ Evolving claim: [Source A](Source%20A.md) states X, while [Source B](Source%20B.md) states Y.`).
 - **Mandatory `lint_wiki.py` Rules**:
   1. Always format `tags:` as a **multiline YAML list** (`tags:\n  - concept\n  - ...`), NEVER inline `tags: [a, b]`.
-  2. Include required frontmatter fields (`title`, `date` in `YYYY-MM-DD`, `tags`, plus `source` on all `wiki/sources/` files).
-  3. Every `[[Wiki Link]]` inside `wiki/` (unless prefixed with `raw/`) MUST match the exact filename (without `.md`) of an existing page in `wiki/`, `mem/`, or `output/`. Both standard `[[Page|Alias]]` and Markdown-table-escaped `[[Page\|Alias]]` aliases are supported cleanly by `lint_wiki.py`.
+  2. Include required frontmatter fields (`title`, `date` in `YYYY-MM-DD`, `tags`, plus `source` on all `wiki/sources/` files formatted as plain repo-relative paths like `"raw/articles/<topic>/<slug>.md"`).
+  3. Every cross-reference inside `wiki/` MUST use **Standard Relative Markdown Links** (`[Display Name](../concepts/Page%20Name.md)`, RFC 3986 percent-encoded via `quote(rel_path, safe="/-._~")`) pointing to an actual existing `.md` page or `raw/` asset — **NEVER** `[[Wiki Links]]`. Format `## Related Pages` groups with `>= 3` links as nested sub-bullets (`- **Concepts**:\n  - [Page A](...)`) instead of single comma-separated lines.
 
 ### Step 5 — Atomic Index, Log & Verification Gate (1-Command Finish)
 Instead of editing `index.md` and `wiki/log.md` manually across multiple calls, run `register_ingest.py` to atomically insert/sort all new `index.md` entries, append `wiki/log.md`, and execute `lint_wiki.py` in **1 single command** *(uses `--date`, `--log-type`, `--source-title`, and repeatable `--entry "Section|Page|Summary"` — no `--summary` flag)*:

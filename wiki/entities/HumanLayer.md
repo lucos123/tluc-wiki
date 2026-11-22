@@ -13,6 +13,6 @@ HumanLayer is a company and tooling platform focused on human-in-the-loop agenti
 
 ## Overview
 
-Founded by engineers including [[Kyle Mistele]], HumanLayer develops tools and patterns for running AI coding loops safely in production, complex, multi-developer codebases with strict SLAs and code review requirements.
+Founded by engineers including [Kyle Mistele](Kyle%20Mistele.md), HumanLayer develops tools and patterns for running AI coding loops safely in production, complex, multi-developer codebases with strict SLAs and code review requirements.
 
-See [[Loop Engineering from First Principles]] and [[Control-Loop Engineering]].
+See [Loop Engineering from First Principles](../sources/Loop%20Engineering%20from%20First%20Principles.md) and [Control-Loop Engineering](../concepts/Control-Loop%20Engineering.md).

@@ -7,7 +7,7 @@ tags:
   - production-ai
   - agentic-engineering
   - architecture
-source: "[[raw/video-transcripts/how-a-production-ai-agent-system-actually-works.md]]"
+source: "raw/video-transcripts/how-a-production-ai-agent-system-actually-works.md"
 source_type: video
 url: "https://www.youtube.com/watch?v=sKzL0wSN9vQ"
 channel: "Jam With AI | Shirin Khosravi Jam"
@@ -17,14 +17,14 @@ duration: "11m 41s"
 
 # How a Production AI Agent System Actually Works
 
-**Channel**: [[Jam With AI]] (`Jam With AI | Shirin Khosravi Jam`)
+**Channel**: [Jam With AI](../entities/Jam%20With%20AI.md) (`Jam With AI | Shirin Khosravi Jam`)
 **Speaker**: Shirin Khosravi Jam
 **URL**: https://www.youtube.com/watch?v=sKzL0wSN9vQ *(Published 2026-08-21)*
 **Duration**: 11m 41s
-**Transcript**: [[raw/video-transcripts/how-a-production-ai-agent-system-actually-works.md]]
-**Curated Keyframes**: [[raw/screenshots/how-a-production-ai-agent-system-actually-works/01.jpg]], [[raw/screenshots/how-a-production-ai-agent-system-actually-works/02.jpg]], [[raw/screenshots/how-a-production-ai-agent-system-actually-works/03.jpg]], [[raw/screenshots/how-a-production-ai-agent-system-actually-works/04.jpg]], [[raw/screenshots/how-a-production-ai-agent-system-actually-works/05.jpg]], [[raw/screenshots/how-a-production-ai-agent-system-actually-works/06.jpg]], [[raw/screenshots/how-a-production-ai-agent-system-actually-works/07.jpg]]
+**Transcript**: [raw/video-transcripts/how-a-production-ai-agent-system-actually-works.md](../../raw/video-transcripts/how-a-production-ai-agent-system-actually-works.md)
+**Curated Keyframes**: [raw/screenshots/how-a-production-ai-agent-system-actually-works/01.jpg](../../raw/screenshots/how-a-production-ai-agent-system-actually-works/01.jpg), [raw/screenshots/how-a-production-ai-agent-system-actually-works/02.jpg](../../raw/screenshots/how-a-production-ai-agent-system-actually-works/02.jpg), [raw/screenshots/how-a-production-ai-agent-system-actually-works/03.jpg](../../raw/screenshots/how-a-production-ai-agent-system-actually-works/03.jpg), [raw/screenshots/how-a-production-ai-agent-system-actually-works/04.jpg](../../raw/screenshots/how-a-production-ai-agent-system-actually-works/04.jpg), [raw/screenshots/how-a-production-ai-agent-system-actually-works/05.jpg](../../raw/screenshots/how-a-production-ai-agent-system-actually-works/05.jpg), [raw/screenshots/how-a-production-ai-agent-system-actually-works/06.jpg](../../raw/screenshots/how-a-production-ai-agent-system-actually-works/06.jpg), [raw/screenshots/how-a-production-ai-agent-system-actually-works/07.jpg](../../raw/screenshots/how-a-production-ai-agent-system-actually-works/07.jpg)
 
-A step-by-step architectural teardown taking a local Python/notebook LLM script into a reliable, observable, and maintainable production AI agent service—showing why the **LLM itself is only one small component**, why individual tools are replaceable once their responsibilities are understood, and how the inner application stack separates cleanly from outer infrastructure concerns (Video 1 prequel to [[AI System Design 7 Patterns Explained in 17 Minutes]]).
+A step-by-step architectural teardown taking a local Python/notebook LLM script into a reliable, observable, and maintainable production AI agent service—showing why the **LLM itself is only one small component**, why individual tools are replaceable once their responsibilities are understood, and how the inner application stack separates cleanly from outer infrastructure concerns (Video 1 prequel to [AI System Design 7 Patterns Explained in 17 Minutes](AI%20System%20Design%207%20Patterns%20Explained%20in%2017%20Minutes.md)).
 
 ![Complete Core Production AI Agent Stack](../../raw/screenshots/how-a-production-ai-agent-system-actually-works/07.jpg)
 
@@ -32,7 +32,7 @@ A step-by-step architectural teardown taking a local Python/notebook LLM script 
 
 ## 1. Core Thesis & Architectural Scope (`00:00 - 01:19`)
 - **Replaceable Tools, Enduring Responsibilities**: Companies rarely share an identical toolset, and nearly every logo can be swapped out. What endures across real production systems is the **responsibility each layer owns**: *"Don't memorize the logos, understand why every box exists."*
-- **Inner Core Stack vs. Outer Deployment Infrastructure (`01.jpg`)**: This walkthrough deliberately isolates the **core Python application service** (`Service Edge -> Contracts -> Agent Core -> Data -> State -> Model Access -> Observability -> Quality/CI`), leaving deployment orchestration, load balancing, and autoscaling (`Kubernetes`, gateways, queues) as a distinct surrounding infrastructure layer covered in Video 2 ([[AI System Design 7 Patterns Explained in 17 Minutes]]).
+- **Inner Core Stack vs. Outer Deployment Infrastructure (`01.jpg`)**: This walkthrough deliberately isolates the **core Python application service** (`Service Edge -> Contracts -> Agent Core -> Data -> State -> Model Access -> Observability -> Quality/CI`), leaving deployment orchestration, load balancing, and autoscaling (`Kubernetes`, gateways, queues) as a distinct surrounding infrastructure layer covered in Video 2 ([AI System Design 7 Patterns Explained in 17 Minutes](AI%20System%20Design%207%20Patterns%20Explained%20in%2017%20Minutes.md)).
 
 ![Scope Boundary Infrastructure vs Core Stack](../../raw/screenshots/how-a-production-ai-agent-system-actually-works/01.jpg)
 
@@ -65,10 +65,18 @@ A step-by-step architectural teardown taking a local Python/notebook LLM script 
 ---
 
 ## Synthesis Notes
-- **Video 1 + Video 2 Two-Layer Architecture**: Forms the direct prequel to [[AI System Design 7 Patterns Explained in 17 Minutes]] and [[System Design for AI Engineers 7 Patterns]]. Here, Shirin defines the **internal 9-layer Core AI Service** (synthesized in [[Production AI Agent Service Stack]]); in Video 2, that complete service zooms down into a single *"Core AI Service"* box wrapped by **seven outer traffic & scaling patterns** ([[Production AI Resilience and Scaling Patterns]]).
-- **Strong Alignment Across Knowledge Graph**: Validates the three-tier evaluation separation (*Code unit tests `Pytest` $\neq$ Traces `Langfuse/Opik` $\neq$ Behavioral AI Evals*) taught in [[Product Evals and Error Analysis]], reinforces pragmatic unified storage (`Postgres + pgvector` first, dedicated vector DB only when scale demands it) alongside [[Retrieval-Augmented Generation and Vector DBs]], and echoes stateful checkpointing principles in [[Agent Graph]] and [[Loop Engineering]].
+- **Video 1 + Video 2 Two-Layer Architecture**: Forms the direct prequel to [AI System Design 7 Patterns Explained in 17 Minutes](AI%20System%20Design%207%20Patterns%20Explained%20in%2017%20Minutes.md) and [System Design for AI Engineers 7 Patterns](System%20Design%20for%20AI%20Engineers%207%20Patterns.md). Here, Shirin defines the **internal 9-layer Core AI Service** (synthesized in [Production AI Agent Service Stack](../concepts/Production%20AI%20Agent%20Service%20Stack.md)); in Video 2, that complete service zooms down into a single *"Core AI Service"* box wrapped by **seven outer traffic & scaling patterns** ([Production AI Resilience and Scaling Patterns](../concepts/Production%20AI%20Resilience%20and%20Scaling%20Patterns.md)).
+- **Strong Alignment Across Knowledge Graph**: Validates the three-tier evaluation separation (*Code unit tests `Pytest` $\neq$ Traces `Langfuse/Opik` $\neq$ Behavioral AI Evals*) taught in [Product Evals and Error Analysis](../concepts/Product%20Evals%20and%20Error%20Analysis.md), reinforces pragmatic unified storage (`Postgres + pgvector` first, dedicated vector DB only when scale demands it) alongside [Retrieval-Augmented Generation and Vector DBs](../concepts/Retrieval-Augmented%20Generation%20and%20Vector%20DBs.md), and echoes stateful checkpointing principles in [Agent Graph](../concepts/Agent%20Graph.md) and [Loop Engineering](../concepts/Loop%20Engineering.md).
 
 ## Related Pages
-- **Entities**: [[Jam With AI]]
-- **Concepts**: [[Production AI Agent Service Stack]], [[Production AI Resilience and Scaling Patterns]], [[AI System Design and Production Architecture]], [[Agent Graph]], [[Loop Engineering]], [[Retrieval-Augmented Generation and Vector DBs]], [[Product Evals and Error Analysis]], [[Closed-Loop Evals]]
-- **Sources**: [[AI System Design 7 Patterns Explained in 17 Minutes]], [[System Design for AI Engineers 7 Patterns]]
+- **Entities**: [Jam With AI](../entities/Jam%20With%20AI.md)
+- **Concepts**:
+  - [Production AI Agent Service Stack](../concepts/Production%20AI%20Agent%20Service%20Stack.md)
+  - [Production AI Resilience and Scaling Patterns](../concepts/Production%20AI%20Resilience%20and%20Scaling%20Patterns.md)
+  - [AI System Design and Production Architecture](../concepts/AI%20System%20Design%20and%20Production%20Architecture.md)
+  - [Agent Graph](../concepts/Agent%20Graph.md)
+  - [Loop Engineering](../concepts/Loop%20Engineering.md)
+  - [Retrieval-Augmented Generation and Vector DBs](../concepts/Retrieval-Augmented%20Generation%20and%20Vector%20DBs.md)
+  - [Product Evals and Error Analysis](../concepts/Product%20Evals%20and%20Error%20Analysis.md)
+  - [Closed-Loop Evals](../concepts/Closed-Loop%20Evals.md)
+- **Sources**: [AI System Design 7 Patterns Explained in 17 Minutes](AI%20System%20Design%207%20Patterns%20Explained%20in%2017%20Minutes.md), [System Design for AI Engineers 7 Patterns](System%20Design%20for%20AI%20Engineers%207%20Patterns.md)

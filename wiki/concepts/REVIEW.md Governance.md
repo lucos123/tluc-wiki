@@ -6,7 +6,7 @@ tags:
   - harness-engineering
   - verification
   - claude-code
-source: "[[Code Review]]"
+source: "wiki/sources/Code Review.md"
 ---
 
 # REVIEW.md Governance
@@ -36,4 +36,4 @@ Report at most 5 nits per review. Summarize the rest.
 - **`CLAUDE.md`**: Broad project context read during interactive coding sessions.
 - **`REVIEW.md`**: High-priority instruction block injected verbatim into the system prompt of review pipeline agents to control severity, nit volume, path exclusions, and repo-specific checks.
 
-See [[Code Review]] and [[Automated Multi-Agent Code Review]].
+See [Code Review](../sources/Code%20Review.md) and [Automated Multi-Agent Code Review](Automated%20Multi-Agent%20Code%20Review.md).

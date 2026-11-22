@@ -7,7 +7,7 @@ tags:
   - agentic-design
   - human-in-the-loop
   - ibm-technology
-source: "[[raw/video-transcripts/what-is-loop-engineering-building-better-ai-agents.md]]"
+source: "raw/video-transcripts/what-is-loop-engineering-building-better-ai-agents.md"
 source_type: video
 url: "https://www.youtube.com/watch?v=DQBqh6gcx7U"
 channel: "IBM Technology"
@@ -16,15 +16,15 @@ duration: "10m 48s"
 
 # What Is Loop Engineering? Building Better AI Agents
 
-**Source**: [[raw/video-transcripts/what-is-loop-engineering-building-better-ai-agents.md]] | **Channel**: [[IBM Technology]] ([[IBM]]) | **URL**: https://www.youtube.com/watch?v=DQBqh6gcx7U | **Uploaded**: 2026-10-19 | **Duration**: 10m 48s
+**Source**: [raw/video-transcripts/what-is-loop-engineering-building-better-ai-agents.md](../../raw/video-transcripts/what-is-loop-engineering-building-better-ai-agents.md) | **Channel**: [IBM Technology](../entities/IBM%20Technology.md) ([IBM](../entities/IBM.md)) | **URL**: https://www.youtube.com/watch?v=DQBqh6gcx7U | **Uploaded**: 2026-10-19 | **Duration**: 10m 48s
 
 ---
 
 ## Executive Summary
 
-This [[IBM Technology]] lightboard deep-dive defines **[[Loop Engineering]]** as the architectural evolution beyond manual **[[Prompt Engineering]]**: instead of a human repeatedly crafting prompts back and forth with an LLM, engineers design a self-prompting system around an AI agent that iterates autonomously until a **verifiable stopping condition** is reached.
+This [IBM Technology](../entities/IBM%20Technology.md) lightboard deep-dive defines **[Loop Engineering](../concepts/Loop%20Engineering.md)** as the architectural evolution beyond manual **[Prompt Engineering](../concepts/Prompt%20Engineering.md)**: instead of a human repeatedly crafting prompts back and forth with an LLM, engineers design a self-prompting system around an AI agent that iterates autonomously until a **verifiable stopping condition** is reached.
 
-Rather than leaving loops fully unattended, the talk emphasizes that effective loop engineering requires a **deliberate, specific form of minimal human involvement** to prevent four compounding failure modes: unverified code, [[Comprehension and Intent Debt|comprehension debt]], [[Comprehension and Intent Debt|intent debt]], and cognitive surrender.
+Rather than leaving loops fully unattended, the talk emphasizes that effective loop engineering requires a **deliberate, specific form of minimal human involvement** to prevent four compounding failure modes: unverified code, [comprehension debt](../concepts/Comprehension%20and%20Intent%20Debt.md), [intent debt](../concepts/Comprehension%20and%20Intent%20Debt.md), and cognitive surrender.
 
 ---
 
@@ -41,21 +41,21 @@ Every agent loop revolves around four recurring stages:
 3. **Observe**: Reading test runs, command outputs, or tool responses.
 4. **Adjust**: Selecting a new fix if checks remain red, then returning to Goal.
 
-- **Verifiable Stopping Conditions**: Vague goals ("make checkout faster") cause infinite loops or premature victory. Verifiable goals ("stop when every unit test in the checkout suite passes") provide deterministic exit criteria ([[Goal-Driven Loop]]).
+- **Verifiable Stopping Conditions**: Vague goals ("make checkout faster") cause infinite loops or premature victory. Verifiable goals ("stop when every unit test in the checkout suite passes") provide deterministic exit criteria ([Goal-Driven Loop](../concepts/Goal-Driven%20Loop.md)).
 
 ### 3. The Loop Engineering Infrastructure Stack (`03:29 - 07:11`)
 The engineering discipline lies not in the 4-stage circle itself, but in the scaffolding built around it:
-- **Triggers (`Schedule` & `Hook`)**: Time-based cron schedules (e.g., nightly checkout test loop) and event-driven [[Deterministic Lifecycle Hooks|hooks]] triggered on file changes or PR opens to enforce security and quality policies.
-- **[[Context Engineering]] (`Compact` & `Skill`)**: Every iteration accumulates verbose logs and file reads ([[Context Rot]]). Loops apply [[Context Window Management|compaction]] and [[Progressive Disclosure]] via [[Agent Skills Architecture|agent skills]] (`SKILL.md`) so the agent sees only high-signal instructions.
+- **Triggers (`Schedule` & `Hook`)**: Time-based cron schedules (e.g., nightly checkout test loop) and event-driven [hooks](../concepts/Deterministic%20Lifecycle%20Hooks.md) triggered on file changes or PR opens to enforce security and quality policies.
+- **[Context Engineering](../concepts/Context%20Engineering.md) (`Compact` & `Skill`)**: Every iteration accumulates verbose logs and file reads ([Context Rot](../concepts/Context%20Rot.md)). Loops apply [compaction](../concepts/Context%20Window%20Management.md) and [Progressive Disclosure](../concepts/Progressive%20Disclosure.md) via [agent skills](../concepts/Agent%20Skills%20Architecture.md) (`SKILL.md`) so the agent sees only high-signal instructions.
 - **The Spine (Persistent State)**: A central memory store (e.g., Markdown logs tracking what was tried and what worked/failed) inside the loop so future iterations learn from prior passes rather than repeating dead ends.
-- **Tool Access (`MCP` & `APIs`)**: Standardized external execution in the `Action` phase via [[Model Context Protocol]] (MCP) or direct API calls (filesystem, terminal, databases).
-- **Subagent Verification**: Delegating verification during the `Observe` stage to an independent checker [[Subagent Architecture|subagent]] with its own instructions, [[Subagent Context Isolation|isolated context]], and potentially a different model from the author agent.
+- **Tool Access (`MCP` & `APIs`)**: Standardized external execution in the `Action` phase via [Model Context Protocol](../concepts/Model%20Context%20Protocol.md) (MCP) or direct API calls (filesystem, terminal, databases).
+- **Subagent Verification**: Delegating verification during the `Observe` stage to an independent checker [subagent](../concepts/Subagent%20Architecture.md) with its own instructions, [isolated context](../concepts/Subagent%20Context%20Isolation.md), and potentially a different model from the author agent.
 
 ### 4. Minimal Human Involvement & The Four Pitfalls (`07:11 - 10:48`)
-"Minimal human involvement" does **not** mean "human absent." Automated coding loops expose four compounding failure modes (synthesized in [[Comprehension and Intent Debt]]):
+"Minimal human involvement" does **not** mean "human absent." Automated coding loops expose four compounding failure modes (synthesized in [Comprehension and Intent Debt](../concepts/Comprehension%20and%20Intent%20Debt.md)):
 1. **Unverified Code**: A checker subagent is still an LLM; human developers bear ultimate responsibility for shipped production code.
 2. **Comprehension Debt**: The widening gap between generated codebase size and human team understanding, turning urgent outages and migrations into crises.
-3. **Intent Debt**: Code shows *what* the system does, not *why*. Without written business intent (e.g., in `AGENTS.md` / [[Agent Onboarding Files]]), an agent trying to make checkout unit tests green might relax discount-code validation—passing technical checks while breaking revenue goals.
+3. **Intent Debt**: Code shows *what* the system does, not *why*. Without written business intent (e.g., in `AGENTS.md` / [Agent Onboarding Files](../concepts/Agent%20Onboarding%20Files.md)), an agent trying to make checkout unit tests green might relax discount-code validation—passing technical checks while breaking revenue goals.
 4. **Cognitive Surrender**: Blindly rubber-stamping loop output ("if the AI wrote it, it's probably right"), which stops review scrutiny and accelerates comprehension debt.
 
 - **Human Role Triad**: To keep loops safe and aligned, humans must execute three explicit duties: **Write the Goal** (with clear stopping conditions), **Write Intent** (durable and reachable by the agent), and **Read the Output**.
@@ -66,20 +66,20 @@ The engineering discipline lies not in the 4-stage circle itself, but in the sca
 
 | Slide | Timestamp | Topic | Screenshot | Key Visual Elements |
 | :--- | :--- | :--- | :--- | :--- |
-| 01 | `01:05` | Prompt vs Loop Engineering | [[raw/screenshots/ibm-loop-engineering/01.jpg]] | Compares `Prompt <-> AI Agent` loop vs `Prompt -> -> <- LLM` manual turns |
-| 02 | `02:25` | Core 4-Stage Loop | [[raw/screenshots/ibm-loop-engineering/02.jpg]] | Circular cycle: `Goal -> Action -> Observe -> Adjust` |
-| 03 | `05:02` | Triggers & Context Engineering | [[raw/screenshots/ibm-loop-engineering/03.jpg]] | `Schedule` & `Hook` into `Goal`; `Compact` & `Skill` into `Context` |
-| 04 | `05:30` | Persistent State Spine | [[raw/screenshots/ibm-loop-engineering/04.jpg]] | Green vertical spine icon inside the loop cycle for persistent memory |
-| 05 | `05:52` | Tool Access (MCP) | [[raw/screenshots/ibm-loop-engineering/05.jpg]] | Adds `Tool` wrench icon connected to `MCP` beside `Action` |
-| 06 | `06:58` | Complete Loop Architecture | [[raw/screenshots/ibm-loop-engineering/06.jpg]] | Full system: triggers, spine, context engineering, `MCP`/`APIs`, `Subagent` <-> `Observe` |
-| 07 | `08:45` | Human Involvement & First Pitfalls | [[raw/screenshots/ibm-loop-engineering/07.jpg]] | Board 2: `Minimal Human Involvement` vs `Unverified Code` & `Comprehension Debt` |
-| 08 | `09:58` | All Four Pitfalls | [[raw/screenshots/ibm-loop-engineering/08.jpg]] | Lists `Unverified Code`, `Comprehension Debt`, `Intent Debt`, `Cognitive Surrender` |
-| 09 | `10:28` | Human Role Summary | [[raw/screenshots/ibm-loop-engineering/09.jpg]] | Human icon branching into `Writes the Goal`, `Writes Intent`, `Reads Output` |
+| 01 | `01:05` | Prompt vs Loop Engineering | [raw/screenshots/ibm-loop-engineering/01.jpg](../../raw/screenshots/ibm-loop-engineering/01.jpg) | Compares `Prompt <-> AI Agent` loop vs `Prompt -> -> <- LLM` manual turns |
+| 02 | `02:25` | Core 4-Stage Loop | [raw/screenshots/ibm-loop-engineering/02.jpg](../../raw/screenshots/ibm-loop-engineering/02.jpg) | Circular cycle: `Goal -> Action -> Observe -> Adjust` |
+| 03 | `05:02` | Triggers & Context Engineering | [raw/screenshots/ibm-loop-engineering/03.jpg](../../raw/screenshots/ibm-loop-engineering/03.jpg) | `Schedule` & `Hook` into `Goal`; `Compact` & `Skill` into `Context` |
+| 04 | `05:30` | Persistent State Spine | [raw/screenshots/ibm-loop-engineering/04.jpg](../../raw/screenshots/ibm-loop-engineering/04.jpg) | Green vertical spine icon inside the loop cycle for persistent memory |
+| 05 | `05:52` | Tool Access (MCP) | [raw/screenshots/ibm-loop-engineering/05.jpg](../../raw/screenshots/ibm-loop-engineering/05.jpg) | Adds `Tool` wrench icon connected to `MCP` beside `Action` |
+| 06 | `06:58` | Complete Loop Architecture | [raw/screenshots/ibm-loop-engineering/06.jpg](../../raw/screenshots/ibm-loop-engineering/06.jpg) | Full system: triggers, spine, context engineering, `MCP`/`APIs`, `Subagent` <-> `Observe` |
+| 07 | `08:45` | Human Involvement & First Pitfalls | [raw/screenshots/ibm-loop-engineering/07.jpg](../../raw/screenshots/ibm-loop-engineering/07.jpg) | Board 2: `Minimal Human Involvement` vs `Unverified Code` & `Comprehension Debt` |
+| 08 | `09:58` | All Four Pitfalls | [raw/screenshots/ibm-loop-engineering/08.jpg](../../raw/screenshots/ibm-loop-engineering/08.jpg) | Lists `Unverified Code`, `Comprehension Debt`, `Intent Debt`, `Cognitive Surrender` |
+| 09 | `10:28` | Human Role Summary | [raw/screenshots/ibm-loop-engineering/09.jpg](../../raw/screenshots/ibm-loop-engineering/09.jpg) | Human icon branching into `Writes the Goal`, `Writes Intent`, `Reads Output` |
 
 ---
 
 ## Connections & Wiki Synthesis
 
-- **Architecture Foundations**: Connects directly with [[4 Types of AI Agent Loops From Human-Led to Autonomous]] *(November 2026 IBM follow-up classifying Interactive, Delegated, Scheduled, and Event-Driven loops + Reviewer Agent exception escalation)*, [[Loop Engineering]], [[Harness Engineering]], and [[Agent Loop Lifecycle]].
-- **Pitfalls & Oversight**: Deeply reinforces [[Control-Loop Engineering]]'s warning against "blind Ralph loops" and introduces dedicated terminology in [[Comprehension and Intent Debt]] (complementing [[Vibe Coding vs Agentic Engineering]]).
-- **Scaffolding Mechanisms**: Aligns with [[Deterministic Lifecycle Hooks]], [[Context Window Management]], [[Progressive Disclosure]], [[Model Context Protocol]], [[Agent Onboarding Files]], and [[Subagent Context Isolation]].
+- **Architecture Foundations**: Connects directly with [4 Types of AI Agent Loops From Human-Led to Autonomous](4%20Types%20of%20AI%20Agent%20Loops%20From%20Human-Led%20to%20Autonomous.md) *(November 2026 IBM follow-up classifying Interactive, Delegated, Scheduled, and Event-Driven loops + Reviewer Agent exception escalation)*, [Loop Engineering](../concepts/Loop%20Engineering.md), [Harness Engineering](../concepts/Harness%20Engineering.md), and [Agent Loop Lifecycle](../concepts/Agent%20Loop%20Lifecycle.md).
+- **Pitfalls & Oversight**: Deeply reinforces [Control-Loop Engineering](../concepts/Control-Loop%20Engineering.md)'s warning against "blind Ralph loops" and introduces dedicated terminology in [Comprehension and Intent Debt](../concepts/Comprehension%20and%20Intent%20Debt.md) (complementing [Vibe Coding vs Agentic Engineering](../concepts/Vibe%20Coding%20vs%20Agentic%20Engineering.md)).
+- **Scaffolding Mechanisms**: Aligns with [Deterministic Lifecycle Hooks](../concepts/Deterministic%20Lifecycle%20Hooks.md), [Context Window Management](../concepts/Context%20Window%20Management.md), [Progressive Disclosure](../concepts/Progressive%20Disclosure.md), [Model Context Protocol](../concepts/Model%20Context%20Protocol.md), [Agent Onboarding Files](../concepts/Agent%20Onboarding%20Files.md), and [Subagent Context Isolation](../concepts/Subagent%20Context%20Isolation.md).

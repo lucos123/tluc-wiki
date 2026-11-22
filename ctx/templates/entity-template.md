@@ -14,5 +14,5 @@ tags:
 <1-2 sentence definition.>
 
 ## Features & Capabilities
-<Details citing [[Concept Name]].>
+<Details citing [Concept Name](../concepts/Concept%20Name.md).>
 ```

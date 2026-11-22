@@ -7,7 +7,7 @@ tags:
   - memory
   - agentic-engineering
   - architecture
-source: "[[raw/video-transcripts/ai-agent-memory-7-types-explained-in-12-minutes.md]]"
+source: "raw/video-transcripts/ai-agent-memory-7-types-explained-in-12-minutes.md"
 source_type: video
 url: "https://www.youtube.com/watch?v=bK1clrG-boc"
 companion_url: "https://jamwithai.substack.com/p/agent-memory-the-7-types-you-should"
@@ -18,22 +18,22 @@ duration: "12m 06s"
 
 # AI Agent Memory: 7 Types Explained in 12 Minutes
 
-**Channel**: [[Jam With AI]] (`Jam With AI | Shirin Khosravi Jam`)
+**Channel**: [Jam With AI](../entities/Jam%20With%20AI.md) (`Jam With AI | Shirin Khosravi Jam`)
 **Speaker**: Shirin Khosravi Jam
 **URL**: https://www.youtube.com/watch?v=bK1clrG-boc *(Published 2026-08-28)*
-**Companion Substack Article**: [[Agent Memory The 7 Types You Should Know]] (https://jamwithai.substack.com/p/agent-memory-the-7-types-you-should, *Published 2026-07-01*)
+**Companion Substack Article**: [Agent Memory The 7 Types You Should Know](Agent%20Memory%20The%207%20Types%20You%20Should%20Know.md) (https://jamwithai.substack.com/p/agent-memory-the-7-types-you-should, *Published 2026-07-01*)
 **Duration**: 12m 06s
-**Transcript**: [[raw/video-transcripts/ai-agent-memory-7-types-explained-in-12-minutes.md]]
-**Curated Keyframes**: [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/01.jpg]], [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/02.jpg]], [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/03.jpg]], [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/04.jpg]], [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/05.jpg]], [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/06.jpg]], [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/07.jpg]], [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/08.jpg]], [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/09.jpg]], [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/10.jpg]], [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/11.jpg]]
+**Transcript**: [raw/video-transcripts/ai-agent-memory-7-types-explained-in-12-minutes.md](../../raw/video-transcripts/ai-agent-memory-7-types-explained-in-12-minutes.md)
+**Curated Keyframes**: [raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/01.jpg](../../raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/01.jpg), [raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/02.jpg](../../raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/02.jpg), [raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/03.jpg](../../raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/03.jpg), [raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/04.jpg](../../raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/04.jpg), [raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/05.jpg](../../raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/05.jpg), [raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/06.jpg](../../raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/06.jpg), [raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/07.jpg](../../raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/07.jpg), [raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/08.jpg](../../raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/08.jpg), [raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/09.jpg](../../raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/09.jpg), [raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/10.jpg](../../raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/10.jpg), [raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/11.jpg](../../raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/11.jpg)
 
-An architectural taxonomy of **AI Agent Memory** framed explicitly as a core pillar of [[Context Engineering]]—distinguishing **"saving information" from "remembering it"**, breaking memory down into **seven functional jobs** (*not seven separate databases*), walking all seven through a concrete customer-support **Email Agent** (Maya's late-order inquiry + Friday follow-up), and offering four first-principles questions for agent memory design.
+An architectural taxonomy of **AI Agent Memory** framed explicitly as a core pillar of [Context Engineering](../concepts/Context%20Engineering.md)—distinguishing **"saving information" from "remembering it"**, breaking memory down into **seven functional jobs** (*not seven separate databases*), walking all seven through a concrete customer-support **Email Agent** (Maya's late-order inquiry + Friday follow-up), and offering four first-principles questions for agent memory design.
 
 ![Seven Types of Agent Memory Architecture](../../raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/01.jpg)
 
 ---
 
 ## 1. Foundational Framing (`00:00 - 01:28`)
-- **Part of Context Engineering**: [[Context Engineering]] determines what payload the model sees before answering or acting; agent memory supplies the right slices across time.
+- **Part of Context Engineering**: [Context Engineering](../concepts/Context%20Engineering.md) determines what payload the model sees before answering or acting; agent memory supplies the right slices across time.
 - **Saving $\neq$ Remembering**: Dumping thousands of chat logs into storage is useless unless the right record comes back at the right moment.
 - **`7 Jobs != 7 Databases` (`01.jpg`)**: The seven types represent **distinct functional responsibilities** that often overlap and share underlying storage (`PostgreSQL + pgvector`, `Redis`, system files, etc.).
 
@@ -43,7 +43,7 @@ An architectural taxonomy of **AI Agent Memory** framed explicitly as a core pil
 
 | # | Memory Type | Core Definition & Slides | Critical Engineering Rules & Pitfalls |
 | :-: | :--- | :--- | :--- |
-| **01** | **Working Memory** *(Slide `02.jpg`)* | What the model uses **right now**: system instructions, active question, recent turns, selected docs, latest tool results | Bounded by the **context window**; growing history inflates cost/latency and causes attention loss ([[Context Rot]]) $\rightarrow$ curate, summarize, prune |
+| **01** | **Working Memory** *(Slide `02.jpg`)* | What the model uses **right now**: system instructions, active question, recent turns, selected docs, latest tool results | Bounded by the **context window**; growing history inflates cost/latency and causes attention loss ([Context Rot](../concepts/Context%20Rot.md)) $\rightarrow$ curate, summarize, prune |
 | **02** | **Semantic Memory** *(Slide `03.jpg`)* | **What is true**: durable user/org facts & preferences surviving across sessions (`Name`, `timezone`, `language`, `coding preference`) | Every record needs **owner + scope + lifetime/TTL**; validate untrusted sources (emails/web/tool outputs) before trusting; overwrite stale facts (`Python -> TypeScript`) and allow user edits/deletions |
 | **03** | **Episodic Memory** *(Slide `04.jpg`)* | **What happened**: specific past runs (`goal`, `actions`, `tool results`, `errors`, `feedback`, `outcome`, `date`) | Retrieved when similar edge cases recur so the agent learns which troubleshooting paths failed vs. succeeded |
 | **04** | **Procedural Memory** *(Slide `05.jpg`)* | **How the agent should work**: repeatable workflows, guardrails, SOPs (*search internal docs $\rightarrow$ validate query $\rightarrow$ human approval $\rightarrow$ execute*) | Stored in **system instructions, tool descriptions, reusable skills, or workflow code** (not model facts about the user) |
@@ -74,11 +74,26 @@ An architectural taxonomy of **AI Agent Memory** framed explicitly as a core pil
 ---
 
 ## Synthesis Notes
-- **Completing the Shirin / Jam With AI Triad**: Together with [[How a Production AI Agent System Actually Works]] (inner 9-layer Python runtime [[Production AI Agent Service Stack]]) and [[AI System Design 7 Patterns Explained in 17 Minutes]] (outer 7 infrastructure patterns [[Production AI Resilience and Scaling Patterns]]), this video supplies the **state, retrieval, and temporal trigger semantics** running inside LangGraph/Postgres/pgvector/Redis/queues—notably mapping **Prospective Memory** directly onto durable task tables + scheduler queues + idempotent workers.
-- **Companion Substack Precursor**: Expands upon the July 1, 2026 Substack guide [[Agent Memory The 7 Types You Should Know]] (Shantanu Ladhwe & Shirin Khosravi Jam), which anchors the taxonomy in **CoALA** / **MemGPT** / **Generative Agents**, separates **Stored vs. Active** and **What vs. Where** axes, details `Thread ID` checkpointers, reflection summaries, guardrail loops, graph/time lookups, and `Temporal` durable tasks—while this video supplies the end-to-end Maya Email Agent walkthrough omitted behind Substack's paywall plus stricter untrusted-input & idempotency guardrails.
-- **Terminology Clarification for Vault Graph**: Resolves a frequent conceptual collision across [[Retrieval-Augmented Generation and Vector DBs]] and [[Context Engineering]]: **Semantic Memory** *(fact store: what is true)* vs. **Semantic Search** *(vector similarity lookup over External Memory)*; additionally aligns **Procedural Memory** with [[Agent Skills Architecture]] & [[Memory Promotion Path]], and **Working Memory** limits with [[Context Rot]] & [[Context Window Management]].
+- **Completing the Shirin / Jam With AI Triad**: Together with [How a Production AI Agent System Actually Works](How%20a%20Production%20AI%20Agent%20System%20Actually%20Works.md) (inner 9-layer Python runtime [Production AI Agent Service Stack](../concepts/Production%20AI%20Agent%20Service%20Stack.md)) and [AI System Design 7 Patterns Explained in 17 Minutes](AI%20System%20Design%207%20Patterns%20Explained%20in%2017%20Minutes.md) (outer 7 infrastructure patterns [Production AI Resilience and Scaling Patterns](../concepts/Production%20AI%20Resilience%20and%20Scaling%20Patterns.md)), this video supplies the **state, retrieval, and temporal trigger semantics** running inside LangGraph/Postgres/pgvector/Redis/queues—notably mapping **Prospective Memory** directly onto durable task tables + scheduler queues + idempotent workers.
+- **Companion Substack Precursor**: Expands upon the July 1, 2026 Substack guide [Agent Memory The 7 Types You Should Know](Agent%20Memory%20The%207%20Types%20You%20Should%20Know.md) (Shantanu Ladhwe & Shirin Khosravi Jam), which anchors the taxonomy in **CoALA** / **MemGPT** / **Generative Agents**, separates **Stored vs. Active** and **What vs. Where** axes, details `Thread ID` checkpointers, reflection summaries, guardrail loops, graph/time lookups, and `Temporal` durable tasks—while this video supplies the end-to-end Maya Email Agent walkthrough omitted behind Substack's paywall plus stricter untrusted-input & idempotency guardrails.
+- **Terminology Clarification for Vault Graph**: Resolves a frequent conceptual collision across [Retrieval-Augmented Generation and Vector DBs](../concepts/Retrieval-Augmented%20Generation%20and%20Vector%20DBs.md) and [Context Engineering](../concepts/Context%20Engineering.md): **Semantic Memory** *(fact store: what is true)* vs. **Semantic Search** *(vector similarity lookup over External Memory)*; additionally aligns **Procedural Memory** with [Agent Skills Architecture](../concepts/Agent%20Skills%20Architecture.md) & [Memory Promotion Path](../concepts/Memory%20Promotion%20Path.md), and **Working Memory** limits with [Context Rot](../concepts/Context%20Rot.md) & [Context Window Management](../concepts/Context%20Window%20Management.md).
 
 ## Related Pages
-- **Entities**: [[Jam With AI]]
-- **Concepts**: [[AI Agent Memory Types]], [[Context Engineering]], [[Context Rot]], [[Context Window Management]], [[Retrieval-Augmented Generation and Vector DBs]], [[Memory Architecture]], [[Memory Promotion Path]], [[Agent Skills Architecture]], [[Production AI Agent Service Stack]], [[Production AI Resilience and Scaling Patterns]], [[Product Evals and Error Analysis]]
-- **Sources**: [[Agent Memory The 7 Types You Should Know]], [[How a Production AI Agent System Actually Works]], [[AI System Design 7 Patterns Explained in 17 Minutes]], [[What Is Context Engineering Why It Matters for AI Agents]]
+- **Entities**: [Jam With AI](../entities/Jam%20With%20AI.md)
+- **Concepts**:
+  - [AI Agent Memory Types](../concepts/AI%20Agent%20Memory%20Types.md)
+  - [Context Engineering](../concepts/Context%20Engineering.md)
+  - [Context Rot](../concepts/Context%20Rot.md)
+  - [Context Window Management](../concepts/Context%20Window%20Management.md)
+  - [Retrieval-Augmented Generation and Vector DBs](../concepts/Retrieval-Augmented%20Generation%20and%20Vector%20DBs.md)
+  - [Memory Architecture](../concepts/Memory%20Architecture.md)
+  - [Memory Promotion Path](../concepts/Memory%20Promotion%20Path.md)
+  - [Agent Skills Architecture](../concepts/Agent%20Skills%20Architecture.md)
+  - [Production AI Agent Service Stack](../concepts/Production%20AI%20Agent%20Service%20Stack.md)
+  - [Production AI Resilience and Scaling Patterns](../concepts/Production%20AI%20Resilience%20and%20Scaling%20Patterns.md)
+  - [Product Evals and Error Analysis](../concepts/Product%20Evals%20and%20Error%20Analysis.md)
+- **Sources**:
+  - [Agent Memory The 7 Types You Should Know](Agent%20Memory%20The%207%20Types%20You%20Should%20Know.md)
+  - [How a Production AI Agent System Actually Works](How%20a%20Production%20AI%20Agent%20System%20Actually%20Works.md)
+  - [AI System Design 7 Patterns Explained in 17 Minutes](AI%20System%20Design%207%20Patterns%20Explained%20in%2017%20Minutes.md)
+  - [What Is Context Engineering Why It Matters for AI Agents](What%20Is%20Context%20Engineering%20Why%20It%20Matters%20for%20AI%20Agents.md)

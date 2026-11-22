@@ -7,12 +7,12 @@ tags:
   - security
   - harness-engineering
   - sandboxing
-source: "[[Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic]]"
+source: "wiki/sources/Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic.md"
 ---
 
 # Cloud Agent Sandbox and Auto Mode
 
-**Cloud Agent Sandbox and Auto Mode** define the layered safety architecture for running autonomous coding agents (such as [[Claude Code]]) out of the human approval loop for hours at a time without sacrificing credential integrity, repository state, or network isolation. Formalized by [[Lydia Hallie]] in [[Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic]].
+**Cloud Agent Sandbox and Auto Mode** define the layered safety architecture for running autonomous coding agents (such as [Claude Code](../entities/Claude%20Code.md)) out of the human approval loop for hours at a time without sacrificing credential integrity, repository state, or network isolation. Formalized by [Lydia Hallie](../entities/Lydia%20Hallie.md) in [Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic](../sources/Rethinking%20Claude%20Code%20Best%20Practices%20%E2%80%94%20Lydia%20Hallie%2C%20Anthropic.md).
 
 ---
 
@@ -78,6 +78,14 @@ Pre-execution `deny` checks cannot inspect runtime side effects of approved scri
 ---
 
 ## Related Pages
-- **Sources**: [[Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic]], [[Best practices for Claude Code]]
-- **Entities**: [[Lydia Hallie]], [[Anthropic]], [[Claude Code]]
-- **Concepts**: [[Deterministic Lifecycle Hooks]], [[Cloud Sandboxed Ultrareview]], [[Verification Loop]], [[Parallel Agent Architecture]], [[Software Supply Chain Security]]
+- **Sources**: [Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic](../sources/Rethinking%20Claude%20Code%20Best%20Practices%20%E2%80%94%20Lydia%20Hallie%2C%20Anthropic.md), [Best practices for Claude Code](../sources/Best%20practices%20for%20Claude%20Code.md)
+- **Entities**:
+  - [Lydia Hallie](../entities/Lydia%20Hallie.md)
+  - [Anthropic](../entities/Anthropic.md)
+  - [Claude Code](../entities/Claude%20Code.md)
+- **Concepts**:
+  - [Deterministic Lifecycle Hooks](Deterministic%20Lifecycle%20Hooks.md)
+  - [Cloud Sandboxed Ultrareview](Cloud%20Sandboxed%20Ultrareview.md)
+  - [Verification Loop](Verification%20Loop.md)
+  - [Parallel Agent Architecture](Parallel%20Agent%20Architecture.md)
+  - [Software Supply Chain Security](Software%20Supply%20Chain%20Security.md)

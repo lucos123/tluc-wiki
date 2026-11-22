@@ -10,9 +10,9 @@ source: "raw/articles/kimi/model-list.md"
 
 # Kimi API Model List & Deprecations
 
-**Source File**: [[raw/articles/kimi/model-list.md]]
+**Source File**: [raw/articles/kimi/model-list.md](../../raw/articles/kimi/model-list.md)
 
-Catalog of official model IDs, context windows, and deprecation timelines across the [[Moonshot AI]] platform.
+Catalog of official model IDs, context windows, and deprecation timelines across the [Moonshot AI](../entities/Moonshot%20AI.md) platform.
 
 ## Key Concepts
 
@@ -30,4 +30,4 @@ Catalog of official model IDs, context windows, and deprecation timelines across
 
 ## Synthesis Notes
 
-This document provides a clear snapshot of the model lifecycle at [[Moonshot AI]]. The rapid retirement of `moonshot-v1` and legacy `kimi-k2` models highlights the speed of transition toward MoE-backed thinking architectures (`[[Kimi K3]]`, `[[Kimi K2.7 Code]]`).
+This document provides a clear snapshot of the model lifecycle at [Moonshot AI](../entities/Moonshot%20AI.md). The rapid retirement of `moonshot-v1` and legacy `kimi-k2` models highlights the speed of transition toward MoE-backed thinking architectures ([Kimi K3](../entities/Kimi%20K3.md), [Kimi K2.7 Code](../entities/Kimi%20K2.7%20Code.md)).

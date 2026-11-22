@@ -4,7 +4,7 @@ date: 2026-06-28
 tags:
   - trends
   - ai
-source: "[[raw/7-ai-coding-trends-to-watch-this-year-in-2026.md]]"
+source: "raw/articles/ai-other/7-ai-coding-trends-to-watch-this-year-in-2026.md"
 ---
 
 # 7 AI Coding Trends to Watch This Year in 2026
@@ -19,8 +19,8 @@ This article outlines the major shifts in software development expected in 2026 
 4. **Prompt Engineering as Core Skill**: Prompts are treated as reusable, structured assets to control AI behavior and consistency.
 5. **AI-Native Software**: Systems are designed from day one with AI as a core, dynamic component.
 6. **Responsible AI**: Ethics, bias reduction, and explainability are becoming standard in the codebase.
-7. **Developers as Orchestrators**: Developers focus on guiding outputs, validating decisions, and designing workflows (related to the [[Conductor vs Orchestrator]] concept).
+7. **Developers as Orchestrators**: Developers focus on guiding outputs, validating decisions, and designing workflows (related to the [Conductor vs Orchestrator](../concepts/Conductor%20vs%20Orchestrator.md) concept).
 
 ## Associated Entities & Concepts
-- [[Greta]]: Highlighted as a context-aware tool that helps reason through solutions.
-- [[Conductor vs Orchestrator]]: Aligns with the trend of developers becoming AI orchestrators.
+- [Greta](../entities/Greta.md): Highlighted as a context-aware tool that helps reason through solutions.
+- [Conductor vs Orchestrator](../concepts/Conductor%20vs%20Orchestrator.md): Aligns with the trend of developers becoming AI orchestrators.

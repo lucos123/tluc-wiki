@@ -7,24 +7,24 @@ tags:
   - visual-guide
   - infosec-notes
   - tokenization
-source: "[[raw/screenshots/token-and-api-price/00.png]]"
+source: "raw/screenshots/token-and-api-price/00.png"
 source_type: visual-notes
 ---
 
 # Token & Giá API — Sổ Tay Toàn Diện (10 Phần)
 
 **Source Files**: 
-- [[raw/screenshots/token-and-api-price/00.png]] *(Bìa & Mục lục tổng quan)*
-- [[raw/screenshots/token-and-api-price/01.png]] *(1/10: Token AI là gì & Quy trình hoạt động)*
-- [[raw/screenshots/token-and-api-price/02.png]] *(2/10: Tách Token - Tokenization)*
-- [[raw/screenshots/token-and-api-price/03.png]] *(3/10: Chi tiết các phương pháp tách token BPE, WordPiece, SentencePiece)*
-- [[raw/screenshots/token-and-api-price/04.png]] *(4/10: Token vs Từ vs Ký tự)*
-- [[raw/screenshots/token-and-api-price/05.png]] *(5/10: Token Đầu vào & Đầu ra)*
-- [[raw/screenshots/token-and-api-price/06.png]] *(6/10: Cửa sổ ngữ cảnh - Context Window)*
-- [[raw/screenshots/token-and-api-price/07.png]] *(7/10: Token & Giá API)*
-- [[raw/screenshots/token-and-api-price/08.png]] *(8/10: Giới hạn Token & Thực hành tốt nhất)*
-- [[raw/screenshots/token-and-api-price/09.png]] *(9/10: Kỹ thuật nén & Tối ưu hiệu quả)*
-- [[raw/screenshots/token-and-api-price/10.png]] *(10/10: Điều cốt lõi & Bảng tổng hợp một trang)*
+- [raw/screenshots/token-and-api-price/00.png](../../raw/screenshots/token-and-api-price/00.png) *(Bìa & Mục lục tổng quan)*
+- [raw/screenshots/token-and-api-price/01.png](../../raw/screenshots/token-and-api-price/01.png) *(1/10: Token AI là gì & Quy trình hoạt động)*
+- [raw/screenshots/token-and-api-price/02.png](../../raw/screenshots/token-and-api-price/02.png) *(2/10: Tách Token - Tokenization)*
+- [raw/screenshots/token-and-api-price/03.png](../../raw/screenshots/token-and-api-price/03.png) *(3/10: Chi tiết các phương pháp tách token BPE, WordPiece, SentencePiece)*
+- [raw/screenshots/token-and-api-price/04.png](../../raw/screenshots/token-and-api-price/04.png) *(4/10: Token vs Từ vs Ký tự)*
+- [raw/screenshots/token-and-api-price/05.png](../../raw/screenshots/token-and-api-price/05.png) *(5/10: Token Đầu vào & Đầu ra)*
+- [raw/screenshots/token-and-api-price/06.png](../../raw/screenshots/token-and-api-price/06.png) *(6/10: Cửa sổ ngữ cảnh - Context Window)*
+- [raw/screenshots/token-and-api-price/07.png](../../raw/screenshots/token-and-api-price/07.png) *(7/10: Token & Giá API)*
+- [raw/screenshots/token-and-api-price/08.png](../../raw/screenshots/token-and-api-price/08.png) *(8/10: Giới hạn Token & Thực hành tốt nhất)*
+- [raw/screenshots/token-and-api-price/09.png](../../raw/screenshots/token-and-api-price/09.png) *(9/10: Kỹ thuật nén & Tối ưu hiệu quả)*
+- [raw/screenshots/token-and-api-price/10.png](../../raw/screenshots/token-and-api-price/10.png) *(10/10: Điều cốt lõi & Bảng tổng hợp một trang)*
 
 ---
 
@@ -106,6 +106,19 @@ $$\text{Prompt tốt hơn} \longrightarrow \text{Token tốt hơn} \longrightarr
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Tokenization]], [[Token Economics]], [[Cost Optimization]], [[Context Window Management]], [[Context Rot]], [[Harness Overhead vs Model Cost]].
-- **Entities**: [[Anthropic]], [[OpenAI]], [[Claude Code]], [[Moonshot AI]].
-- **Sources**: [[Maximizing the Value of Your Claude Code Sessions]], [[Manage costs effectively]], [[Track cost and usage]].
+- **Concepts**:
+  - [Tokenization](../concepts/Tokenization.md)
+  - [Token Economics](../concepts/Token%20Economics.md)
+  - [Cost Optimization](../concepts/Cost%20Optimization.md)
+  - [Context Window Management](../concepts/Context%20Window%20Management.md)
+  - [Context Rot](../concepts/Context%20Rot.md)
+  - [Harness Overhead vs Model Cost](../concepts/Harness%20Overhead%20vs%20Model%20Cost.md)
+- **Entities**:
+  - [Anthropic](../entities/Anthropic.md)
+  - [OpenAI](../entities/OpenAI.md)
+  - [Claude Code](../entities/Claude%20Code.md)
+  - [Moonshot AI](../entities/Moonshot%20AI.md)
+- **Sources**:
+  - [Maximizing the Value of Your Claude Code Sessions](Maximizing%20the%20Value%20of%20Your%20Claude%20Code%20Sessions.md)
+  - [Manage costs effectively](Manage%20costs%20effectively.md)
+  - [Track cost and usage](Track%20cost%20and%20usage.md)

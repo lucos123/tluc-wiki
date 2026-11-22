@@ -9,7 +9,7 @@ tags:
 
 # The Factory Model
 
-A mental model for modern software engineering described in [[The New SDLC With Vibe Coding]].
+A mental model for modern software engineering described in [The New SDLC With Vibe Coding](../sources/The%20New%20SDLC%20With%20Vibe%20Coding.md).
 
 ## Concept
 In the AI era, the developer's primary output is no longer code. Instead, the developer builds and designs the *system* (the factory) that produces the code. 

@@ -7,7 +7,7 @@ tags:
   - ai-engineering
   - loop-engineering
   - cost-optimization
-source: "[[raw/video-transcripts/ai-eval-concepts-explained-in-15-minutes.md]]"
+source: "raw/video-transcripts/ai-eval-concepts-explained-in-15-minutes.md"
 source_type: video
 url: "https://www.youtube.com/watch?v=3rlYBCDK0K4"
 channel: "Hamel Husain"
@@ -17,13 +17,13 @@ duration: "14m 23s"
 
 # AI Eval Concepts Explained in 15 Minutes
 
-**Source**: [[raw/video-transcripts/ai-eval-concepts-explained-in-15-minutes.md]] | **Speaker / Channel**: [[Hamel Husain]] | **URL**: https://www.youtube.com/watch?v=3rlYBCDK0K4 | **Uploaded**: 2026-11-10 | **Duration**: 14m 23s
+**Source**: [raw/video-transcripts/ai-eval-concepts-explained-in-15-minutes.md](../../raw/video-transcripts/ai-eval-concepts-explained-in-15-minutes.md) | **Speaker / Channel**: [Hamel Husain](../entities/Hamel%20Husain.md) | **URL**: https://www.youtube.com/watch?v=3rlYBCDK0K4 | **Uploaded**: 2026-11-10 | **Duration**: 14m 23s
 
 ---
 
 ## Executive Summary
 
-[[Hamel Husain]] provides a complete, grounded introduction to **AI product evaluations (evals)**—explaining why generic foundation-model benchmarks fail to predict production quality, how to instrument and inspect multi-turn agent **traces**, how to perform human-centered **error analysis** and **trace sampling**, and how to build, validate, and deploy **automated binary evals** without falling into common evaluation traps.
+[Hamel Husain](../entities/Hamel%20Husain.md) provides a complete, grounded introduction to **AI product evaluations (evals)**—explaining why generic foundation-model benchmarks fail to predict production quality, how to instrument and inspect multi-turn agent **traces**, how to perform human-centered **error analysis** and **trace sampling**, and how to build, validate, and deploy **automated binary evals** without falling into common evaluation traps.
 
 The presentation establishes a clear lifecycle connecting product observation to iterative optimization: **Instrument Traces -> Annotate & Cluster Failures -> Count Priorities -> Build Specific Binary Evals -> Align Evaluators (`Train / Dev / Test`) -> Deploy (`CI/CD`, `Monitoring`, `Guardrails`) -> Improve Product & Downsize Models**.
 
@@ -32,7 +32,7 @@ The presentation establishes a clear lifecycle connecting product observation to
 ## Core Takeaways by Chapter
 
 ### 1. Product Evals vs. Model Benchmarks (`00:19 - 01:53`)
-- **Foundation Model Benchmarks**: General intelligence exams comparable to SAT or IQ tests (`MMLU`, `Terminal Bench`, `Humanity's Last Exam`). Usually plotted on a **Performance vs. Cost per Task** Pareto chart, reflecting test-time compute / token trade-offs (compare [[Inference Speed vs Intelligence Trade-off]]).
+- **Foundation Model Benchmarks**: General intelligence exams comparable to SAT or IQ tests (`MMLU`, `Terminal Bench`, `Humanity's Last Exam`). Usually plotted on a **Performance vs. Cost per Task** Pareto chart, reflecting test-time compute / token trade-offs (compare [Inference Speed vs Intelligence Trade-off](../concepts/Inference%20Speed%20vs%20Intelligence%20Trade-off.md)).
 - **Product-Specific Evals**: End-to-end outcome checks tailored to exact user workflows (e.g., an e-commerce assistant receiving `"Cancel my order"`, pulling context across multiple LLM calls/tools, and measuring whether the order was actually canceled).
 - **Shifted Pareto Frontier**: On product-specific evals, models that ranked near the bottom of public benchmarks often climb straight onto the active Pareto frontier because domain task success diverges sharply from general intelligence tests.
 
@@ -59,7 +59,7 @@ The presentation establishes a clear lifecycle connecting product observation to
   - **Clustering**: Structured exploration grouping semantically similar conversations/traces.
   - **Data Analysis / Signals**: Computing quantitative metrics (turn count, latency, tool-call count) to surface statistical outliers worth auditing.
 - **Synthetic User Inputs (Never Fake Full Traces)**: Use LLMs only to generate realistic, messy **inputs** (`"Please cancel the blue one"`, scenario matrices for *before/after shipping* or *unclear order numbers*), feed them into your real application to generate authentic traces, and inspect those traces with humans.
-- **Reverse Synthetic Data for [[Retrieval-Augmented Generation and Vector DBs|RAG]]**: Start from a source document chunk (`"Returns accepted within 30 days"`), have an LLM synthesize a plausible user question (`"How long do I have to return it?"`), and test whether retrieval fetches that exact document.
+- **Reverse Synthetic Data for [RAG](../concepts/Retrieval-Augmented%20Generation%20and%20Vector%20DBs.md)**: Start from a source document chunk (`"Returns accepted within 30 days"`), have an LLM synthesize a plausible user question (`"How long do I have to return it?"`), and test whether retrieval fetches that exact document.
 
 ![04:22 - How to Sample Traces Spectrum](../../raw/screenshots/ai-eval-concepts-explained-in-15-minutes/06.jpg)
 ![05:22 - Generate User Inputs (Synthetic Data)](../../raw/screenshots/ai-eval-concepts-explained-in-15-minutes/07.jpg)
@@ -69,7 +69,7 @@ The presentation establishes a clear lifecycle connecting product observation to
 - **Three Trace-Grading Mechanisms**:
   1. **Code** (deterministic assertions—e.g., verify tool calls or user IDs).
   2. **Classifier / Decision Model** (supervised binary classifier).
-  3. **LLM Judge** (prompted evaluator using [[Few-Shot Prompting]] examples).
+  3. **LLM Judge** (prompted evaluator using [Few-Shot Prompting](../concepts/Few-Shot%20Prompting.md) examples).
 - **Mandate Binary Grading (`Pass / Fail`)**: Reject opaque `1–5` or `0–100` scales so evaluator calibration and release decisions remain unambiguous.
 - **Three-Way Human Ground-Truth Split (`Train / Dev / Test`)**:
   - Track two disagreement modes between Human and Evaluator: **Missed failures** (False Negatives) and **False alarms** (False Positives).
@@ -103,10 +103,18 @@ The presentation establishes a clear lifecycle connecting product observation to
 
 ## Synthesis & Connections
 
-- Bridges classical validation principles ([[Model Evaluation and Validation]]) with autonomous agent improvement systems ([[Closed-Loop Evals]], [[Hill-Climbing Loop]], [[Self-Improving Agents]]).
-- Complements Uber's large-scale autonomous auto-tuning architecture ([[Building Closed-Loop Evals for a Multimodal Agent at Scale]]) by highlighting the human review gate needed to prevent metric hacking when autonomous prompt optimizers operate without exhaustive eval coverage.
-- Reinforces [[Poteto Trust Pyramid]] and [[Verification Loop]] principles: prefer deterministic code assertions before LLM judges, and focus tokens and evals on concrete, observed failure modes.
+- Bridges classical validation principles ([Model Evaluation and Validation](../concepts/Model%20Evaluation%20and%20Validation.md)) with autonomous agent improvement systems ([Closed-Loop Evals](../concepts/Closed-Loop%20Evals.md), [Hill-Climbing Loop](../concepts/Hill-Climbing%20Loop.md), [Self-Improving Agents](../concepts/Self-Improving%20Agents.md)).
+- Complements Uber's large-scale autonomous auto-tuning architecture ([Building Closed-Loop Evals for a Multimodal Agent at Scale](Building%20Closed-Loop%20Evals%20for%20a%20Multimodal%20Agent%20at%20Scale.md)) by highlighting the human review gate needed to prevent metric hacking when autonomous prompt optimizers operate without exhaustive eval coverage.
+- Reinforces [Poteto Trust Pyramid](../concepts/Poteto%20Trust%20Pyramid.md) and [Verification Loop](../concepts/Verification%20Loop.md) principles: prefer deterministic code assertions before LLM judges, and focus tokens and evals on concrete, observed failure modes.
 
 ## Related Pages
-- **Entities**: [[Hamel Husain]]
-- **Concepts**: [[Product Evals and Error Analysis]], [[LLM-as-a-Judge and Eval Alignment]], [[Closed-Loop Evals]], [[Hill-Climbing Loop]], [[Verification Loop]], [[Model Evaluation and Validation]], [[Inference Speed vs Intelligence Trade-off]], [[Cost Optimization]]
+- **Entities**: [Hamel Husain](../entities/Hamel%20Husain.md)
+- **Concepts**:
+  - [Product Evals and Error Analysis](../concepts/Product%20Evals%20and%20Error%20Analysis.md)
+  - [LLM-as-a-Judge and Eval Alignment](../concepts/LLM-as-a-Judge%20and%20Eval%20Alignment.md)
+  - [Closed-Loop Evals](../concepts/Closed-Loop%20Evals.md)
+  - [Hill-Climbing Loop](../concepts/Hill-Climbing%20Loop.md)
+  - [Verification Loop](../concepts/Verification%20Loop.md)
+  - [Model Evaluation and Validation](../concepts/Model%20Evaluation%20and%20Validation.md)
+  - [Inference Speed vs Intelligence Trade-off](../concepts/Inference%20Speed%20vs%20Intelligence%20Trade-off.md)
+  - [Cost Optimization](../concepts/Cost%20Optimization.md)

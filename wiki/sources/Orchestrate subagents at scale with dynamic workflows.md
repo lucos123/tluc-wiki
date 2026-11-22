@@ -8,20 +8,20 @@ tags:
   - harness-engineering
   - graph-engineering
   - claude-code
-source: "[[raw/articles/claude-code/agent-architecture-subagents-workflows/workflows.md]]"
+source: "raw/articles/claude-code/agent-architecture-subagents-workflows/workflows.md"
 url: "https://code.claude.com/docs/en/workflows.md"
 ---
 
 # Orchestrate subagents at scale with dynamic workflows
 
 **URL**: https://code.claude.com/docs/en/workflows.md  
-**Source File**: [[raw/articles/claude-code/agent-architecture-subagents-workflows/raw/articles/claude-code/agent-architecture-subagents-workflows/workflows.md]]  
+**Source File**: [raw/articles/claude-code/agent-architecture-subagents-workflows/workflows.md](../../raw/articles/claude-code/agent-architecture-subagents-workflows/workflows.md)  
 
 ---
 
 ## Executive Summary
 
-This official Anthropic guide introduces **Dynamic Workflows** (`ultracode`) in [[Claude Code]].
+This official Anthropic guide introduces **Dynamic Workflows** (`ultracode`) in [Claude Code](../entities/Claude%20Code.md).
 
 Dynamic workflows shift multi-agent orchestration from turn-by-turn LLM reasoning into an executable, programmatic JavaScript script. This enables massive scaling (dozens to hundreds of agents per run) for large codebase audits, multi-file migrations, and deep research (`/deep-research`) without overwhelming context windows.
 
@@ -64,5 +64,10 @@ Workflows can be saved (`s` in `/workflows`) to `.claude/workflows/` (Project) o
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Dynamic Workflows]], [[Ultracode Mode]], [[Subagent Architecture]], [[Graph Engineering]], [[Orchestrator Skill Pattern]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Dynamic Workflows](../concepts/Dynamic%20Workflows.md)
+  - [Ultracode Mode](../concepts/Ultracode%20Mode.md)
+  - [Subagent Architecture](../concepts/Subagent%20Architecture.md)
+  - [Graph Engineering](../concepts/Graph%20Engineering.md)
+  - [Orchestrator Skill Pattern](../concepts/Orchestrator%20Skill%20Pattern.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

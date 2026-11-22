@@ -22,6 +22,7 @@ import os
 import re
 import sys
 from datetime import date as dt_date
+from urllib.parse import quote, unquote
 
 
 SECTION_ALIASES = {
@@ -41,7 +42,17 @@ SECTION_ALIASES = {
     "generated deliverables (output/)": "Generated Deliverables (output/)",
 }
 
+MD_ENTRY_LINE_RE = re.compile(r"^\s*-\s*\[([^\[\]\n]+)\]\(([^)\n]+)\)\s*:\s*(.*)$")
 ENTRY_LINE_RE = re.compile(r"^\s*-\s*\[\[(.*?)\]\]\s*:\s*(.*)$")
+
+SECTION_PREF_DIRS = {
+    "entities": ["wiki/entities"],
+    "concepts": ["wiki/concepts", "wiki/topics", "wiki/references"],
+    "sources": ["wiki/sources"],
+    "analyses": ["wiki/analyses"],
+    "personal memory & projects (mem/)": ["mem"],
+    "generated deliverables (output/)": ["output"],
+}
 
 
 def find_project_root(start_dir=None):
@@ -80,27 +91,110 @@ def parse_entry_arg(raw_entry):
 
 
 def load_lint_module(project_root):
-    """Dynamically import lint_wiki.py from .agents/skills/wiki-lint/scripts/."""
+    """Dynamically import lint_wiki.py from project_root or fallback to the co-located skill folder."""
     lint_path = os.path.join(
         project_root, ".agents", "skills", "wiki-lint", "scripts", "lint_wiki.py"
     )
     if not os.path.isfile(lint_path):
-        raise FileNotFoundError(f"Cannot locate lint_wiki.py at {lint_path}")
+        fallback_path = os.path.abspath(
+            os.path.join(os.path.dirname(__file__), "..", "..", "wiki-lint", "scripts", "lint_wiki.py")
+        )
+        if os.path.isfile(fallback_path):
+            lint_path = fallback_path
+        else:
+            raise FileNotFoundError(f"Cannot locate lint_wiki.py at {lint_path}")
     spec = importlib.util.spec_from_file_location("lint_wiki", lint_path)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     return mod
 
 
+def encode_md_path(rel_posix):
+    """RFC 3986 percent-encode a relative POSIX path for safe Markdown links across IDE, GitHub, and Obsidian."""
+    return quote(rel_posix, safe="/-._~")
+
+
+def parse_index_bullet(line):
+    """Parse either '- [Title](path.md): Summary' or legacy '- [[Title]]: Summary' bullet."""
+    m_md = MD_ENTRY_LINE_RE.match(line)
+    if m_md:
+        title = m_md.group(1).strip()
+        raw_href = m_md.group(2).strip().partition("#")[0]
+        rel_posix = unquote(raw_href).lstrip("./")
+        summary = m_md.group(3).strip()
+        return title, rel_posix, summary
+
+    m_wk = ENTRY_LINE_RE.match(line)
+    if m_wk:
+        title = re.split(r"\\?\|", m_wk.group(1), maxsplit=1)[0].strip()
+        summary = m_wk.group(2).strip()
+        return title, None, summary
+
+    return None
+
+
+def resolve_page_rel_path(project_root, section, page_name):
+    """Resolve exact repo-relative POSIX path for page_name, prioritizing the section's canonical folder."""
+    raw_name = page_name.strip()
+    if raw_name.endswith(".md") and "/" in raw_name.replace("\\", "/"):
+        cand = raw_name.replace("\\", "/").lstrip("./")
+        if os.path.isfile(os.path.join(project_root, cand)):
+            return cand
+        raw_name = os.path.splitext(os.path.basename(cand))[0]
+
+    target_filename = f"{raw_name}.md"
+    pref_dirs = SECTION_PREF_DIRS.get(section.strip().lower(), [])
+
+    for pref in pref_dirs:
+        direct_candidate = os.path.join(project_root, pref, target_filename)
+        if os.path.isfile(direct_candidate):
+            return os.path.relpath(direct_candidate, project_root).replace("\\", "/")
+        pref_root = os.path.join(project_root, pref)
+        if os.path.isdir(pref_root):
+            matches = []
+            for r, _dirs, files in os.walk(pref_root):
+                if target_filename in files:
+                    matches.append(os.path.relpath(os.path.join(r, target_filename), project_root).replace("\\", "/"))
+            if len(matches) == 1:
+                return matches[0]
+
+    # Fallback: search all managed dirs case-sensitively, then case-insensitively
+    all_matches = []
+    ci_matches = []
+    lower_target = target_filename.lower()
+    for top in ("wiki", "mem", "output"):
+        top_dir = os.path.join(project_root, top)
+        if not os.path.isdir(top_dir):
+            continue
+        for r, _dirs, files in os.walk(top_dir):
+            for fname in files:
+                if fname == target_filename:
+                    all_matches.append(os.path.relpath(os.path.join(r, fname), project_root).replace("\\", "/"))
+                elif fname.lower() == lower_target:
+                    ci_matches.append(os.path.relpath(os.path.join(r, fname), project_root).replace("\\", "/"))
+
+    if len(all_matches) == 1:
+        return all_matches[0]
+    if len(all_matches) > 1:
+        raise ValueError(
+            f"Ambiguous page '{page_name}' for section '{section}': multiple matches {all_matches}"
+        )
+    if len(ci_matches) == 1:
+        return ci_matches[0]
+    raise FileNotFoundError(
+        f"Cannot resolve markdown file for '{page_name}' (section '{section}') under {project_root}"
+    )
+
+
 def sort_key_from_bullet(line):
-    """Return case-insensitive sort key for a '- [[Page]]: Summary' bullet line."""
-    m = ENTRY_LINE_RE.match(line)
-    if m:
-        return m.group(1).split("|")[0].strip().lower()
+    """Return case-insensitive sort key for a Markdown or legacy bullet line."""
+    parsed = parse_index_bullet(line)
+    if parsed:
+        return parsed[0].lower()
     return line.strip().lower()
 
 
-def update_index_content(content, entries):
+def update_index_content(content, entries, project_root=None):
     """Insert or update entries inside target ## sections and sort bullets alphabetically."""
     if not entries:
         return content, []
@@ -113,9 +207,7 @@ def update_index_content(content, entries):
 
     for line in lines:
         if line.startswith("## "):
-            if current_name is None:
-                pass
-            else:
+            if current_name is not None:
                 sections.append({"name": current_name, "lines": current_lines})
             current_name = line[3:].strip()
             current_lines = []
@@ -144,21 +236,33 @@ def update_index_content(content, entries):
         bullets = []
         other_lines = []
         for l in sec_obj["lines"]:
-            if ENTRY_LINE_RE.match(l):
+            if parse_index_bullet(l) is not None:
                 bullets.append(l)
             elif l.strip():
                 other_lines.append(l)
 
         bullet_by_page = {}
         for b in bullets:
-            m = ENTRY_LINE_RE.match(b)
-            page_key = m.group(1).split("|")[0].strip().lower()
+            parsed = parse_index_bullet(b)
+            page_title, rel_posix, _summary = parsed
+            page_key = page_title.lower()
             bullet_by_page[page_key] = b
 
         for e in sec_entries:
-            new_line = f"- [[{e['page']}]]: {e['summary']}"
+            if project_root is not None:
+                rel_posix = resolve_page_rel_path(project_root, sec_obj["name"], e["page"])
+                encoded = encode_md_path(rel_posix)
+                new_line = f"- [{e['page']}]({encoded}): {e['summary']}"
+            else:
+                new_line = f"- [[{e['page']}]]: {e['summary']}"
+                rel_posix = None
             bullet_by_page[e["page"].lower()] = new_line
-            updated.append({"section": sec_obj["name"], "page": e["page"], "line": new_line})
+            updated.append({
+                "section": sec_obj["name"],
+                "page": e["page"],
+                "path": rel_posix,
+                "line": new_line,
+            })
 
         sorted_bullets = sorted(bullet_by_page.values(), key=sort_key_from_bullet)
         sec_obj["lines"] = other_lines + sorted_bullets
@@ -171,7 +275,10 @@ def update_index_content(content, entries):
         if rebuilt:
             rebuilt.append("")
         rebuilt.append(f"## {sec['name']}")
-        for l in sec["lines"]:
+        clean_lines = list(sec["lines"])
+        while clean_lines and not clean_lines[-1].strip():
+            clean_lines.pop()
+        for l in clean_lines:
             rebuilt.append(l)
 
     return "\n".join(rebuilt) + "\n", updated
@@ -250,11 +357,10 @@ def main():
                     if line.startswith("## "):
                         current_section = line[3:].strip()
                         continue
-                    m = ENTRY_LINE_RE.match(line)
-                    if not m:
+                    m_parsed = parse_index_bullet(line)
+                    if not m_parsed:
                         continue
-                    page = m.group(1).split("|")[0].strip()
-                    summary = m.group(2).strip()
+                    page, rel_posix, summary = m_parsed
                     haystack_page = page.lower()
                     haystack_sum = summary.lower()
                     score = sum(
@@ -262,7 +368,7 @@ def main():
                         for t in query_tokens
                     )
                     if score > 0:
-                        matches.append((score, current_section, page, line.strip()))
+                        matches.append((score, current_section, page, rel_posix, line.strip()))
         matches.sort(key=lambda item: (-item[0], item[2].lower()))
         print(
             json.dumps(
@@ -270,8 +376,13 @@ def main():
                     "status": "ok",
                     "query": args.suggest_links,
                     "matches": [
-                        {"section": sec, "page": page, "line": line}
-                        for _, sec, page, line in matches[: args.top_k]
+                        {
+                            "section": sec,
+                            "page": page,
+                            **({"path": rel_path} if rel_path else {}),
+                            "line": line,
+                        }
+                        for _, sec, page, rel_path, line in matches[: args.top_k]
                     ],
                 },
                 ensure_ascii=False,
@@ -303,15 +414,17 @@ def main():
 
         if not source_title:
             raise ValueError("--source-title is required (via CLI or --manifest)")
+
+        log_path = os.path.join(project_root, "wiki", "log.md")
+
+        with open(index_path, "r", encoding="utf-8", errors="replace") as f:
+            index_content = f.read()
+        new_index_content, updated_entries = update_index_content(
+            index_content, entries, project_root=project_root
+        )
     except Exception as exc:  # noqa: BLE001
         print(json.dumps({"status": "error", "error": str(exc)}, ensure_ascii=False, indent=2))
         sys.exit(1)
-
-    log_path = os.path.join(project_root, "wiki", "log.md")
-
-    with open(index_path, "r", encoding="utf-8", errors="replace") as f:
-        index_content = f.read()
-    new_index_content, updated_entries = update_index_content(index_content, entries)
 
     log_line = f"## [{date_str}] {log_type} | {source_title}"
     with open(log_path, "r", encoding="utf-8", errors="replace") as f:

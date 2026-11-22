@@ -6,12 +6,12 @@ tags:
   - verification
   - agentic-design
   - claude-code
-source: "[[Code Review]]"
+source: "wiki/sources/Code Review.md"
 ---
 
 # Automated Multi-Agent Code Review
 
-**Automated Multi-Agent Code Review** is a production verification architecture in [[Claude Code]] where a fleet of specialized subagents analyzes PR diffs in parallel against full codebase context, supported by an empirical verification step to eliminate false positives.
+**Automated Multi-Agent Code Review** is a production verification architecture in [Claude Code](../entities/Claude%20Code.md) where a fleet of specialized subagents analyzes PR diffs in parallel against full codebase context, supported by an empirical verification step to eliminate false positives.
 
 ---
 
@@ -36,4 +36,4 @@ graph TD
 2. **Severity Calibration**: Issues are ranked into 🔴 Important, 🟡 Nit, and 🟣 Pre-existing categories.
 3. **Local Terminal Alternative**: Available locally via the `/code-review` command.
 
-See [[Code Review]], [[REVIEW.md Governance]], and [[Second Opinion Pattern]].
+See [Code Review](../sources/Code%20Review.md), [REVIEW.md Governance](REVIEW.md%20Governance.md), and [Second Opinion Pattern](Second%20Opinion%20Pattern.md).

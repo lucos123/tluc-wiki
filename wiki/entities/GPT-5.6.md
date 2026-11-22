@@ -16,7 +16,7 @@ GPT-5.6 is OpenAI's frontier model family launched on July 9, 2026, comprising t
 
 | Tier | Role | Positioning |
 |------|------|-------------|
-| **Sol** | Flagship | State-of-the-art across coding, knowledge work, cybersecurity, science. Estimated 2T–4T parameter scale. Offered in 2 serving tiers: Standard (40–50 t/s on NVIDIA B300) and Ultra-Fast (750 t/s on [[Cerebras Systems]] WSE-3 chips). |
+| **Sol** | Flagship | State-of-the-art across coding, knowledge work, cybersecurity, science. Estimated 2T–4T parameter scale. Offered in 2 serving tiers: Standard (40–50 t/s on NVIDIA B300) and Ultra-Fast (750 t/s on [Cerebras Systems](Cerebras%20Systems.md) WSE-3 chips). |
 | **Terra** | Balanced | Everyday work; outperforms Claude Fable 5 at ~1/16th cost |
 | **Luna** | Cost-efficient | Most affordable; also outperforms Fable 5 at ~1/16th cost |
 
@@ -30,7 +30,7 @@ GPT-5.6 supports graduated compute investment:
 ## Key Capabilities
 
 ### Programmatic Tool Calling
-GPT-5.6 can write and run lightweight programs that coordinate tools, process intermediate results, and adapt workflows — reducing tokens, round trips, and developer guidance. See [[Programmatic Tool Calling]].
+GPT-5.6 can write and run lightweight programs that coordinate tools, process intermediate results, and adapt workflows — reducing tokens, round trips, and developer guidance. See [Programmatic Tool Calling](../concepts/Programmatic%20Tool%20Calling.md).
 
 ### Design Judgment
 Creates tasteful, ergonomic interfaces from high-level direction. Uses computer-use capabilities to inspect and refine *rendered output* (not just source code), catching visual/functional issues before handoff.
@@ -55,4 +55,4 @@ Most robust safeguards to date. Layered approach: model-level protections + real
 
 ## Sources
 
-- [[GPT-5.6 Frontier Intelligence|GPT-5.6: Frontier Intelligence That Scales With Your Ambition]]
+- [GPT-5.6: Frontier Intelligence That Scales With Your Ambition](../sources/GPT-5.6%20Frontier%20Intelligence.md)

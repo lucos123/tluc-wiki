@@ -7,7 +7,7 @@ tags:
   - agentic-design
   - verification
   - harness-engineering
-source: "[[raw/articles/claude-code/building-verification-loops-in-claude-code-with-skills.md]]"
+source: "raw/articles/claude-code/building-verification-loops-in-claude-code-with-skills.md"
 ---
 
 # Building verification loops in Claude Code with skills
@@ -16,7 +16,7 @@ source: "[[raw/articles/claude-code/building-verification-loops-in-claude-code-w
 **Original URL**: https://claude.com/blog/building-verification-loops-in-claude-code-with-skills
 **Author**: Delba de Oliveira, Claude Code team
 
-How to convert manual quality checks into [[Verification Loop|verification loops]] — automated, iterative cycles where Claude checks and fixes its own work before responding. The article covers built-in support, skill creation, and a progression of deployment modes.
+How to convert manual quality checks into [verification loops](../concepts/Verification%20Loop.md) — automated, iterative cycles where Claude checks and fixes its own work before responding. The article covers built-in support, skill creation, and a progression of deployment modes.
 
 ## The Agentic Loop
 
@@ -26,7 +26,7 @@ All agentic coding sessions follow a core loop:
 Gather context → Take action → Verify results → (loop if needed)
 ```
 
-Verification is how agents check their work before responding. [[Claude Code]] already infers deterministic signals from the codebase — type checkers, linters, tests, runtime errors. **Everything Claude can't infer becomes a manual check by the human.** Verification loops convert those manual steps into skills Claude runs itself.
+Verification is how agents check their work before responding. [Claude Code](../entities/Claude%20Code.md) already infers deterministic signals from the codebase — type checkers, linters, tests, runtime errors. **Everything Claude can't infer becomes a manual check by the human.** Verification loops convert those manual steps into skills Claude runs itself.
 
 ## Built-In Verification Support
 
@@ -126,12 +126,12 @@ Each step pushes the check from "something I remember to do" toward "something t
 
 ## Synthesis Notes
 
-This source operationalises the verification principles described in [[Best practices for Claude Code]] (which names four gate strengths: in-prompt, `/goal`, Stop hook, verification subagent). Those are *when* to verify; this article explains *how* to structure the verification loop and where to deploy it.
+This source operationalises the verification principles described in [Best practices for Claude Code](Best%20practices%20for%20Claude%20Code.md) (which names four gate strengths: in-prompt, `/goal`, Stop hook, verification subagent). Those are *when* to verify; this article explains *how* to structure the verification loop and where to deploy it.
 
-The four deployment modes (Standalone → Embedded → Chained → On every PR) form a natural maturity ladder. Each level removes a dependency on human memory and adds it to the harness — the core [[Harness Engineering]] motion.
+The four deployment modes (Standalone → Embedded → Chained → On every PR) form a natural maturity ladder. Each level removes a dependency on human memory and adds it to the harness — the core [Harness Engineering](../concepts/Harness%20Engineering.md) motion.
 
 The **wrapper skill pattern** is particularly useful: it makes the "can't modify this skill" limitation irrelevant by creating a thin orchestration wrapper. This is analogous to the Adapter pattern in software design — adapting an interface without modifying the original.
 
 The **Rubrics in Claude Managed Agents** feature represents a fully managed version of the verification loop — where even the grader is an agent and failures loop back automatically. This is the endpoint of the progression: a system that generates, implements, verifies, and re-iterates without human intervention.
 
-Cross-references: [[Verification Loop]], [[Claude Code Skills]], [[Claude Code Hooks]] (deterministic complement), [[Best practices for Claude Code]], [[AI Code Migration]] (verification loops as core mechanism), [[Harness Engineering]].
+Cross-references: [Verification Loop](../concepts/Verification%20Loop.md), [Claude Code Skills](Claude%20Code%20Skills.md), [Claude Code Hooks](Claude%20Code%20Hooks.md) (deterministic complement), [Best practices for Claude Code](Best%20practices%20for%20Claude%20Code.md), [AI Code Migration](../concepts/AI%20Code%20Migration.md) (verification loops as core mechanism), [Harness Engineering](../concepts/Harness%20Engineering.md).

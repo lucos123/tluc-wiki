@@ -5,12 +5,12 @@ tags:
   - concept
   - machine-learning
   - llm-foundations
-source: "[[Types of Machine Learning Handbook]]"
+source: "wiki/sources/Types of Machine Learning Handbook.md"
 ---
 
 # Supervised Learning Algorithms
 
-**Supervised Learning** trains models on labeled `(input, ground-truth output)` pairs via a 5-stage pipeline (`Labeled Data → Data Preprocessing → Model Training → Testing/Evaluation → Inference`) to generalize onto unseen data across **Regression** (continuous outputs) and **Classification** (discrete classes). See [[Types of Machine Learning Handbook]].
+**Supervised Learning** trains models on labeled `(input, ground-truth output)` pairs via a 5-stage pipeline (`Labeled Data → Data Preprocessing → Model Training → Testing/Evaluation → Inference`) to generalize onto unseen data across **Regression** (continuous outputs) and **Classification** (discrete classes). See [Types of Machine Learning Handbook](../sources/Types%20of%20Machine%20Learning%20Handbook.md).
 
 ---
 
@@ -24,7 +24,7 @@ source: "[[Types of Machine Learning Handbook]]"
 | **Lasso Regression (L1)** | $J(\theta) = \frac{1}{2m}\sum (y - \hat{y})^2 + \lambda \sum \|\theta_j\|$ | Drives weak coefficients strictly to zero (embedded feature selection) |
 | **Elastic Net (L1 + L2)** | $J(\theta) = \frac{1}{2m}\sum (y - \hat{y})^2 + \lambda_1 \sum \|\theta_j\| + \lambda_2 \sum \theta_j^2$ | Balances L1 sparsity and L2 stability across correlated features |
 
-> *Implementation note*: L1 and L2 penalties typically apply strictly to **model weights** $w_j$ and exclude the bias/intercept term $b$ ([[Machine Learning and Deep Learning Cheat Sheets]]).
+> *Implementation note*: L1 and L2 penalties typically apply strictly to **model weights** $w_j$ and exclude the bias/intercept term $b$ ([Machine Learning and Deep Learning Cheat Sheets](../sources/Machine%20Learning%20and%20Deep%20Learning%20Cheat%20Sheets.md)).
 
 ---
 
@@ -42,5 +42,9 @@ source: "[[Types of Machine Learning Handbook]]"
 ---
 
 ## Related Pages
-- **Sources**: [[Types of Machine Learning Handbook]], [[Machine Learning and Deep Learning Cheat Sheets]]
-- **Concepts**: [[Machine Learning Paradigms]], [[Unsupervised Learning and Dimensionality Reduction]], [[Model Evaluation and Validation]], [[Neural Networks and Deep Learning Foundations]]
+- **Sources**: [Types of Machine Learning Handbook](../sources/Types%20of%20Machine%20Learning%20Handbook.md), [Machine Learning and Deep Learning Cheat Sheets](../sources/Machine%20Learning%20and%20Deep%20Learning%20Cheat%20Sheets.md)
+- **Concepts**:
+  - [Machine Learning Paradigms](Machine%20Learning%20Paradigms.md)
+  - [Unsupervised Learning and Dimensionality Reduction](Unsupervised%20Learning%20and%20Dimensionality%20Reduction.md)
+  - [Model Evaluation and Validation](Model%20Evaluation%20and%20Validation.md)
+  - [Neural Networks and Deep Learning Foundations](Neural%20Networks%20and%20Deep%20Learning%20Foundations.md)

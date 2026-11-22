@@ -7,20 +7,20 @@ tags:
   - model-selection
   - harness-engineering
   - claude-code
-source: "[[raw/articles/claude-code/costs-models-checkpoints/advisor.md]]"
+source: "raw/articles/claude-code/costs-models-checkpoints/advisor.md"
 url: "https://code.claude.com/docs/en/advisor.md"
 ---
 
 # Escalate hard decisions with the advisor tool
 
 **URL**: https://code.claude.com/docs/en/advisor.md  
-**Source File**: [[raw/articles/claude-code/costs-models-checkpoints/advisor.md]]  
+**Source File**: [raw/articles/claude-code/costs-models-checkpoints/advisor.md](../../raw/articles/claude-code/costs-models-checkpoints/advisor.md)  
 
 ---
 
 ## Executive Summary
 
-This official Anthropic guide details the **Advisor Tool** (`/advisor`) in [[Claude Code]].
+This official Anthropic guide details the **Advisor Tool** (`/advisor`) in [Claude Code](../entities/Claude%20Code.md).
 
 The Advisor tool enables a primary execution model (e.g. Sonnet 4.6) to consult a stronger advisor model (e.g. Opus 5) at critical decision points, recurring error loops, or before task completion. The advisor inspects the full conversation history and returns guidance before execution continues.
 
@@ -66,5 +66,9 @@ claude --advisor opus
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Advisor Model Pattern]], [[Second Opinion Pattern]], [[Effort Level and Model Selection]], [[Cost Optimization]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Advisor Model Pattern](../concepts/Advisor%20Model%20Pattern.md)
+  - [Second Opinion Pattern](../concepts/Second%20Opinion%20Pattern.md)
+  - [Effort Level and Model Selection](../concepts/Effort%20Level%20and%20Model%20Selection.md)
+  - [Cost Optimization](../concepts/Cost%20Optimization.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

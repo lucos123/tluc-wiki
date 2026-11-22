@@ -10,9 +10,9 @@ source: "raw/articles/kimi/model-capabilities/thinking-models.md"
 
 # Kimi Thinking Models & Preserved Thinking Guide
 
-**Source File**: [[raw/articles/kimi/model-capabilities/thinking-models.md]]
+**Source File**: [raw/articles/kimi/model-capabilities/thinking-models.md](../../raw/articles/kimi/model-capabilities/thinking-models.md)
 
-Deep-dive into reasoning tokens, `reasoning_content` extraction, and `[[Preserved Thinking]]` across the Kimi model family.
+Deep-dive into reasoning tokens, `reasoning_content` extraction, and [Preserved Thinking](../concepts/Preserved%20Thinking.md) across the Kimi model family.
 
 ## Key Concepts
 
@@ -27,4 +27,4 @@ Deep-dive into reasoning tokens, `reasoning_content` extraction, and `[[Preserve
 
 ## Synthesis Notes
 
-`[[Preserved Thinking]]` is a major advancement for long-horizon agentic workflows (`[[Loop Engineering]]`). By preserving intermediate thinking tokens across multi-turn tool loops, agents avoid re-reasoning from scratch, preserving context and coherence during complex multi-step tasks.
+[Preserved Thinking](../concepts/Preserved%20Thinking.md) is a major advancement for long-horizon agentic workflows ([Loop Engineering](../concepts/Loop%20Engineering.md)). By preserving intermediate thinking tokens across multi-turn tool loops, agents avoid re-reasoning from scratch, preserving context and coherence during complex multi-step tasks.

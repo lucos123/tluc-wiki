@@ -6,7 +6,7 @@ tags:
   - context-engineering
   - cost-optimization
   - claude-code
-source: "[[Best practices for Claude Code]]"
+source: "wiki/sources/Best practices for Claude Code.md"
 ---
 
 # Context Window Management
@@ -39,7 +39,7 @@ graph TD
 ## Core Strategies
 
 1. **Concise Persistent Files (`CLAUDE.md`)**: Keep advisory files lean. Bloated instruction files cause models to miss critical rules.
-2. **Progressive Disclosure**: Use [[Progressive Disclosure]] (`SKILL.md`, `ToolSearch`) to load domain instructions and tools only on demand.
+2. **Progressive Disclosure**: Use [Progressive Disclosure](Progressive%20Disclosure.md) (`SKILL.md`, `ToolSearch`) to load domain instructions and tools only on demand.
 3. **Session Resetting & Compacting**: Use `/compact` before long breaks and `/clear` when switching tasks to prune stale conversation state. On 1M models, set `/autocompact 200k`.
 4. **Plan Mode & Subagent Isolation**: Perform exploratory searches in `plan mode` or subagents so high-volume file reads don't pollute the main implementation context.
 5. **Direct `@-Mentions` & Quiet Flags**: Reference `@file.ts` directly and add quiet reporters (e.g. `vitest --reporter=dot`) to avoid injecting hundreds of lines of command output.
@@ -48,6 +48,19 @@ graph TD
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Context Rot]], [[Cost Optimization]], [[Token Economics]], [[Tokenization]], [[Progressive Disclosure]], [[Subagent Context Isolation]].
-- **Entities**: [[Claude Code]], [[Anthropic]], [[OpenAI]].
-- **Sources**: [[Token and API Price Guide]], [[Maximizing the Value of Your Claude Code Sessions]], [[Best practices for Claude Code]], [[Explore the context window]].
+- **Concepts**:
+  - [Context Rot](Context%20Rot.md)
+  - [Cost Optimization](Cost%20Optimization.md)
+  - [Token Economics](Token%20Economics.md)
+  - [Tokenization](Tokenization.md)
+  - [Progressive Disclosure](Progressive%20Disclosure.md)
+  - [Subagent Context Isolation](Subagent%20Context%20Isolation.md)
+- **Entities**:
+  - [Claude Code](../entities/Claude%20Code.md)
+  - [Anthropic](../entities/Anthropic.md)
+  - [OpenAI](../entities/OpenAI.md)
+- **Sources**:
+  - [Token and API Price Guide](../sources/Token%20and%20API%20Price%20Guide.md)
+  - [Maximizing the Value of Your Claude Code Sessions](../sources/Maximizing%20the%20Value%20of%20Your%20Claude%20Code%20Sessions.md)
+  - [Best practices for Claude Code](../sources/Best%20practices%20for%20Claude%20Code.md)
+  - [Explore the context window](../sources/Explore%20the%20context%20window.md)

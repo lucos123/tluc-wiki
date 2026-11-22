@@ -8,20 +8,20 @@ tags:
   - parallelism
   - inference
   - reference
-source: "[[raw/articles/ai-other/all-gpu-related-concepts-simply-explained.md]]"
+source: "raw/articles/ai-other/all-gpu-related-concepts-simply-explained.md"
 source_type: article
 url: "https://jamwithai.substack.com/p/all-gpu-related-concepts-simply-explained"
-author: "[[Jam With AI]]"
+author: "Jam With AI"
 ---
 
 # All GPU Related Concepts Simply Explained
 
-**Author**: [[Jam With AI]]
+**Author**: [Jam With AI](../entities/Jam%20With%20AI.md)
 **URL**: https://jamwithai.substack.com/p/all-gpu-related-concepts-simply-explained
-**Source File**: [[raw/articles/ai-other/all-gpu-related-concepts-simply-explained.md]]
-**Curated Visual Diagrams (`11` core sheets)**: [[raw/screenshots/all-gpu-related-concepts-simply-explained/00.webp]], [[raw/screenshots/all-gpu-related-concepts-simply-explained/01.webp]], [[raw/screenshots/all-gpu-related-concepts-simply-explained/02.webp]], [[raw/screenshots/all-gpu-related-concepts-simply-explained/03.webp]], [[raw/screenshots/all-gpu-related-concepts-simply-explained/04.webp]], [[raw/screenshots/all-gpu-related-concepts-simply-explained/05.webp]], [[raw/screenshots/all-gpu-related-concepts-simply-explained/06.webp]], [[raw/screenshots/all-gpu-related-concepts-simply-explained/07.webp]], [[raw/screenshots/all-gpu-related-concepts-simply-explained/08.webp]], [[raw/screenshots/all-gpu-related-concepts-simply-explained/09.webp]], [[raw/screenshots/all-gpu-related-concepts-simply-explained/10.webp]]
+**Source File**: [raw/articles/ai-other/all-gpu-related-concepts-simply-explained.md](../../raw/articles/ai-other/all-gpu-related-concepts-simply-explained.md)
+**Curated Visual Diagrams (`11` core sheets)**: [raw/screenshots/all-gpu-related-concepts-simply-explained/00.webp](../../raw/screenshots/all-gpu-related-concepts-simply-explained/00.webp), [raw/screenshots/all-gpu-related-concepts-simply-explained/01.webp](../../raw/screenshots/all-gpu-related-concepts-simply-explained/01.webp), [raw/screenshots/all-gpu-related-concepts-simply-explained/02.webp](../../raw/screenshots/all-gpu-related-concepts-simply-explained/02.webp), [raw/screenshots/all-gpu-related-concepts-simply-explained/03.webp](../../raw/screenshots/all-gpu-related-concepts-simply-explained/03.webp), [raw/screenshots/all-gpu-related-concepts-simply-explained/04.webp](../../raw/screenshots/all-gpu-related-concepts-simply-explained/04.webp), [raw/screenshots/all-gpu-related-concepts-simply-explained/05.webp](../../raw/screenshots/all-gpu-related-concepts-simply-explained/05.webp), [raw/screenshots/all-gpu-related-concepts-simply-explained/06.webp](../../raw/screenshots/all-gpu-related-concepts-simply-explained/06.webp), [raw/screenshots/all-gpu-related-concepts-simply-explained/07.webp](../../raw/screenshots/all-gpu-related-concepts-simply-explained/07.webp), [raw/screenshots/all-gpu-related-concepts-simply-explained/08.webp](../../raw/screenshots/all-gpu-related-concepts-simply-explained/08.webp), [raw/screenshots/all-gpu-related-concepts-simply-explained/09.webp](../../raw/screenshots/all-gpu-related-concepts-simply-explained/09.webp), [raw/screenshots/all-gpu-related-concepts-simply-explained/10.webp](../../raw/screenshots/all-gpu-related-concepts-simply-explained/10.webp)
 
-A plain-English visual reference covering **55+ GPU concepts** across **8 interconnected layers**—helping AI engineers diagnose *why* models run slowly or run out of memory even after upgrading or adding GPUs. All core technical mechanisms are synthesized in [[GPU Architecture and Distributed Scaling]].
+A plain-English visual reference covering **55+ GPU concepts** across **8 interconnected layers**—helping AI engineers diagnose *why* models run slowly or run out of memory even after upgrading or adding GPUs. All core technical mechanisms are synthesized in [GPU Architecture and Distributed Scaling](../concepts/GPU%20Architecture%20and%20Distributed%20Scaling.md).
 
 ![All GPU Concepts Overview Map](../../raw/screenshots/all-gpu-related-concepts-simply-explained/00.webp)
 
@@ -55,13 +55,13 @@ A plain-English visual reference covering **55+ GPU concepts** across **8 interc
 
 ## 3. Connected Jam With AI Series & External Pointers
 - **Videos Embedded in Article (Already Ingested)**:
-  - [[How a Production AI Agent System Actually Works]] (`sKzL0wSN9vQ`)
-  - [[AI Agent Memory 7 Types Explained in 12 Minutes]] (`bK1clrG-boc`)
-  - [[AI System Design 7 Patterns Explained in 17 Minutes]] (`0jCss9xfOiw`)
+  - [How a Production AI Agent System Actually Works](How%20a%20Production%20AI%20Agent%20System%20Actually%20Works.md) (`sKzL0wSN9vQ`)
+  - [AI Agent Memory 7 Types Explained in 12 Minutes](AI%20Agent%20Memory%207%20Types%20Explained%20in%2012%20Minutes.md) (`bK1clrG-boc`)
+  - [AI System Design 7 Patterns Explained in 17 Minutes](AI%20System%20Design%207%20Patterns%20Explained%20in%2017%20Minutes.md) (`0jCss9xfOiw`)
 - **Related Substack Guides Already Ingested**:
-  - [[Agent Memory The 7 Types You Should Know]]
-  - [[System Design for AI Engineers 7 Patterns]]
-  - [[System Design for Engineers 162 Concepts]]
+  - [Agent Memory The 7 Types You Should Know](Agent%20Memory%20The%207%20Types%20You%20Should%20Know.md)
+  - [System Design for AI Engineers 7 Patterns](System%20Design%20for%20AI%20Engineers%207%20Patterns.md)
+  - [System Design for Engineers 162 Concepts](System%20Design%20for%20Engineers%20162%20Concepts.md)
 - **Additional Substack Pointers *(Not Opened/Ingested)***:
   - [20 AI Engineering Concepts Explained](https://jamwithai.substack.com/p/20-ai-engineering-concepts-explained)
   - [LLM Inference 101](https://jamwithai.substack.com/p/llm-inference-101)
@@ -69,6 +69,14 @@ A plain-English visual reference covering **55+ GPU concepts** across **8 interc
 ---
 
 ## Related Pages
-- **Primary Synthesis & Entity**: [[GPU Architecture and Distributed Scaling]], [[Jam With AI]]
-- **LLMOps, Quantization & Serving**: [[LLMOps & Inference]], [[LLM Inference Optimization and Security]], [[LLM Pretraining, Optimization and Decoding]], [[Inference Serving and Deployment Patterns]], [[Inference Speed vs Intelligence Trade-off]]
-- **System Design & Production AI**: [[AI System Design and Production Architecture]], [[Production AI Resilience and Scaling Patterns]], [[System Design for Engineers 162 Concepts]]
+- **Primary Synthesis & Entity**: [GPU Architecture and Distributed Scaling](../concepts/GPU%20Architecture%20and%20Distributed%20Scaling.md), [Jam With AI](../entities/Jam%20With%20AI.md)
+- **LLMOps, Quantization & Serving**:
+  - [LLMOps & Inference](../topics/LLMOps%20%26%20Inference.md)
+  - [LLM Inference Optimization and Security](../concepts/LLM%20Inference%20Optimization%20and%20Security.md)
+  - [LLM Pretraining, Optimization and Decoding](../concepts/LLM%20Pretraining%2C%20Optimization%20and%20Decoding.md)
+  - [Inference Serving and Deployment Patterns](../concepts/Inference%20Serving%20and%20Deployment%20Patterns.md)
+  - [Inference Speed vs Intelligence Trade-off](../concepts/Inference%20Speed%20vs%20Intelligence%20Trade-off.md)
+- **System Design & Production AI**:
+  - [AI System Design and Production Architecture](../concepts/AI%20System%20Design%20and%20Production%20Architecture.md)
+  - [Production AI Resilience and Scaling Patterns](../concepts/Production%20AI%20Resilience%20and%20Scaling%20Patterns.md)
+  - [System Design for Engineers 162 Concepts](System%20Design%20for%20Engineers%20162%20Concepts.md)

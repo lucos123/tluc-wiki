@@ -6,12 +6,12 @@ tags:
   - llm-foundations
   - optimization
   - inference
-source: "[[LLM Handwritten Study Guide 15 Pages]]"
+source: "wiki/sources/LLM Handwritten Study Guide 15 Pages.md"
 ---
 
 # LLM Pretraining, Optimization and Decoding
 
-**LLM Pretraining, Optimization, and Decoding** governs the full mathematical lifecycle of turning raw web-scale corpora into calibrated foundation weights—and converting next-token logits into coherent, low-latency text at inference time ([[LLM Handwritten Study Guide 15 Pages]], Pages `07.jpg`, `08.jpg`, `11.jpg`).
+**LLM Pretraining, Optimization, and Decoding** governs the full mathematical lifecycle of turning raw web-scale corpora into calibrated foundation weights—and converting next-token logits into coherent, low-latency text at inference time ([LLM Handwritten Study Guide 15 Pages](../sources/LLM%20Handwritten%20Study%20Guide%2015%20Pages.md), Pages `07.jpg`, `08.jpg`, `11.jpg`).
 
 ![LLM Training and Optimization Sheet](../../raw/screenshots/llm-handwritten-handbook-15-pages/08.jpg)
 
@@ -39,7 +39,7 @@ Training `10B–100B+` frontier models across GPU/TPU clusters combines **Data P
 
 | Hyperparameter / Component | Mechanism & Formula | Production Standard for LLMs |
 | :--- | :--- | :--- |
-| **Gradient Descent & Loss** | $\theta_{t+1} = \theta_t - \eta \nabla L(\theta_t)$ minimizing batch Cross-Entropy $L = -\frac{1}{N}\sum_{i=1}^N\sum_{v=1}^V y_{i,v}\log(p_{i,v})$ | Paired with **Label Smoothing** to mitigate overconfidence/overfitting ([[Transformers Detailed Notes and Revision Guide]]) |
+| **Gradient Descent & Loss** | $\theta_{t+1} = \theta_t - \eta \nabla L(\theta_t)$ minimizing batch Cross-Entropy $L = -\frac{1}{N}\sum_{i=1}^N\sum_{v=1}^V y_{i,v}\log(p_{i,v})$ | Paired with **Label Smoothing** to mitigate overconfidence/overfitting ([Transformers Detailed Notes and Revision Guide](../sources/Transformers%20Detailed%20Notes%20and%20Revision%20Guide.md)) |
 | **Adam / `AdamW` / `Lion`** | $m_t = \beta_1 m_{t-1} + (1-\beta_1)g_t,\; v_t = \beta_2 v_{t-1} + (1-\beta_2)g_t^2,\; \theta_t = \theta_{t-1} - \alpha\frac{\hat{m}_t}{\sqrt{\hat{v}_t}+\epsilon}$ | **`AdamW`** decouples weight decay for stronger generalization; **`Lion`** reduces optimizer state memory |
 | **Cosine Annealing LR** | $\eta_t = \eta_{\min} + \frac{1}{2}(\eta_{\max} - \eta_{\min})\left(1 + \cos\left(\frac{\pi t}{T}\right)\right)$ | Paired with linear **warmup** to stabilize early gradients |
 | **Teacher Forcing** | Feeds **ground-truth target tokens** (not previous model outputs) as Decoder inputs *solely during training* | Accelerates convergence and avoids exposure-bias compounding; disabled at inference |
@@ -65,11 +65,24 @@ At inference time, tokenized prompts pass through the Transformer forward loop t
 6. **Repetition Penalty ($r$)**: Penalizes previously generated tokens directly in proportion to a divisor $r > 1$ (typically $r \in [1.1, 1.5]$):
    $$\tilde{P}(t_i) = \begin{cases} P(t_i) / r & \text{if } t_i \text{ already generated} \\ P(t_i) & \text{otherwise} \end{cases}$$
 
-Across production workloads (accelerated by **KV Cache** storing historical `K, V` tensors per layer), interactive single-stream latency typically ranges `10–500 ms/token` while batched serving reaches `50–10,000+ tokens/sec` (see [[LLM Inference Optimization and Security]] and [[Inference Serving and Deployment Patterns]]).
+Across production workloads (accelerated by **KV Cache** storing historical `K, V` tensors per layer), interactive single-stream latency typically ranges `10–500 ms/token` while batched serving reaches `50–10,000+ tokens/sec` (see [LLM Inference Optimization and Security](LLM%20Inference%20Optimization%20and%20Security.md) and [Inference Serving and Deployment Patterns](Inference%20Serving%20and%20Deployment%20Patterns.md)).
 
 ---
 
 ## Related Pages
-- **Sources**: [[LLM Handwritten Study Guide 15 Pages]], [[Transformers Detailed Notes and Revision Guide]], [[LLM Handbook 50 Concepts]], [[AI Engineer Interview Notes]], [[All GPU Related Concepts Simply Explained]], [[Machine Learning and Deep Learning Cheat Sheets]]
-- **Upstream Architecture**: [[Transformer Architecture and Pre-training]], [[Tokenization]], [[GPU Architecture and Distributed Scaling]], [[Neural Networks and Deep Learning Foundations]]
-- **Post-Training & Serving**: [[LLM Fine-Tuning and Alignment]], [[LLM Inference Optimization and Security]], [[Inference Serving and Deployment Patterns]]
+- **Sources**:
+  - [LLM Handwritten Study Guide 15 Pages](../sources/LLM%20Handwritten%20Study%20Guide%2015%20Pages.md)
+  - [Transformers Detailed Notes and Revision Guide](../sources/Transformers%20Detailed%20Notes%20and%20Revision%20Guide.md)
+  - [LLM Handbook 50 Concepts](../sources/LLM%20Handbook%2050%20Concepts.md)
+  - [AI Engineer Interview Notes](../sources/AI%20Engineer%20Interview%20Notes.md)
+  - [All GPU Related Concepts Simply Explained](../sources/All%20GPU%20Related%20Concepts%20Simply%20Explained.md)
+  - [Machine Learning and Deep Learning Cheat Sheets](../sources/Machine%20Learning%20and%20Deep%20Learning%20Cheat%20Sheets.md)
+- **Upstream Architecture**:
+  - [Transformer Architecture and Pre-training](Transformer%20Architecture%20and%20Pre-training.md)
+  - [Tokenization](Tokenization.md)
+  - [GPU Architecture and Distributed Scaling](GPU%20Architecture%20and%20Distributed%20Scaling.md)
+  - [Neural Networks and Deep Learning Foundations](Neural%20Networks%20and%20Deep%20Learning%20Foundations.md)
+- **Post-Training & Serving**:
+  - [LLM Fine-Tuning and Alignment](LLM%20Fine-Tuning%20and%20Alignment.md)
+  - [LLM Inference Optimization and Security](LLM%20Inference%20Optimization%20and%20Security.md)
+  - [Inference Serving and Deployment Patterns](Inference%20Serving%20and%20Deployment%20Patterns.md)

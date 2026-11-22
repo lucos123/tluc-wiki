@@ -5,7 +5,7 @@ tags:
   - concept
   - context-engineering
   - harness-engineering
-source: "[[What Is Context Engineering]]"
+source: "wiki/sources/What Is Context Engineering.md"
 ---
 
 # Context Engineering Pipeline
@@ -32,4 +32,4 @@ graph TD
 3. **Generation**: Transforming processed data into structured JSON or Markdown formats legible to LLMs.
 4. **Management**: Maintaining multi-turn conversation state, invalidating stale facts, and enforcing payload sequence order.
 
-See [[What Is Context Engineering]], [[Context Selection and Sequencing]], [[Context Processing and Management]], and [[Context Engineering]].
+See [What Is Context Engineering](../sources/What%20Is%20Context%20Engineering.md), [Context Selection and Sequencing](Context%20Selection%20and%20Sequencing.md), [Context Processing and Management](Context%20Processing%20and%20Management.md), and [Context Engineering](Context%20Engineering.md).

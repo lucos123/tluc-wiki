@@ -17,10 +17,10 @@ source: "raw/video-transcripts/building-closed-loop-evals-for-a-multimodal-agent
 # Building Closed-Loop Evals for a Multimodal Agent at Scale
 
 **Channel**: AI Engineer  
-**Speakers**: Soumya Gupta & Jai Chopra ([[Uber]])  
+**Speakers**: Soumya Gupta & Jai Chopra ([Uber](../entities/Uber.md))  
 **URL**: https://www.youtube.com/watch?v=31GUkCBD-Uc  
 **Duration**: 21m 38s  
-**Transcript**: [[raw/video-transcripts/building-closed-loop-evals-for-a-multimodal-agent-at-scale-soumya-gupta-jai-chopra-uber.md]]
+**Transcript**: [raw/video-transcripts/building-closed-loop-evals-for-a-multimodal-agent-at-scale-soumya-gupta-jai-chopra-uber.md](../../raw/video-transcripts/building-closed-loop-evals-for-a-multimodal-agent-at-scale-soumya-gupta-jai-chopra-uber.md)
 
 A technical presentation from Uber's Computer Vision team detailing how Uber Eats deploys multimodal image enhancement agents at scale ($90B run rate, 10,000 cities) using **Closed-Loop Evals** and automated prompt/config tuning without human intervention in real-time.
 
@@ -45,6 +45,6 @@ A technical presentation from Uber's Computer Vision team detailing how Uber Eat
 
 ## Synthesis Notes
 
-This source extends the [[Loop Engineering]] framework into **Multimodal Production Applications at Industrial Scale**. 
+This source extends the [Loop Engineering](../concepts/Loop%20Engineering.md) framework into **Multimodal Production Applications at Industrial Scale**. 
 
-Where [[Kyle Mistele]]'s [[Control-Loop Engineering]] focuses on codebase transformations via PRs, Uber's architecture demonstrates how to apply closed-loop evals (`[[Closed-Loop Evals]]`) to high-throughput user-facing AI services. It complements LangChain's [[Hill-Climbing Loop]] by providing a concrete enterprise implementation of an agent self-improving its own prompts/configs through continuous reflection on production traces.
+Where [Kyle Mistele](../entities/Kyle%20Mistele.md)'s [Control-Loop Engineering](../concepts/Control-Loop%20Engineering.md) focuses on codebase transformations via PRs, Uber's architecture demonstrates how to apply closed-loop evals ([Closed-Loop Evals](../concepts/Closed-Loop%20Evals.md)) to high-throughput user-facing AI services. It complements LangChain's [Hill-Climbing Loop](../concepts/Hill-Climbing%20Loop.md) by providing a concrete enterprise implementation of an agent self-improving its own prompts/configs through continuous reflection on production traces.

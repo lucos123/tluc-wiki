@@ -7,20 +7,20 @@ tags:
   - cost-optimization
   - token-economics
   - claude-code
-source: "[[raw/articles/claude-code/costs-models-checkpoints/prompt-caching.md]]"
+source: "raw/articles/claude-code/costs-models-checkpoints/prompt-caching.md"
 url: "https://code.claude.com/docs/en/prompt-caching.md"
 ---
 
 # How Claude Code uses prompt caching
 
 **URL**: https://code.claude.com/docs/en/prompt-caching.md  
-**Source File**: [[raw/articles/claude-code/costs-models-checkpoints/prompt-caching.md]]  
+**Source File**: [raw/articles/claude-code/costs-models-checkpoints/prompt-caching.md](../../raw/articles/claude-code/costs-models-checkpoints/prompt-caching.md)  
 
 ---
 
 ## Executive Summary
 
-This official Anthropic guide explains how **Prompt Caching** operates automatically within [[Claude Code]] to maximize token efficiency and response speed.
+This official Anthropic guide explains how **Prompt Caching** operates automatically within [Claude Code](../entities/Claude%20Code.md) to maximize token efficiency and response speed.
 
 Prompt caching reuses identical API request prefixes (System Prompt $\rightarrow$ Project Context $\rightarrow$ History), billing cache reads at ~10% of standard input rates (`cache_read_input_tokens`). Understanding prefix matching prevents unintended cache invalidations caused by mid-session configuration changes.
 
@@ -61,5 +61,9 @@ Prompt caching reuses identical API request prefixes (System Prompt $\rightarrow
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[System Prompt Caching Optimization]], [[Cache Invalidation Patterns]], [[Token Economics]], [[Cost Optimization]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [System Prompt Caching Optimization](../concepts/System%20Prompt%20Caching%20Optimization.md)
+  - [Cache Invalidation Patterns](../concepts/Cache%20Invalidation%20Patterns.md)
+  - [Token Economics](../concepts/Token%20Economics.md)
+  - [Cost Optimization](../concepts/Cost%20Optimization.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

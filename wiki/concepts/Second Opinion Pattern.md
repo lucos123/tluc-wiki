@@ -6,14 +6,14 @@ tags:
   - agentic-design
   - verification
   - harness-engineering
-source: "[[Anthropic Just Fixed Graph Engineering's Greatest Flaw]]"
+source: "wiki/sources/Anthropic Just Fixed Graph Engineering's Greatest Flaw.md"
 ---
 
 # Second Opinion Pattern
 
 The **Second Opinion Pattern** is an agentic verification design pattern where an agent's work is reviewed by a completely separate, fresh-context model instance rather than the worker agent that generated the code or artifact.
 
-First detailed in [[Anthropic Just Fixed Graph Engineering's Greatest Flaw]] by [[AI LABS]].
+First detailed in [Anthropic Just Fixed Graph Engineering's Greatest Flaw](../sources/Anthropic%20Just%20Fixed%20Graph%20Engineering%27s%20Greatest%20Flaw.md) by [AI LABS](../entities/AI%20LABS.md).
 
 ---
 
@@ -36,6 +36,6 @@ When an AI agent reviews its own output within the same conversation window, it 
 
 ## Relationship to Other Patterns
 
-- **[[Verification Loop]]**: Serves as the highest-tier verification gate (Standalone or Subagent review).
-- **[[Graph Engineering]]**: Essential for node verification in fan-out DAGs.
-- **[[Harness Engineering]]**: Implemented via harness CLI flags (`-p`) or subagent execution primitives.
+- **[Verification Loop](Verification%20Loop.md)**: Serves as the highest-tier verification gate (Standalone or Subagent review).
+- **[Graph Engineering](Graph%20Engineering.md)**: Essential for node verification in fan-out DAGs.
+- **[Harness Engineering](Harness%20Engineering.md)**: Implemented via harness CLI flags (`-p`) or subagent execution primitives.

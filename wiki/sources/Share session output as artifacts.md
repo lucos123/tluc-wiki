@@ -7,20 +7,20 @@ tags:
   - web-publishing
   - harness-engineering
   - claude-code
-source: "[[raw/articles/claude-code/hooks-tools-mcp-chrome/artifacts.md]]"
+source: "raw/articles/claude-code/hooks-tools-mcp-chrome/artifacts.md"
 url: "https://code.claude.com/docs/en/artifacts.md"
 ---
 
 # Share session output as artifacts
 
 **URL**: https://code.claude.com/docs/en/artifacts.md  
-**Source File**: [[raw/articles/claude-code/hooks-tools-mcp-chrome/artifacts.md]]  
+**Source File**: [raw/articles/claude-code/hooks-tools-mcp-chrome/artifacts.md](../../raw/articles/claude-code/hooks-tools-mcp-chrome/artifacts.md)  
 
 ---
 
 ## Executive Summary
 
-This official Anthropic guide details **Session Artifacts** in [[Claude Code]].
+This official Anthropic guide details **Session Artifacts** in [Claude Code](../entities/Claude%20Code.md).
 
 Artifacts convert terminal session output into interactive HTML/Markdown web pages hosted on `claude.ai/code/artifact`. They allow developers to publish annotated pull request diffs, side-by-side design comparisons, live system health dashboards, and investigation progress boards that update live as tasks execute.
 
@@ -55,5 +55,8 @@ Artifacts convert terminal session output into interactive HTML/Markdown web pag
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Interactive Session Artifacts]], [[Model Context Protocol]], [[Harness Engineering]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Interactive Session Artifacts](../concepts/Interactive%20Session%20Artifacts.md)
+  - [Model Context Protocol](../concepts/Model%20Context%20Protocol.md)
+  - [Harness Engineering](../concepts/Harness%20Engineering.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

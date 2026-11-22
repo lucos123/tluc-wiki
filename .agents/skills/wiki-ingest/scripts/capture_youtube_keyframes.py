@@ -32,6 +32,7 @@ import re
 import shutil
 import subprocess
 import sys
+from urllib.parse import quote
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from download_post_assets import detect_image_info, find_project_root
@@ -329,7 +330,7 @@ def capture_single_frame(task: dict) -> dict:
         "index": idx_num,
         "filename": filename,
         "rel_path": rel_path,
-        "wiki_link": f"[[{rel_path}]]",
+        "markdown_link": f"[{rel_path}](../../{quote(rel_path, safe='/-._~')})",
         "md_embed": f"![Slide {idx_num:02d} - {format_mm_ss(chosen_sec)}](../screenshots/{slug}/{filename})",
         "timestamp_sec": chosen_sec,
         "mm_ss": format_mm_ss(chosen_sec),
@@ -416,7 +417,7 @@ def curate_existing_frames(
             "previous_index": old_idx,
             "filename": filename,
             "rel_path": rel_path,
-            "wiki_link": f"[[{rel_path}]]",
+            "markdown_link": f"[{rel_path}](../../{quote(rel_path, safe='/-._~')})",
             "bytes": len(data),
             "format": fmt or filename.rsplit(".", 1)[-1],
             "dimensions": dims,
@@ -476,7 +477,7 @@ def save_frames_from_data_urls(
             "index": idx_num,
             "filename": filename,
             "rel_path": rel_path,
-            "wiki_link": f"[[{rel_path}]]",
+            "markdown_link": f"[{rel_path}](../../{quote(rel_path, safe='/-._~')})",
             "md_embed": f"![Slide {idx_num:02d} - {format_mm_ss(sec)}](../screenshots/{slug}/{filename})",
             "timestamp_sec": sec,
             "mm_ss": format_mm_ss(sec),

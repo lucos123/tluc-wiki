@@ -8,6 +8,6 @@ tags:
 ---
 # Superhuman Coder (SC)
 
-A critical milestone in the [[AI 2027]] scenario, achieved around March 2027.
+A critical milestone in the [AI 2027](../sources/AI%202027.md) scenario, achieved around March 2027.
 
 **Definition**: An AI system that can perform any coding task that the best human engineer at an AGI company can do, but much faster and cheaply enough to run thousands of parallel copies. This kicks off the massive acceleration of AI R&D.

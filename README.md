@@ -33,7 +33,7 @@ tluc-wiki/
 
 1. **`raw/` là Bất biến (Immutable)**: Tất cả tài liệu thô, bài viết, báo cáo đưa vào `raw/` chỉ đọc, không chỉnh sửa trực tiếp.
 2. **Tổng hợp theo Thực thể & Khái niệm**: Thông tin mới từ `raw/` sẽ được tổng hợp vào `wiki/sources/`, sau đó cập nhật trực tiếp vào các trang `wiki/concepts/` và `wiki/entities/` liên quan.
-3. **Liên kết Obsidian WikiLinks**: Sử dụng cú pháp `[[Tên Trang]]` để kết nối liên tục các trang khái niệm, thực thể và nguồn với nhau.
+3. **Liên kết Standard Relative Markdown Links**: Sử dụng cú pháp Markdown chuẩn (`[Tên Trang](relative/path.md)`, percent-encoded với `%20`) để kết nối liên tục các trang khái niệm, thực thể và nguồn — bấm mở trực tiếp được trên cả **IDE Markdown Preview, GitHub lẫn Obsidian**. Trong mục `## Related Pages`, nhóm có từ 3 link trở lên được trình bày thành sub-bullet gọn gàng.
 4. **Nhật ký `wiki/log.md`**: Mọi thao tác Nạp (Ingest), Truy vấn (Query) hay Kiểm tra (Lint) đều được ghi nhận theo mốc thời gian.
 
 ---
@@ -41,11 +41,12 @@ tluc-wiki/
 ## 🚀 Các Thao tác Chính với AI Agent
 
 - **Ingest (Nạp dữ liệu)**: *"Ingest bài viết mới trong raw/..."* -> Agent sẽ đọc file gốc, tạo tóm tắt tại `wiki/sources/`, cập nhật `wiki/concepts/` / `wiki/entities/`, và cập nhật `index.md`.
-- **Query (Truy vấn)**: *"Giải thích cho tôi về khái niệm X trong wiki"* -> Agent tra cứu `index.md`, trích xuất thông tin kèm dẫn nguồn WikiLink `[[...]]`.
+- **Query (Truy vấn)**: *"Giải thích cho tôi về khái niệm X trong wiki"* -> Agent tra cứu `index.md`, trích xuất thông tin kèm dẫn nguồn Markdown link (`[Tên Trang](relative/path.md)`).
 - **Lint (Kiểm tra)**: *"Kểm tra sức khỏe wiki"* -> Agent rà soát liên kết hỏng, các trang chưa được kết nối hoặc thông tin bị trùng lặp/mâu thuẫn.
 
 ---
 
 ## 🛠️ Công cụ Sử dụng
-- **Obsidian**: Trình xem & quản lý ghi chú đồ thị (Graph view).
+- **IDE Markdown Preview & GitHub**: Xem, đọc và điều hướng trực tiếp giữa các file `.md` ngay trong IDE hoặc trên GitHub Web.
+- **Obsidian**: Trình xem & quản lý ghi chú đồ thị (Graph view / Backlinks) — tương thích 100% với Standard Markdown Links.
 - **LLM AI Agents**: Gemini Antigravity, Claude Code, CLI Tools.

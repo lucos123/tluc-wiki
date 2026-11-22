@@ -7,20 +7,20 @@ tags:
   - context-engineering
   - harness-engineering
   - claude-code
-source: "[[raw/articles/claude-code/hooks-tools-mcp-chrome/tool-search.md]]"
+source: "raw/articles/claude-code/hooks-tools-mcp-chrome/tool-search.md"
 url: "https://code.claude.com/docs/en/tool-search.md"
 ---
 
 # Scale to many tools with tool search
 
 **URL**: https://code.claude.com/docs/en/tool-search.md  
-**Source File**: [[raw/articles/claude-code/hooks-tools-mcp-chrome/tool-search.md]]  
+**Source File**: [raw/articles/claude-code/hooks-tools-mcp-chrome/tool-search.md](../../raw/articles/claude-code/hooks-tools-mcp-chrome/tool-search.md)  
 
 ---
 
 ## Executive Summary
 
-This official Anthropic guide details **Tool Search** (`ToolSearch`), a dynamic tool discovery and context optimization mechanism in [[Claude Code]].
+This official Anthropic guide details **Tool Search** (`ToolSearch`), a dynamic tool discovery and context optimization mechanism in [Claude Code](../entities/Claude%20Code.md).
 
 When agent tool catalogs scale to hundreds or thousands of tools (where static tool schemas consume 10,000–20,000 tokens), Tool Search defers tool schema loading until needed, searching catalog indices on-demand and loading only the top 5 relevant tool definitions into context.
 
@@ -47,5 +47,9 @@ When agent tool catalogs scale to hundreds or thousands of tools (where static t
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Tool Search Architecture]], [[Progressive Disclosure]], [[Context Window Management]], [[Model Context Protocol]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Tool Search Architecture](../concepts/Tool%20Search%20Architecture.md)
+  - [Progressive Disclosure](../concepts/Progressive%20Disclosure.md)
+  - [Context Window Management](../concepts/Context%20Window%20Management.md)
+  - [Model Context Protocol](../concepts/Model%20Context%20Protocol.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

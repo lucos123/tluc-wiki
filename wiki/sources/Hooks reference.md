@@ -7,20 +7,20 @@ tags:
   - harness-engineering
   - reference
   - claude-code
-source: "[[raw/articles/claude-code/hooks-tools-mcp-chrome/hooks-reference.md]]"
+source: "raw/articles/claude-code/hooks-tools-mcp-chrome/hooks-reference.md"
 url: "https://code.claude.com/docs/en/hooks-reference.md"
 ---
 
 # Hooks reference
 
 **URL**: https://code.claude.com/docs/en/hooks-reference.md  
-**Source File**: [[raw/articles/claude-code/hooks-tools-mcp-chrome/hooks-reference.md]]  
+**Source File**: [raw/articles/claude-code/hooks-tools-mcp-chrome/hooks-reference.md](../../raw/articles/claude-code/hooks-tools-mcp-chrome/hooks-reference.md)  
 
 ---
 
 ## Executive Summary
 
-This official Anthropic reference manual documents the complete lifecycle event topography, JSON payload schemas, execution contracts, and handler types for **Lifecycle Hooks** in [[Claude Code]].
+This official Anthropic reference manual documents the complete lifecycle event topography, JSON payload schemas, execution contracts, and handler types for **Lifecycle Hooks** in [Claude Code](../entities/Claude%20Code.md).
 
 ---
 
@@ -66,5 +66,9 @@ Session Lifecycle:
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Claude Code Hooks]], [[Deterministic Lifecycle Hooks]], [[Prompt-Based Hooks]], [[Harness Engineering]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Claude Code Hooks](Claude%20Code%20Hooks.md)
+  - [Deterministic Lifecycle Hooks](../concepts/Deterministic%20Lifecycle%20Hooks.md)
+  - [Prompt-Based Hooks](../concepts/Prompt-Based%20Hooks.md)
+  - [Harness Engineering](../concepts/Harness%20Engineering.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

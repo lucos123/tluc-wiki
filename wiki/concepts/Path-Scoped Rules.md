@@ -6,7 +6,7 @@ tags:
   - context-engineering
   - harness-engineering
   - claude-code
-source: "[[How Claude remembers your project]]"
+source: "wiki/sources/How Claude remembers your project.md"
 ---
 
 # Path-Scoped Rules
@@ -35,4 +35,4 @@ paths:
 2. **Modular Architecture**: Teams can organize rules by domain (`frontend/`, `backend/`, `security.md`) without cluttering main root instruction files.
 3. **Symlink Support**: Rules in `.claude/rules/` support symlinks, allowing shared rule repositories to be linked across projects.
 
-See [[How Claude remembers your project]] and [[Progressive Disclosure]].
+See [How Claude remembers your project](../sources/How%20Claude%20remembers%20your%20project.md) and [Progressive Disclosure](Progressive%20Disclosure.md).

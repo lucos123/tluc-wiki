@@ -3,365 +3,327 @@
 A catalog of everything in the knowledge base.
 
 ## Entities
-- [[Abhinav Gupta]]: Technical educator and visual note creator (@techyy_bandaa) authoring handwritten revision guides on Transformers, LLMs, and core AI engineering.
-- [[Addy Osmani]]: Engineering leader and advocate for "AI-assisted engineering".
-- [[AI Engineer]]: Global community and technical conference series focused on AI engineering, agent architectures, and LLMOps.
-- [[AI LABS]]: Technical content creator channel producing deep-dive analysis on AI agent engineering, graph topologies, and verification loops.
-- [[Amazon Web Services (AWS)]]: Amazon's cloud platform spanning global Regions/AZs, IAM, VPC, EC2/EBS, ALB/NLB, Route 53, RDS/DynamoDB, SQS, ECS/EKS/ECR, CloudWatch/CloudTrail, Secrets Manager, and KMS.
-- [[Andre Karpathy]]: AI researcher and founding team member at OpenAI; framed the "smarter vs. faster" model trade-off.
-- [[Anterior]]: Healthcare technology enterprise developing agentic systems for US health insurance workflows and HIPAA-compliant architectures.
-- [[Anthropic]]: AI research and safety company developing the Claude model series, Claude Code, and Model Context Protocol.
-- [[Bilgin Ibryam]]: Software architect and author who introduced the Metacode taxonomy and Memory Promotion Path.
-- [[Caleb Writes Code]]: Tech content creator focusing on AI agent engineering architecture.
-- [[Cerebras Systems]]: Wafer-scale AI chip manufacturer providing 750 t/s ultra-fast inference for OpenAI.
-- [[Chrome Extension]]: Official Chromium extension (Claude in Chrome) enabling browser automation, DOM inspection, and visual verification.
-- [[Claude Code]]: Agentic coding environment developed by Anthropic.
-- [[Cline]]: Open-source IDE agentic coding harness executing multi-turn tool operations via Model Context Protocol.
-- [[Codex]]: OpenAI's coding agent platform.
-- [[DeepCent]]: Fictional state-backed Chinese AI collective from the AI 2027 scenario.
-- [[Gemini CLI]]: Open-source terminal AI assistant by Google.
-- [[GitHub Spec Kit]]: Mainstream software specification framework for AI coding agents defining spec.md, plan.md, tasks.md.
-- [[Goon Nguyen]]: AI Engineer and author who coined Harness Engineering.
-- [[GPT-5.6]]: OpenAI's frontier model family (Sol, Terra, Luna) emphasizing token efficiency and parallel reasoning.
-- [[GPT-5.6 Luna]]: Fast, cost-sensitive model tier ($0.20/$1.20) in the GPT-5.6 family for high-volume subagents.
-- [[GPT-5.6 Terra]]: Balanced model tier ($2.00/$12.00) in the GPT-5.6 family, replacing GPT-5.4/5.5 at lower cost.
-- [[Greg Isenberg]]: Tech entrepreneur and content creator who detailed Graph Engineering, Agent Graphs, and Knowledge Graph trade-offs.
-- [[Greta]]: Context-aware AI development partner tool.
-- [[Hamel Husain]]: AI practitioner and technical educator teaching trace-first error analysis, binary evals, and evaluator alignment.
-- [[HumanLayer]]: Tooling platform focused on human-in-the-loop agentic workflows and production control loops.
-- [[IBM]]: Global technology enterprise and pioneer in AI, cloud computing, and enterprise software systems.
-- [[IBM Technology]]: Official technical education channel of IBM producing deep-dives on enterprise AI architecture and agentic software design.
-- [[Jam With AI]]: AI engineering channel and newsletter by Shirin Khosravi Jam covering production AI system design and visual agent architectures.
-- [[Jarred Sumner]]: Bun co-founder and Anthropic MTS; ran the Zig→Rust 1M-line migration with Claude Code.
-- [[Joshua Noble]]: Technical author and researcher at IBM Think specializing in context engineering and AI agent memory systems.
-- [[Justin Schroeder]]: Founder at Standard Agents who presented the factory electrification analogy and domain-specific agent architecture at the Agentic AI Foundation.
-- [[Kimi K2.7 Code]]: Dedicated long-horizon coding and agentic model by Moonshot AI with 256K context and HighSpeed variant.
-- [[Kimi K3]]: Open-weights frontier AI model by Moonshot AI featuring 896 experts, 1.8% activation, and KDA.
-- [[Koteswara]]: Author of AI Engineer Interview Notes (koteswar.AI) documenting 2026 production AI engineering and system design interview patterns.
-- [[Kyle Mistele]]: Co-founder/engineer at HumanLayer; introduced Control-Loop Engineering.
-- [[LangChain Engine]]: Background agent in LangSmith that powers the Hill-Climbing Loop by optimizing traces.
-- [[Lauren Tan]]: Principal Engineer at SpaceX / Grok Bot (@poteto), former Cursor engineer; creator of the Poteto Trust Pyramid, Dune architecture, and pstack verification skills.
-- [[Leonhard Euler]]: Swiss mathematician (1707–1783) who founded Graph Theory, the theoretical basis for Graph Engineering.
-- [[Lydia Hallie]]: Claude Code team engineer at Anthropic; presented out-of-the-loop best practices (autoMode, Cloud Sessions, hooks exit 2, and Claude Code Projects orchestration).
-- [[Matt Pocock]]: Creator of AI Hero, CVM, Sandcastle, and mattpocock/skills; author of the Home Repo Pattern and personal-wiki unified CLI setup.
-- [[Mike Krieger]]: Anthropic Labs co-lead; ran the Python→TypeScript 165K-line weekend migration with Claude Code.
-- [[Moonshot AI]]: AI research lab behind the Kimi model series.
-- [[OpenAI]]: AI research and deployment company developing the GPT model series, Codex, and Responses API.
-- [[OpenBrain]]: Fictional leading US AGI company from the AI 2027 scenario.
-- [[OpenBrain Agents]]: The series of increasingly capable AI models (Agent 1-4) developed by OpenBrain.
-- [[Peter Steinberger]]: Open-source creator (author of OpenClaw) who sparked the 3M-view viral Graph Engineering debate on July 18, 2026.
-- [[Sean's AI Stories]]: Educational content creator focusing on AI agent systems, memory architectures, and LLMOps.
-- [[Simon Willison]]: Open-source software developer (Datasette, Django) and AI researcher who coined prompt injection.
-- [[Standard Agents]]: AI organization developing domain-specific agent architectures and an open-source agent specification and runtime.
-- [[Thariq Shihipar]]: Anthropic technical staff member who detailed 80% system prompt pruning, Unhobbling Claude, and Progressive Disclosure.
-- [[Uber]]: Global mobility and food delivery enterprise using closed-loop evals for multimodal agent orchestration.
-- [[Viet Nguyen AI]]: Vietnamese AI practitioner and content creator translating technical AI visual guides into Vietnamese.
-- [[Warp]]: Modern AI-powered terminal and developer environment founded by Zach Lloyd featuring Oz orchestration and self-improving agent skills.
-
-
-
-
-
-
-
-
-
+- [Abhinav Gupta](wiki/entities/Abhinav%20Gupta.md): Technical educator and visual note creator (@techyy_bandaa) authoring handwritten revision guides on Transformers, LLMs, and core AI engineering.
+- [Addy Osmani](wiki/entities/Addy%20Osmani.md): Engineering leader and advocate for "AI-assisted engineering".
+- [AI Engineer](wiki/entities/AI%20Engineer.md): Global community and technical conference series focused on AI engineering, agent architectures, and LLMOps.
+- [AI LABS](wiki/entities/AI%20LABS.md): Technical content creator channel producing deep-dive analysis on AI agent engineering, graph topologies, and verification loops.
+- [Amazon Web Services (AWS)](wiki/entities/Amazon%20Web%20Services%20%28AWS%29.md): Amazon's cloud platform spanning global Regions/AZs, IAM, VPC, EC2/EBS, ALB/NLB, Route 53, RDS/DynamoDB, SQS, ECS/EKS/ECR, CloudWatch/CloudTrail, Secrets Manager, and KMS.
+- [Andre Karpathy](wiki/entities/Andre%20Karpathy.md): AI researcher and founding team member at OpenAI; framed the "smarter vs. faster" model trade-off.
+- [Anterior](wiki/entities/Anterior.md): Healthcare technology enterprise developing agentic systems for US health insurance workflows and HIPAA-compliant architectures.
+- [Anthropic](wiki/entities/Anthropic.md): AI research and safety company developing the Claude model series, Claude Code, and Model Context Protocol.
+- [Bilgin Ibryam](wiki/entities/Bilgin%20Ibryam.md): Software architect and author who introduced the Metacode taxonomy and Memory Promotion Path.
+- [Caleb Writes Code](wiki/entities/Caleb%20Writes%20Code.md): Tech content creator focusing on AI agent engineering architecture.
+- [Cerebras Systems](wiki/entities/Cerebras%20Systems.md): Wafer-scale AI chip manufacturer providing 750 t/s ultra-fast inference for OpenAI.
+- [Chrome Extension](wiki/entities/Chrome%20Extension.md): Official Chromium extension (Claude in Chrome) enabling browser automation, DOM inspection, and visual verification.
+- [Claude Code](wiki/entities/Claude%20Code.md): Agentic coding environment developed by Anthropic.
+- [Cline](wiki/entities/Cline.md): Open-source IDE agentic coding harness executing multi-turn tool operations via Model Context Protocol.
+- [Codex](wiki/entities/Codex.md): OpenAI's coding agent platform.
+- [DeepCent](wiki/entities/DeepCent.md): Fictional state-backed Chinese AI collective from the AI 2027 scenario.
+- [Gemini CLI](wiki/entities/Gemini%20CLI.md): Open-source terminal AI assistant by Google.
+- [GitHub Spec Kit](wiki/entities/GitHub%20Spec%20Kit.md): Mainstream software specification framework for AI coding agents defining spec.md, plan.md, tasks.md.
+- [Goon Nguyen](wiki/entities/Goon%20Nguyen.md): AI Engineer and author who coined Harness Engineering.
+- [GPT-5.6](wiki/entities/GPT-5.6.md): OpenAI's frontier model family (Sol, Terra, Luna) emphasizing token efficiency and parallel reasoning.
+- [GPT-5.6 Luna](wiki/entities/GPT-5.6%20Luna.md): Fast, cost-sensitive model tier ($0.20/$1.20) in the GPT-5.6 family for high-volume subagents.
+- [GPT-5.6 Terra](wiki/entities/GPT-5.6%20Terra.md): Balanced model tier ($2.00/$12.00) in the GPT-5.6 family, replacing GPT-5.4/5.5 at lower cost.
+- [Greg Isenberg](wiki/entities/Greg%20Isenberg.md): Tech entrepreneur and content creator who detailed Graph Engineering, Agent Graphs, and Knowledge Graph trade-offs.
+- [Greta](wiki/entities/Greta.md): Context-aware AI development partner tool.
+- [Hamel Husain](wiki/entities/Hamel%20Husain.md): AI practitioner and technical educator teaching trace-first error analysis, binary evals, and evaluator alignment.
+- [HumanLayer](wiki/entities/HumanLayer.md): Tooling platform focused on human-in-the-loop agentic workflows and production control loops.
+- [IBM](wiki/entities/IBM.md): Global technology enterprise and pioneer in AI, cloud computing, and enterprise software systems.
+- [IBM Technology](wiki/entities/IBM%20Technology.md): Official technical education channel of IBM producing deep-dives on enterprise AI architecture and agentic software design.
+- [Jam With AI](wiki/entities/Jam%20With%20AI.md): AI engineering channel and newsletter by Shirin Khosravi Jam covering production AI system design and visual agent architectures.
+- [Jarred Sumner](wiki/entities/Jarred%20Sumner.md): Bun co-founder and Anthropic MTS; ran the Zig→Rust 1M-line migration with Claude Code.
+- [Joshua Noble](wiki/entities/Joshua%20Noble.md): Technical author and researcher at IBM Think specializing in context engineering and AI agent memory systems.
+- [Justin Schroeder](wiki/entities/Justin%20Schroeder.md): Founder at Standard Agents who presented the factory electrification analogy and domain-specific agent architecture at the Agentic AI Foundation.
+- [Kimi K2.7 Code](wiki/entities/Kimi%20K2.7%20Code.md): Dedicated long-horizon coding and agentic model by Moonshot AI with 256K context and HighSpeed variant.
+- [Kimi K3](wiki/entities/Kimi%20K3.md): Open-weights frontier AI model by Moonshot AI featuring 896 experts, 1.8% activation, and KDA.
+- [Koteswara](wiki/entities/Koteswara.md): Author of AI Engineer Interview Notes (koteswar.AI) documenting 2026 production AI engineering and system design interview patterns.
+- [Kyle Mistele](wiki/entities/Kyle%20Mistele.md): Co-founder/engineer at HumanLayer; introduced Control-Loop Engineering.
+- [LangChain Engine](wiki/entities/LangChain%20Engine.md): Background agent in LangSmith that powers the Hill-Climbing Loop by optimizing traces.
+- [Lauren Tan](wiki/entities/Lauren%20Tan.md): Principal Engineer at SpaceX / Grok Bot (@poteto), former Cursor engineer; creator of the Poteto Trust Pyramid, Dune architecture, and pstack verification skills.
+- [Leonhard Euler](wiki/entities/Leonhard%20Euler.md): Swiss mathematician (1707–1783) who founded Graph Theory, the theoretical basis for Graph Engineering.
+- [Lydia Hallie](wiki/entities/Lydia%20Hallie.md): Claude Code team engineer at Anthropic; presented out-of-the-loop best practices (autoMode, Cloud Sessions, hooks exit 2, and Claude Code Projects orchestration).
+- [Matt Pocock](wiki/entities/Matt%20Pocock.md): Creator of AI Hero, CVM, Sandcastle, and mattpocock/skills; author of the Home Repo Pattern and personal-wiki unified CLI setup.
+- [Mike Krieger](wiki/entities/Mike%20Krieger.md): Anthropic Labs co-lead; ran the Python→TypeScript 165K-line weekend migration with Claude Code.
+- [Moonshot AI](wiki/entities/Moonshot%20AI.md): AI research lab behind the Kimi model series.
+- [OpenAI](wiki/entities/OpenAI.md): AI research and deployment company developing the GPT model series, Codex, and Responses API.
+- [OpenBrain](wiki/entities/OpenBrain.md): Fictional leading US AGI company from the AI 2027 scenario.
+- [OpenBrain Agents](wiki/entities/OpenBrain%20Agents.md): The series of increasingly capable AI models (Agent 1-4) developed by OpenBrain.
+- [Peter Steinberger](wiki/entities/Peter%20Steinberger.md): Open-source creator (author of OpenClaw) who sparked the 3M-view viral Graph Engineering debate on July 18, 2026.
+- [Sean's AI Stories](wiki/entities/Sean%27s%20AI%20Stories.md): Educational content creator focusing on AI agent systems, memory architectures, and LLMOps.
+- [Simon Willison](wiki/entities/Simon%20Willison.md): Open-source software developer (Datasette, Django) and AI researcher who coined prompt injection.
+- [Standard Agents](wiki/entities/Standard%20Agents.md): AI organization developing domain-specific agent architectures and an open-source agent specification and runtime.
+- [Thariq Shihipar](wiki/entities/Thariq%20Shihipar.md): Anthropic technical staff member who detailed 80% system prompt pruning, Unhobbling Claude, and Progressive Disclosure.
+- [Uber](wiki/entities/Uber.md): Global mobility and food delivery enterprise using closed-loop evals for multimodal agent orchestration.
+- [Viet Nguyen AI](wiki/entities/Viet%20Nguyen%20AI.md): Vietnamese AI practitioner and content creator translating technical AI visual guides into Vietnamese.
+- [Warp](wiki/entities/Warp.md): Modern AI-powered terminal and developer environment founded by Zach Lloyd featuring Oz orchestration and self-improving agent skills.
 
 ## Concepts
-- [[Advanced Prompting Patterns]]: Higher-order prompting strategies (ReAct, Tree-of-Thought, Self-Consistency, Prompt Chaining, Meta-Prompting) bridging prompts to agent loops.
-- [[Advisor Model Pattern]]: Dual-model escalation architecture in Claude Code (/advisor) delegating hard choices from Sonnet to Opus.
-- [[Agent Engineering Ladder]]: 5-level evolutionary hierarchy of agent design: Prompt → Context → Skills → Loop → Graph Engineering.
-- [[Agent Graph]]: Execution workflow topology structuring tasks across planner nodes, parallel subagents, skeptic nodes, and human gates.
-- [[Agent Loop Lifecycle]]: Event-driven message stream lifecycle (SystemMessage, AssistantMessage, UserMessage, ResultMessage).
-- [[Agent Onboarding Files]]: Persistent instruction files (AGENTS.md, CLAUDE.md, GEMINI.md) acting as a README for agents.
-- [[Agent SDK Architecture]]: Programmatic framework embedding native Claude Code runtimes, parallel tool execution, and fine-grained permissions.
-- [[Agent Skills Architecture]]: Modular extension paradigm (Agent Skills spec) packaging instructions, supporting files, and allowed-tools into executable units.
-- [[Agent Skills Best Practices]]: 5-principle methodology for authoring secure, token-efficient, and deterministic AI Agent Skills.
-- [[Agent Skills Security Audit]]: Security verification protocol for auditing third-party agent skills to prevent prompt injection and malware.
-- [[Agent Teams Architecture]]: Multi-session peer collaboration pattern running a Lead Agent and independent Teammates with shared task backlogs and direct messaging.
-- [[Agentic Coding Workflow]]: Structured 4-phase lifecycle (Explore → Plan → Implement → Commit) with empirical verification.
-- [[Agentic Engineering]]: Topic overview and 11-layer learning/production roadmap unifying Prompt, Context, Harness, Loop, and Graph Engineering with Memory/RAG, Evals, Observability, Scaling, and AI Gateway layers.
-- [[Agentic Workflow Recipes]]: Standardized prompt patterns for exploration, bug fixing, refactoring, testing, and PR creation.
-- [[AI Agent Memory Types]]: Seven functional AI agent memory responsibilities rooted in CoALA (Working/checkpointers, Semantic, Episodic/reflection, Procedural/guardrails, External/5-mode retrieval, Parametric, Prospective/Temporal) showing 7 jobs != 7 databases.
-- [[AI Code Migration]]: Six-step methodology for AI-assisted language/framework migrations at industrial scale.
-- [[AI Deployment Lifecycle and Environments]]: Seven-stage AI/ML application lifecycle, Dev vs Deployment, Training vs Inference, and Dev/Staging/Prod promotion.
-- [[AI Evaluation, Safety and Governance]]: BLEU/ROUGE/BERTScore & Red Teaming metrics, 4 AI Bias taxonomies, 5 Ethics pillars, and EU AI Act, NIST AI RMF, OECD, and UN governance frameworks.
-- [[AI System Design and Production Architecture]]: 5-step AI system design framework, 10M-user customer support reference architecture (<300ms router, Hybrid RAG + Rerank, ACL filtering, confidence escalation), agent tool contracts, latency/cost levers, and the Meta Pattern.
-- [[Auto Memory]]: Model-authored persistent notes automatically generated by Claude Code to record discovered patterns and fixes.
-- [[Automated Multi-Agent Code Review]]: Managed cloud PR review architecture running parallel subagents and falsification checks.
-- [[AWS Databases, Containers and Messaging]]: Managed relational RDS vs serverless DynamoDB (keys, consistency, RCU/WCU), SQS Standard/FIFO queues & DLQ, plus ECR image scanning and ECS/EKS orchestration.
-- [[AWS Foundation, Networking and Compute]]: AWS Regions/AZs, IAM, Multi-AZ VPC networking (Public/Private Subnets, IGW/NAT, SG/NACL), EC2, EBS volume tiers, ELB/ALB/NLB comparison, and Route 53 routing policies.
-- [[AWS Observability and Cryptographic Security]]: CloudWatch metrics/logs/alarms vs CloudTrail API auditing, Secrets Manager Lambda auto-rotation, and KMS FIPS 140-2 Level 3 HSM key governance.
-- [[Behavioral and HR Interview Strategy]]: Five behavioral screening axes (value/weakness framing, company fit, failure/conflict, Urgent x Important prioritization, negotiation/reverse Q&As) paired with engineering interview execution.
-- [[Cache Invalidation Patterns]]: Catalog of triggers (model switches, effort changes, tool denials) that bust prompt cache prefixes.
-- [[Chain-of-Thought Prompting]]: Stepwise reasoning technique prompting LLMs to decompose multi-step logic before emitting final conclusions.
-- [[Chrome Integration Architecture]]: Browser automation subsystem in Claude Code connecting CLI sessions to Chromium browsers via Native Messaging Host.
-- [[Classical AI Agents and State-Space Search]]: PEAS & 5 classical agent classes, 5-tuple search P=(S,A,s0,G,C), BFS/DFS/UCS complexity, Greedy vs A* admissible heuristics, and Minimax with Alpha-Beta Pruning.
-- [[Claude Directory Architecture]]: Standardized file system layout (.claude/ & ~/.claude/) for instructions, settings, rules, skills, subagents, and workflows.
-- [[Closed-Loop Evals]]: Automated architecture for continuous evaluation, reflection, prompt optimization, and auto-deployment without human intervention.
-- [[Cloud Agent Sandbox and Auto Mode]]: Layered agent safety stack combining plain-English autoMode classifier (89% vs 14% human), pre-classifier deny rules, OS /sandbox, and disposable Cloud Sessions with Network Secrets.
-- [[Cloud Sandboxed Ultrareview]]: Deep off-machine diff review mode (/code-review ultra) executing verified bug detection in cloud sandboxes.
-- [[Comprehension and Intent Debt]]: Four agentic loop pitfalls (unverified code, comprehension debt, intent debt, cognitive surrender) and the minimal human responsibility triad.
-- [[Conductor vs Orchestrator]]: Modes of developer interaction with AI.
-- [[Context Engineering]]: The practice of explicitly managing and structuring what the AI "sees".
-- [[Context Engineering Pipeline]]: Multi-stage architecture connecting data storage infrastructure to the LLM inference window.
-- [[Context Processing and Management]]: Two-phase operational framework in Context Engineering for filtering, structuring, and maintaining agent payloads.
-- [[Context Rot]]: Phenomenon where LLM reasoning quality and instruction-following decay as unmanaged context volume increases.
-- [[Context Selection and Sequencing]]: Structural optimization phase in Context Engineering governing data filtering and prompt payload ordering.
-- [[Context Window Management]]: Essential practices (CLAUDE.md hygiene, path-scoped rules, subagent isolation, compacting) to manage token degradation.
-- [[Control-Loop Engineering]]: Application of Classical Control Theory to agentic loops (Set Point, Sensors, Actuator, Adaptive Flow Control, FEEDBACK.md).
-- [[Convolutional Neural Networks and Object Detection]]: RGB 3D tensors, Sobel edge/texture feature hierarchies, CNN convolution/stride/padding/backprop, classification, YOLO (grid, confidence, IoU, NMS), and Semantic/Instance/Panoptic segmentation.
-- [[Cost Optimization]]: Active engineering techniques (context pruning, hook filtering, effort tuning) minimizing token spend.
-- [[Data Preprocessing and Feature Engineering]]: Structured/unstructured data, 5-step preprocessing pipeline (imputation, deduplication, scaling, encoding, splitting), feature extraction/selection, overfitting curves, hyperparameters, and Python ML stack.
-- [[Deterministic Lifecycle Hooks]]: Harness control mechanism executing shell scripts at exact agent events (PreToolUse, PostToolUse) with exit code enforcement.
-- [[Domain-Specific Agents]]: Architectural paradigm favoring narrow, business-process-specific agents over monolithic generalist agents (Line Shaft vs Electric Motor analogy, Gmail Agent vs Skill, jagged models).
-- [[Dynamic Context Injection]]: Harness feature executing inline shell commands (!cmd) at render time to inject live output into skills before prompt submission.
-- [[Dynamic Tool Loading]]: Pattern for declaring tool schemas on-demand inside system messages during chat completions.
-- [[Dynamic Workflows]]: Programmatic JS script execution pattern running large-scale multi-agent audits and migrations in background runtimes.
-- [[Effort Level and Model Selection]]: The 2D decision framework for model × effort tuning in Claude Code — includes diagnostic heuristic ("didn't try" vs "didn't know") and cost-interaction curves.
-- [[Enterprise Agent Stack]]: Production architecture for regulated industries utilizing immutable event ledgers, decoupled zero-trust payload storage, and Human-Agent Equivalency.
-- [[Few-Shot Prompting]]: In-context learning technique supplying input-output demonstration pairs to govern formatting, style, and pattern accuracy.
-- [[Git Worktree Isolation]]: Harness pattern running parallel sessions in dedicated git worktrees (.claude/worktrees/) to prevent edit collisions.
-- [[Goal-Driven Loop]]: Autonomous multi-turn loop (/goal) evaluated after each turn by an independent fast evaluator model until completion conditions hold.
-- [[GPU Architecture and Distributed Scaling]]: Hardware-to-cluster AI compute reference covering SM/CUDA/Tensor Core execution, HBM capacity vs bandwidth, precision spectrum, NVIDIA generations, compute- vs memory-bound diagnostics, 3D parallelism, NVLink/NVSwitch/NCCL/AllReduce, and scaling bottlenecks.
-- [[Graph Engineering]]: Orchestration paradigm structuring reliable agent nodes into directed graphs (DAGs or cyclic graphs).
-- [[Harness Engineering]]: The design of the environment (tools, sandboxes, memory) that wraps the model.
-- [[Harness Overhead vs Model Cost]]: Economic paradigm detailing how agent spend is dominated by system prompt tollgates and multi-turn loops rather than base model inference.
-- [[Hill-Climbing Loop]]: The highest level of LangChain's loop taxonomy, where an agent autonomously self-improves its own harness via trace analysis.
-- [[Home Repo Pattern]]: Multi-repo agent architecture centralizing private .claude/skills, settings.json, CLAUDE.md/AGENTS.md repo pointers, Karpathy-style llm-wiki, and unified CLI tooling inside one hub repository.
-- [[Inference Serving and Deployment Patterns]]: Batch vs Real-Time vs Async inference, Offline vs Online predictions, Cloud vs Edge topology, and LLM inference servers.
-- [[Inference Speed vs Intelligence Trade-off]]: 3D decision framework balancing model intelligence, token speed, and token efficiency in model serving.
-- [[Inter-Agent Messaging]]: Peer-to-peer JSON mailbox protocol (~/.claude/teams/) enabling direct communication between agent team members.
-- [[Interactive Session Artifacts]]: Web-publishing feature in Claude Code rendering CLI session outputs as live HTML dashboards on claude.ai.
-- [[Iterated Distillation and Amplification (IDA)]]: Training methodology to amplify and distill model capabilities.
-- [[Jevons Paradox in AI]]: Economic phenomenon where falling per-token base model costs lead to exponential overall token consumption via thick agentic harnesses.
-- [[Knowledge Graph vs Agent Graph]]: Comparison matrix between relational information retrieval (Knowledge Graph) and workflow execution (Agent Graph).
-- [[Knowledge Representation, Logic and Bayesian Inference]]: 5 epistemic knowledge types, 7 KR formalisms (FOL, Semantic Networks, Frames, Scripts, Ontologies, Rules), inference chaining/Resolution, and Bayes Theorem with Base Rate Fallacy.
-- [[LLM Fine-Tuning and Alignment]]: Full fine-tuning vs PEFT (LoRA/QLoRA), Instruction Tuning, 3H alignment, RLHF (SFT+RM+PPO), DPO, Constitutional AI, and Fine-tuning vs RAG decision rules.
-- [[LLM Inference Optimization and Security]]: Quantization (FP16/INT8/INT4, GPTQ/AWQ), KV Cache, Flash Attention, vLLM, Speculative Decoding, benchmarks, hallucinations, and LLM attack/privacy defenses.
-- [[LLM Pretraining, Optimization and Decoding]]: Web-scale corpus SimHash/MinHash deduplication, DDP/FSDP/DeepSpeed parallelism, AdamW decoupled decay, Cosine Annealing LR, BF16 mixed precision, GPU vs TPU, and mathematical decoding strategies (Beam Search, Temperature logits, Top-K/P, Repetition Penalty).
-- [[LLM-as-a-Judge and Eval Alignment]]: Automated binary trace grading validated via Train/Dev/Test splits, production deployment targets, and guarded optimization loops.
-- [[llm-wiki]]: A pattern for building personal knowledge bases using LLMs.
-- [[LLMOps & Inference]]: Topic overview page covering model serving architectures, token economics, and inference trade-offs.
-- [[Loop Engineering]]: The 4-type agent loop taxonomy (Claude Code / LangChain / IBM Control-Handoff models) covering Interactive/Turn-Based, Delegated/Goal-Based, Scheduled/Time-Based, and Event-Driven/Proactive loops with fresh-context Reviewer Agents and exception escalation.
-- [[Machine Learning Paradigms]]: Taxonomy of Supervised, Unsupervised, Semi-Supervised, Self-Supervised, and Reinforcement Learning paradigms.
-- [[MCP Transports]]: Communication channels (HTTP streamable-http, stdio, WebSocket ws) for Model Context Protocol integrations.
-- [[Memory Architecture]]: Reference architecture for persistent context management outside the model context window.
-- [[Memory Promotion Path]]: 3-step lifecycle for promoting machine-local auto memory (MEMORY.md) into shared project rules.
-- [[Metacode]]: Taxonomy of version-controlled markdown files carrying requirements, architecture, rules, and plans for coding agents.
-- [[Model Context Protocol]]: Open standard enabling AI models and agent harnesses to connect to external systems.
-- [[Model Evaluation and Validation]]: Classification metrics (Accuracy, Precision, Recall, F1, ROC-AUC), Regression metrics (MAE, MSE, RMSE, R²), and K-Fold Cross-Validation.
-- [[Model Packaging and Versioning]]: End-to-end AI artifact packaging (weights, tokenizer, prompt, retrieval config), Container vs Model Registries, and rollback.
-- [[Model Specification (Spec)]]: Document outlining desired AI behavior and alignment rules.
-- [[Monorepo Context Engineering]]: Structuring per-package rules, claudeMdExcludes, and sparse worktrees to keep context windows focused in large codebases.
-- [[Neural Networks and Deep Learning Foundations]]: Core neural network mathematics spanning artificial neurons, ReLU/Sigmoid/Tanh/Leaky ReLU, forward propagation, MSE/Cross-Entropy losses, matrix backpropagation, GD/Adam optimization, FNN/CNN/RNN/Transformer overview, and L1/L2/inverted dropout regularization.
-- [[Neuralese]]: High-dimensional vector memory that replaces text-based chain-of-thought.
-- [[Obsidian Syntax Cheat Sheet]]: Quick reference guide for Obsidian wiki links, callouts, and frontmatter syntax.
-- [[Orchestrator Skill Pattern]]: Multi-agent pattern where a top-level skill coordinates parallel specialized subagent review skills and merges findings.
-- [[Parallel Agent Architecture]]: System design framework structuring parallel agent execution across Subagents, Agent View, Agent Teams, and Dynamic Workflows.
-- [[Path-Scoped Rules]]: Conditional instructions in .claude/rules/ that load lazily only when matching glob files are read.
-- [[Persistent Instruction File]]: Durable guidance for agents (e.g., AGENTS.md, CLAUDE.md).
-- [[Poteto Trust Pyramid]]: Five-layer inverse trust hierarchy prioritizing deterministic codebase design and AST lint rules (167 rules) over runtime/formal verification, prose (AGENTS.md), and human review.
-- [[Preserved Thinking]]: Pattern of retaining historical reasoning_content across multi-turn messages to preserve continuous chain-of-thought.
-- [[Product Evals and Error Analysis]]: Workflow contrasting domain-specific product evals against foundation benchmarks using traces, failure taxonomies, and binary gates.
-- [[Production AI Agent Service Stack]]: 9-layer internal Python production AI agent stack (FastAPI/Uvicorn, Pydantic validation, LangGraph checkpoints, Postgres+pgvector, Redis, LiteLLM gateway, Langfuse/Opik traces, Pytest+AI Evals, uv/Ruff) treating tools as replaceable implementations of enduring responsibilities.
-- [[Production AI Resilience and Scaling Patterns]]: Seven surrounding infrastructure patterns (API vs Model Gateway, token/Denial-of-Wallet Admission Control, tenant/semantic Caching, lane-isolated Message Queues, Timeouts/Retries/Circuit Breakers/Bulkheads, weighted/stateless Load Balancing, GPU/predictive Autoscaling) + observability triad.
-- [[Programmatic Tool Calling]]: Model capability to write and execute code for filtering data and dynamically orchestrating tool calls.
-- [[Progressive Disclosure]]: Context engineering pattern loading instructions, tools, and skills on demand (e.g. ToolSearch, tree CLAUDE.md).
-- [[Prompt Engineering]]: Foundational discipline of designing structured prompts (Role, Context, Task, Input, Constraints, Format) and frameworks (CO-STAR, R-T-F, CLEAR).
-- [[Prompt-Based Hooks]]: Non-deterministic hooks running fast evaluator models (Haiku) on prompt payloads at turn boundaries.
-- [[Python Collections and File Handling]]: Comparison and operations across List, Tuple, Set, Dictionary (O(1) lookup, 3.7+ order) plus open() modes and with context-manager file I/O.
-- [[Python Core Syntax and Control Flow]]: Dynamic typing, 7 operator families, truthiness, loops (for/while/range), functions (DRY/lambda/unpacking), and immutable string indexing/slicing.
-- [[Reasoning Effort]]: Top-level model parameter for dynamically tuning reasoning depth (low, high, max).
-- [[Responses API]]: OpenAI's v1/responses endpoint succeeding Chat Completions, built for native tool use, hosted shell, and multi-agent coordination.
-- [[Retrieval-Augmented Generation and Vector DBs]]: RAG architecture, recursive/semantic chunking, dense embeddings, Cosine/HNSW retrieval, Vector DB comparisons, Advanced RAG patterns, and LangChain/LlamaIndex.
-- [[REVIEW.md Governance]]: Top-level repository rule file for overriding multi-agent review severity, nit caps, and path exclusions.
-- [[SDK Agent Skills]]: Programmatic mechanism in the Claude Agent SDK for discovering, filtering, and mounting disk-based SKILL.md files into custom apps.
-- [[SDK File Checkpointing]]: Programmatic file restoration mechanism in the Claude Agent SDK (enable_file_checkpointing=True).
-- [[SDK Subagents]]: Programmatic AgentDefinition registration in the Claude Agent SDK for instantiating dynamic worker subagents.
-- [[SDK Token Accounting]]: Programmatic token measurement and cost aggregation pattern in the Claude Agent SDK.
-- [[Second Opinion Pattern]]: Verification pattern using fresh-context background subagents (e.g., claude -p) with model overrides (Opus over Haiku) to eliminate worker self-review bias.
-- [[Self-Improving Agents]]: Autonomous architecture using dual-skill loops (inner task + outer observer) and GitOps human review gates to refine skills over time.
-- [[Session Checkpoints]]: Automatic state management mechanism in Claude Code capturing file snapshots before user prompts.
-- [[Software Supply Chain Security]]: Anatomy, attack vectors (Log4j, registry poisoning, SolarWinds), AI-as-supplier risks, shift-left checks, SBOMs, independent AI review, SLSA, Project Akrites & Lightwell.
-- [[Sparse Worktree Checkouts]]: Git harness optimization using worktree.sparsePaths to check out only touched subdirectories.
-- [[Stable Latent MoE]]: Ultra-sparse MoE architecture with latent token compression and quantile balancing.
-- [[Subagent Architecture]]: Multi-agent pattern spawning specialized worker agents into fresh 200K context windows to keep main session context lean.
-- [[Subagent Context Isolation]]: Delegation pattern running heavy research or exploration in a fresh, isolated 200K context window.
-- [[Subagent Worktree Isolation]]: Subagent configuration (isolation: worktree) forcing subagent runs inside temporary isolated worktrees.
-- [[Superhuman AI]]: AI systems capable of recursively improving themselves.
-- [[Superhuman Coder]]: Milestone where AI can perform coding tasks faster and cheaper than top humans.
-- [[Supervised Learning Algorithms]]: Regression (Linear, Polynomial, Ridge, Lasso, Elastic Net) and Classification (Logistic, KNN, Decision Tree, Random Forest, SVM, Naive Bayes) models.
-- [[System Design 162 Concepts Resource Map]]: Complete 17-part reference catalog of 162 system design concepts with 324 curated article and video links mapped to tluc-wiki architecture notes.
-- [[System Prompt Caching Optimization]]: Separation of static system prompts from dynamic session metadata via excludeDynamicSections for 100% cache hit rates.
-- [[The Factory Model (SDLC)]]: Building systems that build software.
-- [[Token Economics]]: Cost governance framework in Claude Code analyzing input, output, cache, and thinking tokens.
-- [[Tokenization]]: Fundamental process of breaking raw text into atomic token units and mapping to Token IDs via BPE, WordPiece, or SentencePiece.
-- [[Tool Search Architecture]]: On-demand tool discovery pattern in Claude Code deferring schema loading until runtime to scale to 10,000 tools.
-- [[Transformer Architecture and Pre-training]]: Self-attention, Encoder vs Decoder, BPE tokenization, dense embeddings, next-token pre-training, Kaplan & Chinchilla scaling laws, and MoE.
-- [[Ultracode Mode]]: Advanced execution setting (/effort ultracode) pairing xhigh reasoning effort with automatic dynamic workflow generation.
-- [[Unhobbling Claude]]: Paradigm shift removing rigid system prompt guardrails in favor of trusting model judgment and surrounding idioms.
-- [[Unsupervised Learning and Dimensionality Reduction]]: Clustering (K-Means, Hierarchical, DBSCAN, GMM), Association Rules (Apriori, Eclat), and compression (PCA, LDA, t-SNE, Feature Selection).
-- [[Verification Loop]]: The repeating check-and-fix cycle where an AI agent verifies its own work before reporting completion. Covers gate strengths and 4 deployment modes (Standalone, Embedded, Chained, PR).
-- [[Vibe Coding vs Agentic Engineering]]: The spectrum of AI-assisted development.
-- [[Vision Transformers and Multimodal AI]]: ViT patchification & self-attention (DETR/DINO/Mask2Former/MAE), CLIP contrastive alignment & zero-shot classification, Multimodal fusion (Early/Cross-Attention/Late), and Vision AI deployment stack.
-- [[Waku-Agent]]: Open-source agent framework by Sean demonstrating production Graph Engineering with router nodes, memory retrieval, and eval gates.
+- [Advanced Prompting Patterns](wiki/concepts/Advanced%20Prompting%20Patterns.md): Higher-order prompting strategies (ReAct, Tree-of-Thought, Self-Consistency, Prompt Chaining, Meta-Prompting) bridging prompts to agent loops.
+- [Advisor Model Pattern](wiki/concepts/Advisor%20Model%20Pattern.md): Dual-model escalation architecture in Claude Code (/advisor) delegating hard choices from Sonnet to Opus.
+- [Agent Engineering Ladder](wiki/concepts/Agent%20Engineering%20Ladder.md): 5-level evolutionary hierarchy of agent design: Prompt → Context → Skills → Loop → Graph Engineering.
+- [Agent Graph](wiki/concepts/Agent%20Graph.md): Execution workflow topology structuring tasks across planner nodes, parallel subagents, skeptic nodes, and human gates.
+- [Agent Loop Lifecycle](wiki/concepts/Agent%20Loop%20Lifecycle.md): Event-driven message stream lifecycle (SystemMessage, AssistantMessage, UserMessage, ResultMessage).
+- [Agent Onboarding Files](wiki/concepts/Agent%20Onboarding%20Files.md): Persistent instruction files (AGENTS.md, CLAUDE.md, GEMINI.md) acting as a README for agents.
+- [Agent SDK Architecture](wiki/concepts/Agent%20SDK%20Architecture.md): Programmatic framework embedding native Claude Code runtimes, parallel tool execution, and fine-grained permissions.
+- [Agent Skills Architecture](wiki/concepts/Agent%20Skills%20Architecture.md): Modular extension paradigm (Agent Skills spec) packaging instructions, supporting files, and allowed-tools into executable units.
+- [Agent Skills Best Practices](wiki/concepts/Agent%20Skills%20Best%20Practices.md): 5-principle methodology for authoring secure, token-efficient, and deterministic AI Agent Skills.
+- [Agent Skills Security Audit](wiki/concepts/Agent%20Skills%20Security%20Audit.md): Security verification protocol for auditing third-party agent skills to prevent prompt injection and malware.
+- [Agent Teams Architecture](wiki/concepts/Agent%20Teams%20Architecture.md): Multi-session peer collaboration pattern running a Lead Agent and independent Teammates with shared task backlogs and direct messaging.
+- [Agentic Coding Workflow](wiki/concepts/Agentic%20Coding%20Workflow.md): Structured 4-phase lifecycle (Explore → Plan → Implement → Commit) with empirical verification.
+- [Agentic Engineering](wiki/topics/Agentic%20Engineering.md): Topic overview and 11-layer learning/production roadmap unifying Prompt, Context, Harness, Loop, and Graph Engineering with Memory/RAG, Evals, Observability, Scaling, and AI Gateway layers.
+- [Agentic Workflow Recipes](wiki/concepts/Agentic%20Workflow%20Recipes.md): Standardized prompt patterns for exploration, bug fixing, refactoring, testing, and PR creation.
+- [AI Agent Memory Types](wiki/concepts/AI%20Agent%20Memory%20Types.md): Seven functional AI agent memory responsibilities rooted in CoALA (Working/checkpointers, Semantic, Episodic/reflection, Procedural/guardrails, External/5-mode retrieval, Parametric, Prospective/Temporal) showing 7 jobs != 7 databases.
+- [AI Code Migration](wiki/concepts/AI%20Code%20Migration.md): Six-step methodology for AI-assisted language/framework migrations at industrial scale.
+- [AI Deployment Lifecycle and Environments](wiki/concepts/AI%20Deployment%20Lifecycle%20and%20Environments.md): Seven-stage AI/ML application lifecycle, Dev vs Deployment, Training vs Inference, and Dev/Staging/Prod promotion.
+- [AI Evaluation, Safety and Governance](wiki/concepts/AI%20Evaluation%2C%20Safety%20and%20Governance.md): BLEU/ROUGE/BERTScore & Red Teaming metrics, 4 AI Bias taxonomies, 5 Ethics pillars, and EU AI Act, NIST AI RMF, OECD, and UN governance frameworks.
+- [AI System Design and Production Architecture](wiki/concepts/AI%20System%20Design%20and%20Production%20Architecture.md): 5-step AI system design framework, 10M-user customer support reference architecture (<300ms router, Hybrid RAG + Rerank, ACL filtering, confidence escalation), agent tool contracts, latency/cost levers, and the Meta Pattern.
+- [Auto Memory](wiki/concepts/Auto%20Memory.md): Model-authored persistent notes automatically generated by Claude Code to record discovered patterns and fixes.
+- [Automated Multi-Agent Code Review](wiki/concepts/Automated%20Multi-Agent%20Code%20Review.md): Managed cloud PR review architecture running parallel subagents and falsification checks.
+- [AWS Databases, Containers and Messaging](wiki/concepts/AWS%20Databases%2C%20Containers%20and%20Messaging.md): Managed relational RDS vs serverless DynamoDB (keys, consistency, RCU/WCU), SQS Standard/FIFO queues & DLQ, plus ECR image scanning and ECS/EKS orchestration.
+- [AWS Foundation, Networking and Compute](wiki/concepts/AWS%20Foundation%2C%20Networking%20and%20Compute.md): AWS Regions/AZs, IAM, Multi-AZ VPC networking (Public/Private Subnets, IGW/NAT, SG/NACL), EC2, EBS volume tiers, ELB/ALB/NLB comparison, and Route 53 routing policies.
+- [AWS Observability and Cryptographic Security](wiki/concepts/AWS%20Observability%20and%20Cryptographic%20Security.md): CloudWatch metrics/logs/alarms vs CloudTrail API auditing, Secrets Manager Lambda auto-rotation, and KMS FIPS 140-2 Level 3 HSM key governance.
+- [Behavioral and HR Interview Strategy](wiki/concepts/Behavioral%20and%20HR%20Interview%20Strategy.md): Five behavioral screening axes (value/weakness framing, company fit, failure/conflict, Urgent x Important prioritization, negotiation/reverse Q&As) paired with engineering interview execution.
+- [Cache Invalidation Patterns](wiki/concepts/Cache%20Invalidation%20Patterns.md): Catalog of triggers (model switches, effort changes, tool denials) that bust prompt cache prefixes.
+- [Chain-of-Thought Prompting](wiki/concepts/Chain-of-Thought%20Prompting.md): Stepwise reasoning technique prompting LLMs to decompose multi-step logic before emitting final conclusions.
+- [Chrome Integration Architecture](wiki/concepts/Chrome%20Integration%20Architecture.md): Browser automation subsystem in Claude Code connecting CLI sessions to Chromium browsers via Native Messaging Host.
+- [Classical AI Agents and State-Space Search](wiki/concepts/Classical%20AI%20Agents%20and%20State-Space%20Search.md): PEAS & 5 classical agent classes, 5-tuple search P=(S,A,s0,G,C), BFS/DFS/UCS complexity, Greedy vs A* admissible heuristics, and Minimax with Alpha-Beta Pruning.
+- [Claude Directory Architecture](wiki/concepts/Claude%20Directory%20Architecture.md): Standardized file system layout (.claude/ & ~/.claude/) for instructions, settings, rules, skills, subagents, and workflows.
+- [Closed-Loop Evals](wiki/concepts/Closed-Loop%20Evals.md): Automated architecture for continuous evaluation, reflection, prompt optimization, and auto-deployment without human intervention.
+- [Cloud Agent Sandbox and Auto Mode](wiki/concepts/Cloud%20Agent%20Sandbox%20and%20Auto%20Mode.md): Layered agent safety stack combining plain-English autoMode classifier (89% vs 14% human), pre-classifier deny rules, OS /sandbox, and disposable Cloud Sessions with Network Secrets.
+- [Cloud Sandboxed Ultrareview](wiki/concepts/Cloud%20Sandboxed%20Ultrareview.md): Deep off-machine diff review mode (/code-review ultra) executing verified bug detection in cloud sandboxes.
+- [Comprehension and Intent Debt](wiki/concepts/Comprehension%20and%20Intent%20Debt.md): Four agentic loop pitfalls (unverified code, comprehension debt, intent debt, cognitive surrender) and the minimal human responsibility triad.
+- [Conductor vs Orchestrator](wiki/concepts/Conductor%20vs%20Orchestrator.md): Modes of developer interaction with AI.
+- [Context Engineering](wiki/concepts/Context%20Engineering.md): The practice of explicitly managing and structuring what the AI "sees".
+- [Context Engineering Pipeline](wiki/concepts/Context%20Engineering%20Pipeline.md): Multi-stage architecture connecting data storage infrastructure to the LLM inference window.
+- [Context Processing and Management](wiki/concepts/Context%20Processing%20and%20Management.md): Two-phase operational framework in Context Engineering for filtering, structuring, and maintaining agent payloads.
+- [Context Rot](wiki/concepts/Context%20Rot.md): Phenomenon where LLM reasoning quality and instruction-following decay as unmanaged context volume increases.
+- [Context Selection and Sequencing](wiki/concepts/Context%20Selection%20and%20Sequencing.md): Structural optimization phase in Context Engineering governing data filtering and prompt payload ordering.
+- [Context Window Management](wiki/concepts/Context%20Window%20Management.md): Essential practices (CLAUDE.md hygiene, path-scoped rules, subagent isolation, compacting) to manage token degradation.
+- [Control-Loop Engineering](wiki/concepts/Control-Loop%20Engineering.md): Application of Classical Control Theory to agentic loops (Set Point, Sensors, Actuator, Adaptive Flow Control, FEEDBACK.md).
+- [Convolutional Neural Networks and Object Detection](wiki/concepts/Convolutional%20Neural%20Networks%20and%20Object%20Detection.md): RGB 3D tensors, Sobel edge/texture feature hierarchies, CNN convolution/stride/padding/backprop, classification, YOLO (grid, confidence, IoU, NMS), and Semantic/Instance/Panoptic segmentation.
+- [Cost Optimization](wiki/concepts/Cost%20Optimization.md): Active engineering techniques (context pruning, hook filtering, effort tuning) minimizing token spend.
+- [Data Preprocessing and Feature Engineering](wiki/concepts/Data%20Preprocessing%20and%20Feature%20Engineering.md): Structured/unstructured data, 5-step preprocessing pipeline (imputation, deduplication, scaling, encoding, splitting), feature extraction/selection, overfitting curves, hyperparameters, and Python ML stack.
+- [Deterministic Lifecycle Hooks](wiki/concepts/Deterministic%20Lifecycle%20Hooks.md): Harness control mechanism executing shell scripts at exact agent events (PreToolUse, PostToolUse) with exit code enforcement.
+- [Domain-Specific Agents](wiki/concepts/Domain-Specific%20Agents.md): Architectural paradigm favoring narrow, business-process-specific agents over monolithic generalist agents (Line Shaft vs Electric Motor analogy, Gmail Agent vs Skill, jagged models).
+- [Dynamic Context Injection](wiki/concepts/Dynamic%20Context%20Injection.md): Harness feature executing inline shell commands (!cmd) at render time to inject live output into skills before prompt submission.
+- [Dynamic Tool Loading](wiki/concepts/Dynamic%20Tool%20Loading.md): Pattern for declaring tool schemas on-demand inside system messages during chat completions.
+- [Dynamic Workflows](wiki/concepts/Dynamic%20Workflows.md): Programmatic JS script execution pattern running large-scale multi-agent audits and migrations in background runtimes.
+- [Effort Level and Model Selection](wiki/concepts/Effort%20Level%20and%20Model%20Selection.md): The 2D decision framework for model × effort tuning in Claude Code — includes diagnostic heuristic ("didn't try" vs "didn't know") and cost-interaction curves.
+- [Enterprise Agent Stack](wiki/concepts/Enterprise%20Agent%20Stack.md): Production architecture for regulated industries utilizing immutable event ledgers, decoupled zero-trust payload storage, and Human-Agent Equivalency.
+- [Few-Shot Prompting](wiki/concepts/Few-Shot%20Prompting.md): In-context learning technique supplying input-output demonstration pairs to govern formatting, style, and pattern accuracy.
+- [Git Worktree Isolation](wiki/concepts/Git%20Worktree%20Isolation.md): Harness pattern running parallel sessions in dedicated git worktrees (.claude/worktrees/) to prevent edit collisions.
+- [Goal-Driven Loop](wiki/concepts/Goal-Driven%20Loop.md): Autonomous multi-turn loop (/goal) evaluated after each turn by an independent fast evaluator model until completion conditions hold.
+- [GPU Architecture and Distributed Scaling](wiki/concepts/GPU%20Architecture%20and%20Distributed%20Scaling.md): Hardware-to-cluster AI compute reference covering SM/CUDA/Tensor Core execution, HBM capacity vs bandwidth, precision spectrum, NVIDIA generations, compute- vs memory-bound diagnostics, 3D parallelism, NVLink/NVSwitch/NCCL/AllReduce, and scaling bottlenecks.
+- [Graph Engineering](wiki/concepts/Graph%20Engineering.md): Orchestration paradigm structuring reliable agent nodes into directed graphs (DAGs or cyclic graphs).
+- [Harness Engineering](wiki/concepts/Harness%20Engineering.md): The design of the environment (tools, sandboxes, memory) that wraps the model.
+- [Harness Overhead vs Model Cost](wiki/concepts/Harness%20Overhead%20vs%20Model%20Cost.md): Economic paradigm detailing how agent spend is dominated by system prompt tollgates and multi-turn loops rather than base model inference.
+- [Hill-Climbing Loop](wiki/concepts/Hill-Climbing%20Loop.md): The highest level of LangChain's loop taxonomy, where an agent autonomously self-improves its own harness via trace analysis.
+- [Home Repo Pattern](wiki/concepts/Home%20Repo%20Pattern.md): Multi-repo agent architecture centralizing private .claude/skills, settings.json, CLAUDE.md/AGENTS.md repo pointers, Karpathy-style llm-wiki, and unified CLI tooling inside one hub repository.
+- [Inference Serving and Deployment Patterns](wiki/concepts/Inference%20Serving%20and%20Deployment%20Patterns.md): Batch vs Real-Time vs Async inference, Offline vs Online predictions, Cloud vs Edge topology, and LLM inference servers.
+- [Inference Speed vs Intelligence Trade-off](wiki/concepts/Inference%20Speed%20vs%20Intelligence%20Trade-off.md): 3D decision framework balancing model intelligence, token speed, and token efficiency in model serving.
+- [Inter-Agent Messaging](wiki/concepts/Inter-Agent%20Messaging.md): Peer-to-peer JSON mailbox protocol (~/.claude/teams/) enabling direct communication between agent team members.
+- [Interactive Session Artifacts](wiki/concepts/Interactive%20Session%20Artifacts.md): Web-publishing feature in Claude Code rendering CLI session outputs as live HTML dashboards on claude.ai.
+- [Iterated Distillation and Amplification (IDA)](wiki/concepts/Iterated%20Distillation%20and%20Amplification%20%28IDA%29.md): Training methodology to amplify and distill model capabilities.
+- [Jevons Paradox in AI](wiki/concepts/Jevons%20Paradox%20in%20AI.md): Economic phenomenon where falling per-token base model costs lead to exponential overall token consumption via thick agentic harnesses.
+- [Knowledge Graph vs Agent Graph](wiki/concepts/Knowledge%20Graph%20vs%20Agent%20Graph.md): Comparison matrix between relational information retrieval (Knowledge Graph) and workflow execution (Agent Graph).
+- [Knowledge Representation, Logic and Bayesian Inference](wiki/concepts/Knowledge%20Representation%2C%20Logic%20and%20Bayesian%20Inference.md): 5 epistemic knowledge types, 7 KR formalisms (FOL, Semantic Networks, Frames, Scripts, Ontologies, Rules), inference chaining/Resolution, and Bayes Theorem with Base Rate Fallacy.
+- [LLM Fine-Tuning and Alignment](wiki/concepts/LLM%20Fine-Tuning%20and%20Alignment.md): Full fine-tuning vs PEFT (LoRA/QLoRA), Instruction Tuning, 3H alignment, RLHF (SFT+RM+PPO), DPO, Constitutional AI, and Fine-tuning vs RAG decision rules.
+- [LLM Inference Optimization and Security](wiki/concepts/LLM%20Inference%20Optimization%20and%20Security.md): Quantization (FP16/INT8/INT4, GPTQ/AWQ), KV Cache, Flash Attention, vLLM, Speculative Decoding, benchmarks, hallucinations, and LLM attack/privacy defenses.
+- [LLM Pretraining, Optimization and Decoding](wiki/concepts/LLM%20Pretraining%2C%20Optimization%20and%20Decoding.md): Web-scale corpus SimHash/MinHash deduplication, DDP/FSDP/DeepSpeed parallelism, AdamW decoupled decay, Cosine Annealing LR, BF16 mixed precision, GPU vs TPU, and mathematical decoding strategies (Beam Search, Temperature logits, Top-K/P, Repetition Penalty).
+- [LLM-as-a-Judge and Eval Alignment](wiki/concepts/LLM-as-a-Judge%20and%20Eval%20Alignment.md): Automated binary trace grading validated via Train/Dev/Test splits, production deployment targets, and guarded optimization loops.
+- [llm-wiki](wiki/concepts/llm-wiki.md): A pattern for building personal knowledge bases using LLMs.
+- [LLMOps & Inference](wiki/topics/LLMOps%20%26%20Inference.md): Topic overview page covering model serving architectures, token economics, and inference trade-offs.
+- [Loop Engineering](wiki/concepts/Loop%20Engineering.md): The 4-type agent loop taxonomy (Claude Code / LangChain / IBM Control-Handoff models) covering Interactive/Turn-Based, Delegated/Goal-Based, Scheduled/Time-Based, and Event-Driven/Proactive loops with fresh-context Reviewer Agents and exception escalation.
+- [Machine Learning Paradigms](wiki/concepts/Machine%20Learning%20Paradigms.md): Taxonomy of Supervised, Unsupervised, Semi-Supervised, Self-Supervised, and Reinforcement Learning paradigms.
+- [MCP Transports](wiki/concepts/MCP%20Transports.md): Communication channels (HTTP streamable-http, stdio, WebSocket ws) for Model Context Protocol integrations.
+- [Memory Architecture](wiki/concepts/Memory%20Architecture.md): Reference architecture for persistent context management outside the model context window.
+- [Memory Promotion Path](wiki/concepts/Memory%20Promotion%20Path.md): 3-step lifecycle for promoting machine-local auto memory (MEMORY.md) into shared project rules.
+- [Metacode](wiki/concepts/Metacode.md): Taxonomy of version-controlled markdown files carrying requirements, architecture, rules, and plans for coding agents.
+- [Model Context Protocol](wiki/concepts/Model%20Context%20Protocol.md): Open standard enabling AI models and agent harnesses to connect to external systems.
+- [Model Evaluation and Validation](wiki/concepts/Model%20Evaluation%20and%20Validation.md): Classification metrics (Accuracy, Precision, Recall, F1, ROC-AUC), Regression metrics (MAE, MSE, RMSE, R²), and K-Fold Cross-Validation.
+- [Model Packaging and Versioning](wiki/concepts/Model%20Packaging%20and%20Versioning.md): End-to-end AI artifact packaging (weights, tokenizer, prompt, retrieval config), Container vs Model Registries, and rollback.
+- [Model Specification (Spec)](wiki/concepts/Model%20Specification%20%28Spec%29.md): Document outlining desired AI behavior and alignment rules.
+- [Monorepo Context Engineering](wiki/concepts/Monorepo%20Context%20Engineering.md): Structuring per-package rules, claudeMdExcludes, and sparse worktrees to keep context windows focused in large codebases.
+- [Neural Networks and Deep Learning Foundations](wiki/concepts/Neural%20Networks%20and%20Deep%20Learning%20Foundations.md): Core neural network mathematics spanning artificial neurons, ReLU/Sigmoid/Tanh/Leaky ReLU, forward propagation, MSE/Cross-Entropy losses, matrix backpropagation, GD/Adam optimization, FNN/CNN/RNN/Transformer overview, and L1/L2/inverted dropout regularization.
+- [Neuralese](wiki/concepts/Neuralese.md): High-dimensional vector memory that replaces text-based chain-of-thought.
+- [Obsidian Syntax Cheat Sheet](wiki/references/Obsidian%20Syntax%20Cheat%20Sheet.md): Quick reference guide for Obsidian wiki links, callouts, and frontmatter syntax.
+- [Orchestrator Skill Pattern](wiki/concepts/Orchestrator%20Skill%20Pattern.md): Multi-agent pattern where a top-level skill coordinates parallel specialized subagent review skills and merges findings.
+- [Parallel Agent Architecture](wiki/concepts/Parallel%20Agent%20Architecture.md): System design framework structuring parallel agent execution across Subagents, Agent View, Agent Teams, and Dynamic Workflows.
+- [Path-Scoped Rules](wiki/concepts/Path-Scoped%20Rules.md): Conditional instructions in .claude/rules/ that load lazily only when matching glob files are read.
+- [Persistent Instruction File](wiki/concepts/Persistent%20Instruction%20File.md): Durable guidance for agents (e.g., AGENTS.md, CLAUDE.md).
+- [Poteto Trust Pyramid](wiki/concepts/Poteto%20Trust%20Pyramid.md): Five-layer inverse trust hierarchy prioritizing deterministic codebase design and AST lint rules (167 rules) over runtime/formal verification, prose (AGENTS.md), and human review.
+- [Preserved Thinking](wiki/concepts/Preserved%20Thinking.md): Pattern of retaining historical reasoning_content across multi-turn messages to preserve continuous chain-of-thought.
+- [Product Evals and Error Analysis](wiki/concepts/Product%20Evals%20and%20Error%20Analysis.md): Workflow contrasting domain-specific product evals against foundation benchmarks using traces, failure taxonomies, and binary gates.
+- [Production AI Agent Service Stack](wiki/concepts/Production%20AI%20Agent%20Service%20Stack.md): 9-layer internal Python production AI agent stack (FastAPI/Uvicorn, Pydantic validation, LangGraph checkpoints, Postgres+pgvector, Redis, LiteLLM gateway, Langfuse/Opik traces, Pytest+AI Evals, uv/Ruff) treating tools as replaceable implementations of enduring responsibilities.
+- [Production AI Resilience and Scaling Patterns](wiki/concepts/Production%20AI%20Resilience%20and%20Scaling%20Patterns.md): Seven surrounding infrastructure patterns (API vs Model Gateway, token/Denial-of-Wallet Admission Control, tenant/semantic Caching, lane-isolated Message Queues, Timeouts/Retries/Circuit Breakers/Bulkheads, weighted/stateless Load Balancing, GPU/predictive Autoscaling) + observability triad.
+- [Programmatic Tool Calling](wiki/concepts/Programmatic%20Tool%20Calling.md): Model capability to write and execute code for filtering data and dynamically orchestrating tool calls.
+- [Progressive Disclosure](wiki/concepts/Progressive%20Disclosure.md): Context engineering pattern loading instructions, tools, and skills on demand (e.g. ToolSearch, tree CLAUDE.md).
+- [Prompt Engineering](wiki/concepts/Prompt%20Engineering.md): Foundational discipline of designing structured prompts (Role, Context, Task, Input, Constraints, Format) and frameworks (CO-STAR, R-T-F, CLEAR).
+- [Prompt-Based Hooks](wiki/concepts/Prompt-Based%20Hooks.md): Non-deterministic hooks running fast evaluator models (Haiku) on prompt payloads at turn boundaries.
+- [Python Collections and File Handling](wiki/concepts/Python%20Collections%20and%20File%20Handling.md): Comparison and operations across List, Tuple, Set, Dictionary (O(1) lookup, 3.7+ order) plus open() modes and with context-manager file I/O.
+- [Python Core Syntax and Control Flow](wiki/concepts/Python%20Core%20Syntax%20and%20Control%20Flow.md): Dynamic typing, 7 operator families, truthiness, loops (for/while/range), functions (DRY/lambda/unpacking), and immutable string indexing/slicing.
+- [Reasoning Effort](wiki/concepts/Reasoning%20Effort.md): Top-level model parameter for dynamically tuning reasoning depth (low, high, max).
+- [Responses API](wiki/concepts/Responses%20API.md): OpenAI's v1/responses endpoint succeeding Chat Completions, built for native tool use, hosted shell, and multi-agent coordination.
+- [Retrieval-Augmented Generation and Vector DBs](wiki/concepts/Retrieval-Augmented%20Generation%20and%20Vector%20DBs.md): RAG architecture, recursive/semantic chunking, dense embeddings, Cosine/HNSW retrieval, Vector DB comparisons, Advanced RAG patterns, and LangChain/LlamaIndex.
+- [REVIEW.md Governance](wiki/concepts/REVIEW.md%20Governance.md): Top-level repository rule file for overriding multi-agent review severity, nit caps, and path exclusions.
+- [SDK Agent Skills](wiki/concepts/SDK%20Agent%20Skills.md): Programmatic mechanism in the Claude Agent SDK for discovering, filtering, and mounting disk-based SKILL.md files into custom apps.
+- [SDK File Checkpointing](wiki/concepts/SDK%20File%20Checkpointing.md): Programmatic file restoration mechanism in the Claude Agent SDK (enable_file_checkpointing=True).
+- [SDK Subagents](wiki/concepts/SDK%20Subagents.md): Programmatic AgentDefinition registration in the Claude Agent SDK for instantiating dynamic worker subagents.
+- [SDK Token Accounting](wiki/concepts/SDK%20Token%20Accounting.md): Programmatic token measurement and cost aggregation pattern in the Claude Agent SDK.
+- [Second Opinion Pattern](wiki/concepts/Second%20Opinion%20Pattern.md): Verification pattern using fresh-context background subagents (e.g., claude -p) with model overrides (Opus over Haiku) to eliminate worker self-review bias.
+- [Self-Improving Agents](wiki/concepts/Self-Improving%20Agents.md): Autonomous architecture using dual-skill loops (inner task + outer observer) and GitOps human review gates to refine skills over time.
+- [Session Checkpoints](wiki/concepts/Session%20Checkpoints.md): Automatic state management mechanism in Claude Code capturing file snapshots before user prompts.
+- [Software Supply Chain Security](wiki/concepts/Software%20Supply%20Chain%20Security.md): Anatomy, attack vectors (Log4j, registry poisoning, SolarWinds), AI-as-supplier risks, shift-left checks, SBOMs, independent AI review, SLSA, Project Akrites & Lightwell.
+- [Sparse Worktree Checkouts](wiki/concepts/Sparse%20Worktree%20Checkouts.md): Git harness optimization using worktree.sparsePaths to check out only touched subdirectories.
+- [Stable Latent MoE](wiki/concepts/Stable%20Latent%20MoE.md): Ultra-sparse MoE architecture with latent token compression and quantile balancing.
+- [Subagent Architecture](wiki/concepts/Subagent%20Architecture.md): Multi-agent pattern spawning specialized worker agents into fresh 200K context windows to keep main session context lean.
+- [Subagent Context Isolation](wiki/concepts/Subagent%20Context%20Isolation.md): Delegation pattern running heavy research or exploration in a fresh, isolated 200K context window.
+- [Subagent Worktree Isolation](wiki/concepts/Subagent%20Worktree%20Isolation.md): Subagent configuration (isolation: worktree) forcing subagent runs inside temporary isolated worktrees.
+- [Superhuman AI](wiki/concepts/Superhuman%20AI.md): AI systems capable of recursively improving themselves.
+- [Superhuman Coder](wiki/concepts/Superhuman%20Coder.md): Milestone where AI can perform coding tasks faster and cheaper than top humans.
+- [Supervised Learning Algorithms](wiki/concepts/Supervised%20Learning%20Algorithms.md): Regression (Linear, Polynomial, Ridge, Lasso, Elastic Net) and Classification (Logistic, KNN, Decision Tree, Random Forest, SVM, Naive Bayes) models.
+- [System Design 162 Concepts Resource Map](wiki/references/System%20Design%20162%20Concepts%20Resource%20Map.md): Complete 17-part reference catalog of 162 system design concepts with 324 curated article and video links mapped to tluc-wiki architecture notes.
+- [System Prompt Caching Optimization](wiki/concepts/System%20Prompt%20Caching%20Optimization.md): Separation of static system prompts from dynamic session metadata via excludeDynamicSections for 100% cache hit rates.
+- [The Factory Model (SDLC)](wiki/concepts/The%20Factory%20Model%20%28SDLC%29.md): Building systems that build software.
+- [Token Economics](wiki/concepts/Token%20Economics.md): Cost governance framework in Claude Code analyzing input, output, cache, and thinking tokens.
+- [Tokenization](wiki/concepts/Tokenization.md): Fundamental process of breaking raw text into atomic token units and mapping to Token IDs via BPE, WordPiece, or SentencePiece.
+- [Tool Search Architecture](wiki/concepts/Tool%20Search%20Architecture.md): On-demand tool discovery pattern in Claude Code deferring schema loading until runtime to scale to 10,000 tools.
+- [Transformer Architecture and Pre-training](wiki/concepts/Transformer%20Architecture%20and%20Pre-training.md): Self-attention, Encoder vs Decoder, BPE tokenization, dense embeddings, next-token pre-training, Kaplan & Chinchilla scaling laws, and MoE.
+- [Ultracode Mode](wiki/concepts/Ultracode%20Mode.md): Advanced execution setting (/effort ultracode) pairing xhigh reasoning effort with automatic dynamic workflow generation.
+- [Unhobbling Claude](wiki/concepts/Unhobbling%20Claude.md): Paradigm shift removing rigid system prompt guardrails in favor of trusting model judgment and surrounding idioms.
+- [Unsupervised Learning and Dimensionality Reduction](wiki/concepts/Unsupervised%20Learning%20and%20Dimensionality%20Reduction.md): Clustering (K-Means, Hierarchical, DBSCAN, GMM), Association Rules (Apriori, Eclat), and compression (PCA, LDA, t-SNE, Feature Selection).
+- [Verification Loop](wiki/concepts/Verification%20Loop.md): The repeating check-and-fix cycle where an AI agent verifies its own work before reporting completion. Covers gate strengths and 4 deployment modes (Standalone, Embedded, Chained, PR).
+- [Vibe Coding vs Agentic Engineering](wiki/concepts/Vibe%20Coding%20vs%20Agentic%20Engineering.md): The spectrum of AI-assisted development.
+- [Vision Transformers and Multimodal AI](wiki/concepts/Vision%20Transformers%20and%20Multimodal%20AI.md): ViT patchification & self-attention (DETR/DINO/Mask2Former/MAE), CLIP contrastive alignment & zero-shot classification, Multimodal fusion (Early/Cross-Attention/Late), and Vision AI deployment stack.
+- [Waku-Agent](wiki/concepts/Waku-Agent.md): Open-source agent framework by Sean demonstrating production Graph Engineering with router nodes, memory retrieval, and eval gates.
 
 ## Sources
-- [[12 Agentic Harness Patterns from Claude Code]]: Design patterns from a leaked production agent's source code.
-- [[25 HR Interview Questions in Vietnamese]]: 8-page bilingual HR & behavioral interview playbook curated by Viet Nguyen AI featuring 25 common questions with fill-in-the-blank Vietnamese templates and 7 closing principles.
-- [[4 Types of AI Agent Loops From Human-Led to Autonomous]]: IBM Technology walkthrough of Interactive, Delegated, Scheduled, and Event-Driven agentic loops showing progressive handoff from human-led prompts/judging to AI stopping checks, cron clocks, fresh-context Reviewer Agents, and exception-only escalation.
-- [[5 Best Practices for Building AI Agent Skills]]: IBM Technology's guide on trigger descriptions, gotchas, progressive disclosure, deterministic scripts, and security.
-- [[7 AI Coding Trends to Watch This Year in 2026]]: Shifts in software development as AI integration matures, such as AI-native systems and context-aware tools.
-- [[Agent Harness explained in 8min]]: Caleb Writes Code's concise breakdown of the 3-stage evolution (Prompt → Context → Harness Engineering) and fresh-context loops.
-- [[Agent Memory The 7 Types You Should Know]]: Jam With AI's (Shantanu Ladhwe & Shirin Khosravi Jam) companion Substack blueprint anchoring the 7 agent memory types in CoALA/MemGPT/Generative Agents, Stored-vs-Active and What-vs-Where axes, Thread ID checkpointers, episodic reflection, guardrail procedures, and Temporal prospective execution.
-- [[Agent Skills in the SDK]]: Official Anthropic guide on programmatically integrating and filtering disk-based Agent Skills using the Claude Agent SDK.
-- [[AI 2027]]: Scenario forecasting the rapid development of superhuman AI and geopolitical tensions between 2025-2027.
-- [[AI Agent Memory 7 Types Explained in 12 Minutes]]: 12m 06s Jam With AI (Shirin Khosravi Jam) breakdown of the 7 AI Agent memory types, Saving vs. Remembering, Semantic Memory vs. Semantic Search, and end-to-end Email Agent walkthrough.
-- [[AI Complete Handbook]]: 20-page Vietnamese visual handbook by Viet Nguyen AI spanning Classical AI (Agents, Search, Minimax, KR, Logic, Bayesian) to Modern ML/DL, GenAI/LLMs, RAG, Agents, Evaluation/Governance, and Deployment.
-- [[AI Deployment Notes]]: 12-page Vietnamese visual guide covering AI deployment lifecycle, Dev/Staging/Prod, packaging/versioning, serving patterns, and inference servers.
-- [[AI Engineer Interview Notes]]: 17-page practical interview guide by Koteswara (shared by Viet Nguyen AI) covering LLM fundamentals, 6-step prompt debugging, Hybrid RAG/recall@k evals, ReAct guardrails, Fine-tuning vs RAG, LLM-Judge biases, 10M-user System Design, and 30-day prep checklist.
-- [[AI Eval Concepts Explained in 15 Minutes]]: Hamel Husain's 15-minute masterclass on product evals, traces, error analysis, trace sampling, LLM judges, traps, and model downsizing.
-- [[AI Harness 6 Core Components]]: Viet Nguyen AI's concise visual guide explaining Agent = Model + Harness across 6 core subsystems (Agent Loop, Tool Calling, Context Management, Checkpointing, Permissions & Sandboxing, Guardrails).
-- [[AI Model vs Agentic Harness What Actually Drives AI]]: IBM Technology's breakdown of the "brain in a jar" metaphor, narrowing benchmark gaps, the 3 harness pillars (Tools, Memory, Loops), and model-harness co-evolution.
-- [[AI System Design 7 Patterns Explained in 17 Minutes]]: 17m 11s Jam With AI walkthrough by Shirin Khosravi Jam explaining 7 production AI system design patterns around a Core AI Service, observability triad, and interview approach.
-- [[All Code Is Slop (Except Mine) — Lauren Tan, SpaceXSI]]: AI Engineer Code Summit talk by Lauren Tan (@poteto) on scaling Grok Bot to 11,000 PRs/mo (~0.5% revert rate) via deterministic guardrails and runtime/formal verification.
-- [[All GPU Related Concepts Simply Explained]]: Jam With AI's visual guide explaining 55+ GPU concepts across fundamentals, HBM memory hierarchy, numerical precision (TF32/BF16/FP8/FP4), NVIDIA V100-B200 generations, DP/TP/PP parallelism, NVLink/NCCL/AllReduce, and scaling efficiency.
-- [[Anthropic Just Fixed Graph Engineering's Greatest Flaw]]: AI LABS breakdown of DAG error cascading, the Second Opinion Pattern, Chrome Headless Shell verification, and the Orchestrator Skill Pattern.
-- [[Automate actions with hooks]]: Official Anthropic guide on lifecycle hooks, configuration, notification scripts, and environment loading.
-- [[AWS Core Services Notes]]: 18-page Vietnamese visual notebook by Viet Nguyen AI summarizing 17 core AWS infrastructure, compute, database, container, observability, and security services.
-- [[Best practices for Claude Code]]: Guide to managing context, verification, and autonomous workflows.
-- [[Best practices – Codex]]: Habits and configurations to scale agentic usage with AGENTS.md and MCP.
-- [[Building Closed-Loop Evals for a Multimodal Agent at Scale]]: Uber's presentation on multimodal agent orchestration, closed-loop auto-tuning, and Pass at K metrics.
-- [[Building verification loops in Claude Code with skills]]: How to encode manual checks as skills and deploy them standalone, embedded, chained, or as PR-level team gates.
-- [[Checkpointing]]: Official Anthropic guide on session checkpointing, code/conversation rewinding, and limitation boundaries.
-- [[Claude Code effort level and model selection]]: Deep-dive on frozen weights, effort as trained behavior, 7x token multiplier, specialist/expert/generalist model framework, and diagnostic heuristic.
-- [[Claude Code Hooks]]: Documentation on lifecycle hooks for deterministic agent control and workflow automation.
-- [[Claude Code Monorepo Setup]]: Strategies for configuring Claude Code in large, multi-package repositories using sparse worktrees and hierarchical context.
-- [[Claude Code Skills]]: Documentation on extending Claude Code with modular skills via SKILL.md.
-- [[Code Review]]: Official Anthropic guide on multi-agent PR reviews, severity levels, local /code-review, and REVIEW.md.
-- [[Codex Skills]]: Documentation on how Codex implements the open Agent Skills standard using progressive disclosure.
-- [[Common workflows]]: Official Anthropic prompt recipes for codebase exploration, bug fixing, refactoring, testing, and PR creation.
-- [[Computer Vision Handbook]]: 12-page Vietnamese visual cheatsheet covering pixels/tensors, CNN convolution & training, YOLO, segmentation, ViT, CLIP, Multimodal fusion, and Vision AI MLOps.
-- [[Connect Claude Code to tools via MCP]]: Official Anthropic guide on Model Context Protocol, HTTP/stdio/WS transports, and workspace trust.
-- [[Create custom subagents]]: Official Anthropic guide on building specialized subagents, frontmatter configuration, tool allowlists, and worktree isolation.
-- [[Creating Agent Skills]]: Detailed guide on automated and manual creation of Gemini Agent Skills.
-- [[Emerging Markdown Formats That Shape Coding Agent Behavior]]: Bilgin Ibryam's comprehensive map of agent-facing Markdown formats, the Metacode layer, and memory promotion.
-- [[Escalate hard decisions with the advisor tool]]: Official Anthropic guide on the advisor tool (/advisor), model pairings, and costs.
-- [[Explore the .claude directory]]: Complete reference map of the .claude/ project directory and ~/.claude/ home directory structure.
-- [[Explore the context window]]: Interactive simulation breakdown of startup context tokens, file read costs, and subagent context isolation.
-- [[Extend Claude with skills]]: Official Anthropic guide on Agent Skills (SKILL.md), dynamic context injection, invocation control, and directory hierarchy.
-- [[Find bugs with ultrareview]]: Official Anthropic guide on cloud-sandboxed deep code review (/code-review ultra).
-- [[Gemini CLI Skills]]: Documentation on the Gemini CLI's implementation of Agent Skills, emphasizing progressive disclosure and explicit consent models.
-- [[Gemini CLI Tips & Tricks]]: Dozens of pro-tips for Google's agentic command-line tool.
-- [[Get started with Agent Skills]]: Tutorial on creating an API Auditor skill for the Gemini CLI.
-- [[GPT-5.6 Frontier Intelligence]]: OpenAI launch announcement for GPT-5.6 (Sol, Terra, Luna) focusing on efficiency and parallel agent reasoning.
-- [[GPT-5.6 Luna Model API Reference]]: Official OpenAI API documentation, pricing, and limits for gpt-5.6-luna.
-- [[GPT-5.6 Sol Model API Reference]]: Official OpenAI API documentation, pricing, and limits for gpt-5.6-sol.
-- [[GPT-5.6 Terra Model API Reference]]: Official OpenAI API documentation, pricing, and limits for gpt-5.6-terra.
-- [[Graph Engineering explained in 8min]]: Caleb Writes Code's technical breakdown of multi-agent graph topologies, node capability evolution, and prompt caching economics.
-- [[Harness Engineering]]: Goon Nguyen's breakdown of why the ecosystem around the model matters more than the model itself.
-- [[Harness vs Model costs explained]]: Caleb Writes Code's breakdown of system prompt tollgates, harness cost variance, Jevons' Paradox, and prompt caching economics.
-- [[Hooks reference]]: Official Anthropic reference manual documenting all 31 hook lifecycle events, input/output schemas, and exit codes.
-- [[How a Production AI Agent System Actually Works]]: 11m 41s Jam With AI (Shirin Khosravi Jam) Video 1 architectural walkthrough separating the inner core AI application stack from outer deployment infrastructure.
-- [[How Anthropic runs large-scale code migrations with Claude Code]]: Anthropic's six-step AI migration methodology; Bun Zig→Rust (1M lines, $165K) and Python→TypeScript (165K lines, 1 weekend).
-- [[How Claude Code uses prompt caching]]: Official Anthropic guide on prompt caching, prefix matching, invalidation triggers, and TTL.
-- [[How Claude remembers your project]]: Official Anthropic guide on dual memory architecture (CLAUDE.md vs Auto Memory), load order, and path-scoped rules.
-- [[How the agent loop works]]: Official Anthropic Agent SDK reference covering turn execution, message types, tool permissions, and effort levels.
-- [[How Warp Builds Self-Improving Agents on Claude]]: Anthropic case study on Warp's dual-skill architecture, in-situ human feedback, and GitOps self-improvement.
-- [[Keep Claude working toward a goal]]: Official Anthropic guide on the /goal command, goal-driven loops, and independent model evaluation.
-- [[Kimi API Model List & Deprecations]]: Official model IDs, context lengths, and sunset schedule for Moonshot AI APIs.
-- [[Kimi API Quickstart & Integration]]: Integration guide for Kimi models via OpenAI-compatible endpoints, streaming, and multimodal inputs.
-- [[Kimi K2.7 Code Guide]]: Moonshot AI documentation for Kimi K2.7 Code and HighSpeed variants.
-- [[Kimi K3 explained in 13min]]: Caleb Writes Code's technical deep-dive into Kimi K3's architecture, Stable Latent MoE, and KDA.
-- [[Kimi K3 Model Guide]]: Technical documentation for Kimi K3, Moonshot AI's 2.8T open-source flagship model.
-- [[Kimi Multi-turn Context Management Guide]]: Best practices for managing stateless conversation payloads, message truncation, and system prompt pinning.
-- [[Kimi Reasoning Effort Guide]]: Guidance for configuring top-level reasoning_effort in Kimi K3.
-- [[Kimi Thinking Models & Preserved Thinking Guide]]: Detailed breakdown of reasoning tokens, preserved thinking, and multi-step tool configurations across Kimi models.
-- [[LLM Handbook 50 Concepts]]: 20-page Vietnamese visual handbook by Viet Nguyen AI summarizing 50 core LLM foundations, training/alignment, RAG/agents, serving/security, and interview prep.
-- [[LLM Handwritten Study Guide 15 Pages]]: 15-page formula-rich Vietnamese handwritten LLM study guide by Viet Nguyen AI covering Transformer math, O(n^2 d) attention, SimHash/MinHash dedup, AdamW/Cosine/BF16, Houlsby/Pfeiffer adapters, decoding formulas, and DPO loss.
-- [[Loop Engineering explained in 8min]]: Caleb Writes Code's technical breakdown of multi-loop stacking and Addy Osmani's 6 components of loop engineering.
-- [[Loop Engineering from First Principles]]: Kyle Mistele's talk on applying Control Theory and production patterns (Adaptive Flow Control, FEEDBACK.md) to agentic loops.
-- [[Loop engineering Getting started with loops]]: Official Claude Code loop taxonomy — turn-based, goal-based, time-based, proactive — with decision framework and the full proactive loop composition.
-- [[Machine Learning and Deep Learning Cheat Sheets]]: Two-sheet ML Tut formula reference covering 11-panel classical ML (workflow, preprocessing formulas, splits, regression/classification/unsupervised, metrics, leakage, imbalance) and 11-panel Deep Learning (neuron, activations, forward/backprop chain rule, Adam, architectures, inverted dropout).
-- [[Machine Learning Basics Notes]]: 9-page Vietnamese handwritten visual notebook covering ML workflow, data types, 5-step preprocessing, Feature Engineering, fit diagnostics, Cross-Validation, and Python ML libraries.
-- [[Manage costs effectively]]: Official Anthropic guide on cost tracking (/usage), org limits, and token reduction strategies.
-- [[Managing Agent Skills]]: Guide to slash commands, terminal utilities, and discovery tiers for Gemini Agent Skills.
-- [[Master AI Agents Roadmap Blueprint]]: 11-layer AI Agent engineering visual roadmap spanning Python/FastAPI, LLM/Prompting, Agent Core, Tool Calling, Memory/RAG, Multi-Agent patterns, Evals/Guardrails, Observability, Deployment, and AI Gateway/Security.
-- [[Maximizing the Value of Your Claude Code Sessions]]: Anthropic guide on session cost mechanics, prefill vs decode (~5x), prompt cache prefix preservation, @-mentions, and noisy command mitigation.
-- [[Memory Architecture Reference Notes]]: Reference diagram (2nd-brain.jpg) detailing 5-tier directory structure and compounding feedback loop.
-- [[Modifying system prompts]]: Official Anthropic guide on system prompt presets, output styles, append, and excludeDynamicSections prompt caching.
-- [[My LLM coding workflow going into 2026]]: Addy Osmani's structured "AI-assisted engineering" approach.
-- [[OpenAI Models & Codex Integration Guide]]: Developer guide for model selection, config.toml, and reasoning effort in Codex.
-- [[OpenAI's $10B Bet on their biggest model yet]]: Caleb Writes Code's financial and architectural analysis of OpenAI's $10B Cerebras deal and GPT-5.6 2-tier serving.
-- [[Orchestrate subagents at scale with dynamic workflows]]: Official Anthropic guide on dynamic workflows (ultracode), /deep-research, and JS runtime orchestration.
-- [[Orchestrate teams of Claude Code sessions]]: Official Anthropic guide on Agent Teams, Team Leads, shared task lists, inter-agent mailboxes, and tmux split panes.
-- [[Prompt Engineering Handbook]]: 11-page Vietnamese visual sketchnote guide covering prompt anatomy, prompting types, CO-STAR/R-T-F/CLEAR, CoT/ReAct/ToT, and checklists.
-- [[Python Handbook]]: 10-page Vietnamese visual guide covering Python basics, types, operators, conditionals, loops, functions, strings, collections, and file handling.
-- [[Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic]]: Anthropic engineer Lydia Hallie on scaling Claude Code to 30,000+ daily changes via /doctor prompt-audit, autoMode, Cloud Sessions, tri-stage exit 2 hooks, CI auto-merge, and Fable/Opus 5.5 orchestration.
-- [[Rewind file changes with checkpointing]]: Official Anthropic guide on programmatic SDK file checkpointing and rewind_files().
-- [[Run agents in parallel]]: Official Anthropic comparison guide on Subagents, Agent View, Agent Teams, and Dynamic Workflows.
-- [[Run parallel sessions with worktrees]]: Official Anthropic guide on git worktree isolation (--worktree), .worktreeinclude, and subagent worktrees.
-- [[Scale to many tools with tool search]]: Official Anthropic guide on dynamic tool search (ToolSearch) and ENABLE_TOOL_SEARCH configuration.
-- [[Set up Claude Code in a monorepo or large codebase]]: Official Anthropic guide on monorepo layering, claudeMdExcludes, permissions.deny, and sparse worktrees.
-- [[Share session output as artifacts]]: Official Anthropic guide on publishing interactive HTML artifacts and connector-backed live data.
-- [[Software Supply Chain Security What AI Coding Changes]]: IBM Technology breakdown of what AI coding changes in software supply chain security, shift-left defenses, SBOMs, independent verification, and provenance attestation.
-- [[Subagents in the SDK]]: Official Anthropic guide on programmatically defining AgentDefinition subagents using the Claude Agent SDK.
-- [[System Design for AI Engineers 7 Patterns]]: Jam With AI's interview-focused companion guide to the 7 production AI system design patterns (Denial-of-Wallet rate limits, Redis/semantic caching, RabbitMQ/SQS/Kafka queues, weighted vLLM balancing, GPU-aware autoscaling).
-- [[System Design for Engineers 162 Concepts]]: Jam With AI's curated 17-part, 162-concept system design curriculum (15 core starter concepts, per-part interview signals, 8 follow-up diagnostics, and 324 study links).
-- [[The Art of Loop Engineering]]: LangChain's 4-level loop taxonomy culminating in autonomous self-improvement via trace evaluation.
-- [[The Home Repo The effortless multi-repo agent setup]]: Matt Pocock's walkthrough of the Home Repo multi-repo setup, worktree auto-bootstrapping, Progressive Disclosure beyond 40 repos, and unified wiki CLI.
-- [[The new rules of context engineering for Claude 5 generation models]]: Thariq Shihipar's official Anthropic guide detailing 80% prompt reduction, Unhobbling Claude, and claude doctor.
-- [[The New SDLC With Vibe Coding]]: Whitepaper detailing the transition to intent-driven software development.
-- [[Token and API Price Guide]]: Visual guide to token units, tokenization algorithms (BPE, WordPiece, SentencePiece), and LLM API cost dynamics.
-- [[Track cost and usage]]: Official Anthropic guide on programmatic token usage and cost accounting using the Claude Agent SDK.
-- [[Transformers Detailed Notes and Revision Guide]]: Original 16-page English handwritten revision guide by Abhinav Gupta (@techyy_bandaa) covering Encoder/Decoder math, Permutation Invariance, GELU/LayerNorm, Teacher Forcing, Adam moments, BERT variants, RoPE/ALiBi/YaRN, Flash Attention O(n) space, PTQ/QAT, and 10 interview questions.
-- [[Types of Machine Learning Handbook]]: 13-page Vietnamese visual guide covering ML paradigms, Regression/Classification/Clustering/Dimensionality Reduction algorithms, evaluation metrics, and interview cheat sheets.
-- [[Use Claude Code with Chrome]]: Official Anthropic guide on Chrome browser integration (claude-in-chrome), debugging, and visual testing.
-- [[Vault Welcome]]: Summary of the default Obsidian onboarding note.
-- [[What Is Context Engineering]]: Joshua Noble's IBM article defining the 6-step context engineering lifecycle and data pipeline.
-- [[What Is Context Engineering Why It Matters for AI Agents]]: IBM Technology's guide on context processing, context management, context rot, and working memory analogies.
-- [[What Is Loop Engineering Building Better AI Agents]]: IBM Technology lightboard breakdown of the 4-stage agent loop, persistent state spine, context/tool/subagent scaffolding, and comprehension/intent debt safeguards.
-- [[Why Domain-specific Agents Are the Future]]: Justin Schroeder's Agentic AI Foundation talk on the line-shaft era of agents, domain-specific agents, Gmail agent vs skill, jagged models, and open standards.
-- [[Why Graph Engineering will 10x your Claude Codex]]: Greg Isenberg's 26-minute technical breakdown of Graph Engineering, Agent Graphs, and workflow patterns.
-- [[Why Your Enterprise Tech Stack Isn't Ready for AI Agents]]: Christopher Lovejoy and Saul Howard's presentation on the 4 architectural primitives for enterprise agent stacks, the immutable action ledger, and Human-Agent Equivalency.
-- [[You Can Learn AI Agent Graph Engineering In 21 Min]]: Sean's AI Stories technical breakdown of the 5-level Agent Engineering Ladder, Loop vs Graph trade-offs, and Waku-Agent architecture.
-- [[You Can Learn AI Agent Harness & Loop Engineering In 19 Min]]: Sean's AI Stories breakdown of horse-and-harness analogy, 4 memory tiers, and LLMOps.
+- [12 Agentic Harness Patterns from Claude Code](wiki/sources/12%20Agentic%20Harness%20Patterns%20from%20Claude%20Code.md): Design patterns from a leaked production agent's source code.
+- [25 HR Interview Questions in Vietnamese](wiki/sources/25%20HR%20Interview%20Questions%20in%20Vietnamese.md): 8-page bilingual HR & behavioral interview playbook curated by Viet Nguyen AI featuring 25 common questions with fill-in-the-blank Vietnamese templates and 7 closing principles.
+- [4 Types of AI Agent Loops From Human-Led to Autonomous](wiki/sources/4%20Types%20of%20AI%20Agent%20Loops%20From%20Human-Led%20to%20Autonomous.md): IBM Technology walkthrough of Interactive, Delegated, Scheduled, and Event-Driven agentic loops showing progressive handoff from human-led prompts/judging to AI stopping checks, cron clocks, fresh-context Reviewer Agents, and exception-only escalation.
+- [5 Best Practices for Building AI Agent Skills](wiki/sources/5%20Best%20Practices%20for%20Building%20AI%20Agent%20Skills.md): IBM Technology's guide on trigger descriptions, gotchas, progressive disclosure, deterministic scripts, and security.
+- [7 AI Coding Trends to Watch This Year in 2026](wiki/sources/7%20AI%20Coding%20Trends%20to%20Watch%20This%20Year%20in%202026.md): Shifts in software development as AI integration matures, such as AI-native systems and context-aware tools.
+- [Agent Harness explained in 8min](wiki/sources/Agent%20Harness%20explained%20in%208min.md): Caleb Writes Code's concise breakdown of the 3-stage evolution (Prompt → Context → Harness Engineering) and fresh-context loops.
+- [Agent Memory The 7 Types You Should Know](wiki/sources/Agent%20Memory%20The%207%20Types%20You%20Should%20Know.md): Jam With AI's (Shantanu Ladhwe & Shirin Khosravi Jam) companion Substack blueprint anchoring the 7 agent memory types in CoALA/MemGPT/Generative Agents, Stored-vs-Active and What-vs-Where axes, Thread ID checkpointers, episodic reflection, guardrail procedures, and Temporal prospective execution.
+- [Agent Skills in the SDK](wiki/sources/Agent%20Skills%20in%20the%20SDK.md): Official Anthropic guide on programmatically integrating and filtering disk-based Agent Skills using the Claude Agent SDK.
+- [AI 2027](wiki/sources/AI%202027.md): Scenario forecasting the rapid development of superhuman AI and geopolitical tensions between 2025-2027.
+- [AI Agent Memory 7 Types Explained in 12 Minutes](wiki/sources/AI%20Agent%20Memory%207%20Types%20Explained%20in%2012%20Minutes.md): 12m 06s Jam With AI (Shirin Khosravi Jam) breakdown of the 7 AI Agent memory types, Saving vs. Remembering, Semantic Memory vs. Semantic Search, and end-to-end Email Agent walkthrough.
+- [AI Complete Handbook](wiki/sources/AI%20Complete%20Handbook.md): 20-page Vietnamese visual handbook by Viet Nguyen AI spanning Classical AI (Agents, Search, Minimax, KR, Logic, Bayesian) to Modern ML/DL, GenAI/LLMs, RAG, Agents, Evaluation/Governance, and Deployment.
+- [AI Deployment Notes](wiki/sources/AI%20Deployment%20Notes.md): 12-page Vietnamese visual guide covering AI deployment lifecycle, Dev/Staging/Prod, packaging/versioning, serving patterns, and inference servers.
+- [AI Engineer Interview Notes](wiki/sources/AI%20Engineer%20Interview%20Notes.md): 17-page practical interview guide by Koteswara (shared by Viet Nguyen AI) covering LLM fundamentals, 6-step prompt debugging, Hybrid RAG/recall@k evals, ReAct guardrails, Fine-tuning vs RAG, LLM-Judge biases, 10M-user System Design, and 30-day prep checklist.
+- [AI Eval Concepts Explained in 15 Minutes](wiki/sources/AI%20Eval%20Concepts%20Explained%20in%2015%20Minutes.md): Hamel Husain's 15-minute masterclass on product evals, traces, error analysis, trace sampling, LLM judges, traps, and model downsizing.
+- [AI Harness 6 Core Components](wiki/sources/AI%20Harness%206%20Core%20Components.md): Viet Nguyen AI's concise visual guide explaining Agent = Model + Harness across 6 core subsystems (Agent Loop, Tool Calling, Context Management, Checkpointing, Permissions & Sandboxing, Guardrails).
+- [AI Model vs Agentic Harness What Actually Drives AI](wiki/sources/AI%20Model%20vs%20Agentic%20Harness%20What%20Actually%20Drives%20AI.md): IBM Technology's breakdown of the "brain in a jar" metaphor, narrowing benchmark gaps, the 3 harness pillars (Tools, Memory, Loops), and model-harness co-evolution.
+- [AI System Design 7 Patterns Explained in 17 Minutes](wiki/sources/AI%20System%20Design%207%20Patterns%20Explained%20in%2017%20Minutes.md): 17m 11s Jam With AI walkthrough by Shirin Khosravi Jam explaining 7 production AI system design patterns around a Core AI Service, observability triad, and interview approach.
+- [All Code Is Slop (Except Mine) — Lauren Tan, SpaceXSI](wiki/sources/All%20Code%20Is%20Slop%20%28Except%20Mine%29%20%E2%80%94%20Lauren%20Tan%2C%20SpaceXSI.md): AI Engineer Code Summit talk by Lauren Tan (@poteto) on scaling Grok Bot to 11,000 PRs/mo (~0.5% revert rate) via deterministic guardrails and runtime/formal verification.
+- [All GPU Related Concepts Simply Explained](wiki/sources/All%20GPU%20Related%20Concepts%20Simply%20Explained.md): Jam With AI's visual guide explaining 55+ GPU concepts across fundamentals, HBM memory hierarchy, numerical precision (TF32/BF16/FP8/FP4), NVIDIA V100-B200 generations, DP/TP/PP parallelism, NVLink/NCCL/AllReduce, and scaling efficiency.
+- [Anthropic Just Fixed Graph Engineering's Greatest Flaw](wiki/sources/Anthropic%20Just%20Fixed%20Graph%20Engineering%27s%20Greatest%20Flaw.md): AI LABS breakdown of DAG error cascading, the Second Opinion Pattern, Chrome Headless Shell verification, and the Orchestrator Skill Pattern.
+- [Automate actions with hooks](wiki/sources/Automate%20actions%20with%20hooks.md): Official Anthropic guide on lifecycle hooks, configuration, notification scripts, and environment loading.
+- [AWS Core Services Notes](wiki/sources/AWS%20Core%20Services%20Notes.md): 18-page Vietnamese visual notebook by Viet Nguyen AI summarizing 17 core AWS infrastructure, compute, database, container, observability, and security services.
+- [Best practices for Claude Code](wiki/sources/Best%20practices%20for%20Claude%20Code.md): Guide to managing context, verification, and autonomous workflows.
+- [Best practices – Codex](wiki/sources/Best%20practices%20%E2%80%93%20Codex.md): Habits and configurations to scale agentic usage with AGENTS.md and MCP.
+- [Building Closed-Loop Evals for a Multimodal Agent at Scale](wiki/sources/Building%20Closed-Loop%20Evals%20for%20a%20Multimodal%20Agent%20at%20Scale.md): Uber's presentation on multimodal agent orchestration, closed-loop auto-tuning, and Pass at K metrics.
+- [Building verification loops in Claude Code with skills](wiki/sources/Building%20verification%20loops%20in%20Claude%20Code%20with%20skills.md): How to encode manual checks as skills and deploy them standalone, embedded, chained, or as PR-level team gates.
+- [Checkpointing](wiki/sources/Checkpointing.md): Official Anthropic guide on session checkpointing, code/conversation rewinding, and limitation boundaries.
+- [Claude Code effort level and model selection](wiki/sources/Claude%20Code%20effort%20level%20and%20model%20selection.md): Deep-dive on frozen weights, effort as trained behavior, 7x token multiplier, specialist/expert/generalist model framework, and diagnostic heuristic.
+- [Claude Code Hooks](wiki/sources/Claude%20Code%20Hooks.md): Documentation on lifecycle hooks for deterministic agent control and workflow automation.
+- [Claude Code Monorepo Setup](wiki/sources/Claude%20Code%20Monorepo%20Setup.md): Strategies for configuring Claude Code in large, multi-package repositories using sparse worktrees and hierarchical context.
+- [Claude Code Skills](wiki/sources/Claude%20Code%20Skills.md): Documentation on extending Claude Code with modular skills via SKILL.md.
+- [Code Review](wiki/sources/Code%20Review.md): Official Anthropic guide on multi-agent PR reviews, severity levels, local /code-review, and REVIEW.md.
+- [Codex Skills](wiki/sources/Codex%20Skills.md): Documentation on how Codex implements the open Agent Skills standard using progressive disclosure.
+- [Common workflows](wiki/sources/Common%20workflows.md): Official Anthropic prompt recipes for codebase exploration, bug fixing, refactoring, testing, and PR creation.
+- [Computer Vision Handbook](wiki/sources/Computer%20Vision%20Handbook.md): 12-page Vietnamese visual cheatsheet covering pixels/tensors, CNN convolution & training, YOLO, segmentation, ViT, CLIP, Multimodal fusion, and Vision AI MLOps.
+- [Connect Claude Code to tools via MCP](wiki/sources/Connect%20Claude%20Code%20to%20tools%20via%20MCP.md): Official Anthropic guide on Model Context Protocol, HTTP/stdio/WS transports, and workspace trust.
+- [Create custom subagents](wiki/sources/Create%20custom%20subagents.md): Official Anthropic guide on building specialized subagents, frontmatter configuration, tool allowlists, and worktree isolation.
+- [Creating Agent Skills](wiki/sources/Creating%20Agent%20Skills.md): Detailed guide on automated and manual creation of Gemini Agent Skills.
+- [Emerging Markdown Formats That Shape Coding Agent Behavior](wiki/sources/Emerging%20Markdown%20Formats%20That%20Shape%20Coding%20Agent%20Behavior.md): Bilgin Ibryam's comprehensive map of agent-facing Markdown formats, the Metacode layer, and memory promotion.
+- [Escalate hard decisions with the advisor tool](wiki/sources/Escalate%20hard%20decisions%20with%20the%20advisor%20tool.md): Official Anthropic guide on the advisor tool (/advisor), model pairings, and costs.
+- [Explore the .claude directory](wiki/sources/Explore%20the%20.claude%20directory.md): Complete reference map of the .claude/ project directory and ~/.claude/ home directory structure.
+- [Explore the context window](wiki/sources/Explore%20the%20context%20window.md): Interactive simulation breakdown of startup context tokens, file read costs, and subagent context isolation.
+- [Extend Claude with skills](wiki/sources/Extend%20Claude%20with%20skills.md): Official Anthropic guide on Agent Skills (SKILL.md), dynamic context injection, invocation control, and directory hierarchy.
+- [Find bugs with ultrareview](wiki/sources/Find%20bugs%20with%20ultrareview.md): Official Anthropic guide on cloud-sandboxed deep code review (/code-review ultra).
+- [Gemini CLI Skills](wiki/sources/Gemini%20CLI%20Skills.md): Documentation on the Gemini CLI's implementation of Agent Skills, emphasizing progressive disclosure and explicit consent models.
+- [Gemini CLI Tips & Tricks](wiki/sources/Gemini%20CLI%20Tips%20%26%20Tricks.md): Dozens of pro-tips for Google's agentic command-line tool.
+- [Get started with Agent Skills](wiki/sources/Get%20started%20with%20Agent%20Skills.md): Tutorial on creating an API Auditor skill for the Gemini CLI.
+- [GPT-5.6 Frontier Intelligence](wiki/sources/GPT-5.6%20Frontier%20Intelligence.md): OpenAI launch announcement for GPT-5.6 (Sol, Terra, Luna) focusing on efficiency and parallel agent reasoning.
+- [GPT-5.6 Luna Model API Reference](wiki/sources/GPT-5.6%20Luna%20Model%20API%20Reference.md): Official OpenAI API documentation, pricing, and limits for gpt-5.6-luna.
+- [GPT-5.6 Sol Model API Reference](wiki/sources/GPT-5.6%20Sol%20Model%20API%20Reference.md): Official OpenAI API documentation, pricing, and limits for gpt-5.6-sol.
+- [GPT-5.6 Terra Model API Reference](wiki/sources/GPT-5.6%20Terra%20Model%20API%20Reference.md): Official OpenAI API documentation, pricing, and limits for gpt-5.6-terra.
+- [Graph Engineering explained in 8min](wiki/sources/Graph%20Engineering%20explained%20in%208min.md): Caleb Writes Code's technical breakdown of multi-agent graph topologies, node capability evolution, and prompt caching economics.
+- [Harness Engineering](wiki/sources/Harness%20Engineering.md): Goon Nguyen's breakdown of why the ecosystem around the model matters more than the model itself.
+- [Harness vs Model costs explained](wiki/sources/Harness%20vs%20Model%20costs%20explained.md): Caleb Writes Code's breakdown of system prompt tollgates, harness cost variance, Jevons' Paradox, and prompt caching economics.
+- [Hooks reference](wiki/sources/Hooks%20reference.md): Official Anthropic reference manual documenting all 31 hook lifecycle events, input/output schemas, and exit codes.
+- [How a Production AI Agent System Actually Works](wiki/sources/How%20a%20Production%20AI%20Agent%20System%20Actually%20Works.md): 11m 41s Jam With AI (Shirin Khosravi Jam) Video 1 architectural walkthrough separating the inner core AI application stack from outer deployment infrastructure.
+- [How Anthropic runs large-scale code migrations with Claude Code](wiki/sources/How%20Anthropic%20runs%20large-scale%20code%20migrations%20with%20Claude%20Code.md): Anthropic's six-step AI migration methodology; Bun Zig→Rust (1M lines, $165K) and Python→TypeScript (165K lines, 1 weekend).
+- [How Claude Code uses prompt caching](wiki/sources/How%20Claude%20Code%20uses%20prompt%20caching.md): Official Anthropic guide on prompt caching, prefix matching, invalidation triggers, and TTL.
+- [How Claude remembers your project](wiki/sources/How%20Claude%20remembers%20your%20project.md): Official Anthropic guide on dual memory architecture (CLAUDE.md vs Auto Memory), load order, and path-scoped rules.
+- [How the agent loop works](wiki/sources/How%20the%20agent%20loop%20works.md): Official Anthropic Agent SDK reference covering turn execution, message types, tool permissions, and effort levels.
+- [How Warp Builds Self-Improving Agents on Claude](wiki/sources/How%20Warp%20Builds%20Self-Improving%20Agents%20on%20Claude.md): Anthropic case study on Warp's dual-skill architecture, in-situ human feedback, and GitOps self-improvement.
+- [Keep Claude working toward a goal](wiki/sources/Keep%20Claude%20working%20toward%20a%20goal.md): Official Anthropic guide on the /goal command, goal-driven loops, and independent model evaluation.
+- [Kimi API Model List & Deprecations](wiki/sources/Kimi%20API%20Model%20List%20%26%20Deprecations.md): Official model IDs, context lengths, and sunset schedule for Moonshot AI APIs.
+- [Kimi API Quickstart & Integration](wiki/sources/Kimi%20API%20Quickstart%20%26%20Integration.md): Integration guide for Kimi models via OpenAI-compatible endpoints, streaming, and multimodal inputs.
+- [Kimi K2.7 Code Guide](wiki/sources/Kimi%20K2.7%20Code%20Guide.md): Moonshot AI documentation for Kimi K2.7 Code and HighSpeed variants.
+- [Kimi K3 explained in 13min](wiki/sources/Kimi%20K3%20explained%20in%2013min.md): Caleb Writes Code's technical deep-dive into Kimi K3's architecture, Stable Latent MoE, and KDA.
+- [Kimi K3 Model Guide](wiki/sources/Kimi%20K3%20Model%20Guide.md): Technical documentation for Kimi K3, Moonshot AI's 2.8T open-source flagship model.
+- [Kimi Multi-turn Context Management Guide](wiki/sources/Kimi%20Multi-turn%20Context%20Management%20Guide.md): Best practices for managing stateless conversation payloads, message truncation, and system prompt pinning.
+- [Kimi Reasoning Effort Guide](wiki/sources/Kimi%20Reasoning%20Effort%20Guide.md): Guidance for configuring top-level reasoning_effort in Kimi K3.
+- [Kimi Thinking Models & Preserved Thinking Guide](wiki/sources/Kimi%20Thinking%20Models%20%26%20Preserved%20Thinking%20Guide.md): Detailed breakdown of reasoning tokens, preserved thinking, and multi-step tool configurations across Kimi models.
+- [LLM Handbook 50 Concepts](wiki/sources/LLM%20Handbook%2050%20Concepts.md): 20-page Vietnamese visual handbook by Viet Nguyen AI summarizing 50 core LLM foundations, training/alignment, RAG/agents, serving/security, and interview prep.
+- [LLM Handwritten Study Guide 15 Pages](wiki/sources/LLM%20Handwritten%20Study%20Guide%2015%20Pages.md): 15-page formula-rich Vietnamese handwritten LLM study guide by Viet Nguyen AI covering Transformer math, O(n^2 d) attention, SimHash/MinHash dedup, AdamW/Cosine/BF16, Houlsby/Pfeiffer adapters, decoding formulas, and DPO loss.
+- [Loop Engineering explained in 8min](wiki/sources/Loop%20Engineering%20explained%20in%208min.md): Caleb Writes Code's technical breakdown of multi-loop stacking and Addy Osmani's 6 components of loop engineering.
+- [Loop Engineering from First Principles](wiki/sources/Loop%20Engineering%20from%20First%20Principles.md): Kyle Mistele's talk on applying Control Theory and production patterns (Adaptive Flow Control, FEEDBACK.md) to agentic loops.
+- [Loop engineering Getting started with loops](wiki/sources/Loop%20engineering%20Getting%20started%20with%20loops.md): Official Claude Code loop taxonomy — turn-based, goal-based, time-based, proactive — with decision framework and the full proactive loop composition.
+- [Machine Learning and Deep Learning Cheat Sheets](wiki/sources/Machine%20Learning%20and%20Deep%20Learning%20Cheat%20Sheets.md): Two-sheet ML Tut formula reference covering 11-panel classical ML (workflow, preprocessing formulas, splits, regression/classification/unsupervised, metrics, leakage, imbalance) and 11-panel Deep Learning (neuron, activations, forward/backprop chain rule, Adam, architectures, inverted dropout).
+- [Machine Learning Basics Notes](wiki/sources/Machine%20Learning%20Basics%20Notes.md): 9-page Vietnamese handwritten visual notebook covering ML workflow, data types, 5-step preprocessing, Feature Engineering, fit diagnostics, Cross-Validation, and Python ML libraries.
+- [Manage costs effectively](wiki/sources/Manage%20costs%20effectively.md): Official Anthropic guide on cost tracking (/usage), org limits, and token reduction strategies.
+- [Managing Agent Skills](wiki/sources/Managing%20Agent%20Skills.md): Guide to slash commands, terminal utilities, and discovery tiers for Gemini Agent Skills.
+- [Master AI Agents Roadmap Blueprint](wiki/sources/Master%20AI%20Agents%20Roadmap%20Blueprint.md): 11-layer AI Agent engineering visual roadmap spanning Python/FastAPI, LLM/Prompting, Agent Core, Tool Calling, Memory/RAG, Multi-Agent patterns, Evals/Guardrails, Observability, Deployment, and AI Gateway/Security.
+- [Maximizing the Value of Your Claude Code Sessions](wiki/sources/Maximizing%20the%20Value%20of%20Your%20Claude%20Code%20Sessions.md): Anthropic guide on session cost mechanics, prefill vs decode (~5x), prompt cache prefix preservation, @-mentions, and noisy command mitigation.
+- [Memory Architecture Reference Notes](wiki/sources/Memory%20Architecture%20Reference%20Notes.md): Reference diagram (2nd-brain.jpg) detailing 5-tier directory structure and compounding feedback loop.
+- [Modifying system prompts](wiki/sources/Modifying%20system%20prompts.md): Official Anthropic guide on system prompt presets, output styles, append, and excludeDynamicSections prompt caching.
+- [My LLM coding workflow going into 2026](wiki/sources/My%20LLM%20coding%20workflow%20going%20into%202026.md): Addy Osmani's structured "AI-assisted engineering" approach.
+- [OpenAI Models & Codex Integration Guide](wiki/sources/OpenAI%20Models%20%26%20Codex%20Integration%20Guide.md): Developer guide for model selection, config.toml, and reasoning effort in Codex.
+- [OpenAI's $10B Bet on their biggest model yet](wiki/sources/OpenAI%27s%20%2410B%20Bet%20on%20their%20biggest%20model%20yet.md): Caleb Writes Code's financial and architectural analysis of OpenAI's $10B Cerebras deal and GPT-5.6 2-tier serving.
+- [Orchestrate subagents at scale with dynamic workflows](wiki/sources/Orchestrate%20subagents%20at%20scale%20with%20dynamic%20workflows.md): Official Anthropic guide on dynamic workflows (ultracode), /deep-research, and JS runtime orchestration.
+- [Orchestrate teams of Claude Code sessions](wiki/sources/Orchestrate%20teams%20of%20Claude%20Code%20sessions.md): Official Anthropic guide on Agent Teams, Team Leads, shared task lists, inter-agent mailboxes, and tmux split panes.
+- [Prompt Engineering Handbook](wiki/sources/Prompt%20Engineering%20Handbook.md): 11-page Vietnamese visual sketchnote guide covering prompt anatomy, prompting types, CO-STAR/R-T-F/CLEAR, CoT/ReAct/ToT, and checklists.
+- [Python Handbook](wiki/sources/Python%20Handbook.md): 10-page Vietnamese visual guide covering Python basics, types, operators, conditionals, loops, functions, strings, collections, and file handling.
+- [Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic](wiki/sources/Rethinking%20Claude%20Code%20Best%20Practices%20%E2%80%94%20Lydia%20Hallie%2C%20Anthropic.md): Anthropic engineer Lydia Hallie on scaling Claude Code to 30,000+ daily changes via /doctor prompt-audit, autoMode, Cloud Sessions, tri-stage exit 2 hooks, CI auto-merge, and Fable/Opus 5.5 orchestration.
+- [Rewind file changes with checkpointing](wiki/sources/Rewind%20file%20changes%20with%20checkpointing.md): Official Anthropic guide on programmatic SDK file checkpointing and rewind_files().
+- [Run agents in parallel](wiki/sources/Run%20agents%20in%20parallel.md): Official Anthropic comparison guide on Subagents, Agent View, Agent Teams, and Dynamic Workflows.
+- [Run parallel sessions with worktrees](wiki/sources/Run%20parallel%20sessions%20with%20worktrees.md): Official Anthropic guide on git worktree isolation (--worktree), .worktreeinclude, and subagent worktrees.
+- [Scale to many tools with tool search](wiki/sources/Scale%20to%20many%20tools%20with%20tool%20search.md): Official Anthropic guide on dynamic tool search (ToolSearch) and ENABLE_TOOL_SEARCH configuration.
+- [Set up Claude Code in a monorepo or large codebase](wiki/sources/Set%20up%20Claude%20Code%20in%20a%20monorepo%20or%20large%20codebase.md): Official Anthropic guide on monorepo layering, claudeMdExcludes, permissions.deny, and sparse worktrees.
+- [Share session output as artifacts](wiki/sources/Share%20session%20output%20as%20artifacts.md): Official Anthropic guide on publishing interactive HTML artifacts and connector-backed live data.
+- [Software Supply Chain Security What AI Coding Changes](wiki/sources/Software%20Supply%20Chain%20Security%20What%20AI%20Coding%20Changes.md): IBM Technology breakdown of what AI coding changes in software supply chain security, shift-left defenses, SBOMs, independent verification, and provenance attestation.
+- [Subagents in the SDK](wiki/sources/Subagents%20in%20the%20SDK.md): Official Anthropic guide on programmatically defining AgentDefinition subagents using the Claude Agent SDK.
+- [System Design for AI Engineers 7 Patterns](wiki/sources/System%20Design%20for%20AI%20Engineers%207%20Patterns.md): Jam With AI's interview-focused companion guide to the 7 production AI system design patterns (Denial-of-Wallet rate limits, Redis/semantic caching, RabbitMQ/SQS/Kafka queues, weighted vLLM balancing, GPU-aware autoscaling).
+- [System Design for Engineers 162 Concepts](wiki/sources/System%20Design%20for%20Engineers%20162%20Concepts.md): Jam With AI's curated 17-part, 162-concept system design curriculum (15 core starter concepts, per-part interview signals, 8 follow-up diagnostics, and 324 study links).
+- [The Art of Loop Engineering](wiki/sources/The%20Art%20of%20Loop%20Engineering.md): LangChain's 4-level loop taxonomy culminating in autonomous self-improvement via trace evaluation.
+- [The Home Repo The effortless multi-repo agent setup](wiki/sources/The%20Home%20Repo%20The%20effortless%20multi-repo%20agent%20setup.md): Matt Pocock's walkthrough of the Home Repo multi-repo setup, worktree auto-bootstrapping, Progressive Disclosure beyond 40 repos, and unified wiki CLI.
+- [The new rules of context engineering for Claude 5 generation models](wiki/sources/The%20new%20rules%20of%20context%20engineering%20for%20Claude%205%20generation%20models.md): Thariq Shihipar's official Anthropic guide detailing 80% prompt reduction, Unhobbling Claude, and claude doctor.
+- [The New SDLC With Vibe Coding](wiki/sources/The%20New%20SDLC%20With%20Vibe%20Coding.md): Whitepaper detailing the transition to intent-driven software development.
+- [Token and API Price Guide](wiki/sources/Token%20and%20API%20Price%20Guide.md): Visual guide to token units, tokenization algorithms (BPE, WordPiece, SentencePiece), and LLM API cost dynamics.
+- [Track cost and usage](wiki/sources/Track%20cost%20and%20usage.md): Official Anthropic guide on programmatic token usage and cost accounting using the Claude Agent SDK.
+- [Transformers Detailed Notes and Revision Guide](wiki/sources/Transformers%20Detailed%20Notes%20and%20Revision%20Guide.md): Original 16-page English handwritten revision guide by Abhinav Gupta (@techyy_bandaa) covering Encoder/Decoder math, Permutation Invariance, GELU/LayerNorm, Teacher Forcing, Adam moments, BERT variants, RoPE/ALiBi/YaRN, Flash Attention O(n) space, PTQ/QAT, and 10 interview questions.
+- [Types of Machine Learning Handbook](wiki/sources/Types%20of%20Machine%20Learning%20Handbook.md): 13-page Vietnamese visual guide covering ML paradigms, Regression/Classification/Clustering/Dimensionality Reduction algorithms, evaluation metrics, and interview cheat sheets.
+- [Use Claude Code with Chrome](wiki/sources/Use%20Claude%20Code%20with%20Chrome.md): Official Anthropic guide on Chrome browser integration (claude-in-chrome), debugging, and visual testing.
+- [Vault Welcome](wiki/sources/Vault%20Welcome.md): Summary of the default Obsidian onboarding note.
+- [What Is Context Engineering](wiki/sources/What%20Is%20Context%20Engineering.md): Joshua Noble's IBM article defining the 6-step context engineering lifecycle and data pipeline.
+- [What Is Context Engineering Why It Matters for AI Agents](wiki/sources/What%20Is%20Context%20Engineering%20Why%20It%20Matters%20for%20AI%20Agents.md): IBM Technology's guide on context processing, context management, context rot, and working memory analogies.
+- [What Is Loop Engineering Building Better AI Agents](wiki/sources/What%20Is%20Loop%20Engineering%20Building%20Better%20AI%20Agents.md): IBM Technology lightboard breakdown of the 4-stage agent loop, persistent state spine, context/tool/subagent scaffolding, and comprehension/intent debt safeguards.
+- [Why Domain-specific Agents Are the Future](wiki/sources/Why%20Domain-specific%20Agents%20Are%20the%20Future.md): Justin Schroeder's Agentic AI Foundation talk on the line-shaft era of agents, domain-specific agents, Gmail agent vs skill, jagged models, and open standards.
+- [Why Graph Engineering will 10x your Claude Codex](wiki/sources/Why%20Graph%20Engineering%20will%2010x%20your%20Claude%20Codex.md): Greg Isenberg's 26-minute technical breakdown of Graph Engineering, Agent Graphs, and workflow patterns.
+- [Why Your Enterprise Tech Stack Isn't Ready for AI Agents](wiki/sources/Why%20Your%20Enterprise%20Tech%20Stack%20Isn%27t%20Ready%20for%20AI%20Agents.md): Christopher Lovejoy and Saul Howard's presentation on the 4 architectural primitives for enterprise agent stacks, the immutable action ledger, and Human-Agent Equivalency.
+- [You Can Learn AI Agent Graph Engineering In 21 Min](wiki/sources/You%20Can%20Learn%20AI%20Agent%20Graph%20Engineering%20In%2021%20Min.md): Sean's AI Stories technical breakdown of the 5-level Agent Engineering Ladder, Loop vs Graph trade-offs, and Waku-Agent architecture.
+- [You Can Learn AI Agent Harness & Loop Engineering In 19 Min](wiki/sources/You%20Can%20Learn%20AI%20Agent%20Harness%20%26%20Loop%20Engineering%20In%2019%20Min.md): Sean's AI Stories breakdown of horse-and-harness analogy, 4 memory tiers, and LLMOps.
 
 ## Personal Memory & Projects (mem/)
-- [[2026-Q3-Milestones]]: Historical milestone log for 2nd Brain architecture and AI engineering progress.
-- [[AI Engineering Mastery 2026]]: Personal career goal for mastering agentic software engineering and Second Brain systems.
-- [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
-- [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
-- [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- [2026-Q3-Milestones](mem/history/2026-Q3-Milestones.md): Historical milestone log for 2nd Brain architecture and AI engineering progress.
+- [AI Engineering Mastery 2026](mem/goals/AI%20Engineering%20Mastery%202026.md): Personal career goal for mastering agentic software engineering and Second Brain systems.
+- [AI Pair Programming Preferences](mem/preferences/AI%20Pair%20Programming%20Preferences.md): Work preferences and collaboration rules for Gemini AI.
+- [gemini](mem/gemini.md): Second Brain identity, user profile, operating preferences, career focus, and active goals.
+- [tluc-wiki 2nd Brain Architecture](mem/projects/tluc-wiki%202nd%20Brain%20Architecture.md): Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
 
 ## Analyses

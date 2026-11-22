@@ -5,12 +5,12 @@ tags:
   - concept
   - context-engineering
   - harness-engineering
-source: "[[What Is Context Engineering]]"
+source: "wiki/sources/What Is Context Engineering.md"
 ---
 
 # Context Selection and Sequencing
 
-**Context Selection and Sequencing** is the structural optimization phase in [[Context Engineering]] governing *what* data enters the LLM context window (Selection) and *where* each layer is ordered in the prompt payload (Sequencing).
+**Context Selection and Sequencing** is the structural optimization phase in [Context Engineering](Context%20Engineering.md) governing *what* data enters the LLM context window (Selection) and *where* each layer is ordered in the prompt payload (Sequencing).
 
 ---
 
@@ -35,4 +35,4 @@ Because LLMs pay uneven attention to tokens across long payloads, optimal payloa
 2. **Most Relevant Context Second**: Position primary RAG retrievals and tool results immediately below system rules.
 3. **Historical / Background Data Last**: Place older conversation history and lower-priority details further back.
 
-See [[What Is Context Engineering]], [[Context Engineering]], [[Context Processing and Management]], and [[System Prompt Caching Optimization]].
+See [What Is Context Engineering](../sources/What%20Is%20Context%20Engineering.md), [Context Engineering](Context%20Engineering.md), [Context Processing and Management](Context%20Processing%20and%20Management.md), and [System Prompt Caching Optimization](System%20Prompt%20Caching%20Optimization.md).

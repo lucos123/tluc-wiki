@@ -6,12 +6,12 @@ tags:
   - aws
   - cloud-architecture
   - networking
-source: "[[AWS Core Services Notes]]"
+source: "wiki/sources/AWS Core Services Notes.md"
 ---
 
 # AWS Foundation, Networking and Compute
 
-Core global infrastructure, identity access control, virtual private networking, virtualized compute/block storage, load balancing, and DNS routing primitives in [[Amazon Web Services (AWS)|AWS]]. Synthesized from [[AWS Core Services Notes]] (Pages 1–7).
+Core global infrastructure, identity access control, virtual private networking, virtualized compute/block storage, load balancing, and DNS routing primitives in [AWS](../entities/Amazon%20Web%20Services%20%28AWS%29.md). Synthesized from [AWS Core Services Notes](../sources/AWS%20Core%20Services%20Notes.md) (Pages 1–7).
 
 ---
 
@@ -71,6 +71,10 @@ A **VPC** provides a logically isolated virtual network (full control over IP CI
 ---
 
 ## Related Pages
-- **Sources**: [[AWS Core Services Notes]]
-- **Entities**: [[Amazon Web Services (AWS)]], [[Viet Nguyen AI]]
-- **Concepts**: [[AWS Databases, Containers and Messaging]], [[AWS Observability and Cryptographic Security]], [[Inference Serving and Deployment Patterns]], [[AI Deployment Lifecycle and Environments]]
+- **Sources**: [AWS Core Services Notes](../sources/AWS%20Core%20Services%20Notes.md)
+- **Entities**: [Amazon Web Services (AWS)](../entities/Amazon%20Web%20Services%20%28AWS%29.md), [Viet Nguyen AI](../entities/Viet%20Nguyen%20AI.md)
+- **Concepts**:
+  - [AWS Databases, Containers and Messaging](AWS%20Databases%2C%20Containers%20and%20Messaging.md)
+  - [AWS Observability and Cryptographic Security](AWS%20Observability%20and%20Cryptographic%20Security.md)
+  - [Inference Serving and Deployment Patterns](Inference%20Serving%20and%20Deployment%20Patterns.md)
+  - [AI Deployment Lifecycle and Environments](AI%20Deployment%20Lifecycle%20and%20Environments.md)

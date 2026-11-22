@@ -13,4 +13,4 @@ role: "Software Architect & Author"
 
 ## Key Articles & Contributions
 
-- Author of [[Emerging Markdown Formats That Shape Coding Agent Behavior]], introducing the [[Metacode]] taxonomy and [[Memory Promotion Path]].
+- Author of [Emerging Markdown Formats That Shape Coding Agent Behavior](../sources/Emerging%20Markdown%20Formats%20That%20Shape%20Coding%20Agent%20Behavior.md), introducing the [Metacode](../concepts/Metacode.md) taxonomy and [Memory Promotion Path](../concepts/Memory%20Promotion%20Path.md).

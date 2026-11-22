@@ -10,9 +10,9 @@ source: "raw/articles/openai/model/gpt-5-6-luna-model-api-reference.md"
 
 # GPT-5.6 Luna Model API Reference
 
-**Source File**: [[raw/articles/openai/model/gpt-5-6-luna-model-api-reference.md]]
+**Source File**: [raw/articles/openai/model/gpt-5-6-luna-model-api-reference.md](../../raw/articles/openai/model/gpt-5-6-luna-model-api-reference.md)
 
-Official API reference for `gpt-5.6-luna`, [[OpenAI]]'s fast, cost-sensitive model tier.
+Official API reference for `gpt-5.6-luna`, [OpenAI](../entities/OpenAI.md)'s fast, cost-sensitive model tier.
 
 ## Key Specifications
 
@@ -27,4 +27,4 @@ Official API reference for `gpt-5.6-luna`, [[OpenAI]]'s fast, cost-sensitive mod
 
 ## Synthesis Notes
 
-`[[GPT-5.6 Luna]]` is designed for massive parallelization in agent subagent swarms (`[[Graph Engineering]]`). At $0.20 / $1.20 per 1M tokens, it enables cheap background filtering and structured data extraction.
+[GPT-5.6 Luna](../entities/GPT-5.6%20Luna.md) is designed for massive parallelization in agent subagent swarms ([Graph Engineering](../concepts/Graph%20Engineering.md)). At $0.20 / $1.20 per 1M tokens, it enables cheap background filtering and structured data extraction.

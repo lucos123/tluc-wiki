@@ -10,9 +10,9 @@ source: "raw/articles/openai/model/gpt-5-6-terra-model-api-reference.md"
 
 # GPT-5.6 Terra Model API Reference
 
-**Source File**: [[raw/articles/openai/model/gpt-5-6-terra-model-api-reference.md]]
+**Source File**: [raw/articles/openai/model/gpt-5-6-terra-model-api-reference.md](../../raw/articles/openai/model/gpt-5-6-terra-model-api-reference.md)
 
-Official API reference for `gpt-5.6-terra`, [[OpenAI]]'s balanced model for everyday workloads.
+Official API reference for `gpt-5.6-terra`, [OpenAI](../entities/OpenAI.md)'s balanced model for everyday workloads.
 
 ## Key Specifications
 
@@ -27,4 +27,4 @@ Official API reference for `gpt-5.6-terra`, [[OpenAI]]'s balanced model for ever
 
 ## Synthesis Notes
 
-`[[GPT-5.6 Terra]]` serves as the primary replacement for legacy `gpt-5.4` and `gpt-5.5` models in standard developer automation workflows, offering high reasoning capability at a 60% discount over `gpt-5.6-sol`.
+[GPT-5.6 Terra](../entities/GPT-5.6%20Terra.md) serves as the primary replacement for legacy `gpt-5.4` and `gpt-5.5` models in standard developer automation workflows, offering high reasoning capability at a 60% discount over `gpt-5.6-sol`.

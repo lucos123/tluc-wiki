@@ -13,4 +13,4 @@ role: "Tech Entrepreneur & Content Creator"
 
 ## Key Contributions & Videos
 
-- **[[Why Graph Engineering will 10x your Claude Codex]]**: Comprehensive 26-minute breakdown demystifying [[Graph Engineering]], introducing the plain-English agentic evolution taxonomy, [[Agent Graph]], and [[Knowledge Graph vs Agent Graph]].
+- **[Why Graph Engineering will 10x your Claude Codex](../sources/Why%20Graph%20Engineering%20will%2010x%20your%20Claude%20Codex.md)**: Comprehensive 26-minute breakdown demystifying [Graph Engineering](../concepts/Graph%20Engineering.md), introducing the plain-English agentic evolution taxonomy, [Agent Graph](../concepts/Agent%20Graph.md), and [Knowledge Graph vs Agent Graph](../concepts/Knowledge%20Graph%20vs%20Agent%20Graph.md).

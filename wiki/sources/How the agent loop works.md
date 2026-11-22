@@ -6,20 +6,20 @@ tags:
   - agent-sdk
   - harness-engineering
   - claude-code
-source: "[[raw/articles/claude-code/context-memory-rules/agent-loop.md]]"
+source: "raw/articles/claude-code/context-memory-rules/agent-loop.md"
 url: "https://code.claude.com/docs/en/agent-sdk/agent-loop.md"
 ---
 
 # How the agent loop works
 
 **URL**: https://code.claude.com/docs/en/agent-sdk/agent-loop.md  
-**Source File**: [[raw/articles/claude-code/context-memory-rules/agent-loop.md]]  
+**Source File**: [raw/articles/claude-code/context-memory-rules/agent-loop.md](../../raw/articles/claude-code/context-memory-rules/agent-loop.md)  
 
 ---
 
 ## Executive Summary
 
-This official Anthropic reference explains the underlying architecture, message stream lifecycle, tool execution model, and control options powering the [[Claude Code]] Agent SDK in TypeScript and Python.
+This official Anthropic reference explains the underlying architecture, message stream lifecycle, tool execution model, and control options powering the [Claude Code](../entities/Claude%20Code.md) Agent SDK in TypeScript and Python.
 
 ---
 
@@ -60,5 +60,10 @@ Receive Prompt (SystemMessage 'init') ──> Evaluate & Respond (AssistantMessa
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Agent Loop Lifecycle]], [[Agent SDK Architecture]], [[Reasoning Effort]], [[Context Window Management]], [[Subagent Context Isolation]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Agent Loop Lifecycle](../concepts/Agent%20Loop%20Lifecycle.md)
+  - [Agent SDK Architecture](../concepts/Agent%20SDK%20Architecture.md)
+  - [Reasoning Effort](../concepts/Reasoning%20Effort.md)
+  - [Context Window Management](../concepts/Context%20Window%20Management.md)
+  - [Subagent Context Isolation](../concepts/Subagent%20Context%20Isolation.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

@@ -7,14 +7,14 @@ tags:
   - subagents
   - harness-engineering
   - claude-code
-source: "[[raw/articles/claude-code/agent-architecture-subagents-workflows/agent-sdk-subagents.md]]"
+source: "raw/articles/claude-code/agent-architecture-subagents-workflows/agent-sdk-subagents.md"
 url: "https://code.claude.com/docs/en/agent-sdk-subagents.md"
 ---
 
 # Subagents in the SDK
 
 **URL**: https://code.claude.com/docs/en/agent-sdk-subagents.md  
-**Source File**: [[raw/articles/claude-code/agent-architecture-subagents-workflows/agent-sdk-subagents.md]]  
+**Source File**: [raw/articles/claude-code/agent-architecture-subagents-workflows/agent-sdk-subagents.md](../../raw/articles/claude-code/agent-architecture-subagents-workflows/agent-sdk-subagents.md)  
 
 ---
 
@@ -58,5 +58,9 @@ options = ClaudeAgentOptions(
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[SDK Subagents]], [[Subagent Architecture]], [[Subagent Context Isolation]], [[Agent SDK Architecture]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [SDK Subagents](../concepts/SDK%20Subagents.md)
+  - [Subagent Architecture](../concepts/Subagent%20Architecture.md)
+  - [Subagent Context Isolation](../concepts/Subagent%20Context%20Isolation.md)
+  - [Agent SDK Architecture](../concepts/Agent%20SDK%20Architecture.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

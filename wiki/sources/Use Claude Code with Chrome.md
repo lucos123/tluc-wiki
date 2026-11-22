@@ -7,14 +7,14 @@ tags:
   - browser-automation
   - harness-engineering
   - claude-code
-source: "[[raw/articles/claude-code/hooks-tools-mcp-chrome/chrome.md]]"
+source: "raw/articles/claude-code/hooks-tools-mcp-chrome/chrome.md"
 url: "https://code.claude.com/docs/en/chrome.md"
 ---
 
 # Use Claude Code with Chrome
 
 **URL**: https://code.claude.com/docs/en/chrome.md  
-**Source File**: [[raw/articles/claude-code/hooks-tools-mcp-chrome/chrome.md]]  
+**Source File**: [raw/articles/claude-code/hooks-tools-mcp-chrome/chrome.md](../../raw/articles/claude-code/hooks-tools-mcp-chrome/chrome.md)  
 
 ---
 
@@ -59,5 +59,11 @@ claude --chrome
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Chrome Integration Architecture]], [[Model Context Protocol]], [[Harness Engineering]].
-- **Entities**: [[Chrome Extension]], [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Chrome Integration Architecture](../concepts/Chrome%20Integration%20Architecture.md)
+  - [Model Context Protocol](../concepts/Model%20Context%20Protocol.md)
+  - [Harness Engineering](../concepts/Harness%20Engineering.md)
+- **Entities**:
+  - [Chrome Extension](../entities/Chrome%20Extension.md)
+  - [Claude Code](../entities/Claude%20Code.md)
+  - [Anthropic](../entities/Anthropic.md)

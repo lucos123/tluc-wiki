@@ -13,7 +13,7 @@ Co-founder of Bun and Member of Technical Staff (MTS) at Anthropic. Best known f
 
 ## Bun: Zig → Rust Migration (2026)
 
-Using [[Claude Code]] with Claude Fable 5 and Claude Opus 4.8, Sumner ported approximately **1 million lines of code** from Zig to Rust in less than two weeks. The migration achieved 100% test suite passage before merge, with 19 post-merge regressions (all subsequently fixed). The Rust port shipped inside Claude Code in June 2026.
+Using [Claude Code](Claude%20Code.md) with Claude Fable 5 and Claude Opus 4.8, Sumner ported approximately **1 million lines of code** from Zig to Rust in less than two weeks. The migration achieved 100% test suite passage before merge, with 19 post-merge regressions (all subsequently fixed). The Rust port shipped inside Claude Code in June 2026.
 
 **Token cost**: 5.9 billion uncached input tokens + 690 million output tokens ≈ $165,000 at API pricing.
 
@@ -34,6 +34,6 @@ Using [[Claude Code]] with Claude Fable 5 and Claude Opus 4.8, Sumner ported app
 Originally chose Zig for Bun because it offered C-level performance with radical simplicity, ideal for a solo founder "writing Bun in 1 year in a cramped Oakland apartment pre-LLM." By 2026, Bun CLI had 10+ million monthly downloads and was used extensively within Claude Code.
 
 ## See Also
-- [[AI Code Migration]] — the generalised six-step methodology drawn from his migration
-- [[How Anthropic runs large-scale code migrations with Claude Code]] — primary source
+- [AI Code Migration](../concepts/AI%20Code%20Migration.md) — the generalised six-step methodology drawn from his migration
+- [How Anthropic runs large-scale code migrations with Claude Code](../sources/How%20Anthropic%20runs%20large-scale%20code%20migrations%20with%20Claude%20Code.md) — primary source
 - [Jarred's own migration blog](https://bun.com/blog/bun-in-rust)

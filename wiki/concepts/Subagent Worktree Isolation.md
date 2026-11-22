@@ -6,7 +6,7 @@ tags:
   - harness-engineering
   - context-engineering
   - claude-code
-source: "[[Run parallel sessions with worktrees]]"
+source: "wiki/sources/Run parallel sessions with worktrees.md"
 ---
 
 # Subagent Worktree Isolation
@@ -33,4 +33,4 @@ isolation: worktree
 2. **Execute**: The subagent reads, modifies, and tests code inside the isolated worktree without affecting the parent session's working directory.
 3. **Automated Sweep**: If the subagent finishes with no changes, the worktree is deleted immediately. If changes exist, a periodic cleanup sweep removes the worktree after `cleanupPeriodDays`.
 
-See [[Run parallel sessions with worktrees]], [[Git Worktree Isolation]], and [[Subagent Context Isolation]].
+See [Run parallel sessions with worktrees](../sources/Run%20parallel%20sessions%20with%20worktrees.md), [Git Worktree Isolation](Git%20Worktree%20Isolation.md), and [Subagent Context Isolation](Subagent%20Context%20Isolation.md).

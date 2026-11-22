@@ -6,7 +6,7 @@ tags:
   - harness-engineering
   - agent-sdk
   - claude-code
-source: "[[How the agent loop works]]"
+source: "wiki/sources/How the agent loop works.md"
 ---
 
 # Agent SDK Architecture
@@ -22,4 +22,4 @@ The **Agent SDK Architecture** is the programmatic framework provided by Anthrop
 3. **Session Persistence & Mirroring**: Supports external transcript storage (Redis, S3, PostgreSQL) for multi-tenant scaling and pause/resume capabilities.
 4. **Fine-Grained Permissions**: Evaluates `allowed_tools`, `disallowed_tools`, and `permission_mode` (`"default"`, `"acceptEdits"`, `"plan"`, `"dontAsk"`, `"auto"`, `"bypassPermissions"`).
 
-See [[How the agent loop works]] and [[Agent Loop Lifecycle]].
+See [How the agent loop works](../sources/How%20the%20agent%20loop%20works.md) and [Agent Loop Lifecycle](Agent%20Loop%20Lifecycle.md).

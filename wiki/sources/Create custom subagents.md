@@ -7,20 +7,20 @@ tags:
   - harness-engineering
   - context-engineering
   - claude-code
-source: "[[raw/articles/claude-code/agent-architecture-subagents-workflows/sub-agents.md]]"
+source: "raw/articles/claude-code/agent-architecture-subagents-workflows/sub-agents.md"
 url: "https://code.claude.com/docs/en/sub-agents.md"
 ---
 
 # Create custom subagents
 
 **URL**: https://code.claude.com/docs/en/sub-agents.md  
-**Source File**: [[raw/articles/claude-code/agent-architecture-subagents-workflows/sub-agents.md]]  
+**Source File**: [raw/articles/claude-code/agent-architecture-subagents-workflows/sub-agents.md](../../raw/articles/claude-code/agent-architecture-subagents-workflows/sub-agents.md)  
 
 ---
 
 ## Executive Summary
 
-This official Anthropic guide details how to build and orchestrate specialized AI **Subagents** in [[Claude Code]].
+This official Anthropic guide details how to build and orchestrate specialized AI **Subagents** in [Claude Code](../entities/Claude%20Code.md).
 
 Subagents run in their own isolated context windows with custom system prompts, specific tool permissions, and optional worktree isolation. By offloading heavy searches, logs, and multi-file analysis to subagents, developers keep the main session context small, focused, and performant.
 
@@ -69,5 +69,10 @@ mcpServers:                      # Inline MCP servers scoped ONLY to this subage
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Subagent Architecture]], [[Subagent Context Isolation]], [[Subagent Worktree Isolation]], [[Agent Skills Architecture]], [[Orchestrator Skill Pattern]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Subagent Architecture](../concepts/Subagent%20Architecture.md)
+  - [Subagent Context Isolation](../concepts/Subagent%20Context%20Isolation.md)
+  - [Subagent Worktree Isolation](../concepts/Subagent%20Worktree%20Isolation.md)
+  - [Agent Skills Architecture](../concepts/Agent%20Skills%20Architecture.md)
+  - [Orchestrator Skill Pattern](../concepts/Orchestrator%20Skill%20Pattern.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

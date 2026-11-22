@@ -113,6 +113,89 @@ source: "[[raw/test.md]]"
         finally:
             shutil.rmtree(temp_dir)
 
+    def test_standard_markdown_links_special_chars_duplicate_stems_and_broken_detection(self):
+        """Verify Standard Relative Markdown Links with RFC 3986 encoding, anchors, raw paths, and duplicate stems."""
+        with tempfile.TemporaryDirectory() as tmp:
+            index_path = os.path.join(tmp, "index.md")
+            with open(index_path, "w", encoding="utf-8") as f:
+                f.write(
+                    "# Wiki Index\n\n"
+                    "## Concepts\n"
+                    "- [Amazon Web Services (AWS)](wiki/concepts/Amazon%20Web%20Services%20%28AWS%29.md): AWS note.\n"
+                    "- [Harness Engineering](wiki/concepts/Harness%20Engineering.md): Concept page.\n\n"
+                    "## Sources\n"
+                    "- [Harness Engineering](wiki/sources/Harness%20Engineering.md): Source summary.\n"
+                    "- [OpenAI's $10B Bet](wiki/sources/OpenAI%27s%20%2410B%20Bet.md): Market note.\n"
+                )
+
+            for sub in ("wiki/concepts", "wiki/sources", "raw/articles"):
+                os.makedirs(os.path.join(tmp, sub), exist_ok=True)
+
+            with open(os.path.join(tmp, "raw", "articles", "harness.md"), "w", encoding="utf-8") as f:
+                f.write("# Raw Harness\n")
+
+            with open(os.path.join(tmp, "wiki", "concepts", "Amazon Web Services (AWS).md"), "w", encoding="utf-8") as f:
+                f.write(
+                    "---\n"
+                    'title: "Amazon Web Services (AWS)"\n'
+                    "date: 2026-11-22\n"
+                    "tags:\n  - concept\n"
+                    "---\n\n"
+                    "See [Harness Concept](Harness%20Engineering.md#definition) and "
+                    "[AWS $10B Source](../sources/OpenAI%27s%20%2410B%20Bet.md).\n"
+                    "Also check external https link `[not checked](https://example.com)` and ```[[Ignored]]```.\n"
+                )
+
+            with open(os.path.join(tmp, "wiki", "concepts", "Harness Engineering.md"), "w", encoding="utf-8") as f:
+                f.write(
+                    "---\n"
+                    'title: "Harness Concept"\n'
+                    "date: 2026-11-22\n"
+                    "tags:\n  - concept\n"
+                    "---\n\n"
+                    "## Definition\nCore concept referencing [Harness Source](../sources/Harness%20Engineering.md).\n"
+                )
+
+            with open(os.path.join(tmp, "wiki", "sources", "Harness Engineering.md"), "w", encoding="utf-8") as f:
+                f.write(
+                    "---\n"
+                    'title: "Harness Source"\n'
+                    "date: 2026-11-22\n"
+                    "tags:\n  - source\n"
+                    'source: "raw/articles/harness.md"\n'
+                    "---\n\n"
+                    "**Source File**: [raw/articles/harness.md](../../raw/articles/harness.md)\n"
+                )
+
+            with open(os.path.join(tmp, "wiki", "sources", "OpenAI's $10B Bet.md"), "w", encoding="utf-8") as f:
+                f.write(
+                    "---\n"
+                    "title: \"OpenAI's $10B Bet\"\n"
+                    "date: 2026-11-22\n"
+                    "tags:\n  - source\n"
+                    'source: "raw/articles/harness.md"\n'
+                    "---\n\n"
+                    "Valid backlink to [AWS](../../wiki/concepts/Amazon%20Web%20Services%20%28AWS%29.md).\n"
+                )
+
+            report = lint_wiki.lint_wiki(tmp, index_path)
+            self.assertEqual(report["orphan_pages"], [])
+            self.assertEqual(report["missing_pages"], [])
+            self.assertEqual(report["broken_links"], [])
+            self.assertEqual(report["legacy_wikilinks"], [])
+            self.assertEqual(report["stats"]["total_markdown_links"], 5)
+            self.assertEqual(report["stats"]["index_coverage_pct"], 100.0)
+
+            # Now introduce a broken relative link + a legacy wikilink to confirm detection
+            with open(os.path.join(tmp, "wiki", "concepts", "Harness Engineering.md"), "a", encoding="utf-8") as f:
+                f.write("\nBroken [Missing Target](Does%20Not%20Exist.md) and legacy [[Amazon Web Services (AWS)]].\n")
+
+            bad_report = lint_wiki.lint_wiki(tmp, index_path)
+            self.assertEqual(len(bad_report["broken_links"]), 1)
+            self.assertEqual(bad_report["broken_links"][0]["broken_link"], "Does%20Not%20Exist.md")
+            self.assertEqual(bad_report["stats"]["total_legacy_wikilinks"], 1)
+            self.assertEqual(bad_report["legacy_wikilinks"][0]["wikilink"], "[[Amazon Web Services (AWS)]]")
+
 
 if __name__ == "__main__":
     unittest.main()

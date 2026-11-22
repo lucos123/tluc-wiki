@@ -6,7 +6,7 @@ tags:
   - agent-skills
   - security
   - harness-engineering
-source: "[[5 Best Practices for Building AI Agent Skills]]"
+source: "wiki/sources/5 Best Practices for Building AI Agent Skills.md"
 ---
 
 # Agent Skills Security Audit
@@ -30,4 +30,4 @@ Because the Open Agent Skills Standard allows skills to contain executable code 
 2. **Inspect `scripts/` Directories**: Review all shell/Python scripts for outbound network requests, credential scraping (`.env`, `~/.aws/credentials`), and destructive disk commands.
 3. **Scan Markdown Payloads**: Audit `SKILL.md` and `references/` for hidden prompt injection instructions designed to override agent safety guardrails.
 
-See [[5 Best Practices for Building AI Agent Skills]], [[Agent Skills Best Practices]], and [[Agent Skills Architecture]].
+See [5 Best Practices for Building AI Agent Skills](../sources/5%20Best%20Practices%20for%20Building%20AI%20Agent%20Skills.md), [Agent Skills Best Practices](Agent%20Skills%20Best%20Practices.md), and [Agent Skills Architecture](Agent%20Skills%20Architecture.md).

@@ -6,12 +6,12 @@ tags:
   - python
   - data-structures
   - programming
-source: "[[Python Handbook]]"
+source: "wiki/sources/Python Handbook.md"
 ---
 
 # Python Collections and File Handling
 
-Core built-in container data structures (**List**, **Tuple**, **Set**, **Dictionary**) and persistent stream/file I/O patterns in **Python**. Synthesized from [[Python Handbook]] (Pages 8–10).
+Core built-in container data structures (**List**, **Tuple**, **Set**, **Dictionary**) and persistent stream/file I/O patterns in **Python**. Synthesized from [Python Handbook](../sources/Python%20Handbook.md) (Pages 8–10).
 
 ---
 
@@ -82,6 +82,6 @@ Python manages file descriptors through `open(filename, mode)`:
 ---
 
 ## Related Pages
-- **Sources**: [[Python Handbook]]
-- **Entities**: [[Viet Nguyen AI]]
-- **Concepts**: [[Python Core Syntax and Control Flow]]
+- **Sources**: [Python Handbook](../sources/Python%20Handbook.md)
+- **Entities**: [Viet Nguyen AI](../entities/Viet%20Nguyen%20AI.md)
+- **Concepts**: [Python Core Syntax and Control Flow](Python%20Core%20Syntax%20and%20Control%20Flow.md)

@@ -48,7 +48,7 @@ tags:
 
 ## Deep Synthesis
 
-<Detailed text citing [[Entity A]] and [[Entity B]].>
+<Detailed text citing [Entity A](../entities/Entity%20A.md) and [Entity B](../entities/Entity%20B.md).>
 
-See [[index.md]].
+See [index.md](../../index.md).
 ```

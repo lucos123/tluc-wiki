@@ -7,14 +7,14 @@ tags:
   - agentic-design
   - claude-code
   - harness-engineering
-source: "[[raw/cc-skills.md]]"
+source: "raw/articles/claude-code/cc-skills.md"
 ---
 
 # Claude Code Skills
 
-**Source File**: [[raw/cc-skills.md]]
+**Source File**: [raw/articles/claude-code/cc-skills.md](../../raw/articles/claude-code/cc-skills.md)
 
-Official documentation for [[Claude Code]]'s skills system — the mechanism for extending Claude with modular, on-demand capabilities. Skills implement the open [Agent Skills standard](https://agentskills.io) and replace the older `.claude/commands/` approach.
+Official documentation for [Claude Code](../entities/Claude%20Code.md)'s skills system — the mechanism for extending Claude with modular, on-demand capabilities. Skills implement the open [Agent Skills standard](https://agentskills.io) and replace the older `.claude/commands/` approach.
 
 ## Key Concepts
 
@@ -70,10 +70,10 @@ Official documentation for [[Claude Code]]'s skills system — the mechanism for
 
 ## Synthesis Notes
 
-The shift from `.claude/commands/` (flat files) to `.claude/skills/` (directories with supporting assets) mirrors the evolution from CLAUDE.md monoliths to modular harnesses described in [[Harness Engineering]]. The addition of `paths:` activation (file-glob-based auto-loading) and `context: fork` (subagent execution) makes skills a complete unit of encapsulation: they carry their own knowledge, their own tool permissions, their own execution context, and their own activation criteria.
+The shift from `.claude/commands/` (flat files) to `.claude/skills/` (directories with supporting assets) mirrors the evolution from CLAUDE.md monoliths to modular harnesses described in [Harness Engineering](../concepts/Harness%20Engineering.md). The addition of `paths:` activation (file-glob-based auto-loading) and `context: fork` (subagent execution) makes skills a complete unit of encapsulation: they carry their own knowledge, their own tool permissions, their own execution context, and their own activation criteria.
 
 The `disable-model-invocation: true` pattern is particularly important: it draws a sharp line between *automation* (Claude-driven) and *control* (user-driven), ensuring that high-impact workflows like `/deploy` require explicit human intent.
 
 The `disallowed-tools` field enables safe background loops (e.g., prevent `AskUserQuestion` so the agent doesn't block on input mid-automation).
 
-Cross-references: [[Claude Code Hooks]] for the deterministic complement to skills, [[Best practices for Claude Code]] for when to use skills vs. CLAUDE.md, [[Claude Code Monorepo Setup]] for per-directory scoping.
+Cross-references: [Claude Code Hooks](Claude%20Code%20Hooks.md) for the deterministic complement to skills, [Best practices for Claude Code](Best%20practices%20for%20Claude%20Code.md) for when to use skills vs. CLAUDE.md, [Claude Code Monorepo Setup](Claude%20Code%20Monorepo%20Setup.md) for per-directory scoping.

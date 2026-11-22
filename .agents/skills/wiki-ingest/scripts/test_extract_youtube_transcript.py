@@ -1031,15 +1031,15 @@ class FakeEl {
 
         self.assertEqual(
             download_post_assets._normalize_authors("Shantanu Ladhwe, Shirin Khosravi Jam"),
-            ["[[Shantanu Ladhwe]]", "[[Shirin Khosravi Jam]]"],
+            ["Shantanu Ladhwe", "Shirin Khosravi Jam"],
         )
         self.assertEqual(
             download_post_assets._normalize_authors("Acme, Inc."),
-            ["[[Acme, Inc.]]"],
+            ["Acme, Inc."],
         )
         self.assertEqual(
             download_post_assets._normalize_authors(["[[Alice]]", "Bob", "Alice"]),
-            ["[[Alice]]", "[[Bob]]"],
+            ["Alice", "Bob"],
         )
 
         with tempfile.TemporaryDirectory() as tmp:
@@ -1080,8 +1080,9 @@ class FakeEl {
             rel_p, st_p = download_post_assets.scaffold_raw_article("paywalled-demo", [], tmp, rmeta)
             self.assertEqual(st_p, "created")
             content = (Path(tmp) / rel_p).read_text(encoding="utf-8")
-            self.assertIn('  - "[[Shantanu Ladhwe]]"', content)
-            self.assertIn('  - "[[Shirin Khosravi Jam]]"', content)
+            self.assertIn('  - "Shantanu Ladhwe"', content)
+            self.assertIn('  - "Shirin Khosravi Jam"', content)
+            self.assertNotIn("[[Shantanu Ladhwe]]", content)
             self.assertIn("paywalled: true", content)
             self.assertIn("- **Trạng thái paywall:**", content)
 
@@ -1154,6 +1155,111 @@ class FakeEl {
             )
             slug4, mode4, start4, items4 = download_post_assets.load_manifest_or_args(args_4)
             self.assertEqual((slug4, mode4, start4, len(items4)), ("four-local-deck", "screenshots", 0, 4))
+
+    def test_find_related_wiki_pages_supports_standard_markdown_index(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "index.md").write_text(
+                "\n".join([
+                    "# Index",
+                    "",
+                    "## Entities",
+                    "- [IBM Technology](wiki/entities/IBM%20Technology.md): Official IBM technical education channel.",
+                    "- [Unrelated Lab](wiki/entities/Unrelated%20Lab.md): Something else.",
+                    "",
+                    "## Concepts",
+                    "- [Loop Engineering](wiki/concepts/Loop%20Engineering.md): Agent loop patterns and safeguards.",
+                    "- [raw ignored](raw/ignored.md): Raw should not appear.",
+                    "",
+                ]),
+                encoding="utf-8",
+            )
+            matches = extract_youtube_transcript.find_related_wiki_pages(
+                root,
+                title="What Is Loop Engineering",
+                chapters=[{"title": "Loop Engineering Deep Dive"}],
+                channel="IBM Technology",
+                top_k=5,
+            )
+            by_page = {m["page"]: m for m in matches}
+            self.assertIn("IBM Technology", by_page)
+            self.assertEqual(by_page["IBM Technology"]["path"], "wiki/entities/IBM Technology.md")
+            self.assertIn("Loop Engineering", by_page)
+            self.assertNotIn("Unrelated Lab", by_page)
+            self.assertNotIn("raw ignored", by_page)
+
+    def test_register_ingest_standard_markdown_links_and_duplicate_stems(self):
+        import json
+        import subprocess
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            for sub in ("wiki/concepts", "wiki/sources", "wiki/entities", "raw"):
+                (root / sub).mkdir(parents=True, exist_ok=True)
+            (root / "raw" / "h.md").write_text("# Raw\n", encoding="utf-8")
+            (root / "wiki" / "log.md").write_text("# Log\n", encoding="utf-8")
+            (root / "index.md").write_text(
+                "# Wiki Index\n\n## Entities\n\n## Concepts\n\n## Sources\n",
+                encoding="utf-8",
+            )
+            (root / "wiki" / "concepts" / "Harness Engineering.md").write_text(
+                "---\ntitle: Harness Concept\ndate: 2026-11-22\ntags:\n  - concept\n---\n# Harness\n",
+                encoding="utf-8",
+            )
+            (root / "wiki" / "concepts" / "Amazon Web Services (AWS).md").write_text(
+                "---\ntitle: AWS\ndate: 2026-11-22\ntags:\n  - concept\n---\n# AWS\n",
+                encoding="utf-8",
+            )
+            (root / "wiki" / "sources" / "Harness Engineering.md").write_text(
+                '---\ntitle: Harness Source\ndate: 2026-11-22\ntags:\n  - source\nsource: "raw/h.md"\n---\n# Src\n',
+                encoding="utf-8",
+            )
+
+            script_path = Path(__file__).resolve().parent / "register_ingest.py"
+            proc = subprocess.run(
+                [
+                    sys.executable, str(script_path),
+                    "--project-root", str(root),
+                    "--date", "2026-11-22",
+                    "--log-type", "ingest",
+                    "--source-title", "Harness Engineering",
+                    "--entry", "Concepts|Harness Engineering|Concept definition.",
+                    "--entry", "Concepts|Amazon Web Services (AWS)|Cloud architecture.",
+                    "--entry", "Sources|Harness Engineering|Original essay summary.",
+                ],
+                capture_output=True, text=True, check=True,
+            )
+            out = json.loads(proc.stdout)
+            self.assertEqual(out["status"], "ok")
+            self.assertEqual(out["stats"]["total_broken_links"], 0)
+            self.assertEqual(out["stats"]["total_legacy_wikilinks"], 0)
+            self.assertEqual(out["stats"]["index_coverage_pct"], 100.0)
+
+            idx_text = (root / "index.md").read_text(encoding="utf-8")
+            self.assertIn(
+                "- [Amazon Web Services (AWS)](wiki/concepts/Amazon%20Web%20Services%20%28AWS%29.md): Cloud architecture.",
+                idx_text,
+            )
+            self.assertIn(
+                "- [Harness Engineering](wiki/concepts/Harness%20Engineering.md): Concept definition.",
+                idx_text,
+            )
+            self.assertIn(
+                "- [Harness Engineering](wiki/sources/Harness%20Engineering.md): Original essay summary.",
+                idx_text,
+            )
+
+            proc_sug = subprocess.run(
+                [
+                    sys.executable, str(script_path),
+                    "--project-root", str(root),
+                    "--suggest-links", "Amazon Services",
+                ],
+                capture_output=True, text=True, check=True,
+            )
+            sug_out = json.loads(proc_sug.stdout)
+            self.assertEqual(len(sug_out["matches"]), 1)
+            self.assertEqual(sug_out["matches"][0]["path"], "wiki/concepts/Amazon Web Services (AWS).md")
 
 
 if __name__ == "__main__":

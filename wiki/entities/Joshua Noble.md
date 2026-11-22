@@ -5,7 +5,7 @@ tags:
   - entity
   - person
   - context-engineering
-source: "[[What Is Context Engineering]]"
+source: "wiki/sources/What Is Context Engineering.md"
 ---
 
 # Joshua Noble
@@ -16,6 +16,6 @@ source: "[[What Is Context Engineering]]"
 
 ## Notable Works
 
-- **Context Engineering Framework**: Author of [[What Is Context Engineering]] defining the 6-step context engineering lifecycle (Selection, Structuring, Prompt Design, Compression, Sequencing, Tool/Memory Integration).
+- **Context Engineering Framework**: Author of [What Is Context Engineering](../sources/What%20Is%20Context%20Engineering.md) defining the 6-step context engineering lifecycle (Selection, Structuring, Prompt Design, Compression, Sequencing, Tool/Memory Integration).
 
-See [[What Is Context Engineering]] and [[Context Engineering]].
+See [What Is Context Engineering](../sources/What%20Is%20Context%20Engineering.md) and [Context Engineering](../concepts/Context%20Engineering.md).

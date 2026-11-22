@@ -13,7 +13,7 @@ source: "raw/assets/2nd-brain.jpg"
 
 **Memory Architecture** is the reference framework for persistent context management that extends the LLM context window indefinitely by structuring and persisting information outside the model's context window.
 
-Original reference notes provided in [[raw/assets/2nd-brain.jpg]].
+Original reference notes provided in [raw/assets/2nd-brain.jpg](../../raw/assets/2nd-brain.jpg).
 
 ## Key Principles
 
@@ -27,4 +27,4 @@ Original reference notes provided in [[raw/assets/2nd-brain.jpg]].
 
 $$\text{RAW (Ground Truth)} \longrightarrow \text{WIKI (Evergreen Knowledge)} \longrightarrow \text{OUTPUT / CTX} \longleftrightarrow \text{MEM (Identity)} \longrightarrow \text{RE-COMPOUND}$$
 
-See `GEMINI.md`, [[Harness Engineering]], and [[Context Engineering]].
+See `GEMINI.md`, [Harness Engineering](Harness%20Engineering.md), and [Context Engineering](Context%20Engineering.md).

@@ -13,6 +13,7 @@ import re
 import json
 import sys
 import argparse
+from urllib.parse import unquote
 
 
 def find_project_root():
@@ -35,14 +36,23 @@ def search_index(index_file, query):
     with open(index_file, "r", encoding="utf-8", errors="replace") as f:
         for line_num, line in enumerate(f, 1):
             if pattern.search(line):
-                link_match = re.search(r"\[\[(.*?)\]\]", line)
-                page_name = link_match.group(1).split("|")[0] if link_match else None
-                matches.append({
+                md_match = re.search(r"\[([^\[\]\n]+)\]\(([^)\n]+)\)", line)
+                if md_match:
+                    page_name = md_match.group(1).strip()
+                    rel_path = unquote(md_match.group(2).strip().partition("#")[0]).lstrip("./")
+                else:
+                    link_match = re.search(r"\[\[(.*?)\]\]", line)
+                    page_name = re.split(r"\\?\|", link_match.group(1), maxsplit=1)[0].strip() if link_match else None
+                    rel_path = None
+                entry = {
                     "type": "index_match",
                     "line_number": line_num,
                     "snippet": line.strip(),
                     "page_name": page_name,
-                })
+                }
+                if rel_path:
+                    entry["rel_path"] = rel_path
+                matches.append(entry)
     return matches
 
 

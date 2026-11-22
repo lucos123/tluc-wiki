@@ -6,19 +6,19 @@ tags:
   - ai-deployment
   - llmops
   - verification
-source: "[[AI Deployment Notes]]"
+source: "wiki/sources/AI Deployment Notes.md"
 ---
 
 # Model Packaging and Versioning
 
-**Model Packaging and Versioning** ensures AI systems are reproducible, auditable, and safely rollbackable in production by bundling and tracking not only trained model weights, but every runtime, prompt, retrieval, and configuration dependency that determines system behavior. See [[AI Deployment Notes]].
+**Model Packaging and Versioning** ensures AI systems are reproducible, auditable, and safely rollbackable in production by bundling and tracking not only trained model weights, but every runtime, prompt, retrieval, and configuration dependency that determines system behavior. See [AI Deployment Notes](../sources/AI%20Deployment%20Notes.md).
 
 ---
 
 ## 1. Beyond Model Weights: What Must Be Packaged & Versioned
 
 A serialized weights file alone cannot run reliably in production. Deployable AI artifacts bundle:
-- **Model weights & Tokenizer** (critical for LLMs; see [[Tokenization]])
+- **Model weights & Tokenizer** (critical for LLMs; see [Tokenization](Tokenization.md))
 - **Inference code & model runtime** + pinned library/framework dependencies
 - **Configuration** (environment variables, serving & batching parameters)
 - **LLM/Agent Application Artifacts:** **Prompt templates** and **Retrieval / RAG configuration** (vector store index, embedding model, chunking settings)
@@ -41,10 +41,15 @@ A serialized weights file alone cannot run reliably in production. Deployable AI
 
 - **Promotion Flow:** `Build & Package → Register → Staging (Evaluate) → Approve (Quality Gate) → Production (Deploy) → Monitor` (with fast **Rollback** to a previously tagged version if metrics regress).
 - **Typical Model States:** `Experiment → Validated → Registered → Staging → Approved → Production → Retired` (*not every trained model should become production-ready*).
-- **Operational Challenges:** Huge model artifact sizes (storage & download latency), training–serving dependency skew, **version sprawl** across prompts/models/configs, **data lineage** tracking, evaluation drift, and access control—paralleling the immutable action and provenance requirements in [[Enterprise Agent Stack]].
+- **Operational Challenges:** Huge model artifact sizes (storage & download latency), training–serving dependency skew, **version sprawl** across prompts/models/configs, **data lineage** tracking, evaluation drift, and access control—paralleling the immutable action and provenance requirements in [Enterprise Agent Stack](Enterprise%20Agent%20Stack.md).
 
 ---
 
 ## Related Pages
-- **Sources**: [[AI Deployment Notes]]
-- **Concepts**: [[AI Deployment Lifecycle and Environments]], [[Inference Serving and Deployment Patterns]], [[Tokenization]], [[Context Engineering]], [[Enterprise Agent Stack]]
+- **Sources**: [AI Deployment Notes](../sources/AI%20Deployment%20Notes.md)
+- **Concepts**:
+  - [AI Deployment Lifecycle and Environments](AI%20Deployment%20Lifecycle%20and%20Environments.md)
+  - [Inference Serving and Deployment Patterns](Inference%20Serving%20and%20Deployment%20Patterns.md)
+  - [Tokenization](Tokenization.md)
+  - [Context Engineering](Context%20Engineering.md)
+  - [Enterprise Agent Stack](Enterprise%20Agent%20Stack.md)

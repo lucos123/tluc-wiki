@@ -7,20 +7,20 @@ tags:
   - loop-engineering
   - harness-engineering
   - claude-code
-source: "[[raw/articles/claude-code/agent-architecture-subagents-workflows/goal.md]]"
+source: "raw/articles/claude-code/agent-architecture-subagents-workflows/goal.md"
 url: "https://code.claude.com/docs/en/goal.md"
 ---
 
 # Keep Claude working toward a goal
 
 **URL**: https://code.claude.com/docs/en/goal.md  
-**Source File**: [[raw/articles/claude-code/agent-architecture-subagents-workflows/goal.md]]  
+**Source File**: [raw/articles/claude-code/agent-architecture-subagents-workflows/goal.md](../../raw/articles/claude-code/agent-architecture-subagents-workflows/goal.md)  
 
 ---
 
 ## Executive Summary
 
-This official Anthropic guide details the `/goal` command in [[Claude Code]].
+This official Anthropic guide details the `/goal` command in [Claude Code](../entities/Claude%20Code.md).
 
 `/goal` establishes an autonomous, multi-turn session loop where a fast background evaluator model (Haiku) inspects the conversation transcript after each turn to check whether a specified completion condition has been empirically satisfied.
 
@@ -56,5 +56,10 @@ claude -p "/goal CHANGELOG.md has an entry for every PR merged this week"
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Goal-Driven Loop]], [[Loop Engineering]], [[Verification Loop]], [[Second Opinion Pattern]], [[Control-Loop Engineering]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Goal-Driven Loop](../concepts/Goal-Driven%20Loop.md)
+  - [Loop Engineering](../concepts/Loop%20Engineering.md)
+  - [Verification Loop](../concepts/Verification%20Loop.md)
+  - [Second Opinion Pattern](../concepts/Second%20Opinion%20Pattern.md)
+  - [Control-Loop Engineering](../concepts/Control-Loop%20Engineering.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

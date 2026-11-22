@@ -6,12 +6,12 @@ tags:
   - loop-engineering
   - harness-engineering
   - claude-code
-source: "[[Keep Claude working toward a goal]]"
+source: "wiki/sources/Keep Claude working toward a goal.md"
 ---
 
 # Goal-Driven Loop
 
-**Goal-Driven Loop** (`/goal`) is an autonomous loop pattern in [[Claude Code]] where an agent continues executing multi-turn actions toward an explicit completion condition while an independent fast evaluator model (Haiku) audits transcript evidence after every turn to determine whether to grant completion or trigger another iteration.
+**Goal-Driven Loop** (`/goal`) is an autonomous loop pattern in [Claude Code](../entities/Claude%20Code.md) where an agent continues executing multi-turn actions toward an explicit completion condition while an independent fast evaluator model (Haiku) audits transcript evidence after every turn to determine whether to grant completion or trigger another iteration.
 
 ---
 
@@ -32,4 +32,4 @@ graph TD
 2. **Turn-Level Automation**: Removes the need for per-turn human prompts when resolving complex multi-file bugs or refactors.
 3. **Complements Auto Mode**: Auto mode pre-approves tools within turns; `/goal` automates progression across turns.
 
-See [[Keep Claude working toward a goal]], [[Loop Engineering]], [[Verification Loop]], and [[Second Opinion Pattern]].
+See [Keep Claude working toward a goal](../sources/Keep%20Claude%20working%20toward%20a%20goal.md), [Loop Engineering](Loop%20Engineering.md), [Verification Loop](Verification%20Loop.md), and [Second Opinion Pattern](Second%20Opinion%20Pattern.md).

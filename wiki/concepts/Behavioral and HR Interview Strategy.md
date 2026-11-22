@@ -5,12 +5,12 @@ tags:
   - concept
   - career
   - interview-prep
-source: "[[25 HR Interview Questions in Vietnamese]]"
+source: "wiki/sources/25 HR Interview Questions in Vietnamese.md"
 ---
 
 # Behavioral and HR Interview Strategy
 
-**Behavioral and HR Interview Strategy** frames how engineering candidates—especially freshers and career-transitioning developers—structure answers covering motivation, weakness, conflict resolution, failure recovery, workload prioritization, salary alignment, and reverse interviewing ([[25 HR Interview Questions in Vietnamese]]). It pairs directly with the technical tradeoff framing in [[AI Engineer Interview Notes]] and [[AI System Design and Production Architecture]].
+**Behavioral and HR Interview Strategy** frames how engineering candidates—especially freshers and career-transitioning developers—structure answers covering motivation, weakness, conflict resolution, failure recovery, workload prioritization, salary alignment, and reverse interviewing ([25 HR Interview Questions in Vietnamese](../sources/25%20HR%20Interview%20Questions%20in%20Vietnamese.md)). It pairs directly with the technical tradeoff framing in [AI Engineer Interview Notes](../sources/AI%20Engineer%20Interview%20Notes.md) and [AI System Design and Production Architecture](AI%20System%20Design%20and%20Production%20Architecture.md).
 
 ---
 
@@ -28,15 +28,15 @@ source: "[[25 HR Interview Questions in Vietnamese]]"
 
 ## 2. Connecting HR Storytelling with AI Engineering Interviews
 
-While HR/behavioral screens evaluate **coachability, ownership, and communication clarity**, AI Engineering technical rounds apply the **Meta Pattern** from [[AI Engineer Interview Notes]]:
-- **Show Concrete Craft Behind Every Claim**: When describing a failure recovery (`Q12`), technical challenge (`Q19`), or self-learning habit (`Q18`), anchor it in real engineering artifacts—such as building a minimal `pgvector` RAG benchmark, implementing systematic prompt debugging, or maintaining an automated eval regression suite (see [[AI System Design and Production Architecture]]).
-- **Practice Out Loud**: Both [[25 HR Interview Questions in Vietnamese]] (`07.jpg`) and [[AI Engineer Interview Notes]] (`14.jpg`) independently emphasize rehearsing explanations **aloud** rather than silently reading templates.
+While HR/behavioral screens evaluate **coachability, ownership, and communication clarity**, AI Engineering technical rounds apply the **Meta Pattern** from [AI Engineer Interview Notes](../sources/AI%20Engineer%20Interview%20Notes.md):
+- **Show Concrete Craft Behind Every Claim**: When describing a failure recovery (`Q12`), technical challenge (`Q19`), or self-learning habit (`Q18`), anchor it in real engineering artifacts—such as building a minimal `pgvector` RAG benchmark, implementing systematic prompt debugging, or maintaining an automated eval regression suite (see [AI System Design and Production Architecture](AI%20System%20Design%20and%20Production%20Architecture.md)).
+- **Practice Out Loud**: Both [25 HR Interview Questions in Vietnamese](../sources/25%20HR%20Interview%20Questions%20in%20Vietnamese.md) (`07.jpg`) and [AI Engineer Interview Notes](../sources/AI%20Engineer%20Interview%20Notes.md) (`14.jpg`) independently emphasize rehearsing explanations **aloud** rather than silently reading templates.
 - **Post-Interview Hygiene**: Follow up with a concise thank-you email summarizing alignment with the role's 6–12 month goals.
 
 ---
 
 ## Related Pages
-- **Sources**: [[25 HR Interview Questions in Vietnamese]], [[AI Engineer Interview Notes]]
-- **Entities**: [[Viet Nguyen AI]], [[Koteswara]]
-- **Related Concepts**: [[AI System Design and Production Architecture]]
-- **Personal Goal**: [[AI Engineering Mastery 2026]]
+- **Sources**: [25 HR Interview Questions in Vietnamese](../sources/25%20HR%20Interview%20Questions%20in%20Vietnamese.md), [AI Engineer Interview Notes](../sources/AI%20Engineer%20Interview%20Notes.md)
+- **Entities**: [Viet Nguyen AI](../entities/Viet%20Nguyen%20AI.md), [Koteswara](../entities/Koteswara.md)
+- **Related Concepts**: [AI System Design and Production Architecture](AI%20System%20Design%20and%20Production%20Architecture.md)
+- **Personal Goal**: [AI Engineering Mastery 2026](../../mem/goals/AI%20Engineering%20Mastery%202026.md)

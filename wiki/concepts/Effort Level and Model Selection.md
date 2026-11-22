@@ -10,7 +10,7 @@ tags:
 
 # Effort Level and Model Selection
 
-A 2-dimensional decision framework for configuring [[Claude Code]]'s output quality and cost. **Model selection** controls which capability ceiling is available; **effort level** controls how thoroughly Claude works toward that ceiling within a single turn.
+A 2-dimensional decision framework for configuring [Claude Code](../entities/Claude%20Code.md)'s output quality and cost. **Model selection** controls which capability ceiling is available; **effort level** controls how thoroughly Claude works toward that ceiling within a single turn.
 
 ## The Conceptual Split
 
@@ -88,8 +88,8 @@ Did it not KNOW enough?         →  upgrade model
 
 ## Connections to Other Wiki Concepts
 
-- **[[AI Code Migration]]**: Tiered model strategy (Fable for rule-writers/reviewers, Sonnet for fan-out) has principled basis here. Sonnet at high effort = deep familiarity with your specific code; Fable saved for cross-file pattern recognition that rewrites entire batches.
-- **[[Verification Loop]]**: Higher effort = more self-verification steps. Stop hooks enforce verification *regardless* of effort — critical for low-effort runs.
-- **[[Context Engineering]]**: Context steers, weights teach. CLAUDE.md and skills are steering inputs that expire per-request. The weights hold all durable knowledge.
-- **[[Harness Engineering]]**: Model selection makes the model itself a configurable harness component — not just scaffolding around it.
-- **[[Claude Code Skills]]**: The `effort` frontmatter field lets skills override effort level for their scope (e.g., `effort: high` for a migration skill, `effort: low` for a quick lint check).
+- **[AI Code Migration](AI%20Code%20Migration.md)**: Tiered model strategy (Fable for rule-writers/reviewers, Sonnet for fan-out) has principled basis here. Sonnet at high effort = deep familiarity with your specific code; Fable saved for cross-file pattern recognition that rewrites entire batches.
+- **[Verification Loop](Verification%20Loop.md)**: Higher effort = more self-verification steps. Stop hooks enforce verification *regardless* of effort — critical for low-effort runs.
+- **[Context Engineering](Context%20Engineering.md)**: Context steers, weights teach. CLAUDE.md and skills are steering inputs that expire per-request. The weights hold all durable knowledge.
+- **[Harness Engineering](Harness%20Engineering.md)**: Model selection makes the model itself a configurable harness component — not just scaffolding around it.
+- **[Claude Code Skills](../sources/Claude%20Code%20Skills.md)**: The `effort` frontmatter field lets skills override effort level for their scope (e.g., `effort: high` for a migration skill, `effort: low` for a quick lint check).

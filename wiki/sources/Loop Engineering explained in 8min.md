@@ -20,9 +20,9 @@ source: "raw/video-transcripts/loop-engineering-explained-in-8min.md"
 **Speaker**: Caleb  
 **URL**: https://www.youtube.com/watch?v=4biXYSNkn9Y  
 **Duration**: 8m 53s  
-**Transcript**: [[raw/video-transcripts/loop-engineering-explained-in-8min.md]]
+**Transcript**: [raw/video-transcripts/loop-engineering-explained-in-8min.md](../../raw/video-transcripts/loop-engineering-explained-in-8min.md)
 
-A technical breakdown of why Loop Engineering is the necessary outer layer wrapping Harness Engineering, detailing the **Multi-Loop Stacking** paradigm and [[Addy Osmani]]'s **6 Components of Loop Engineering**.
+A technical breakdown of why Loop Engineering is the necessary outer layer wrapping Harness Engineering, detailing the **Multi-Loop Stacking** paradigm and [Addy Osmani](../entities/Addy%20Osmani.md)'s **6 Components of Loop Engineering**.
 
 ## Key Concepts
 
@@ -45,6 +45,6 @@ A technical breakdown of why Loop Engineering is the necessary outer layer wrapp
 
 ## Synthesis Notes
 
-This video bridges the theoretical gap between `[[Harness Engineering]]` and `[[Loop Engineering]]`.
+This video bridges the theoretical gap between [Harness Engineering](../concepts/Harness%20Engineering.md) and [Loop Engineering](../concepts/Loop%20Engineering.md).
 
-It introduces **Multi-Loop Stacking**, showing that modern agentic systems do not replace previous engineering layers, but stack loops on top of loops. Furthermore, by incorporating [[Addy Osmani]]'s 6 components, it provides a practical architectural blueprint for self-guided autonomous agents.
+It introduces **Multi-Loop Stacking**, showing that modern agentic systems do not replace previous engineering layers, but stack loops on top of loops. Furthermore, by incorporating [Addy Osmani](../entities/Addy%20Osmani.md)'s 6 components, it provides a practical architectural blueprint for self-guided autonomous agents.

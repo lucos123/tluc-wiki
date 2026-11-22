@@ -10,9 +10,9 @@ source: "raw/articles/openai/model/gpt-5-6-sol-model-api-reference.md"
 
 # GPT-5.6 Sol Model API Reference
 
-**Source File**: [[raw/articles/openai/model/gpt-5-6-sol-model-api-reference.md]]
+**Source File**: [raw/articles/openai/model/gpt-5-6-sol-model-api-reference.md](../../raw/articles/openai/model/gpt-5-6-sol-model-api-reference.md)
 
-Official API reference for `gpt-5.6-sol` (alias `gpt-5.6`), [[OpenAI]]'s flagship model for complex professional work.
+Official API reference for `gpt-5.6-sol` (alias `gpt-5.6`), [OpenAI](../entities/OpenAI.md)'s flagship model for complex professional work.
 
 ## Key Specifications
 
@@ -28,4 +28,4 @@ Official API reference for `gpt-5.6-sol` (alias `gpt-5.6`), [[OpenAI]]'s flagshi
 
 ## Synthesis Notes
 
-`gpt-5.6-sol` represents OpenAI's top-tier frontier model. It integrates directly with `[[Codex]]` CLI and provides full support for `[[Responses API]]` native tools and multi-agent coordination (`[[Graph Engineering]]`).
+`gpt-5.6-sol` represents OpenAI's top-tier frontier model. It integrates directly with [Codex](../entities/Codex.md) CLI and provides full support for [Responses API](../concepts/Responses%20API.md) native tools and multi-agent coordination ([Graph Engineering](../concepts/Graph%20Engineering.md)).

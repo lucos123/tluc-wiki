@@ -30,7 +30,7 @@ type: report
 
 ## Executive Summary
 
-Comparison of [[GPT-5.6 Sol]] and [[Claude Code]] models across token efficiency, context window (1.05M tokens), and multi-agent coordination (`ultra` subagent mode).
+Comparison of [GPT-5.6 Sol](../../wiki/sources/GPT-5.6%20Sol%20Model%20API%20Reference.md) and [Claude Code](../../wiki/entities/Claude%20Code.md) models across token efficiency, context window (1.05M tokens), and multi-agent coordination (`ultra` subagent mode).
 
 ## Key Metric Comparison
 

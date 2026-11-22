@@ -5,14 +5,14 @@ tags:
   - source
   - documentation
   - gemini-cli
-source: "[[raw/creating-agent-skills.md]]"
+source: "raw/articles/geminicli/creating-agent-skills.md"
 ---
 
 # Creating Agent Skills
 
-**Source File**: [[raw/creating-agent-skills.md]]
+**Source File**: [raw/articles/geminicli/creating-agent-skills.md](../../raw/articles/geminicli/creating-agent-skills.md)
 
-This document covers both the automated and manual workflows for creating Agent Skills for the [[Gemini CLI]], adhering to the `agentskills.io` standard.
+This document covers both the automated and manual workflows for creating Agent Skills for the [Gemini CLI](../entities/Gemini%20CLI.md), adhering to the `agentskills.io` standard.
 
 ## Key Concepts
 

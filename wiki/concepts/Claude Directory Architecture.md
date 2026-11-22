@@ -6,12 +6,12 @@ tags:
   - harness-engineering
   - context-engineering
   - claude-code
-source: "[[Explore the .claude directory]]"
+source: "wiki/sources/Explore the .claude directory.md"
 ---
 
 # Claude Directory Architecture
 
-The **Claude Directory Architecture** is the standardized file system layout used by [[Claude Code]] to read persistent instructions, enforce settings/permissions, execute hooks, and load modular skills, subagents, and path-scoped rules.
+The **Claude Directory Architecture** is the standardized file system layout used by [Claude Code](../entities/Claude%20Code.md) to read persistent instructions, enforce settings/permissions, execute hooks, and load modular skills, subagents, and path-scoped rules.
 
 ---
 
@@ -34,4 +34,4 @@ graph TD
 - **`skills/*/SKILL.md`**: Procedural agent playbooks (`disable-model-invocation: true`).
 - **`agents/*.md`**: Subagent specifications (`context-window`, `isolation: worktree`).
 
-See [[Explore the .claude directory]] and [[Persistent Instruction File]].
+See [Explore the .claude directory](../sources/Explore%20the%20.claude%20directory.md) and [Persistent Instruction File](Persistent%20Instruction%20File.md).

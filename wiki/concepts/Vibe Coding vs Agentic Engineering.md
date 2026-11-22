@@ -9,7 +9,7 @@ tags:
 
 # Vibe Coding vs. Agentic Engineering
 
-A spectrum of AI-assisted development paradigms introduced in [[The New SDLC With Vibe Coding]].
+A spectrum of AI-assisted development paradigms introduced in [The New SDLC With Vibe Coding](../sources/The%20New%20SDLC%20With%20Vibe%20Coding.md).
 
 ## Vibe Coding
 - **Definition**: Casual natural language prompting where the developer accepts the AI's output and fixes errors by pasting tracebacks back into the prompt.
@@ -20,4 +20,4 @@ A spectrum of AI-assisted development paradigms introduced in [[The New SDLC Wit
 - **Definition**: Structured, disciplined AI implementation governed by formal specs, deterministic tests, and feedback loops.
 - **Characteristics**: High upfront capital expenditure (CapEx) to build the scaffolding, but low OpEx for maintenance and execution.
 - **Requirements**: Requires evaluating trajectories and outputs, setting up CI/CD gates, and establishing firm architectural guardrails. Best for production systems.
-- **Implementation**: Also referred to as "AI-assisted engineering" by [[Addy Osmani]], who stresses that relying on LLMs requires strict planning (specs before code), iterative chunking, extensive context packing, and continuous testing to avoid a "jumbled mess" of code (see [[My LLM coding workflow going into 2026]]).
+- **Implementation**: Also referred to as "AI-assisted engineering" by [Addy Osmani](../entities/Addy%20Osmani.md), who stresses that relying on LLMs requires strict planning (specs before code), iterative chunking, extensive context packing, and continuous testing to avoid a "jumbled mess" of code (see [My LLM coding workflow going into 2026](../sources/My%20LLM%20coding%20workflow%20going%20into%202026.md)).

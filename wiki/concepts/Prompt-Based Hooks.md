@@ -6,12 +6,12 @@ tags:
   - harness-engineering
   - verification
   - claude-code
-source: "[[Automate actions with hooks]]"
+source: "wiki/sources/Automate actions with hooks.md"
 ---
 
 # Prompt-Based Hooks
 
-**Prompt-Based Hooks** (`"type": "prompt"`) are non-deterministic lifecycle hooks in [[Claude Code]] that send event payloads and transcript context to a fast evaluation model (e.g. Haiku) to evaluate complex semantic conditions at turn boundaries.
+**Prompt-Based Hooks** (`"type": "prompt"`) are non-deterministic lifecycle hooks in [Claude Code](../entities/Claude%20Code.md) that send event payloads and transcript context to a fast evaluation model (e.g. Haiku) to evaluate complex semantic conditions at turn boundaries.
 
 ---
 
@@ -28,4 +28,4 @@ source: "[[Automate actions with hooks]]"
 - Returns model evaluation reasons directly to the primary session.
 - Forms the underlying engine powering the `/goal` command evaluator.
 
-See [[Automate actions with hooks]], [[Claude Code Hooks]], and [[Goal-Driven Loop]].
+See [Automate actions with hooks](../sources/Automate%20actions%20with%20hooks.md), [Claude Code Hooks](../sources/Claude%20Code%20Hooks.md), and [Goal-Driven Loop](Goal-Driven%20Loop.md).

@@ -20,9 +20,9 @@ source: "raw/video-transcripts/kimi-k3-explained-in-13min.md"
 **Speaker**: Caleb  
 **URL**: https://www.youtube.com/watch?v=rD20wJkPUB4  
 **Duration**: 13m 20s  
-**Transcript**: [[raw/video-transcripts/kimi-k3-explained-in-13min.md]]
+**Transcript**: [raw/video-transcripts/kimi-k3-explained-in-13min.md](../../raw/video-transcripts/kimi-k3-explained-in-13min.md)
 
-A technical deep-dive into the model-layer architecture of [[Kimi K3]], exploring how hyper-sparse Mixture of Experts (MoE), Stable Latent MoE, Quantile Balancing, and Kimi Delta Attention (KDA) redefine inference economics for 1M+ context window frontier models.
+A technical deep-dive into the model-layer architecture of [Kimi K3](../entities/Kimi%20K3.md), exploring how hyper-sparse Mixture of Experts (MoE), Stable Latent MoE, Quantile Balancing, and Kimi Delta Attention (KDA) redefine inference economics for 1M+ context window frontier models.
 
 ## Key Concepts
 
@@ -41,6 +41,6 @@ A technical deep-dive into the model-layer architecture of [[Kimi K3]], explorin
 
 ## Synthesis Notes
 
-This source links directly to [[Effort Level and Model Selection]] and [[Graph Engineering]].
+This source links directly to [Effort Level and Model Selection](../concepts/Effort%20Level%20and%20Model%20Selection.md) and [Graph Engineering](../concepts/Graph%20Engineering.md).
 
 As agent architectures scale to 100+ parallel subagents in graphs, the underlying model layer must provide sub-quadratic linear attention (KDA) and ultra-sparse routing (Stable Latent MoE) to keep inference costs sustainable. It shows how model-layer innovations directly enable application-layer agent harnesses.

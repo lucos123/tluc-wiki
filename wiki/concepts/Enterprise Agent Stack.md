@@ -10,7 +10,7 @@ tags:
 
 # Enterprise Agent Stack
 
-The **Enterprise Agent Stack** is an architectural framework designed for deploying autonomous AI agents into regulated, high-compliance environments (healthcare, finance, defense, government). Coined in production by [[Anterior]] engineers Christopher Lovejoy and Saul Howard at [[AI Engineer]], it solves the fundamental impedance mismatch between rapid AI prototyping and stringent enterprise governance.
+The **Enterprise Agent Stack** is an architectural framework designed for deploying autonomous AI agents into regulated, high-compliance environments (healthcare, finance, defense, government). Coined in production by [Anterior](../entities/Anterior.md) engineers Christopher Lovejoy and Saul Howard at [AI Engineer](../entities/AI%20Engineer.md), it solves the fundamental impedance mismatch between rapid AI prototyping and stringent enterprise governance.
 
 ---
 
@@ -54,7 +54,7 @@ Constraint-First Approach:
 - **Decoupled Orchestration**: The event stream handles control flow and orchestration, storing only cryptographically signed references or schema hashes to data blobs residing in schema-driven object storage (often on-premises or within a customer VPC).
 - **Observability Without Data Exposure**: Developers can debug agent trajectories, token costs, and reasoning chains without ever accessing sensitive patient records (PHI) or proprietary client data.
 - **Zero-Trust Access**: Agents must bear short-lived tokens to retrieve data payloads strictly at the point of execution.
-- **[[Simon Willison|Lethal Trifecta]] Mitigation**: By decoupling execution contexts and payload storage, indirect prompt injections are structurally prevented from exfiltrating data or cross-contaminating disjoint environments.
+- **[Lethal Trifecta](../entities/Simon%20Willison.md) Mitigation**: By decoupling execution contexts and payload storage, indirect prompt injections are structurally prevented from exfiltrating data or cross-contaminating disjoint environments.
 
 ### 3. Human-Agent Equivalency
 - **Unified Action Schema**: The system defines an "Agent" abstraction that encompasses both AI models and human operators uniformly ($$\text{Action}_{\text{LLM}} \equiv \text{Action}_{\text{Human}}$$).
@@ -73,6 +73,20 @@ Instead of building secondary evaluation infrastructure, rigorous evaluation eme
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Harness Engineering]], [[Loop Engineering]], [[Verification Loop]], [[Context Engineering]], [[Deterministic Lifecycle Hooks]].
-- **Entities**: [[Anterior]], [[AI Engineer]], [[IBM Technology]], [[Simon Willison]], [[HumanLayer]], [[Anthropic]].
-- **Sources**: [[Why Your Enterprise Tech Stack Isn't Ready for AI Agents]], [[AI Model vs Agentic Harness What Actually Drives AI]], [[Building Closed-Loop Evals for a Multimodal Agent at Scale]].
+- **Concepts**:
+  - [Harness Engineering](Harness%20Engineering.md)
+  - [Loop Engineering](Loop%20Engineering.md)
+  - [Verification Loop](Verification%20Loop.md)
+  - [Context Engineering](Context%20Engineering.md)
+  - [Deterministic Lifecycle Hooks](Deterministic%20Lifecycle%20Hooks.md)
+- **Entities**:
+  - [Anterior](../entities/Anterior.md)
+  - [AI Engineer](../entities/AI%20Engineer.md)
+  - [IBM Technology](../entities/IBM%20Technology.md)
+  - [Simon Willison](../entities/Simon%20Willison.md)
+  - [HumanLayer](../entities/HumanLayer.md)
+  - [Anthropic](../entities/Anthropic.md)
+- **Sources**:
+  - [Why Your Enterprise Tech Stack Isn't Ready for AI Agents](../sources/Why%20Your%20Enterprise%20Tech%20Stack%20Isn%27t%20Ready%20for%20AI%20Agents.md)
+  - [AI Model vs Agentic Harness What Actually Drives AI](../sources/AI%20Model%20vs%20Agentic%20Harness%20What%20Actually%20Drives%20AI.md)
+  - [Building Closed-Loop Evals for a Multimodal Agent at Scale](../sources/Building%20Closed-Loop%20Evals%20for%20a%20Multimodal%20Agent%20at%20Scale.md)

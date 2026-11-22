@@ -6,12 +6,12 @@ tags:
   - system-design
   - architecture
   - production-ai
-source: "[[AI Engineer Interview Notes]]"
+source: "wiki/sources/AI Engineer Interview Notes.md"
 ---
 
 # AI System Design and Production Architecture
 
-**AI System Design and Production Architecture** synthesizes how production LLM applications—chatbots, RAG systems, and tool-using agents—are architected, costed, bounded for safety, and iterated post-launch. Anchored by the **5-Step System Design Framework** and **The Meta Pattern** in [[AI Engineer Interview Notes]] (`koteswar.AI`), every architectural component must be justified by measurable business impact, unit economics, latency budgets, and evaluation metrics.
+**AI System Design and Production Architecture** synthesizes how production LLM applications—chatbots, RAG systems, and tool-using agents—are architected, costed, bounded for safety, and iterated post-launch. Anchored by the **5-Step System Design Framework** and **The Meta Pattern** in [AI Engineer Interview Notes](../sources/AI%20Engineer%20Interview%20Notes.md) (`koteswar.AI`), every architectural component must be justified by measurable business impact, unit economics, latency budgets, and evaluation metrics.
 
 ![10M-User Customer Support AI System Design](../../raw/screenshots/ai-engineer-interview-notes/12.jpg)
 
@@ -58,8 +58,8 @@ User ─▶ Chat API ─▶ Orchestrator
 When tasks genuinely require multi-step execution over fixed chains (and justify orchestration complexity via clear role handoffs in multi-agent setups):
 
 - **Deterministic Tool Contracts**: Define strict JSON schemas with `descriptions`, `required` fields, and `enums` (avoid vague `"query: string"` parameters); validate inputs pre-execution; **return clear actionable error hints as tool observations** (not raw stack traces) so the model self-corrects; mark read tools **idempotent** while gating irreversible writes behind HITL approval.
-- **Hard Execution Bounds**: Enforce max iteration caps, per-tool retry limits, per-run token/cost budgets + kill switches, loop repetition detection, and full trajectory logging (evaluating the *path*, not solely the final string; see [[Loop Engineering]] & [[Comprehension and Intent Debt]]).
-- **Short-Term vs. Long-Term Memory**: *Short-term (working) memory* is a **context-window management problem** (sliding windows, summarization); *Long-term memory* is a **data-engineering problem** (persistent profile + vector store paired with explicit write, retrieval, and forgetting/update rules—because stale memory is worse than none; see [[Memory Architecture]]).
+- **Hard Execution Bounds**: Enforce max iteration caps, per-tool retry limits, per-run token/cost budgets + kill switches, loop repetition detection, and full trajectory logging (evaluating the *path*, not solely the final string; see [Loop Engineering](Loop%20Engineering.md) & [Comprehension and Intent Debt](Comprehension%20and%20Intent%20Debt.md)).
+- **Short-Term vs. Long-Term Memory**: *Short-term (working) memory* is a **context-window management problem** (sliding windows, summarization); *Long-term memory* is a **data-engineering problem** (persistent profile + vector store paired with explicit write, retrieval, and forgetting/update rules—because stale memory is worse than none; see [Memory Architecture](Memory%20Architecture.md)).
 
 ---
 
@@ -69,9 +69,9 @@ When tasks genuinely require multi-step execution over fixed chains (and justify
 | Production Lever | Latency Impact | Cost Impact | Primary Use Case |
 | :--- | :--- | :--- | :--- |
 | **Token Streaming** | Drops perceived delay to `TTFT` | Neutral | All interactive chat interfaces |
-| **Exact & Semantic Prompt Caching** | Faster prefill / bypassed inference | $\downarrow\downarrow$ | Repeated system prompts & common FAQ queries (see [[System Prompt Caching Optimization]]) |
-| **Small-Model Routing** | $\downarrow$ | $\downarrow\downarrow$ | Handling easy/FAQ traffic (`90%+` quality at `~10%` cost; see [[Effort Level and Model Selection]]) |
-| **Context Trimming** | Faster prefill | $\downarrow$ tokens | Capping retrieved chunks (`5` vs `50`) to suppress noise & [[Context Rot]] |
+| **Exact & Semantic Prompt Caching** | Faster prefill / bypassed inference | $\downarrow\downarrow$ | Repeated system prompts & common FAQ queries (see [System Prompt Caching Optimization](System%20Prompt%20Caching%20Optimization.md)) |
+| **Small-Model Routing** | $\downarrow$ | $\downarrow\downarrow$ | Handling easy/FAQ traffic (`90%+` quality at `~10%` cost; see [Effort Level and Model Selection](Effort%20Level%20and%20Model%20Selection.md)) |
+| **Context Trimming** | Faster prefill | $\downarrow$ tokens | Capping retrieved chunks (`5` vs `50`) to suppress noise & [Context Rot](Context%20Rot.md) |
 | **Cross-Encoder Reranking** | Slight $\uparrow$ | Slight $\uparrow$ | Precision boost (`Top-50 -> Top-5`) when entity/multi-doc accuracy plateaus |
 
 ### Build-vs-Train Escalation Decision Rule
@@ -83,7 +83,7 @@ When tasks genuinely require multi-step execution over fixed chains (and justify
 
 ## 5. Surrounding Production Infrastructure & Traffic Layer (7 Patterns)
 
-While Sections 1–4 optimize what happens *inside* the core AI service (implemented cleanly via the 9-layer Python application stack in [[Production AI Agent Service Stack]] / [[How a Production AI Agent System Actually Works]]: `FastAPI`/`Uvicorn`, `Pydantic` validation, `LangGraph` checkpoints, `Postgres + pgvector`, `Redis`, `LiteLLM`, `Langfuse`/`Opik`, and `Pytest` + AI Evals), scaling cleanly to `10,000+` concurrent users requires wrapping that unchanged core service in **seven outer request-lifecycle patterns** detailed in [[Production AI Resilience and Scaling Patterns]] and [[AI System Design 7 Patterns Explained in 17 Minutes]]:
+While Sections 1–4 optimize what happens *inside* the core AI service (implemented cleanly via the 9-layer Python application stack in [Production AI Agent Service Stack](Production%20AI%20Agent%20Service%20Stack.md) / [How a Production AI Agent System Actually Works](../sources/How%20a%20Production%20AI%20Agent%20System%20Actually%20Works.md): `FastAPI`/`Uvicorn`, `Pydantic` validation, `LangGraph` checkpoints, `Postgres + pgvector`, `Redis`, `LiteLLM`, `Langfuse`/`Opik`, and `Pytest` + AI Evals), scaling cleanly to `10,000+` concurrent users requires wrapping that unchanged core service in **seven outer request-lifecycle patterns** detailed in [Production AI Resilience and Scaling Patterns](Production%20AI%20Resilience%20and%20Scaling%20Patterns.md) and [AI System Design 7 Patterns Explained in 17 Minutes](../sources/AI%20System%20Design%207%20Patterns%20Explained%20in%2017%20Minutes.md):
 
 1. **API Gateway vs. Model Gateway**: Centralize inbound validation, `request_id` tagging, and service routing without replacing FastAPI, while keeping outbound provider calls (`OpenAI`, `Anthropic`, local GPUs) behind an outbound model gateway.
 2. **Admission Control & Token-Aware Rate Limiting**: Gate **Start / Wait / Reject (`HTTP 429 Retry-After`)** using **RPM + input/output TPM + active model calls** rather than naive request counts alone.
@@ -96,8 +96,30 @@ While Sections 1–4 optimize what happens *inside* the core AI service (impleme
 ---
 
 ## Related Pages
-- **Sources**: [[AI Engineer Interview Notes]], [[AI Deployment Notes]], [[How a Production AI Agent System Actually Works]], [[AI System Design 7 Patterns Explained in 17 Minutes]], [[System Design for AI Engineers 7 Patterns]], [[System Design for Engineers 162 Concepts]]
-- **Infrastructure & Entities**: [[Production AI Agent Service Stack]], [[Production AI Resilience and Scaling Patterns]], [[System Design 162 Concepts Resource Map]], [[Jam With AI]], [[Inference Serving and Deployment Patterns]], [[LLM Inference Optimization and Security]]
-- **Retrieval & Alignment**: [[Retrieval-Augmented Generation and Vector DBs]], [[LLM Fine-Tuning and Alignment]], [[Prompt Engineering]]
-- **Evals & Economics**: [[LLM-as-a-Judge and Eval Alignment]], [[Product Evals and Error Analysis]], [[Cost Optimization]], [[Inference Speed vs Intelligence Trade-off]]
-- **Agents & Serving**: [[Agentic Engineering]], [[Domain-Specific Agents]], [[Memory Architecture]]
+- **Sources**:
+  - [AI Engineer Interview Notes](../sources/AI%20Engineer%20Interview%20Notes.md)
+  - [AI Deployment Notes](../sources/AI%20Deployment%20Notes.md)
+  - [How a Production AI Agent System Actually Works](../sources/How%20a%20Production%20AI%20Agent%20System%20Actually%20Works.md)
+  - [AI System Design 7 Patterns Explained in 17 Minutes](../sources/AI%20System%20Design%207%20Patterns%20Explained%20in%2017%20Minutes.md)
+  - [System Design for AI Engineers 7 Patterns](../sources/System%20Design%20for%20AI%20Engineers%207%20Patterns.md)
+  - [System Design for Engineers 162 Concepts](../sources/System%20Design%20for%20Engineers%20162%20Concepts.md)
+- **Infrastructure & Entities**:
+  - [Production AI Agent Service Stack](Production%20AI%20Agent%20Service%20Stack.md)
+  - [Production AI Resilience and Scaling Patterns](Production%20AI%20Resilience%20and%20Scaling%20Patterns.md)
+  - [System Design 162 Concepts Resource Map](../references/System%20Design%20162%20Concepts%20Resource%20Map.md)
+  - [Jam With AI](../entities/Jam%20With%20AI.md)
+  - [Inference Serving and Deployment Patterns](Inference%20Serving%20and%20Deployment%20Patterns.md)
+  - [LLM Inference Optimization and Security](LLM%20Inference%20Optimization%20and%20Security.md)
+- **Retrieval & Alignment**:
+  - [Retrieval-Augmented Generation and Vector DBs](Retrieval-Augmented%20Generation%20and%20Vector%20DBs.md)
+  - [LLM Fine-Tuning and Alignment](LLM%20Fine-Tuning%20and%20Alignment.md)
+  - [Prompt Engineering](Prompt%20Engineering.md)
+- **Evals & Economics**:
+  - [LLM-as-a-Judge and Eval Alignment](LLM-as-a-Judge%20and%20Eval%20Alignment.md)
+  - [Product Evals and Error Analysis](Product%20Evals%20and%20Error%20Analysis.md)
+  - [Cost Optimization](Cost%20Optimization.md)
+  - [Inference Speed vs Intelligence Trade-off](Inference%20Speed%20vs%20Intelligence%20Trade-off.md)
+- **Agents & Serving**:
+  - [Agentic Engineering](../topics/Agentic%20Engineering.md)
+  - [Domain-Specific Agents](Domain-Specific%20Agents.md)
+  - [Memory Architecture](Memory%20Architecture.md)

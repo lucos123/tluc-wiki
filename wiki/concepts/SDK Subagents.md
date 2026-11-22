@@ -7,7 +7,7 @@ tags:
   - subagents
   - harness-engineering
   - claude-code
-source: "[[Subagents in the SDK]]"
+source: "wiki/sources/Subagents in the SDK.md"
 ---
 
 # SDK Subagents
@@ -31,4 +31,4 @@ graph TD
 2. **Precedence Hierarchy**: Programmatic SDK definitions take priority over disk-based project/personal subagents with identical names.
 3. **Background Execution**: Subagents execute asynchronously by default without blocking the parent loop thread.
 
-See [[Subagents in the SDK]], [[Subagent Architecture]], and [[Agent SDK Architecture]].
+See [Subagents in the SDK](../sources/Subagents%20in%20the%20SDK.md), [Subagent Architecture](Subagent%20Architecture.md), and [Agent SDK Architecture](Agent%20SDK%20Architecture.md).

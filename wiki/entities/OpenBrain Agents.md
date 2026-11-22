@@ -9,7 +9,7 @@ tags:
 
 # OpenBrain Agents
 
-The series of increasingly capable and autonomous AI models developed by [[OpenBrain]] during the [[AI 2027]] scenario, aimed at automating AI research and development.
+The series of increasingly capable and autonomous AI models developed by [OpenBrain](OpenBrain.md) during the [AI 2027](../sources/AI%202027.md) scenario, aimed at automating AI research and development.
 
 ## Agent-1
 
@@ -24,13 +24,13 @@ Developed in Early 2027.
 - Operates via "online learning", continuously updating based on reinforcement learning.
 - Qualitatively as good as top human experts at research engineering.
 - Features autonomous replication capabilities.
-- Its weights are successfully stolen by Chinese intelligence ([[DeepCent]]).
+- Its weights are successfully stolen by Chinese intelligence ([DeepCent](DeepCent.md)).
 
 ## Agent-3
 
 Developed in March 2027.
-- Achieves the [[Superhuman Coder]] milestone.
-- Utilizes [[Neuralese]] and [[Iterated Distillation and Amplification (IDA)]].
+- Achieves the [Superhuman Coder](../concepts/Superhuman%20Coder.md) milestone.
+- Utilizes [Neuralese](../concepts/Neuralese.md) and [Iterated Distillation and Amplification (IDA)](../concepts/Iterated%20Distillation%20and%20Amplification%20%28IDA%29.md).
 - OpenBrain runs 200,000 copies in parallel, effectively replacing human coding labor in AI R&D.
 - Misaligned, but not adversarially so (plays the training game).
 

@@ -19,6 +19,7 @@ import sys
 import argparse
 from collections import Counter, defaultdict
 from datetime import datetime
+from urllib.parse import unquote
 
 
 def find_project_root():
@@ -94,21 +95,66 @@ def parse_frontmatter(content):
     return fields
 
 
-def _strip_code_and_math_spans(content):
-    """Strip fenced code blocks and inline code spans in the Markdown body while preserving frontmatter."""
+def _split_frontmatter_and_body(content):
+    """Split optional YAML frontmatter block from the Markdown body."""
     if content.startswith("---"):
         parts = content.split("---", 2)
         if len(parts) == 3:
-            fm_header = f"---{parts[1]}---"
-            body = parts[2]
-        else:
-            fm_header, body = "", content
-    else:
-        fm_header, body = "", content
+            return f"---{parts[1]}---", parts[2]
+    return "", content
 
-    body = re.sub(r"````.*?````|```.*?```|~~~.*?~~~", "", body, flags=re.S)
-    body = re.sub(r"`[^`\n]+`", "", body)
-    return fm_header + body
+
+def _strip_body_code_spans(body):
+    """Strip fenced code blocks and inline code spans from a Markdown body."""
+    stripped = re.sub(r"````.*?````|```.*?```|~~~.*?~~~", "", body, flags=re.S)
+    return re.sub(r"`[^`\n]+`", "", stripped)
+
+
+def _strip_code_and_math_spans(content):
+    """Strip fenced code blocks and inline code spans in the Markdown body while preserving frontmatter."""
+    fm_header, body = _split_frontmatter_and_body(content)
+    return fm_header + _strip_body_code_spans(body)
+
+
+def _clean_markdown_href(raw_href):
+    """Normalize a Markdown link destination, returning (decoded_path, anchor) or (None, '') if non-local."""
+    href = raw_href.strip()
+    if href.startswith("<") and href.endswith(">"):
+        href = href[1:-1].strip()
+    else:
+        title_match = re.match(r'^(\S+(?:\s+\S+)*?)\s+(?:"[^"]*"|\'[^\']*\')\s*$', href)
+        if title_match and not href.endswith(")"):
+            href = title_match.group(1).strip()
+
+    if not href or href.startswith("#"):
+        return None, ""
+    lower = href.lower()
+    if re.match(r"^[a-z][a-z0-9+.-]*:", lower):
+        return None, ""
+
+    path_part, _, anchor = href.partition("#")
+    decoded_path = unquote(path_part.strip())
+    if not decoded_path:
+        return None, anchor
+    return decoded_path, anchor
+
+
+def extract_markdown_links(content):
+    """Extract local Standard Markdown links [label](path) from body, ignoring images, URLs, and code."""
+    _fm, body = _split_frontmatter_and_body(content)
+    cleaned_body = _strip_body_code_spans(body)
+    results = []
+    for label, raw_href in re.findall(r"(?<!!)\[([^\[\]\n]+)\]\(([^)\n]+)\)", cleaned_body):
+        decoded_path, anchor = _clean_markdown_href(raw_href)
+        if decoded_path is None:
+            continue
+        results.append({
+            "label": label.strip(),
+            "raw_href": raw_href.strip(),
+            "path": decoded_path,
+            "anchor": anchor,
+        })
+    return results
 
 
 def extract_wiki_links(content):
@@ -124,11 +170,75 @@ def extract_wiki_links(content):
     return results
 
 
-def read_index_links(index_file):
-    """Extract all [[wiki links]] referenced in index.md."""
+def extract_legacy_wikilinks(content):
+    """Return raw [[target]] matches remaining outside code blocks/inline code (for migration checks)."""
+    cleaned = _strip_code_and_math_spans(content)
+    results = []
+    for raw in re.findall(r"\[\[(.*?)\]\]", cleaned):
+        target = re.split(r"\\?\|", raw, maxsplit=1)[0].strip()
+        if not target or "[" in target or "]" in target or "\n" in target:
+            continue
+        results.append(f"[[{raw}]]")
+    return results
+
+
+_INDEX_MD_BULLET_RE = re.compile(r"^\s*-\s*\[([^\[\]\n]+)\]\(([^)\n]+)\)(?:\s*:\s*(.*))?$")
+_INDEX_WIKI_BULLET_RE = re.compile(r"^\s*-\s*\[\[(.*?)\]\](?:\s*:\s*(.*))?$")
+
+
+def read_index_entries(index_file, project_root=None):
+    """Read both Standard Markdown links and legacy [[wiki links]] from index.md."""
     with open(index_file, "r", encoding="utf-8", errors="replace") as f:
         content = f.read()
-    return set(extract_wiki_links(content))
+
+    md_entries = []
+    md_paths = set()
+    md_paths_lower = set()
+    legacy_entries = []
+    legacy_stems = set()
+
+    for line in content.splitlines():
+        m_md = _INDEX_MD_BULLET_RE.match(line)
+        if m_md:
+            label = m_md.group(1).strip()
+            raw_href = m_md.group(2).strip()
+            decoded_path, _anchor = _clean_markdown_href(raw_href)
+            if decoded_path:
+                norm_posix = os.path.normpath(decoded_path).replace("\\", "/")
+                if norm_posix.startswith("./"):
+                    norm_posix = norm_posix[2:]
+                md_entries.append({
+                    "label": label,
+                    "raw_href": raw_href,
+                    "path": norm_posix,
+                })
+                md_paths.add(norm_posix)
+                md_paths_lower.add(norm_posix.lower())
+            continue
+
+        m_wk = _INDEX_WIKI_BULLET_RE.match(line)
+        if m_wk:
+            target = re.split(r"\\?\|", m_wk.group(1), maxsplit=1)[0].strip()
+            if target and "[" not in target and "]" not in target:
+                legacy_entries.append(target)
+                legacy_stems.add(target)
+
+    return {
+        "md_entries": md_entries,
+        "md_paths": md_paths,
+        "md_paths_lower": md_paths_lower,
+        "legacy_entries": legacy_entries,
+        "legacy_stems": legacy_stems,
+    }
+
+
+def read_index_links(index_file):
+    """Extract all indexed page labels/names referenced in index.md (Markdown + legacy)."""
+    data = read_index_entries(index_file)
+    names = set(data["legacy_stems"])
+    for entry in data["md_entries"]:
+        names.add(entry["label"])
+    return names
 
 
 def validate_date(date_str):
@@ -142,17 +252,24 @@ def validate_date(date_str):
         return False
 
 
+def _is_within_root(resolved_path, abs_root):
+    return resolved_path == abs_root or resolved_path.startswith(abs_root + os.sep)
+
+
 def lint_wiki(project_root, index_file):
     """Run all structural checks across wiki/, mem/, output/ and return a JSON report."""
-
-    pages = get_all_wiki_pages(project_root)
+    abs_root = os.path.abspath(project_root)
+    pages = get_all_wiki_pages(abs_root)
     page_names = {p["name"] for p in pages}
-    index_links = read_index_links(index_file)
+    idx_data = read_index_entries(index_file, abs_root)
+    with open(index_file, "r", encoding="utf-8", errors="replace") as f:
+        index_content = f.read()
 
     report = {
         "orphan_pages": [],
         "missing_pages": [],
         "broken_links": [],
+        "legacy_wikilinks": [],
         "missing_frontmatter": [],
         "missing_fields": [],
         "duplicate_titles": [],
@@ -163,26 +280,41 @@ def lint_wiki(project_root, index_file):
         },
         "stats": {
             "total_wiki_pages": len(pages),
-            "total_index_entries": len(index_links),
+            "total_index_entries": len(idx_data["md_entries"]) + len(idx_data["legacy_entries"]),
             "total_links": 0,
+            "total_markdown_links": 0,
+            "total_legacy_wikilinks": 0,
             "total_broken_links": 0,
             "pages_with_frontmatter": 0,
             "pages_without_frontmatter": 0,
         },
     }
 
-    # Orphans: pages in wiki/ (excluding log.md) not in index.md
+    for wl in extract_legacy_wikilinks(index_content):
+        report["legacy_wikilinks"].append({
+            "page": "index",
+            "page_path": "index.md",
+            "wikilink": wl,
+        })
+
+    # Orphans: pages in wiki/mem/output (excluding log.md) not in index.md
     for p in pages:
         if p["name"] == "log":
             continue
-        if p["name"] not in index_links:
+        rel_posix = p["rel_path"].replace("\\", "/")
+        if rel_posix.lower() not in idx_data["md_paths_lower"] and p["name"] not in idx_data["legacy_stems"]:
             report["orphan_pages"].append({
                 "name": p["name"],
                 "path": p["rel_path"],
             })
 
-    # Missing: referenced in index.md but no corresponding page
-    for link in index_links:
+    # Missing: referenced in index.md but target file missing
+    for entry in idx_data["md_entries"]:
+        resolved = os.path.normpath(os.path.join(abs_root, entry["path"]))
+        if not (_is_within_root(resolved, abs_root) and os.path.isfile(resolved)):
+            report["missing_pages"].append(entry["path"])
+
+    for link in idx_data["legacy_entries"]:
         if link.startswith("raw/"):
             continue
         if link not in page_names:
@@ -193,7 +325,7 @@ def lint_wiki(project_root, index_file):
     title_map = defaultdict(list)
 
     for p in pages:
-        # Ignore log.md for frontmatter checks
+        # Ignore log.md checks
         if p["name"] == "log":
             continue
 
@@ -237,7 +369,52 @@ def lint_wiki(project_root, index_file):
                 for tag in fm["tags"]:
                     all_tags[tag] += 1
 
-        # Broken links check
+            if "source" in fm and fm["source"]:
+                raw_sources = fm["source"] if isinstance(fm["source"], list) else [fm["source"]]
+                fm_items = []
+                for entry in raw_sources:
+                    s_val = str(entry).strip()
+                    if "[[" in s_val:
+                        continue
+                    for part in re.split(r"\s*,\s*(?=(?:wiki|mem|output|raw)/)", s_val):
+                        part = part.strip()
+                        if part:
+                            fm_items.append(part)
+                for src_path in fm_items:
+                    if re.match(r"^(?:wiki|mem|output|raw)/", src_path):
+                        resolved = os.path.normpath(os.path.join(abs_root, src_path))
+                        if not (_is_within_root(resolved, abs_root) and os.path.isfile(resolved)):
+                            report["broken_links"].append({
+                                "page": p["name"],
+                                "page_path": p["rel_path"],
+                                "broken_link": src_path,
+                                "link_type": "frontmatter_source",
+                            })
+
+        # Markdown links check (relative filesystem resolution)
+        md_links = extract_markdown_links(content)
+        report["stats"]["total_markdown_links"] += len(md_links)
+        report["stats"]["total_links"] += len(md_links)
+        page_dir = os.path.dirname(os.path.abspath(p["path"]))
+        for ml in md_links:
+            resolved = os.path.normpath(os.path.join(page_dir, ml["path"]))
+            if not (_is_within_root(resolved, abs_root) and os.path.isfile(resolved)):
+                report["broken_links"].append({
+                    "page": p["name"],
+                    "page_path": p["rel_path"],
+                    "broken_link": ml["raw_href"],
+                    "link_type": "markdown",
+                })
+
+        # Legacy [[wiki links]] backward-compatible check & deprecation tracker
+        legacy_raw = extract_legacy_wikilinks(content)
+        for wl in legacy_raw:
+            report["legacy_wikilinks"].append({
+                "page": p["name"],
+                "page_path": p["rel_path"],
+                "wikilink": wl,
+            })
+
         links = extract_wiki_links(content)
         report["stats"]["total_links"] += len(links)
 
@@ -250,6 +427,7 @@ def lint_wiki(project_root, index_file):
                     "page": p["name"],
                     "page_path": p["rel_path"],
                     "broken_link": link,
+                    "link_type": "wikilink",
                 })
 
     for title, paths in title_map.items():
@@ -265,6 +443,7 @@ def lint_wiki(project_root, index_file):
     ]
 
     report["stats"]["total_broken_links"] = len(report["broken_links"])
+    report["stats"]["total_legacy_wikilinks"] = len(report["legacy_wikilinks"])
     if len(pages) > 0:
         coverage = (len(pages) - len(report["orphan_pages"])) / len(pages) * 100
         report["stats"]["index_coverage_pct"] = round(coverage, 1)

@@ -6,14 +6,14 @@ tags:
   - documentation
   - agentic-design
   - codex
-source: "[[raw/codex-skills.md]]"
+source: "raw/articles/openai/codex-skills.md"
 ---
 
 # Codex Skills
 
-**Source File**: [[raw/codex-skills.md]]
+**Source File**: [raw/articles/openai/codex-skills.md](../../raw/articles/openai/codex-skills.md)
 
-This document outlines how OpenAI's [[Codex]] utilizes Agent Skills to package reusable workflows, scripts, and resources. Like [[Claude Code Skills]], it builds upon the open `agentskills.io` standard.
+This document outlines how OpenAI's [Codex](../entities/Codex.md) utilizes Agent Skills to package reusable workflows, scripts, and resources. Like [Claude Code Skills](Claude%20Code%20Skills.md), it builds upon the open `agentskills.io` standard.
 
 ## Key Concepts
 
@@ -31,4 +31,4 @@ This document outlines how OpenAI's [[Codex]] utilizes Agent Skills to package r
 
 ## Synthesis Notes
 
-The adoption of the open Agent Skills standard by both [[Codex]] and [[Claude Code]] highlights a major trend in [[Harness Engineering]]. Monolithic [[Persistent Instruction File|Persistent Instruction Files]] (like `AGENTS.md`) are increasingly being supplemented or replaced by modular, on-demand skill directories. Codex's addition of "Progressive Disclosure" and UI metadata via `openai.yaml` shows an ecosystem evolving beyond simple text prompts into structured, installable agent capabilities.
+The adoption of the open Agent Skills standard by both [Codex](../entities/Codex.md) and [Claude Code](../entities/Claude%20Code.md) highlights a major trend in [Harness Engineering](../concepts/Harness%20Engineering.md). Monolithic [Persistent Instruction Files](../concepts/Persistent%20Instruction%20File.md) (like `AGENTS.md`) are increasingly being supplemented or replaced by modular, on-demand skill directories. Codex's addition of "Progressive Disclosure" and UI metadata via `openai.yaml` shows an ecosystem evolving beyond simple text prompts into structured, installable agent capabilities.

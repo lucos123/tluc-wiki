@@ -7,12 +7,12 @@ tags:
   - machine-learning
   - llm-foundations
   - optimization
-source: "[[Machine Learning and Deep Learning Cheat Sheets]]"
+source: "wiki/sources/Machine Learning and Deep Learning Cheat Sheets.md"
 ---
 
 # Neural Networks and Deep Learning Foundations
 
-**Neural Networks and Deep Learning Foundations** establishes the core mathematical building blocks underlying multi-layer neural architectures—from artificial neurons, non-linear activations, and vectorized forward propagation to MSE / Cross-Entropy losses, matrix backpropagation, Adam optimization, canonical network families, and inverted dropout regularization ([[Machine Learning and Deep Learning Cheat Sheets]]).
+**Neural Networks and Deep Learning Foundations** establishes the core mathematical building blocks underlying multi-layer neural architectures—from artificial neurons, non-linear activations, and vectorized forward propagation to MSE / Cross-Entropy losses, matrix backpropagation, Adam optimization, canonical network families, and inverted dropout regularization ([Machine Learning and Deep Learning Cheat Sheets](../sources/Machine%20Learning%20and%20Deep%20Learning%20Cheat%20Sheets.md)).
 
 ![Deep Learning Cheat Sheet Overview](../../raw/assets/ml-dl-cheat-sheets-ml-tut-02.jpg)
 
@@ -71,7 +71,7 @@ $$m_t = \beta_1 m_{t-1} + (1 - \beta_1) g_t, \qquad v_t = \beta_2 v_{t-1} + (1 -
 
 $$\hat{m}_t = \frac{m_t}{1 - \beta_1^t}, \qquad \hat{v}_t = \frac{v_t}{1 - \beta_2^t}, \qquad \theta = \theta - \eta \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon}$$
 
-For large-scale LLM pretraining, weight decay is decoupled cleanly from adaptive moments via **`AdamW`** or memory-efficient **`Lion`** (see [[LLM Pretraining, Optimization and Decoding]]).
+For large-scale LLM pretraining, weight decay is decoupled cleanly from adaptive moments via **`AdamW`** or memory-efficient **`Lion`** (see [LLM Pretraining, Optimization and Decoding](LLM%20Pretraining%2C%20Optimization%20and%20Decoding.md)).
 
 ---
 
@@ -80,9 +80,9 @@ For large-scale LLM pretraining, weight decay is decoupled cleanly from adaptive
 | Architecture Family | Structural Mechanism | Best-Fit Modalities & Deep Dive |
 | :--- | :--- | :--- |
 | **Feedforward (`FNN`)** | Input $\rightarrow$ dense hidden layer(s) $\rightarrow$ output | Tabular data and general-purpose function approximation |
-| **Convolutional (`CNN`)** | Convolution kernels $\rightarrow$ pooling $\rightarrow$ feature maps | Images & spatial grids ([[Convolutional Neural Networks and Object Detection]]) |
+| **Convolutional (`CNN`)** | Convolution kernels $\rightarrow$ pooling $\rightarrow$ feature maps | Images & spatial grids ([Convolutional Neural Networks and Object Detection](Convolutional%20Neural%20Networks%20and%20Object%20Detection.md)) |
 | **Recurrent (`RNN` / `LSTM` / `GRU`)** | Stepwise hidden state recurrence $h_t$ across time | Sequential text & time-series modeling |
-| **Transformer** | Multi-head self-attention + feedforward blocks + positional encoding | Sequences, NLP, vision, and multimodal foundation models ([[Transformer Architecture and Pre-training]], [[Vision Transformers and Multimodal AI]]) |
+| **Transformer** | Multi-head self-attention + feedforward blocks + positional encoding | Sequences, NLP, vision, and multimodal foundation models ([Transformer Architecture and Pre-training](Transformer%20Architecture%20and%20Pre-training.md), [Vision Transformers and Multimodal AI](Vision%20Transformers%20and%20Multimodal%20AI.md)) |
 
 ### Regularization, Training Monitoring & Hyperparameters
 - **L2 Weight Decay (Ridge)**: $L = L_{\text{task}} + \lambda \sum_{i=1}^n \lVert W_i \rVert_2^2$ (penalizes weight matrices $W_i$, excluding bias terms, to discourage large weights).
@@ -92,11 +92,19 @@ For large-scale LLM pretraining, weight decay is decoupled cleanly from adaptive
 $$h' = h \odot \frac{m}{q}, \qquad m_i \sim \text{Bernoulli}(q)$$
 
 - **Early Stopping & Training Curves**: Track training vs. validation loss over epochs; halt training (**patience**) when validation loss stops improving to curb overfitting before generalization degrades.
-- **Core Hyperparameters**: Learning rate $\eta$, batch size, number of layers, hidden units per layer, activation function, optimizer (`SGD`, `Adam`, `AdamW`), regularization strength ($\lambda$, dropout rate), epochs, and early stopping patience (evaluated via classification Confusion Matrix metrics in [[Model Evaluation and Validation]]).
+- **Core Hyperparameters**: Learning rate $\eta$, batch size, number of layers, hidden units per layer, activation function, optimizer (`SGD`, `Adam`, `AdamW`), regularization strength ($\lambda$, dropout rate), epochs, and early stopping patience (evaluated via classification Confusion Matrix metrics in [Model Evaluation and Validation](Model%20Evaluation%20and%20Validation.md)).
 
 ---
 
 ## Related Pages
-- **Primary Source**: [[Machine Learning and Deep Learning Cheat Sheets]]
-- **Downstream Deep Learning & LLM Stack**: [[Convolutional Neural Networks and Object Detection]], [[Vision Transformers and Multimodal AI]], [[Transformer Architecture and Pre-training]], [[LLM Pretraining, Optimization and Decoding]]
-- **Classical ML Foundations**: [[Data Preprocessing and Feature Engineering]], [[Supervised Learning Algorithms]], [[Model Evaluation and Validation]], [[Machine Learning Paradigms]]
+- **Primary Source**: [Machine Learning and Deep Learning Cheat Sheets](../sources/Machine%20Learning%20and%20Deep%20Learning%20Cheat%20Sheets.md)
+- **Downstream Deep Learning & LLM Stack**:
+  - [Convolutional Neural Networks and Object Detection](Convolutional%20Neural%20Networks%20and%20Object%20Detection.md)
+  - [Vision Transformers and Multimodal AI](Vision%20Transformers%20and%20Multimodal%20AI.md)
+  - [Transformer Architecture and Pre-training](Transformer%20Architecture%20and%20Pre-training.md)
+  - [LLM Pretraining, Optimization and Decoding](LLM%20Pretraining%2C%20Optimization%20and%20Decoding.md)
+- **Classical ML Foundations**:
+  - [Data Preprocessing and Feature Engineering](Data%20Preprocessing%20and%20Feature%20Engineering.md)
+  - [Supervised Learning Algorithms](Supervised%20Learning%20Algorithms.md)
+  - [Model Evaluation and Validation](Model%20Evaluation%20and%20Validation.md)
+  - [Machine Learning Paradigms](Machine%20Learning%20Paradigms.md)

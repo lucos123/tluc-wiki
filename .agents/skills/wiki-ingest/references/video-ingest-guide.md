@@ -49,7 +49,7 @@ Inspect all captured frames in `raw/screenshots/<slug>/` using parallel `read_fi
 
 ### Stage 3 — Embed Visual Transcriptions, Synthesize Wiki & Register
 1. Verify that `raw/video-transcripts/<slug>.md` contains the curated `## Key Visual Frames` links (`![MM:SS - <Label>](../screenshots/<slug>/NN.jpg)`), adding any concise visual transcriptions if needed (or omit manual `edit_file` entirely when `--update-transcript` already synced them cleanly).
-2. Create `wiki/sources/<safe_source_page_name>.md` (`source_type: video`) linking both the raw transcript and all kept `[[raw/screenshots/<slug>/NN.jpg]]` slides, plus entity/concept pages in `wiki/entities/` and `wiki/concepts/`. To search `index.md` for additional candidate links by keyword, run:
+2. Create `wiki/sources/<safe_source_page_name>.md` (`source_type: video`) linking both the raw transcript (`[raw/video-transcripts/<slug>.md](../../raw/video-transcripts/<slug>.md)`) and all kept `[raw/screenshots/<slug>/NN.jpg](../../raw/screenshots/<slug>/NN.jpg)` slides via Standard Relative Markdown Links, plus entity/concept pages in `wiki/entities/` and `wiki/concepts/`. To search `index.md` for additional candidate links by keyword, run:
    ```powershell
    python .agents\skills\wiki-ingest\scripts\register_ingest.py --suggest-links "supply chain security sbom"
    ```
@@ -116,7 +116,7 @@ tags:
   - source
   - <topic-tag-1>
   - <topic-tag-2>
-source: "[[raw/video-transcripts/<slug>.md]]"
+source: "raw/video-transcripts/<slug>.md"
 source_type: video
 url: "<YouTube URL>"
 channel: "<Channel Name>"
@@ -130,14 +130,14 @@ duration: "<e.g., 24m 38s>"
 **Speaker**: <Speaker Name>
 **URL**: <YouTube URL>
 **Duration**: <duration>
-**Transcript**: [[raw/video-transcripts/<slug>.md]]
-**Key Slides**: [[raw/screenshots/<slug>/01.jpg]], ...
+**Transcript**: [raw/video-transcripts/<slug>.md](../../raw/video-transcripts/<slug>.md)
+**Key Slides**: [raw/screenshots/<slug>/01.jpg](../../raw/screenshots/<slug>/01.jpg), ...
 
 <1-2 sentence overview: what this video is about and why it matters.>
 
 ## Key Concepts
 
-- **<Concept Name>**: <Explanation with [[wiki links]]>
+- **<Concept Name>**: <Explanation with [Markdown links](../concepts/Concept%20Name.md)>
 
 ## Synthesis Notes
 

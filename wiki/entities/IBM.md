@@ -5,7 +5,7 @@ tags:
   - entity
   - organization
   - ai_company
-source: "[[What Is Context Engineering]]"
+source: "wiki/sources/What Is Context Engineering.md"
 ---
 
 # IBM
@@ -16,7 +16,7 @@ source: "[[What Is Context Engineering]]"
 
 ## Technical Divisions & Content
 
-- **[[IBM Technology]]**: Media & video education channel covering AI agent skills, context rot, and agentic workflows.
-- **IBM Think**: Technical publishing arm featuring research articles by [[Joshua Noble]] on [[Context Engineering]].
+- **[IBM Technology](IBM%20Technology.md)**: Media & video education channel covering AI agent skills, context rot, and agentic workflows.
+- **IBM Think**: Technical publishing arm featuring research articles by [Joshua Noble](Joshua%20Noble.md) on [Context Engineering](../concepts/Context%20Engineering.md).
 
-See [[IBM Technology]] and [[What Is Context Engineering]].
+See [IBM Technology](IBM%20Technology.md) and [What Is Context Engineering](../sources/What%20Is%20Context%20Engineering.md).

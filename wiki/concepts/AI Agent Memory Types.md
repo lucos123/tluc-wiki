@@ -7,12 +7,12 @@ tags:
   - context-engineering
   - architecture
   - agentic-design
-source: "[[AI Agent Memory 7 Types Explained in 12 Minutes]], [[Agent Memory The 7 Types You Should Know]]"
+source: "wiki/sources/AI Agent Memory 7 Types Explained in 12 Minutes.md, wiki/sources/Agent Memory The 7 Types You Should Know.md"
 ---
 
 # AI Agent Memory Types
 
-**AI Agent Memory Types** organizes agent state and recall into **seven distinct functional responsibilities** within [[Context Engineering]]: **Working**, **Semantic**, **Episodic**, **Procedural**, **External**, **Parametric**, and **Prospective Memory**. Rooted in cognitive science and **CoALA: Cognitive Architectures for Language Agents** (Sumers et al., 2023) and formalized by [[Jam With AI]] (Shirin Khosravi Jam & Shantanu Ladhwe) across [[Agent Memory The 7 Types You Should Know]] and [[AI Agent Memory 7 Types Explained in 12 Minutes]], this taxonomy emphasizes that **`7 memory jobs != 7 separate databases`** and *"More memory is not a better agent—a better agent forgets on purpose."* Effective systems map these responsibilities onto shared backing stores (`PostgreSQL + pgvector`, `Redis`, `Thread ID` checkpointers, workflow/skill files, durable queues/`Temporal`) around concrete survival, retrieval, forgetting, and wake-up needs.
+**AI Agent Memory Types** organizes agent state and recall into **seven distinct functional responsibilities** within [Context Engineering](Context%20Engineering.md): **Working**, **Semantic**, **Episodic**, **Procedural**, **External**, **Parametric**, and **Prospective Memory**. Rooted in cognitive science and **CoALA: Cognitive Architectures for Language Agents** (Sumers et al., 2023) and formalized by [Jam With AI](../entities/Jam%20With%20AI.md) (Shirin Khosravi Jam & Shantanu Ladhwe) across [Agent Memory The 7 Types You Should Know](../sources/Agent%20Memory%20The%207%20Types%20You%20Should%20Know.md) and [AI Agent Memory 7 Types Explained in 12 Minutes](../sources/AI%20Agent%20Memory%207%20Types%20Explained%20in%2012%20Minutes.md), this taxonomy emphasizes that **`7 memory jobs != 7 separate databases`** and *"More memory is not a better agent—a better agent forgets on purpose."* Effective systems map these responsibilities onto shared backing stores (`PostgreSQL + pgvector`, `Redis`, `Thread ID` checkpointers, workflow/skill files, durable queues/`Temporal`) around concrete survival, retrieval, forgetting, and wake-up needs.
 
 ![Seven Types of Agent Memory Architecture](../../raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/01.jpg)
 
@@ -22,13 +22,13 @@ source: "[[AI Agent Memory 7 Types Explained in 12 Minutes]], [[Agent Memory The
 
 | Type | What It Stores | Typical Backing Store & Primitives | Lifecycle & Mutability | Primary Failure Mode |
 | :--- | :--- | :--- | :--- | :--- |
-| **1. Working Memory** | Active prompt context: `System Prompt`, user query, recent `Messages`, `Retrieved Docs`, `Tool Outputs` | LLM **Context Window** paired with **`Thread ID` Checkpointer** (`LangGraph` DB reload-and-resend) / `Redis` buffer + **MemGPT** trimming | Ephemeral per turn/session; summarize, prune, or swap out | **[[Context Rot]]**, rising **real-time latency & cost** even with huge windows, dropping decisive early rules (e.g., AWS ECS vs. EKS constraint) |
+| **1. Working Memory** | Active prompt context: `System Prompt`, user query, recent `Messages`, `Retrieved Docs`, `Tool Outputs` | LLM **Context Window** paired with **`Thread ID` Checkpointer** (`LangGraph` DB reload-and-resend) / `Redis` buffer + **MemGPT** trimming | Ephemeral per turn/session; summarize, prune, or swap out | **[Context Rot](Context%20Rot.md)**, rising **real-time latency & cost** even with huge windows, dropping decisive early rules (e.g., AWS ECS vs. EKS constraint) |
 | **2. Semantic Memory** | **"What is true"**: durable declarative facts (`Profile`, `Preferences`, `Org Facts`, `Account`) | `PostgreSQL` / per-user isolated `LangGraph` long-term memory store / entity tables | Selective LLM extraction; overwritten on change (`Python -> TypeScript`), explicit validation & user delete/TTL | **A wrong saved fact is worse than none** because agents trust stored facts completely; mixing transient chat (*"short today"*) with standing rules or untrusted web text |
 | **3. Episodic Memory** | **"What happened"**: past run diary (`objective`, `actions`, `tool observations`, `errors`, `feedback`, `outcome`, `date`) | Event/trace log + vector/hybrid index paired with **post-run Reflection** (**Generative Agents**) | Append-only runs distilled into **concise lesson summaries**; retrieved by situational similarity | Archival sprawl (*10,000 raw traces without reflection*); repeating past tool failures or matching irrelevant transcripts |
-| **4. Procedural Memory** | **"How to work"**: repeatable workflows, SOPs, tool rules, approval gates (`Search -> Validate -> Approve -> Execute` + `Guardrails`) | System prompts, `SKILL.md` ([[Agent Skills Architecture]]), workflow graphs (`LangGraph`), `tool` schemas | Slowly curated via code review / [[Memory Promotion Path]] from repeated episodic lessons | Contradictory rules in giant prompts; skipped guardrails; **bad habit formation from over-promoting one unlucky failure** |
+| **4. Procedural Memory** | **"How to work"**: repeatable workflows, SOPs, tool rules, approval gates (`Search -> Validate -> Approve -> Execute` + `Guardrails`) | System prompts, `SKILL.md` ([Agent Skills Architecture](Agent%20Skills%20Architecture.md)), workflow graphs (`LangGraph`), `tool` schemas | Slowly curated via code review / [Memory Promotion Path](Memory%20Promotion%20Path.md) from repeated episodic lessons | Contradictory rules in giant prompts; skipped guardrails; **bad habit formation from over-promoting one unlucky failure** |
 | **5. External Memory (+ Retrieval)** | Knowledge outside the model: docs, SQL/DB records, emails, tickets, knowledge graphs | `PostgreSQL + pgvector`, Vector DBs, SQL, Graph DBs, SaaS APIs, RAG stores | Externally maintained; routed across **5 lookup modes** (vector similarity, **exact SQL/KV**, ACL/category filter, **time window**, **graph/link traversal**) | **Wrong evidence returned**: defaulting to vector search on exact IDs/dates, outdated policies, or **cross-tenant ACL leakage** |
-| **6. Parametric Memory** | Broad language, code patterns, and general reasoning capabilities | **Model weights** (pre-training + [[LLM Fine-Tuning and Alignment]]) | Frozen during inference; fine-tuning adjusts style/behavior rather than volatile truth | Out-of-date cutoff facts, zero private data access, confident hallucination if used for mutable facts (*e.g., company expense limits*) |
-| **7. Prospective Memory** | **"What to do later"**: deferred tasks, `Schedule`/`Trigger`, `Queue`/`Resume` loop, context, `status`, approver | Durable task table (`Postgres`) + queue/cron/scheduler/**`Temporal`** (Pattern 04 in [[Production AI Resilience and Scaling Patterns]]) | Stateful `Store Now -> Future Task -> Resume Later`; re-check live state on wakeup | **Silent non-execution** when chat ends, nagging forever without `done` criteria, acting on stale state, or **duplicate execution on retries** |
+| **6. Parametric Memory** | Broad language, code patterns, and general reasoning capabilities | **Model weights** (pre-training + [LLM Fine-Tuning and Alignment](LLM%20Fine-Tuning%20and%20Alignment.md)) | Frozen during inference; fine-tuning adjusts style/behavior rather than volatile truth | Out-of-date cutoff facts, zero private data access, confident hallucination if used for mutable facts (*e.g., company expense limits*) |
+| **7. Prospective Memory** | **"What to do later"**: deferred tasks, `Schedule`/`Trigger`, `Queue`/`Resume` loop, context, `status`, approver | Durable task table (`Postgres`) + queue/cron/scheduler/**`Temporal`** (Pattern 04 in [Production AI Resilience and Scaling Patterns](Production%20AI%20Resilience%20and%20Scaling%20Patterns.md)) | Stateful `Store Now -> Future Task -> Resume Later`; re-check live state on wakeup | **Silent non-execution** when chat ends, nagging forever without `done` criteria, acting on stale state, or **duplicate execution on retries** |
 
 ---
 
@@ -42,14 +42,14 @@ source: "[[AI Agent Memory 7 Types Explained in 12 Minutes]], [[Agent Memory The
 
 ### B. Semantic Memory vs. Semantic Search
 - **Semantic Memory**: Stores durable declarative facts (`owner: user_184`, `scope: coding_assistant`, `fact: Prefers TypeScript`).
-- **Semantic Search**: One *embedding-similarity lookup* inside **External Retrieval** alongside exact SQL/KV lookup, permission/category filters, temporal/deadline filters, and **graph/link traversal** ([[Retrieval-Augmented Generation and Vector DBs]]).
-- **Rule of Thumb**: Never default to vector search when an exact ID lookup or keyword filter works cleanly—route by query intent, enforce **relevance, date, user, and tenant permissions**, and **evaluate retrieval independently** of final LLM answer quality ([[Product Evals and Error Analysis]]).
+- **Semantic Search**: One *embedding-similarity lookup* inside **External Retrieval** alongside exact SQL/KV lookup, permission/category filters, temporal/deadline filters, and **graph/link traversal** ([Retrieval-Augmented Generation and Vector DBs](Retrieval-Augmented%20Generation%20and%20Vector%20DBs.md)).
+- **Rule of Thumb**: Never default to vector search when an exact ID lookup or keyword filter works cleanly—route by query intent, enforce **relevance, date, user, and tenant permissions**, and **evaluate retrieval independently** of final LLM answer quality ([Product Evals and Error Analysis](Product%20Evals%20and%20Error%20Analysis.md)).
 
 ![External Memory Safety Filter](../../raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/06.jpg)
 
 ### C. Episodic Reflection $\rightarrow$ Procedural Guardrails
 - **Reflection Over Raw Logs**: Storing raw traces creates a noisy archive; pairing each finished episode with a **short reflection summary** of what worked vs. failed enables effective situational recall.
-- **Guardrail Promotion Gate**: Repeated patterns discovered across many episodes (*e.g., deployment crashes caused by missing env variables*) graduate safely into **Procedural Memory** (`Behavior Sources: Policies, Skills, Rules, Lessons` $\rightarrow$ `Reusable Procedure: Search -> Validate -> Approve -> Execute` enclosed by explicit **`Guardrails`**). Never promote a single anomalous failure into a permanent standing rule—route promotions through structured review ([[Memory Promotion Path]]).
+- **Guardrail Promotion Gate**: Repeated patterns discovered across many episodes (*e.g., deployment crashes caused by missing env variables*) graduate safely into **Procedural Memory** (`Behavior Sources: Policies, Skills, Rules, Lessons` $\rightarrow$ `Reusable Procedure: Search -> Validate -> Approve -> Execute` enclosed by explicit **`Guardrails`**). Never promote a single anomalous failure into a permanent standing rule—route promotions through structured review ([Memory Promotion Path](Memory%20Promotion%20Path.md)).
 
 ![Procedural Memory Reusable Workflow and Guardrails](../../raw/screenshots/agent-memory-the-7-types-you-should-know/05.jpg)
 
@@ -61,7 +61,7 @@ An LLM cannot spontaneously wake itself up next Tuesday or Friday. Prospective m
 
 ![Prospective Memory Durable Task and Scheduler Flow](../../raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/10.jpg)
 
-> ⚠️ **Evolving nuance (July $\rightarrow$ August 2026)**: In the July 2026 Substack guide ([[Agent Memory The 7 Types You Should Know]]), Jam With AI emphasized **CoALA cognitive boundaries (*What vs. Where*)**, **`Thread ID` checkpointers**, **reflection distillation**, and **`Temporal`** task engines. One month later in the August 2026 video ([[AI Agent Memory 7 Types Explained in 12 Minutes]]), the operational stance tightened around three production failure defenses: **(1) validating untrusted external inputs (emails/web pages) before trusting them in Semantic Memory**, **(2) strict ACL/date isolation plus separate retrieval evaluation**, and **(3) live-state re-verification + idempotency keys on Prospective wakeups**.
+> ⚠️ **Evolving nuance (July $\rightarrow$ August 2026)**: In the July 2026 Substack guide ([Agent Memory The 7 Types You Should Know](../sources/Agent%20Memory%20The%207%20Types%20You%20Should%20Know.md)), Jam With AI emphasized **CoALA cognitive boundaries (*What vs. Where*)**, **`Thread ID` checkpointers**, **reflection distillation**, and **`Temporal`** task engines. One month later in the August 2026 video ([AI Agent Memory 7 Types Explained in 12 Minutes](../sources/AI%20Agent%20Memory%207%20Types%20Explained%20in%2012%20Minutes.md)), the operational stance tightened around three production failure defenses: **(1) validating untrusted external inputs (emails/web pages) before trusting them in Semantic Memory**, **(2) strict ACL/date isolation plus separate retrieval evaluation**, and **(3) live-state re-verification + idempotency keys on Prospective wakeups**.
 
 ---
 
@@ -77,6 +77,23 @@ Before provisioning databases or frameworks (`Mem0`, `Zep`, `pgvector`, `Redis`,
 ---
 
 ## Related Pages
-- **Primary Sources & Entity**: [[Agent Memory The 7 Types You Should Know]], [[AI Agent Memory 7 Types Explained in 12 Minutes]], [[Jam With AI]]
-- **Context & Second Brain**: [[Context Engineering]], [[Context Rot]], [[Context Window Management]], [[What Is Context Engineering]], [[Memory Architecture]], [[Memory Promotion Path]], [[Auto Memory]]
-- **Runtime Stack & Resilience**: [[Production AI Agent Service Stack]], [[Production AI Resilience and Scaling Patterns]], [[Retrieval-Augmented Generation and Vector DBs]], [[Agent Skills Architecture]], [[Loop Engineering]], [[LLM Fine-Tuning and Alignment]], [[Product Evals and Error Analysis]]
+- **Primary Sources & Entity**:
+  - [Agent Memory The 7 Types You Should Know](../sources/Agent%20Memory%20The%207%20Types%20You%20Should%20Know.md)
+  - [AI Agent Memory 7 Types Explained in 12 Minutes](../sources/AI%20Agent%20Memory%207%20Types%20Explained%20in%2012%20Minutes.md)
+  - [Jam With AI](../entities/Jam%20With%20AI.md)
+- **Context & Second Brain**:
+  - [Context Engineering](Context%20Engineering.md)
+  - [Context Rot](Context%20Rot.md)
+  - [Context Window Management](Context%20Window%20Management.md)
+  - [What Is Context Engineering](../sources/What%20Is%20Context%20Engineering.md)
+  - [Memory Architecture](Memory%20Architecture.md)
+  - [Memory Promotion Path](Memory%20Promotion%20Path.md)
+  - [Auto Memory](Auto%20Memory.md)
+- **Runtime Stack & Resilience**:
+  - [Production AI Agent Service Stack](Production%20AI%20Agent%20Service%20Stack.md)
+  - [Production AI Resilience and Scaling Patterns](Production%20AI%20Resilience%20and%20Scaling%20Patterns.md)
+  - [Retrieval-Augmented Generation and Vector DBs](Retrieval-Augmented%20Generation%20and%20Vector%20DBs.md)
+  - [Agent Skills Architecture](Agent%20Skills%20Architecture.md)
+  - [Loop Engineering](Loop%20Engineering.md)
+  - [LLM Fine-Tuning and Alignment](LLM%20Fine-Tuning%20and%20Alignment.md)
+  - [Product Evals and Error Analysis](Product%20Evals%20and%20Error%20Analysis.md)

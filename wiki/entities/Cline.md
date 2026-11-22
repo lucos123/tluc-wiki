@@ -6,7 +6,7 @@ tags:
   - tool
   - agentic-design
   - harness-engineering
-source: "[[Harness vs Model costs explained]]"
+source: "wiki/sources/Harness vs Model costs explained.md"
 ---
 
 # Cline
@@ -20,4 +20,4 @@ source: "[[Harness vs Model costs explained]]"
 - **System Prompt Design**: Utilizes an open-source, lightweight system prompt structure (~8K tokens) resulting in significantly lower per-turn tollgate costs compared to closed proprietary agent harnesses.
 - **Model Flexibility**: Supports multi-provider routing (OpenAI, Anthropic, open-weight models via Cline Pass aggregator).
 
-See [[Harness vs Model costs explained]], [[Harness Overhead vs Model Cost]], and [[Claude Directory Architecture]].
+See [Harness vs Model costs explained](../sources/Harness%20vs%20Model%20costs%20explained.md), [Harness Overhead vs Model Cost](../concepts/Harness%20Overhead%20vs%20Model%20Cost.md), and [Claude Directory Architecture](../concepts/Claude%20Directory%20Architecture.md).

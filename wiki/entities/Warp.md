@@ -19,8 +19,8 @@ tags:
 - **Founded**: 2020
 - **Founders**: Zach Lloyd (CEO, former Google Principal Engineer)
 - **Funding**: $73M+ raised
-- **Core Technology Stack**: Rust (native client), Golang (backend services), GitHub Actions, **Oz** (internal agent orchestration engine), [[Anthropic]] Claude Platform.
-- **Scale**: Over 800,000 monthly active developers; used by 56% of the Fortune 500; hosts >10M [[Claude Code]] sessions (400K+/week) and >40M total Warp Agent interactions.
+- **Core Technology Stack**: Rust (native client), Golang (backend services), GitHub Actions, **Oz** (internal agent orchestration engine), [Anthropic](Anthropic.md) Claude Platform.
+- **Scale**: Over 800,000 monthly active developers; used by 56% of the Fortune 500; hosts >10M [Claude Code](Claude%20Code.md) sessions (400K+/week) and >40M total Warp Agent interactions.
 
 ---
 
@@ -33,7 +33,7 @@ Warp reimagines the terminal as a collaborative code editor and AI workspace wit
 Oz is Warp's scheduled and event-driven orchestration system for executing autonomous background agents, scheduled observer loops, and repository maintenance workflows.
 
 ### 3. Dual-Skill Self-Improving Agent Framework
-As documented in [[How Warp Builds Self-Improving Agents on Claude]], Warp pioneered an open-source framework for autonomous agent self-improvement:
+As documented in [How Warp Builds Self-Improving Agents on Claude](../sources/How%20Warp%20Builds%20Self-Improving%20Agents%20on%20Claude.md), Warp pioneered an open-source framework for autonomous agent self-improvement:
 - **Base Skills**: Domain-specific instruction files (`SKILL.md`) executing triage, code reviews, and spec generation.
 - **Improver Skills**: Observer agents running on Oz that collect in-situ human feedback from PR comments, compute minimal skill adjustments, and open Git pull requests for maintainer review.
 
@@ -41,6 +41,14 @@ As documented in [[How Warp Builds Self-Improving Agents on Claude]], Warp pione
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Self-Improving Agents]], [[Agent Skills Architecture]], [[Loop Engineering]], [[Verification Loop]], [[Harness Engineering]].
-- **Entities**: [[Anthropic]], [[Claude Code]], [[OpenAI]].
-- **Sources**: [[How Warp Builds Self-Improving Agents on Claude]], [[5 Best Practices for Building AI Agent Skills]].
+- **Concepts**:
+  - [Self-Improving Agents](../concepts/Self-Improving%20Agents.md)
+  - [Agent Skills Architecture](../concepts/Agent%20Skills%20Architecture.md)
+  - [Loop Engineering](../concepts/Loop%20Engineering.md)
+  - [Verification Loop](../concepts/Verification%20Loop.md)
+  - [Harness Engineering](../concepts/Harness%20Engineering.md)
+- **Entities**:
+  - [Anthropic](Anthropic.md)
+  - [Claude Code](Claude%20Code.md)
+  - [OpenAI](OpenAI.md)
+- **Sources**: [How Warp Builds Self-Improving Agents on Claude](../sources/How%20Warp%20Builds%20Self-Improving%20Agents%20on%20Claude.md), [5 Best Practices for Building AI Agent Skills](../sources/5%20Best%20Practices%20for%20Building%20AI%20Agent%20Skills.md).

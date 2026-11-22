@@ -62,7 +62,7 @@ Một token không nhất thiết phải là một từ hoàn chỉnh, mà có t
 ### 1. Byte Pair Encoding (BPE)
 - **Cơ chế**: Khởi tạo từ tập ký tự đơn lẻ cơ bản. Lặp đi lặp lại việc tìm và ghép cặp hai token xuất hiện cạnh nhau nhiều nhất trong tập dữ liệu huấn luyện để tạo thành token mới.
 - **Cú pháp/Đặc trưng**: Ghép nối các mảnh từ trực tiếp dựa trên tần suất từ vựng.
-- **Ứng dụng**: Thuật toán tiêu chuẩn trong hầu hết các LLM hiện đại ([[OpenAI]] GPT-2/3/4/5, [[Anthropic]] Claude, Meta Llama, RoBERTa).
+- **Ứng dụng**: Thuật toán tiêu chuẩn trong hầu hết các LLM hiện đại ([OpenAI](../entities/OpenAI.md) GPT-2/3/4/5, [Anthropic](../entities/Anthropic.md) Claude, Meta Llama, RoBERTa).
 
 ### 2. WordPiece
 - **Cơ chế**: Tương tự BPE nhưng thay vì chọn cặp có tần suất tuyệt đối cao nhất, WordPiece chọn cặp ký tự giúp tối đa hóa hàm hợp lý (likelihood) của dữ liệu huấn luyện.
@@ -119,6 +119,18 @@ Một token không nhất thiết phải là một từ hoàn chỉnh, mà có t
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Token Economics]], [[Cost Optimization]], [[Context Window Management]], [[Context Rot]], [[Harness Overhead vs Model Cost]].
-- **Entities**: [[Anthropic]], [[OpenAI]], [[Moonshot AI]], [[Claude Code]].
-- **Sources**: [[Token and API Price Guide]], [[Maximizing the Value of Your Claude Code Sessions]], [[Manage costs effectively]].
+- **Concepts**:
+  - [Token Economics](Token%20Economics.md)
+  - [Cost Optimization](Cost%20Optimization.md)
+  - [Context Window Management](Context%20Window%20Management.md)
+  - [Context Rot](Context%20Rot.md)
+  - [Harness Overhead vs Model Cost](Harness%20Overhead%20vs%20Model%20Cost.md)
+- **Entities**:
+  - [Anthropic](../entities/Anthropic.md)
+  - [OpenAI](../entities/OpenAI.md)
+  - [Moonshot AI](../entities/Moonshot%20AI.md)
+  - [Claude Code](../entities/Claude%20Code.md)
+- **Sources**:
+  - [Token and API Price Guide](../sources/Token%20and%20API%20Price%20Guide.md)
+  - [Maximizing the Value of Your Claude Code Sessions](../sources/Maximizing%20the%20Value%20of%20Your%20Claude%20Code%20Sessions.md)
+  - [Manage costs effectively](../sources/Manage%20costs%20effectively.md)

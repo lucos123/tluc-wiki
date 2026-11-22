@@ -14,9 +14,9 @@ An agentic coding environment developed by Anthropic. Unlike a chatbot, Claude C
 
 ## Core Architecture
 
-Claude Code's design follows the `Agent = Model + Harness` equation from [[Harness Engineering]]:
+Claude Code's design follows the `Agent = Model + Harness` equation from [Harness Engineering](../concepts/Harness%20Engineering.md):
 - **Progressive Context Compaction**: Summarises conversation history to free space while preserving key code patterns and decisions. Configurable with `/compact <instructions>`.
-- **Tiered Memory**: Persistent context via [[Persistent Instruction File|CLAUDE.md]] (always loaded), skills (on-demand), and subagent memory (isolated per-task).
+- **Tiered Memory**: Persistent context via [CLAUDE.md](../concepts/Persistent%20Instruction%20File.md) (always loaded), skills (on-demand), and subagent memory (isolated per-task).
 - **Permission-Gated Tools**: 40+ single-purpose tools with deterministic risk classification. Permission modes: `default`, `acceptEdits`, `auto`, `bypassPermissions`.
 
 ## Extension System
@@ -25,9 +25,9 @@ Four complementary mechanisms for extending Claude Code's behaviour (each loaded
 
 | Mechanism | When active | Deterministic? | Source |
 |-----------|------------|---------------|--------|
-| CLAUDE.md | Always (every session) | No (advisory) | [[Persistent Instruction File]] |
-| Skills | On demand (invoked or auto-matched) | No (LLM-driven) | [[Claude Code Skills]] |
-| Hooks | At lifecycle events (guaranteed) | Yes | [[Claude Code Hooks]] |
+| CLAUDE.md | Always (every session) | No (advisory) | [Persistent Instruction File](../concepts/Persistent%20Instruction%20File.md) |
+| Skills | On demand (invoked or auto-matched) | No (LLM-driven) | [Claude Code Skills](../sources/Claude%20Code%20Skills.md) |
+| Hooks | At lifecycle events (guaranteed) | Yes | [Claude Code Hooks](../sources/Claude%20Code%20Hooks.md) |
 | Subagents | When delegated | Isolated context | |
 | MCP servers | When connected | Via tools | |
 | Plugins | When installed | Bundles all above | |
@@ -50,7 +50,7 @@ Four complementary mechanisms for extending Claude Code's behaviour (each loaded
 
 ## Verification Patterns
 
-Four levels of verification gate strength (see [[Best practices for Claude Code]]):
+Four levels of verification gate strength (see [Best practices for Claude Code](../sources/Best%20practices%20for%20Claude%20Code.md)):
 1. **In-prompt**: ask Claude to run check and iterate in same message.
 2. **`/goal` condition**: separate evaluator re-checks after every turn.
 3. **Stop hook**: script blocks turn ending until check passes (8-block cap).
@@ -58,24 +58,24 @@ Four levels of verification gate strength (see [[Best practices for Claude Code]
 
 ## Monorepo Support
 
-Hierarchical CLAUDE.md layering, `claudeMdExcludes`, `Read` deny rules, sparse worktrees (`worktree.sparsePaths`), per-directory skills, and code intelligence plugins. See [[Claude Code Monorepo Setup]].
+Hierarchical CLAUDE.md layering, `claudeMdExcludes`, `Read` deny rules, sparse worktrees (`worktree.sparsePaths`), per-directory skills, and code intelligence plugins. See [Claude Code Monorepo Setup](../sources/Claude%20Code%20Monorepo%20Setup.md).
 
 ## Large-Scale Code Migration
 
 Claude Code (with Claude Fable 5 / Opus 4.8) has demonstrated the ability to run full language-port migrations at industrial scale. Two case studies from Anthropic engineers in 2026:
-- [[Jarred Sumner]]: Bun Zig→Rust (~1M lines, <2 weeks, $165K in tokens)
-- [[Mike Krieger]]: Internal tool Python→TypeScript (165K lines, 1 weekend)
+- [Jarred Sumner](Jarred%20Sumner.md): Bun Zig→Rust (~1M lines, <2 weeks, $165K in tokens)
+- [Mike Krieger](Mike%20Krieger.md): Internal tool Python→TypeScript (165K lines, 1 weekend)
 
-The [[AI Code Migration]] methodology uses Claude Code for: multi-agent implementation fan-out, adversarial review loops, build daemon orchestration, and autonomous overnight test generation. The core shift: engineers design *loops and rules*, not code.
+The [AI Code Migration](../concepts/AI%20Code%20Migration.md) methodology uses Claude Code for: multi-agent implementation fan-out, adversarial review loops, build daemon orchestration, and autonomous overnight test generation. The core shift: engineers design *loops and rules*, not code.
 
-- **Best Practices (Late-2026 Shift)**: See [[Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic]] — [[Lydia Hallie]]'s architecture replacing manual loops with `/doctor prompt-audit` minimalism, plain-English `autoMode` + `deny` boundaries, OS `/sandbox` vs. disposable Cloud Sessions with Network Secrets ([[Cloud Agent Sandbox and Auto Mode]]), `exit 2` verification hooks, CI auto-merge, and `Claude Code Projects` (`Fable` orchestrator + `Opus 5.5` worker threads).
+- **Best Practices (Late-2026 Shift)**: See [Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic](../sources/Rethinking%20Claude%20Code%20Best%20Practices%20%E2%80%94%20Lydia%20Hallie%2C%20Anthropic.md) — [Lydia Hallie](Lydia%20Hallie.md)'s architecture replacing manual loops with `/doctor prompt-audit` minimalism, plain-English `autoMode` + `deny` boundaries, OS `/sandbox` vs. disposable Cloud Sessions with Network Secrets ([Cloud Agent Sandbox and Auto Mode](../concepts/Cloud%20Agent%20Sandbox%20and%20Auto%20Mode.md)), `exit 2` verification hooks, CI auto-merge, and `Claude Code Projects` (`Fable` orchestrator + `Opus 5.5` worker threads).
 
 ## Related Sources
 
-- [[Best practices for Claude Code]] — practitioner's guide to context, verification, and scaling.
-- [[Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic]] — late-2026 out-of-the-loop best practices (Auto Mode study, Cloud Sessions, Hooks `exit 2`, CI auto-merge, Claude Code Projects).
-- [[Claude Code Skills]] — modular capability extension system.
-- [[Claude Code Hooks]] — deterministic lifecycle event automation.
-- [[Claude Code Monorepo Setup]] — large codebase scoping.
-- [[12 Agentic Harness Patterns from Claude Code]] — leaked production architecture patterns.
-- [[Harness Engineering]] — the theoretical framework Claude Code embodies.
+- [Best practices for Claude Code](../sources/Best%20practices%20for%20Claude%20Code.md) — practitioner's guide to context, verification, and scaling.
+- [Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic](../sources/Rethinking%20Claude%20Code%20Best%20Practices%20%E2%80%94%20Lydia%20Hallie%2C%20Anthropic.md) — late-2026 out-of-the-loop best practices (Auto Mode study, Cloud Sessions, Hooks `exit 2`, CI auto-merge, Claude Code Projects).
+- [Claude Code Skills](../sources/Claude%20Code%20Skills.md) — modular capability extension system.
+- [Claude Code Hooks](../sources/Claude%20Code%20Hooks.md) — deterministic lifecycle event automation.
+- [Claude Code Monorepo Setup](../sources/Claude%20Code%20Monorepo%20Setup.md) — large codebase scoping.
+- [12 Agentic Harness Patterns from Claude Code](../sources/12%20Agentic%20Harness%20Patterns%20from%20Claude%20Code.md) — leaked production architecture patterns.
+- [Harness Engineering](../concepts/Harness%20Engineering.md) — the theoretical framework Claude Code embodies.

@@ -20,9 +20,9 @@ source: "raw/video-transcripts/openai-s-10b-bet-on-their-biggest-model-yet.md"
 **Speaker**: Caleb  
 **URL**: https://www.youtube.com/watch?v=KkDhn5Ixw5A  
 **Duration**: 9m 14s  
-**Transcript**: [[raw/video-transcripts/openai-s-10b-bet-on-their-biggest-model-yet.md]]
+**Transcript**: [raw/video-transcripts/openai-s-10b-bet-on-their-biggest-model-yet.md](../../raw/video-transcripts/openai-s-10b-bet-on-their-biggest-model-yet.md)
 
-A financial and architectural analysis of OpenAI's 2-tier serving strategy for [[GPT-5.6]] Sol, exploring why OpenAI committed $10 Billion to [[Cerebras Systems]] to serve their flagship frontier model at 750 tokens/second.
+A financial and architectural analysis of OpenAI's 2-tier serving strategy for [GPT-5.6](../entities/GPT-5.6.md) Sol, exploring why OpenAI committed $10 Billion to [Cerebras Systems](../entities/Cerebras%20Systems.md) to serve their flagship frontier model at 750 tokens/second.
 
 ## Key Concepts
 
@@ -43,4 +43,4 @@ A financial and architectural analysis of OpenAI's 2-tier serving strategy for [
 
 ## Synthesis Notes
 
-This source connects model-layer serving (`[[GPT-5.6]]`) directly to business monetization and agent developer experience. High-speed 750 t/s inference dramatically reduces turn-latency in goal-based agent loops (`[[Loop Engineering]]`) and multi-agent DAGs (`[[Graph Engineering]]`), making real-time autonomous swarms viable.
+This source connects model-layer serving ([GPT-5.6](../entities/GPT-5.6.md)) directly to business monetization and agent developer experience. High-speed 750 t/s inference dramatically reduces turn-latency in goal-based agent loops ([Loop Engineering](../concepts/Loop%20Engineering.md)) and multi-agent DAGs ([Graph Engineering](../concepts/Graph%20Engineering.md)), making real-time autonomous swarms viable.

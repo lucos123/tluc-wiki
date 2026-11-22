@@ -6,12 +6,12 @@ tags:
   - agentic-design
   - harness-engineering
   - best-practices
-source: "[[Best practices for Claude Code]]"
+source: "wiki/sources/Best practices for Claude Code.md"
 ---
 
 # Agentic Coding Workflow
 
-The **Agentic Coding Workflow** is the operational methodology where an engineer transitions from writing code manually to directing an autonomous agent ([[Claude Code]]) through a structured 4-phase lifecycle:
+The **Agentic Coding Workflow** is the operational methodology where an engineer transitions from writing code manually to directing an autonomous agent ([Claude Code](../entities/Claude%20Code.md)) through a structured 4-phase lifecycle:
 
 ```mermaid
 graph TD
@@ -26,4 +26,4 @@ graph TD
 2. **Phase Separation**: Separating research/planning (non-modifying `plan mode`) from code editing avoids implementing the wrong solution.
 3. **Evidence-Based Success**: Requiring the agent to produce empirical evidence (passing test logs, build outputs, visual diffs) before ending a turn.
 
-See [[Best practices for Claude Code]], [[Verification Loop]], and [[Context Window Management]].
+See [Best practices for Claude Code](../sources/Best%20practices%20for%20Claude%20Code.md), [Verification Loop](Verification%20Loop.md), and [Context Window Management](Context%20Window%20Management.md).

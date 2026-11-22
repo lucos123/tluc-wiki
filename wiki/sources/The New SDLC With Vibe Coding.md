@@ -5,7 +5,7 @@ tags:
   - source
   - ai-sdlc
   - engineering_practice
-source: "[[raw/assets/Day_1_v3.pdf]]"
+source: "raw/pdfs/day-1-v3.pdf"
 ---
 
 # The New SDLC With Vibe Coding
@@ -16,11 +16,11 @@ A whitepaper authored by Addy Osmani, Shubham Saboo, and Sokratis Kartakis (May 
 The paper argues that the developer's primary interface is shifting from programming languages to intelligent systems. This fundamentally compresses and restructures the traditional Software Development Life Cycle (SDLC).
 
 ## Key Concepts Introduced
-- **[[Vibe Coding vs Agentic Engineering]]**: The spectrum of AI-assisted coding from casual prompting to structured, test-driven pipelines.
-- **[[Context Engineering]]**: The practice of supplying structured information (Instructions, Knowledge, Memory, Examples, Tools, Guardrails) to the agent.
-- **[[Harness Engineering]]**: The idea that an AI agent is composed of a raw model plus the surrounding scaffolding (the harness) that gives it capabilities and constraints.
-- **[[The Factory Model (SDLC)]]**: The mental model where the developer's output is not code, but the system (factory) that produces the code.
-- **[[Conductor vs Orchestrator]]**: Two modes of developer interaction with AI—real-time direction versus asynchronous delegation.
+- **[Vibe Coding vs Agentic Engineering](../concepts/Vibe%20Coding%20vs%20Agentic%20Engineering.md)**: The spectrum of AI-assisted coding from casual prompting to structured, test-driven pipelines.
+- **[Context Engineering](../concepts/Context%20Engineering.md)**: The practice of supplying structured information (Instructions, Knowledge, Memory, Examples, Tools, Guardrails) to the agent.
+- **[Harness Engineering](../concepts/Harness%20Engineering.md)**: The idea that an AI agent is composed of a raw model plus the surrounding scaffolding (the harness) that gives it capabilities and constraints.
+- **[The Factory Model (SDLC)](../concepts/The%20Factory%20Model%20%28SDLC%29.md)**: The mental model where the developer's output is not code, but the system (factory) that produces the code.
+- **[Conductor vs Orchestrator](../concepts/Conductor%20vs%20Orchestrator.md)**: Two modes of developer interaction with AI—real-time direction versus asynchronous delegation.
 
 ## SDLC Transformation
 - **Requirements & Planning**: Becomes a direct conversation with AI to simultaneously produce specifications and prototypes.

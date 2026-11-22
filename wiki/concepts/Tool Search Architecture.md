@@ -6,12 +6,12 @@ tags:
   - context-engineering
   - harness-engineering
   - claude-code
-source: "[[Scale to many tools with tool search]]"
+source: "wiki/sources/Scale to many tools with tool search.md"
 ---
 
 # Tool Search Architecture
 
-**Tool Search Architecture** is an on-demand tool discovery pattern in [[Claude Code]] that defers tool schema mounting until runtime to scale agent tool libraries up to 10,000 tools without saturating context windows.
+**Tool Search Architecture** is an on-demand tool discovery pattern in [Claude Code](../entities/Claude%20Code.md) that defers tool schema mounting until runtime to scale agent tool libraries up to 10,000 tools without saturating context windows.
 
 ---
 
@@ -32,4 +32,4 @@ graph TD
 2. **Maintained Precision**: Prevents model tool choice degradation (which occurs when >30–50 tool schemas are loaded simultaneously).
 3. **Threshold Activation (`ENABLE_TOOL_SEARCH=auto:5`)**: Dynamically triggers deferred loading only when total tool schemas exceed 5% of context window size.
 
-See [[Scale to many tools with tool search]], [[Progressive Disclosure]], [[Context Window Management]], and [[Model Context Protocol]].
+See [Scale to many tools with tool search](../sources/Scale%20to%20many%20tools%20with%20tool%20search.md), [Progressive Disclosure](Progressive%20Disclosure.md), [Context Window Management](Context%20Window%20Management.md), and [Model Context Protocol](Model%20Context%20Protocol.md).

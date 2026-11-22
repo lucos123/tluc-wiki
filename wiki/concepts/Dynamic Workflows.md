@@ -6,12 +6,12 @@ tags:
   - harness-engineering
   - graph-engineering
   - claude-code
-source: "[[Orchestrate subagents at scale with dynamic workflows]]"
+source: "wiki/sources/Orchestrate subagents at scale with dynamic workflows.md"
 ---
 
 # Dynamic Workflows
 
-**Dynamic Workflows** is a programmatic multi-agent orchestration architecture in [[Claude Code]] where complex, large-scale agent operations are codified as JavaScript execution scripts run by a background runtime rather than being navigated turn-by-turn inside an LLM context window.
+**Dynamic Workflows** is a programmatic multi-agent orchestration architecture in [Claude Code](../entities/Claude%20Code.md) where complex, large-scale agent operations are codified as JavaScript execution scripts run by a background runtime rather than being navigated turn-by-turn inside an LLM context window.
 
 ---
 
@@ -34,4 +34,4 @@ graph TD
 2. **Massive Scale**: Enables scaling to 100+ concurrent subagents in a single execution.
 3. **Adversarial Verification**: Scripts can enforce multi-pass cross-verification where subagents audit and vote on each other's findings.
 
-See [[Orchestrate subagents at scale with dynamic workflows]], [[Ultracode Mode]], [[Subagent Architecture]], and [[Graph Engineering]].
+See [Orchestrate subagents at scale with dynamic workflows](../sources/Orchestrate%20subagents%20at%20scale%20with%20dynamic%20workflows.md), [Ultracode Mode](Ultracode%20Mode.md), [Subagent Architecture](Subagent%20Architecture.md), and [Graph Engineering](Graph%20Engineering.md).

@@ -50,7 +50,7 @@ Refer to `examples/write-report-example.md` for a complete execution walkthrough
 ### Step 2 — Select Template & Draft
 1. Load the corresponding template from `references/deliverable-templates.md`.
 2. Populate frontmatter (`title`, `date`, `tags`, `type`).
-3. Draft content using clear section headers, tables, and Obsidian wiki links (`[[Page Name]]`).
+3. Draft content using clear section headers, tables, and Standard Relative Markdown Links (`[Page Name](../../wiki/concepts/Page%20Name.md)`).
 
 ### Step 3 — Refine & Validate
 - Ensure zero hallucinated claims — root all citations in existing wiki/source pages.

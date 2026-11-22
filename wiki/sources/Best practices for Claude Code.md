@@ -7,20 +7,20 @@ tags:
   - context-engineering
   - harness-engineering
   - claude-code
-source: "[[raw/articles/claude-code/context-memory-rules/best-practices.md]]"
+source: "raw/articles/claude-code/context-memory-rules/best-practices.md"
 url: "https://code.claude.com/docs/en/best-practices.md"
 ---
 
 # Best practices for Claude Code
 
 **URL**: https://code.claude.com/docs/en/best-practices.md  
-**Source File**: [[raw/articles/claude-code/context-memory-rules/best-practices.md]]  
+**Source File**: [raw/articles/claude-code/context-memory-rules/best-practices.md](../../raw/articles/claude-code/context-memory-rules/best-practices.md)  
 
 ---
 
 ## Executive Summary
 
-This official Anthropic guide outlines essential patterns for working effectively with [[Claude Code]] across engineering workflows. The core constraint driving all best practices is that **LLM performance degrades as the context window fills up**.
+This official Anthropic guide outlines essential patterns for working effectively with [Claude Code](../entities/Claude%20Code.md) across engineering workflows. The core constraint driving all best practices is that **LLM performance degrades as the context window fills up**.
 
 The guide covers 5 key pillars:
 1. **Verification Loops**: Giving Claude automated checks (tests, build exit codes, visual screenshots, `/goal` conditions, Stop hooks, or verification subagents) to close feedback loops autonomously.
@@ -58,5 +58,11 @@ Explore (Plan Mode: Shift+Tab)
 
 ## Related Knowledge Nodes
 
-- **Concepts**: [[Context Window Management]], [[Agentic Coding Workflow]], [[Verification Loop]], [[Persistent Instruction File]], [[Progressive Disclosure]], [[Unhobbling Claude]].
-- **Entities**: [[Claude Code]], [[Anthropic]].
+- **Concepts**:
+  - [Context Window Management](../concepts/Context%20Window%20Management.md)
+  - [Agentic Coding Workflow](../concepts/Agentic%20Coding%20Workflow.md)
+  - [Verification Loop](../concepts/Verification%20Loop.md)
+  - [Persistent Instruction File](../concepts/Persistent%20Instruction%20File.md)
+  - [Progressive Disclosure](../concepts/Progressive%20Disclosure.md)
+  - [Unhobbling Claude](../concepts/Unhobbling%20Claude.md)
+- **Entities**: [Claude Code](../entities/Claude%20Code.md), [Anthropic](../entities/Anthropic.md).

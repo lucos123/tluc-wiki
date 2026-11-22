@@ -31,7 +31,7 @@ status: active # active | completed | paused | planned
 
 ## Related Wiki Concepts
 
-- Cross-reference relevant technical pages: [[Concept Name]], [[Entity Name]].
+- Cross-reference relevant technical pages: [Concept Name](../../wiki/concepts/Concept%20Name.md), [Entity Name](../../wiki/entities/Entity%20Name.md).
 ```
 
 ---
@@ -60,7 +60,7 @@ target_date: YYYY-MM-DD
 
 ## Knowledge Assets Required
 
-- Cites wiki concepts: [[Concept Name]].
+- Cites wiki concepts: [Concept Name](../../wiki/concepts/Concept%20Name.md).
 ```
 
 ---
@@ -84,5 +84,5 @@ organization: "<Organization / Company>"
 
 ## Projects & Interactions
 
-- [[mem/projects/<Project Name>]]: Collaboration context.
+- [Project Name](../projects/Project%20Name.md): Collaboration context.
 ```

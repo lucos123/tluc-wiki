@@ -6,12 +6,12 @@ tags:
   - harness-engineering
   - agentic-design
   - claude-code
-source: "[[Common workflows]]"
+source: "wiki/sources/Common workflows.md"
 ---
 
 # Agentic Workflow Recipes
 
-**Agentic Workflow Recipes** are repeatable prompt structures and terminal interaction patterns used in [[Claude Code]] to steer autonomous agents across common software engineering tasks.
+**Agentic Workflow Recipes** are repeatable prompt structures and terminal interaction patterns used in [Claude Code](../entities/Claude%20Code.md) to steer autonomous agents across common software engineering tasks.
 
 ---
 
@@ -31,4 +31,4 @@ graph TD
 - **Session Resuming**: `claude --resume` or `claude --from-pr <number>`.
 - **Piping Shell Streams**: `cat build.log | claude -p "fix build failure"`.
 
-See [[Common workflows]] and [[Agentic Coding Workflow]].
+See [Common workflows](../sources/Common%20workflows.md) and [Agentic Coding Workflow](Agentic%20Coding%20Workflow.md).
