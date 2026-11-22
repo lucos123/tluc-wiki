@@ -64,6 +64,7 @@ A catalog of everything in the knowledge base.
 
 
 
+
 ## Concepts
 - [[Advanced Prompting Patterns]]: Higher-order prompting strategies (ReAct, Tree-of-Thought, Self-Consistency, Prompt Chaining, Meta-Prompting) bridging prompts to agent loops.
 - [[Advisor Model Pattern]]: Dual-model escalation architecture in Claude Code (/advisor) delegating hard choices from Sonnet to Opus.
@@ -140,7 +141,7 @@ A catalog of everything in the knowledge base.
 - [[LLM-as-a-Judge and Eval Alignment]]: Automated binary trace grading validated via Train/Dev/Test splits, production deployment targets, and guarded optimization loops.
 - [[llm-wiki]]: A pattern for building personal knowledge bases using LLMs.
 - [[LLMOps & Inference]]: Topic overview page covering model serving architectures, token economics, and inference trade-offs.
-- [[Loop Engineering]]: The 4-type taxonomy (turn-based, goal-based, time-based, proactive) for designing agent loops with explicit triggers, stop conditions, and quality gates.
+- [[Loop Engineering]]: The 4-type agent loop taxonomy (Claude Code / LangChain / IBM Control-Handoff models) covering Interactive/Turn-Based, Delegated/Goal-Based, Scheduled/Time-Based, and Event-Driven/Proactive loops with fresh-context Reviewer Agents and exception escalation.
 - [[Machine Learning Paradigms]]: Taxonomy of Supervised, Unsupervised, Semi-Supervised, Self-Supervised, and Reinforcement Learning paradigms.
 - [[MCP Transports]]: Communication channels (HTTP streamable-http, stdio, WebSocket ws) for Model Context Protocol integrations.
 - [[Memory Architecture]]: Reference architecture for persistent context management outside the model context window.
@@ -206,6 +207,7 @@ A catalog of everything in the knowledge base.
 ## Sources
 - [[12 Agentic Harness Patterns from Claude Code]]: Design patterns from a leaked production agent's source code.
 - [[25 HR Interview Questions in Vietnamese]]: 8-page bilingual HR & behavioral interview playbook curated by Viet Nguyen AI featuring 25 common questions with fill-in-the-blank Vietnamese templates and 7 closing principles.
+- [[4 Types of AI Agent Loops From Human-Led to Autonomous]]: IBM Technology walkthrough of Interactive, Delegated, Scheduled, and Event-Driven agentic loops showing progressive handoff from human-led prompts/judging to AI stopping checks, cron clocks, fresh-context Reviewer Agents, and exception-only escalation.
 - [[5 Best Practices for Building AI Agent Skills]]: IBM Technology's guide on trigger descriptions, gotchas, progressive disclosure, deterministic scripts, and security.
 - [[7 AI Coding Trends to Watch This Year in 2026]]: Shifts in software development as AI integration matures, such as AI-native systems and context-aware tools.
 - [[Agent Harness explained in 8min]]: Caleb Writes Code's concise breakdown of the 3-stage evolution (Prompt → Context → Harness Engineering) and fresh-context loops.
@@ -327,6 +329,7 @@ A catalog of everything in the knowledge base.
 - [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 - [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
+
 
 
 

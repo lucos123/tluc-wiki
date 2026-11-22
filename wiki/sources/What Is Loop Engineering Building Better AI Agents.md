@@ -80,6 +80,6 @@ The engineering discipline lies not in the 4-stage circle itself, but in the sca
 
 ## Connections & Wiki Synthesis
 
-- **Architecture Foundations**: Connects directly with [[Loop Engineering]], [[Harness Engineering]], and [[Agent Loop Lifecycle]].
+- **Architecture Foundations**: Connects directly with [[4 Types of AI Agent Loops From Human-Led to Autonomous]] *(November 2026 IBM follow-up classifying Interactive, Delegated, Scheduled, and Event-Driven loops + Reviewer Agent exception escalation)*, [[Loop Engineering]], [[Harness Engineering]], and [[Agent Loop Lifecycle]].
 - **Pitfalls & Oversight**: Deeply reinforces [[Control-Loop Engineering]]'s warning against "blind Ralph loops" and introduces dedicated terminology in [[Comprehension and Intent Debt]] (complementing [[Vibe Coding vs Agentic Engineering]]).
 - **Scaffolding Mechanisms**: Aligns with [[Deterministic Lifecycle Hooks]], [[Context Window Management]], [[Progressive Disclosure]], [[Model Context Protocol]], [[Agent Onboarding Files]], and [[Subagent Context Isolation]].

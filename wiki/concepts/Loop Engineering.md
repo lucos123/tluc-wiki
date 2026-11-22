@@ -1,11 +1,12 @@
 ---
 title: Loop Engineering
-date: 2026-07-28
+date: 2026-11-22
 tags:
   - concept
   - agentic-design
   - claude-code
   - harness-engineering
+  - loop-engineering
 ---
 
 # Loop Engineering
@@ -66,16 +67,16 @@ in parallel worktrees and have a judge adversarially review them.
 
 This single prompt composes trigger + exit condition + parallel exploration + unattended execution + adversarial quality gate — the complete [[Harness Engineering]] stack.
 
-## LangChain vs. Claude Code Loop Taxonomies
+## Tri-Framework Loop Taxonomies (Claude Code, LangChain & IBM)
 
-The concept of Loop Engineering is universal, but different frameworks categorize them slightly differently. LangChain's taxonomy maps closely to Claude Code's but explicitly introduces the concept of the **Hill-Climbing / Self-Improvement Loop** as the highest tier.
+The concept of Loop Engineering is universal, though teams slice autonomy and self-improvement slightly differently. **LangChain** isolates **Hill-Climbing** (self-modifying prompts/skills from traces) as Level 4, **Claude Code** groups `/schedule` + `/goal` + workflows under **Proactive**, and [[IBM Technology]] ([[4 Types of AI Agent Loops From Human-Led to Autonomous]]) classifies loops by **which control boundary leaves the human**:
 
-| Level | LangChain Taxonomy | Claude Code Equivalent | Focus |
-|-------|--------------------|------------------------|-------|
-| 1 | **Core Agent Loop** (Model + Tools) | **Turn-Based** | Task execution |
-| 2 | **Verification Loop** (Grader) | **Goal-Based** | Reliability & Quality |
-| 3 | **Event-Driven Loop** (Triggers) | **Time-Based** | Integration & Usage |
-| 4 | **Hill-Climbing Loop** (Self-Improvement)| **Proactive** (with Eval) | System improvement |
+| Tier | Claude Code Taxonomy | LangChain Taxonomy | IBM Technology Taxonomy | Primary Handoff / Focus |
+| :-: | :--- | :--- | :--- | :--- |
+| **1** | **Turn-Based** | **Core Agent Loop** *(Model + Tools)* | **Interactive Loop** | Human sets goal + judges every turn (`fuzzy tasks`) |
+| **2** | **Goal-Based** (`/goal`) | **Verification Loop** *(Grader)* | **Delegated Loop** | AI `Check` judges stopping condition; human reviews final output |
+| **3** | **Time-Based** (`/loop`, `/schedule`) | **Event-Driven Loop** *(Schedules)* | **Scheduled Loop** | **`Clock`** starts recurring runs; human reviews / cancels stale runs |
+| **4** | **Proactive** (`/schedule` + `/goal` + workflows) | **Event-Driven / Hill-Climbing** *(Triggers + Trace Self-Improvement)* | **Event-Driven Loop** *(`+ Reviewer Agent`)* | **`Event`** triggers tailored goal; **fresh-context `Reviewer Agent`** checks output; **humans handle exceptions only** |
 
 ### The Hill-Climbing Loop (Level 4: Self-Improvement)
 While Claude Code's proactive loop focuses on autonomous *work* (e.g., triaging bugs), LangChain's Hill-Climbing loop focuses on autonomous *self-improvement*.
@@ -177,3 +178,15 @@ As structured in [[IBM Technology]]'s [[What Is Loop Engineering Building Better
 3. **The Spine (Persistent State)**: Durable Markdown execution logs inside the loop recording prior attempts, what succeeded, and what failed across passes.
 4. **Tools & Subagents**: [[Model Context Protocol|MCP]]/API integrations powering `Action`, and independent checker [[Subagent Architecture|subagents]] supporting `Observe`.
 5. **Human-in-the-Loop Safeguards**: Even well-engineered loops require humans to **write verifiable goals**, **write explicit intent** (preventing test-relaxing reward hacks), and **read outputs** to avoid [[Comprehension and Intent Debt]] and cognitive surrender. See [[raw/screenshots/ibm-loop-engineering/06.jpg]] and [[raw/screenshots/ibm-loop-engineering/09.jpg]].
+
+### IBM Control-Handoff Model: Interactive $\rightarrow$ Delegated $\rightarrow$ Scheduled $\rightarrow$ Event-Driven
+
+In [[4 Types of AI Agent Loops From Human-Led to Autonomous]], [[IBM Technology]] expands the same `Goal -> Action -> Observe -> Adjust` ring across two design axes—**who starts the loop** and **who decides completion**—showing each step's exact human-to-agent handoff:
+- **Interactive Loop**: Best when finish criteria are fuzzy; humans type the initial goal and inspect/judge *every* turn (`Human Judges -> Done or Re-prompt`). Breaks down under repetitive scale.
+- **Delegated Loop**: Human pairs the goal with a verifiable **stopping condition** (*"stop when the build turns green"*); an automated **`Check`** node intercepts `Adjust` and loops back to `Goal` until passing, escalating only finished output to `Human Review`.
+- **Scheduled Loop**: Replaces manual human initiation with a **`Clock`** trigger for work that goes stale over time (*nightly dependency audits*); retains `Check` + `Human Review` per run and lets humans `Cancel` or retune the schedule when obsolete.
+- **Event-Driven Loop (`Reviewer Agent` + Exception Escalation)**: Replaces the clock with an external **`Event`** (*e.g., PR opened*) tailoring each run's goal, AND replaces default human review with an independent **`Reviewer Agent`** running in **fresh isolated context** ([[Subagent Context Isolation]], [[Second Opinion Pattern]], optionally on a separate model). Approved runs finish (`Done`), incomplete runs restart, and **`Human Review` receives uncertain exceptions only**.
+
+![IBM Delegated Loop With Automated Check](../../raw/screenshots/4-types-of-ai-agent-loops-from-human-led-to-autonomous/03.jpg)
+
+![IBM Event-Driven Loop With Fresh-Context Reviewer Agent](../../raw/screenshots/4-types-of-ai-agent-loops-from-human-led-to-autonomous/05.jpg)
