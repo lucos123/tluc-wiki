@@ -62,6 +62,7 @@ A catalog of everything in the knowledge base.
 
 
 
+
 ## Concepts
 - [[Advanced Prompting Patterns]]: Higher-order prompting strategies (ReAct, Tree-of-Thought, Self-Consistency, Prompt Chaining, Meta-Prompting) bridging prompts to agent loops.
 - [[Advisor Model Pattern]]: Dual-model escalation architecture in Claude Code (/advisor) delegating hard choices from Sonnet to Opus.
@@ -185,6 +186,7 @@ A catalog of everything in the knowledge base.
 - [[Superhuman AI]]: AI systems capable of recursively improving themselves.
 - [[Superhuman Coder]]: Milestone where AI can perform coding tasks faster and cheaper than top humans.
 - [[Supervised Learning Algorithms]]: Regression (Linear, Polynomial, Ridge, Lasso, Elastic Net) and Classification (Logistic, KNN, Decision Tree, Random Forest, SVM, Naive Bayes) models.
+- [[System Design 162 Concepts Resource Map]]: Complete 17-part reference catalog of 162 system design concepts with 324 curated article and video links mapped to tluc-wiki architecture notes.
 - [[System Prompt Caching Optimization]]: Separation of static system prompts from dynamic session metadata via excludeDynamicSections for 100% cache hit rates.
 - [[The Factory Model (SDLC)]]: Building systems that build software.
 - [[Token Economics]]: Cost governance framework in Claude Code analyzing input, output, cache, and thinking tokens.
@@ -296,6 +298,7 @@ A catalog of everything in the knowledge base.
 - [[Software Supply Chain Security What AI Coding Changes]]: IBM Technology breakdown of what AI coding changes in software supply chain security, shift-left defenses, SBOMs, independent verification, and provenance attestation.
 - [[Subagents in the SDK]]: Official Anthropic guide on programmatically defining AgentDefinition subagents using the Claude Agent SDK.
 - [[System Design for AI Engineers 7 Patterns]]: Jam With AI's interview-focused companion guide to the 7 production AI system design patterns (Denial-of-Wallet rate limits, Redis/semantic caching, RabbitMQ/SQS/Kafka queues, weighted vLLM balancing, GPU-aware autoscaling).
+- [[System Design for Engineers 162 Concepts]]: Jam With AI's curated 17-part, 162-concept system design curriculum (15 core starter concepts, per-part interview signals, 8 follow-up diagnostics, and 324 study links).
 - [[The Art of Loop Engineering]]: LangChain's 4-level loop taxonomy culminating in autonomous self-improvement via trace evaluation.
 - [[The Home Repo The effortless multi-repo agent setup]]: Matt Pocock's walkthrough of the Home Repo multi-repo setup, worktree auto-bootstrapping, Progressive Disclosure beyond 40 repos, and unified wiki CLI.
 - [[The new rules of context engineering for Claude 5 generation models]]: Thariq Shihipar's official Anthropic guide detailing 80% prompt reduction, Unhobbling Claude, and claude doctor.
@@ -321,6 +324,7 @@ A catalog of everything in the knowledge base.
 - [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 - [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
+
 
 
 

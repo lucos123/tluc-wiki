@@ -133,7 +133,7 @@ Scaling infrastructure availability without verifying output quality merely *"sc
 ---
 
 ## Related Pages
-- **Primary Sources & Entity**: [[AI System Design 7 Patterns Explained in 17 Minutes]], [[System Design for AI Engineers 7 Patterns]], [[How a Production AI Agent System Actually Works]], [[Jam With AI]]
-- **Complementary Architecture**: [[Production AI Agent Service Stack]], [[AI System Design and Production Architecture]], [[Inference Serving and Deployment Patterns]], [[LLM Inference Optimization and Security]]
+- **Primary Sources & Entity**: [[AI System Design 7 Patterns Explained in 17 Minutes]], [[System Design for AI Engineers 7 Patterns]], [[System Design for Engineers 162 Concepts]], [[How a Production AI Agent System Actually Works]], [[Jam With AI]]
+- **Complementary Architecture**: [[Production AI Agent Service Stack]], [[AI System Design and Production Architecture]], [[System Design 162 Concepts Resource Map]], [[Inference Serving and Deployment Patterns]], [[LLM Inference Optimization and Security]]
 - **Caching & State**: [[System Prompt Caching Optimization]], [[Memory Architecture]], [[Loop Engineering]]
 - **Observability & Quality**: [[Product Evals and Error Analysis]], [[Closed-Loop Evals]], [[LLM-as-a-Judge and Eval Alignment]]

@@ -96,8 +96,8 @@ While Sections 1–4 optimize what happens *inside* the core AI service (impleme
 ---
 
 ## Related Pages
-- **Sources**: [[AI Engineer Interview Notes]], [[AI Deployment Notes]], [[How a Production AI Agent System Actually Works]], [[AI System Design 7 Patterns Explained in 17 Minutes]], [[System Design for AI Engineers 7 Patterns]]
-- **Infrastructure & Entities**: [[Production AI Agent Service Stack]], [[Production AI Resilience and Scaling Patterns]], [[Jam With AI]], [[Inference Serving and Deployment Patterns]], [[LLM Inference Optimization and Security]]
+- **Sources**: [[AI Engineer Interview Notes]], [[AI Deployment Notes]], [[How a Production AI Agent System Actually Works]], [[AI System Design 7 Patterns Explained in 17 Minutes]], [[System Design for AI Engineers 7 Patterns]], [[System Design for Engineers 162 Concepts]]
+- **Infrastructure & Entities**: [[Production AI Agent Service Stack]], [[Production AI Resilience and Scaling Patterns]], [[System Design 162 Concepts Resource Map]], [[Jam With AI]], [[Inference Serving and Deployment Patterns]], [[LLM Inference Optimization and Security]]
 - **Retrieval & Alignment**: [[Retrieval-Augmented Generation and Vector DBs]], [[LLM Fine-Tuning and Alignment]], [[Prompt Engineering]]
 - **Evals & Economics**: [[LLM-as-a-Judge and Eval Alignment]], [[Product Evals and Error Analysis]], [[Cost Optimization]], [[Inference Speed vs Intelligence Trade-off]]
 - **Agents & Serving**: [[Agentic Engineering]], [[Domain-Specific Agents]], [[Memory Architecture]]
