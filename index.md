@@ -66,6 +66,7 @@ A catalog of everything in the knowledge base.
 
 
 
+
 ## Concepts
 - [[Advanced Prompting Patterns]]: Higher-order prompting strategies (ReAct, Tree-of-Thought, Self-Consistency, Prompt Chaining, Meta-Prompting) bridging prompts to agent loops.
 - [[Advisor Model Pattern]]: Dual-model escalation architecture in Claude Code (/advisor) delegating hard choices from Sonnet to Opus.
@@ -153,6 +154,7 @@ A catalog of everything in the knowledge base.
 - [[Model Packaging and Versioning]]: End-to-end AI artifact packaging (weights, tokenizer, prompt, retrieval config), Container vs Model Registries, and rollback.
 - [[Model Specification (Spec)]]: Document outlining desired AI behavior and alignment rules.
 - [[Monorepo Context Engineering]]: Structuring per-package rules, claudeMdExcludes, and sparse worktrees to keep context windows focused in large codebases.
+- [[Neural Networks and Deep Learning Foundations]]: Core neural network mathematics spanning artificial neurons, ReLU/Sigmoid/Tanh/Leaky ReLU, forward propagation, MSE/Cross-Entropy losses, matrix backpropagation, GD/Adam optimization, FNN/CNN/RNN/Transformer overview, and L1/L2/inverted dropout regularization.
 - [[Neuralese]]: High-dimensional vector memory that replaces text-based chain-of-thought.
 - [[Obsidian Syntax Cheat Sheet]]: Quick reference guide for Obsidian wiki links, callouts, and frontmatter syntax.
 - [[Orchestrator Skill Pattern]]: Multi-agent pattern where a top-level skill coordinates parallel specialized subagent review skills and merges findings.
@@ -281,6 +283,7 @@ A catalog of everything in the knowledge base.
 - [[Loop Engineering explained in 8min]]: Caleb Writes Code's technical breakdown of multi-loop stacking and Addy Osmani's 6 components of loop engineering.
 - [[Loop Engineering from First Principles]]: Kyle Mistele's talk on applying Control Theory and production patterns (Adaptive Flow Control, FEEDBACK.md) to agentic loops.
 - [[Loop engineering Getting started with loops]]: Official Claude Code loop taxonomy — turn-based, goal-based, time-based, proactive — with decision framework and the full proactive loop composition.
+- [[Machine Learning and Deep Learning Cheat Sheets]]: Two-sheet ML Tut formula reference covering 11-panel classical ML (workflow, preprocessing formulas, splits, regression/classification/unsupervised, metrics, leakage, imbalance) and 11-panel Deep Learning (neuron, activations, forward/backprop chain rule, Adam, architectures, inverted dropout).
 - [[Machine Learning Basics Notes]]: 9-page Vietnamese handwritten visual notebook covering ML workflow, data types, 5-step preprocessing, Feature Engineering, fit diagnostics, Cross-Validation, and Python ML libraries.
 - [[Manage costs effectively]]: Official Anthropic guide on cost tracking (/usage), org limits, and token reduction strategies.
 - [[Managing Agent Skills]]: Guide to slash commands, terminal utilities, and discovery tiers for Gemini Agent Skills.
@@ -331,6 +334,7 @@ A catalog of everything in the knowledge base.
 - [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 - [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
+
 
 
 

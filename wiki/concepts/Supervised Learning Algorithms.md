@@ -24,6 +24,8 @@ source: "[[Types of Machine Learning Handbook]]"
 | **Lasso Regression (L1)** | $J(\theta) = \frac{1}{2m}\sum (y - \hat{y})^2 + \lambda \sum \|\theta_j\|$ | Drives weak coefficients strictly to zero (embedded feature selection) |
 | **Elastic Net (L1 + L2)** | $J(\theta) = \frac{1}{2m}\sum (y - \hat{y})^2 + \lambda_1 \sum \|\theta_j\| + \lambda_2 \sum \theta_j^2$ | Balances L1 sparsity and L2 stability across correlated features |
 
+> *Implementation note*: L1 and L2 penalties typically apply strictly to **model weights** $w_j$ and exclude the bias/intercept term $b$ ([[Machine Learning and Deep Learning Cheat Sheets]]).
+
 ---
 
 ## 2. Classification Algorithms (Discrete Class)
@@ -40,5 +42,5 @@ source: "[[Types of Machine Learning Handbook]]"
 ---
 
 ## Related Pages
-- **Sources**: [[Types of Machine Learning Handbook]]
-- **Concepts**: [[Machine Learning Paradigms]], [[Unsupervised Learning and Dimensionality Reduction]], [[Model Evaluation and Validation]]
+- **Sources**: [[Types of Machine Learning Handbook]], [[Machine Learning and Deep Learning Cheat Sheets]]
+- **Concepts**: [[Machine Learning Paradigms]], [[Unsupervised Learning and Dimensionality Reduction]], [[Model Evaluation and Validation]], [[Neural Networks and Deep Learning Foundations]]

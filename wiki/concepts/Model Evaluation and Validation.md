@@ -33,7 +33,7 @@ Given `TP` (True Positive), `TN` (True Negative), `FP` (False Positive), and `FN
 | **MAE** | $\frac{1}{n}\sum_{i=1}^n \|y_i - \hat{y}_i\|$ | Average absolute error; robust against extreme outliers | $[0, \infty)$ — Lower is better |
 | **MSE** | $\frac{1}{n}\sum_{i=1}^n (y_i - \hat{y}_i)^2$ | Penalizes large errors quadratically | $[0, \infty)$ — Lower is better |
 | **RMSE** | $\sqrt{\frac{1}{n}\sum_{i=1}^n (y_i - \hat{y}_i)^2}$ | Preserves original target units while penalizing large errors | $[0, \infty)$ — Lower is better |
-| **$R^2$ Score** | $1 - \frac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}$ | Proportion of target variance explained by the model | $(-\infty, 1]$ — Higher is better |
+| **$R^2$ Score** | $1 - \frac{SSE}{SST} = 1 - \frac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}$ | Proportion of target variance explained by the model | $(-\infty, 1]$ — Higher is better |
 
 ---
 
@@ -52,5 +52,5 @@ Given `TP` (True Positive), `TN` (True Negative), `FP` (False Positive), and `FN
 ---
 
 ## Related Pages
-- **Sources**: [[Types of Machine Learning Handbook]], [[AI Eval Concepts Explained in 15 Minutes]], [[Machine Learning Basics Notes]]
-- **Concepts**: [[Machine Learning Paradigms]], [[Supervised Learning Algorithms]], [[Unsupervised Learning and Dimensionality Reduction]], [[Data Preprocessing and Feature Engineering]], [[Closed-Loop Evals]], [[Product Evals and Error Analysis]], [[LLM-as-a-Judge and Eval Alignment]]
+- **Sources**: [[Types of Machine Learning Handbook]], [[AI Eval Concepts Explained in 15 Minutes]], [[Machine Learning Basics Notes]], [[Machine Learning and Deep Learning Cheat Sheets]]
+- **Concepts**: [[Machine Learning Paradigms]], [[Supervised Learning Algorithms]], [[Unsupervised Learning and Dimensionality Reduction]], [[Data Preprocessing and Feature Engineering]], [[Neural Networks and Deep Learning Foundations]], [[Closed-Loop Evals]], [[Product Evals and Error Analysis]], [[LLM-as-a-Judge and Eval Alignment]]
