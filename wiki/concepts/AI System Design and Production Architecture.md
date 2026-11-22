@@ -81,8 +81,23 @@ When tasks genuinely require multi-step execution over fixed chains (and justify
 
 ---
 
+## 5. Surrounding Production Infrastructure & Traffic Layer (7 Patterns)
+
+While Sections 1–4 optimize what happens *inside* the core AI service (routing, RAG, tool schemas, escalations), scaling cleanly to `10,000+` concurrent users requires wrapping that unchanged core service (`FastAPI + Agent + Model + Data Store`) in **seven outer request-lifecycle patterns** detailed in [[Production AI Resilience and Scaling Patterns]] and [[AI System Design 7 Patterns Explained in 17 Minutes]]:
+
+1. **API Gateway vs. Model Gateway**: Centralize inbound validation, `request_id` tagging, and service routing without replacing FastAPI, while keeping outbound provider calls (`OpenAI`, `Anthropic`, local GPUs) behind an outbound model gateway.
+2. **Admission Control & Token-Aware Rate Limiting**: Gate **Start / Wait / Reject (`HTTP 429 Retry-After`)** using **RPM + input/output TPM + active model calls** rather than naive request counts alone.
+3. **Tenant-Scoped Caching**: Reuse embeddings, chunks, and vetted answers in **Redis** only under strict `tenant + permission + version/TTL` cache keys.
+4. **Message Queues & Lane Isolation**: Offload long tasks (ingestion, batch embeddings, reports) with separate **Live (Reserved)** vs. **Batch (Capped)** worker pools, **DLQs**, and **idempotent** jobs.
+5. **Timeouts, Jittered Retries, Circuit Breakers & Bulkheads**: Isolate provider failures (`CLOSED -> OPEN -> HALF-OPEN`), pair circuit trips with graceful verified fallbacks (never fabricate missing info), and avoid retry storms.
+6. **Stateless Load Balancing & External State**: Keep replicas stateless by storing durable checkpoints in **PostgreSQL** and short-lived coordination state in **Redis**.
+7. **Demand-Driven Autoscaling**: Scale on waiting-work signals (**queue depth, oldest wait time, active requests, GPU utilization**—never CPU alone), pre-warm GPU model servers for cold-start heavy weights, and **control work before adding capacity**.
+
+---
+
 ## Related Pages
-- **Sources**: [[AI Engineer Interview Notes]], [[AI Deployment Notes]]
+- **Sources**: [[AI Engineer Interview Notes]], [[AI Deployment Notes]], [[AI System Design 7 Patterns Explained in 17 Minutes]]
+- **Infrastructure & Entities**: [[Production AI Resilience and Scaling Patterns]], [[Jam With AI]], [[Inference Serving and Deployment Patterns]], [[LLM Inference Optimization and Security]]
 - **Retrieval & Alignment**: [[Retrieval-Augmented Generation and Vector DBs]], [[LLM Fine-Tuning and Alignment]], [[Prompt Engineering]]
 - **Evals & Economics**: [[LLM-as-a-Judge and Eval Alignment]], [[Product Evals and Error Analysis]], [[Cost Optimization]], [[Inference Speed vs Intelligence Trade-off]]
-- **Agents & Serving**: [[Agentic Engineering]], [[Domain-Specific Agents]], [[Inference Serving and Deployment Patterns]], [[Memory Architecture]]
+- **Agents & Serving**: [[Agentic Engineering]], [[Domain-Specific Agents]], [[Memory Architecture]]

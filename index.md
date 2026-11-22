@@ -31,6 +31,7 @@ A catalog of everything in the knowledge base.
 - [[HumanLayer]]: Tooling platform focused on human-in-the-loop agentic workflows and production control loops.
 - [[IBM]]: Global technology enterprise and pioneer in AI, cloud computing, and enterprise software systems.
 - [[IBM Technology]]: Official technical education channel of IBM producing deep-dives on enterprise AI architecture and agentic software design.
+- [[Jam With AI]]: AI engineering channel and newsletter by Shirin Khosravi Jam covering production AI system design and visual agent architectures.
 - [[Jarred Sumner]]: Bun co-founder and Anthropic MTS; ran the Zig→Rust 1M-line migration with Claude Code.
 - [[Joshua Noble]]: Technical author and researcher at IBM Think specializing in context engineering and AI agent memory systems.
 - [[Justin Schroeder]]: Founder at Standard Agents who presented the factory electrification analogy and domain-specific agent architecture at the Agentic AI Foundation.
@@ -151,6 +152,7 @@ A catalog of everything in the knowledge base.
 - [[Poteto Trust Pyramid]]: Five-layer inverse trust hierarchy prioritizing deterministic codebase design and AST lint rules (167 rules) over runtime/formal verification, prose (AGENTS.md), and human review.
 - [[Preserved Thinking]]: Pattern of retaining historical reasoning_content across multi-turn messages to preserve continuous chain-of-thought.
 - [[Product Evals and Error Analysis]]: Workflow contrasting domain-specific product evals against foundation benchmarks using traces, failure taxonomies, and binary gates.
+- [[Production AI Resilience and Scaling Patterns]]: Seven surrounding infrastructure patterns (API vs Model Gateway, token-aware Admission Control, tenant-scoped Caching, lane-isolated Message Queues, Timeouts/Retries/Circuit Breakers/Bulkheads, stateless Load Balancing with Postgres/Redis state, and GPU/queue-aware Autoscaling) plus Metrics/Traces/Evals.
 - [[Programmatic Tool Calling]]: Model capability to write and execute code for filtering data and dynamically orchestrating tool calls.
 - [[Progressive Disclosure]]: Context engineering pattern loading instructions, tools, and skills on demand (e.g. ToolSearch, tree CLAUDE.md).
 - [[Prompt Engineering]]: Foundational discipline of designing structured prompts (Role, Context, Task, Input, Constraints, Format) and frameworks (CO-STAR, R-T-F, CLEAR).
@@ -191,7 +193,6 @@ A catalog of everything in the knowledge base.
 - [[Vision Transformers and Multimodal AI]]: ViT patchification & self-attention (DETR/DINO/Mask2Former/MAE), CLIP contrastive alignment & zero-shot classification, Multimodal fusion (Early/Cross-Attention/Late), and Vision AI deployment stack.
 - [[Waku-Agent]]: Open-source agent framework by Sean demonstrating production Graph Engineering with router nodes, memory retrieval, and eval gates.
 
-
 ## Sources
 - [[12 Agentic Harness Patterns from Claude Code]]: Design patterns from a leaked production agent's source code.
 - [[25 HR Interview Questions in Vietnamese]]: 8-page bilingual HR & behavioral interview playbook curated by Viet Nguyen AI featuring 25 common questions with fill-in-the-blank Vietnamese templates and 7 closing principles.
@@ -206,6 +207,7 @@ A catalog of everything in the knowledge base.
 - [[AI Eval Concepts Explained in 15 Minutes]]: Hamel Husain's 15-minute masterclass on product evals, traces, error analysis, trace sampling, LLM judges, traps, and model downsizing.
 - [[AI Harness 6 Core Components]]: Viet Nguyen AI's concise visual guide explaining Agent = Model + Harness across 6 core subsystems (Agent Loop, Tool Calling, Context Management, Checkpointing, Permissions & Sandboxing, Guardrails).
 - [[AI Model vs Agentic Harness What Actually Drives AI]]: IBM Technology's breakdown of the "brain in a jar" metaphor, narrowing benchmark gaps, the 3 harness pillars (Tools, Memory, Loops), and model-harness co-evolution.
+- [[AI System Design 7 Patterns Explained in 17 Minutes]]: 17m 11s Jam With AI walkthrough by Shirin Khosravi Jam explaining 7 production AI system design patterns around a Core AI Service, observability triad, and interview approach.
 - [[All Code Is Slop (Except Mine) — Lauren Tan, SpaceXSI]]: AI Engineer Code Summit talk by Lauren Tan (@poteto) on scaling Grok Bot to 11,000 PRs/mo (~0.5% revert rate) via deterministic guardrails and runtime/formal verification.
 - [[Anthropic Just Fixed Graph Engineering's Greatest Flaw]]: AI LABS breakdown of DAG error cascading, the Second Opinion Pattern, Chrome Headless Shell verification, and the Orchestrator Skill Pattern.
 - [[Automate actions with hooks]]: Official Anthropic guide on lifecycle hooks, configuration, notification scripts, and environment loading.
@@ -309,6 +311,7 @@ A catalog of everything in the knowledge base.
 - [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 - [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
+
 
 
 
