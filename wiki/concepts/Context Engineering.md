@@ -14,7 +14,7 @@ The practice of providing AI agents with rich, structured information about a co
 ## The Six Types of Context
 1. **Instructions**: Core roles, goals, and boundaries.
 2. **Knowledge**: Retrieved docs and domain data.
-3. **Memory**: Short-term session logs and long-term persistent state.
+3. **Memory**: Functional agent recall spanning seven responsibilities—working, semantic, episodic, procedural, external, parametric, and prospective triggers (see [[AI Agent Memory Types]]).
 4. **Examples**: Few-shot demonstrations and codebase patterns.
 5. **Tools**: APIs and scripts the agent can invoke.
 6. **Guardrails**: Hard constraints and safety rules.

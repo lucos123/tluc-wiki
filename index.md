@@ -60,6 +60,7 @@ A catalog of everything in the knowledge base.
 
 
 
+
 ## Concepts
 - [[Advanced Prompting Patterns]]: Higher-order prompting strategies (ReAct, Tree-of-Thought, Self-Consistency, Prompt Chaining, Meta-Prompting) bridging prompts to agent loops.
 - [[Advisor Model Pattern]]: Dual-model escalation architecture in Claude Code (/advisor) delegating hard choices from Sonnet to Opus.
@@ -75,6 +76,7 @@ A catalog of everything in the knowledge base.
 - [[Agentic Coding Workflow]]: Structured 4-phase lifecycle (Explore → Plan → Implement → Commit) with empirical verification.
 - [[Agentic Engineering]]: Topic overview page covering Prompt, Context, Harness, Loop, and Graph Engineering pillars.
 - [[Agentic Workflow Recipes]]: Standardized prompt patterns for exploration, bug fixing, refactoring, testing, and PR creation.
+- [[AI Agent Memory Types]]: Seven functional AI agent memory responsibilities within Context Engineering (Working, Semantic, Episodic, Procedural, External/Retrieval, Parametric, and Prospective) showing 7 jobs != 7 databases.
 - [[AI Code Migration]]: Six-step methodology for AI-assisted language/framework migrations at industrial scale.
 - [[AI Deployment Lifecycle and Environments]]: Seven-stage AI/ML application lifecycle, Dev vs Deployment, Training vs Inference, and Dev/Staging/Prod promotion.
 - [[AI Evaluation, Safety and Governance]]: BLEU/ROUGE/BERTScore & Red Teaming metrics, 4 AI Bias taxonomies, 5 Ethics pillars, and EU AI Act, NIST AI RMF, OECD, and UN governance frameworks.
@@ -204,6 +206,7 @@ A catalog of everything in the knowledge base.
 - [[Agent Harness explained in 8min]]: Caleb Writes Code's concise breakdown of the 3-stage evolution (Prompt → Context → Harness Engineering) and fresh-context loops.
 - [[Agent Skills in the SDK]]: Official Anthropic guide on programmatically integrating and filtering disk-based Agent Skills using the Claude Agent SDK.
 - [[AI 2027]]: Scenario forecasting the rapid development of superhuman AI and geopolitical tensions between 2025-2027.
+- [[AI Agent Memory 7 Types Explained in 12 Minutes]]: 12m 06s Jam With AI (Shirin Khosravi Jam) breakdown of the 7 AI Agent memory types, Saving vs. Remembering, Semantic Memory vs. Semantic Search, and end-to-end Email Agent walkthrough.
 - [[AI Complete Handbook]]: 20-page Vietnamese visual handbook by Viet Nguyen AI spanning Classical AI (Agents, Search, Minimax, KR, Logic, Bayesian) to Modern ML/DL, GenAI/LLMs, RAG, Agents, Evaluation/Governance, and Deployment.
 - [[AI Deployment Notes]]: 12-page Vietnamese visual guide covering AI deployment lifecycle, Dev/Staging/Prod, packaging/versioning, serving patterns, and inference servers.
 - [[AI Engineer Interview Notes]]: 17-page practical interview guide by Koteswara (shared by Viet Nguyen AI) covering LLM fundamentals, 6-step prompt debugging, Hybrid RAG/recall@k evals, ReAct guardrails, Fine-tuning vs RAG, LLM-Judge biases, 10M-user System Design, and 30-day prep checklist.
@@ -316,6 +319,7 @@ A catalog of everything in the knowledge base.
 - [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 - [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
+
 
 
 

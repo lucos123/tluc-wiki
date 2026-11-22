@@ -33,11 +33,13 @@ url: "https://www.youtube.com/@JamWithAI"
 
 ## Ingested Sources
 - [[How a Production AI Agent System Actually Works]] *(2026-08-21, Video 1)* — Architectural breakdown of the inner 9-layer core Python production AI agent stack (`Uvicorn`/`FastAPI`, `Pydantic`, `LangGraph`, `Postgres + pgvector`, `Redis`, `LiteLLM`, `Langfuse`/`Opik`, `Pytest` + AI Evals, `uv`/`Ruff`).
+- [[AI Agent Memory 7 Types Explained in 12 Minutes]] *(2026-08-28)* — Architectural taxonomy of 7 AI Agent memory responsibilities (Working, Semantic, Episodic, Procedural, External, Parametric, Prospective) demonstrated end-to-end in an Email Agent.
 - [[AI System Design 7 Patterns Explained in 17 Minutes]] *(2026-09-10, Video 2)* — Complete video walkthrough of the 7 surrounding production infrastructure patterns wrapping the Core AI Service under load, plus AI observability and system design interview methodology.
 - [[System Design for AI Engineers 7 Patterns]] *(2026-04-09, Companion Substack)* — Companion interview-focused article adding interview signals, Denial-of-Wallet defense, weighted/least-connections GPU load balancing, semantic caching nuances, and reference books.
 
 ## Related Pages
 - [[Production AI Agent Service Stack]]
 - [[Production AI Resilience and Scaling Patterns]]
+- [[AI Agent Memory Types]]
 - [[AI System Design and Production Architecture]]
 - [[Inference Serving and Deployment Patterns]]

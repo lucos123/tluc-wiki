@@ -111,3 +111,4 @@ Append-only record of operations.
 ## [2026-11-22] ingest | System Design for AI Engineers: 7 patterns you should know in your interviews
 ## [2026-11-22] skill | Upgrade wiki-ingest v4.2 (chapter-clamped smart-probe, Node yt-dlp runtime, chapter_mid dedup, Substack CTA/lightbox filter & web-article H1/tag polish)
 ## [2026-11-22] ingest | How a Production AI Agent System Actually Works
+## [2026-11-22] ingest | AI Agent Memory: 7 Types Explained in 12 Minutes

@@ -48,8 +48,8 @@ Response Path: Agent Output ─▶ Pydantic Output (validate + serialize) ─▶
 ![Pydantic Request and Response Contracts](../../raw/screenshots/how-a-production-ai-agent-system-actually-works/03.jpg)
 
 ### B. Durable Storage vs. Ephemeral State Separation
-- **`PostgreSQL + pgvector` (Durable Truth)**: Stores long-lived entities (users, conversation logs), workflow checkpoints, and semantic embeddings in one backupable transactional store—avoiding premature distributed infrastructure complexity.
-- **`Redis` (Ephemeral Speed)**: Serves short-lived session state, rate-limit counters, and TTL caches without risking durable data loss when memory evicts.
+- **`PostgreSQL + pgvector` (Durable Truth)**: Stores long-lived entities (users, conversation logs), **Semantic/Episodic/Prospective memory records**, workflow checkpoints, and semantic embeddings in one backupable transactional store—avoiding premature distributed infrastructure complexity (see [[AI Agent Memory Types]]).
+- **`Redis` (Ephemeral Speed)**: Serves short-lived **Working Memory** thread buffers, session state, rate-limit counters, and TTL caches without risking durable data loss when memory evicts.
 
 ### C. Why Traditional Monitoring Fails AI Agents (Traces vs. Pytest vs. AI Evals)
 A service can report `0% HTTP 5xx` errors and clean `Pytest` suites yet fail users silently after a one-sentence system prompt tweak:
@@ -71,5 +71,5 @@ Once the core Python service hits real-world traffic spikes (`10,000+` concurren
 ## Related Pages
 - **Primary Source & Entity**: [[How a Production AI Agent System Actually Works]], [[Jam With AI]]
 - **Complementary Outer Architecture**: [[Production AI Resilience and Scaling Patterns]], [[AI System Design and Production Architecture]], [[Inference Serving and Deployment Patterns]]
-- **Series Siblings**: [[AI System Design 7 Patterns Explained in 17 Minutes]], [[System Design for AI Engineers 7 Patterns]]
-- **Deep Dives**: [[Agent Graph]], [[Loop Engineering]], [[Retrieval-Augmented Generation and Vector DBs]], [[Memory Architecture]], [[Product Evals and Error Analysis]], [[Closed-Loop Evals]]
+- **Series Siblings**: [[AI System Design 7 Patterns Explained in 17 Minutes]], [[System Design for AI Engineers 7 Patterns]], [[AI Agent Memory 7 Types Explained in 12 Minutes]]
+- **Deep Dives**: [[AI Agent Memory Types]], [[Agent Graph]], [[Loop Engineering]], [[Retrieval-Augmented Generation and Vector DBs]], [[Memory Architecture]], [[Product Evals and Error Analysis]], [[Closed-Loop Evals]]
