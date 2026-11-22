@@ -58,6 +58,7 @@ A catalog of everything in the knowledge base.
 - [[Viet Nguyen AI]]: Vietnamese AI practitioner and content creator translating technical AI visual guides into Vietnamese.
 - [[Warp]]: Modern AI-powered terminal and developer environment founded by Zach Lloyd featuring Oz orchestration and self-improving agent skills.
 
+
 ## Concepts
 - [[Advanced Prompting Patterns]]: Higher-order prompting strategies (ReAct, Tree-of-Thought, Self-Consistency, Prompt Chaining, Meta-Prompting) bridging prompts to agent loops.
 - [[Advisor Model Pattern]]: Dual-model escalation architecture in Claude Code (/advisor) delegating hard choices from Sonnet to Opus.
@@ -152,7 +153,7 @@ A catalog of everything in the knowledge base.
 - [[Poteto Trust Pyramid]]: Five-layer inverse trust hierarchy prioritizing deterministic codebase design and AST lint rules (167 rules) over runtime/formal verification, prose (AGENTS.md), and human review.
 - [[Preserved Thinking]]: Pattern of retaining historical reasoning_content across multi-turn messages to preserve continuous chain-of-thought.
 - [[Product Evals and Error Analysis]]: Workflow contrasting domain-specific product evals against foundation benchmarks using traces, failure taxonomies, and binary gates.
-- [[Production AI Resilience and Scaling Patterns]]: Seven surrounding infrastructure patterns (API vs Model Gateway, token-aware Admission Control, tenant-scoped Caching, lane-isolated Message Queues, Timeouts/Retries/Circuit Breakers/Bulkheads, stateless Load Balancing with Postgres/Redis state, and GPU/queue-aware Autoscaling) plus Metrics/Traces/Evals.
+- [[Production AI Resilience and Scaling Patterns]]: Seven surrounding infrastructure patterns (API vs Model Gateway, token/Denial-of-Wallet Admission Control, tenant/semantic Caching, lane-isolated Message Queues, Timeouts/Retries/Circuit Breakers/Bulkheads, weighted/stateless Load Balancing, GPU/predictive Autoscaling) + observability triad.
 - [[Programmatic Tool Calling]]: Model capability to write and execute code for filtering data and dynamically orchestrating tool calls.
 - [[Progressive Disclosure]]: Context engineering pattern loading instructions, tools, and skills on demand (e.g. ToolSearch, tree CLAUDE.md).
 - [[Prompt Engineering]]: Foundational discipline of designing structured prompts (Role, Context, Task, Input, Constraints, Format) and frameworks (CO-STAR, R-T-F, CLEAR).
@@ -286,6 +287,7 @@ A catalog of everything in the knowledge base.
 - [[Share session output as artifacts]]: Official Anthropic guide on publishing interactive HTML artifacts and connector-backed live data.
 - [[Software Supply Chain Security What AI Coding Changes]]: IBM Technology breakdown of what AI coding changes in software supply chain security, shift-left defenses, SBOMs, independent verification, and provenance attestation.
 - [[Subagents in the SDK]]: Official Anthropic guide on programmatically defining AgentDefinition subagents using the Claude Agent SDK.
+- [[System Design for AI Engineers 7 Patterns]]: Jam With AI's interview-focused companion guide to the 7 production AI system design patterns (Denial-of-Wallet rate limits, Redis/semantic caching, RabbitMQ/SQS/Kafka queues, weighted vLLM balancing, GPU-aware autoscaling).
 - [[The Art of Loop Engineering]]: LangChain's 4-level loop taxonomy culminating in autonomous self-improvement via trace evaluation.
 - [[The Home Repo The effortless multi-repo agent setup]]: Matt Pocock's walkthrough of the Home Repo multi-repo setup, worktree auto-bootstrapping, Progressive Disclosure beyond 40 repos, and unified wiki CLI.
 - [[The new rules of context engineering for Claude 5 generation models]]: Thariq Shihipar's official Anthropic guide detailing 80% prompt reduction, Unhobbling Claude, and claude doctor.
@@ -311,6 +313,7 @@ A catalog of everything in the knowledge base.
 - [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 - [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
+
 
 
 

@@ -32,7 +32,8 @@ url: "https://www.youtube.com/@JamWithAI"
 ---
 
 ## Ingested Sources
-- [[AI System Design 7 Patterns Explained in 17 Minutes]] *(2026-09-10)* — Complete walkthrough of the 7 production infrastructure patterns wrapping an AI service under load, plus AI observability and system design interview methodology.
+- [[AI System Design 7 Patterns Explained in 17 Minutes]] *(2026-09-10)* — Complete video walkthrough of the 7 production infrastructure patterns wrapping an AI service under load, plus AI observability and system design interview methodology.
+- [[System Design for AI Engineers 7 Patterns]] *(2026-04-09)* — Companion Substack article adding interview signals, Denial-of-Wallet defense, weighted/least-connections GPU load balancing, semantic caching nuances, and reference books.
 
 ## Related Pages
 - [[Production AI Resilience and Scaling Patterns]]
