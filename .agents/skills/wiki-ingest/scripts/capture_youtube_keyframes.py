@@ -118,6 +118,8 @@ def extract_stream_and_chapters(url: str, max_height: int = 1080) -> dict:
     import yt_dlp
 
     ydl_opts = {"quiet": True, "no_warnings": True, "skip_download": True}
+    if shutil.which("node"):
+        ydl_opts["js_runtimes"] = {"node": {}}
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=False)
 
@@ -188,6 +190,47 @@ def _select_best_probed_frame(valid: list[dict]) -> dict:
     return top
 
 
+def _find_containing_chapter(
+    sec: float, chapters: list[dict], duration: float = 0.0
+) -> tuple[float | None, float | None]:
+    """Return (start_time, end_time) for the chapter containing sec, or (None, None) when absent."""
+    if not chapters:
+        return None, None
+    for idx, ch in enumerate(chapters):
+        start = float(ch.get("start_time", 0))
+        raw_end = ch.get("end_time")
+        end = float(raw_end) if raw_end is not None else (float(duration) if duration > start else start + 30.0)
+        is_last = idx == len(chapters) - 1
+        if (start <= sec < end) or (is_last and sec >= start):
+            return start, end
+    return None, None
+
+
+def _compute_probe_window(
+    sec: float,
+    probe_offset: float,
+    chapter_start: float | None = None,
+    chapter_end: float | None = None,
+    duration: float | None = None,
+) -> tuple[float, float]:
+    """Compute bounded (start_sec, effective_offset) so a 3-frame burst never spills past chapter/video end."""
+    if chapter_start is not None and chapter_end is not None:
+        max_sec = max(chapter_start + 1.0, chapter_end - 2.0)
+        if duration and duration > 1:
+            max_sec = min(max_sec, duration - 1.0)
+        usable_span = max(0.0, max_sec - chapter_start)
+        eff = min(probe_offset, max(1.0, usable_span / 2.5)) if usable_span < 2.0 * probe_offset else probe_offset
+        start_sec = max(chapter_start, min(sec - eff, max_sec - 2.0 * eff))
+        start_sec = max(0.0, start_sec)
+        return start_sec, eff
+
+    eff = probe_offset
+    start_sec = max(0.0, sec - eff)
+    if duration and duration > 1:
+        start_sec = max(0.0, min(start_sec, max(0.0, duration - 1.0 - 2.0 * eff)))
+    return start_sec, eff
+
+
 def capture_single_frame(task: dict) -> dict:
     """Seek via ffmpeg (with single-seek 3-frame smart probe by default) and extract JPG keyframe."""
     idx_num = task["index"]
@@ -208,7 +251,13 @@ def capture_single_frame(task: dict) -> dict:
     probed_bytes: list[int] = []
 
     if smart_probe and probe_offset > 0:
-        start_sec = max(0.0, sec - probe_offset)
+        start_sec, eff_offset = _compute_probe_window(
+            sec,
+            probe_offset,
+            chapter_start=task.get("chapter_start"),
+            chapter_end=task.get("chapter_end"),
+            duration=task.get("duration"),
+        )
         probe_pattern = os.path.join(out_dir, f".probe_{idx_num:02d}_%d.jpg")
         candidates_paths = [
             os.path.join(out_dir, f".probe_{idx_num:02d}_{slot}.jpg")
@@ -221,7 +270,7 @@ def capture_single_frame(task: dict) -> dict:
             cmd.extend([
                 "-ss", f"{start_sec:.3f}",
                 "-i", stream_url,
-                "-vf", f"fps=1/{probe_offset:.3f}",
+                "-vf", f"fps=1/{eff_offset:.3f}",
                 "-frames:v", "3",
                 "-q:v", "2",
                 probe_pattern,
@@ -232,7 +281,7 @@ def capture_single_frame(task: dict) -> dict:
                 if os.path.isfile(cand_path):
                     sz = os.path.getsize(cand_path)
                     if sz >= 2000:
-                        cand_sec = start_sec + (slot_idx - 1) * probe_offset
+                        cand_sec = start_sec + (slot_idx - 1) * eff_offset
                         valid.append({"slot": slot_idx, "path": cand_path, "bytes": sz, "sec": cand_sec})
             if valid:
                 probed_bytes = [v["bytes"] for v in valid]
@@ -707,8 +756,13 @@ def main():
                     targets.append({"timestamp_sec": sec, "label": ch.get("title", "")})
 
         headers_str = _build_ffmpeg_headers(stream_info["http_headers"])
-        tasks = [
-            {
+        total_dur = float(stream_info["duration"] or 0)
+        tasks = []
+        for i, t in enumerate(targets):
+            ch_start, ch_end = _find_containing_chapter(
+                t["timestamp_sec"], stream_info["chapters"], total_dur
+            )
+            tasks.append({
                 "index": args.start_index + i,
                 "timestamp_sec": t["timestamp_sec"],
                 "label": t["label"],
@@ -720,9 +774,10 @@ def main():
                 "headers_str": headers_str,
                 "smart_probe": args.smart_probe,
                 "probe_offset": args.probe_offset,
-            }
-            for i, t in enumerate(targets)
-        ]
+                "chapter_start": ch_start,
+                "chapter_end": ch_end,
+                "duration": total_dur,
+            })
 
         print(
             f"[2/2] Capturing {len(tasks)} keyframes at {stream_info['stream_height']}p ({stream_info['stream_ext']}) ...",

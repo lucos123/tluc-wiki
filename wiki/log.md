@@ -109,3 +109,4 @@ Append-only record of operations.
 ## [2026-11-21] skill | Self-check & harden wiki-ingest v4.1 (Harvesters A-E DOM/srcset/table fixes, get_harvester guards & boundary dedup, download_post_assets restore & non-AVIF/zero-relay)
 ## [2026-11-22] ingest | AI System Design: 7 Patterns Explained in 17 Minutes
 ## [2026-11-22] ingest | System Design for AI Engineers: 7 patterns you should know in your interviews
+## [2026-11-22] skill | Upgrade wiki-ingest v4.2 (chapter-clamped smart-probe, Node yt-dlp runtime, chapter_mid dedup, Substack CTA/lightbox filter & web-article H1/tag polish)

@@ -465,6 +465,31 @@ def _format_yaml_published(published_val):
     return f'"{_yaml_escape(s)}"'
 
 
+def _format_display_published(published_val):
+    """Normalize ISO timestamps to YYYY-MM-DD for body display while preserving non-ISO strings."""
+    s = str(published_val).strip()
+    iso_match = re.match(r"^(\d{4}-\d{2}-\d{2})(?:[T\s].*)?$", s)
+    return iso_match.group(1) if iso_match else s
+
+
+def _strip_duplicate_leading_h1(post_text, title):
+    """Drop a leading '# <heading>' from web_article text when it duplicates the top-level title."""
+    lines = post_text.splitlines()
+    i = 0
+    while i < len(lines) and not lines[i].strip():
+        i += 1
+    if i < len(lines) and lines[i].lstrip().startswith("# "):
+        heading = lines[i].lstrip()[2:].strip()
+        norm_h = re.sub(r"\s+", " ", heading).lower()
+        norm_t = re.sub(r"\s+", " ", str(title or "")).strip().lower()
+        if norm_h == norm_t or (norm_t and norm_t.startswith(norm_h)):
+            i += 1
+            while i < len(lines) and not lines[i].strip():
+                i += 1
+            return "\n".join(lines[i:]).strip()
+    return post_text
+
+
 def extract_raw_meta(args, harvest_meta=None):
     """Merge --raw-* CLI flags, --manifest metadata, and --from-harvest-file metadata."""
     manifest = {}
@@ -486,7 +511,7 @@ def extract_raw_meta(args, harvest_meta=None):
         "description": getattr(args, "raw_description", None) or manifest.get("raw_description"),
         "text": getattr(args, "raw_text", None) or manifest.get("raw_text") or hmeta.get("text"),
         "external_links": manifest.get("external_links") or hmeta.get("external_links") or [],
-        "tags": manifest.get("raw_tags") or ["clippings", "visual-guide"],
+        "tags": manifest.get("raw_tags") or None,
         "notes": manifest.get("raw_notes") or manifest.get("notes") or [],
     }
 
@@ -534,15 +559,20 @@ def scaffold_raw_article(slug, files, project_root, meta):
             or str(ok_files[0].get("md_embed", "")).startswith("![Asset")
         )
     )
-    default_desc = (
-        f"Captured web article for {title}."
-        if platform == "web_article" and not ok_files
-        else f"Visual guide and captured slides for {title}."
-    )
+    if platform == "web_article":
+        default_desc = (
+            f"Captured web article and diagrams for {title}."
+            if ok_files
+            else f"Captured web article for {title}."
+        )
+    else:
+        default_desc = f"Visual guide and captured slides for {title}."
     description = meta.get("description") or default_desc
     post_text = (meta.get("text") or "").strip()
+    if platform == "web_article" and post_text:
+        post_text = _strip_duplicate_leading_h1(post_text, title)
     external_links = meta.get("external_links") or []
-    tags = meta.get("tags") or (["clippings", "web-article"] if platform == "web_article" and not ok_files else ["clippings", "visual-guide"])
+    tags = meta.get("tags") or (["clippings", "web-article"] if platform == "web_article" else ["clippings", "visual-guide"])
     meta_notes = meta.get("notes") or []
 
     lines = [
@@ -573,7 +603,7 @@ def scaffold_raw_article(slug, files, project_root, meta):
     if source_url:
         lines.append(f"- **Nguồn bài viết:** {source_url}")
     if published:
-        lines.append(f"- **Thời gian đăng:** {published}")
+        lines.append(f"- **Thời gian đăng:** {_format_display_published(published)}")
     if original_source:
         lines.append(f"- **Nguồn gốc tiếng Anh được tác giả trích dẫn:** {original_source}")
 
@@ -597,11 +627,16 @@ def scaffold_raw_article(slug, files, project_root, meta):
         lines.extend(["", "---", ""])
 
     if ok_files:
-        section_heading = (
-            f"## Thư Viện {len(ok_files)} Trang Hình Ảnh Đính Kèm"
-            if not meta_notes and not any(f.get("note") or f.get("transcription") for f in ok_files)
-            else f"## Chi Tiết {len(ok_files)} Trang Hình Ảnh Đính Kèm (Visual Transcription)"
-        )
+        has_custom_notes = bool(meta_notes or any(f.get("note") or f.get("transcription") for f in ok_files))
+        if has_custom_notes:
+            section_heading = f"## Chi Tiết {len(ok_files)} Trang Hình Ảnh Đính Kèm (Visual Transcription)"
+            item_prefix = "Trang"
+        elif platform == "web_article":
+            section_heading = f"## Hình Ảnh & Sơ Đồ Đính Kèm ({len(ok_files)} ảnh)"
+            item_prefix = "Hình"
+        else:
+            section_heading = f"## Thư Viện {len(ok_files)} Trang Hình Ảnh Đính Kèm"
+            item_prefix = "Trang"
         lines.append(section_heading)
         lines.append("")
         for i, item in enumerate(ok_files):
@@ -611,9 +646,9 @@ def scaffold_raw_article(slug, files, project_root, meta):
             if item.get("md_embed") and str(item["md_embed"]).startswith("![Asset"):
                 embed = item["md_embed"]
             else:
-                embed = f"![Trang {i + 1}](../../screenshots/{slug}/{filename})"
+                embed = f"![{item_prefix} {i + 1}](../../screenshots/{slug}/{filename})"
             lines.extend([
-                f"### Trang {i + 1} / {len(ok_files)}{dims_note}",
+                f"### {item_prefix} {i + 1} / {len(ok_files)}{dims_note}",
                 embed,
                 "",
             ])

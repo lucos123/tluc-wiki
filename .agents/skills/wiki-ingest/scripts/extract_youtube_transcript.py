@@ -22,6 +22,7 @@ import html
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -313,7 +314,7 @@ def build_timestamps_arg(suggested_keyframes: list[dict], max_items: int = 12) -
         return ""
 
     chapter_items = [k for k in suggested_keyframes if k.get("reason") in ("chapter", "chapter_mid")]
-    other_items = [k for k in suggested_keyframes if k.get("reason") != "chapter"]
+    other_items = [k for k in suggested_keyframes if k.get("reason") not in ("chapter", "chapter_mid")]
     selected = list(chapter_items[:max_items])
     if len(selected) < max_items:
         selected.extend(other_items[: max_items - len(selected)])
@@ -409,15 +410,23 @@ def find_related_wiki_pages(
 
 # ── Metadata extraction ────────────────────────────────────────────────────────
 
-def get_video_metadata(url: str) -> dict:
-    """Fetch video metadata and chapters using yt-dlp."""
-    import yt_dlp
-
-    ydl_opts = {
+def _build_ydl_base_opts() -> dict:
+    """Build yt-dlp base options enabling Node.js JS runtime when available to suppress EJS warnings."""
+    opts: dict = {
         "quiet": True,
         "no_warnings": True,
         "skip_download": True,
     }
+    if shutil.which("node"):
+        opts["js_runtimes"] = {"node": {}}
+    return opts
+
+
+def get_video_metadata(url: str) -> dict:
+    """Fetch video metadata and chapters using yt-dlp."""
+    import yt_dlp
+
+    ydl_opts = _build_ydl_base_opts()
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=False)
@@ -524,9 +533,7 @@ def download_transcript(
 
         for auto in (False, True):
             ydl_opts = {
-                "quiet": True,
-                "no_warnings": True,
-                "skip_download": True,
+                **_build_ydl_base_opts(),
                 "writesubtitles": not auto,
                 "writeautomaticsub": auto,
                 "subtitleslangs": lang_pref,

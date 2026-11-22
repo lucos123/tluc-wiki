@@ -73,8 +73,8 @@ Inspect all captured frames in `raw/screenshots/<slug>/` using parallel `read_fi
    - Parses cue start times (`parse_vtt_cues`), deduplicates rolling auto-captions without discarding timestamps, groups under `### [MM:SS - MM:SS] <Chapter>` sections, emits `**[MM:SS]**` markers every ~18s, and writes directly to `raw/video-transcripts/<kebab-case-title>.md`.
    - With `--json`, emits `safe_source_page_name`, multi-point chapter suggestions (adding a `48%` midpoint candidate for chapters $\ge 150\text{s}$), expanded `VISUAL_CUE_RE` markers, and top `related_wiki_pages` ranked from `index.md`.
 2. **`capture_youtube_keyframes.py`**:
-   - Auto-installs `imageio-ffmpeg` if system `ffmpeg` is not on PATH, and auto-upgrades `yt-dlp` on HTTP 403 retry.
-   - Selects the highest-resolution direct HTTPS stream ($\le 1080\text{p}$) and seeks concurrently (`ThreadPoolExecutor`) with single-seek 3-frame smart probing (`--smart-probe`, scored via `_select_best_probed_frame()` to discard `<70KB` fades without letting `172–205KB` textured camera cuts override `110–168KB` clean slides; `--no-smart-probe` extracts the exact timestamp frame).
+   - Enables Node.js `js_runtimes` automatically for `yt-dlp` when present, auto-installs `imageio-ffmpeg` if system `ffmpeg` is not on PATH, and auto-upgrades `yt-dlp` on HTTP 403 retry.
+   - Selects the highest-resolution direct HTTPS stream ($\le 1080\text{p}$) and seeks concurrently (`ThreadPoolExecutor`) with **chapter-bounded** single-seek 3-frame smart probing (`--smart-probe`, clamping the burst inside `[chapter_start, chapter_end - 2s]` via `_compute_probe_window()` so short chapters never drift past transitions into the next chapter; `--no-smart-probe` extracts the exact timestamp frame).
    - Verifies saved JPG dimensions via pure-Python binary header inspection, supports atomic `--keep` / `--drop` curation and renumbering (`01.jpg .. NN.jpg`), and syncs `## Key Visual Frames` inside `raw/video-transcripts/<slug>.md` when passed `--update-transcript`.
 
 ---

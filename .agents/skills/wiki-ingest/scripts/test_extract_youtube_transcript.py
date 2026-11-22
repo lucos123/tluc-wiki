@@ -457,6 +457,8 @@ class FakeEl {
     this.tagName = tag.toUpperCase();
     this.attrs = { ...attrs };
     this.className = attrs.class || '';
+    const clsList = this.className.split(/\s+/).filter(Boolean);
+    this.classList = { contains: (c) => clsList.includes(c) };
     this._text = text;
     this.children = [];
     this.parent = null;
@@ -482,6 +484,8 @@ class FakeEl {
   }
   matchesOne(sel) {
     sel = sel.trim();
+    if (sel.startsWith('.')) return this.classList.contains(sel.slice(1));
+    if (sel === 'a.image-link') return this.tagName === 'A' && this.classList.contains('image-link');
     if (sel === 'article') return this.tagName === 'ARTICLE';
     if (sel === 'main article' || sel === '[role="main"] article') return this.tagName === 'ARTICLE' && !!this.closest('main');
     if (sel === 'main') return this.tagName === 'MAIN';
@@ -541,17 +545,26 @@ class FakeEl {
   ]);
   const pre = new FakeEl('pre', {}, '', [new FakeEl('code', { class: 'language-python' }, 'print("hi")')]);
   const fig = new FakeEl('figure', {}, '', [
-    new FakeEl('img', {
-      src: 'https://substackcdn.com/image/fetch/w_424,c_limit,f_auto/https%3A%2F%2Fimg.png',
-      srcset: 'https://substackcdn.com/image/fetch/w_424,c_limit,f_auto/https%3A%2F%2Fimg.png 424w, https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto/https%3A%2F%2Fimg.png 1456w',
-      naturalWidth: 1456, naturalHeight: 900, _w: 700, _h: 450,
-    }),
+    new FakeEl('a', { class: 'image-link', href: 'https://substackcdn.com/image/fetch/full.png' }, '', [
+      new FakeEl('img', {
+        src: 'https://substackcdn.com/image/fetch/w_424,c_limit,f_auto/https%3A%2F%2Fimg.png',
+        srcset: 'https://substackcdn.com/image/fetch/w_424,c_limit,f_auto/https%3A%2F%2Fimg.png 424w, https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto/https%3A%2F%2Fimg.png 1456w',
+        naturalWidth: 1456, naturalHeight: 900, _w: 700, _h: 450,
+      }),
+    ]),
     new FakeEl('figcaption', {}, 'Agent Loop Architecture')
   ]);
   const article = new FakeEl('article', {}, '', [
     new FakeEl('nav', {}, 'Home About Pricing'),
+    new FakeEl('div', { class: 'subscription-widget-wrap' }, '', [
+      new FakeEl('p', {}, 'Subscribe now box'),
+      new FakeEl('a', { href: 'https://substack.com/subscribe' }, 'Sub'),
+    ]),
     new FakeEl('h1', {}, 'Scaling Agents'),
     new FakeEl('p', {}, 'A comprehensive architectural deep dive into autonomous agent loops and benchmark evaluations across production workloads. '.repeat(3)),
+    new FakeEl('p', {}, 'Jam with AI is a reader-supported publication. To receive new posts and support my work, consider becoming a free or paid subscriber.'),
+    new FakeEl('p', {}, 'Read the companion paper: ', [new FakeEl('a', { href: 'https://arxiv.org/abs/2401.00001' }, 'arXiv')]),
+    new FakeEl('a', { href: 'https://substack.com/profile/123-user' }, 'Reader Profile'),
     table,
     pre,
     fig,
@@ -584,6 +597,12 @@ class FakeEl {
         self.assertIn("| Alpha | 94.2 |", res["text"])
         self.assertIn("```python\nprint(\"hi\")\n```", res["text"])
         self.assertNotIn("Home About Pricing", res["text"])
+        self.assertNotIn("Subscribe now box", res["text"])
+        self.assertNotIn("reader-supported publication", res["text"])
+        self.assertIn("https://arxiv.org/abs/2401.00001", res["external_links"])
+        self.assertFalse(any("substackcdn.com/image/" in u for u in res["external_links"]))
+        self.assertFalse(any("substack.com/profile/" in u for u in res["external_links"]))
+        self.assertFalse(any("substack.com/subscribe" in u for u in res["external_links"]))
         self.assertEqual(res["total_slides"], 1)
         self.assertEqual(
             res["slides"][0]["src"],
@@ -928,6 +947,67 @@ class FakeEl {
             out = json.loads(proc.stdout)
             self.assertEqual(len(out["matches"]), 1)
             self.assertEqual(out["matches"][0]["page"], "Quy Trình Tư Vấn Nha Khoa 3C")
+
+    def test_compute_probe_window_clamps_inside_short_chapter_boundary(self):
+        chapters = [
+            {"start_time": 962, "end_time": 980, "title": "Metrics, Tracing, and AI Evaluations"},
+            {"start_time": 100, "end_time": 108, "title": "Very Short Chapter"},
+        ]
+        # Chapter 12 (18s span): target 975 with offset 4.0 must not exceed 978.0 (chapter_end - 2)
+        ch_start, ch_end = capture_youtube_keyframes._find_containing_chapter(975.0, chapters, duration=1031.0)
+        self.assertEqual((ch_start, ch_end), (962.0, 980.0))
+        start_sec, eff = capture_youtube_keyframes._compute_probe_window(975.0, 4.0, ch_start, ch_end, 1031.0)
+        self.assertGreaterEqual(start_sec, 962.0)
+        self.assertLessEqual(start_sec + 2.0 * eff, 978.0)
+
+        # Very short 8s chapter (100..108): eff compresses cleanly so all 3 frames stay inside [100, 106]
+        ch2_start, ch2_end = capture_youtube_keyframes._find_containing_chapter(105.0, chapters, duration=200.0)
+        self.assertEqual((ch2_start, ch2_end), (100.0, 108.0))
+        s2, eff2 = capture_youtube_keyframes._compute_probe_window(105.0, 4.0, ch2_start, ch2_end, 200.0)
+        self.assertGreaterEqual(s2, 100.0)
+        self.assertLessEqual(s2 + 2.0 * eff2, 106.0)
+        self.assertLess(eff2, 4.0)
+
+    def test_build_timestamps_arg_no_duplicate_chapter_mid(self):
+        chapters = [{"start_time": 0, "end_time": 180, "title": "Long Section"}]
+        cues = [{"start": 40.0, "text": "Here you can see the architecture diagram."}]
+        suggested = extract_youtube_transcript.suggest_keyframe_timestamps(cues=cues, chapters=chapters, duration=180)
+        ts_arg = extract_youtube_transcript.build_timestamps_arg(suggested, max_items=12)
+        tokens = ts_arg.split(",")
+        self.assertEqual(len(tokens), len(set(tokens)), f"Duplicate timestamp token generated: {tokens}")
+        self.assertEqual(len(tokens), 3)
+
+    def test_scaffold_raw_article_web_article_dedups_h1_and_formats_metadata(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            rel_w, status_w = download_post_assets.scaffold_raw_article(
+                "system-design-guide",
+                [{
+                    "index": 0,
+                    "filename": "00.png",
+                    "rel_path": "raw/screenshots/system-design-guide/00.png",
+                    "dimensions": "1440x606",
+                    "source_used": "url",
+                }],
+                tmp,
+                {
+                    "platform": "web_article",
+                    "raw_subdir": "ai-other",
+                    "title": "System Design for AI Engineers: 7 patterns",
+                    "source": "https://jamwithai.substack.com/p/system-design-for-ai-engineers-7",
+                    "author": "Jam With AI",
+                    "published": "2026-04-09T20:33:54+07:00",
+                    "text": "# System Design for AI Engineers: 7 patterns\n\n## 1. API Gateway\n\nBody paragraph.",
+                },
+            )
+            self.assertEqual(status_w, "created")
+            content = (Path(tmp) / rel_w).read_text(encoding="utf-8")
+            self.assertIn('  - "web-article"', content)
+            self.assertNotIn('  - "visual-guide"', content)
+            self.assertIn("Captured web article and diagrams for", content)
+            self.assertIn("- **Thời gian đăng:** 2026-04-09", content)
+            self.assertEqual(content.count("# System Design for AI Engineers: 7 patterns"), 1)
+            self.assertIn("## Hình Ảnh & Sơ Đồ Đính Kèm (1 ảnh)", content)
+            self.assertIn("### Hình 1 / 1 *(1440x606)*", content)
 
 
 if __name__ == "__main__":

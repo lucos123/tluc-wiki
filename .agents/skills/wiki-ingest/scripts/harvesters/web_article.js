@@ -49,12 +49,17 @@ async () => {
   const clone = root.cloneNode(true);
   for (const junk of clone.querySelectorAll(
     "script, style, noscript, nav, aside, footer, iframe, form, " +
-    "[role='navigation'], [role='complementary'], .sidebar, .comments, #comments, .related-posts, .share-buttons, .subscribe-widget"
+    "[role='navigation'], [role='complementary'], .sidebar, .comments, #comments, .related-posts, .share-buttons, " +
+    ".subscribe-widget, .subscription-widget, .subscription-widget-wrap, .captioned-button-wrap, .post-ufi, .facepile, " +
+    ".button-wrapper, [data-testid='subscribe-widget'], .newsletter-post-promo"
   )) {
     junk.remove();
   }
 
   const txtOf = (node) => node.textContent || "";
+  const isBoilerplate = (t) => /is a reader-supported publication\.\s*To receive new posts/i.test(t);
+  const stripTrailingPromo = (t) =>
+    t.replace(/([.!?])\s*[^.!?]*is a reader-supported publication\.\s*To receive new posts[\s\S]*$/i, "$1").trim();
   const cellText = (cell) => txtOf(cell).replace(/\s+/g, " ").replace(/\|/g, "\\|").trim();
 
   const convertTable = (tableEl) => {
@@ -106,14 +111,14 @@ async () => {
       for (const nl of Array.from(liClone.children).filter((c) => /^(ul|ol)$/i.test(c.tagName))) {
         nl.remove();
       }
-      const ownText = txtOf(liClone).replace(/\s+/g, " ").trim();
-      if (ownText) lines.push(`${"  ".repeat(listDepth)}- ${ownText}`);
+      const ownText = stripTrailingPromo(txtOf(liClone).replace(/\s+/g, " ").trim());
+      if (ownText && !isBoilerplate(ownText)) lines.push(`${"  ".repeat(listDepth)}- ${ownText}`);
       for (const nl of nestedLists) walk(nl, listDepth + 1);
       return;
     }
     if (tag === "p" || tag === "blockquote") {
-      const t = txtOf(el).replace(/\s+/g, " ").trim();
-      if (t) lines.push(tag === "blockquote" ? `\n> ${t}` : `\n${t}`);
+      const t = stripTrailingPromo(txtOf(el).replace(/\s+/g, " ").trim());
+      if (t && !isBoilerplate(t)) lines.push(tag === "blockquote" ? `\n> ${t}` : `\n${t}`);
       return;
     }
     for (const child of el.children) walk(child, listDepth);
@@ -192,7 +197,23 @@ async () => {
     text: structuredText,
     comments: [],
     external_links: Array.from(root.querySelectorAll('a[href^="http"]'))
-      .filter((a) => !a.closest("nav, aside, footer, .comments, #comments"))
+      .filter((a) => {
+        if (a.closest("nav, aside, footer, .comments, #comments, .post-ufi, .facepile, .subscription-widget-wrap, .captioned-button-wrap")) {
+          return false;
+        }
+        if (a.classList?.contains("image-link")) return false;
+        const h = a.href || "";
+        if (
+          h.includes("substackcdn.com/image/") ||
+          h.includes("substack.com/profile/") ||
+          h.includes("substack.com/note/") ||
+          h.includes("/restacks")
+        ) {
+          return false;
+        }
+        if (a.querySelector("img") && !(a.textContent || "").trim()) return false;
+        return true;
+      })
       .map((a) => a.href)
       .filter((v, i, a) => a.indexOf(v) === i)
       .slice(0, 25),
