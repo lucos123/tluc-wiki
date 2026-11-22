@@ -1261,6 +1261,29 @@ class FakeEl {
             self.assertEqual(len(sug_out["matches"]), 1)
             self.assertEqual(sug_out["matches"][0]["path"], "wiki/concepts/Amazon Web Services (AWS).md")
 
+            # Introducing a stray [[legacy wikilink]] causes register_ingest to block with status="error"
+            with open(root / "wiki" / "concepts" / "Harness Engineering.md", "a", encoding="utf-8") as f:
+                f.write("\nSee [[Amazon Web Services (AWS)]].\n")
+            proc_bad = subprocess.run(
+                [
+                    sys.executable, str(script_path),
+                    "--project-root", str(root),
+                    "--date", "2026-11-22",
+                    "--log-type", "ingest",
+                    "--source-title", "Harness Engineering",
+                    "--dry-run",
+                ],
+                capture_output=True, text=True, check=False,
+            )
+            self.assertEqual(proc_bad.returncode, 1)
+            bad_out = json.loads(proc_bad.stdout)
+            self.assertEqual(bad_out["status"], "error")
+            self.assertEqual(len(bad_out["errors"]["legacy_wikilinks"]), 1)
+            self.assertEqual(
+                bad_out["errors"]["legacy_wikilinks"][0]["wikilink"],
+                "[[Amazon Web Services (AWS)]]",
+            )
+
 
 if __name__ == "__main__":
     unittest.main()

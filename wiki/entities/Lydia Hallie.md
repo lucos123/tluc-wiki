@@ -25,5 +25,14 @@ In [Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic](../source
 - [Rethinking Claude Code Best Practices — Lydia Hallie, Anthropic](../sources/Rethinking%20Claude%20Code%20Best%20Practices%20%E2%80%94%20Lydia%20Hallie%2C%20Anthropic.md) (`2026-11-12`)
 
 ## Related Concepts & Entities
-- [Claude Code](Claude%20Code.md), [Anthropic](Anthropic.md), [AI Engineer](AI%20Engineer.md), [Thariq Shihipar](Thariq%20Shihipar.md)
-- [Cloud Agent Sandbox and Auto Mode](../concepts/Cloud%20Agent%20Sandbox%20and%20Auto%20Mode.md), [Unhobbling Claude](../concepts/Unhobbling%20Claude.md), [Deterministic Lifecycle Hooks](../concepts/Deterministic%20Lifecycle%20Hooks.md), [Verification Loop](../concepts/Verification%20Loop.md), [Parallel Agent Architecture](../concepts/Parallel%20Agent%20Architecture.md)
+- **Entities**:
+  - [Claude Code](Claude%20Code.md)
+  - [Anthropic](Anthropic.md)
+  - [AI Engineer](AI%20Engineer.md)
+  - [Thariq Shihipar](Thariq%20Shihipar.md)
+- **Concepts**:
+  - [Cloud Agent Sandbox and Auto Mode](../concepts/Cloud%20Agent%20Sandbox%20and%20Auto%20Mode.md)
+  - [Unhobbling Claude](../concepts/Unhobbling%20Claude.md)
+  - [Deterministic Lifecycle Hooks](../concepts/Deterministic%20Lifecycle%20Hooks.md)
+  - [Verification Loop](../concepts/Verification%20Loop.md)
+  - [Parallel Agent Architecture](../concepts/Parallel%20Agent%20Architecture.md)

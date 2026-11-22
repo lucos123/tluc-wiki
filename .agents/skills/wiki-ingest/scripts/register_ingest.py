@@ -445,6 +445,7 @@ def main():
         "orphan_pages",
         "missing_pages",
         "broken_links",
+        "legacy_wikilinks",
         "missing_frontmatter",
         "missing_fields",
         "duplicate_titles",

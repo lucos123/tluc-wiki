@@ -19,4 +19,6 @@ Active engineering project upgrading `tluc-wiki` into a 5-tier persistent contex
 
 ## Related Concepts
 
-- [Memory Architecture](../../wiki/concepts/Memory%20Architecture.md), [Harness Engineering](../../wiki/concepts/Harness%20Engineering.md), [Context Engineering](../../wiki/concepts/Context%20Engineering.md).
+- [Memory Architecture](../../wiki/concepts/Memory%20Architecture.md)
+- [Harness Engineering](../../wiki/concepts/Harness%20Engineering.md)
+- [Context Engineering](../../wiki/concepts/Context%20Engineering.md)
