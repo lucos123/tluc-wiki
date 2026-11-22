@@ -21,7 +21,7 @@ duration: "12m 06s"
 **Channel**: [[Jam With AI]] (`Jam With AI | Shirin Khosravi Jam`)
 **Speaker**: Shirin Khosravi Jam
 **URL**: https://www.youtube.com/watch?v=bK1clrG-boc *(Published 2026-08-28)*
-**Companion Substack Article**: https://jamwithai.substack.com/p/agent-memory-the-7-types-you-should
+**Companion Substack Article**: [[Agent Memory The 7 Types You Should Know]] (https://jamwithai.substack.com/p/agent-memory-the-7-types-you-should, *Published 2026-07-01*)
 **Duration**: 12m 06s
 **Transcript**: [[raw/video-transcripts/ai-agent-memory-7-types-explained-in-12-minutes.md]]
 **Curated Keyframes**: [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/01.jpg]], [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/02.jpg]], [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/03.jpg]], [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/04.jpg]], [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/05.jpg]], [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/06.jpg]], [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/07.jpg]], [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/08.jpg]], [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/09.jpg]], [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/10.jpg]], [[raw/screenshots/ai-agent-memory-7-types-explained-in-12-minutes/11.jpg]]
@@ -75,9 +75,10 @@ An architectural taxonomy of **AI Agent Memory** framed explicitly as a core pil
 
 ## Synthesis Notes
 - **Completing the Shirin / Jam With AI Triad**: Together with [[How a Production AI Agent System Actually Works]] (inner 9-layer Python runtime [[Production AI Agent Service Stack]]) and [[AI System Design 7 Patterns Explained in 17 Minutes]] (outer 7 infrastructure patterns [[Production AI Resilience and Scaling Patterns]]), this video supplies the **state, retrieval, and temporal trigger semantics** running inside LangGraph/Postgres/pgvector/Redis/queues—notably mapping **Prospective Memory** directly onto durable task tables + scheduler queues + idempotent workers.
+- **Companion Substack Precursor**: Expands upon the July 1, 2026 Substack guide [[Agent Memory The 7 Types You Should Know]] (Shantanu Ladhwe & Shirin Khosravi Jam), which anchors the taxonomy in **CoALA** / **MemGPT** / **Generative Agents**, separates **Stored vs. Active** and **What vs. Where** axes, details `Thread ID` checkpointers, reflection summaries, guardrail loops, graph/time lookups, and `Temporal` durable tasks—while this video supplies the end-to-end Maya Email Agent walkthrough omitted behind Substack's paywall plus stricter untrusted-input & idempotency guardrails.
 - **Terminology Clarification for Vault Graph**: Resolves a frequent conceptual collision across [[Retrieval-Augmented Generation and Vector DBs]] and [[Context Engineering]]: **Semantic Memory** *(fact store: what is true)* vs. **Semantic Search** *(vector similarity lookup over External Memory)*; additionally aligns **Procedural Memory** with [[Agent Skills Architecture]] & [[Memory Promotion Path]], and **Working Memory** limits with [[Context Rot]] & [[Context Window Management]].
 
 ## Related Pages
 - **Entities**: [[Jam With AI]]
 - **Concepts**: [[AI Agent Memory Types]], [[Context Engineering]], [[Context Rot]], [[Context Window Management]], [[Retrieval-Augmented Generation and Vector DBs]], [[Memory Architecture]], [[Memory Promotion Path]], [[Agent Skills Architecture]], [[Production AI Agent Service Stack]], [[Production AI Resilience and Scaling Patterns]], [[Product Evals and Error Analysis]]
-- **Sources**: [[How a Production AI Agent System Actually Works]], [[AI System Design 7 Patterns Explained in 17 Minutes]], [[What Is Context Engineering Why It Matters for AI Agents]]
+- **Sources**: [[Agent Memory The 7 Types You Should Know]], [[How a Production AI Agent System Actually Works]], [[AI System Design 7 Patterns Explained in 17 Minutes]], [[What Is Context Engineering Why It Matters for AI Agents]]

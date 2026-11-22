@@ -32,6 +32,7 @@ url: "https://www.youtube.com/@JamWithAI"
 ---
 
 ## Ingested Sources
+- [[Agent Memory The 7 Types You Should Know]] *(2026-07-01, Companion Substack w/ Shantanu Ladhwe)* — Written precursor anchoring the 7 memory types in CoALA/MemGPT/Generative Agents, distinguishing Stored-vs-Active and What-vs-Where axes, `Thread ID` checkpointers, episodic reflection, guardrail procedures, and `Temporal` prospective execution.
 - [[How a Production AI Agent System Actually Works]] *(2026-08-21, Video 1)* — Architectural breakdown of the inner 9-layer core Python production AI agent stack (`Uvicorn`/`FastAPI`, `Pydantic`, `LangGraph`, `Postgres + pgvector`, `Redis`, `LiteLLM`, `Langfuse`/`Opik`, `Pytest` + AI Evals, `uv`/`Ruff`).
 - [[AI Agent Memory 7 Types Explained in 12 Minutes]] *(2026-08-28)* — Architectural taxonomy of 7 AI Agent memory responsibilities (Working, Semantic, Episodic, Procedural, External, Parametric, Prospective) demonstrated end-to-end in an Email Agent.
 - [[AI System Design 7 Patterns Explained in 17 Minutes]] *(2026-09-10, Video 2)* — Complete video walkthrough of the 7 surrounding production infrastructure patterns wrapping the Core AI Service under load, plus AI observability and system design interview methodology.

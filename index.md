@@ -61,6 +61,7 @@ A catalog of everything in the knowledge base.
 
 
 
+
 ## Concepts
 - [[Advanced Prompting Patterns]]: Higher-order prompting strategies (ReAct, Tree-of-Thought, Self-Consistency, Prompt Chaining, Meta-Prompting) bridging prompts to agent loops.
 - [[Advisor Model Pattern]]: Dual-model escalation architecture in Claude Code (/advisor) delegating hard choices from Sonnet to Opus.
@@ -76,7 +77,7 @@ A catalog of everything in the knowledge base.
 - [[Agentic Coding Workflow]]: Structured 4-phase lifecycle (Explore → Plan → Implement → Commit) with empirical verification.
 - [[Agentic Engineering]]: Topic overview page covering Prompt, Context, Harness, Loop, and Graph Engineering pillars.
 - [[Agentic Workflow Recipes]]: Standardized prompt patterns for exploration, bug fixing, refactoring, testing, and PR creation.
-- [[AI Agent Memory Types]]: Seven functional AI agent memory responsibilities within Context Engineering (Working, Semantic, Episodic, Procedural, External/Retrieval, Parametric, and Prospective) showing 7 jobs != 7 databases.
+- [[AI Agent Memory Types]]: Seven functional AI agent memory responsibilities rooted in CoALA (Working/checkpointers, Semantic, Episodic/reflection, Procedural/guardrails, External/5-mode retrieval, Parametric, Prospective/Temporal) showing 7 jobs != 7 databases.
 - [[AI Code Migration]]: Six-step methodology for AI-assisted language/framework migrations at industrial scale.
 - [[AI Deployment Lifecycle and Environments]]: Seven-stage AI/ML application lifecycle, Dev vs Deployment, Training vs Inference, and Dev/Staging/Prod promotion.
 - [[AI Evaluation, Safety and Governance]]: BLEU/ROUGE/BERTScore & Red Teaming metrics, 4 AI Bias taxonomies, 5 Ethics pillars, and EU AI Act, NIST AI RMF, OECD, and UN governance frameworks.
@@ -204,6 +205,7 @@ A catalog of everything in the knowledge base.
 - [[5 Best Practices for Building AI Agent Skills]]: IBM Technology's guide on trigger descriptions, gotchas, progressive disclosure, deterministic scripts, and security.
 - [[7 AI Coding Trends to Watch This Year in 2026]]: Shifts in software development as AI integration matures, such as AI-native systems and context-aware tools.
 - [[Agent Harness explained in 8min]]: Caleb Writes Code's concise breakdown of the 3-stage evolution (Prompt → Context → Harness Engineering) and fresh-context loops.
+- [[Agent Memory The 7 Types You Should Know]]: Jam With AI's (Shantanu Ladhwe & Shirin Khosravi Jam) companion Substack blueprint anchoring the 7 agent memory types in CoALA/MemGPT/Generative Agents, Stored-vs-Active and What-vs-Where axes, Thread ID checkpointers, episodic reflection, guardrail procedures, and Temporal prospective execution.
 - [[Agent Skills in the SDK]]: Official Anthropic guide on programmatically integrating and filtering disk-based Agent Skills using the Claude Agent SDK.
 - [[AI 2027]]: Scenario forecasting the rapid development of superhuman AI and geopolitical tensions between 2025-2027.
 - [[AI Agent Memory 7 Types Explained in 12 Minutes]]: 12m 06s Jam With AI (Shirin Khosravi Jam) breakdown of the 7 AI Agent memory types, Saving vs. Remembering, Semantic Memory vs. Semantic Search, and end-to-end Email Agent walkthrough.
@@ -319,6 +321,7 @@ A catalog of everything in the knowledge base.
 - [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 - [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
+
 
 
 
