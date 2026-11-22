@@ -83,7 +83,7 @@ When tasks genuinely require multi-step execution over fixed chains (and justify
 
 ## 5. Surrounding Production Infrastructure & Traffic Layer (7 Patterns)
 
-While Sections 1–4 optimize what happens *inside* the core AI service (routing, RAG, tool schemas, escalations), scaling cleanly to `10,000+` concurrent users requires wrapping that unchanged core service (`FastAPI + Agent + Model + Data Store`) in **seven outer request-lifecycle patterns** detailed in [[Production AI Resilience and Scaling Patterns]] and [[AI System Design 7 Patterns Explained in 17 Minutes]]:
+While Sections 1–4 optimize what happens *inside* the core AI service (implemented cleanly via the 9-layer Python application stack in [[Production AI Agent Service Stack]] / [[How a Production AI Agent System Actually Works]]: `FastAPI`/`Uvicorn`, `Pydantic` validation, `LangGraph` checkpoints, `Postgres + pgvector`, `Redis`, `LiteLLM`, `Langfuse`/`Opik`, and `Pytest` + AI Evals), scaling cleanly to `10,000+` concurrent users requires wrapping that unchanged core service in **seven outer request-lifecycle patterns** detailed in [[Production AI Resilience and Scaling Patterns]] and [[AI System Design 7 Patterns Explained in 17 Minutes]]:
 
 1. **API Gateway vs. Model Gateway**: Centralize inbound validation, `request_id` tagging, and service routing without replacing FastAPI, while keeping outbound provider calls (`OpenAI`, `Anthropic`, local GPUs) behind an outbound model gateway.
 2. **Admission Control & Token-Aware Rate Limiting**: Gate **Start / Wait / Reject (`HTTP 429 Retry-After`)** using **RPM + input/output TPM + active model calls** rather than naive request counts alone.
@@ -96,8 +96,8 @@ While Sections 1–4 optimize what happens *inside* the core AI service (routing
 ---
 
 ## Related Pages
-- **Sources**: [[AI Engineer Interview Notes]], [[AI Deployment Notes]], [[AI System Design 7 Patterns Explained in 17 Minutes]]
-- **Infrastructure & Entities**: [[Production AI Resilience and Scaling Patterns]], [[Jam With AI]], [[Inference Serving and Deployment Patterns]], [[LLM Inference Optimization and Security]]
+- **Sources**: [[AI Engineer Interview Notes]], [[AI Deployment Notes]], [[How a Production AI Agent System Actually Works]], [[AI System Design 7 Patterns Explained in 17 Minutes]], [[System Design for AI Engineers 7 Patterns]]
+- **Infrastructure & Entities**: [[Production AI Agent Service Stack]], [[Production AI Resilience and Scaling Patterns]], [[Jam With AI]], [[Inference Serving and Deployment Patterns]], [[LLM Inference Optimization and Security]]
 - **Retrieval & Alignment**: [[Retrieval-Augmented Generation and Vector DBs]], [[LLM Fine-Tuning and Alignment]], [[Prompt Engineering]]
 - **Evals & Economics**: [[LLM-as-a-Judge and Eval Alignment]], [[Product Evals and Error Analysis]], [[Cost Optimization]], [[Inference Speed vs Intelligence Trade-off]]
 - **Agents & Serving**: [[Agentic Engineering]], [[Domain-Specific Agents]], [[Memory Architecture]]

@@ -59,6 +59,7 @@ A catalog of everything in the knowledge base.
 - [[Warp]]: Modern AI-powered terminal and developer environment founded by Zach Lloyd featuring Oz orchestration and self-improving agent skills.
 
 
+
 ## Concepts
 - [[Advanced Prompting Patterns]]: Higher-order prompting strategies (ReAct, Tree-of-Thought, Self-Consistency, Prompt Chaining, Meta-Prompting) bridging prompts to agent loops.
 - [[Advisor Model Pattern]]: Dual-model escalation architecture in Claude Code (/advisor) delegating hard choices from Sonnet to Opus.
@@ -153,6 +154,7 @@ A catalog of everything in the knowledge base.
 - [[Poteto Trust Pyramid]]: Five-layer inverse trust hierarchy prioritizing deterministic codebase design and AST lint rules (167 rules) over runtime/formal verification, prose (AGENTS.md), and human review.
 - [[Preserved Thinking]]: Pattern of retaining historical reasoning_content across multi-turn messages to preserve continuous chain-of-thought.
 - [[Product Evals and Error Analysis]]: Workflow contrasting domain-specific product evals against foundation benchmarks using traces, failure taxonomies, and binary gates.
+- [[Production AI Agent Service Stack]]: 9-layer internal Python production AI agent stack (FastAPI/Uvicorn, Pydantic validation, LangGraph checkpoints, Postgres+pgvector, Redis, LiteLLM gateway, Langfuse/Opik traces, Pytest+AI Evals, uv/Ruff) treating tools as replaceable implementations of enduring responsibilities.
 - [[Production AI Resilience and Scaling Patterns]]: Seven surrounding infrastructure patterns (API vs Model Gateway, token/Denial-of-Wallet Admission Control, tenant/semantic Caching, lane-isolated Message Queues, Timeouts/Retries/Circuit Breakers/Bulkheads, weighted/stateless Load Balancing, GPU/predictive Autoscaling) + observability triad.
 - [[Programmatic Tool Calling]]: Model capability to write and execute code for filtering data and dynamically orchestrating tool calls.
 - [[Progressive Disclosure]]: Context engineering pattern loading instructions, tools, and skills on demand (e.g. ToolSearch, tree CLAUDE.md).
@@ -246,6 +248,7 @@ A catalog of everything in the knowledge base.
 - [[Harness Engineering]]: Goon Nguyen's breakdown of why the ecosystem around the model matters more than the model itself.
 - [[Harness vs Model costs explained]]: Caleb Writes Code's breakdown of system prompt tollgates, harness cost variance, Jevons' Paradox, and prompt caching economics.
 - [[Hooks reference]]: Official Anthropic reference manual documenting all 31 hook lifecycle events, input/output schemas, and exit codes.
+- [[How a Production AI Agent System Actually Works]]: 11m 41s Jam With AI (Shirin Khosravi Jam) Video 1 architectural walkthrough separating the inner core AI application stack from outer deployment infrastructure.
 - [[How Anthropic runs large-scale code migrations with Claude Code]]: Anthropic's six-step AI migration methodology; Bun Zig→Rust (1M lines, $165K) and Python→TypeScript (165K lines, 1 weekend).
 - [[How Claude Code uses prompt caching]]: Official Anthropic guide on prompt caching, prefix matching, invalidation triggers, and TTL.
 - [[How Claude remembers your project]]: Official Anthropic guide on dual memory architecture (CLAUDE.md vs Auto Memory), load order, and path-scoped rules.
@@ -313,6 +316,7 @@ A catalog of everything in the knowledge base.
 - [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 - [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
+
 
 
 

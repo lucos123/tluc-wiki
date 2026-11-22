@@ -66,6 +66,7 @@ See [[Production AI Resilience and Scaling Patterns]] for a full architectural s
 ---
 
 ## Synthesis Notes
+- **Video 1 Inner Core + Video 2 Outer Wrapper**: Direct sequel to [[How a Production AI Agent System Actually Works]] *(2026-08-21)*, which defines the internal 9-layer Core AI Service ([[Production AI Agent Service Stack]]) that this video zooms out from and wraps in seven outer request-lifecycle infrastructure patterns ([[Production AI Resilience and Scaling Patterns]]).
 - **Complementary Two-Halves Blueprint**: Whereas [[AI System Design and Production Architecture]] (`koteswar.AI`, [[AI Engineer Interview Notes]]) details the *internal* orchestration of a 10M-user support system (intent routing, Hybrid RAG + Cross-Encoder rerank, tool contracts, escalation queue), Shirin Khosravi Jam's 7 patterns define the *outer request-lifecycle wrapper* protecting that inner core (`FastAPI` + `Agent` + `Data Store` + `Model`) from bursts, slow third-party APIs, and cold-start cliffs.
 - **Written Substack Precursor**: Builds upon [[System Design for AI Engineers 7 Patterns]] *(2026-04-09)*, extending those interview patterns (Denial-of-Wallet defense, weighted/least-connections `vLLM` balancing, semantic caching) with explicit Model Gateway separation, Live vs. Batch worker lane isolation, PostgreSQL/Redis external state stores, and the Metrics + Traces + Evals triad.
 - **Terminology Precision**: Distinguishes **API Gateway** (client-facing ingress, paired with FastAPI) from **Model Gateway** (provider-facing egress to OpenAI/Anthropic), and **API Gateway vs. Load Balancer** (route selection & request hygiene vs. replica-level health distribution).
@@ -73,5 +74,5 @@ See [[Production AI Resilience and Scaling Patterns]] for a full architectural s
 
 ## Related Pages
 - **Entities**: [[Jam With AI]]
-- **Concepts**: [[Production AI Resilience and Scaling Patterns]], [[AI System Design and Production Architecture]], [[Inference Serving and Deployment Patterns]], [[LLM Inference Optimization and Security]], [[System Prompt Caching Optimization]], [[Product Evals and Error Analysis]], [[Closed-Loop Evals]]
-- **Sources**: [[System Design for AI Engineers 7 Patterns]], [[AI Engineer Interview Notes]], [[AI Deployment Notes]]
+- **Concepts**: [[Production AI Resilience and Scaling Patterns]], [[Production AI Agent Service Stack]], [[AI System Design and Production Architecture]], [[Inference Serving and Deployment Patterns]], [[LLM Inference Optimization and Security]], [[System Prompt Caching Optimization]], [[Product Evals and Error Analysis]], [[Closed-Loop Evals]]
+- **Sources**: [[How a Production AI Agent System Actually Works]], [[System Design for AI Engineers 7 Patterns]], [[AI Engineer Interview Notes]], [[AI Deployment Notes]]
