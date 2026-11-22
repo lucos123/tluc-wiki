@@ -65,6 +65,7 @@ A catalog of everything in the knowledge base.
 
 
 
+
 ## Concepts
 - [[Advanced Prompting Patterns]]: Higher-order prompting strategies (ReAct, Tree-of-Thought, Self-Consistency, Prompt Chaining, Meta-Prompting) bridging prompts to agent loops.
 - [[Advisor Model Pattern]]: Dual-model escalation architecture in Claude Code (/advisor) delegating hard choices from Sonnet to Opus.
@@ -78,7 +79,7 @@ A catalog of everything in the knowledge base.
 - [[Agent Skills Security Audit]]: Security verification protocol for auditing third-party agent skills to prevent prompt injection and malware.
 - [[Agent Teams Architecture]]: Multi-session peer collaboration pattern running a Lead Agent and independent Teammates with shared task backlogs and direct messaging.
 - [[Agentic Coding Workflow]]: Structured 4-phase lifecycle (Explore → Plan → Implement → Commit) with empirical verification.
-- [[Agentic Engineering]]: Topic overview page covering Prompt, Context, Harness, Loop, and Graph Engineering pillars.
+- [[Agentic Engineering]]: Topic overview and 11-layer learning/production roadmap unifying Prompt, Context, Harness, Loop, and Graph Engineering with Memory/RAG, Evals, Observability, Scaling, and AI Gateway layers.
 - [[Agentic Workflow Recipes]]: Standardized prompt patterns for exploration, bug fixing, refactoring, testing, and PR creation.
 - [[AI Agent Memory Types]]: Seven functional AI agent memory responsibilities rooted in CoALA (Working/checkpointers, Semantic, Episodic/reflection, Procedural/guardrails, External/5-mode retrieval, Parametric, Prospective/Temporal) showing 7 jobs != 7 databases.
 - [[AI Code Migration]]: Six-step methodology for AI-assisted language/framework migrations at industrial scale.
@@ -283,6 +284,7 @@ A catalog of everything in the knowledge base.
 - [[Machine Learning Basics Notes]]: 9-page Vietnamese handwritten visual notebook covering ML workflow, data types, 5-step preprocessing, Feature Engineering, fit diagnostics, Cross-Validation, and Python ML libraries.
 - [[Manage costs effectively]]: Official Anthropic guide on cost tracking (/usage), org limits, and token reduction strategies.
 - [[Managing Agent Skills]]: Guide to slash commands, terminal utilities, and discovery tiers for Gemini Agent Skills.
+- [[Master AI Agents Roadmap Blueprint]]: 11-layer AI Agent engineering visual roadmap spanning Python/FastAPI, LLM/Prompting, Agent Core, Tool Calling, Memory/RAG, Multi-Agent patterns, Evals/Guardrails, Observability, Deployment, and AI Gateway/Security.
 - [[Maximizing the Value of Your Claude Code Sessions]]: Anthropic guide on session cost mechanics, prefill vs decode (~5x), prompt cache prefix preservation, @-mentions, and noisy command mitigation.
 - [[Memory Architecture Reference Notes]]: Reference diagram (2nd-brain.jpg) detailing 5-tier directory structure and compounding feedback loop.
 - [[Modifying system prompts]]: Official Anthropic guide on system prompt presets, output styles, append, and excludeDynamicSections prompt caching.
@@ -329,6 +331,7 @@ A catalog of everything in the knowledge base.
 - [[AI Pair Programming Preferences]]: Work preferences and collaboration rules for Gemini AI.
 - [[gemini]]: Second Brain identity, user profile, operating preferences, career focus, and active goals.
 - [[tluc-wiki 2nd Brain Architecture]]: Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
+
 
 
 

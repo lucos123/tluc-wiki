@@ -2,13 +2,13 @@
 name: wiki-ingest
 description: >
   Ingest a new raw source document (web article, social media post on Facebook/X/LinkedIn/Instagram,
-  visual slide deck/infographic, PDF whitepaper, YouTube video URL, work note, or transcript)
+  visual slide deck/infographic, uploaded or local image, PDF whitepaper, YouTube video URL, work note, or transcript)
   into the wiki. Triggers when the user asks to ingest, add, import, collect, download images,
-  process, or summarize a source or URL via /wiki-ingest or natural language.
+  process, or summarize a source, uploaded image, or URL via /wiki-ingest or natural language.
 when_to_use: >
-  Use whenever an article, social media post, visual slide deck, URL, video, PDF, or work note
+  Use whenever an article, social media post, visual slide deck, uploaded infographic, URL, video, PDF, or work note
   needs to be captured into raw/, summarized, and integrated into the tluc-wiki knowledge graph.
-argument-hint: "<url | path-to-raw-file>"
+argument-hint: "<url | path-to-raw-file | uploaded-image>"
 allowed-tools:
   - run_command
   - read_file
@@ -33,19 +33,20 @@ All raw files must reside in structured subfolders under `raw/`:
 
 | Source Type | Subfolder Target | Extraction Protocol |
 |-------------|------------------|---------------------|
-| **Web Article / Docs (HTTP URL)** | `raw/articles/<topic>/` + `raw/assets/` | Follow `references/social-post-ingest-guide.md`: 1) `get_harvester.py --url <URL>` (`web_article.js` clean Markdown + GFM tables + figure URLs), 2) `download_post_assets.py --from-harvest-file <steps/N/output.txt> --slug <slug> --mode auto --init-raw` (writes full text directly to `raw/` without context bloat), then Step 2 |
+| **Web Article / Docs (HTTP URL)** | `raw/articles/<topic>/` + `raw/assets/` | Follow `references/social-post-ingest-guide.md` v4.3: 1) `get_harvester.py --url <URL>` (`web_article.js` clean Markdown + GFM tables + figure URLs), 2) `download_post_assets.py --from-harvest-file <steps/N/output.txt> --slug <slug> --mode auto --init-raw` (writes full text directly to `raw/` without context bloat), then Step 2 |
 | **Social Post / Visual Deck (FB, IG, X, LinkedIn)** | `raw/screenshots/<slug>/` or `raw/assets/` + `raw/articles/<topic>/<slug>.md` | Follow `references/social-post-ingest-guide.md` v4.3: 1) `get_harvester.py --url <URL>` (duplicate check + YouTube/PDF guard + single `harvesters/<platform>.js` prompt + **Zero-URL-Relay**), 2) `download_post_assets.py --from-harvest-file` (`--probe-cover` + `--mode auto`), 3) Batch `read_file` (5–7 images/turn) |
+| **Collected / Uploaded Images & Infographics (1–N local files)** | `raw/assets/` (`1–3`) or `raw/screenshots/<slug>/` (`>= 4`) | Follow `references/local-image-ingest-guide.md` v4.4: 1) Visually inspect uploaded/local image(s) via `read_file`, 2) Archive cleanly with `download_post_assets.py --slug <slug> --mode auto --local-files <paths...>` (SHA-256 dedup check; add `--init-raw` if multi-page deck/notes), 3) Transcribe & compound into `wiki/` |
 | **PDF Whitepaper / Book** | `raw/pdfs/` | Read PDF content, save to `raw/pdfs/`, then Step 1 |
 | **YouTube / Video URL** | `raw/video-transcripts/` + `raw/screenshots/<slug>/` | Follow `references/video-ingest-guide.md`: 1) `extract_youtube_transcript.py <URL> --json` (chapters + `[MM:SS]` cues + `related_wiki_pages`), 2) `capture_youtube_keyframes.py` (1080p smart-probed slides + `--keep/--drop` curation), 3) Batch `read_file` to verify & synthesize slides |
 | **Work Notes & Drafts** | `raw/notes/<category>/` | Read note file in `raw/notes/`, then Step 1 |
-| **Standalone Attachments / Images (1–3)** | `raw/assets/` | Download via `download_post_assets.py --mode assets` or store for referencing |
 
 ## 2. Ingest Pipeline (Capture $\rightarrow$ Extract $\rightarrow$ Add to Wiki)
 
 ### Step 1 — Pre-Flight Check & Capture
-1. Verify the source file `$ARGUMENTS` exists in `raw/` (or capture HTTP/HTTPS URL into `raw/` first):
+1. Verify the source file `$ARGUMENTS` exists in `raw/` (or capture HTTP/HTTPS URL or uploaded image into `raw/` first):
    - For **YouTube/Video**, follow the **3-Stage Multimodal Pipeline** in `references/video-ingest-guide.md` (`extract_youtube_transcript.py --json` for chaptered `[MM:SS]` transcript + `related_wiki_pages` + `safe_source_page_name` $\rightarrow$ `capture_youtube_keyframes.py` with 3-frame smart probing & `--keep/--drop` curation $\rightarrow$ batch `read_file` to verify visual slides).
-   - For **Facebook / Instagram / X / LinkedIn posts & Web Articles**, follow the **v4 Multi-Domain Pipeline** in `references/social-post-ingest-guide.md`: run `python .agents/skills/wiki-ingest/scripts/get_harvester.py --url "<URL>"` to verify non-duplication and fetch the single platform-matched JS snippet prompt (`Snippets A–E`) with **Zero-URL-Relay** (`steps/<N>/output.txt` $\rightarrow$ `download_post_assets.py --from-harvest-file` + `--mode auto`), then read native `.jpg`/`.png`/`.webp` images in parallel `read_file` batches of **5–7 images per turn**.
+   - For **Facebook / Instagram / X / LinkedIn posts & Web Articles**, follow the **v4.3 Multi-Domain Pipeline** in `references/social-post-ingest-guide.md`: run `python .agents/skills/wiki-ingest/scripts/get_harvester.py --url "<URL>"` to verify non-duplication and fetch the single platform-matched JS snippet prompt (`Snippets A–E`) with **Zero-URL-Relay** (`steps/<N>/output.txt` $\rightarrow$ `download_post_assets.py --from-harvest-file` + `--mode auto`), then read native `.jpg`/`.png`/`.webp` images in parallel `read_file` batches of **5–7 images per turn**.
+   - For **Uploaded / Local Collected Images & Infographics**, follow `references/local-image-ingest-guide.md`: inspect images with `read_file`, archive into `raw/assets/` or `raw/screenshots/<slug>/` via `download_post_assets.py --local-files --mode auto` (with automatic SHA-256 duplicate detection), and transcribe into `wiki/`.
    - **Language Policy**: Keep native-language visual assets unmodified in `raw/screenshots/` or `raw/assets/`; write `raw/articles/` notes cleanly in Vietnamese paired with verbatim English terminology/formulas, and write `wiki/` pages in the matching canonical language (primarily English with bilingual notes where appropriate).
 2. Check `wiki/log.md` to prevent duplicate ingestion.
 3. Map existing concepts/entities without wasting extra file scans: use `related_wiki_pages` returned by `extract_youtube_transcript.py --json`, run `python .agents/skills/wiki-ingest/scripts/register_ingest.py --suggest-links "<keywords>"`, or inspect `index.md` directly only when broad manual lookup is needed.

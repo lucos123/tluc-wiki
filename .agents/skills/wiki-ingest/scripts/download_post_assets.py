@@ -1,12 +1,13 @@
 """
-Deterministic Social & Web Asset Downloader for wiki-ingest (v4.3).
+Deterministic Social & Web Asset Downloader for wiki-ingest (v4.4).
 
-Concurrently downloads high-resolution post/article images (or falls back to local
-screenshots) into raw/screenshots/<slug>/ or raw/assets/ using pure Python
-standard library modules (zero external dependencies like PIL/requests).
+Concurrently downloads high-resolution post/article images (or archives local/uploaded
+images with SHA-256 duplicate detection) into raw/screenshots/<slug>/ or raw/assets/
+using pure Python standard library modules (zero external dependencies like PIL/requests).
 
 Supports Zero-URL-Relay parsing from Chrome DevTools `steps/<N>/output.txt`
-(`--from-harvest-file`), Cover-First probing (`--probe-cover`), Auto storage routing
+(`--from-harvest-file`), Local/Uploaded image ingestion (`--local-files`),
+Cover-First probing (`--probe-cover`), Auto storage routing
 (`--mode auto`: 1-3 -> assets, >=4 -> screenshots), non-AVIF content negotiation,
 automatic domain-matched Referer fallback on HTTP 401/403, paywall metadata capture,
 and multi-author YAML normalization.
@@ -19,6 +20,7 @@ Usage:
 
 import argparse
 import concurrent.futures
+import hashlib
 import json
 import os
 import re
@@ -197,7 +199,41 @@ def build_md_embed(mode, slug, filename, idx_num):
     return f"![Asset {idx_num:02d}](../../assets/{filename})"
 
 
-def _build_item_result(task, filename, dest_path, byte_count, ext, dims, source_used, url_error=None):
+def _find_existing_raw_image_by_sha256(digest, project_root):
+    """Return relative path of first byte-identical image in raw/assets/ or raw/screenshots/, or None."""
+    if not digest or not project_root:
+        return None
+    for sub in ("assets", "screenshots"):
+        base_dir = os.path.join(project_root, "raw", sub)
+        if not os.path.isdir(base_dir):
+            continue
+        for root_dir, _, filenames in os.walk(base_dir):
+            for fname in sorted(filenames):
+                fpath = os.path.join(root_dir, fname)
+                try:
+                    h = hashlib.sha256()
+                    with open(fpath, "rb") as f:
+                        for chunk in iter(lambda: f.read(65536), b""):
+                            h.update(chunk)
+                    if h.hexdigest() == digest:
+                        return _safe_relpath(fpath, project_root)
+                except OSError:
+                    continue
+    return None
+
+
+def _build_item_result(
+    task,
+    filename,
+    dest_path,
+    byte_count,
+    ext,
+    dims,
+    source_used,
+    url_error=None,
+    sha256=None,
+    duplicate_of=None,
+):
     """Build normalized metadata dict for a successfully acquired asset."""
     rel_path = _safe_relpath(dest_path, task["project_root"])
     result = {
@@ -211,6 +247,10 @@ def _build_item_result(task, filename, dest_path, byte_count, ext, dims, source_
         "dimensions": dims,
         "source_used": source_used,
     }
+    if sha256:
+        result["sha256"] = sha256[:12]
+    if duplicate_of:
+        result["duplicate_existing_path"] = duplicate_of
     if url_error is not None:
         result["url_error"] = url_error
     if task.get("note"):
@@ -221,6 +261,7 @@ def _build_item_result(task, filename, dest_path, byte_count, ext, dims, source_
 def process_item(task):
     """Download or copy a single asset and return structured metadata."""
     idx_num = task["index"]
+    local_file = task.get("local_file")
     url = task.get("url")
     fallback = task.get("fallback")
     mode = task["mode"]
@@ -235,6 +276,38 @@ def process_item(task):
             return os.path.basename(explicit_dest), os.path.abspath(explicit_dest)
         fname = build_target_filename(mode, slug, idx_num, ext_val)
         return fname, os.path.join(out_dir, fname)
+
+    if local_file:
+        if os.path.isfile(local_file):
+            with open(local_file, "rb") as f:
+                local_data = f.read()
+            digest = hashlib.sha256(local_data).hexdigest()
+            ext, dims = detect_image_info(local_data)
+            ext = ext or os.path.splitext(local_file)[1].lstrip(".").lower() or "png"
+            dup = (
+                None
+                if task.get("skip_dup_check")
+                else _find_existing_raw_image_by_sha256(digest, task["project_root"])
+            )
+            filename, dest_path = resolve_dest(ext)
+            if os.path.abspath(local_file) != os.path.abspath(dest_path):
+                shutil.copy2(local_file, dest_path)
+            return _build_item_result(
+                task,
+                filename,
+                dest_path,
+                len(local_data),
+                ext,
+                dims,
+                "local",
+                sha256=digest,
+                duplicate_of=dup,
+            )
+        return {
+            "index": idx_num,
+            "source_used": "failed",
+            "error": f"Local image file not found: {local_file}",
+        }
 
     err_msg = None
     if url:
@@ -358,7 +431,7 @@ def resolve_storage_mode(requested_mode, item_count):
 
 
 def _normalize_manifest_items(manifest):
-    """Normalize 'items', 'slides', 'results', or flat 'urls'/'fallbacks' arrays into item dicts."""
+    """Normalize 'items', 'slides', 'results', or flat 'urls'/'fallbacks'/'local_files' arrays into item dicts."""
     raw_items_in = manifest.get("items") or manifest.get("slides") or manifest.get("results")
     if raw_items_in:
         normalized = []
@@ -368,16 +441,32 @@ def _normalize_manifest_items(manifest):
             elif isinstance(entry, dict):
                 url = entry.get("url") or entry.get("src")
                 fallback = entry.get("fallback")
-                if not url and not fallback:
+                local_file = entry.get("local_file")
+                if not url and not fallback and not local_file:
                     continue
                 item = {
                     "url": url,
                     "fallback": fallback,
                 }
+                if local_file:
+                    item["local_file"] = local_file
                 note = entry.get("note") or entry.get("transcription")
                 if note:
                     item["note"] = note
                 normalized.append(item)
+        return normalized
+
+    local_files = manifest.get("local_files") or []
+    if local_files:
+        notes = manifest.get("notes") or []
+        normalized = []
+        for i, lf in enumerate(local_files):
+            if not lf:
+                continue
+            item = {"local_file": lf}
+            if isinstance(notes, list) and i < len(notes) and notes[i]:
+                item["note"] = notes[i]
+            normalized.append(item)
         return normalized
 
     urls = manifest.get("urls") or []
@@ -416,7 +505,7 @@ def load_manifest_or_args(args):
         else:
             with open(manifest_file, "r", encoding="utf-8") as f:
                 config = json.load(f)
-            default_mode = "screenshots"
+            default_mode = "auto" if config.get("local_files") else "screenshots"
         raw_items = _normalize_manifest_items(config)
         slug = args.slug or config.get("slug") or ("probe-cover" if probe_cover else None)
         mode = resolve_storage_mode(requested_mode or config.get("mode") or default_mode, len(raw_items))
@@ -427,18 +516,24 @@ def load_manifest_or_args(args):
         )
     else:
         slug = args.slug or ("probe-cover" if probe_cover else None)
-        urls = args.urls or []
-        fallbacks = args.fallbacks or []
-        count = max(len(urls), len(fallbacks))
-        raw_items = [
-            {
-                "url": urls[i] if i < len(urls) else None,
-                "fallback": fallbacks[i] if i < len(fallbacks) else None,
-            }
-            for i in range(count)
-            if (urls[i] if i < len(urls) else None) or (fallbacks[i] if i < len(fallbacks) else None)
-        ]
-        mode = resolve_storage_mode(requested_mode or "screenshots", len(raw_items))
+        local_files = getattr(args, "local_files", None) or []
+        if local_files:
+            raw_items = [{"local_file": p} for p in local_files if p]
+            default_cli_mode = "auto"
+        else:
+            urls = args.urls or []
+            fallbacks = args.fallbacks or []
+            count = max(len(urls), len(fallbacks))
+            raw_items = [
+                {
+                    "url": urls[i] if i < len(urls) else None,
+                    "fallback": fallbacks[i] if i < len(fallbacks) else None,
+                }
+                for i in range(count)
+                if (urls[i] if i < len(urls) else None) or (fallbacks[i] if i < len(fallbacks) else None)
+            ]
+            default_cli_mode = "screenshots"
+        mode = resolve_storage_mode(requested_mode or default_cli_mode, len(raw_items))
         start_index = (
             args.start_index
             if args.start_index is not None
@@ -448,7 +543,9 @@ def load_manifest_or_args(args):
     if not slug:
         raise ValueError("--slug is required (either via CLI or inside --manifest)")
     if not raw_items and not allow_empty:
-        raise ValueError("Provide at least one image via --urls, --fallbacks, --manifest, or --from-harvest-file")
+        raise ValueError(
+            "Provide at least one image via --urls, --fallbacks, --local-files, --manifest, or --from-harvest-file"
+        )
 
     return slug, mode, start_index, raw_items
 
@@ -502,7 +599,12 @@ def extract_raw_meta(args, harvest_meta=None):
 
     return {
         "init_raw": bool(getattr(args, "init_raw", False) or manifest.get("init_raw", False)),
-        "platform": manifest.get("platform") or hmeta.get("platform"),
+        "platform": (
+            getattr(args, "platform", None)
+            or manifest.get("platform")
+            or hmeta.get("platform")
+            or ("local_image" if getattr(args, "local_files", None) else None)
+        ),
         "raw_subdir": getattr(args, "raw_subdir", None) or manifest.get("raw_subdir") or "ai-other",
         "title": getattr(args, "raw_title", None) or manifest.get("raw_title") or hmeta.get("title"),
         "source": getattr(args, "raw_source", None) or manifest.get("raw_source") or hmeta.get("url"),
@@ -607,6 +709,8 @@ def scaffold_raw_article(slug, files, project_root, meta):
             if ok_files
             else f"Captured web article for {title}."
         )
+    elif platform == "local_image":
+        default_desc = f"Collected visual reference and infographic notes for {title}."
     else:
         default_desc = f"Visual guide and captured slides for {title}."
     description = meta.get("description") or default_desc
@@ -614,7 +718,14 @@ def scaffold_raw_article(slug, files, project_root, meta):
     if platform == "web_article" and post_text:
         post_text = _strip_duplicate_leading_h1(post_text, title)
     external_links = meta.get("external_links") or []
-    tags = meta.get("tags") or (["clippings", "web-article"] if platform == "web_article" else ["clippings", "visual-guide"])
+    if meta.get("tags"):
+        tags = meta["tags"]
+    elif platform == "web_article":
+        tags = ["clippings", "web-article"]
+    elif platform == "local_image":
+        tags = ["clippings", "visual-guide", "infographic"]
+    else:
+        tags = ["clippings", "visual-guide"]
     meta_notes = meta.get("notes") or []
 
     lines = [
@@ -647,6 +758,8 @@ def scaffold_raw_article(slug, files, project_root, meta):
     ])
     if source_url:
         lines.append(f"- **Nguồn bài viết:** {source_url}")
+    elif platform == "local_image":
+        lines.append("- **Nguồn lưu trữ:** Hình ảnh sưu tầm cục bộ (Local / Uploaded Image)")
     if published:
         lines.append(f"- **Thời gian đăng:** {_format_display_published(published)}")
     if meta.get("paywalled"):
@@ -737,6 +850,16 @@ def main():
     )
     parser.add_argument("--urls", nargs="*", help="Ordered list of direct image URLs")
     parser.add_argument("--fallbacks", nargs="*", help="Ordered list of local screenshot fallback paths")
+    parser.add_argument(
+        "--local-files",
+        nargs="*",
+        help="Ordered list of local/uploaded image files to archive into raw/assets/ or raw/screenshots/",
+    )
+    parser.add_argument(
+        "--platform",
+        default=None,
+        help="Optional platform override (auto-set to 'local_image' when --local-files is used)",
+    )
     parser.add_argument("--manifest", help="Optional JSON manifest file defining slug, mode, and items")
     parser.add_argument(
         "--from-harvest-file",
@@ -787,6 +910,7 @@ def main():
                 "index": start_index,
                 "url": raw_items[0].get("url"),
                 "fallback": raw_items[0].get("fallback"),
+                "local_file": raw_items[0].get("local_file"),
                 "note": raw_items[0].get("note"),
                 "mode": mode,
                 "slug": slug,
@@ -808,6 +932,7 @@ def main():
                 "index": start_index + i,
                 "url": item.get("url"),
                 "fallback": item.get("fallback"),
+                "local_file": item.get("local_file"),
                 "note": item.get("note"),
                 "mode": mode,
                 "slug": slug,

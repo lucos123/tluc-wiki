@@ -1085,6 +1085,76 @@ class FakeEl {
             self.assertIn("paywalled: true", content)
             self.assertIn("- **Trạng thái paywall:**", content)
 
+    def test_download_post_assets_local_files_auto_routing_dedup_and_scaffold(self):
+        import argparse
+        import json
+        import subprocess
+
+        minimal_png = (
+            b"\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x04\x00\x00\x00\x04"
+            b"\x08\x02\x00\x00\x00\x00\x00\x00\x00" + (b"\x00" * 32)
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            tdir = Path(tmp)
+            (tdir / "index.md").write_text("# Index\n", encoding="utf-8")
+            upload_dir = tdir / "uploads"
+            upload_dir.mkdir(parents=True)
+            img1 = upload_dir / "roadmap.png"
+            img1.write_bytes(minimal_png)
+
+            script_path = Path(__file__).resolve().parent / "download_post_assets.py"
+            proc1 = subprocess.run(
+                [
+                    sys.executable, str(script_path),
+                    "--slug", "ai-agents-roadmap",
+                    "--mode", "auto",
+                    "--local-files", str(img1),
+                    "--init-raw",
+                    "--raw-subdir", "ai-other",
+                    "--raw-title", "AI Agents Roadmap Blueprint",
+                    "--project-root", str(tdir),
+                ],
+                capture_output=True, text=True, check=True,
+            )
+            rep1 = json.loads(proc1.stdout)
+            self.assertEqual(rep1["status"], "ok")
+            self.assertEqual(rep1["mode"], "assets")
+            self.assertEqual(rep1["files"][0]["source_used"], "local")
+            self.assertEqual(rep1["files"][0]["rel_path"], "raw/assets/ai-agents-roadmap-01.png")
+            self.assertEqual(len(rep1["files"][0]["sha256"]), 12)
+            self.assertNotIn("duplicate_existing_path", rep1["files"][0])
+            self.assertTrue((tdir / "raw" / "assets" / "ai-agents-roadmap-01.png").is_file())
+
+            raw_md = (tdir / rep1["raw_scaffold_path"]).read_text(encoding="utf-8")
+            self.assertIn('  - "infographic"', raw_md)
+            self.assertIn("Collected visual reference and infographic notes for AI Agents Roadmap Blueprint.", raw_md)
+            self.assertIn("- **Nguồn lưu trữ:**", raw_md)
+
+            # Second archival with byte-identical file under a different slug reports duplicate_existing_path
+            proc2 = subprocess.run(
+                [
+                    sys.executable, str(script_path),
+                    "--slug", "ai-agents-roadmap-copy",
+                    "--mode", "auto",
+                    "--local-files", str(img1),
+                    "--project-root", str(tdir),
+                ],
+                capture_output=True, text=True, check=True,
+            )
+            rep2 = json.loads(proc2.stdout)
+            self.assertEqual(rep2["status"], "ok")
+            self.assertEqual(rep2["files"][0]["duplicate_existing_path"], "raw/assets/ai-agents-roadmap-01.png")
+
+            # 4 local files auto-route to screenshots mode starting at 0
+            four_files = [str(img1)] * 4
+            args_4 = argparse.Namespace(
+                from_harvest_file=None, manifest=None, slug="four-local-deck",
+                mode=None, start_index=None, urls=None, fallbacks=None,
+                local_files=four_files, probe_cover=None,
+            )
+            slug4, mode4, start4, items4 = download_post_assets.load_manifest_or_args(args_4)
+            self.assertEqual((slug4, mode4, start4, len(items4)), ("four-local-deck", "screenshots", 0, 4))
+
 
 if __name__ == "__main__":
     unittest.main()
