@@ -49,6 +49,7 @@ tluc-wiki/
     ├── technical-writing/ #    Layered prose standard, minimal prose discipline & check_prose.py linter
     ├── diagram/           #    Load-bearing visual explanations (Mermaid, trees, diffs, generative_ui) & check_diagrams.py
     ├── reflect/           #    3-lens transcript retrospective panel & summarize_transcript.py indexer
+    ├── deep-research/     #    Evidence-first multi-source investigation, 5-tier epistemics & check_research.py
     └── dental-consult-ops/#    Skill for dental consultation operations & TVV training (Nha Khoa 3C)
 ```
 
