@@ -48,6 +48,7 @@ tluc-wiki/
     ├── wiki-lint/         #    Skill for health-checking link integrity & index coverage
     ├── technical-writing/ #    Layered prose standard, minimal prose discipline & check_prose.py linter
     ├── diagram/           #    Load-bearing visual explanations (Mermaid, trees, diffs, generative_ui) & check_diagrams.py
+    ├── reflect/           #    3-lens transcript retrospective panel & summarize_transcript.py indexer
     └── dental-consult-ops/#    Skill for dental consultation operations & TVV training (Nha Khoa 3C)
 ```
 
