@@ -51,6 +51,8 @@ tluc-wiki/
     ├── reflect/           #    3-lens transcript retrospective panel & summarize_transcript.py indexer
     ├── deep-research/     #    Evidence-first multi-source investigation, 5-tier epistemics & check_research.py
     ├── sharpen/           #    Brief aiming, 4-question expert lens, goal playback & check_brief.py
+    ├── bro/               #    Plain-language restatement of dense technical replies & wiki notes
+    ├── ketchup/           #    3-part session catch-up digest & gather_status.py workspace status helper
     └── dental-consult-ops/#    Skill for dental consultation operations & TVV training (Nha Khoa 3C)
 ```
 
