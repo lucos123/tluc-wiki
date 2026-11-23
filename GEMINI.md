@@ -50,6 +50,7 @@ tluc-wiki/
     ├── diagram/           #    Load-bearing visual explanations (Mermaid, trees, diffs, generative_ui) & check_diagrams.py
     ├── reflect/           #    3-lens transcript retrospective panel & summarize_transcript.py indexer
     ├── deep-research/     #    Evidence-first multi-source investigation, 5-tier epistemics & check_research.py
+    ├── sharpen/           #    Brief aiming, 4-question expert lens, goal playback & check_brief.py
     └── dental-consult-ops/#    Skill for dental consultation operations & TVV training (Nha Khoa 3C)
 ```
 
