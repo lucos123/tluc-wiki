@@ -1,6 +1,6 @@
 ---
 title: "Second Brain Identity & Personal Memory"
-date: 2026-08-02
+date: 2026-11-24
 tags:
   - memory
   - identity
@@ -27,5 +27,5 @@ This file defines user preferences, career focus, interaction style, and active 
 
 ## Active Projects & Goals
 
-- **[Memory Architecture](../wiki/concepts/Memory%20Architecture.md)**: Scaling `tluc-wiki` into an evergreen 2nd Brain system.
-- **AI Agent Engineering Mastery**: Synthesizing frontier patterns from Anthropic, OpenAI, Moonshot AI, Uber, and HumanLayer into actionable skills.
+- **[tluc-wiki 2nd Brain Architecture](projects/tluc-wiki%202nd%20Brain%20Architecture.md)**: Scaling `tluc-wiki` into an evergreen 5-tier [Memory Architecture](../wiki/concepts/Memory%20Architecture.md) Second Brain (see [2026-Q4 Milestones](history/2026-Q4-Milestones.md)).
+- **[AI Engineering Mastery 2026](goals/AI%20Engineering%20Mastery%202026.md)**: Synthesizing frontier patterns from Anthropic, OpenAI, Moonshot AI, Uber, and HumanLayer into verified skills, rules, and deliverables.

@@ -323,6 +323,7 @@ A catalog of everything in the knowledge base.
 
 ## Personal Memory & Projects (mem/)
 - [2026-Q3-Milestones](mem/history/2026-Q3-Milestones.md): Historical milestone log for 2nd Brain architecture and AI engineering progress.
+- [2026-Q4-Milestones](mem/history/2026-Q4-Milestones.md): Q4 2026 milestones covering dental-consult-ops, wiki-ingest v4.2, Standard Relative Markdown Links migration, Group A/B skills & governance, and mem/ synchronization.
 - [AI Engineering Mastery 2026](mem/goals/AI%20Engineering%20Mastery%202026.md): Personal career goal for mastering agentic software engineering and Second Brain systems.
 - [AI Pair Programming Preferences](mem/preferences/AI%20Pair%20Programming%20Preferences.md): Work preferences and collaboration rules for Gemini AI.
 - [gemini](mem/gemini.md): Second Brain identity, user profile, operating preferences, career focus, and active goals.
