@@ -120,3 +120,6 @@ Append-only record of operations.
 ## [2026-11-22] ingest | Machine Learning and Deep Learning Cheat Sheets
 ## [2026-11-22] maintain | Migrated entire vault (index.md, wiki/, mem/) to Standard Relative Markdown Links, expanded dense Related Pages into nested sub-bullets, and upgraded wiki-lint/wiki-ingest/wiki-query/wiki-write/wiki-manage schemas & scripts
 ## [2026-11-24] maintain | Added oh-my-claudecode/ to .gitignore and ported/tested all Group A skills for Antigravity + tluc-wiki (technical-writing, diagram, reflect, deep-research, sharpen, bro, ketchup)
+## [2026-11-24] ingest | Engineering Principles Library (pstack and OMC)
+## [2026-11-24] manage | Updated mem/gemini.md and AI Pair Programming Preferences to Standard Relative Markdown Links
+## [2026-11-24] maintain | Completed Group B upgrades: agent-doc-and-correction-rules.md, lint_skills.py, Antigravity allowed-tools cleanup, benchmark/epistemic vetting across wiki-write/wiki-query/deep-research, check_memory.py & diff-gated wiki-manage, and evaluated ingest of 24 pstack/OMC engineering principles

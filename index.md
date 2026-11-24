@@ -72,6 +72,7 @@ A catalog of everything in the knowledge base.
 - [Agent Teams Architecture](wiki/concepts/Agent%20Teams%20Architecture.md): Multi-session peer collaboration pattern running a Lead Agent and independent Teammates with shared task backlogs and direct messaging.
 - [Agentic Coding Workflow](wiki/concepts/Agentic%20Coding%20Workflow.md): Structured 4-phase lifecycle (Explore → Plan → Implement → Commit) with empirical verification.
 - [Agentic Engineering](wiki/topics/Agentic%20Engineering.md): Topic overview and 11-layer learning/production roadmap unifying Prompt, Context, Harness, Loop, and Graph Engineering with Memory/RAG, Evals, Observability, Scaling, and AI Gateway layers.
+- [Agentic Engineering Principles](wiki/concepts/Agentic%20Engineering%20Principles.md): Tool-agnostic synthesis of 24 engineering judgment principles, decision triggers, pairwise trade-off guardrails, and role-scoped principle injection for coding agents.
 - [Agentic Workflow Recipes](wiki/concepts/Agentic%20Workflow%20Recipes.md): Standardized prompt patterns for exploration, bug fixing, refactoring, testing, and PR creation.
 - [AI Agent Memory Types](wiki/concepts/AI%20Agent%20Memory%20Types.md): Seven functional AI agent memory responsibilities rooted in CoALA (Working/checkpointers, Semantic, Episodic/reflection, Procedural/guardrails, External/5-mode retrieval, Parametric, Prospective/Temporal) showing 7 jobs != 7 databases.
 - [AI Code Migration](wiki/concepts/AI%20Code%20Migration.md): Six-step methodology for AI-assisted language/framework migrations at industrial scale.
@@ -238,6 +239,7 @@ A catalog of everything in the knowledge base.
 - [Create custom subagents](wiki/sources/Create%20custom%20subagents.md): Official Anthropic guide on building specialized subagents, frontmatter configuration, tool allowlists, and worktree isolation.
 - [Creating Agent Skills](wiki/sources/Creating%20Agent%20Skills.md): Detailed guide on automated and manual creation of Gemini Agent Skills.
 - [Emerging Markdown Formats That Shape Coding Agent Behavior](wiki/sources/Emerging%20Markdown%20Formats%20That%20Shape%20Coding%20Agent%20Behavior.md): Bilgin Ibryam's comprehensive map of agent-facing Markdown formats, the Metacode layer, and memory promotion.
+- [Engineering Principles Library (pstack and OMC)](wiki/sources/Engineering%20Principles%20Library%20%28pstack%20and%20OMC%29.md): Critical evaluation and adoption matrix of the 24 pstack/OMC engineering principles (originating from Lauren Tan) mapped across Core, Architecture, Verification, Delegation, and Meta groups.
 - [Escalate hard decisions with the advisor tool](wiki/sources/Escalate%20hard%20decisions%20with%20the%20advisor%20tool.md): Official Anthropic guide on the advisor tool (/advisor), model pairings, and costs.
 - [Explore the .claude directory](wiki/sources/Explore%20the%20.claude%20directory.md): Complete reference map of the .claude/ project directory and ~/.claude/ home directory structure.
 - [Explore the context window](wiki/sources/Explore%20the%20context%20window.md): Interactive simulation breakdown of startup context tokens, file read costs, and subagent context isolation.

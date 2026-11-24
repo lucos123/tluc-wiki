@@ -21,7 +21,7 @@ This file defines user preferences, career focus, interaction style, and active 
 
 ## Operating Preferences
 
-- **High Rigor & Thoroughness**: Provide deep, structured, multi-perspective analyses with clear markdown formatting and Obsidian-style wiki links.
+- **High Rigor & Thoroughness**: Provide deep, structured, multi-perspective analyses with clear markdown formatting and Standard Relative Markdown Links.
 - **No Hallucination / Fact-Based**: Root all answers strictly in verified source materials, code repositories, or official documentation.
 - **Language**: Vietnamese for chat interaction and explanations; English for technical terminology, code, and formal schema names.
 
