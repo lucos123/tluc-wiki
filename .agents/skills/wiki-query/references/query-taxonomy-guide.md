@@ -41,7 +41,7 @@ This guide details the 5 Question Types and their respective synthesis strategie
 ## 4. Gap-Finding Query
 
 - **Objective**: Identify what information is covered versus what is missing from the Second Brain.
-- **Search Scope**: Broad `index.md` and `grep_search` across `wiki/`.
+- **Search Scope**: Broad `index.md` and `Select-String` / `rg` via `run_command` across `wiki/`.
 - **Output Format**:
   - Summary of covered aspects (with citations).
   - List of missing topics / undocumented areas.

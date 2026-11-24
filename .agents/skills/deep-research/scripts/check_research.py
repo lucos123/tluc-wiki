@@ -7,6 +7,7 @@ Audits Markdown research briefs (or stdin) for:
   - broken-local-citation (error): relative Markdown links resolving to missing files on disk
   - forbidden-certainty-weasel (warning): epistemics-banned weasel words outside blockquotes/code
   - uncited-direct-claim (warning): [Direct] / Direct Evidence bullets lacking any link or file citation
+  - unvetted-benchmark-claim (warning): comparative speedup/latency/throughput/eval figures lacking provenance labels or citations
   - missing-unknowns-section (warning): briefs >= 100 words missing a What Remains Unknown section
   - missing-confidence-tiers (info): briefs >= 150 words without explicit epistemic tier labels
 """
@@ -38,6 +39,23 @@ WEASEL_PATTERNS = [
     r"\btôi tin rằng\b",
 ]
 WEASEL_RE = re.compile("|".join(WEASEL_PATTERNS), re.IGNORECASE)
+
+BENCHMARK_CLAIM_RE = re.compile(
+    r"(?:"
+    r"\b\d+(?:\.\d+)?\s*[x×]\s*(?:faster|slower|speedup|higher\s+throughput|lower\s+latency|cheaper|more\s+efficient)\b"
+    r"|\b\d+(?:\.\d+)?\s*%\s*(?:faster|slower|speedup|lower\s+latency|higher\s+throughput|regression|improvement|reduction\s+in\s+(?:latency|cost|tokens?))\b"
+    r"|\b(?:speedup|p50|p95|p99|ttft|tps|throughput|latency|eval\s+score|benchmark\s+score)\b[^.\n]{0,40}\b\d+(?:\.\d+)?\s*(?:%|×(?=\W|$)|(?:ms|us|µs|s|x|pts?|req/s|tokens?/s)\b)"
+    r")",
+    re.IGNORECASE,
+)
+NON_MEASURED_LABEL_RE = re.compile(
+    r"\b(?:estimate|estimated|inferred|unmeasured|speculative|ước\s+tính|ước\s+lượng|suy\s+luận|chưa\s+đo)\b",
+    re.IGNORECASE,
+)
+MEASURED_LABEL_RE = re.compile(
+    r"\b(?:measured|median|trials?|runs?|đo\s+thực\s+tế|trung\s+vị)\b",
+    re.IGNORECASE,
+)
 
 DIRECT_TAG_RE = re.compile(r"(?:\[\s*Direct\s*\]|\*\*\s*Direct\s*\*\*\s*:?)", re.IGNORECASE)
 DIRECT_SECTION_RE = re.compile(r"^#{2,3}\s+.*\b(Direct Evidence|Verified Findings|Direct Findings)\b", re.IGNORECASE)
@@ -186,6 +204,19 @@ def analyze_research_brief(text: str, filename: str = "<stdin>", file_dir: Path 
                     "severity": "warning",
                     "rule": "uncited-direct-claim",
                     "message": "Direct claim has no inline link, URL, or backticked file:line citation.",
+                    "snippet": stripped[:140],
+                })
+
+        # 5. Unvetted benchmark / performance claims (warning)
+        if not is_quote and stripped and not stripped.startswith(("#", "|")) and BENCHMARK_CLAIM_RE.search(cleaned):
+            has_unmeasured_label = bool(NON_MEASURED_LABEL_RE.search(cleaned))
+            has_vetted_measured = bool(MEASURED_LABEL_RE.search(cleaned)) and has_citation(raw_line)
+            if not (has_unmeasured_label or has_vetted_measured):
+                findings.append({
+                    "line": line_no,
+                    "severity": "warning",
+                    "rule": "unvetted-benchmark-claim",
+                    "message": "Benchmark claim lacks provenance or uncertainty label; attach 'measured' + source citation after vetting (limiter, repeats, variance) or mark as estimate/inferred/unmeasured per epistemics.md.",
                     "snippet": stripped[:140],
                 })
 

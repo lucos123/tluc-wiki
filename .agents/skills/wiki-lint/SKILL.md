@@ -9,10 +9,9 @@ when_to_use: >
 argument-hint: "[--auto-fix]"
 allowed-tools:
   - run_command
-  - view_file
-  - write_to_file
-  - replace_file_content
-  - multi_replace_file_content
+  - read_file
+  - write_file
+  - edit_file
 ---
 
 # Wiki Lint Skill
@@ -24,9 +23,10 @@ You are performing a health check on the Second Brain (`tluc-wiki`). This is a 5
 ## 1. Execution Phases
 
 ### Phase 1 — Automated Structural Script Execution
-Run the structural health checker:
+Run the structural health checker and the skill/rule discipline linter:
 ```powershell
 python .agents/skills/wiki-lint/scripts/lint_wiki.py
+python .agents/skills/wiki-lint/scripts/lint_skills.py --strict
 ```
 
 The script audits:
@@ -54,7 +54,8 @@ If `$ARGUMENTS` contains `--auto-fix` or if the user requests automatic repair:
 1. **Orphan Pages**: Automatically add orphan pages into `index.md` under the appropriate category (`## Concepts`, `## Entities`, `## Sources`, `## Personal Memory & Projects (mem/)`, or `## Generated Deliverables (output/)`).
 2. **Index Sorting**: Automatically sort all entries in `index.md` alphabetically within each section.
 3. **Missing Frontmatter**: Add standard YAML frontmatter blocks to any unformatted markdown files.
-4. **Re-run Lint**: Run `python .agents/skills/wiki-lint/scripts/lint_wiki.py` to confirm 0 errors remain.
+4. **Skill & Rule Repairs**: When repairing `.agents/skills/` or `ctx/rules/`, apply [agent-doc-and-correction-rules.md](../../../ctx/rules/agent-doc-and-correction-rules.md) (climb the 5-Level Mistake Elimination Ladder and prove each fix fires before re-running lint).
+5. **Re-run Lint**: Run `python .agents/skills/wiki-lint/scripts/lint_wiki.py` and `python .agents/skills/wiki-lint/scripts/lint_skills.py --strict` to confirm `0` errors remain.
 
 ### Phase 5 — Log Update
 Append exactly one line to `wiki/log.md`:

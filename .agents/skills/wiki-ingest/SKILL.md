@@ -103,5 +103,5 @@ At the end of every ingestion run—especially after extracting complex videos, 
 - **Test & Verification Coverage**: Missing unit tests for newly discovered edge cases (`test_extract_youtube_transcript.py`, downloader, or lint checks).
 
 Append a concise final section (`### 💡 Nhận xét & Đề xuất Cải thiện Skill / Pipeline`) to your reply to the user:
-- If concrete improvements were spotted, list 1–3 prioritized, actionable proposals (file/script, problem observed, proposed fix) and ask for the user's approval before editing any skill files (**human-gated self-improvement**: never modify `.agents/skills/` scripts silently during an ingest turn without explicit user sign-off).
+- If concrete improvements were spotted, list 1–3 prioritized proposals (file/script, problem observed, proposed fix) guided by [agent-doc-and-correction-rules.md](../../../ctx/rules/agent-doc-and-correction-rules.md) (climb the 5-Level Mistake Elimination Ladder and specify how to prove the fix fires), then ask for user approval before editing any skill files (**human-gated self-improvement**: never modify `.agents/skills/` silently without sign-off).
 - If the run executed cleanly with zero friction, confirm briefly that the current skill pipeline operated smoothly with no new gaps observed.

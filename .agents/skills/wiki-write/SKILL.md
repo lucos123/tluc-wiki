@@ -16,10 +16,9 @@ arguments:
     description: "The title of the deliverable"
 allowed-tools:
   - run_command
-  - view_file
-  - write_to_file
-  - replace_file_content
-  - grep_search
+  - read_file
+  - write_file
+  - edit_file
 ---
 
 # Wiki Write Skill
@@ -53,8 +52,9 @@ Refer to `examples/write-report-example.md` for a complete execution walkthrough
 3. Draft content using clear section headers, tables, and Standard Relative Markdown Links (`[Page Name](../../wiki/concepts/Page%20Name.md)`).
 
 ### Step 3 — Refine & Validate
-- Ensure zero hallucinated claims — root all citations in existing wiki/source pages.
-- Ensure Mermaid diagrams follow valid syntax.
+- Verify zero fabricated claims by anchoring every citation in existing `wiki/` or `raw/` pages.
+- **Epistemic & Benchmark Vetting**: Apply [epistemics.md](../deep-research/references/epistemics.md) (5 confidence tiers, zero certainty weasels, side-by-side contradictions, and the 5-step Benchmark & Number Vetting checklist) before citing any speedup, latency, throughput, pricing delta, or eval score.
+- Follow prose discipline in [technical-writing](../technical-writing/SKILL.md) for drafts and [diagram](../diagram/SKILL.md) when embedding Mermaid diagrams.
 
 ### Step 4 — Save & Register Output
 1. Write the file to `output/<category>/<Filename>.md`.
@@ -62,8 +62,11 @@ Refer to `examples/write-report-example.md` for a complete execution walkthrough
 3. Append log entry to `wiki/log.md`: `## [YYYY-MM-DD] write | <Output Title>`
 
 ### Step 5 — Embedded Verification Gate
-Run structural health check to verify all output citations resolve to valid pages:
+Run structural verification and applicable deliverable checks before finishing:
 ```powershell
 python .agents/skills/wiki-lint/scripts/lint_wiki.py
+python .agents/skills/technical-writing/scripts/check_prose.py "output/<category>/<Filename>.md" --strict
+python .agents/skills/deep-research/scripts/check_research.py "output/<category>/<Filename>.md" --strict
+python .agents/skills/diagram/scripts/check_diagrams.py "output/<category>/<Filename>.md" --strict
 ```
-Confirm `"total_broken_links": 0` before presenting completion report to the user.
+Confirm `"total_broken_links": 0` from `lint_wiki.py`, pass `check_prose.py --strict` on text deliverables, run `check_research.py --strict` when reporting benchmarks or comparisons, and run `check_diagrams.py --strict` when Mermaid diagrams are present.

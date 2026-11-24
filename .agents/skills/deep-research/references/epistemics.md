@@ -36,11 +36,15 @@ Every substantive claim belongs to one tier, and its phrasing must match that ti
 
 ## 5. Benchmark & Number Vetting
 
-Before quoting a speedup, latency, throughput, or eval metric in a research brief:
-1. Identify the limiting bottleneck claimed (CPU, I/O, network, memory bandwidth, cache state).
-2. Confirm end-to-end workload equivalence (avoid extrapolating microbenchmarks to full pipelines).
-3. Prefer median and spread across repeated runs over single best-case numbers.
-4. Label every figure inline with its provenance (`measured` + source, `inferred`, or `estimate`).
+Run this checklist before reporting, citing, or acting on any measured speedup, regression, latency, throughput, cost delta, or eval score. Do not block prose discussions on this gate when no measurement is claimed; label unmeasured figures explicitly as `estimate` or `unmeasured`.
+
+1. **Name the limiter**: State what constrains the metric before measuring (`CPU`, `lock contention`, `I/O`, `allocator`, `network`, `cold cache`, or the harness). Mark deltas lacking a plausible limiter as `unexplained` (likely noise).
+2. **Measure the work claimed**: Match inputs, data shape, and scale to the stated claim. State `cold` vs `warm` cache state and confirm end-to-end coverage; microbenchmarks do not prove system-level speedup.
+3. **Repeat and report variance**: Run `>= 5` repetitions (more in noisy environments) and report median plus spread instead of a single best run. If the delta sits inside run-to-run variance, report `"no measurable change"`.
+4. **Rule out the observer**: Verify timers, profilers, and counters recorded real work (named function/span, moved counters, real exit codes, and non-truncated output).
+5. **Report with inline provenance**: Keep value, provenance label (`measured`, `inferred`, or `estimate`), machine/build/scale context, and source citation in the same sentence; archive raw outputs in `raw/` or `output/` when decisions depend on them.
+
+**Verdict Gate**: Only figures passing all five checks enter `output/reports/`, `wiki/analyses/`, or architecture decisions; otherwise downgrade the claim to what was actually established.
 
 ## 6. Pre-Send Audit
 

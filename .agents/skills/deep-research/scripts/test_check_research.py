@@ -152,6 +152,28 @@ Legacy syntax: [[Harness Engineering]].
                 f"Found stale OMC reference in {p.name}",
             )
 
+    def test_unvetted_benchmark_claim_detection_and_valid_vetted_figures(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "bench.md").write_text("# Bench\nMedian 42ms.\n", encoding="utf-8")
+
+            doc = """# Performance Notes
+
+> Verbatim quote: "This mode is 3x faster under synthetic load."
+
+| Metric | Value |
+| --- | --- |
+| Latency | 42ms |
+
+- Caching makes retrieval 2.4x faster.
+- Measured p95 latency 42ms across 5 runs.
+- Measured p95 latency 42ms median across 5 warm runs ([Bench](bench.md)).
+- Rough estimate: batching yields 2x faster ingest (unmeasured).
+"""
+            res = check_research.analyze_research_brief(doc, "bench-brief.md", file_dir=root)
+            unvetted = [f for f in res["findings"] if f["rule"] == "unvetted-benchmark-claim"]
+            self.assertEqual([f["line"] for f in unvetted], [9, 10])
+
 
 if __name__ == "__main__":
     unittest.main()
