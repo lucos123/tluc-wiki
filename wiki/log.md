@@ -124,3 +124,4 @@ Append-only record of operations.
 ## [2026-11-24] manage | Updated mem/gemini.md and AI Pair Programming Preferences to Standard Relative Markdown Links
 ## [2026-11-24] maintain | Completed Group B upgrades: agent-doc-and-correction-rules.md, lint_skills.py, Antigravity allowed-tools cleanup, benchmark/epistemic vetting across wiki-write/wiki-query/deep-research, check_memory.py & diff-gated wiki-manage, and evaluated ingest of 24 pstack/OMC engineering principles
 ## [2026-11-24] manage | Synchronized mem/ (projects, goals, preferences, gemini.md), archived 2026-Q4-Milestones, and codified session-based verification without pre-commit hooks
+## [2026-11-24] write | Closed-Loop Evals Architecture and Production Blueprint

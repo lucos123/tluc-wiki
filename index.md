@@ -330,3 +330,6 @@ A catalog of everything in the knowledge base.
 - [tluc-wiki 2nd Brain Architecture](mem/projects/tluc-wiki%202nd%20Brain%20Architecture.md): Engineering project upgrading tluc-wiki into a 5-tier persistent context system.
 
 ## Analyses
+
+## Generated Deliverables (output/)
+- [Closed-Loop Evals Architecture and Production Blueprint](output/reports/Closed-Loop%20Evals%20Architecture%20and%20Production%20Blueprint.md): Flagship technical research report synthesizing Uber's multimodal closed-loop auto-tuning, Hamel Husain's trace-first error analysis and Train/Dev/Test evaluator alignment, Warp's GitOps dual-skill loop, Kyle Mistele's Control-Loop Engineering, and Anthropic/OpenAI eval frameworks.
